@@ -3,6 +3,7 @@
 // route, spawn and escape integration fixture, not a "complete playable M01".
 import {validateCampaign,M01PathSmokeModel} from './m01-model.mjs';
 const $=(id)=>document.getElementById(id), W=1280,H=768;
+let SOURCE=null;
 const state={game:null,scene:null,model:null,paused:false,speed:1,started:false,routeDebug:false};
 const messages=[];
 function announce(s){$('message').textContent=s;messages.push(s);if(messages.length>14)messages.shift();}
@@ -56,7 +57,7 @@ class Map01Official extends Phaser.Scene{
  preload(){this.load.image('warrior_v5','../assets/orco_guerrero.png');}
  create(){
   state.scene=this;
-  const {map,waves}=this.game.config._ph01;
+  const {map,waves}=SOURCE;
   state.model=new M01PathSmokeModel(map,waves);
   const gl=this.game.renderer?.gl;
   const yes=typeof WebGL2RenderingContext!=='undefined'&&gl instanceof WebGL2RenderingContext;
@@ -109,6 +110,7 @@ class Map01Official extends Phaser.Scene{
   if(!window.Phaser||Phaser.VERSION!=='4.2.1')throw Error('Phaser 4.2.1 requerido: '+(window.Phaser?.VERSION||'no cargado'));
   const canvas=document.createElement('canvas'),gl=canvas.getContext('webgl2',{alpha:false,antialias:true});
   if(!gl||!(gl instanceof WebGL2RenderingContext))throw Error('No disponible contexto WebGL2 auténtico. No se utilizará fallback Canvas silencioso.');
+  SOURCE={map,waves};
   const game=new Phaser.Game({
    type:Phaser.WEBGL,canvas,context:gl,parent:'stage',width:W,height:H,
    backgroundColor:'#35624f',antialias:true,
@@ -116,7 +118,7 @@ class Map01Official extends Phaser.Scene{
    audio:{noAudio:true},scene:[Map01Official]
   });
   // This is isolated metadata carried through Game config, not a gameplay singleton.
-  game.config._ph01={map,waves};state.game=game;
+  state.game=game;
   const bind=(id,fn)=>$(id).addEventListener('click',fn);
   bind('spawn',()=>{if(!state.model?.startWave())return;$('spawn').disabled=true;announce('Oleada '+state.model.wave+' real (Canvas V5) iniciada. Sin torres: prueba de recorrido/fuga.');syncHUD(state.model);});
   bind('pause',()=>{state.paused=!state.paused;$('pause').textContent=state.paused?'▶ Reanudar':'Ⅱ Pausa';});
