@@ -1,0 +1,3969 @@
+{
+  "schema": "semantropic-td-campaign140-v1",
+  "source": "Reestructuración E5 / campaña 140 · candidata balance sin certificación de superabilidad",
+  "bossSlotsInactive": false,
+  "maps": [
+    {
+      "mapId": 1,
+      "name": "PRADERAS DEL AMANECER",
+      "entries": 1,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Presentación clara del básico",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 8,
+              "spawnInterval": 1.38,
+              "startOffset": 0,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Ritmo rápido vs robustez",
+          "groups": [
+            {
+              "type": "hound",
+              "count": 6,
+              "spawnInterval": 1.34,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.34,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "escalada",
+          "purpose": "Aprender a anticipar corredores",
+          "groups": [
+            {
+              "type": "hound",
+              "count": 6,
+              "spawnInterval": 1.21,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.21,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "asalto final",
+          "purpose": "Concentración y cadencia",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 8,
+              "spawnInterval": 1.13,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1.13,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "asalto final",
+          "purpose": "Examen de posicionamiento sin roles avanzados",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 11,
+              "spawnInterval": 1.1,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 10,
+              "spawnInterval": 1.1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 2,
+      "name": "CAMPOS DEL MOLINO",
+      "entries": 1,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Primera amenaza a distancia",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.35,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 2,
+              "spawnInterval": 1.6,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Prioridad a arqueros",
+          "groups": [
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.32,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.32,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "escalada",
+          "purpose": "Resistencia y velocidad",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.2,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 4,
+              "spawnInterval": 1.2,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "escalada",
+          "purpose": "Defensa de soldados",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 7,
+              "spawnInterval": 1.18,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.18,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "escalada",
+          "purpose": "Flancos y hostigamiento",
+          "groups": [
+            {
+              "type": "hound",
+              "count": 6,
+              "spawnInterval": 1.14,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.14,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.14,
+              "startOffset": 5.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "asalto final",
+          "purpose": "Eliminar amenazas prioritarias",
+          "groups": [
+            {
+              "type": "archer",
+              "count": 6,
+              "spawnInterval": 1.09,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 5,
+              "spawnInterval": 1.09,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "asalto final",
+          "purpose": "Examen de múltiples roles",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 7,
+              "spawnInterval": 1.07,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 5,
+              "spawnInterval": 1.07,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 8,
+              "spawnInterval": 1.07,
+              "startOffset": 5.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 3,
+      "name": "BOSQUE DE LOS SUSURROS",
+      "entries": 1,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Primer enemigo del bosque",
+          "groups": [
+            {
+              "type": "foreststalker",
+              "count": 3,
+              "spawnInterval": 1.33,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.33,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Inversión de vulnerabilidad",
+          "groups": [
+            {
+              "type": "hunter",
+              "count": 3,
+              "spawnInterval": 1.31,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.31,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Picos rápidos",
+          "groups": [
+            {
+              "type": "foreststalker",
+              "count": 5,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1.19,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "escalada",
+          "purpose": "Cuerpo a cuerpo vs disparos",
+          "groups": [
+            {
+              "type": "hunter",
+              "count": 4,
+              "spawnInterval": 1.17,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.17,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "escalada",
+          "purpose": "Primer objetivo aéreo con aviso previo",
+          "groups": [
+            {
+              "type": "bat",
+              "count": 3,
+              "spawnInterval": 1.16,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.16,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "escalada",
+          "purpose": "Dos tipos de defensas",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1.12,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hunter",
+              "count": 5,
+              "spawnInterval": 1.12,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "asalto final",
+          "purpose": "Distracción vertical",
+          "groups": [
+            {
+              "type": "bat",
+              "count": 6,
+              "spawnInterval": 1.1,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.1,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 1,
+              "spawnInterval": 1.12,
+              "startOffset": 8.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "asalto final",
+          "purpose": "Cadencia y cobertura",
+          "groups": [
+            {
+              "type": "foreststalker",
+              "count": 8,
+              "spawnInterval": 1.06,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "bat",
+              "count": 6,
+              "spawnInterval": 1.06,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "asalto final",
+          "purpose": "Examen combinado sin jefe",
+          "groups": [
+            {
+              "type": "hunter",
+              "count": 7,
+              "spawnInterval": 1.05,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 5,
+              "spawnInterval": 1.05,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "bat",
+              "count": 9,
+              "spawnInterval": 1.05,
+              "startOffset": 5.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 4,
+      "name": "EL RÍO DE LOS ANTIGUOS",
+      "entries": 1,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Primer pesado armadurado",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.3,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "brute",
+              "count": 1,
+              "spawnInterval": 1.54,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Amenaza de retaguardia",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.52,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 2,
+              "spawnInterval": 1.27,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.27,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Primera curación visible",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.4,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.17,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "escalada",
+          "purpose": "Comprobar ácido/daño a distancia",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.15,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 2,
+              "spawnInterval": 1.15,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "escalada",
+          "purpose": "Selección de prioridades",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.36,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 3,
+              "spawnInterval": 1.13,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.13,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "escalada",
+          "purpose": "Selección de prioridades",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.36,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 3,
+              "spawnInterval": 1.13,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.13,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "escalada",
+          "purpose": "Separar apoyo del frente",
+          "groups": [
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1.11,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.34,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.34,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "escalada",
+          "purpose": "Evitar combate interminable",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1.09,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.32,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "asalto final",
+          "purpose": "Poder contra armadura",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 1.08,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.08,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 10,
+          "phase": "asalto final",
+          "purpose": "Apoyos múltiples moderados",
+          "groups": [
+            {
+              "type": "archer",
+              "count": 5,
+              "spawnInterval": 1.04,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 2,
+              "spawnInterval": 1.26,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.04,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 2,
+              "spawnInterval": 1.16,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 11,
+          "phase": "asalto final",
+          "purpose": "Examen curación + pesado",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 2,
+              "spawnInterval": 1.24,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 7,
+              "spawnInterval": 1.02,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 2,
+              "spawnInterval": 1.16,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 5,
+      "name": "PANTANO DE LA NIEBLA",
+      "entries": 1,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Repaso apoyo",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.27,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.52,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Primera resurrección limitada",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.5,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.25,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.27,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Amenaza de retaguardia",
+          "groups": [
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.14,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.14,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "preparación",
+          "purpose": "Amenaza de retaguardia",
+          "groups": [
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.14,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.14,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "escalada",
+          "purpose": "Prioridad al invocador",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.35,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1.12,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.12,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "escalada",
+          "purpose": "Sanación vs armadura",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.33,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 3,
+              "spawnInterval": 1.1,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "escalada",
+          "purpose": "Sanación vs armadura",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.33,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 3,
+              "spawnInterval": 1.1,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            },
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.35,
+              "startOffset": 9.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "escalada",
+          "purpose": "Apoyos distintos, límites estrictos",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.32,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.32,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.09,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "escalada",
+          "purpose": "Tierra y aire",
+          "groups": [
+            {
+              "type": "bat",
+              "count": 4,
+              "spawnInterval": 1.07,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1.07,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 10,
+          "phase": "asalto final",
+          "purpose": "Resurrección finita",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 2,
+              "spawnInterval": 1.28,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 7,
+              "spawnInterval": 1.05,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 3.9,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 11,
+          "phase": "asalto final",
+          "purpose": "Preparación al futuro jefe",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 1.03,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.03,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.26,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.18,
+              "startOffset": 6.7,
+              "routeStart": 0
+            },
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.28,
+              "startOffset": 9.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 12,
+          "phase": "asalto final",
+          "purpose": "Preparación al futuro jefe",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 1.01,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 4,
+              "spawnInterval": 1.01,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.23,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 1,
+              "spawnInterval": 1.16,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 13,
+          "phase": "asalto final",
+          "purpose": "Enfrentamiento decisivo · Señor de la Niebla",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.23,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 1,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 2,
+              "spawnInterval": 1.16,
+              "startOffset": 6.7,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": "map05_wave13",
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 6,
+      "name": "DESFILADERO DE HIERRO",
+      "entries": 2,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Presentar nueva facción; rutas alternas",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 1.24,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "aliengunner",
+              "count": 2,
+              "spawnInterval": 1.49,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Hostigamiento en doble entrada",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 3,
+              "spawnInterval": 1.22,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.22,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Hostigamiento en doble entrada",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 3,
+              "spawnInterval": 1.13,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.13,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "preparación",
+          "purpose": "Cobertura cruzada",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.12,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 3,
+              "spawnInterval": 1.12,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "hound",
+              "count": 3,
+              "spawnInterval": 1.12,
+              "startOffset": 5.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "preparación",
+          "purpose": "Primera amenaza estructural TELEGRAFIADA",
+          "groups": [
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.33,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "escalada",
+          "purpose": "Primera amenaza estructural TELEGRAFIADA",
+          "groups": [
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.33,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "escalada",
+          "purpose": "Defensas múltiples",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 1.08,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "bat",
+              "count": 3,
+              "spawnInterval": 1.08,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.33,
+              "startOffset": 5.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "escalada",
+          "purpose": "Defensas múltiples",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 1.08,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "bat",
+              "count": 3,
+              "spawnInterval": 1.08,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "escalada",
+          "purpose": "Prioridades de apoyo",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1.06,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.29,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "aliengunner",
+              "count": 2,
+              "spawnInterval": 1.06,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 10,
+          "phase": "escalada",
+          "purpose": "Presión de dos accesos",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 6,
+              "spawnInterval": 1.04,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 6,
+              "spawnInterval": 1.04,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 11,
+          "phase": "escalada",
+          "purpose": "Presión de dos accesos",
+          "groups": [
+            {
+              "type": "warrior",
+              "count": 6,
+              "spawnInterval": 1.04,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 6,
+              "spawnInterval": 1.04,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 2,
+              "spawnInterval": 1.06,
+              "startOffset": 5.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 12,
+          "phase": "asalto final",
+          "purpose": "Protección de torre estratégica",
+          "groups": [
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.26,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 1.03,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "archer",
+              "count": 3,
+              "spawnInterval": 1.03,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 13,
+          "phase": "asalto final",
+          "purpose": "Hostigamiento y escudo",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 1.01,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 5,
+              "spawnInterval": 1.01,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 14,
+          "phase": "asalto final",
+          "purpose": "Hostigamiento y escudo",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 0.99,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 5,
+              "spawnInterval": 0.99,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 15,
+          "phase": "asalto final",
+          "purpose": "Examen doble frente, amenaza destructora singular",
+          "groups": [
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.2,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 0.97,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 0.97,
+              "startOffset": 5.6,
+              "routeStart": 1
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 0.97,
+              "startOffset": 8.4,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 7,
+      "name": "PASO DE LA ESCARCHA",
+      "entries": 2,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Primera resistencia al hielo",
+          "groups": [
+            {
+              "type": "froststalker",
+              "count": 2,
+              "spawnInterval": 1.22,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.22,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Comparar escudos plateados",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 2,
+              "spawnInterval": 1.45,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 2,
+              "spawnInterval": 1.2,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Comparar escudos plateados",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 2,
+              "spawnInterval": 1.34,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 2,
+              "spawnInterval": 1.11,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "preparación",
+          "purpose": "Carrera y control",
+          "groups": [
+            {
+              "type": "froststalker",
+              "count": 4,
+              "spawnInterval": 1.09,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 3,
+              "spawnInterval": 1.09,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "preparación",
+          "purpose": "Carrera y control",
+          "groups": [
+            {
+              "type": "froststalker",
+              "count": 4,
+              "spawnInterval": 1.09,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "hound",
+              "count": 3,
+              "spawnInterval": 1.09,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "escalada",
+          "purpose": "Resistencia y hostigamiento",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 1.07,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "archer",
+              "count": 3,
+              "spawnInterval": 1.07,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "escalada",
+          "purpose": "Resistencia y hostigamiento",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 1.07,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "archer",
+              "count": 3,
+              "spawnInterval": 1.07,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "froststalker",
+              "count": 2,
+              "spawnInterval": 1.09,
+              "startOffset": 5.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "escalada",
+          "purpose": "Fuego/físico como respuesta",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.05,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "froststalker",
+              "count": 5,
+              "spawnInterval": 1.05,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "escalada",
+          "purpose": "Fuego/físico como respuesta",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.05,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "froststalker",
+              "count": 5,
+              "spawnInterval": 1.05,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 10,
+          "phase": "escalada",
+          "purpose": "Antiaéreo sin perder suelo",
+          "groups": [
+            {
+              "type": "bat",
+              "count": 5,
+              "spawnInterval": 1.04,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "runesentinel",
+              "count": 2,
+              "spawnInterval": 1.04,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 11,
+          "phase": "escalada",
+          "purpose": "Agotar varios escudos",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 1.02,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "bat",
+              "count": 2,
+              "spawnInterval": 1.04,
+              "startOffset": 5.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 12,
+          "phase": "escalada",
+          "purpose": "Agotar varios escudos",
+          "groups": [
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 1.02,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 13,
+          "phase": "asalto final",
+          "purpose": "Dos flancos veloces",
+          "groups": [
+            {
+              "type": "froststalker",
+              "count": 7,
+              "spawnInterval": 1,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "aliengunner",
+              "count": 3,
+              "spawnInterval": 1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 14,
+          "phase": "asalto final",
+          "purpose": "Dos flancos veloces",
+          "groups": [
+            {
+              "type": "froststalker",
+              "count": 7,
+              "spawnInterval": 1,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "aliengunner",
+              "count": 3,
+              "spawnInterval": 1,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 15,
+          "phase": "asalto final",
+          "purpose": "Priorizar sanación",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.21,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.98,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "warrior",
+              "count": 6,
+              "spawnInterval": 0.98,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "froststalker",
+              "count": 2,
+              "spawnInterval": 1,
+              "startOffset": 8.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 16,
+          "phase": "asalto final",
+          "purpose": "Priorizar sanación",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.96,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "warrior",
+              "count": 6,
+              "spawnInterval": 0.96,
+              "startOffset": 5.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 17,
+          "phase": "asalto final",
+          "purpose": "Examen dual ruta + hielo",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 5,
+              "spawnInterval": 0.95,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "froststalker",
+              "count": 7,
+              "spawnInterval": 0.95,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "bat",
+              "count": 5,
+              "spawnInterval": 0.95,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 8,
+      "name": "RUINAS DEL IMPERIO PERDIDO",
+      "entries": 3,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Primera amenaza aérea tecnológica",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 2,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.19,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Primera amenaza aérea tecnológica",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 2,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.19,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Hostigamiento rúnico",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 3,
+              "spawnInterval": 1.08,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "runesentinel",
+              "count": 2,
+              "spawnInterval": 1.08,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "preparación",
+          "purpose": "Amenazas rápidas tierra/aire",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.07,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1.07,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "preparación",
+          "purpose": "Amenazas rápidas tierra/aire",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.07,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1.07,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "preparación",
+          "purpose": "Amenazas rápidas tierra/aire",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.07,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1.07,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "escalada",
+          "purpose": "Apoyos en rutas distintas",
+          "groups": [
+            {
+              "type": "brute",
+              "count": 2,
+              "spawnInterval": 1.05,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.28,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.05,
+              "startOffset": 5.6,
+              "routeStart": 2
+            },
+            {
+              "type": "drone",
+              "count": 2,
+              "spawnInterval": 1.07,
+              "startOffset": 8.6,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "escalada",
+          "purpose": "Doble vuelo; antiaéreo necesario",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.03,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "bat",
+              "count": 4,
+              "spawnInterval": 1.03,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "escalada",
+          "purpose": "Doble vuelo; antiaéreo necesario",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.03,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "bat",
+              "count": 4,
+              "spawnInterval": 1.03,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 10,
+          "phase": "escalada",
+          "purpose": "Doble vuelo; antiaéreo necesario",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 1.03,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "bat",
+              "count": 4,
+              "spawnInterval": 1.03,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 11,
+          "phase": "escalada",
+          "purpose": "Respuestas ofensivas diversas",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 1.01,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "hunter",
+              "count": 4,
+              "spawnInterval": 1.01,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "drone",
+              "count": 2,
+              "spawnInterval": 1.03,
+              "startOffset": 5.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 12,
+          "phase": "escalada",
+          "purpose": "Resistencia vs persecución",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.99,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "foreststalker",
+              "count": 5,
+              "spawnInterval": 0.99,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 13,
+          "phase": "escalada",
+          "purpose": "Resistencia vs persecución",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.99,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "foreststalker",
+              "count": 5,
+              "spawnInterval": 0.99,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 14,
+          "phase": "asalto final",
+          "purpose": "Resistencia vs persecución",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.99,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "foreststalker",
+              "count": 5,
+              "spawnInterval": 0.99,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 15,
+          "phase": "asalto final",
+          "purpose": "Presión en tres entradas",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 0.98,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 0.98,
+              "startOffset": 2.8,
+              "routeStart": 2
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 0.98,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 2,
+              "spawnInterval": 0.99,
+              "startOffset": 8.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 16,
+          "phase": "asalto final",
+          "purpose": "Apoyos prioritarios, límites",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.19,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.96,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 17,
+          "phase": "asalto final",
+          "purpose": "Apoyos prioritarios, límites",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.19,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.96,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 18,
+          "phase": "asalto final",
+          "purpose": "Apoyos prioritarios, límites",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.17,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.17,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.94,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 19,
+          "phase": "asalto final",
+          "purpose": "Enfrentamiento decisivo · Custodio del Obelisco",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 6,
+              "spawnInterval": 0.92,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 5,
+              "spawnInterval": 0.92,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 0.92,
+              "startOffset": 5.6,
+              "routeStart": 2
+            },
+            {
+              "type": "hound",
+              "count": 6,
+              "spawnInterval": 0.92,
+              "startOffset": 8.4,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": "map08_wave19",
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 9,
+      "name": "CORAZÓN DEL VOLCÁN",
+      "entries": 3,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Presentar resistencia fuego / debilidad ácido",
+          "groups": [
+            {
+              "type": "ash",
+              "count": 3,
+              "spawnInterval": 1.17,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.17,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Presentar resistencia fuego / debilidad ácido",
+          "groups": [
+            {
+              "type": "ash",
+              "count": 3,
+              "spawnInterval": 1.17,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.17,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Primer gigante volcánico",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 1,
+              "spawnInterval": 1.29,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "ash",
+              "count": 4,
+              "spawnInterval": 1.06,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "preparación",
+          "purpose": "Primer gigante volcánico",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 1,
+              "spawnInterval": 1.29,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "ash",
+              "count": 4,
+              "spawnInterval": 1.06,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "preparación",
+          "purpose": "Hostigamiento y elementos",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 3,
+              "spawnInterval": 1.04,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "ash",
+              "count": 4,
+              "spawnInterval": 1.04,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "preparación",
+          "purpose": "Hostigamiento y elementos",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 3,
+              "spawnInterval": 1.04,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "ash",
+              "count": 4,
+              "spawnInterval": 1.04,
+              "startOffset": 2.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "escalada",
+          "purpose": "Romper capas de defensa",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 1,
+              "spawnInterval": 1.25,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.02,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "aliengunner",
+              "count": 1,
+              "spawnInterval": 1.04,
+              "startOffset": 5.8,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "escalada",
+          "purpose": "Romper capas de defensa",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 1,
+              "spawnInterval": 1.25,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "shieldbearer",
+              "count": 3,
+              "spawnInterval": 1.02,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "escalada",
+          "purpose": "Velocidad vs control",
+          "groups": [
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "ash",
+              "count": 5,
+              "spawnInterval": 1,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 10,
+          "phase": "escalada",
+          "purpose": "Velocidad vs control",
+          "groups": [
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "ash",
+              "count": 5,
+              "spawnInterval": 1,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 11,
+          "phase": "escalada",
+          "purpose": "Velocidad vs control",
+          "groups": [
+            {
+              "type": "hound",
+              "count": 5,
+              "spawnInterval": 1,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "ash",
+              "count": 5,
+              "spawnInterval": 1,
+              "startOffset": 2.8,
+              "routeStart": 2
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 1,
+              "spawnInterval": 1.25,
+              "startOffset": 5.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 12,
+          "phase": "escalada",
+          "purpose": "No permitir sanación excesiva",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.22,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 1.22,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 0.99,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 13,
+          "phase": "escalada",
+          "purpose": "No permitir sanación excesiva",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.22,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 1.22,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 5,
+              "spawnInterval": 0.99,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 14,
+          "phase": "escalada",
+          "purpose": "Cielo y suelo volcánicos",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 0.97,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "ash",
+              "count": 5,
+              "spawnInterval": 0.97,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 15,
+          "phase": "escalada",
+          "purpose": "Cielo y suelo volcánicos",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 0.97,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "ash",
+              "count": 5,
+              "spawnInterval": 0.97,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.22,
+              "startOffset": 5.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 16,
+          "phase": "asalto final",
+          "purpose": "Élites pesadas",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 0.95,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 0.95,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 17,
+          "phase": "asalto final",
+          "purpose": "Élites pesadas",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 0.95,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 0.95,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 18,
+          "phase": "asalto final",
+          "purpose": "Tres entradas bajo presión",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 0.93,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 0.93,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "ash",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 19,
+          "phase": "asalto final",
+          "purpose": "Tres entradas bajo presión",
+          "groups": [
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 0.93,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 0.93,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "ash",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 20,
+          "phase": "asalto final",
+          "purpose": "Examen de elementos, sin jefe",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 3,
+              "spawnInterval": 0.9,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "ash",
+              "count": 7,
+              "spawnInterval": 0.9,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 0.9,
+              "startOffset": 5.6,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 21,
+          "phase": "asalto final",
+          "purpose": "Examen de elementos, sin jefe",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 3,
+              "spawnInterval": 0.9,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "ash",
+              "count": 7,
+              "spawnInterval": 0.9,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 0.9,
+              "startOffset": 5.6,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    },
+    {
+      "mapId": 10,
+      "name": "FORTALEZA DEL ECLIPSE",
+      "entries": 3,
+      "waves": [
+        {
+          "wave": 1,
+          "phase": "preparación",
+          "purpose": "Primera élite del Eclipse",
+          "groups": [
+            {
+              "type": "eclipseknight",
+              "count": 2,
+              "spawnInterval": 1.38,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.13,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 2,
+          "phase": "preparación",
+          "purpose": "Primera élite del Eclipse",
+          "groups": [
+            {
+              "type": "eclipseknight",
+              "count": 1,
+              "spawnInterval": 1.38,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.13,
+              "startOffset": 2.8,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 1, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 3,
+          "phase": "preparación",
+          "purpose": "Escudo y armadura",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 1.03,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "eclipseknight",
+              "count": 2,
+              "spawnInterval": 1.03,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 4,
+          "phase": "preparación",
+          "purpose": "Escudo y armadura",
+          "groups": [
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 1.03,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "eclipseknight",
+              "count": 2,
+              "spawnInterval": 1.03,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 2, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 5,
+          "phase": "preparación",
+          "purpose": "Cielo, alcance y bloqueos",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 6,
+          "phase": "preparación",
+          "purpose": "Cielo, alcance y bloqueos",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 7,
+          "phase": "preparación",
+          "purpose": "Cielo, alcance y bloqueos",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "warrior",
+              "count": 4,
+              "spawnInterval": 1.02,
+              "startOffset": 5.6,
+              "routeStart": 1
+            },
+            {
+              "type": "runesentinel",
+              "count": 1,
+              "spawnInterval": 1.03,
+              "startOffset": 8.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "preparación: adaptación de encuentro E3 3, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 8,
+          "phase": "escalada",
+          "purpose": "Resurrección limitada y prioridad",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.23,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "eclipseknight",
+              "count": 3,
+              "spawnInterval": 1,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1,
+              "startOffset": 5.6,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 9,
+          "phase": "escalada",
+          "purpose": "Resurrección limitada y prioridad",
+          "groups": [
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.23,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "eclipseknight",
+              "count": 3,
+              "spawnInterval": 1,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "shieldbearer",
+              "count": 4,
+              "spawnInterval": 1,
+              "startOffset": 5.6,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 4, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 10,
+          "phase": "escalada",
+          "purpose": "Elementos de signos opuestos",
+          "groups": [
+            {
+              "type": "ash",
+              "count": 4,
+              "spawnInterval": 0.98,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "froststalker",
+              "count": 4,
+              "spawnInterval": 0.98,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 11,
+          "phase": "escalada",
+          "purpose": "Elementos de signos opuestos",
+          "groups": [
+            {
+              "type": "ash",
+              "count": 5,
+              "spawnInterval": 0.98,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "froststalker",
+              "count": 5,
+              "spawnInterval": 0.98,
+              "startOffset": 2.8,
+              "routeStart": 2
+            },
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.23,
+              "startOffset": 5.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 12,
+          "phase": "escalada",
+          "purpose": "Elementos de signos opuestos",
+          "groups": [
+            {
+              "type": "ash",
+              "count": 5,
+              "spawnInterval": 0.98,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "froststalker",
+              "count": 5,
+              "spawnInterval": 0.98,
+              "startOffset": 2.8,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 5, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 13,
+          "phase": "escalada",
+          "purpose": "Presión terrestre pesada",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 0.96,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "eclipseknight",
+              "count": 3,
+              "spawnInterval": 0.96,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 14,
+          "phase": "escalada",
+          "purpose": "Presión terrestre pesada",
+          "groups": [
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 1.19,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "brute",
+              "count": 3,
+              "spawnInterval": 0.96,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "eclipseknight",
+              "count": 3,
+              "spawnInterval": 0.96,
+              "startOffset": 5.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 6, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 15,
+          "phase": "escalada",
+          "purpose": "Alta presión antiaérea",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 0.94,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "bat",
+              "count": 5,
+              "spawnInterval": 0.94,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 0.94,
+              "startOffset": 5.6,
+              "routeStart": 2
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 1,
+              "spawnInterval": 1.19,
+              "startOffset": 8.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 16,
+          "phase": "escalada",
+          "purpose": "Alta presión antiaérea",
+          "groups": [
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 0.94,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "bat",
+              "count": 5,
+              "spawnInterval": 0.94,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "runesentinel",
+              "count": 3,
+              "spawnInterval": 0.94,
+              "startOffset": 5.6,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "escalada: adaptación de encuentro E3 7, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 17,
+          "phase": "asalto final",
+          "purpose": "ÚNICA amenaza estructural puntual y anunciada",
+          "groups": [
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.16,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "eclipseknight",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 2.8,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 5.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 18,
+          "phase": "asalto final",
+          "purpose": "ÚNICA amenaza estructural puntual y anunciada",
+          "groups": [
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.16,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "eclipseknight",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 2.8,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 5.6,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 19,
+          "phase": "asalto final",
+          "purpose": "ÚNICA amenaza estructural puntual y anunciada",
+          "groups": [
+            {
+              "type": "demolisher",
+              "count": 1,
+              "spawnInterval": 1.16,
+              "startOffset": 0,
+              "routeStart": 1
+            },
+            {
+              "type": "eclipseknight",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 2.8,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 4,
+              "spawnInterval": 0.93,
+              "startOffset": 5.6,
+              "routeStart": 0
+            },
+            {
+              "type": "drone",
+              "count": 2,
+              "spawnInterval": 0.94,
+              "startOffset": 8.6,
+              "routeStart": 1
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 8, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 20,
+          "phase": "asalto final",
+          "purpose": "Apoyos escalonados, no bloqueo infinito",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.14,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.14,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "eclipseknight",
+              "count": 5,
+              "spawnInterval": 0.91,
+              "startOffset": 5.6,
+              "routeStart": 1
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 1.14,
+              "startOffset": 8.4,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 21,
+          "phase": "asalto final",
+          "purpose": "Apoyos escalonados, no bloqueo infinito",
+          "groups": [
+            {
+              "type": "shaman",
+              "count": 1,
+              "spawnInterval": 1.14,
+              "startOffset": 0,
+              "routeStart": 2
+            },
+            {
+              "type": "weaver",
+              "count": 1,
+              "spawnInterval": 1.14,
+              "startOffset": 2.8,
+              "routeStart": 0
+            },
+            {
+              "type": "eclipseknight",
+              "count": 5,
+              "spawnInterval": 0.91,
+              "startOffset": 5.6,
+              "routeStart": 1
+            },
+            {
+              "type": "volcanicgolem",
+              "count": 2,
+              "spawnInterval": 1.14,
+              "startOffset": 8.4,
+              "routeStart": 2
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 9, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 22,
+          "phase": "asalto final",
+          "purpose": "Preludio definitivo; jefe M10-W10 inactivo hasta E4",
+          "groups": [
+            {
+              "type": "eclipseknight",
+              "count": 6,
+              "spawnInterval": 0.87,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.87,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 0.87,
+              "startOffset": 5.6,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 0.87,
+              "startOffset": 8.4,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": null,
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        },
+        {
+          "wave": 23,
+          "phase": "asalto final",
+          "purpose": "Enfrentamiento decisivo · Emperador del Eclipse",
+          "groups": [
+            {
+              "type": "eclipseknight",
+              "count": 6,
+              "spawnInterval": 0.87,
+              "startOffset": 0,
+              "routeStart": 0
+            },
+            {
+              "type": "runesentinel",
+              "count": 4,
+              "spawnInterval": 0.87,
+              "startOffset": 2.8,
+              "routeStart": 1
+            },
+            {
+              "type": "drone",
+              "count": 5,
+              "spawnInterval": 0.87,
+              "startOffset": 5.6,
+              "routeStart": 2
+            },
+            {
+              "type": "aliengunner",
+              "count": 5,
+              "spawnInterval": 0.87,
+              "startOffset": 8.4,
+              "routeStart": 0
+            }
+          ],
+          "bossSlot": "map10_wave23",
+          "designNote": "asalto final: adaptación de encuentro E3 10, variedad de rutas y grupos; diseño sujeto a QA Normal"
+        }
+      ]
+    }
+  ]
+}
