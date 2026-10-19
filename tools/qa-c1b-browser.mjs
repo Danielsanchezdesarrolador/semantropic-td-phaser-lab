@@ -46,6 +46,11 @@ try{
    return {webgl2:g instanceof WebGL2RenderingContext,actors:scene.actors?.length,towers:scene.towers?.length,sockets:scene.mapView?.plan?.sockets?.length,waypoints:scene.route?.points?.length,textureKeys:scene.atlases?.size,artVersion:scene.mapView?.artVersion,sceneActive:scene.scene.isActive()};
   });
   if(values.actors!==13||values.towers!==4||values.sockets!==8||values.waypoints!==133||values.textureKeys!==4||!values.webgl2)throw Error(tag+' invalid scene: '+JSON.stringify(values));
+  const canvasBox=await page.locator('#stage canvas').boundingBox();
+  if(!canvasBox)throw Error(tag+' canvas missing');
+  const centerDelta=Math.abs(canvasBox.x+canvasBox.width/2-width/2);
+  if(centerDelta>4)throw Error(tag+' canvas off-center '+centerDelta.toFixed(1)+'px (viewport '+width+'px)');
+  values.canvasBox={x:Math.round(canvasBox.x),width:Math.round(canvasBox.width),centerDelta:Math.round(centerDelta)};
   await page.screenshot({path:'artifacts/c1b-browser/'+tag+'.png',fullPage:true});
   if(tag==='desktop-B'){
    await page.locator('#fx').click();await page.waitForTimeout(120);
