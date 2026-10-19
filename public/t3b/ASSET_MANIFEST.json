@@ -1,0 +1,75 @@
+{
+  "title": "SEMANTROPIC TD T3-B Proposal C",
+  "date": "2026-10-19",
+  "branch": "art/t3b-propuesta-c",
+  "scene": "T3-B experimental five-wave visual battle",
+  "license": "Artwork and code authored for this experimental Semantropic TD demo; no third-party assets copied",
+  "assets": [
+    {
+      "name": "t3b-land",
+      "path": "public/t3b/art-c.js",
+      "dimensions": [
+        2560,
+        1536
+      ],
+      "count": 1,
+      "source": "procedural original",
+      "status": "preproduction"
+    },
+    {
+      "name": "t3b-towers",
+      "path": "public/t3b/art-c.js",
+      "dimensions": [
+        680,
+        720
+      ],
+      "count": 4,
+      "families": [
+        "infantry",
+        "sniper",
+        "guardian",
+        "bombard"
+      ],
+      "status": "provisional"
+    },
+    {
+      "name": "t3b-enemies",
+      "path": "public/t3b/art-c.js",
+      "dimensions": [
+        500,
+        536
+      ],
+      "frames": 8,
+      "families": [
+        "scout",
+        "brute",
+        "seer"
+      ],
+      "count": 24,
+      "status": "placeholder animation"
+    },
+    {
+      "name": "t3b-infantry",
+      "path": "public/t3b/art-c.js",
+      "dimensions": [
+        480,
+        530
+      ],
+      "frames": 8,
+      "count": 8,
+      "status": "placeholder animation"
+    },
+    {
+      "name": "vfx",
+      "path": "public/t3b/scene.js",
+      "type": "Phaser Graphics",
+      "status": "playable experiment"
+    }
+  ],
+  "protected": [
+    "public/JUEGO_V5_CANVAS.html",
+    "public/JUEGO_V5_IPHONE.html",
+    "public/t2c/",
+    "main / T1 PixiJS in separate source"
+  ]
+}
