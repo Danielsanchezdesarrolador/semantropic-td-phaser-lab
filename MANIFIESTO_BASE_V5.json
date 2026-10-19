@@ -1,0 +1,12 @@
+{
+  "base": "SEMANTROPIC_TD_CAMPANA_140_TRES_JEFES_V5_CANDIDATA",
+  "estado": "candidata jugable, no aprobada como balance final",
+  "files": {
+    "JUEGO_V5_CANVAS.html": "9e3ff8ac4e8033be18d970fbec4e86c1c1ebee2a0df8cc746625a86e3b3f655b",
+    "JUEGO_V5_IPHONE.html": "8db5cb869d21408b229877359784c7f7d79b68e371b0a3ff08f70d8a22d113fa"
+  },
+  "phaserVersionPinned": "4.2.1",
+  "phaserBundledInZIP": false,
+  "phaserBundledInBuiltDist": true,
+  "notes": "No se realizó despliegue remoto ni ejecución Phaser en este entorno sin npm; requiere instalar y compilar en entorno con acceso al registro npm."
+}

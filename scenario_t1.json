@@ -1,0 +1,10 @@
+{
+ "schema":"semantropic-td-t1ph-replay-v1", "seed":20261019,
+ "reference":"SEMANTROPIC_TD_CAMPANA_140_V5_DEV.html", "map":"M01 Praderas del Amanecer",
+ "viewport":{"width":1280,"height":768,"dprRenderer":1,"antialias":false},
+ "profiles":{"30":{"enemies":30,"towers":5,"soldiers":8,"particles":12},"60":{"enemies":60,"towers":5,"soldiers":8,"particles":12},"120":{"enemies":120,"towers":5,"soldiers":8,"particles":12}},
+ "positions":{"towerXStart":150,"towerXStep":212,"towerYStart":320,"towerYAlternate":90,"soldierXStart":140,"soldierXStep":260,"soldierYStart":400,"soldierYStep":63},
+ "textureKeys":{"towers":["torre_infanteria","torre_francotirador","torre_guardiana","torre_bombardera","torre_control"],"enemies":["orco_guerrero","orco_guerrero","orco_guerrero","orco_arquero","orco_demoledor"],"soldier":"soldado_infanteria"},
+ "spriteOffsets":{"tower":-40,"enemy":-35,"soldier":-35},
+ "notes":["Arte real extraído de Canvas V5, pero animación y encuentros son sintéticos","Base T1: 30/60/120 enemigos, mismos objetos y semilla","Modo FX experimental: efectos visuales simulados, NO las mecánicas de combate del juego oficial","Los resultados no equivalen a rendimiento ni balance de la campaña"]
+}
