@@ -1,34 +1,38 @@
-<!doctype html><html lang="es"><head><meta charset="UTF-8">
+<!doctype html><html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SEMANTROPIC TD · Equipo T · Torres I–II</title>
+<title>SEMANTROPIC TD · T-03 · Rework premium de torres</title>
 <style>
 :root{color-scheme:dark}*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#102b33;color:#f4e2b7;font:14px system-ui,sans-serif}
-#app{width:100vw;height:100dvh;position:relative;overflow:hidden}
-#stage{position:absolute;inset:0;display:flex;justify-content:center;align-items:center}
-#stage canvas{display:block;max-width:100%;max-height:100%;touch-action:manipulation}
-header{position:absolute;z-index:4;top:max(8px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));display:flex;justify-content:space-between;align-items:flex-start;gap:8px;pointer-events:none}
-h1{background:#102e3ddd;border:1px solid #719493;border-radius:8px;font-size:14px;padding:6px 10px;margin:0}
-small{display:block;font-size:10px;color:#afd5d2}
-.controls{display:flex;gap:6px;pointer-events:auto}
-button{border:1px solid #d8bd7f;border-radius:9px;background:#204957;color:#fff0d0;cursor:pointer;touch-action:manipulation;min-height:44px;font:700 12px system-ui;padding:7px 10px}
-button:active{background:#4d7574}
-footer{position:absolute;z-index:4;bottom:max(6px,env(safe-area-inset-bottom));left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
-#status{position:absolute;z-index:4;bottom:61px;left:max(10px,env(safe-area-inset-left));background:#102e3cdd;border-radius:7px;padding:5px 8px;font-size:11px;color:#b7d9cf;max-width:80%}
-#portrait{display:none;position:absolute;inset:0;z-index:9;align-items:center;justify-content:center;background:#122e35;color:#fbe5ac;padding:28px;text-align:center;font-size:20px}
-@media(max-width:960px) and (orientation:landscape){h1{font-size:10px;padding:3px 6px}small{font-size:9px}button{min-height:40px;font-size:10px;padding:4px 6px}footer{gap:3px}#status{display:none}}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#132d39;color:#f8e6bd;font:13px system-ui,sans-serif}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden;overscroll-behavior:none}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#stage canvas{max-width:100%;max-height:100%;display:block;touch-action:manipulation}
+header{position:absolute;z-index:6;top:max(6px,env(safe-area-inset-top));left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));display:flex;align-items:start;justify-content:space-between;gap:8px;pointer-events:none}
+h1{font:700 14px Georgia,serif;color:#ffebbd;margin:0;padding:6px 10px;border:1px solid #9da88f;border-radius:8px;background:#153440ef}
+small{display:block;font:10px system-ui;color:#abd8d7;margin-top:2px}
+.tools{display:flex;gap:5px;flex-wrap:wrap;justify-content:end;pointer-events:auto;max-width:70vw}
+button{border:1px solid #d5b980;background:#1d4754;color:#f7e9c8;border-radius:9px;min-height:39px;cursor:pointer;touch-action:manipulation;padding:6px 9px;font:700 11px system-ui;white-space:nowrap}
+button:active{background:#436b73}
+#status{position:absolute;z-index:4;bottom:70px;left:max(10px,env(safe-area-inset-left));border-radius:7px;background:#17313fef;color:#cde5d8;font-size:10px;padding:5px 9px;max-width:85%}
+footer{position:absolute;z-index:6;bottom:max(5px,env(safe-area-inset-bottom));left:max(6px,env(safe-area-inset-left));right:max(6px,env(safe-area-inset-right));display:flex;gap:5px;align-items:center;justify-content:center;overflow-x:auto;max-width:100%;scrollbar-width:thin}
+#portrait{display:none;position:absolute;inset:0;z-index:20;background:#18323d;text-align:center;align-items:center;justify-content:center;padding:30px;font-size:19px}
+@media(max-width:1040px) and (orientation:landscape){h1{font-size:10px;padding:3px 5px}small{font-size:8px}button{font-size:9px;min-height:36px;padding:3px 5px}.tools{gap:3px}#status{display:none}footer{justify-content:start}}
 @media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
 </style></head><body><div id="app">
-<div id="stage"></div>
-<header><h1>SEMANTROPIC TD · EQUIPO T<small>T-01/T-02 · ARTE PROTOTIPO / SIN COMBATE</small></h1>
-<div class="controls"><button id="pause">Ⅱ Pausar</button><button id="reset">↺ Limpiar FX</button></div></header>
-<p id="status" role="status">Cargando SVGs originales…</p>
+<div id="stage" aria-label="Galería de cuatro torres del Equipo T"></div>
+<header><h1>SEMANTROPIC TD · EQUIPO T<small>REWORK T-03 · ARTE PROTOTIPO / NO COMBATE</small></h1>
+<div class="tools">
+<button id="variant">Ver antes (T-01)</button><button id="view">Escala mundo*</button>
+<button id="zoom">Zoom 1.35×</button><button id="anchors">Ver anclajes</button>
+<button id="pause">Ⅱ Pausa</button><button id="clean">Limpiar VFX</button>
+</div></header>
+<div id="status" role="status">Cargando arquitectura y comparativa T-03…</div>
 <footer>
-<button data-shot="0">Infantería I · Señal</button>
-<button data-shot="1">Infantería II · Señal</button>
-<button data-shot="2">Francotirador I · Trazador</button>
-<button data-shot="3">Francotirador II · Trazador</button>
-</footer><div id="portrait">↻ Gira el dispositivo para ver la galería horizontal</div>
+<button data-tower="0">Infantería I</button><button data-tower="1">Infantería II</button>
+<button data-tower="2">Francotiradores I</button><button data-tower="3">Francotiradores II</button>
+<button id="upgradeA">Obra A</button><button id="upgradeB">Obra B</button>
+</footer>
+<div id="portrait">↻ Gira el dispositivo a horizontal para revisar torres y efectos</div>
 </div>
 <script src="../../../dependencias/phaser.min.js"></script>
 <script type="module" src="./showcase.mjs"></script></body></html>

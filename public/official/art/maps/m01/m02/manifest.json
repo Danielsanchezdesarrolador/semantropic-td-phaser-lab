@@ -1,0 +1,320 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "bundle": "maps/m01/aurora-v2",
+  "owner": "M",
+  "status": "prototype",
+  "source": "M02 production brief 2026-10-19",
+  "base": "feature/phaser-mapas",
+  "world": {
+    "width": 1280,
+    "height": 768,
+    "waypoints": 133,
+    "pads": 8,
+    "roadVisualWidth": 110
+  },
+  "palettes": [
+    "equilibrada",
+    "viva",
+    "atmosferica"
+  ],
+  "assetKeyScheme": "maps/m01/aurora-v2/{palette}/{asset}",
+  "editorSource": "public/official/src/maps-visual/m01/m02/renderer-v2.mjs",
+  "proceduralTextureFamilies": [
+    {
+      "assetId": "maps/m01/aurora-v2/terrain",
+      "sourcePixelSize": [
+        2560,
+        1536
+      ],
+      "category": "terrain",
+      "alpha": false,
+      "generatedOnce": true
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/path",
+      "sourcePixelSize": [
+        2560,
+        1536
+      ],
+      "category": "road",
+      "alpha": true,
+      "generatedOnce": true
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/pad-tempo",
+      "sourcePixelSize": [
+        464,
+        368
+      ],
+      "category": "tower-pad",
+      "alpha": true,
+      "generatedOnce": true
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/pad-power",
+      "sourcePixelSize": [
+        464,
+        368
+      ],
+      "category": "tower-pad",
+      "alpha": true,
+      "generatedOnce": true
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/pad-focus",
+      "sourcePixelSize": [
+        464,
+        368
+      ],
+      "category": "tower-pad",
+      "alpha": true,
+      "generatedOnce": true
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "maps/m01/aurora-v2/illustrated/lookout",
+      "owner": "M",
+      "category": "environment-prop",
+      "canonicalId": "m01",
+      "variant": "propuesta-c-v2",
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m02/svg/watch-post.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "56c3b1ce697e5ab1fddf12a45201d0f7c0ce4a31",
+          "sha256": null
+        }
+      ],
+      "renderKey": "maps/m01/aurora-v2/svg/lookout",
+      "sourcePixels": {
+        "width": 250,
+        "height": 305
+      },
+      "alpha": true,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "source": {
+        "origin": "Ilustración vectorial original para SEMANTROPIC TD generada con asistencia de IA",
+        "author": "Equipo M",
+        "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+        "sourceFile": "public/official/art/maps/m01/m02/svg/watch-post.svg"
+      },
+      "status": "prototype",
+      "notes": "watchtower"
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/illustrated/shrine",
+      "owner": "M",
+      "category": "environment-prop",
+      "canonicalId": "m01",
+      "variant": "propuesta-c-v2",
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m02/svg/signal-shrine.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "63e2e3912a1985af03350afebcffe9e8f510b8a0",
+          "sha256": null
+        }
+      ],
+      "renderKey": "maps/m01/aurora-v2/svg/shrine",
+      "sourcePixels": {
+        "width": 228,
+        "height": 270
+      },
+      "alpha": true,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "source": {
+        "origin": "Ilustración vectorial original para SEMANTROPIC TD generada con asistencia de IA",
+        "author": "Equipo M",
+        "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+        "sourceFile": "public/official/art/maps/m01/m02/svg/signal-shrine.svg"
+      },
+      "status": "prototype",
+      "notes": "arcane beacon"
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/illustrated/aqueduct",
+      "owner": "M",
+      "category": "environment-prop",
+      "canonicalId": "m01",
+      "variant": "propuesta-c-v2",
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m02/svg/aqueduct-remnant.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "07321a22bee9a8fb75d421cacdc1389642447d64",
+          "sha256": null
+        }
+      ],
+      "renderKey": "maps/m01/aurora-v2/svg/aqueduct",
+      "sourcePixels": {
+        "width": 322,
+        "height": 216
+      },
+      "alpha": true,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "source": {
+        "origin": "Ilustración vectorial original para SEMANTROPIC TD generada con asistencia de IA",
+        "author": "Equipo M",
+        "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+        "sourceFile": "public/official/art/maps/m01/m02/svg/aqueduct-remnant.svg"
+      },
+      "status": "prototype",
+      "notes": "broken aqueduct"
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/illustrated/oak",
+      "owner": "M",
+      "category": "environment-prop",
+      "canonicalId": "m01",
+      "variant": "propuesta-c-v2",
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "000defc434ebc58e8bc737f76685512482ace95f",
+          "sha256": null
+        }
+      ],
+      "renderKey": "maps/m01/aurora-v2/svg/oak",
+      "sourcePixels": {
+        "width": 212,
+        "height": 274
+      },
+      "alpha": true,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "source": {
+        "origin": "Ilustración vectorial original para SEMANTROPIC TD generada con asistencia de IA",
+        "author": "Equipo M",
+        "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+        "sourceFile": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg"
+      },
+      "status": "prototype",
+      "notes": "tree"
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/illustrated/waymarker",
+      "owner": "M",
+      "category": "environment-prop",
+      "canonicalId": "m01",
+      "variant": "propuesta-c-v2",
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m02/svg/waymarker.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "1cb0ca461bd1ca82ba0d9ad8d1299fe08879a30e",
+          "sha256": null
+        }
+      ],
+      "renderKey": "maps/m01/aurora-v2/svg/waymarker",
+      "sourcePixels": {
+        "width": 130,
+        "height": 191
+      },
+      "alpha": true,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "source": {
+        "origin": "Ilustración vectorial original para SEMANTROPIC TD generada con asistencia de IA",
+        "author": "Equipo M",
+        "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+        "sourceFile": "public/official/art/maps/m01/m02/svg/waymarker.svg"
+      },
+      "status": "prototype",
+      "notes": "waymarker"
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/illustrated/fence",
+      "owner": "M",
+      "category": "environment-prop",
+      "canonicalId": "m01",
+      "variant": "propuesta-c-v2",
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m02/svg/fence-remnant.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "114044407eb478ba87e80d2f9968f56cc0ce1dae",
+          "sha256": null
+        }
+      ],
+      "renderKey": "maps/m01/aurora-v2/svg/fence",
+      "sourcePixels": {
+        "width": 246,
+        "height": 118
+      },
+      "alpha": true,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "source": {
+        "origin": "Ilustración vectorial original para SEMANTROPIC TD generada con asistencia de IA",
+        "author": "Equipo M",
+        "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+        "sourceFile": "public/official/art/maps/m01/m02/svg/fence-remnant.svg"
+      },
+      "status": "prototype",
+      "notes": "fence"
+    },
+    {
+      "assetId": "maps/m01/aurora-v2/illustrated/wagon",
+      "owner": "M",
+      "category": "environment-prop",
+      "canonicalId": "m01",
+      "variant": "propuesta-c-v2",
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m02/svg/wagon-crate.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "ca059c9b4c2c5e894b3a4b065b710ca02999e607",
+          "sha256": null
+        }
+      ],
+      "renderKey": "maps/m01/aurora-v2/svg/wagon",
+      "sourcePixels": {
+        "width": 210,
+        "height": 158
+      },
+      "alpha": true,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "source": {
+        "origin": "Ilustración vectorial original para SEMANTROPIC TD generada con asistencia de IA",
+        "author": "Equipo M",
+        "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+        "sourceFile": "public/official/art/maps/m01/m02/svg/wagon-crate.svg"
+      },
+      "status": "prototype",
+      "notes": "cart"
+    }
+  ],
+  "expectedCacheBudget": {
+    "twoFullSizeRGBABytes": 31457280,
+    "megabytesMiB": 30,
+    "notice": "GPU footprint estimate for two 2560x1536 RGBA8 uncompressed generated textures per palette; SVG/Phaser/atlases additional. One active palette at a time."
+  },
+  "notes": [
+    "No gameplay code or new collider.",
+    "SVG editable with gradient and hand-authored paths; not approved final hand-painted art.",
+    "sha256 only obligatory at promotion to approved binary exports.",
+    "GitBlobSha1 is provided for source traceability, not as SHA256 replacement.",
+    "No deployment to Render.",
+    "Illustrations are not copied from a reference IP."
+  ]
+}

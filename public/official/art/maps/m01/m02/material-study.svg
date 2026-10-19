@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173d3c"/><stop offset="1" stop-color="#0a2931"/></linearGradient>
+<linearGradient id="stone" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1e4c2"/><stop offset=".4" stop-color="#abbba5"/><stop offset="1" stop-color="#596e76"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e2b47b"/><stop offset=".5" stop-color="#9b6d4b"/><stop offset="1" stop-color="#64453b"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7dfa6"/><stop offset=".38" stop-color="#b7aa82"/><stop offset="1" stop-color="#637a76"/></linearGradient>
+<linearGradient id="earth" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#efd39f"/><stop offset=".5" stop-color="#c7a16f"/><stop offset="1" stop-color="#907051"/></linearGradient>
+<linearGradient id="foliage" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c5e399"/><stop offset=".52" stop-color="#6aab78"/><stop offset="1" stop-color="#36756b"/></linearGradient>
+<radialGradient id="arcane"><stop stop-color="#f0fff0"/><stop offset=".2" stop-color="#b2efe4"/><stop offset=".6" stop-color="#6acac6"/><stop offset="1" stop-color="#407b95"/></radialGradient>
+</defs>
+<rect width="1200" height="470" fill="url(#bg)" rx="26"/>
+<text x="36" y="53" font-family="sans-serif" fill="#ffe2a7" font-size="27" font-weight="bold">SEMANTROPIC TD · M-02 AURORA V2</text>
+<text x="36" y="77" font-family="sans-serif" fill="#b1e6d8" font-size="15">Lámina de materiales originales / Propuesta C / luz matinal superior izquierda</text>
+<g font-family="sans-serif" fill="#f5e7c9" font-size="17" font-weight="bold">
+<rect x="31" y="101" width="177" height="323" rx="13" fill="#2a5054" stroke="#638d85"/><text x="53" y="131">PIEDRA</text>
+<path d="M57 244 88 170 150 153 180 223 144 326 64 315Z" fill="url(#stone)" stroke="#42626c" stroke-width="7"/>
+<path d="m88 170 62-17 30 70-73 19Z" fill="#ebdfbf" opacity=".43"/><path d="m80 269 37-18-6 37 27 18" fill="none" stroke="#667d80" stroke-width="5"/>
+<rect x="220" y="101" width="177" height="323" rx="13" fill="#2a5054" stroke="#638d85"/><text x="242" y="131">MADERA</text>
+<path d="m262 166 78-18 20 169-80 13Z" fill="url(#wood)" stroke="#534c46" stroke-width="6"/>
+<path d="m284 185 27-8m-22 30 15-6m-6 37 27-6m-13 47 22-8m-38-74 16 89" stroke="#e5bb82" stroke-width="5" opacity=".7"/>
+<rect x="409" y="101" width="177" height="323" rx="13" fill="#2a5054" stroke="#638d85"/><text x="431" y="131">ALEACIÓN</text>
+<path d="m452 205 74-33 31 66-26 82-82-15Z" fill="url(#metal)" stroke="#536c6d" stroke-width="7"/>
+<path d="m467 205 57-23 18 48-59 28Z" fill="#fff2c4" opacity=".32"/><circle cx="475" cy="220" r="5" fill="#705e4f"/><circle cx="517" cy="281" r="5" fill="#705e4f"/>
+<rect x="598" y="101" width="177" height="323" rx="13" fill="#2a5054" stroke="#638d85"/><text x="620" y="131">TIERRA</text>
+<path d="M621 216q72-48 133 0l-18 99q-50 36-116-3Z" fill="url(#earth)" stroke="#906d4e" stroke-width="6"/>
+<path d="m649 213 18 8m32-16 23 8m-78 60 21 4m27 13 24-5" stroke="#f4dda8" stroke-width="5" stroke-linecap="round"/><ellipse cx="650" cy="291" rx="6" ry="3" fill="#9f7853"/>
+<rect x="787" y="101" width="177" height="323" rx="13" fill="#2a5054" stroke="#638d85"/><text x="809" y="131">VEGETACIÓN</text>
+<path d="M873 319V226m0 54-44-29m44-15 45-23" stroke="#645b43" stroke-width="13"/>
+<path d="M820 238q-36-49 14-70 13-38 52-18 39-29 65 19 28 44-8 70-15 43-59 33-36 22-64-34Z" fill="url(#foliage)" stroke="#326c59" stroke-width="8"/>
+<path d="M827 205q34-45 59-21 25-34 49 4" stroke="#d1eba8" stroke-width="11" fill="none" opacity=".56"/>
+<rect x="976" y="101" width="194" height="323" rx="13" fill="#2a5054" stroke="#638d85"/><text x="998" y="131">LUZ ARCANA</text>
+<circle cx="1073" cy="247" r="79" fill="#74efe0" opacity=".10"/>
+<path d="m1072 158 56 76-51 97-52-94Z" fill="url(#arcane)" stroke="#d6fff2" stroke-width="7"/>
+<path d="m1072 169 25 74-20 73" stroke="#498fa3" stroke-width="6"/><path d="m1036 239 34-68 4 131" fill="#b5fff0" opacity=".53"/>
+</g>
+<text x="40" y="453" fill="#bfded2" font-size="13" font-family="sans-serif">FUENTE EDITABLE SVG · Materiales no plásticos · Sin recursos externos ni composiciones copiadas</text>
+</svg>

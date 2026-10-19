@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 274" width="212" height="274" fill="none" role="img" aria-label="Original Semantropic TD environment illustration">
+<defs>
+<linearGradient id="stone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#eee2bd"/><stop offset=".36" stop-color="#afbea8"/><stop offset=".7" stop-color="#829c98"/><stop offset="1" stop-color="#4b6e75"/></linearGradient>
+<linearGradient id="wood" x1=".12" y1=".1" x2="1" y2="1"><stop stop-color="#ddaa65"/><stop offset=".4" stop-color="#966c45"/><stop offset="1" stop-color="#614d42"/></linearGradient>
+<linearGradient id="copper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffe2a0"/><stop offset=".38" stop-color="#c6a167"/><stop offset="1" stop-color="#6a716c"/></linearGradient>
+<linearGradient id="leaf" x1=".05" y1="0" x2=".9" y2="1"><stop stop-color="#b2d97d"/><stop offset=".4" stop-color="#68a96a"/><stop offset="1" stop-color="#337866"/></linearGradient>
+<linearGradient id="leaf2" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#a0d898"/><stop offset=".42" stop-color="#478e7b"/><stop offset="1" stop-color="#28635d"/></linearGradient>
+<linearGradient id="aether" x1="0" y1="0" x2=".65" y2="1"><stop stop-color="#e5ffeb"/><stop offset=".25" stop-color="#8deee0"/><stop offset=".72" stop-color="#59bdbd"/><stop offset="1" stop-color="#3c7f98"/></linearGradient>
+<radialGradient id="soft"><stop stop-color="#cbfff1" stop-opacity=".76"/><stop offset=".5" stop-color="#8cecd8" stop-opacity=".22"/><stop offset="1" stop-color="#72cbce" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="108" cy="255" rx="78" ry="13" fill="#194845" opacity=".35"/>
+<path d="M92 251q-3-39 4-77l-25-30 7-16 38 38 10-49 17 14-22 53-1 65Z" fill="url(#wood)" stroke="#4b5a4c" stroke-width="6"/>
+<path d="m108 239-4-49m8-7 13-39M100 176 80 148" stroke="#eed1a1" stroke-width="4" opacity=".66"/>
+<path d="M29 111q-18-22 1-46 16-20 42-16 9-36 44-39 34 1 43 29 35-14 50 24 13 28-4 50 16 38-14 50-13 19-40 15-31 26-62 8-45 8-58-25-21-10-2-50Z" fill="url(#leaf)" stroke="#33675a" stroke-width="7"/>
+<path d="M38 76Q67 38 98 57q16-36 44-24 21-9 47 26Q147 52 116 71 74 56 38 95Z" fill="#d5eaa1" opacity=".43"/>
+<path d="M39 118q22-27 48-9 28-22 61-4 22-22 43-6" stroke="#255e59" stroke-width="10" opacity=".47"/>
+<path d="M40 136q27 23 48-3 27 25 48 1 28 24 53 0" stroke="#356e5e" stroke-width="8" opacity=".48"/>
+<path d="m38 83 28-18 16 2m54-27 27 14m15 49 20-11" stroke="#eff1b5" stroke-width="6" stroke-linecap="round" opacity=".58"/>
+<g fill="#b8d987" opacity=".7"><ellipse cx="38" cy="98" rx="8" ry="4"/><ellipse cx="73" cy="140" rx="9" ry="5"/><ellipse cx="151" cy="58" rx="8" ry="4"/><ellipse cx="182" cy="115" rx="8" ry="4"/></g>
+<path d="M73 243q-13 7-29 6m111-3q15-2 28 5" stroke="#69a075" stroke-width="7" stroke-linecap="round"/>
+</svg>

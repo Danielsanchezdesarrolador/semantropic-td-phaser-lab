@@ -1,0 +1,298 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "owner": "P",
+  "release": "P-02",
+  "status": "prototype",
+  "about": "P-02 visual study. PNGs created in RAM by browser; no pre-exported PNG or licensed final master in GitHub.",
+  "baselineCommit": "e1cfc075dfbddb61691ff156860a59ee25cd6f27",
+  "files": [
+    "public/official/art/actors/p02-painter.mjs",
+    "public/official/src/actors-visual/p02-index.html",
+    "public/official/src/actors-visual/p02-gallery.mjs"
+  ],
+  "source": {
+    "kind": "editable code + drawn original character concept sheets delivered separately",
+    "origin": "producción artística original para SEMANTROPIC TD",
+    "externalArtwork": "conceptos generados con IA de OpenAI; son guía visual NO spritesheets animados",
+    "approval": "pending"
+  },
+  "runtime": {
+    "environment": "Phaser 4.2.1; Canvas 2D used once to bake textures",
+    "framesPerAtlas": 32,
+    "cell": {
+      "widthPx": 176,
+      "heightPx": 208
+    },
+    "atlas": {
+      "widthPx": 1408,
+      "heightPx": 832,
+      "columns": 8,
+      "rows": 4
+    },
+    "estimatedRGBA8MiBPerAtlas": 4.47,
+    "activeGalleryAtlases": 3,
+    "activeGalleryEstimatedMiB": 13.41,
+    "footAnchor": [
+      0.5,
+      0.92
+    ],
+    "shadowAnchor": [
+      0.5,
+      1
+    ],
+    "direction": [
+      "E",
+      "W-mirrored"
+    ],
+    "renderer": "Phaser textures (WebGL runtime not yet verified)",
+    "coreGameplayIntegration": false
+  },
+  "variants": {
+    "A": {
+      "name": "Táctica compacta",
+      "scaleFactor": 0.94,
+      "status": "prototype"
+    },
+    "B": {
+      "name": "Ilustrada expresiva",
+      "scaleFactor": 1.08,
+      "status": "prototype"
+    }
+  },
+  "animations": {
+    "idle": 4,
+    "walk": 8,
+    "attackWindup": 3,
+    "attack": 5,
+    "hit": 3,
+    "die": 6,
+    "blocked": 3
+  },
+  "assets": [
+    {
+      "assetId": "actors/enemies/warrior/v1/p02-a",
+      "canonicalId": "warrior",
+      "variant": "A",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/enemies/warrior/v1/p02-a",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 85.53999999999999,
+      "mobileFallback": "preferred-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    },
+    {
+      "assetId": "actors/enemies/warrior/v1/p02-b",
+      "canonicalId": "warrior",
+      "variant": "B",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/enemies/warrior/v1/p02-b",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 98.28,
+      "mobileFallback": "optional-detail-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    },
+    {
+      "assetId": "actors/enemies/hound/v1/p02-a",
+      "canonicalId": "hound",
+      "variant": "A",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/enemies/hound/v1/p02-a",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 62.98,
+      "mobileFallback": "preferred-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    },
+    {
+      "assetId": "actors/enemies/hound/v1/p02-b",
+      "canonicalId": "hound",
+      "variant": "B",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/enemies/hound/v1/p02-b",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 72.36,
+      "mobileFallback": "optional-detail-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    },
+    {
+      "assetId": "actors/allies/infantry-recruit/v1/p02-a",
+      "canonicalId": "infantry_recruit",
+      "variant": "A",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p02-a",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 82.72,
+      "mobileFallback": "preferred-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    },
+    {
+      "assetId": "actors/allies/infantry-recruit/v1/p02-b",
+      "canonicalId": "infantry_recruit",
+      "variant": "B",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p02-b",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 95.04,
+      "mobileFallback": "optional-detail-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    },
+    {
+      "assetId": "actors/allies/sniper-operator/v1/p02-a",
+      "canonicalId": "sniper_operator",
+      "variant": "A",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/allies/sniper-operator/v1/p02-a",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 75.19999999999999,
+      "mobileFallback": "preferred-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    },
+    {
+      "assetId": "actors/allies/sniper-operator/v1/p02-b",
+      "canonicalId": "sniper_operator",
+      "variant": "B",
+      "category": "actor",
+      "owner": "P",
+      "status": "prototype",
+      "atlasKey": "actors/allies/sniper-operator/v1/p02-b",
+      "sourceFile": "public/official/art/actors/p02-painter.mjs",
+      "frames": 32,
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "provisionalWorldHeight": 86.4,
+      "mobileFallback": "optional-detail-studies-only",
+      "fileSha256": null,
+      "note": "No preexported file, SHA256 assigned only after creating actual PNG."
+    }
+  ],
+  "pending": [
+    "Original painted sprite-specific animation frames",
+    "browser WebGL2 QA",
+    "physical mobile validation",
+    "tower operator anchor approval",
+    "real event adapter",
+    "correct attack frame and perspective review",
+    "director art approval"
+  ]
+}
