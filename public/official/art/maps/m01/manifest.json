@@ -1,0 +1,252 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "owner": "M",
+  "bundleId": "maps/m01/aurora-v1",
+  "contractRefs": [
+    "map-socket-v1",
+    "semantropic-assets-v1"
+  ],
+  "canonicalMapId": 1,
+  "scene": "isolated map art showcase",
+  "world": {
+    "width": 1280,
+    "height": 768,
+    "dprSource": 2
+  },
+  "paletteVariants": [
+    "equilibrada",
+    "viva",
+    "atmosferica"
+  ],
+  "status": "prototype",
+  "source": {
+    "origin": "Arte procedural original de SEMANTROPIC TD (Equipo M)",
+    "author": "Equipo M / ChatGPT, pendiente de validación de Dirección General",
+    "license": "PROPIA_PENDIENTE_DE_RATIFICACION",
+    "sourceFile": "public/official/src/maps-visual/m01/renderer.mjs",
+    "gitSourceBlobSha": null,
+    "format": "application/javascript",
+    "editable": true
+  },
+  "assets": [
+    {
+      "assetId": "maps/m01/aurora/terrain",
+      "category": "world-terrain",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/terrain",
+      "sourcePixels": [
+        2560,
+        1536
+      ],
+      "renderWorld": [
+        1280,
+        768
+      ],
+      "alpha": false,
+      "anchor": [
+        0,
+        0
+      ],
+      "layers": [
+        "terrain"
+      ],
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/path",
+      "category": "world-road",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/path",
+      "sourcePixels": [
+        2560,
+        1536
+      ],
+      "renderWorld": [
+        1280,
+        768
+      ],
+      "alpha": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "layers": [
+        "path"
+      ],
+      "pathVisualWidthWorld": 110,
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/pad-tempo",
+      "category": "world-pad",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/socket-tempo",
+      "sourcePixels": [
+        464,
+        364
+      ],
+      "renderScale": 0.58,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.76
+      ],
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/pad-power",
+      "category": "world-pad",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/socket-power",
+      "sourcePixels": [
+        464,
+        364
+      ],
+      "renderScale": 0.58,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.76
+      ],
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/pad-focus",
+      "category": "world-pad",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/socket-focus",
+      "sourcePixels": [
+        464,
+        364
+      ],
+      "renderScale": 0.58,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.76
+      ],
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/prop-oak",
+      "category": "world-prop",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/prop-oak",
+      "sourcePixels": [
+        388,
+        410
+      ],
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "renderScale": "authored per prop × 0.56",
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/prop-shrine",
+      "category": "world-prop",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/prop-shrine",
+      "sourcePixels": [
+        388,
+        410
+      ],
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "renderScale": "authored per prop × 0.56",
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/prop-banner",
+      "category": "world-prop",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/prop-banner",
+      "sourcePixels": [
+        388,
+        410
+      ],
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "renderScale": "authored per prop × 0.56",
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/prop-lantern",
+      "category": "world-prop",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/prop-lantern",
+      "sourcePixels": [
+        388,
+        410
+      ],
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "renderScale": "authored per prop × 0.56",
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/prop-stone",
+      "category": "world-prop",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/prop-stone",
+      "sourcePixels": [
+        388,
+        410
+      ],
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "renderScale": "authored per prop × 0.56",
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/prop-flowers",
+      "category": "world-prop",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/prop-flowers",
+      "sourcePixels": [
+        388,
+        410
+      ],
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "renderScale": "authored per prop × 0.56",
+      "status": "prototype"
+    },
+    {
+      "assetId": "maps/m01/aurora/prop-bush",
+      "category": "world-prop",
+      "runtimeKeyPattern": "maps/m01/aurora/{palette}/prop-bush",
+      "sourcePixels": [
+        388,
+        410
+      ],
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "renderScale": "authored per prop × 0.56",
+      "status": "prototype"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "public/official/src/maps-visual/m01/renderer.mjs",
+      "type": "application/javascript",
+      "sha256": null,
+      "reason": "No external generated export or signed binary; digest required before approval"
+    }
+  ],
+  "warnings": [
+    "Textures generated once per scene from editable Canvas drawing code and rendered by Phaser, not hand-painted final artwork.",
+    "Socket preview IDs are candidates and not runtime APIs until integration adapter ratification.",
+    "No tower, actor or combat logic is contained here.",
+    "No new Render deployment authorized or requested."
+  ]
+}

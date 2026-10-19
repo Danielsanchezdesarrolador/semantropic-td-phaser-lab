@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#13383d">
+<title>SEMANTROPIC TD — Equipo M · M-01 Aurora · Showcase Phaser</title>
+<style>
+:root{--l:env(safe-area-inset-left,0px);--r:env(safe-area-inset-right,0px);--t:env(safe-area-inset-top,0px);--b:env(safe-area-inset-bottom,0px);color-scheme:dark;--gold:#f1d49e;--ice:#aff6e6}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;font:13px/1.3 'Trebuchet MS',system-ui,sans-serif;background:#102b34;color:#f5e6c8}
+button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;color:#f5eccf;background:linear-gradient(#365d66ef,#1b3849f5);border:1px solid #b9b58e;border-radius:9px;box-shadow:inset 0 1px #e8e6bc50;min-height:44px;font-weight:800;padding:7px 11px}
+button:hover{filter:brightness(1.12)}button.selected{background:linear-gradient(#d3a96c,#846431);color:#1b3440;border:2px solid #fbeac1}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden;background:#1a4546}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;touch-action:none}
+#stage canvas{display:block;max-width:100%;max-height:100%;touch-action:none}
+.top{position:absolute;z-index:30;left:calc(var(--l) + 10px);top:calc(var(--t) + 7px);right:calc(var(--r) + 10px);display:flex;align-items:start;gap:9px;justify-content:space-between;pointer-events:none}
+.banner{background:#102d3be9;border:1px solid #caaf7d;border-radius:11px;padding:7px 13px;box-shadow:0 5px 15px #14202cc4}
+#map-title{font-size:15px;letter-spacing:.04em;color:#ffeda9;font-weight:900}
+#variant{font-size:11px;color:#a6e5d9;margin-top:2px}
+#engine{font-size:10px;color:#cddbd2}
+.palette{display:flex;gap:4px;pointer-events:auto;align-items:center}
+.palette button{font-size:11px;min-width:68px}
+#stageLabel{position:absolute;z-index:20;left:calc(var(--l) + 11px);top:calc(var(--t) + 84px);background:#071c2ac7;border-radius:5px;padding:4px 8px;color:#e8d8af;pointer-events:none;font-size:10px}
+.bottom{position:absolute;z-index:27;bottom:calc(var(--b) + 9px);left:calc(var(--l) + 8px);right:calc(var(--r) + 8px);display:flex;gap:6px;justify-content:space-between;align-items:end;pointer-events:none}
+.bottom button{pointer-events:auto}
+.controls{display:flex;gap:5px;flex-wrap:wrap;pointer-events:auto}
+.details{background:#091f2ddc;color:#dce8d8;border:1px solid #6b9890;padding:8px 11px;border-radius:10px;max-width:320px;font-size:11px;box-shadow:0 4px 14px #0018;pointer-events:none}
+.details b{color:#ffe5a2}
+#status{position:absolute;z-index:25;bottom:calc(var(--b) + 71px);right:calc(var(--r) + 10px);font-size:10px;max-width:34vw;color:#dcf4ed;background:#102e3cd6;border:1px solid #6a9699;border-radius:6px;padding:6px 9px;pointer-events:none}
+#socketPanel{position:absolute;z-index:31;left:calc(var(--l) + 10px);bottom:calc(var(--b) + 78px);width:min(365px,62vw);border:2px solid #dfc68f;background:linear-gradient(#17424cf1,#091f31f7);padding:12px;border-radius:12px;box-shadow:0 10px 30px #091423b7}
+#socketPanel[hidden],#blocker[hidden]{display:none}
+#socketTitle{font-size:14px;color:#ffe6a5;font-weight:900}
+#socketDescription{font-size:11px;color:#d6e6d9;margin:7px 0}
+#closeSocket{min-height:33px;font-size:11px;padding:5px 12px}
+#blocker{position:absolute;z-index:99;inset:0;display:grid;place-items:center;padding:24px;background:#0c2a36f4;font-size:19px;color:#ffe8b9;text-align:center}
+#portrait{display:none;position:absolute;z-index:80;inset:0;background:#123340ed;color:#ffe5ae;align-items:center;justify-content:center;text-align:center;font-size:22px;padding:30px}
+#portrait small{display:block;font-size:13px;color:#cee3dc;margin-top:9px}
+@media (max-width:950px) and (orientation:landscape){
+ .top{top:calc(var(--t) + 4px);left:calc(var(--l) + 5px);right:calc(var(--r) + 5px)}
+ .banner{padding:4px 7px;border-radius:6px}#map-title{font-size:10px}#variant{font-size:9px;margin:0}#engine{display:none}
+ .palette{gap:2px}.palette button{font-size:9px;padding:4px 6px;min-height:32px;min-width:48px;border-radius:5px}
+ .bottom{left:calc(var(--l) + 4px);bottom:calc(var(--b) + 4px);right:calc(var(--r) + 4px);gap:3px}
+ .controls{gap:2px}.controls button{min-height:36px;font-size:9px;padding:5px 7px;border-radius:6px}
+ .details{display:none}#stageLabel{display:none}#status{display:none}
+ #socketPanel{left:calc(var(--l) + 4px);bottom:calc(var(--b) + 50px);width:min(310px,53vw);padding:7px;font-size:10px;max-height:115px;overflow:auto}
+ #socketTitle{font-size:11px}#socketDescription{font-size:9px;margin:3px 0}#closeSocket{min-height:30px}
+}
+@media (orientation:portrait) and (max-width:950px){#portrait{display:flex}}
+</style></head><body>
+<main id="app">
+ <div id="stage" aria-label="Vitrina del Equipo M, Mapa 01 Praderas del Amanecer"></div>
+ <header class="top">
+  <div class="banner">
+   <div id="map-title">M01 · PRADERAS DEL AMANECER</div>
+   <div id="variant">Preparando arte M-01 Aurora</div><div id="engine">Phaser sin verificar</div>
+  </div>
+  <nav class="palette" aria-label="Tres variantes artísticas de la propuesta C">
+   <button data-mode="viva">VIVA</button>
+   <button data-mode="equilibrada" class="selected">EQUILIBRIO</button>
+   <button data-mode="atmosferica">ATMÓSFERA</button>
+  </nav>
+ </header>
+ <div id="stageLabel">EQUIPO M · VITRINA DE ARTE ORIGINAL · NO COMBATE / NO MIGRACIÓN COMPLETA</div>
+ <div id="socketPanel" hidden aria-live="polite">
+  <div id="socketTitle">Socket canónico de M01</div>
+  <p id="socketDescription"></p>
+  <button id="closeSocket">Cerrar ficha ✕</button>
+ </div>
+ <div id="status">Leyendo mapa oficial…</div>
+ <div class="bottom">
+  <div class="controls">
+   <button id="baseline">Comparar PH-02B</button>
+   <button id="debug">133 puntos</button>
+   <button id="safe">Zonas libres</button>
+   <button id="route">Inspeccionar ruta</button>
+  </div>
+  <div class="controls">
+   <button id="zoomOut" aria-label="Reducir zoom">−</button>
+   <button id="zoomReset"><span id="zoomValue">100%</span></button>
+   <button id="zoomIn" aria-label="Ampliar zoom">+</button>
+   <button id="resetScene" aria-label="Reiniciar vitrina">↻</button>
+  </div>
+  <div class="details"><b id="proof">No es el juego de campaña</b><div><span id="pathCount">133</span> waypoints · <span id="socketCount">8</span> sockets · <span id="propCount">—</span> props · camino <span id="pathWidth">110</span>u</div></div>
+ </div>
+ <div id="blocker">Preparando escena del Equipo M…</div>
+ <div id="portrait">↻ Gira el teléfono<small>La vitrina de mapas se inspecciona horizontalmente. No ejecuta combate.</small></div>
+</main>
+<script src="../../../../dependencias/phaser.min.js"></script>
+<script type="module" src="../../../src/maps-visual/m01/showcase.mjs"></script>
+</body></html>
