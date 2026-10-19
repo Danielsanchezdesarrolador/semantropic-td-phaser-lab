@@ -1,0 +1,251 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "manifestRevision": "T-03-premium-v2",
+  "owner": "T",
+  "status": "prototype",
+  "date": "2026-10-19",
+  "scope": "four infantry/sniper buildings levels I-II",
+  "note": "sha256 null mientras esté en prototipo; completar antes de aprobar final",
+  "assets": [
+    {
+      "assetId": "towers/infantry/level-1",
+      "owner": "T",
+      "category": "tower",
+      "canonicalId": "infantry",
+      "level": 1,
+      "status": "prototype",
+      "files": [
+        {
+          "path": "public/official/art/towers/infantry/level-1.svg",
+          "type": "image/svg+xml",
+          "sha256": null,
+          "sourceEditable": true
+        }
+      ],
+      "baseline": "public/official/art/towers/baseline/infantry-1.svg",
+      "frame": {
+        "widthPx": 360,
+        "heightPx": 420,
+        "count": 1
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 138,
+          "y": 319,
+          "units": "source-px"
+        },
+        "spawnExit": {
+          "x": 140,
+          "y": 348,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 183,
+          "y": 248,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 183,
+          "y": 388,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.276,
+        "worldWidthProposal": 99.36,
+        "worldHeightProposal": 115.92,
+        "approved": false
+      },
+      "source": {
+        "origin": "original Semantropic TD",
+        "author": "Equipo T",
+        "license": "propiedad de proyecto, pendiente ratificación comercial",
+        "sourceFile": "public/official/art/towers/infantry/level-1.svg"
+      },
+      "actorOwner": "P",
+      "combatAuthority": "core"
+    },
+    {
+      "assetId": "towers/infantry/level-2",
+      "owner": "T",
+      "category": "tower",
+      "canonicalId": "infantry",
+      "level": 2,
+      "status": "prototype",
+      "files": [
+        {
+          "path": "public/official/art/towers/infantry/level-2.svg",
+          "type": "image/svg+xml",
+          "sha256": null,
+          "sourceEditable": true
+        }
+      ],
+      "baseline": "public/official/art/towers/baseline/infantry-2.svg",
+      "frame": {
+        "widthPx": 360,
+        "heightPx": 420,
+        "count": 1
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 143,
+          "y": 328,
+          "units": "source-px"
+        },
+        "spawnExit": {
+          "x": 145,
+          "y": 354,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 183,
+          "y": 209,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 183,
+          "y": 388,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.296,
+        "worldWidthProposal": 106.56,
+        "worldHeightProposal": 124.32,
+        "approved": false
+      },
+      "source": {
+        "origin": "original Semantropic TD",
+        "author": "Equipo T",
+        "license": "propiedad de proyecto, pendiente ratificación comercial",
+        "sourceFile": "public/official/art/towers/infantry/level-2.svg"
+      },
+      "actorOwner": "P",
+      "combatAuthority": "core"
+    },
+    {
+      "assetId": "towers/sniper/level-1",
+      "owner": "T",
+      "category": "tower",
+      "canonicalId": "sniper",
+      "level": 1,
+      "status": "prototype",
+      "files": [
+        {
+          "path": "public/official/art/towers/sniper/level-1.svg",
+          "type": "image/svg+xml",
+          "sha256": null,
+          "sourceEditable": true
+        }
+      ],
+      "baseline": "public/official/art/towers/baseline/sniper-1.svg",
+      "frame": {
+        "widthPx": 360,
+        "heightPx": 420,
+        "count": 1
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 190,
+          "y": 155,
+          "units": "source-px"
+        },
+        "spawnExit": null,
+        "muzzle": {
+          "x": 279,
+          "y": 149,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 183,
+          "y": 388,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.303,
+        "worldWidthProposal": 109.08,
+        "worldHeightProposal": 127.26,
+        "approved": false
+      },
+      "source": {
+        "origin": "original Semantropic TD",
+        "author": "Equipo T",
+        "license": "propiedad de proyecto, pendiente ratificación comercial",
+        "sourceFile": "public/official/art/towers/sniper/level-1.svg"
+      },
+      "actorOwner": "P",
+      "combatAuthority": "core"
+    },
+    {
+      "assetId": "towers/sniper/level-2",
+      "owner": "T",
+      "category": "tower",
+      "canonicalId": "sniper",
+      "level": 2,
+      "status": "prototype",
+      "files": [
+        {
+          "path": "public/official/art/towers/sniper/level-2.svg",
+          "type": "image/svg+xml",
+          "sha256": null,
+          "sourceEditable": true
+        }
+      ],
+      "baseline": "public/official/art/towers/baseline/sniper-2.svg",
+      "frame": {
+        "widthPx": 360,
+        "heightPx": 420,
+        "count": 1
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 191,
+          "y": 146,
+          "units": "source-px"
+        },
+        "spawnExit": null,
+        "muzzle": {
+          "x": 301,
+          "y": 146,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 183,
+          "y": 388,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.317,
+        "worldWidthProposal": 114.12,
+        "worldHeightProposal": 133.14,
+        "approved": false
+      },
+      "source": {
+        "origin": "original Semantropic TD",
+        "author": "Equipo T",
+        "license": "propiedad de proyecto, pendiente ratificación comercial",
+        "sourceFile": "public/official/art/towers/sniper/level-2.svg"
+      },
+      "actorOwner": "P",
+      "combatAuthority": "core"
+    }
+  ]
+}
