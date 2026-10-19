@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173b35"><title>SEMANTROPIC TD · M-02 Aurora v2 · Vitrina de Mapas</title>
+<style>
+:root{color-scheme:dark;--t:env(safe-area-inset-top,0px);--b:env(safe-area-inset-bottom,0px);--l:env(safe-area-inset-left,0px);--r:env(safe-area-inset-right,0px);--cream:#f9e6ad;--edge:#a9b58d}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;overscroll-behavior:none;touch-action:none}
+body{font:13px/1.3 system-ui,sans-serif;color:#f3ebd8;background:#0e3536}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden;background:#4a815e}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#stage canvas{display:block;max-width:100%;max-height:100%;touch-action:none}
+.top{position:absolute;inset:calc(var(--t) + 8px) calc(var(--r) + 10px) auto calc(var(--l) + 10px);z-index:10;display:flex;align-items:start;justify-content:space-between;gap:7px;pointer-events:none}
+.head{background:linear-gradient(#214b4edc,#092831eb);border:1px solid #d7c294;border-radius:10px;padding:8px 12px;box-shadow:0 4px 20px #1025258a}
+.head b{color:var(--cream);font-size:16px;letter-spacing:.02em}.head small{display:block;color:#c8e6d9;margin-top:2px}
+#currentVariant{font-size:11px;color:#a5ecda;margin-top:3px}
+.buttons{display:flex;gap:5px;pointer-events:auto}
+button{font:800 12px system-ui;border:1px solid #dac495;color:#ffedcb;background:linear-gradient(#37615fef,#163941e8);border-radius:8px;cursor:pointer;padding:7px 10px;min-height:44px;touch-action:manipulation;white-space:nowrap}
+button.on{background:linear-gradient(#ecbd70,#aa7a39);color:#1e3841;border:2px solid #ffefc9}
+button:hover{filter:brightness(1.09)}
+.controls{position:absolute;z-index:10;left:calc(var(--l) + 9px);right:calc(var(--r) + 9px);bottom:calc(var(--b) + 8px);display:flex;align-items:end;justify-content:space-between;gap:7px;pointer-events:none}
+.controls .buttons{pointer-events:auto}
+.details{background:#0c2938d8;padding:7px 11px;border:1px solid #90a696;border-radius:8px;color:#e6eedf;font-size:10px;max-width:325px}
+.details strong{color:#ffe4a5}
+#message{position:absolute;z-index:12;left:calc(var(--l) + 10px);bottom:calc(var(--b) + 77px);font-size:10px;background:#0e333dc4;padding:5px 8px;border-radius:6px;color:#e0f2e3;max-width:45vw}
+#socket{position:absolute;z-index:18;left:calc(var(--l) + 12px);bottom:calc(var(--b) + 82px);max-width:min(340px,57vw);background:#103542f3;border:2px solid #eac98b;border-radius:10px;padding:11px}
+#socket[hidden],#blocker[hidden]{display:none}
+#socket b{font-size:13px;color:#ffe7b4}#socket p{font-size:11px;margin:7px 0}
+#blocker{position:absolute;z-index:90;inset:0;display:grid;place-items:center;background:#112e38f5;text-align:center;padding:25px;font-size:19px;color:#ffe6b0}
+#portrait{display:none;position:absolute;z-index:80;inset:0;align-items:center;justify-content:center;text-align:center;background:#0c2939f2;color:#fbe3ac;padding:30px;font-size:21px}
+@media(max-width:950px) and (orientation:landscape){
+ .top{inset:calc(var(--t) + 3px) calc(var(--r) + 4px) auto calc(var(--l) + 4px)}.head{padding:4px 7px;border-radius:5px}.head b{font-size:10px}.head small,#currentVariant{font-size:8px}
+ .buttons{gap:2px}button{min-height:35px;border-radius:5px;font-size:9px;padding:4px 5px}
+ .controls{left:calc(var(--l) + 4px);right:calc(var(--r) + 4px);bottom:calc(var(--b) + 4px);gap:3px}
+ .details{display:none}#message{display:none}
+ #socket{left:calc(var(--l) + 4px);bottom:calc(var(--b) + 48px);padding:6px;max-width:50vw;max-height:115px;overflow:auto}
+ #socket b{font-size:10px}#socket p{font-size:9px;margin:3px 0}
+}
+@media(orientation:portrait) and (max-width:950px){#portrait{display:flex}}
+</style></head><body><main id="app">
+<div id="stage" aria-label="M02 Praderas del Amanecer, escenario Phaser original"></div>
+<header class="top"><div class="head"><b>SEMANTROPIC TD · M-02</b><small>M01 Praderas del Amanecer · Level Art Premium</small><div id="currentVariant">Cargando variante...</div></div>
+<nav class="buttons" aria-label="Comparación visual artística">
+<button data-variant="v1">A · Aurora 1</button>
+<button data-variant="equilibrada" class="on">B · Equilibrio</button>
+<button data-variant="viva">C · Viva</button>
+<button data-variant="atmosferica">D · Atmósfera</button>
+</nav></header>
+<div id="message">Preparando escena sin combate.</div>
+<div id="socket" hidden><b>Socket de torre · solo visual</b><p id="socketData"></p><button id="closeSocket">Cerrar ✕</button></div>
+<div class="controls">
+<div class="buttons"><button id="routeDebug">133 vértices</button><button id="clearance">8 sockets</button><button id="occlusion">Oclusión</button></div>
+<div class="buttons" aria-label="Tres opciones de encuadre">
+<button data-zoom=".84">84%</button><button data-zoom=".92">92%</button><button data-zoom="1" class="on">100%</button>
+</div>
+<div class="details"><strong>LAB M-02, no campaña</strong><div><span id="runtime">WebGL2 por verificar</span><br><span id="pathCount">133</span> waypoints · <span id="socketsCount">8</span> pads · <span id="propCount">—</span> ilustraciones · <span id="zoomLabel">100%</span></div></div>
+</div>
+<div id="blocker">Cargando módulos ilustrados y mapa canónico...</div>
+<div id="portrait">↻ Gira el teléfono a horizontal</div>
+</main>
+<script src="../../../../../dependencias/phaser.min.js"></script>
+<script type="module" src="../../../../src/maps-visual/m01/m02/showcase-v2.mjs"></script>
+</body></html>

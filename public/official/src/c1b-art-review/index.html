@@ -1,0 +1,27 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Semantropic TD · C1-B · Revisión artística M02 / T03 / P02</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#102c36;color:#f4e3c0;font-family:system-ui}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden}#stage{position:absolute;inset:0;display:block}
+#stage canvas{max-width:100%;max-height:100%;touch-action:none}
+header,footer{z-index:5;position:absolute;left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));display:flex;justify-content:space-between;gap:8px;pointer-events:none}
+header{top:max(7px,env(safe-area-inset-top));align-items:flex-start}footer{bottom:max(6px,env(safe-area-inset-bottom));align-items:flex-end}
+.heading,#status,#selection{background:#143340e9;border:1px solid #b3ad81;border-radius:8px;padding:7px 10px}
+.heading strong{font-size:14px}.heading small{display:block;font-size:10px;color:#b8d9d1}
+.controls{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;pointer-events:auto}button,select{font:700 12px system-ui;min-height:42px;color:#fbe9c6;background:#194651e9;border:1px solid #d8c08f;border-radius:8px;padding:6px 9px}
+#status{max-width:55vw;font-size:11px}#selection{max-width:38vw;font-size:11px;margin-bottom:5px}
+#portrait{display:none;position:absolute;inset:0;background:#0e2937;z-index:10;align-items:center;justify-content:center;padding:22px;text-align:center;font-size:20px}
+@media(max-width:950px) and (orientation:landscape){.heading strong{font-size:10px}.heading small{font-size:9px}button,select{min-height:38px;padding:4px 6px;font-size:10px}#status,#selection{font-size:9px}}
+@media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
+</style></head><body><main id="app">
+ <div id="stage"></div>
+ <header><div class="heading"><strong>SEMANTROPIC TD · C1-B</strong><small>M-02 + T-03 + P-02 · REVISIÓN ARTÍSTICA, SIN COMBATE</small><small>Phaser 4.2.1 · <span id="render">Comprobando WebGL2…</span></small></div>
+ <div class="controls">
+ <select id="palette" aria-label="Paleta mapa"><option value="equilibrada">Equilibrada</option><option value="viva">Viva</option><option value="atmosferica">Atmosférica</option></select>
+ <select id="variant" aria-label="Variantes personajes"><option value="A">Personajes A</option><option value="B">Personajes B</option></select>
+ <button id="sockets">Ver puntos</button><button id="pause">Ⅱ Pausa</button>
+ </div></header>
+ <footer><div id="status" role="status">Cargando recursos ilustrados y atlases…</div><div><div id="selection">Preparando torres…</div><div class="controls"><button id="next">Siguiente torre</button><button id="fx">VFX visual</button></div></div></footer>
+ <div id="portrait">↻ Gira el teléfono: vista de inspección horizontal.</div>
+</main><script src="../../../dependencias/phaser.min.js"></script><script type="module" src="./scene.mjs"></script></body></html>
