@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="Semantropic TD torre de Francotiradores nivel 2; vigía veterano original"><title>Semantropic TD · Vigía Veterano</title><defs>
+ <linearGradient id="stone" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#e1dbca"/><stop offset=".34" stop-color="#a5ada5"/><stop offset=".76" stop-color="#566d77"/><stop offset="1" stop-color="#344857"/></linearGradient>
+ <linearGradient id="iron" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bfd5cf"/><stop offset=".25" stop-color="#7c9698"/><stop offset=".67" stop-color="#344f59"/><stop offset="1" stop-color="#162e3b"/></linearGradient>
+ <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d1a978"/><stop offset=".4" stop-color="#93734f"/><stop offset="1" stop-color="#4e413c"/></linearGradient>
+ <linearGradient id="roof" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#87b5ab"/><stop offset=".4" stop-color="#4c777a"/><stop offset="1" stop-color="#244957"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff3bf"/><stop offset=".4" stop-color="#e7be6d"/><stop offset="1" stop-color="#9b6833"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#fff2bf"/><stop offset=".4" stop-color="#88e2d7" stop-opacity=".92"/><stop offset="1" stop-color="#57b5c4" stop-opacity="0"/></radialGradient>
+ <filter id="shade" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="6"/></filter>
+ </defs><ellipse cx="182" cy="381" rx="118" ry="22" fill="#0b2a32" opacity=".35" filter="url(#shade)"/>
+ <path d="M68 337 177 294 301 340 189 390Z" fill="#263f49" stroke="#dcbf84" stroke-width="6"/>
+ <path d="M79 334 177 305 287 339 188 376Z" fill="url(#stone)" stroke="#455e61" stroke-width="3"/>
+ <path d="M81 340 188 379 285 342" fill="none" stroke="#162e3b" stroke-width="6"/>
+ <path d="M83 325 176 291 291 329" fill="none" stroke="#e9c682" stroke-width="4" opacity=".86"/>
+ <g fill="url(#gold)" stroke="#7c5b32" stroke-width="1.2"><circle cx="101" cy="343" r="5"/><circle cx="181" cy="369" r="5"/><circle cx="274" cy="342" r="5"/></g><path d="M125 320 142 165 180 134 223 169 244 324 184 350Z" fill="url(#iron)" stroke="#293f4e" stroke-width="7"/>
+ <path d="M141 178 184 155 222 180M130 314 183 338 241 313" fill="none" stroke="#e4c888" stroke-width="6"/>
+ <path d="M155 173 149 310M205 163 221 307" stroke="#a8c2bc" stroke-width="7"/>
+ <path d="M154 250h62M145 296h87" stroke="#d4b482" stroke-width="6"/>
+ <path d="M150 246 181 261 217 245" fill="none" stroke="#213e4b" stroke-width="5"/>
+ <path d="M177 180v156" stroke="#e3d0a3" stroke-width="3" opacity=".6"/>
+ <g fill="#f5d397"><circle cx="150" cy="215" r="4"/><circle cx="213" cy="217" r="4"/></g><path d="M100 173 178 132 266 170 187 211Z" fill="url(#wood)" stroke="#3d5460" stroke-width="8"/>
+ <path d="M99 173v22l86 46v-30ZM185 211l81-41v23l-81 48Z" fill="url(#iron)" stroke="#253d48" stroke-width="5"/>
+ <path d="M114 172 177 140 253 173 184 203Z" fill="url(#stone)" stroke="#d9b97b" stroke-width="3"/>
+ <path d="M120 169 184 196 245 169" stroke="#47606a" stroke-width="3" fill="none"/>
+ <path d="M120 189v35M250 191v33" stroke="url(#gold)" stroke-width="8"/>
+ <path d="M105 217 121 220 122 188 108 185ZM249 188l13-6v32l-13 8Z" fill="url(#stone)" stroke="#4a5559" stroke-width="3"/><path d="M95 148 124 93 178 79 235 102 271 160 182 196Z" fill="url(#roof)" stroke="#2a4c5a" stroke-width="8"/>
+ <path d="M121 118 179 90 240 118" fill="none" stroke="url(#gold)" stroke-width="7"/>
+ <path d="M178 82V42" stroke="url(#iron)" stroke-width="10"/>
+ <path d="M178 43 202 54 182 64Z" fill="url(#gold)"/>
+ <path d="M102 162 182 194 269 162" stroke="#d2b879" stroke-width="4" fill="none"/>
+ <path d="M213 143 253 112 300 127 291 154 244 171Z" fill="url(#iron)" stroke="#203946" stroke-width="5"/>
+ <path d="M281 124 311 115 318 122 301 143 290 146Z" fill="url(#gold)" stroke="#546d6b" stroke-width="3"/>
+ <path d="M219 142 236 153" stroke="#e9d7a5" stroke-width="3"/>
+ <ellipse cx="280" cy="127" rx="7" ry="9" fill="#a9ffff" stroke="url(#gold)" stroke-width="4"/><path d="M133 288 112 264v-32M235 287l19-24v-29" fill="none" stroke="#b9cfd0" stroke-width="10"/>
+ <path d="M113 234h22M246 232h23" stroke="url(#gold)" stroke-width="6"/>
+ <path d="M174 290h20v20h-20z" fill="url(#gold)" stroke="#4a6673" stroke-width="3"/>
+ <circle cx="184" cy="301" r="5" fill="#7ce6eb"/>
+ <g fill="url(#gold)"><circle cx="118" cy="220" r="4"/><circle cx="252" cy="218" r="4"/></g>
+ </svg>
