@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#172f37"><title>Semantropic TD · PH-01 Mapa 01 · Integración oficial P0/P1</title>
+<style>
+:root{color-scheme:dark;--sL:env(safe-area-inset-left,0px);--sR:env(safe-area-inset-right,0px);--sT:env(safe-area-inset-top,0px);--sB:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none}body{background:#112d32;color:#f7e9c7;font:14px system-ui,sans-serif}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden;background:#17393b}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#stage canvas{touch-action:none;display:block;max-width:100%;max-height:100%}
+header{position:absolute;z-index:12;left:calc(var(--sL) + 9px);right:calc(var(--sR) + 9px);top:calc(var(--sT) + 7px);display:flex;align-items:flex-start;justify-content:space-between;pointer-events:none;gap:8px}
+.statline{display:flex;gap:5px;flex-wrap:wrap}
+.stat{border:1px solid #e2c687;background:#122f40ef;box-shadow:0 3px 12px #0017;border-radius:8px;padding:5px 12px;text-align:center;min-width:75px}
+.stat small{display:block;color:#a3cdcb;font-size:10px}.stat b{font-size:19px}
+.tools{display:flex;gap:5px;pointer-events:auto}
+button{touch-action:manipulation;border:1px solid #e2c58c;background:#1a4150ec;color:#f9eed6;min-height:44px;border-radius:8px;font:800 12px system-ui;cursor:pointer;padding:7px 11px}
+button:disabled{opacity:.46}
+#footer{position:absolute;z-index:13;left:calc(var(--sL) + 8px);right:calc(var(--sR) + 8px);bottom:calc(var(--sB) + 7px);display:flex;align-items:end;justify-content:space-between;gap:8px;pointer-events:none}
+#footer button{pointer-events:auto}#spawn{background:linear-gradient(#edbf6b,#8d622c);color:#132831;border-color:#f5e2a8;min-width:118px}
+#info{background:#0d2938dd;border:1px solid #6e8c88;border-radius:9px;padding:6px 9px;color:#d9e5de;font-size:11px;max-width:50vw}
+#info strong{color:#fff0b4}#selectedShell{position:absolute;z-index:15;left:calc(var(--sL) + 10px);bottom:calc(var(--sB) + 70px);max-width:360px}
+#selection{border:1px solid #e5c891;background:#112f40ed;color:#f6e8ca;padding:13px;border-radius:10px;font-size:12px;box-shadow:0 8px 25px #001b}
+#selection[hidden]{display:none}
+#contract{position:absolute;top:calc(var(--sT) + 67px);left:calc(var(--sL) + 11px);font-size:10px;background:#173945d8;padding:5px 8px;border-radius:5px;color:#cdeee2}
+#message{position:absolute;left:calc(var(--sL) + 11px);bottom:calc(var(--sB) + 68px);font-size:10px;max-width:44vw;padding:4px 7px;background:#0c2636d9;border-radius:5px;color:#daeadf}
+#intro{position:absolute;inset:0;z-index:25;display:grid;place-items:center;padding:30px;background:#132f3be8;color:#f9e0a9;text-align:center}
+#intro[hidden]{display:none}
+#portrait{display:none;position:absolute;inset:0;z-index:50;background:#0e2836;color:#f6e0ab;align-items:center;justify-content:center;text-align:center;padding:35px;font-size:21px}
+@media(max-width:980px) and (orientation:landscape){
+ .stat{padding:3px 6px;min-width:54px}.stat small{font-size:8px}.stat b{font-size:13px}.statline{gap:3px}
+ button{min-height:40px;padding:5px 6px;font-size:10px}.tools{gap:3px}
+ #contract{top:calc(var(--sT) + 49px);font-size:9px}
+ #info{display:none}#message{display:none}
+ #selectedShell{bottom:calc(var(--sB) + 56px);max-width:50vw}
+ #footer{bottom:calc(var(--sB) + 5px)}
+}
+@media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
+</style></head><body>
+<div id="app">
+ <div id="stage"></div>
+ <header><div class="statline"><div class="stat"><small>♥ VIDA</small><b id="lives">100</b></div><div class="stat"><small>◈ ORO</small><b id="gold">365</b></div><div class="stat"><small>⚑ OLEADA V5</small><b id="wave">0 / 5</b></div></div><div class="tools"><button id="speed">x1</button><button id="pause">Ⅱ Pausa</button><button id="debug">Ver nodos</button></div></header>
+ <div id="contract">Validando fuente Canvas V5…</div>
+ <div id="selectedShell"><p id="selection" hidden>Sin torre seleccionada.</p><button id="close" aria-label="Cerrar información">✕ Cerrar</button></div>
+ <div id="message" role="status">Cargando datos originales…</div>
+ <div id="footer"><button id="spawn">▶ Iniciar ola</button><div id="info"><strong>PH-01 · INTEGRACIÓN INCOMPLETA</strong><div>Sin torres/daño/compras todavía. Fugas reales −2. Enemigos: <b id="live">0</b> · Pendientes: <b id="spawns">0</b> · Fugas: <b id="leaks">0</b><br>WebGL: <span id="backend">por verificar</span></div></div><button id="reset">↺ Reiniciar</button></div>
+ <div id="intro">Inicializando escena Phaser desde los datos REALES de M01…</div>
+ <div id="portrait">↻ Gira el teléfono para ver todo el mapa</div>
+</div>
+<script src="../dependencias/phaser.min.js"></script>
+<script type="module" src="src/m01-preview.mjs"></script>
+</body></html>
