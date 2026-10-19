@@ -1,0 +1,47 @@
+name: C1-B Art Review QA
+on:
+  push:
+    branches: [integration/c1b-art-review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  art-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Phaser dependencies
+        run: npm install --no-audit --no-fund
+      - name: Parse all official ESM and art QA scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          find public/official/src public/official/art docs/art -type f -name '*.mjs' -print0 | xargs -0 -n1 node --check
+      - name: Baseline M01 structural QA
+        run: node public/official/src/maps-visual/m01/qa.mjs
+      - name: Updated M02 map QA
+        run: node public/official/src/maps-visual/m01/m02/qa-m02.mjs
+      - name: Baseline T01 towers QA
+        run: node docs/art/towers/qa-t01.mjs
+      - name: Updated T03 towers QA
+        run: node docs/art/towers/qa-t03.mjs
+      - name: Baseline P01 actor QA
+        run: node public/official/src/actors-visual/qa-p01.mjs
+      - name: Updated P02 actor QA
+        run: node public/official/src/actors-visual/qa-p02.mjs
+      - name: Build Phaser 4.2.1 static bundle
+        run: npm run build
+      - name: Validate C1-B build output paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in             dist/dependencias/phaser.min.js             dist/official/src/c1b-art-review/index.html             dist/official/src/c1b-art-review/scene.mjs             dist/official/src/maps-visual/m01/m02/renderer-v2.mjs             dist/official/art/maps/m01/m02/svg/oak-illustrated.svg             dist/official/src/towers-visual/catalog.mjs             dist/official/art/towers/sniper/level-2.svg             dist/official/art/actors/p02-painter.mjs             dist/official/data/maps.v5.json; do
+            test -s "$f"
+          done
+          echo 'C1-B BUILD AND STRUCTURAL QA PASS; runtime WebGL2 and mobile still require browser.'
