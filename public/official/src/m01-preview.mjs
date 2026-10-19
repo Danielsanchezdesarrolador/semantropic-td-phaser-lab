@@ -2,6 +2,7 @@
 // Warning: no purchases or tower combat yet. This is deliberately a no-defense
 // route, spawn and escape integration fixture, not a "complete playable M01".
 import {validateCampaign,M01PathSmokeModel} from './m01-model.mjs';
+import {installDeluxeArt,artInfo} from './m01-deluxe-art.mjs';
 const $=(id)=>document.getElementById(id), W=1280,H=768;
 let SOURCE=null;
 const state={game:null,scene:null,model:null,paused:false,speed:1,started:false,routeDebug:false};
@@ -62,14 +63,17 @@ class Map01Official extends Phaser.Scene{
   const gl=this.game.renderer?.gl;
   const yes=typeof WebGL2RenderingContext!=='undefined'&&gl instanceof WebGL2RenderingContext;
   $('backend').textContent=Phaser.VERSION+' / '+(yes?'WebGL2 real':'WebGL2 NO confirmado');
-  this.pathDebug=decoratedMeadow(this,map);
+  const before=new URLSearchParams(location.search).get('art')==='before';
+  this.pathDebug=before?decoratedMeadow(this,map):installDeluxeArt(this,map);
+  $('artToggle').textContent=before?'Ver Deluxe':'Ver antes';
+  $('contract').textContent+=(before?' · Baseline PH-01':` · ${artInfo().changePercent}% camino · PH-02B Deluxe`);
   $('intro').hidden=true;syncHUD(state.model);
   this.input.on('pointerdown',p=>{
    const xx=p.x,yy=p.y;const pad=map.spots.find(s=>Math.hypot(xx-(s.cx*64+32),yy-(s.cy*64+32))<54);
    if(pad){$('selection').hidden=false;$('selection').textContent='Plataforma ('+pad.cx+','+pad.cy+') · Construcción no portada aún. No compra ni gasto simulado.';}
    else $('selection').hidden=true;
   });
-  announce('M01 canónico cargado: 133 vértices y 8 plataformas. Inicia ola 1.');
+  announce('M01 real: 133 vértices, 8 plataformas, arte '+(before?'PH-01':'Deluxe')+'. Inicia ola 1.');
  }
  update(_time,delta){
   const m=state.model;if(!m||state.paused||m.ended||!m.active)return;
@@ -123,6 +127,7 @@ class Map01Official extends Phaser.Scene{
   bind('spawn',()=>{if(!state.model?.startWave())return;$('spawn').disabled=true;announce('Oleada '+state.model.wave+' real (Canvas V5) iniciada. Sin torres: prueba de recorrido/fuga.');syncHUD(state.model);});
   bind('pause',()=>{state.paused=!state.paused;$('pause').textContent=state.paused?'▶ Reanudar':'Ⅱ Pausa';});
   bind('speed',()=>{state.speed=state.speed===1?2:1;$('speed').textContent='x'+state.speed;});
+  bind('artToggle',()=>{const v=new URL(location.href);v.searchParams.set('art',new URLSearchParams(location.search).get('art')==='before'?'deluxe':'before');location.assign(v.toString());});
   bind('debug',()=>{state.routeDebug=!state.routeDebug;$('debug').textContent=state.routeDebug?'Ocultar nodos':'Ver nodos';});
   bind('close',()=>{$('selection').hidden=true;});
   bind('reset',()=>{location.reload();});
