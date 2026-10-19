@@ -1,0 +1,48 @@
+name: C1-A visual integration QA
+on:
+  push:
+    branches: [integration/c1a-visual]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout integration branch
+        uses: actions/checkout@v4
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund
+      - name: Verify JS module syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          find public/official/src docs/art -type f -name '*.mjs' -print0 | xargs -0 -n1 node --check
+      - name: Map visual structural QA
+        run: node public/official/src/maps-visual/m01/qa.mjs
+      - name: Tower visual structural QA
+        run: node docs/art/towers/qa-t01.mjs
+      - name: Actor visual structural QA
+        run: node public/official/src/actors-visual/qa-p01.mjs
+      - name: Build Phaser public bundle
+        run: npm run build
+      - name: Check integrated scene and Phaser bundle paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/dependencias/phaser.min.js
+          test -s dist/official/src/c1-visual/index.html
+          test -s dist/official/src/c1-visual/scene.mjs
+          test -s dist/official/src/maps-visual/m01/renderer.mjs
+          test -s dist/official/src/towers-visual/catalog.mjs
+          test -s dist/official/art/towers/infantry/level-1.svg
+          test -s dist/official/src/actors-visual/gallery.mjs
+          test -s dist/official/data/maps.v5.json
+          echo 'PASS static+build (NOT browser render, mobile, gameplay or artistic QA)'
