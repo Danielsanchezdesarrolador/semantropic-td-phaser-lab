@@ -99,7 +99,7 @@ class Map01Official extends Phaser.Scene{
   for(const [id,object] of this.sprites)if(!seen.has(id)){object.destroy();this.sprites.delete(id);}
   syncHUD(m);
   if(state.routeDebug){this.pathDebug.clear();this.pathDebug.fillStyle(0x36ffff,.8);
-    for(const [i,p] of map.path.entries())if(i%4===0)this.pathDebug.fillCircle(p[0],p[1],3);
+    for(const [i,p] of m.map.path.entries())if(i%4===0)this.pathDebug.fillCircle(p[0],p[1],3);
   }else this.pathDebug.clear();
  }
 }
