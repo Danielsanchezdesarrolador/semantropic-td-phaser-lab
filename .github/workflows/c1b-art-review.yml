@@ -45,3 +45,18 @@ jobs:
             test -s "$f"
           done
           echo 'C1-B BUILD AND STRUCTURAL QA PASS; runtime WebGL2 and mobile still require browser.'
+      - name: Install Playwright Chromium for real WebGL2 QA
+        shell: bash
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Chromium integration browser QA and screenshots
+        run: node tools/qa-c1b-browser.mjs
+      - name: Upload screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1b-browser-evidence
+          path: artifacts/c1b-browser/
+          if-no-files-found: ignore
+          retention-days: 14
