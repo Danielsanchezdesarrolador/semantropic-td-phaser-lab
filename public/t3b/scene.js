@@ -31,7 +31,7 @@
    try{window.SemantropicT2CArt.add(this);}
    catch(err){$('block-message').textContent='No fue posible crear los recursos: '+err.message;setStatus(err.stack||String(err));return;}
    this.add.image(0,0,'officialMap').setOrigin(0,0).setDepth(-2000);
-   this.add.image(0,0,'t2c-land').setOrigin(0,0).setDepth(-1990);
+   this.add.image(0,0,'t2c-land').setOrigin(0,0).setDisplaySize(W,H).setDepth(-1990);
    this.vignette=this.add.graphics().setDepth(5000);this.vignette.lineStyle(9,0xf4e2a3,.14).strokeRoundedRect(5,5,1270,758,28);
    // six pads from official level; only 4 contain working tower examples
    for(const [x,y] of [[96,482],[389,484],[733,351],[989,221],[995,544],[1120,611]]){
