@@ -1,0 +1,169 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "owner": "P",
+  "status": "prototype",
+  "productionReadiness": "isolated-visual-test-not-approved",
+  "contracts": [
+    "actor-visual-v1",
+    "combat-events-v1",
+    "semantropic-assets-v1"
+  ],
+  "sourceFile": "public/official/art/actors/atlas-source.mjs",
+  "gallery": "public/official/src/actors-visual/index.html",
+  "note": "Los atlas se hornean una sola vez en Canvas 2D durante el arranque de la vitrina, se registran como texturas Phaser, y pueden exportarse a PNG desde la vitrina. PNG binarios preexportados no están versionados en este PR. NO son sprites de campaña integrados.",
+  "export": {
+    "format": "image/png",
+    "frameWidthPx": 176,
+    "frameHeightPx": 208,
+    "columns": 8,
+    "rows": 4,
+    "frameCount": 32,
+    "atlasWidthPx": 1408,
+    "atlasHeightPx": 832,
+    "origin": "creación vectorial original por Equipo P dentro de SEMANTROPIC TD",
+    "licenseStatus": "original-project-art-pending-director-approval",
+    "embeddedThirdPartySprites": false,
+    "sha256": null,
+    "hashNote": "Hash del PNG debe calcularse DESPUÉS de exportarlo. No simular hash de un archivo que aún no existe en repositorio."
+  },
+  "animations": [
+    {
+      "state": "idle",
+      "fps": 4,
+      "frames": 4,
+      "loop": true
+    },
+    {
+      "state": "walk",
+      "fps": 9,
+      "frames": 8,
+      "loop": true
+    },
+    {
+      "state": "attackWindup",
+      "fps": 8,
+      "frames": 3,
+      "loop": false
+    },
+    {
+      "state": "attack",
+      "fps": 12,
+      "frames": 5,
+      "loop": false
+    },
+    {
+      "state": "hit",
+      "fps": 12,
+      "frames": 3,
+      "loop": false
+    },
+    {
+      "state": "die",
+      "fps": 9,
+      "frames": 6,
+      "loop": false
+    },
+    {
+      "state": "blocked",
+      "fps": 8,
+      "frames": 3,
+      "loop": false
+    }
+  ],
+  "actors": [
+    {
+      "assetId": "actors/enemies/warrior/v1",
+      "canonicalId": "warrior",
+      "category": "actor",
+      "faction": "enemy",
+      "role": "melee",
+      "worldHeight": "91-world-units-prototype",
+      "sourceFile": "public/official/art/actors/atlas-source.mjs",
+      "atlasKey": "actors/enemies/warrior/v1",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "facing": [
+        "E",
+        "W-mirrored"
+      ],
+      "status": "prototype"
+    },
+    {
+      "assetId": "actors/enemies/hound/v1",
+      "canonicalId": "hound",
+      "category": "actor",
+      "faction": "enemy",
+      "role": "melee",
+      "worldHeight": "67-world-units-prototype",
+      "sourceFile": "public/official/art/actors/atlas-source.mjs",
+      "atlasKey": "actors/enemies/hound/v1",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "facing": [
+        "E",
+        "W-mirrored"
+      ],
+      "status": "prototype"
+    },
+    {
+      "assetId": "actors/allies/infantry-recruit/v1",
+      "canonicalId": "infantry_recruit",
+      "category": "actor",
+      "faction": "ally",
+      "role": "melee",
+      "worldHeight": "88-world-units-prototype",
+      "sourceFile": "public/official/art/actors/atlas-source.mjs",
+      "atlasKey": "actors/allies/infantry-recruit/v1",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "facing": [
+        "E",
+        "W-mirrored"
+      ],
+      "status": "prototype"
+    },
+    {
+      "assetId": "actors/allies/sniper-operator/v1",
+      "canonicalId": "sniper_operator",
+      "category": "actor",
+      "faction": "ally",
+      "role": "operator",
+      "worldHeight": "80-world-units-prototype",
+      "sourceFile": "public/official/art/actors/atlas-source.mjs",
+      "atlasKey": "actors/allies/sniper-operator/v1",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "facing": [
+        "E",
+        "W-mirrored"
+      ],
+      "status": "prototype"
+    }
+  ],
+  "gameplayAuthority": "core-only; no HP, damage, rewards, escape, movement physics, ally count or cooldowns in actor source",
+  "blocker": "Visual M01 scale, reactor event adapter, art approval and real device QA pending."
+}

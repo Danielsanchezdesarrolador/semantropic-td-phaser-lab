@@ -1,0 +1,32 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102c36"><title>SEMANTROPIC TD · C1-A · Integración visual M/T/P</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}
+html,body{height:100%;width:100%;margin:0;overflow:hidden;font-family:system-ui,sans-serif;background:#0c3039;color:#f5e2bf}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden}
+#stage{position:absolute;inset:0;display:flex;justify-content:center;align-items:center}
+#stage canvas{display:block;max-width:100%;max-height:100%;touch-action:manipulation}
+header{position:absolute;z-index:3;top:max(7px,env(safe-area-inset-top));left:max(9px,env(safe-area-inset-left));right:max(9px,env(safe-area-inset-right));display:flex;justify-content:space-between;gap:10px;pointer-events:none}
+.tag{background:#0d303fef;border:1px solid #dfc891;border-radius:10px;padding:8px 10px;max-width:52vw}
+.tag strong{font-size:15px;letter-spacing:1px}
+.tag span{font-size:11px;color:#b4d9d1;display:block}
+.controls{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;pointer-events:auto}
+button,select{color:#fbecc7;font-weight:750;background:#173a4ae8;border:1px solid #dbc58c;border-radius:8px;padding:7px 10px;min-height:42px;touch-action:manipulation}
+footer{position:absolute;z-index:4;bottom:max(6px,env(safe-area-inset-bottom));left:max(9px,env(safe-area-inset-left));right:max(9px,env(safe-area-inset-right));display:flex;justify-content:space-between;align-items:flex-end;gap:8px;pointer-events:none}
+#status{font-size:12px;background:#112d39e9;border:1px solid #7b9b95;border-radius:8px;padding:7px 10px;max-width:66vw}
+#selection{font-size:12px;background:#132f3cea;border:1px solid #b4ad87;border-radius:8px;padding:7px 10px;margin-bottom:4px;max-width:36vw}
+#backend{color:#afeedc}
+#portrait{display:none;position:absolute;inset:0;z-index:9;background:#102b35;align-items:center;justify-content:center;text-align:center;padding:20px;font-size:19px}
+@media(max-width:950px) and (orientation:landscape){.tag{padding:4px 7px}.tag strong{font-size:10px}.tag span{font-size:9px}.controls{gap:4px}button,select{font-size:10px;padding:4px 6px;min-height:38px}#status{font-size:9px;max-width:55vw}#selection{font-size:9px}}
+@media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
+</style></head><body><div id="app">
+ <div id="stage"></div>
+ <header><div class="tag"><strong>SEMANTROPIC TD · C1-A</strong><span>Mapas + Torres + Personajes · ESCENA VISUAL AISLADA</span><span>Motor: Phaser 4.2.1 · <span id="backend">Verificando WebGL2…</span></span></div>
+ <div class="controls"><select id="palette" aria-label="Paleta"><option value="equilibrada">Equilibrada</option><option value="viva">Viva</option><option value="atmosferica">Atmosférica</option></select><button id="sockets">Sockets</button><button id="pause">Ⅱ Pausa</button></div>
+ </header>
+ <footer><div id="status" role="status">Preparando escena conjunta de integración…</div><div><div id="selection">Esperando torres…</div><div class="controls"><button id="nextTower">Otra torre</button><button id="effect">Probar VFX</button></div></div></footer>
+ <div id="portrait">↻ Gira el teléfono. Esta escena se inspecciona en horizontal.</div>
+</div>
+<script src="../../../dependencias/phaser.min.js"></script>
+<script type="module" src="./scene.mjs"></script></body></html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#112c38">
+<title>Semantropic TD — Equipo P · Galería de personajes P-01</title>
+<style>
+:root{color-scheme:dark;--safeT:env(safe-area-inset-top,0px);--safeR:env(safe-area-inset-right,0px);--safeB:env(safe-area-inset-bottom,0px);--safeL:env(safe-area-inset-left,0px)}
+*{box-sizing:border-box}html,body{margin:0;height:100%;width:100%;overflow:hidden;overscroll-behavior:none}
+body{background:#102c35;color:#fff0cf;font:600 13px system-ui,sans-serif}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden}
+#stage{position:absolute;inset:0;display:flex;justify-content:center;align-items:center}
+#stage canvas{display:block;touch-action:none;max-width:100%;max-height:100%}
+#panel{position:absolute;z-index:10;top:calc(8px + var(--safeT));left:calc(8px + var(--safeL));right:calc(8px + var(--safeR));display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+#states,#controls,#files{pointer-events:auto;display:flex;gap:4px;align-items:center;justify-content:center;flex-wrap:wrap}
+button,select{border:1px solid #c8a973;border-radius:8px;background:#193b47eb;color:#f5e9cb;min-height:38px;padding:6px 10px;font:700 12px system-ui;touch-action:manipulation;cursor:pointer}
+button:hover,button:focus-visible,select:focus-visible{outline:2px solid #b4eee4;outline-offset:1px}
+button.active{background:#e4bd79;border-color:#fff0bd;color:#14323c}
+button:disabled{opacity:.5}
+#bottom{position:absolute;bottom:calc(8px + var(--safeB));left:calc(8px + var(--safeL));right:calc(8px + var(--safeR));z-index:11;display:flex;flex-direction:column;align-items:center;gap:5px;pointer-events:none}
+#bottom>*{pointer-events:auto}
+#status,#runtime{border:1px solid #7d9c94aa;border-radius:8px;padding:4px 9px;background:#123741ef;max-width:90vw;text-align:center;font-size:11px}
+#status.error{border-color:#ed9b88;color:#ffccb7}
+#runtime{font-size:10px;opacity:.89}
+#portrait{position:absolute;z-index:20;inset:0;display:none;align-items:center;justify-content:center;background:#102d37;color:#f4e0ad;text-align:center;padding:32px;font-size:20px}
+@media(orientation:portrait) and (max-width:850px){#portrait{display:flex}}
+@media(orientation:landscape) and (max-height:520px){
+ #panel{gap:3px;top:calc(2px + var(--safeT))}
+ button,select{min-height:32px;padding:3px 6px;font-size:10px}
+ #bottom{bottom:calc(3px + var(--safeB));gap:3px}
+ #status,#runtime{padding:2px 5px;font-size:9px}
+ #runtime{display:none}
+}
+</style></head>
+<body>
+<main id="app">
+ <div id="stage" aria-label="Lienzo Phaser de demostración visual de cuatro actores"></div>
+ <div id="panel">
+  <div id="states" aria-label="Estados de animación">
+   <button data-state="idle">Idle</button>
+   <button class="active" data-state="walk">Caminar</button>
+   <button data-state="attackWindup">Anticipar</button>
+   <button data-state="attack">Atacar</button>
+   <button data-state="hit">Impacto</button>
+   <button data-state="blocked">Bloqueo</button>
+   <button data-state="die">Caída</button>
+  </div>
+  <div id="controls" aria-label="Opciones visuales">
+   <button id="facing">Dirección: E</button>
+   <button id="pause">Ⅱ Pausar</button>
+   <button id="zoom">Zoom: 1.0×</button>
+   <button id="anchors">Mostrar anclajes</button>
+  </div>
+ </div>
+ <div id="bottom">
+  <div id="files">
+   <label for="actorSelect">Atlas:</label>
+   <select id="actorSelect">
+    <option value="warrior">Orco Guerrero</option>
+    <option value="hound">Perro de Caza</option>
+    <option value="infantry_recruit">Soldado Recluta</option>
+    <option value="sniper_operator">Operador Francotirador</option>
+   </select>
+   <button id="exportActor" disabled>Exportar PNG</button>
+   <button id="exportAll" disabled>Exportar 4 PNG</button>
+  </div>
+  <div id="status" role="status">Cargando galería visual...</div>
+  <div id="runtime">Atlas experimental · sin conexión al núcleo de combate · origen 100% original</div>
+ </div>
+ <div id="portrait">↻ Gira el teléfono a horizontal para inspeccionar el arte en escala de juego.</div>
+</main>
+<script src="../../../dependencias/phaser.min.js"></script>
+<script type="module" src="./gallery.mjs"></script>
+</body></html>

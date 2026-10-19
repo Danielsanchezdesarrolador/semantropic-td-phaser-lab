@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="Semantropic TD Infantería nivel 1; cuartel recluta original"><title>Semantropic TD · Cuartel Recluta</title><defs>
+ <linearGradient id="stone" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#e1dbca"/><stop offset=".34" stop-color="#a5ada5"/><stop offset=".76" stop-color="#566d77"/><stop offset="1" stop-color="#344857"/></linearGradient>
+ <linearGradient id="iron" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bfd5cf"/><stop offset=".25" stop-color="#7c9698"/><stop offset=".67" stop-color="#344f59"/><stop offset="1" stop-color="#162e3b"/></linearGradient>
+ <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d1a978"/><stop offset=".4" stop-color="#93734f"/><stop offset="1" stop-color="#4e413c"/></linearGradient>
+ <linearGradient id="roof" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#87b5ab"/><stop offset=".4" stop-color="#4c777a"/><stop offset="1" stop-color="#244957"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff3bf"/><stop offset=".4" stop-color="#e7be6d"/><stop offset="1" stop-color="#9b6833"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#fff2bf"/><stop offset=".4" stop-color="#88e2d7" stop-opacity=".92"/><stop offset="1" stop-color="#57b5c4" stop-opacity="0"/></radialGradient>
+ <filter id="shade" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="6"/></filter>
+ </defs><ellipse cx="182" cy="381" rx="118" ry="22" fill="#0b2a32" opacity=".35" filter="url(#shade)"/>
+ <path d="M68 337 177 294 301 340 189 390Z" fill="#263f49" stroke="#dcbf84" stroke-width="6"/>
+ <path d="M79 334 177 305 287 339 188 376Z" fill="url(#stone)" stroke="#455e61" stroke-width="3"/>
+ <path d="M81 340 188 379 285 342" fill="none" stroke="#162e3b" stroke-width="6"/>
+ <path d="M83 325 176 291 291 329" fill="none" stroke="#e9c682" stroke-width="4" opacity=".86"/>
+ <g fill="url(#gold)" stroke="#7c5b32" stroke-width="1.2"><circle cx="101" cy="343" r="5"/><circle cx="181" cy="369" r="5"/><circle cx="274" cy="342" r="5"/></g><path d="M107 161 177 123 259 165 253 313 180 344 105 311Z" fill="url(#stone)" stroke="#344b52" stroke-width="6"/>
+ <path d="M178 124 259 165 253 312 178 344Z" fill="#43606a" opacity=".32"/>
+ <path d="M114 177 175 146 250 183" fill="none" stroke="#f6df9f" stroke-width="7"/>
+ <path d="M105 295 178 328 254 297" fill="none" stroke="#233f4d" stroke-width="9"/>
+ <path d="M127 298V258Q129 219 179 213Q222 219 230 258V302L181 326Z" fill="#1b343c" stroke="url(#gold)" stroke-width="7"/>
+ <path d="M139 301v-42q4-27 39-32v91Z" fill="url(#wood)" stroke="#503d33" stroke-width="3"/>
+ <path d="M180 228q36 7 38 34v40l-37 16Z" fill="url(#wood)" stroke="#503d33" stroke-width="3"/>
+ <path d="M179 227v91" stroke="#f0ce8d" stroke-width="4"/>
+ <g fill="#f3d58d"><circle cx="167" cy="276" r="4"/><circle cx="194" cy="276" r="4"/></g><path d="M91 175 178 99 274 169 181 205Z" fill="url(#roof)" stroke="#224451" stroke-width="7"/>
+ <path d="M91 175 178 99 181 205Z" fill="#9dc4ad" opacity=".17"/>
+ <path d="M117 170 177 118 247 171" fill="none" stroke="#e8d18c" stroke-width="5"/>
+ <path d="M177 103 177 77" stroke="#e0bd7c" stroke-width="6"/>
+ <path d="M176 76 214 87 181 103Z" fill="#61a7a4" stroke="#d9d59b" stroke-width="3"/><g fill="url(#stone)" stroke="#364f5a" stroke-width="4" stroke-linejoin="round">
+ <path d="M102 188 126 180 132 305 105 317Z"/><path d="M249 169 273 184 262 316 241 322Z"/>
+ <path d="M92 177 124 170 124 191 94 202Z"/><path d="M244 167 278 178 276 201 244 193Z"/>
+ </g><g fill="url(#iron)" stroke="#c3d7c9" stroke-width="2">
+ <path d="M111 213h12v44h-12z"/><path d="M248 210h12v43h-12z"/></g>
+ <path d="M118 192v101M255 196v93" stroke="#e1c58d" stroke-width="3" opacity=".55"/>
+ <path d="M116 198V143l12-7v65" fill="url(#wood)" stroke="#453f39" stroke-width="4"/>
+ <path d="M251 194V143l-11-6v65" fill="url(#wood)" stroke="#453f39" stroke-width="4"/>
+ <path d="M126 140 126 101" stroke="#ad8358" stroke-width="6"/>
+ <path d="M127 101 153 112 128 122Z" fill="#64aaa5" stroke="#e1d08d" stroke-width="3"/><g transform="translate(182 207)">
+ <path d="M0-21 19-9 14 16 0 24-14 16-19-9Z" fill="url(#gold)" stroke="#506574" stroke-width="4"/>
+ <path d="M0-12 9 0 0 13-9 0Z" fill="#5c9daa" stroke="#eaf7d1" stroke-width="2"/>
+ </g>
+ <g fill="url(#gold)"><circle cx="115" cy="316" r="5"/><circle cx="246" cy="317" r="5"/></g>
+ <g opacity=".36" stroke="#294450" stroke-width="3"><path d="M112 239h18M237 240h14M115 279h15M236 278h14"/></g>
+ </svg>
