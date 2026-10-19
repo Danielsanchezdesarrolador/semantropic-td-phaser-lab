@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<meta name="theme-color" content="#112e37"><title>SEMANTROPIC TD · T3-B Propuesta C · Phaser</title>
+<style>
+:root{color-scheme:dark;--txt:#f6ebd4;--gold:#f7cf7c;--cyan:#a8f4e8;--edge:#64848a;--bg:#102b34;--safe-l:env(safe-area-inset-left,0px);--safe-r:env(safe-area-inset-right,0px);--safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;overscroll-behavior:none;touch-action:none}
+body{font:13px/1.35 'Trebuchet MS',system-ui,sans-serif;color:var(--txt);background:#143b3b}
+button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none}
+#app{position:relative;width:100vw;height:100dvh;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse,#537560 0%,#1e4546 80%)}
+#app:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,#8ab48c55,transparent 50%);z-index:-1;pointer-events:none}
+#stage{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+#stage canvas{touch-action:none;display:block;max-width:100%;max-height:100%;outline:0}
+.hud{position:absolute;z-index:18;left:calc(var(--safe-l) + 10px);top:calc(var(--safe-t) + 9px);right:calc(var(--safe-r) + 10px);display:flex;align-items:start;justify-content:space-between;gap:7px;pointer-events:none}
+.stats{display:flex;gap:5px;max-width:50vw;align-items:center}
+.pill{border:2px solid #e3c9909c;background:linear-gradient(#2d4b55ee,#0a202ef5);box-shadow:inset 0 1px 1px #a2d9c372,0 4px 12px #04131ca6;border-radius:11px;padding:5px 11px 6px;min-width:91px;text-align:center;white-space:nowrap}
+.pill small{display:block;font:750 9px/1.25 system-ui;letter-spacing:.09em;color:#bcd1ce;text-transform:uppercase}
+.pill strong{font-size:20px;font-variant-numeric:tabular-nums;font-weight:900}
+.pill.life strong{color:#ffb0a0}.pill.gold strong{color:#ffe29a}.pill.wave strong{color:#aff3e8}
+.right-hud{display:flex;align-items:center;justify-content:flex-end;gap:6px;pointer-events:auto}
+.mini,.action,.mode{border:1px solid #f3d6a3b0;background:linear-gradient(#315a60ef,#112d3cf5);color:#f9efdf;border-radius:10px;box-shadow:inset 0 1px 1px #8cbbb37d,0 3px 10px #0516228c;font-weight:850}
+.mini{min-width:51px;height:44px;padding:6px 10px}
+.mini:hover,.action:hover,.mode:hover{filter:brightness(1.15)}
+#backend{font-size:10px;color:#f4dc9d;background:#071c27d9;border:1px solid #6f9691b0;border-radius:6px;padding:6px 8px;white-space:nowrap}
+.dock{position:absolute;z-index:20;bottom:calc(var(--safe-b) + 11px);left:calc(var(--safe-l) + 10px);right:calc(var(--safe-r) + 10px);display:flex;align-items:end;justify-content:space-between;gap:10px;pointer-events:none}
+.dock button{pointer-events:auto}
+.action{height:49px;padding:8px 17px;min-width:120px}
+.action.primary{background:linear-gradient(#f3c773,#a76d35);color:#192c33;border-color:#ffecb8;font-weight:900}
+.action.primary:disabled{opacity:.58}
+.secondary{display:flex;gap:6px;align-items:center}
+.mode-stack{position:absolute;z-index:19;right:calc(var(--safe-r) + 11px);top:calc(var(--safe-t) + 68px);display:flex;flex-direction:column;gap:3px;pointer-events:auto}
+.mode{min-width:90px;min-height:34px;padding:4px 8px;font-size:10px;text-align:center}
+.mode.active{border:2px solid #f4d595;background:linear-gradient(#ba9756,#745b36)}
+#selected{position:absolute;z-index:28;left:calc(var(--safe-l) + 12px);bottom:calc(var(--safe-b) + 73px);width:min(340px,48vw);background:linear-gradient(#173c45f5,#071c2af7);border:2px solid #e0c58c;border-radius:12px;box-shadow:0 12px 35px #01121ecc;padding:12px 42px 12px 15px;display:none;pointer-events:auto;font-size:12px;line-height:1.45}
+#selected.open{display:block;animation:slideIn .13s ease-out}
+@keyframes slideIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+#closeCard{position:absolute;right:3px;top:3px;width:36px;height:36px;display:grid;place-items:center;color:#ffe8ae;background:#223d4c;border:1px solid #bfa878;border-radius:9px;font-weight:900}
+#selectedText{display:block}
+#brand{position:absolute;z-index:18;top:calc(var(--safe-t) + 67px);left:calc(var(--safe-l) + 12px);color:#fff0b6cc;text-shadow:0 2px 3px #0b1823;font-weight:900;font-size:10px;letter-spacing:.14em;pointer-events:none}
+#diagnostics{position:absolute;z-index:19;right:calc(var(--safe-r) + 9px);bottom:calc(var(--safe-b) + 72px);padding:7px 9px;border-radius:8px;background:#061b27d6;color:#d5e0db;border:1px solid #54807e;font-size:10px;text-align:right;line-height:1.4;pointer-events:none}
+#diagnostics b{color:#bce9df}
+#status{position:absolute;z-index:18;bottom:calc(var(--safe-b) + 75px);left:calc(var(--safe-l) + 10px);font-size:10px;color:#e1e6cc;background:#0b2532a8;border-radius:5px;padding:3px 6px;pointer-events:none;max-width:230px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#blocker{position:absolute;z-index:100;inset:0;background:#0d2431ed;display:grid;place-items:center;padding:20px;text-align:center}
+#blocker .message{max-width:490px;padding:18px 23px;background:#1a3c48;border:1px solid #e4c68a;border-radius:14px;color:#f9e2b2;font-size:20px}
+#block-message{display:block;color:#d1e1e0;font-size:13px;margin-top:9px}
+#portrait{display:none;position:absolute;z-index:120;inset:0;align-items:center;justify-content:center;flex-direction:column;background:#102a35;color:#ffe9b8;text-align:center;padding:25px;font-size:22px}
+#portrait small{color:#bfdedc;font-size:13px;margin-top:7px}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:950px) and (orientation:landscape){
+ .hud{left:calc(var(--safe-l) + 7px);right:calc(var(--safe-r) + 8px);top:calc(var(--safe-t) + 5px)}
+ .stats{gap:3px;max-width:48vw}.pill{min-width:66px;padding:3px 6px 4px;border-width:1px;border-radius:7px}.pill small{font-size:7px}.pill strong{font-size:13px}
+ .mini{min-width:42px;height:41px;padding:4px 6px;font-size:12px;border-radius:7px}
+ #backend{display:none}
+ .mode-stack{top:calc(var(--safe-t) + 52px);right:calc(var(--safe-r) + 7px);flex-direction:row;gap:3px}
+ .mode{font-size:9px;min-width:63px;min-height:29px;padding:3px 4px}
+ .dock{bottom:calc(var(--safe-b) + 6px);left:calc(var(--safe-l) + 7px);right:calc(var(--safe-r) + 7px)}
+ .action{height:43px;min-width:75px;padding:5px 9px;font-size:11px;border-radius:7px}
+ .secondary{gap:4px}
+ #selected{bottom:calc(var(--safe-b) + 58px);width:min(300px,47vw);padding:7px 37px 7px 9px;font-size:11px;max-height:min(35dvh,110px);overflow:auto}
+ #closeCard{width:32px;height:32px}
+ #diagnostics{display:none}#status{display:none}#brand{display:none}
+}
+@media(orientation:portrait) and (max-width:950px){#portrait{display:flex}}
+@media(prefers-reduced-motion:reduce){#selected.open{animation:none}}
+</style></head>
+<body><main id="app">
+<div id="stage" aria-label="Campo de batalla Phaser T3-B"></div>
+<div class="hud">
+ <div class="stats">
+  <div class="pill life"><small>♥ Núcleo</small><strong id="lives">100</strong></div>
+  <div class="pill gold"><small>◈ Oro</small><strong id="gold">350</strong></div>
+  <div class="pill wave"><small>⚑ Ola demo</small><strong id="wave">0 / 5</strong></div>
+ </div>
+ <div class="right-hud"><span id="backend">Verificando Phaser…</span><button class="mini" id="speed" aria-label="Velocidad de simulación">▶▶ x1</button><button class="mini" id="pause" aria-label="Pausar o reanudar">Ⅱ Pausa</button></div>
+</div>
+<div id="brand">SEMANTROPIC TD · T3-B · ARTE C (LABORATORIO)</div>
+<div class="mode-stack" aria-label="Dirección visual de los VFX">
+ <button class="mode" data-mode="tactical">TÁCTICO</button>
+ <button class="mode active" data-mode="balanced">EQUILIBRIO</button>
+ <button class="mode" data-mode="cinematic">ÉPICO</button>
+</div>
+<div class="dock"><button class="action primary" id="spawn">▶ INICIAR OLEADA</button><div class="secondary"><button class="action" id="restart">↺ Reiniciar</button></div></div>
+<div id="selected" role="dialog" aria-label="Torre seleccionada"><button id="closeCard" aria-label="Cerrar información de torre">✕</button><span id="selectedText">Toca una torre para inspeccionarla.</span></div>
+<div id="status" aria-live="polite">Carga inicial</div>
+<div id="diagnostics">Motor <b id="engine">pendiente</b><br>WebGL <b id="gl">sin verificar</b><br>Enemigos <b id="enemies">0 activos</b><span id="log" class="sr-only"></span></div>
+<div id="blocker"><div class="message">Preparando la Guardia del Amanecer…<span id="block-message">Cargando Phaser 4, el paisaje original y los personajes de T3-B.</span></div></div>
+<div id="portrait">↻ Gira el teléfono<small>SEMANTROPIC TD T3-B se juega en horizontal. La escena se pausa al cambiar la orientación.</small></div>
+</main>
+<script>
+(function(){
+const sel=document.getElementById('selected'), text=document.getElementById('selectedText');
+const proxy=new MutationObserver(()=>{
+ // scene.js still uses original target innerHTML; recover the close control after each selection
+ const scene=window.__semantropicT3B;
+ if(sel.classList.contains('open')&&!document.getElementById('closeCard')){
+  const b=document.createElement('button');b.id='closeCard';b.textContent='✕';b.setAttribute('aria-label','Cerrar ficha de torre');sel.prepend(b);
+ }
+});
+proxy.observe(sel,{childList:true});
+sel.addEventListener('click',e=>{if(e.target.closest('#closeCard')){e.stopPropagation();window.__semantropicT3B?.closeSelection?.();}});
+const pauseForPortrait=()=>{const active=window.matchMedia('(orientation:portrait) and (max-width:950px)').matches;const s=window.__semantropicT3B;if(!s)return;if(active&&!s.paused){s.paused=true;s._rotationPaused=true}else if(!active&&s._rotationPaused){s.paused=false;s._rotationPaused=false;}};
+window.addEventListener('resize',pauseForPortrait);window.addEventListener('orientationchange',pauseForPortrait);
+window.addEventListener('keydown',e=>{if(e.key==='Escape')window.__semantropicT3B?.closeSelection?.();});
+})();
+</script>
+<script src="../dependencias/phaser.min.js"></script><script src="../t2c/art.js"></script><script src="art-c.js"></script><script src="scene.js"></script>
+</body></html>
