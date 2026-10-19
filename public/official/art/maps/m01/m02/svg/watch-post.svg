@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 305" width="250" height="305" fill="none" role="img" aria-label="Original Semantropic TD environment illustration">
+<defs>
+<linearGradient id="stone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#eee2bd"/><stop offset=".36" stop-color="#afbea8"/><stop offset=".7" stop-color="#829c98"/><stop offset="1" stop-color="#4b6e75"/></linearGradient>
+<linearGradient id="wood" x1=".12" y1=".1" x2="1" y2="1"><stop stop-color="#ddaa65"/><stop offset=".4" stop-color="#966c45"/><stop offset="1" stop-color="#614d42"/></linearGradient>
+<linearGradient id="copper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffe2a0"/><stop offset=".38" stop-color="#c6a167"/><stop offset="1" stop-color="#6a716c"/></linearGradient>
+<linearGradient id="leaf" x1=".05" y1="0" x2=".9" y2="1"><stop stop-color="#b2d97d"/><stop offset=".4" stop-color="#68a96a"/><stop offset="1" stop-color="#337866"/></linearGradient>
+<linearGradient id="leaf2" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#a0d898"/><stop offset=".42" stop-color="#478e7b"/><stop offset="1" stop-color="#28635d"/></linearGradient>
+<linearGradient id="aether" x1="0" y1="0" x2=".65" y2="1"><stop stop-color="#e5ffeb"/><stop offset=".25" stop-color="#8deee0"/><stop offset=".72" stop-color="#59bdbd"/><stop offset="1" stop-color="#3c7f98"/></linearGradient>
+<radialGradient id="soft"><stop stop-color="#cbfff1" stop-opacity=".76"/><stop offset=".5" stop-color="#8cecd8" stop-opacity=".22"/><stop offset="1" stop-color="#72cbce" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="125" cy="281" rx="105" ry="21" fill="#133f43" opacity=".26"/>
+<!-- one-of-a-kind abandoned beacon outpost; layered stone 3/4 isometric silhouette -->
+<path d="M38 248 112 220 213 243 138 282Z" fill="#3f6966" stroke="#36535c" stroke-width="5"/>
+<path d="M38 232 112 206 213 232 138 264Z" fill="url(#stone)" stroke="#375d65" stroke-width="5"/>
+<path d="m48 235 83 28 78-27" stroke="#fbebc2" stroke-width="3" opacity=".7"/>
+<path d="M75 139 129 115 178 134 177 230 127 252 76 231Z" fill="url(#stone)" stroke="#355869" stroke-width="6"/>
+<path d="m129 115 49 19-1 96-50 22Z" fill="#587e88" opacity=".8"/>
+<path d="M95 161 126 148 158 160 157 207 124 221 94 208Z" fill="#254c59" stroke="#dfc58b" stroke-width="4"/>
+<path d="M108 197v-28l17-9 18 9v28l-18 10Z" fill="#83d4c7" opacity=".52"/>
+<path d="m118 164 7 20 8-20" stroke="#ecfcdb" stroke-width="4"/>
+<path d="M58 143 123 94 190 142 173 162 122 119 73 166Z" fill="#3d6d6a" stroke="#264c55" stroke-width="6"/>
+<path d="m66 141 57-41 58 41-11 11-48-36-45 39Z" fill="url(#wood)" stroke="#755b46" stroke-width="2"/>
+<path d="m119 96 3-23 7 0 3 24" stroke="#e9d6a1" stroke-width="4"/>
+<path d="m123 75-9-13 18-4 11 15" fill="#d9bd7e" stroke="#526365" stroke-width="3"/>
+<!-- rich carpentry -->
+<path d="M84 151v72m85-69v77M85 209l84-1M86 176l82-1" stroke="#6b5b47" stroke-width="8"/>
+<path d="m83 151 84 2M84 210l85-2" stroke="#e7ca91" stroke-width="3"/>
+<path d="M59 163v55M55 171l-23 6 3 38 25-5Z" fill="url(#wood)" stroke="#38545b" stroke-width="4"/>
+<path d="m40 183 13 6-10 11" stroke="#c7f5e5" stroke-width="4"/>
+<!-- oxidized signal dish -->
+<path d="M144 71q31-14 44-44 6 44-21 64Z" fill="url(#copper)" stroke="#3d6670" stroke-width="5"/>
+<path d="m165 80 30-10 6-14" stroke="#5d7774" stroke-width="5"/>
+<circle cx="192" cy="53" r="22" fill="url(#soft)"/><circle cx="192" cy="53" r="6" fill="url(#aether)" stroke="#ebffe2" stroke-width="2"/>
+<path d="M66 222h121" stroke="#e6d6a6" stroke-width="2" opacity=".6"/>
+<path d="M47 262q16-12 27-8m115-5q15-1 24 8" stroke="#709e7d" stroke-width="8" stroke-linecap="round"/>
+</svg>

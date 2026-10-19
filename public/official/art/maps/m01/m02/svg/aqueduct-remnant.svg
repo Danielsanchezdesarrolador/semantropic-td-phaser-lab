@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 322 216" width="322" height="216" fill="none" role="img" aria-label="Original Semantropic TD environment illustration">
+<defs>
+<linearGradient id="stone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#eee2bd"/><stop offset=".36" stop-color="#afbea8"/><stop offset=".7" stop-color="#829c98"/><stop offset="1" stop-color="#4b6e75"/></linearGradient>
+<linearGradient id="wood" x1=".12" y1=".1" x2="1" y2="1"><stop stop-color="#ddaa65"/><stop offset=".4" stop-color="#966c45"/><stop offset="1" stop-color="#614d42"/></linearGradient>
+<linearGradient id="copper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffe2a0"/><stop offset=".38" stop-color="#c6a167"/><stop offset="1" stop-color="#6a716c"/></linearGradient>
+<linearGradient id="leaf" x1=".05" y1="0" x2=".9" y2="1"><stop stop-color="#b2d97d"/><stop offset=".4" stop-color="#68a96a"/><stop offset="1" stop-color="#337866"/></linearGradient>
+<linearGradient id="leaf2" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#a0d898"/><stop offset=".42" stop-color="#478e7b"/><stop offset="1" stop-color="#28635d"/></linearGradient>
+<linearGradient id="aether" x1="0" y1="0" x2=".65" y2="1"><stop stop-color="#e5ffeb"/><stop offset=".25" stop-color="#8deee0"/><stop offset=".72" stop-color="#59bdbd"/><stop offset="1" stop-color="#3c7f98"/></linearGradient>
+<radialGradient id="soft"><stop stop-color="#cbfff1" stop-opacity=".76"/><stop offset=".5" stop-color="#8cecd8" stop-opacity=".22"/><stop offset="1" stop-color="#72cbce" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="169" cy="191" rx="147" ry="17" fill="#1b5050" opacity=".28"/>
+<!-- Broken miniature aqueduct: open arch means visual storytelling, NOT collision -->
+<path d="m27 177 17-74 32-16 48 4 15 72-13 24-93 8Z" fill="url(#stone)" stroke="#4a6b6b" stroke-width="6"/>
+<path d="m194 161 19-81 37-11 47 28 10 69-24 26-92-7Z" fill="url(#stone)" stroke="#4b676e" stroke-width="6"/>
+<path d="M93 161q10-61 66-69 59 7 70 70l-29-2q-6-35-42-38-38 1-43 42Z" fill="url(#stone)" stroke="#536d72" stroke-width="5"/>
+<path d="m31 99 28-21 230-6 19 26-33 15-204-8Z" fill="#678a88" stroke="#456774" stroke-width="5"/>
+<path d="m42 85 32-20 211-4 21 23-32 8-202 4Z" fill="#d7d4ad" stroke="#5c7c75" stroke-width="4"/>
+<path d="m53 77 29-5m32-3 33 1m38-4 38 2m45-6 17 8" stroke="#f7e7c1" stroke-width="3"/>
+<path d="m74 106-5 71m34-70-4 54m127-60 5 65m37-55 5 62" stroke="#476c70" stroke-width="4"/>
+<path d="m66 132 33-1m126 0 34-2M91 159l21-6m133 15 32-4" stroke="#f3e1bb" stroke-width="2" opacity=".85"/>
+<path d="m294 70-13-10-11 3 6-21 19 3 6 13" fill="#97aca0" stroke="#557476" stroke-width="3"/>
+<path d="m19 177 15-12 25 19m223-7 25-20" stroke="#5b9175" stroke-width="10" stroke-linecap="round"/>
+<path d="m47 188 19-7 12 9m180 0 27-3" stroke="#94ba86" stroke-width="7" stroke-linecap="round"/>
+<path d="m144 91 15-14 14 14" stroke="#d8ab69" stroke-width="3"/>
+</svg>

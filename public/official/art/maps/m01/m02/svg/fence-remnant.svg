@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246 118" width="246" height="118" fill="none" role="img" aria-label="Original Semantropic TD environment illustration">
+<defs>
+<linearGradient id="stone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#eee2bd"/><stop offset=".36" stop-color="#afbea8"/><stop offset=".7" stop-color="#829c98"/><stop offset="1" stop-color="#4b6e75"/></linearGradient>
+<linearGradient id="wood" x1=".12" y1=".1" x2="1" y2="1"><stop stop-color="#ddaa65"/><stop offset=".4" stop-color="#966c45"/><stop offset="1" stop-color="#614d42"/></linearGradient>
+<linearGradient id="copper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffe2a0"/><stop offset=".38" stop-color="#c6a167"/><stop offset="1" stop-color="#6a716c"/></linearGradient>
+<linearGradient id="leaf" x1=".05" y1="0" x2=".9" y2="1"><stop stop-color="#b2d97d"/><stop offset=".4" stop-color="#68a96a"/><stop offset="1" stop-color="#337866"/></linearGradient>
+<linearGradient id="leaf2" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#a0d898"/><stop offset=".42" stop-color="#478e7b"/><stop offset="1" stop-color="#28635d"/></linearGradient>
+<linearGradient id="aether" x1="0" y1="0" x2=".65" y2="1"><stop stop-color="#e5ffeb"/><stop offset=".25" stop-color="#8deee0"/><stop offset=".72" stop-color="#59bdbd"/><stop offset="1" stop-color="#3c7f98"/></linearGradient>
+<radialGradient id="soft"><stop stop-color="#cbfff1" stop-opacity=".76"/><stop offset=".5" stop-color="#8cecd8" stop-opacity=".22"/><stop offset="1" stop-color="#72cbce" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="123" cy="107" rx="112" ry="9" fill="#1e5549" opacity=".3"/>
+<path d="M25 96 30 30l16-13 12 11-5 71m52 4 3-71 17-13 11 14-4 71m63-3 5-69 16-15 11 13-3 74" fill="url(#wood)" stroke="#3f5b56" stroke-width="4"/>
+<path d="m46 52 62 3 90-8m-150 35 61 1 90-10" stroke="#664e3f" stroke-width="16"/>
+<path d="m46 48 62 2 90-8m-150 36 61 1 90-10" stroke="#e5b476" stroke-width="6"/>
+<path d="m21 92 14-10m25 11 15-5m118 1 22-7" stroke="#8eaf7e" stroke-width="8" stroke-linecap="round"/>
+<path d="m33 23 13 10m63-6 14 8m80-6 12 10" stroke="#f3d7a0" stroke-width="3"/>
+</svg>
