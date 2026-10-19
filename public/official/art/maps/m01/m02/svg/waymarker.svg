@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 191" width="130" height="191" fill="none" role="img" aria-label="Original Semantropic TD environment illustration">
+<defs>
+<linearGradient id="stone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#eee2bd"/><stop offset=".36" stop-color="#afbea8"/><stop offset=".7" stop-color="#829c98"/><stop offset="1" stop-color="#4b6e75"/></linearGradient>
+<linearGradient id="wood" x1=".12" y1=".1" x2="1" y2="1"><stop stop-color="#ddaa65"/><stop offset=".4" stop-color="#966c45"/><stop offset="1" stop-color="#614d42"/></linearGradient>
+<linearGradient id="copper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffe2a0"/><stop offset=".38" stop-color="#c6a167"/><stop offset="1" stop-color="#6a716c"/></linearGradient>
+<linearGradient id="leaf" x1=".05" y1="0" x2=".9" y2="1"><stop stop-color="#b2d97d"/><stop offset=".4" stop-color="#68a96a"/><stop offset="1" stop-color="#337866"/></linearGradient>
+<linearGradient id="leaf2" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#a0d898"/><stop offset=".42" stop-color="#478e7b"/><stop offset="1" stop-color="#28635d"/></linearGradient>
+<linearGradient id="aether" x1="0" y1="0" x2=".65" y2="1"><stop stop-color="#e5ffeb"/><stop offset=".25" stop-color="#8deee0"/><stop offset=".72" stop-color="#59bdbd"/><stop offset="1" stop-color="#3c7f98"/></linearGradient>
+<radialGradient id="soft"><stop stop-color="#cbfff1" stop-opacity=".76"/><stop offset=".5" stop-color="#8cecd8" stop-opacity=".22"/><stop offset="1" stop-color="#72cbce" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="66" cy="177" rx="47" ry="10" fill="#1a5051" opacity=".34"/>
+<path d="m57 180 6-145 14-2-3 145" fill="url(#wood)" stroke="#485451" stroke-width="5"/>
+<path d="M19 65 64 44l53 8-24 26-43 8-30-9Z" fill="url(#copper)" stroke="#4d5f60" stroke-width="4"/>
+<path d="M22 69 64 54l41 2-15 13-40 10Z" fill="#e2d8aa"/>
+<path d="M61 61 82 59m-37 12 12-5" stroke="#517f82" stroke-width="4" stroke-linecap="round"/>
+<path d="M39 110 68 94l43 9-22 23-46 5-16-11Z" fill="url(#wood)" stroke="#445e5d" stroke-width="4"/>
+<path d="m49 117 33-9m-23 16 25-8" stroke="#e5cb97" stroke-width="3"/>
+<path d="m58 27 11-19 12 19" fill="#83b8ba" stroke="#375a63" stroke-width="4"/>
+<path d="M39 165q16-9 26 5m7 0q12-13 29-7" stroke="#69a779" stroke-width="6" stroke-linecap="round"/>
+<circle cx="70" cy="34" r="4" fill="#94e8de"/>
+</svg>
