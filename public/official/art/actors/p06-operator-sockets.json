@@ -1,0 +1,372 @@
+{
+  "schemaVersion": "p06-operator-grip-v1",
+  "date": "2026-10-20",
+  "status": "proposed-needs-montage",
+  "canonicalId": "sniper_operator",
+  "presentationVariant": "sniper_operator_unarmed",
+  "atlasKey": "actors/allies/sniper-operator/v1/p06-unarmed",
+  "frameSize": {
+    "width": 176,
+    "height": 208
+  },
+  "worldHeightProposal": 80,
+  "footAnchor": {
+    "x": 0.5,
+    "y": 0.92
+  },
+  "shadowAnchor": {
+    "x": 0.5,
+    "y": 1
+  },
+  "gunOwner": "T07",
+  "visualMuzzleFromP": null,
+  "containsRifle": false,
+  "coordinateSpace": "pixel-center within 176x208 source cell; E/W horizontal mirror via x'=176-x",
+  "poses": {
+    "idle": {
+      "facingE": {
+        "handGripLocal": {
+          "x": 109,
+          "y": 101
+        },
+        "offHandLocal": {
+          "x": 68,
+          "y": 107
+        },
+        "eyeFocusLocal": {
+          "x": 78,
+          "y": 35
+        },
+        "shoulderLocal": {
+          "x": 112,
+          "y": 80
+        },
+        "pelvisLocal": {
+          "x": 88,
+          "y": 127
+        },
+        "footPivot": {
+          "x": 88,
+          "y": 191
+        },
+        "headBoundsLocal": {
+          "x": 65,
+          "y": 7,
+          "width": 46,
+          "height": 56
+        }
+      },
+      "facingW": "mirror x about 88 (do not change phase)",
+      "recoilPhase": null,
+      "requiresClipMask": false,
+      "role": "idle"
+    },
+    "walk": {
+      "facingE": {
+        "handGripLocal": {
+          "x": 109,
+          "y": 101
+        },
+        "offHandLocal": {
+          "x": 68,
+          "y": 107
+        },
+        "eyeFocusLocal": {
+          "x": 78,
+          "y": 35
+        },
+        "shoulderLocal": {
+          "x": 112,
+          "y": 80
+        },
+        "pelvisLocal": {
+          "x": 88,
+          "y": 127
+        },
+        "footPivot": {
+          "x": 88,
+          "y": 191
+        },
+        "headBoundsLocal": {
+          "x": 65,
+          "y": 7,
+          "width": 46,
+          "height": 56
+        }
+      },
+      "facingW": "mirror x about 88 (do not change phase)",
+      "recoilPhase": null,
+      "requiresClipMask": false,
+      "role": "SHOWROOM ONLY - tower operator is stationary"
+    },
+    "attackWindup": {
+      "facingE": {
+        "handGripLocal": {
+          "x": 109,
+          "y": 93
+        },
+        "offHandLocal": {
+          "x": 68,
+          "y": 99
+        },
+        "eyeFocusLocal": {
+          "x": 78,
+          "y": 35
+        },
+        "shoulderLocal": {
+          "x": 112,
+          "y": 80
+        },
+        "pelvisLocal": {
+          "x": 88,
+          "y": 127
+        },
+        "footPivot": {
+          "x": 88,
+          "y": 191
+        },
+        "headBoundsLocal": {
+          "x": 65,
+          "y": 7,
+          "width": 46,
+          "height": 56
+        }
+      },
+      "facingW": "mirror x about 88 (do not change phase)",
+      "recoilPhase": null,
+      "requiresClipMask": true,
+      "role": "attackWindup"
+    },
+    "attack": {
+      "facingE": {
+        "handGripLocal": {
+          "x": 109,
+          "y": 96
+        },
+        "offHandLocal": {
+          "x": 68,
+          "y": 102
+        },
+        "eyeFocusLocal": {
+          "x": 78,
+          "y": 35
+        },
+        "shoulderLocal": {
+          "x": 112,
+          "y": 80
+        },
+        "pelvisLocal": {
+          "x": 88,
+          "y": 127
+        },
+        "footPivot": {
+          "x": 88,
+          "y": 191
+        },
+        "headBoundsLocal": {
+          "x": 65,
+          "y": 7,
+          "width": 46,
+          "height": 56
+        }
+      },
+      "facingW": "mirror x about 88 (do not change phase)",
+      "recoilPhase": [
+        0,
+        0.2,
+        0.7,
+        0.45,
+        0
+      ],
+      "requiresClipMask": true,
+      "role": "attack"
+    },
+    "hit": {
+      "facingE": {
+        "handGripLocal": {
+          "x": 109,
+          "y": 101
+        },
+        "offHandLocal": {
+          "x": 68,
+          "y": 107
+        },
+        "eyeFocusLocal": {
+          "x": 78,
+          "y": 35
+        },
+        "shoulderLocal": {
+          "x": 112,
+          "y": 80
+        },
+        "pelvisLocal": {
+          "x": 88,
+          "y": 127
+        },
+        "footPivot": {
+          "x": 88,
+          "y": 191
+        },
+        "headBoundsLocal": {
+          "x": 65,
+          "y": 7,
+          "width": 46,
+          "height": 56
+        }
+      },
+      "facingW": "mirror x about 88 (do not change phase)",
+      "recoilPhase": null,
+      "requiresClipMask": false,
+      "role": "hit"
+    },
+    "blocked": {
+      "facingE": {
+        "handGripLocal": {
+          "x": 109,
+          "y": 101
+        },
+        "offHandLocal": {
+          "x": 68,
+          "y": 107
+        },
+        "eyeFocusLocal": {
+          "x": 78,
+          "y": 35
+        },
+        "shoulderLocal": {
+          "x": 112,
+          "y": 80
+        },
+        "pelvisLocal": {
+          "x": 88,
+          "y": 127
+        },
+        "footPivot": {
+          "x": 88,
+          "y": 191
+        },
+        "headBoundsLocal": {
+          "x": 65,
+          "y": 7,
+          "width": 46,
+          "height": 56
+        }
+      },
+      "facingW": "mirror x about 88 (do not change phase)",
+      "recoilPhase": null,
+      "requiresClipMask": false,
+      "role": "SHOWROOM ONLY - infantry/melee blocking not C1-D2 core"
+    },
+    "die": {
+      "facingE": {
+        "handGripLocal": {
+          "x": 109,
+          "y": 101
+        },
+        "offHandLocal": {
+          "x": 68,
+          "y": 107
+        },
+        "eyeFocusLocal": {
+          "x": 78,
+          "y": 35
+        },
+        "shoulderLocal": {
+          "x": 112,
+          "y": 80
+        },
+        "pelvisLocal": {
+          "x": 88,
+          "y": 127
+        },
+        "footPivot": {
+          "x": 88,
+          "y": 191
+        },
+        "headBoundsLocal": {
+          "x": 65,
+          "y": 7,
+          "width": 46,
+          "height": 56
+        }
+      },
+      "facingW": "mirror x about 88 (do not change phase)",
+      "recoilPhase": null,
+      "requiresClipMask": false,
+      "role": "die"
+    }
+  },
+  "t07SourceReadOnly": {
+    "level1": {
+      "operatorAnchorLocal": {
+        "x": 185,
+        "y": 204
+      },
+      "stockGripLocal": {
+        "x": 205,
+        "y": 184
+      },
+      "opticalFocusLocal": {
+        "x": 248,
+        "y": 162
+      },
+      "recoilPivotLocal": {
+        "x": 235,
+        "y": 199
+      },
+      "muzzleLocal": {
+        "x": 321,
+        "y": 174
+      },
+      "worldScaleProposal": 0.318
+    },
+    "level2": {
+      "operatorAnchorLocal": {
+        "x": 185,
+        "y": 206
+      },
+      "stockGripLocal": {
+        "x": 209,
+        "y": 182
+      },
+      "opticalFocusLocal": {
+        "x": 258,
+        "y": 154
+      },
+      "recoilPivotLocal": {
+        "x": 245,
+        "y": 191
+      },
+      "muzzleLocal": {
+        "x": 330,
+        "y": 171
+      },
+      "worldScaleProposal": 0.328
+    }
+  },
+  "knownMismatch": {
+    "actorScaleGuess": 0.4678362573099415,
+    "operatorHandWorldOffsetProposal": {
+      "x": 9.82456140350877,
+      "y": -42.10526315789473
+    },
+    "towerLevel1StockRelativeWorld": {
+      "x": 6.36,
+      "y": -6.36
+    },
+    "towerLevel2StockRelativeWorld": {
+      "x": 7.872,
+      "y": -7.872
+    },
+    "conclusion": "Source-relative hand and stock differ substantially if an 80-world-unit full-body actor is scaled into T07 deck. Do not assert aligned, do not hide entire actor or alter tower. Integrator/T07 decide revised scale/slot/art, then validate real render.",
+    "blocker": true
+  },
+  "ownership": {
+    "core": "Integrator",
+    "towerGun": "Equipo T07",
+    "actorRig": "Equipo P06",
+    "worldPosition": "Integrator",
+    "projectiles": "Core/T07"
+  },
+  "readOnly": true
+}
