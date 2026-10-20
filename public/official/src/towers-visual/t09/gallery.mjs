@@ -119,7 +119,10 @@ class Showroom extends Phaser.Scene{
 }
 try{
  if(!window.Phaser||Phaser.VERSION!=='4.2.1')throw Error('Requiere Phaser 4.2.1');
- new Phaser.Game({type:Phaser.WEBGL,width:W,height:H,parent:'stage',backgroundColor:'#86ad8b',
+ const canvas=document.createElement('canvas');
+ const gl=canvas.getContext('webgl2',{antialias:true});
+ if(!gl)throw Error('No hay WebGL2 disponible para la galería T09');
+ new Phaser.Game({type:Phaser.WEBGL,canvas,context:gl,width:W,height:H,parent:'stage',backgroundColor:'#86ad8b',
   scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH,width:W,height:H},
   audio:{noAudio:true},scene:[Showroom]});
  const listen=(id,cb)=>$(id).addEventListener('click',cb);
