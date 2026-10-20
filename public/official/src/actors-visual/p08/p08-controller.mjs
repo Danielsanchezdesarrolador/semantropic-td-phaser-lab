@@ -68,9 +68,11 @@ export class P08AnimationController{
   if(t==='soldier_removed'){this.entities.delete(id);return true;}
   let info=typeof visualEntityLookup==='function'?visualEntityLookup(id):null;
   if(!info||typeof info!=='object')info={};
-  const isSoldier=t.startsWith('soldier_');
-  const m=this.ensure(id,{kind:info.kind||(isSoldier?'infantry_recruit':t.startsWith('enemy_')?'warrior':undefined),
-   level:info.level||e.level||1});
+  const isSoldier=t.startsWith('soldier_'),prior=this.entities.get(id);
+  // Events like soldier_die/respawn do not carry level: preserve level II!
+  const m=this.ensure(id,{kind:info.kind||prior?.kind||
+    (isSoldier?'infantry_recruit':t.startsWith('enemy_')?'warrior':undefined),
+   level:info.level||e.level||prior?.level||1});
   m.lastEventTick=e.tick??m.lastEventTick;
   if(t==='soldier_spawn'||t==='soldier_respawn'||t==='spawn'){
    m.generation++;m.dead=false;m.escaping=false;m.pendingTarget=null;m.blocked=false;
