@@ -1,0 +1,50 @@
+name: C1-D3 Infantry M01 — real gameplay & WebGL2
+on:
+  push:
+    branches:
+      - feature/integrator-c1d3-infantry-m01
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  infantry-real:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Syntax / protected V5 source parity / D2 regression
+        run: |
+          node --check public/official/src/core-c1d/m01-infantry-combat.mjs
+          node --check public/official/src/c1d3-combat/scene.mjs
+          node --check tools/qa-c1d3-infantry.mjs
+          node --check tools/qa-c1d3-browser.mjs
+          node tools/qa-c1d2-sniper-parity.mjs
+          node tools/qa-c1d2-combat.mjs
+          node tools/qa-c1d2-five-waves.mjs | tee c1d2-baseline-qa.txt
+          node tools/qa-c1d3-infantry.mjs | tee c1d3-infantry-node-qa.txt
+      - name: Build full Phaser 4.2.1
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Chromium / Playwright
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Browser C1-D3 + D2 regression
+        run: |
+          node tools/qa-c1d2-browser.mjs
+          node tools/qa-c1d3-browser.mjs
+      - name: Retain proof, not assumed approval
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1d3-first-infantry-build
+          path: |
+            c1d2-baseline-qa.txt
+            c1d3-infantry-node-qa.txt
+            artifacts/c1d2-browser/
+            artifacts/c1d3-browser/
+          if-no-files-found: warn
