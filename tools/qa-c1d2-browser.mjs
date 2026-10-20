@@ -21,9 +21,10 @@ try{
  for(const [tag,width,height] of [["desktop",1280,768],["landscape844",844,390],["landscape932",932,430]]){
   const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1,isMobile:width<950});
   const errors=[];page.on("pageerror",e=>errors.push(e.message));
-  await page.goto(URL,{waitUntil:"load",timeout:30000});
+  const response=await page.goto(URL,{waitUntil:"load",timeout:30000});
+  if(!response||response.status()!==200)throw Error(tag+" HTTP "+response?.status()+" "+URL+" content="+(await page.content()).slice(0,500));
   try{await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D2?.scene,{timeout:45000});}
-  catch{throw Error(tag+" initialization failed "+await page.locator("#feedback").textContent()+" "+errors.join(","));}
+  catch{throw Error(tag+" initialization failed url="+page.url()+" html="+(await page.content()).slice(0,500)+" errors="+errors.join(","));}
   const initial=await page.evaluate(()=>{
    const g=window.__SEMANTROPIC_C1D2;
    return {webgl2:g.scene.game.renderer.gl instanceof WebGL2RenderingContext,
