@@ -195,14 +195,52 @@ function pngChunk(label,data){
  const type=[...label].map(c=>c.charCodeAt(0)),arr=[...type,...data];
  return [...u32(data.length),...arr,...u32(crc32(arr))];
 }
-function deflateStored(bytes){
+function deflateFixed(bytes){
+ // Standards-compliant single fixed-Huffman DEFLATE block (RFC 1951).
+ // LZ77 checks distance 1 / 4 / preceding scanline to compress flat-color art.
  const out=[0x78,0x01];
- for(let off=0;off<bytes.length;){
-  const n=Math.min(65535,bytes.length-off),last=off+n===bytes.length;
-  out.push(last?1:0,n&255,n>>>8&255,(~n)&255,(~n>>>8)&255);
-  for(let i=off;i<off+n;i++)out.push(bytes[i]);off+=n;
+ let bits=0,used=0;
+ const put=(value,count)=>{for(let j=0;j<count;j++){
+  bits|=((value>>>j)&1)<<used;if(++used===8){out.push(bits);bits=0;used=0;}
+ }};
+ const rev=(code,len)=>{let v=0;for(let j=0;j<len;j++){v=(v<<1)|(code&1);code>>>=1;}return v;};
+ const symbol=n=>{
+  let code,len;
+  if(n<=143){code=48+n;len=8}
+  else if(n<=255){code=400+n-144;len=9}
+  else if(n<=279){code=n-256;len=7}
+  else {code=192+n-280;len=8}
+  put(rev(code,len),len);
+ };
+ const LBASE=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258];
+ const LEXTRA=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0];
+ const DBASE=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577];
+ const DEXTRA=[0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
+ const match=(n,d)=>{
+  let j=0;for(;j<28;j++)if(n>=LBASE[j]&&n< LBASE[j+1])break;
+  symbol(257+j);if(LEXTRA[j])put(n-LBASE[j],LEXTRA[j]);
+  let k=0;for(;k<29;k++)if(d>=DBASE[k]&&d<DBASE[k+1])break;
+  put(rev(k,5),5);if(DEXTRA[k])put(d-DBASE[k],DEXTRA[k]);
+ };
+ put(1,1);put(1,2); // BFINAL=1, BTYPE=01 (fixed codes).
+ const width=P06_FRAME.width*P06_FRAME.columns,stride=width*4+1;
+ for(let i=0;i<bytes.length;){
+  let best=0,dist=0;
+  for(const d of [1,4,stride]){
+   if(i<d)continue;
+   const test=bytes[i]===bytes[i-d]&&bytes[i+1]===bytes[i+1-d];
+   if(!test)continue;
+   let n=2;
+   while(n<258&&i+n<bytes.length&&bytes[i+n]===bytes[i+n-d])n++;
+   if(n>=3&&n>best){best=n;dist=d;if(n===258)break;}
+  }
+  if(best>=3){match(best,dist);i+=best}
+  else {symbol(bytes[i]);i++}
  }
- out.push(...u32(adler32(bytes)));return Uint8Array.from(out);
+ symbol(256);
+ if(used)out.push(bits);
+ out.push(...u32(adler32(bytes)));
+ return Uint8Array.from(out);
 }
 export function encodeP06Png(atlas){
  // To remain portable to any JS runtime, the exporter uses correctly formed
@@ -211,7 +249,7 @@ export function encodeP06Png(atlas){
  const filtered=new Uint8Array(height*(stride+1));
  for(let y=0;y<height;y++)filtered.set(data.subarray(y*stride,(y+1)*stride),y*(stride+1)+1);
  const ihdr=[...u32(width),...u32(height),8,6,0,0,0];
- const z=deflateStored(filtered);
+ const z=deflateFixed(filtered);
  const signature=[137,80,78,71,13,10,26,10];
  const chunks=[signature,pngChunk('IHDR',ihdr),pngChunk('IDAT',z),pngChunk('IEND',[])];
  const n=chunks.reduce((s,x)=>s+x.length,0),result=new Uint8Array(n);
