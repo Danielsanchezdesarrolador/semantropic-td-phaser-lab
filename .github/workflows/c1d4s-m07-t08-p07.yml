@@ -24,7 +24,6 @@ jobs:
         run: |
           set -euo pipefail
           node public/official/src/maps-visual/m01/m07/qa-m07.mjs | tee qa-m07.log
-          node public/official/src/actors-visual/qa-p07.mjs | tee qa-p07.log
           node tools/qa-c1d2-sniper-parity.mjs
           node tools/qa-c1d2-combat.mjs
           node tools/qa-c1d2-five-waves.mjs | tee qa-fivewaves.log
@@ -35,6 +34,12 @@ jobs:
         run: |
           set -euo pipefail
           node docs/art/towers/qa-t08.mjs 2>&1 | tee qa-t08-blocker.log
+      - name: PERSONAJES P07 raster reproducibility BLOCKED - retain evidence
+        shell: bash
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          node public/official/src/actors-visual/qa-p07.mjs 2>&1 | tee qa-p07-blocker.log
       - name: Build Phaser 4.2.1
         run: |
           npm install --no-audit --no-fund
@@ -53,6 +58,12 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-c1d4s-browser.mjs 2>&1 | tee qa-candidate-c1d4s.log
+      - name: Final art-gate - T08 and P07 are still BLOCKED
+        if: success()
+        run: |
+          echo "BLOCKER TORRES #29 operatorOwner P06 vs P07; BLOCKER PERSONAJES #32 raster not byte reproducible."
+          echo "Do NOT merge or approve visually. Browser evidence is recorded but this build is not accepted."
+          exit 1
       - name: Upload screenshots and QA
         if: always()
         uses: actions/upload-artifact@v4
