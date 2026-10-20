@@ -202,5 +202,32 @@
     "fpsRecorded": false,
     "whyNoNode": "Container lacks GitHub DNS; complete repo checkout not available"
   },
-  "sourceStatus": "Icons are SVG original source assets, NOT live C1-D7 screenshots. Gallery uses synthetic quotes and eight PROXY pads."
+  "sourceStatus": "Icons are SVG original source assets, NOT live C1-D7 screenshots. Gallery uses synthetic quotes and eight PROXY pads.",
+  "iconSheet": {
+    "path": "public/official/art/towers/t09/T09_ICON_SHEET_3X3.svg",
+    "format": "SVG",
+    "frame": {
+      "widthPx": 384,
+      "heightPx": 384
+    },
+    "grid": {
+      "columns": 3,
+      "rows": 3,
+      "cellWidthPx": 128,
+      "cellHeightPx": 128
+    },
+    "contentPerCell": "one original 96x96 icon centered with 16px clear margin",
+    "order": [
+      "build-infantry",
+      "build-sniper",
+      "upgrade",
+      "sell",
+      "rally",
+      "inspect",
+      "cost",
+      "blocked",
+      "close"
+    ],
+    "runtimeTexture": "SOURCE_CONCEPT_ONLY__DOM_PRESENTER_USES_INDIVIDUAL_SVG"
+  }
 }

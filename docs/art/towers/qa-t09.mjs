@@ -135,6 +135,10 @@ for(const [id,url] of Object.entries(T09_ICONS)){
 const manifest=JSON.parse(await readFile(manifestFile,'utf8'));
 assert.equal(manifest.milestone,'T09');
 assert.equal(manifest.icons.length,9);
+const sheet=await readFile('public/official/art/towers/t09/T09_ICON_SHEET_3X3.svg','utf8');
+assert.ok(sheet.includes('viewBox="0 0 384 384"'));
+for(const name of manifest.iconSheet.order)assert.ok(sheet.includes('id="t09-'+name+'"'));
+assert.equal(manifest.iconSheet.grid.cellWidthPx,128);
 const gallery=await readFile('public/official/src/towers-visual/t09/gallery.mjs','utf8');
 assert.ok(gallery.includes('COMPONENT_DEMO_NOT_GAMEPLAY'));
 console.log(JSON.stringify({status:'PASS',scope:'NODE_PURE_AND_MOCK_DOM_NOT_CHROMIUM',
