@@ -1,7 +1,7 @@
 # ACTA OFICIAL — PERSONAJES P07 · CONTINUIDAD VISUAL C1-C
 **Proyecto:** SEMANTROPIC TD · **Fecha:** 20-10-2026 · **Motor:** Phaser 4.2.1 / WebGL2
 **Rama:** \`feature/art-p07-continuidad-c1c\` · **Base exacta:** \`a5116db1f956f8b32b86570600b878ba9d5187ed\` (P06 PR #27)
-**PR:** DRAFT contra \`feature/art-p06-animated-actors\`, no autorización de merge/deploy.
+**PR:** [#32 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/32) contra \`feature/art-p06-animated-actors\`, no autorización de merge/deploy.
 **Estado:** [4 PNG RGBA REALES EN GIT] · [CONTINUIDAD P03 EN FUENTE] · [NO APROBADO ARTÍSTICAMENTE]
 **SHA final:** consultar PR P07 Commits (esta acta e INDEX generan nuevos commits).
 
