@@ -100,15 +100,21 @@ for(const treatment of M07_TREATMENTS){
  assert.equal(view.padObjects[0].visualState,"occupied","selection cannot erase occupied base");
  assert.equal(view.padObjects[0].selection.visible,true,"selected occupied pad must retain indicator");
  assert.equal(view.projectEvent({type:"tower_sold",socketId:"m01-pad-01",tick:88}).reason,"snapshot-authoritative");
+ assert.equal(view.setSocketVisualState("m01-pad-01","selected"),true);
+ assert.equal(view.padObjects[0].visualState,"occupied","selection may never empty an occupied pad");
  const v={type:"tower_built",socketId:"m01-pad-02",eventId:"c1d4-a",tick:90};
  assert.equal(view.projectEvent(v).consumed,true);
  assert.equal(view.projectEvent(v).reason,"duplicate-visual");
+ assert.equal(view.projectEvent({type:"tower_sold",socketId:"m01-pad-01",tick:91,eventId:"sold-91"}).consumed,true);
+ assert.equal(view.projectEvent({type:"tower_built",socketId:"m01-pad-01",tick:90,eventId:"old-90"}).consumed,false);
+ assert.equal(view.applyVisualSnapshot({tick:90,sockets:record.sockets}),false,"stale snapshot cannot revive sold pad");
  view.updateDebug({showRoute:true,showClearance:true});
  assert.equal(view.resetVisuals(),true);
  assert.equal(view.padObjects[0].visualState,"neutral");
  const own=[...view.objects];view.destroy();view.destroy();
  assert.ok(own.every(o=>o.destroyed));
- assert.equal([...tex.keys()].filter(k=>k.includes("/aurora-v3/viva/")||k.includes("/m07/viva/")).length,0);
+ assert.equal([...tex.keys()].filter(k=>k.includes("/aurora-v3/viva/")).length,11,"M03 shared historical cache must be bounded & retained");
+ assert.equal([...tex.keys()].filter(k=>k.includes("/m07/viva/")).length,0,"Optional M07 polish texture must be released");
  tests.push({treatment,objects:own.length,props:13,pads:8,cleanup:"PASS"});
 }
 // Two concurrent M07 owners: a global M03 texture must outlive destruction of the first.
@@ -121,16 +127,16 @@ for(const treatment of M07_TREATMENTS){
  assert.equal(tex.has(pathKey),true);
  if(treatment==="pulido")assert.equal(tex.has(polishKey),true);
  second.destroy();
- assert.equal(tex.has(pathKey),false);
+ assert.equal(tex.has(pathKey),true,"Do not delete historical M03 textures that foreign scenes can consume");
  if(treatment==="pulido")assert.equal(tex.has(polishKey),false);
 }
-assert.equal(tex.size,9,"Shared historical original SVG should remain loaded once");
+assert.equal(tex.size,20,"Fixed shared cache: 9 M02/M03 SVG + 11 historical M03 generated textures");
 assert.equal(JSON.stringify({path:map.path,spots:map.spots}),original);
 assert.equal(createHash("sha256").update(readFileSync(source)).digest("hex"),sha);
 console.log(JSON.stringify({
  status:"PASS",environment:"NODE_ESM_REAL_MODULES_WITH_CANVAS_AND_PHASER_TEST_DOUBLES_NOT_CHROMIUM",
  screenshotBinarySha256Check:pngStatus,world:[1280,768],routeVertices:133,sockets:8,
- M03VisualResources:9,M03Props:13,M03Oaks:7,
+ M03VisualResources:9,M03HistoricalCanvasKeysBounded:11,M03Props:13,M03Oaks:7,
  variants:tests,referencePhotoHash:M07_SOURCE.screenshotSha256,
  notRun:["Real WebGL2 same-frame screenshot","C1-D4 with T/P and real combat","physical iOS/Android QA","GPU FPS"]
 },null,2));

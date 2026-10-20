@@ -114,7 +114,9 @@ function leaseM03(scene,palette,map){
   return {view,release(){
    entry.users--;
    if(entry.users===0){
-    for(const k of entry.owned)if(tm.exists(k))tm.remove(k);
+    // M07-Q2: a direct M03 consumer may have started AFTER this view.
+    // Never delete historical Phaser-global textures from M07. Eleven
+    // stable keys remain bounded in manager cache until the manager dies.
     state.delete(palette);
    }
   }};
@@ -173,6 +175,8 @@ export function mountM01WorldV7(scene,map,options={}){
  const extras=[],knownIds=new Set(plan.sockets.map(s=>s.socketId));
  const observedEvents=new Set();
  const selectedFlags=new Set();
+ const socketTick=new Map();
+ let lastAppliedTick=null;
  function forgetExtras(){
   for(const object of extras)if(object?.destroy)object.destroy();
   if(paintLeased)releasePolish(scene,paintKey);
@@ -192,33 +196,45 @@ export function mountM01WorldV7(scene,map,options={}){
   if(disposed||!knownIds.has(socketId))return false;
   if(!["neutral","empty","occupied","selected","ruins","ruined"].includes(state))return false;
   const next=state==="ruined"?"ruins":state;
+  if(next==="selected"){
+   // Selection MUST NOT replace occupied or ruined art with an empty pad glyph.
+   const pad=base.padObjects.find(p=>p.socket.socketId===socketId);
+   if(!pad)return false;
+   pad.selection.setVisible(true);
+   selectedFlags.add(socketId);
+   return true;
+  }
   const ok=base.setSocketVisualState(socketId,next);
-  if(ok){if(next==="selected")selectedFlags.add(socketId);else selectedFlags.delete(socketId);}
+  if(ok)selectedFlags.delete(socketId);
   return ok;
  }
  function applyVisualSnapshot(snapshot){
   if(disposed||!snapshot||!Array.isArray(snapshot.sockets))return false;
+  const tick=Number.isInteger(snapshot.tick)?snapshot.tick:null;
+  // A snapshot older than a visual sale cannot resurrect the old tower.
+  if(snapshotSeen&&lastAppliedTick!==null&&(tick===null||tick<lastAppliedTick))return false;
   const records=new Map(snapshot.sockets.filter(s=>knownIds.has(s?.socketId)).map(s=>[s.socketId,s]));
   selectedFlags.clear();
   const selectedSocket=knownIds.has(snapshot.selectedSocketId)?snapshot.selectedSocketId:null;
+  const padById=new Map(base.padObjects.map(p=>[p.socket.socketId,p]));
   for(const s of plan.sockets){
    const record=records.get(s.socketId),state=projectState(record);
    setSocketVisualState(s.socketId,state);
    const chosen=selectedSocket===s.socketId||record?.selected===true;
-   const pad=base.padObjects.find(p=>p.socket.socketId===s.socketId);
-   // Show selected occupied pads with its EXISTING selection, never replace the building/base by empty!
+   const pad=padById.get(s.socketId);
    if(chosen&&pad){pad.selection.setVisible(true);selectedFlags.add(s.socketId);}
+   if(tick!==null)socketTick.set(s.socketId,tick);
   }
-  snapshotSeen=true;
-  latestTick=Number.isInteger(snapshot.tick)?snapshot.tick:null;
+  snapshotSeen=true;latestTick=tick;
+  if(tick!==null)lastAppliedTick=Math.max(lastAppliedTick??tick,tick);
   return true;
  }
  function projectEvent(event){
   if(disposed)return {consumed:false,reason:"view-disposed"};
   if(!event||typeof event!=="object")return {consumed:false,reason:"invalid"};
-  if(snapshotSeen&&(!Number.isInteger(event.tick)||latestTick===null||event.tick<=latestTick))
-   return {consumed:false,reason:"snapshot-authoritative"};
   if(event.type==="scene_reset"){
+   if(lastAppliedTick!==null&&Number.isInteger(event.tick)&&event.tick<lastAppliedTick)
+    return {consumed:false,reason:"stale-reset"};
    resetVisuals();return {consumed:true,displayOnly:true};
   }
   const mapType={
@@ -228,16 +244,31 @@ export function mountM01WorldV7(scene,map,options={}){
   const state=mapType[event.type],id=event.payload?.socketId||event.socketId;
   if(!state||!knownIds.has(id))return {consumed:false,reason:"unhandled-type-or-socket"};
   if(event.eventId&&observedEvents.has(event.eventId))return {consumed:false,reason:"duplicate-visual"};
+  const tick=Number.isInteger(event.tick)?event.tick:null;
+  if(snapshotSeen&&(tick===null||latestTick===null||tick<=latestTick))
+   return {consumed:false,reason:"snapshot-authoritative"};
+  const prev=socketTick.get(id);
+  if(prev!==undefined&&(tick===null||tick<=prev))
+   return {consumed:false,reason:"stale-socket-event"};
+  if(lastAppliedTick!==null&&(tick===null||tick<lastAppliedTick))
+   return {consumed:false,reason:"stale-event"};
   const ok=setSocketVisualState(id,state);
-  if(ok&&event.eventId){
-   observedEvents.add(event.eventId);
-   if(observedEvents.size>128)observedEvents.delete(observedEvents.values().next().value);
+  if(ok){
+   if(tick!==null){
+    socketTick.set(id,tick);
+    lastAppliedTick=Math.max(lastAppliedTick??tick,tick);
+   }
+   if(event.eventId){
+    observedEvents.add(event.eventId);
+    if(observedEvents.size>128)observedEvents.delete(observedEvents.values().next().value);
+   }
   }
   return {consumed:ok,displayOnly:true};
  }
  function resetVisuals(){
   if(disposed)return false;
-  snapshotSeen=false;latestTick=null;selectedFlags.clear();observedEvents.clear();
+  snapshotSeen=false;latestTick=null;lastAppliedTick=null;
+  socketTick.clear();selectedFlags.clear();observedEvents.clear();
   for(const p of plan.sockets)setSocketVisualState(p.socketId,"neutral");
   return true;
  }
@@ -247,7 +278,8 @@ export function mountM01WorldV7(scene,map,options={}){
  }
  function destroy(){
   if(disposed)return;disposed=true;
-  forgetExtras();base.destroy();release();observedEvents.clear();selectedFlags.clear();
+  try{forgetExtras();base.destroy();}
+  finally{release();observedEvents.clear();selectedFlags.clear();socketTick.clear();}
  }
  return {
   contractVersion:"map-visual-m07-v1",artVersion:M07_VERSION,palette,treatment,plan,
@@ -259,6 +291,16 @@ export function mountM01WorldV7(scene,map,options={}){
   getPadMetrics:base.getPadMetrics,
   setSocketVisualState,applyVisualSnapshot,projectEvent,resetVisuals,updateDebug,
   updateAmbient(){},setReducedMotion(){return !disposed;},
+  getMapPerformanceInfo:()=>({
+   treatment,palette,sceneObjects:base.objects.length+extras.length,
+   canonicalPads:base.padObjects.length,originalProps:base.propObjects.length,
+   preloadedSvgKeysExpected:9,
+   originalM03GeneratedTexturesPresent:M03_KEYS(palette).filter(k=>scene.textures.exists(k)).length,
+   additionalPolishTextures:paintLeased?1:0,
+   optionalPolishCanvasPixels:paintLeased?1280*768:0,
+   cachePolicy:"11 historical M03 texture keys retained in Phaser manager; optional polish leased and released",
+   gpuMemoryMiB:null,fpsP50:null,fpsP95:null,renderedCoreEnemies:null
+  }),
   destroy,gameplayImplemented:false,presentationOnly:true,
   changesOriginalSilhouettes:false,syntheticEnemyCount:0,
   sourceScreenshotSha256:M07_SOURCE.screenshotSha256

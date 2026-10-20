@@ -88,6 +88,37 @@ class M07Review extends Phaser.Scene{
    syncPads();
   });
   setMode(mode);
+  // Opt-in QA only: no additional actors or globals during normal play.
+  if(params.get("qa")==="1"){
+   const synthetic=[];
+   window.__SEMANTROPIC_MAPAS_M07_Q2_QA__={
+    metrics:()=>{
+     const gl=this.game.renderer?.gl;
+     const ext=gl?.getExtension?.("WEBGL_debug_renderer_info");
+     return {
+      sceneDisplayObjects:this.children?.list?.length??null,
+      map:view?.getMapPerformanceInfo?.()??null,
+      textureManagerTotalKeys:Object.keys(this.textures?.list??{}).length,
+      webgl2Real:typeof WebGL2RenderingContext!=="undefined"&&gl instanceof WebGL2RenderingContext,
+      glVersion:gl?.getParameter?.(gl.VERSION)??null,
+      glRenderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):null,
+      syntheticShapes:synthetic.length,
+      genuineCoreActors:0,actualCombatMounted:false
+     };
+    },
+    setSyntheticDensity:(n)=>{
+     synthetic.splice(0).forEach(o=>o.destroy());
+     if(![0,13,24,63].includes(n))throw Error("synthetic density allowed 0/13/24/63 only");
+     for(let i=0;i<n;i++){
+      const s=map.path[Math.floor(i*(map.path.length-1)/Math.max(1,n-1))];
+      const g=this.add.ellipse(s[0],s[1],12,17,0x527c65,.82).setDepth(1900);
+      synthetic.push(g);
+     }
+     return synthetic.length;
+    },
+    clear:()=>synthetic.splice(0).forEach(o=>o.destroy())
+   };
+  }
  }
  update(time){view?.updateAmbient?.(time);}
 }
