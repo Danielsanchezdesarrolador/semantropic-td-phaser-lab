@@ -1,0 +1,95 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEMANTROPIC TD — MAPAS M07 / Auditoría triple C1-C | M06 | M07</title><style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#153c40;color:#f9e6c2;padding:19px;font:14px/1.45 system-ui}
+h1{font-size:24px;margin:0 0 6px}h2{font-size:14px;margin:0;padding:10px;color:#ffe3af;background:#1a4346}
+p{margin:7px 0 13px;color:#c7e0d4}small{color:#b7d3ca}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#254d4b;border:1px solid #a6b89d;border-radius:9px;padding:10px;margin:14px 0}
+button,.picker{color:#ffeac4;border:1px solid #cbb18c;padding:8px 12px;background:#20515a;border-radius:8px;font-weight:700;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid #ffdb97}input[type=file]{max-width:270px}
+#verification{font-weight:800;color:#ffcd95}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+article{background:#0f2d36;border:1px solid #a9baa5;border-radius:10px;overflow:hidden}
+figure{margin:0;aspect-ratio:1280/768;background:#7dad74;display:flex;align-items:center;justify-content:center;position:relative}
+figure img{width:100%;height:100%;object-fit:fill}iframe{width:100%;height:100%;border:0;display:block}
+#placeholder{padding:20px;color:#194246;text-align:center;font-weight:800}
+.desc{padding:10px;font-size:12px;color:#d6e1d6}
+table{border-collapse:collapse;width:100%;font-size:12px;margin-top:15px}
+td,th{border-bottom:1px solid #56746f;text-align:left;padding:7px}
+strong{color:#ffe3af}a{color:#f6cb86}
+.notice{border-left:3px solid #dec58d;padding-left:10px;margin-top:15px}
+@media(max-width:1100px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<h1>SEMANTROPIC TD · MAPAS M07 — Control antirretroceso</h1>
+<p><strong>Referencia aprobada:</strong> C1-C / M03 Viva + T04 + P03. El before procede únicamente del PNG original que el director compartió; no se recrea ni retoca.</p>
+<div class="toolbar">
+ <label for="beforeFile"><strong>Seleccionar PNG original C1-C:</strong></label>
+ <input type="file" id="beforeFile" accept="image/png">
+ <span id="verification">Referencia pendiente de cargar</span>
+ <button id="toggleM06">M06 B / M06 A</button>
+ <button id="toggleM07">M07 pulido / fiel</button>
+</div>
+<div class="grid">
+ <article><h2>1 · ORIGINAL APROBADO · C1-C</h2>
+  <figure><div id="placeholder">Selecciona el PNG aprobado para mostrar sus píxeles originales.</div>
+    <img id="original" alt="Captura C1-C aprobada sin modificación" hidden></figure>
+  <div class="desc">Imagen original 1280×768, verificada en el navegador por SHA-256. Incluye torres T04 y enemigos P03: no representa gameplay real.</div>
+ </article>
+ <article><h2 id="m06Label">2 · ANTES CORRECTIVO · M06 A</h2>
+  <figure><iframe title="Desviación M06 en Phaser, sólo mapa" src="index.html?mode=m06-atmosfera" id="m06frame"></iframe></figure>
+  <div class="desc">M06 usa fondo/estructura alternativos; vitrina aislada de Mapas, sin T/P ni core. No usar como captura verificada hasta ejecutarla realmente.</div>
+ </article>
+ <article><h2 id="m07Label">3 · CORRECCIÓN · M07 FIEL</h2>
+  <figure><iframe title="Restauración de M03 Viva con renderer M07 en Phaser, sólo mapa" src="index.html?mode=fiel" id="m07frame"></iframe></figure>
+  <div class="desc">M07 monta el arte histórico M03 Viva para recuperar carretera, árboles y pads. **Falta** revisión integrada C1-D4 con torres, HP, unidades y disparos.</div>
+ </article>
+</div>
+<div class="notice">
+ <p><strong>Limitación de comparación:</strong> la captura original contiene T04/P03 y HUD C1-C; las dos escenas siguientes muestran únicamente el mapa. Por tanto, esta galería permite contrastar identidad de ESCENARIO, pero no demuestra todavía paridad de la escena completa. Dirección General debe generar los tres cuadros integrados con C1-D4 conservando cámara y objetos.</p>
+ <p><strong>Fuente del before:</strong> SHA-256 esperado <code>24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef</code>. La selección se procesa en tu navegador, sin enviar la imagen a ningún servidor por este visor.</p>
+</div>
+<table>
+<thead><tr><th>Criterio</th><th>Original M03</th><th>M06</th><th>M07</th></tr></thead>
+<tbody>
+<tr><td>Carretera crema/dorada y curva en S</td><td>APROBADA</td><td>Riesgo por capas de terreno nuevas</td><td>Fuente M03 original, ruta inalterada</td></tr>
+<tr><td>Verdes frescos y colinas amplias</td><td>APROBADOS</td><td>M04/M05 y pincelado adicional</td><td>Viva M03 restaurada</td></tr>
+<tr><td>Árboles lobulados / portón gris / cristal</td><td>APROBADOS</td><td>6 estructuras nuevas agregadas</td><td>Los assets M03 se conservan</td></tr>
+<tr><td>Pads pálidos y ubicaciones</td><td>8 oficiales</td><td>8 oficiales</td><td>8 oficiales, misma textura M03</td></tr>
+<tr><td>Combate C1-D4</td><td>NO TIENE</td><td>NO INSTALADO</td><td>INTEGRADOR PENDIENTE</td></tr>
+</tbody>
+</table>
+<script>
+const HASH="24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef";
+let objectUrl=null,m06alt=false,m07alt=false;
+const $=id=>document.getElementById(id);
+$("beforeFile").addEventListener("change",async()=>{
+ const file=$("beforeFile").files[0];
+ if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=null;}
+ $("original").hidden=true;$("placeholder").hidden=false;
+ if(!file){$("verification").textContent="Referencia pendiente de cargar";return;}
+ try{
+  const bytes=await file.arrayBuffer();
+  const result=await crypto.subtle.digest("SHA-256",bytes);
+  const digest=Array.from(new Uint8Array(result)).map(v=>v.toString(16).padStart(2,"0")).join("");
+  if(digest!==HASH)throw Error("SHA-256 distinto: no es el archivo aprobado");
+  const blob=new Blob([bytes],{type:"image/png"});
+  objectUrl=URL.createObjectURL(blob);
+  const image=new Image();
+  image.onload=()=>{
+   if(image.naturalWidth!==1280||image.naturalHeight!==768){$("verification").textContent="RECHAZADO: no es 1280×768";URL.revokeObjectURL(objectUrl);return;}
+   $("original").src=objectUrl;$("original").hidden=false;$("placeholder").hidden=true;
+   $("verification").textContent="PNG C1-C ORIGINAL: SHA-256 VERIFICADO ✓";
+  };
+  image.onerror=()=>{$("verification").textContent="ERROR: imagen corrupta"};
+  image.src=objectUrl;
+ }catch(e){$("verification").textContent="REFERENCIA NO VÁLIDA · "+e.message;}
+});
+$("toggleM06").onclick=()=>{
+ m06alt=!m06alt;$("m06frame").src="index.html?mode="+(m06alt?"m06-relieve":"m06-atmosfera");
+ $("m06Label").textContent=m06alt?"2 · ANTES CORRECTIVO · M06 B":"2 · ANTES CORRECTIVO · M06 A";
+};
+$("toggleM07").onclick=()=>{
+ m07alt=!m07alt;$("m07frame").src="index.html?mode="+(m07alt?"pulido":"fiel");
+ $("m07Label").textContent=m07alt?"3 · CORRECCIÓN · M07 PULIDO":"3 · CORRECCIÓN · M07 FIEL";
+};
+</script></body></html>
