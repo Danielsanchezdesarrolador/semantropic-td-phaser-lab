@@ -29,6 +29,9 @@ class DeepTowers extends Phaser.Scene {
  create(){
   if(this.missing.length)throw Error('T05 missing assets: '+this.missing.join(','));
   state.scene=this;this.fx=new TowerVfxShowcase(this);
+  // Ambient life: a single slowly breathing marker light; NEVER oscillate the building/socket.
+  this.lampPulse=this.add.circle(POS[1],FOOT_Y-80,3,0xe6f8da,.42).setDepth(FOOT_Y+35);
+  this.tweens.add({targets:this.lampPulse,alpha:.12,scaleX:1.25,scaleY:.85,duration:1350,ease:'Sine.InOut',yoyo:true,repeat:-1});
   this.grass=this.add.graphics().setDepth(-100);
   this.pads=this.add.graphics().setDepth(-5);
   this.drawGround();
@@ -113,6 +116,8 @@ class DeepTowers extends Phaser.Scene {
     }
    }
   }
+  const lit=projectSourceAnchor(this.slots[1].back,m,m.family==='sniper'?'muzzleLocal':'spawnExitLocal');
+  if(lit)this.lampPulse.setPosition(lit.x,lit.y).setVisible(state.readability!=='silhouette');
   $('towerTitle').textContent=m.title.toUpperCase()+' · A/B · nivel '+m.level;
  }
  choose(index){state.index=index;this.fx.clear();this.draw();}
