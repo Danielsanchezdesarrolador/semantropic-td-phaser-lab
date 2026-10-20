@@ -15,12 +15,12 @@
 | Acta exhaustiva del último lote | [ACTA_P03_C1B_Q2_2026-10-19.md](./ACTA_P03_C1B_Q2_2026-10-19.md) | **PUBLICADA** |
 | Registro QA reproducible | [QA_P03_C1B_Q2.json](./QA_P03_C1B_Q2.json) | **PUBLICADO** (browser NOT_RUN) |
 | Matriz T04 y RFC de anclajes | [MATRIZ_T04_P03.md](./MATRIZ_T04_P03.md) | **PROPUESTA** T03→T04 |
-| Manifest de 4 atlas | [P03_MANIFEST.json](../../../public/official/art/actors/P03_MANIFEST.json) | **PUBLICADO, prototipo** |
-| Fuente de dibujos y animaciones | [p03-rig.mjs](../../../public/official/art/actors/p03-rig.mjs) | **PUBLICADA** |
-| Fuente editable face sheet | [p03-face-sheet.mjs](../../../public/official/art/actors/p03-face-sheet.mjs) | **PUBLICADA** |
-| Entrada vitrina Phaser | [p03-index.html](../../../public/official/src/actors-visual/p03-index.html) | **PUBLICADA, navegador NO EJECUTADO** |
-| Controlador vitrina P03 | [p03-gallery.mjs](../../../public/official/src/actors-visual/p03-gallery.mjs) | **PUBLICADO** |
-| QA Node local | [qa-p03.mjs](../../../public/official/src/actors-visual/qa-p03.mjs) | **PUBLICADO, comando Node NO EJECUTADO** |
+| Manifest de 4 atlas | [P03_MANIFEST.json](../../../../public/official/art/actors/P03_MANIFEST.json) | **PUBLICADO, prototipo** |
+| Fuente de dibujos y animaciones | [p03-rig.mjs](../../../../public/official/art/actors/p03-rig.mjs) | **PUBLICADA** |
+| Fuente editable face sheet | [p03-face-sheet.mjs](../../../../public/official/art/actors/p03-face-sheet.mjs) | **PUBLICADA** |
+| Entrada vitrina Phaser | [p03-index.html](../../../../public/official/src/actors-visual/p03-index.html) | **PUBLICADA, navegador NO EJECUTADO** |
+| Controlador vitrina P03 | [p03-gallery.mjs](../../../../public/official/src/actors-visual/p03-gallery.mjs) | **PUBLICADO** |
+| QA Node local | [qa-p03.mjs](../../../../public/official/src/actors-visual/qa-p03.mjs) | **PUBLICADO, comando Node NO EJECUTADO** |
 | Capturas y estado de evidencia | [EVIDENCIA.md](../evidencias/P03/EVIDENCIA.md) | **SIN CAPTURAS REALES, ver NOT_RUN** |
 
 Los links a public/official desde este archivo usan directorios relativos a `docs/art/actors/actas/` y están diseñados para abrirse en GitHub.
@@ -28,9 +28,9 @@ Los links a public/official desde este archivo usan directorios relativos a `doc
 ## Versiones anteriores del Equipo P
 | Versión | Rama/PR | Referencias |
 |---|---|---|
-| P-01 | [PR #2](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/2) | [Informe P01](../P01_ENTREGA_Y_QA.md), [Manifest P01](../../../public/official/art/actors/ASSET_MANIFEST_P01.json), [fuente P01](../../../public/official/art/actors/atlas-source.mjs) |
-| P-02 | [PR #7](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/7) | [Informe P02](../P02_ENTREGA_QA.md), [Biblia/RFC P02](../P02_BIBLIA_COORDINACION_TP.md), [Manifest P02](../../../public/official/art/actors/P02_MANIFEST.json) |
-| P-03/Q2 | [PR #10](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/10) | [Acta](./ACTA_P03_C1B_Q2_2026-10-19.md), [QA](./QA_P03_C1B_Q2.json), [Manifest](../../../public/official/art/actors/P03_MANIFEST.json) |
+| P-01 | [PR #2](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/2) | [Informe P01](../P01_ENTREGA_Y_QA.md), [Manifest P01](../../../../public/official/art/actors/ASSET_MANIFEST_P01.json), [fuente P01](../../../../public/official/art/actors/atlas-source.mjs) |
+| P-02 | [PR #7](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/7) | [Informe P02](../P02_ENTREGA_QA.md), [Biblia/RFC P02](../P02_BIBLIA_COORDINACION_TP.md), [Manifest P02](../../../../public/official/art/actors/P02_MANIFEST.json) |
+| P-03/Q2 | [PR #10](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/10) | [Acta](./ACTA_P03_C1B_Q2_2026-10-19.md), [QA](./QA_P03_C1B_Q2.json), [Manifest](../../../../public/official/art/actors/P03_MANIFEST.json) |
 
 ## Estado de entregables y aceptación
 | Entregable | Resultado técnico | Aceptación |
