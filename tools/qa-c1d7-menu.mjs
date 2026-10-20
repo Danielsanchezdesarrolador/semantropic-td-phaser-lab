@@ -5,7 +5,7 @@ import {c1d7MenuDTO,c1d7ApplyIntent,c1d7WorldToClient,c1d7ClientToWorld,c1d7Node
 const m=JSON.parse(readFileSync(new URL("../public/official/data/maps.v5.json",import.meta.url)))[0];
 const c=JSON.parse(readFileSync(new URL("../public/official/data/campaign140.v5.json",import.meta.url))).maps[0];
 const w=new M01CombatWithInfantryA2(m,c),e=w.economy;
-assert.equal(e.gold,365);assert.equal(w.snapshot.sockets,8);
+assert.equal(e.gold,365);assert.equal(e.snapshot.sockets,8);
 const d=c1d7MenuDTO(e,0);
 assert.equal(d.hasTower,false);assert.equal(d.actions.length,3);
 assert.equal(d.actions.find(x=>x.intent==="build_infantry").cost,95);
