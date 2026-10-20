@@ -55,7 +55,7 @@ function paintActor(s,id,state,index,x,y){
  const px=x+88+sx,py=y+191-vertical+fall*16;
  if(id==='hound'){
   // Four paws explicitly visible, diagonal pairs in antiphase.
-  const bodyY=py-51-fall*5,bodyX=px+2,phase=walk?wave:0;
+  const bodyY=py-51-fall*5,bodyX=px-12,phase=walk?wave:0;
   const legs=[[-35,0],[-16,Math.PI],[25,Math.PI],[45,0]];
   // Far legs.
   for(const [i,idx] of [1,2].entries()){
@@ -103,7 +103,7 @@ function paintActor(s,id,state,index,x,y){
    ellipse(s,footX+sign*3,footY-6,orc?18:14,8,ink,-sign*.05);
    ellipse(s,footX,footY-9,orc?10:8,4,trim);
   }
-  const chestY=py-109-fall*12;
+  const chestY=py-101-fall*12;
   ellipse(s,px,chestY+27,orc?32:26,37,ink,0);
   ellipse(s,px,chestY+21,orc?32:26,34,dark);
   ellipse(s,px-3,chestY+15,orc?29:24,30,main);
