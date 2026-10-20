@@ -107,7 +107,9 @@
       "II · VETERANO 1",
       "II · VETERANO 2"
     ],
-    "newTextFontPx": 20
+    "newTextFontPx": 20,
+    "backgroundFirstPaint": "B1 follow-up: panel width must depend on index, because paintBackdrop() runs before views exist",
+    "actualFirstRenderPanelWidth": 174
   },
   "tests": [
     {
@@ -145,7 +147,7 @@
       "id": "B1-05",
       "status": "PASS_SOURCE_LAYOUT",
       "test": "Veterans no longer overlap mathematically",
-      "method": "world-centres diff 186px minus 174px panel width = +12px; old centres diff141 - panel180 = -39px",
+      "method": "world-centres diff 186px minus 174px panel width = +12px; old centres diff141 - panel180 = -39px; first paint is index-based (not dependent on populated views)",
       "afterChange": "PASS_SOURCE_LAYOUT"
     },
     {
@@ -189,5 +191,11 @@
     "requiresOwnerApproval": true
   },
   "mergeAuthorized": false,
-  "liveModified": false
+  "liveModified": false,
+  "commitInfo": {
+    "baseline": "7265c84664699955afce188e0227d56887d58a6b",
+    "firstCommit": "e88389a59416c1a8df37d31a02ae3ecc1fe9e02c",
+    "secondCommit": "see PR #39 Commits",
+    "note": "second corrective commit for same veteran-card width issue; necessary to keep visual render and QA consistent"
+  }
 }

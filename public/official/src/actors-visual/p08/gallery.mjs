@@ -60,7 +60,7 @@ class P08Review extends Phaser.Scene{
    g.fillStyle(i%2?0x386a53:0xcee0a0,.15).fillEllipse(x,y,22+i%5*7,4+i%3*2);
   }
   for(const [i,item] of labels.entries()){
-   const panelWidth=this.views[i]?.panelWidth??(i===4?172:180);
+   const panelWidth=i===1||i===2?174:i===4?172:180;
    g.fillStyle(0x23474b,.75).fillRoundedRect(item.x-panelWidth/2,253,panelWidth,288,14);
    g.lineStyle(2,i<3?0x9ac6b3:0xcfb991,.85)
     .strokeRoundedRect(item.x-panelWidth/2,253,panelWidth,288,14);

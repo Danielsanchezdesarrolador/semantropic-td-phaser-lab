@@ -1,7 +1,7 @@
 # SEMANTROPIC TD — ACTA P08-B1 CIERRE VISUAL / PERSONAJES
 **Fecha:** 2026-10-20 · **Orden:** P08-B1 · **PR #39:** DRAFT, no merge/deploy.
 **Rama:** `feature/art-p08-infantry-evolution-combat` · **HEAD de inicio verificado:** `7265c84664699955afce188e0227d56887d58a6b`.
-**Commit B1:** un único commit en esta rama; SHA definitivo: consultar [PR #39 → Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39/commits) y PR descripción de cierre, porque incluir su propio SHA en el contenido de un commit cambia el SHA de ese mismo commit.
+**Commits B1:** `e88389a59416c1a8df37d31a02ae3ecc1fe9e02c` (reparación + actas) y un commit correctivo inmediato que hace que el ancho de las tarjetas se aplique desde el primer render, sin esperar a crear vistas. SHA definitivo: consultar [PR #39 → Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39/commits) y PR descripción de cierre, porque incluir su propio SHA en el contenido de un commit cambia el SHA de ese mismo commit.
 **Scope exclusivo:** galería P08, su QA browser, docs/art/actors/actas/{ACTA_P08_B1_CIERRE_VISUAL_2026-10-20.md,QA_P08_B1.json,RFC_P08_INTEGRACION_C1D6_C1D7.md}.
 
 ## Antes (evidencia real, no juego integrado)
@@ -36,3 +36,5 @@ Se amplió **solo el QA de galería relacionado**: `qa-p08-browser.mjs` verifica
 ## Instrucciones estrictas a Integrador
 `p08VisualForSoldierLevel(u.level)` cambia atlas según el nivel real sin crear unidades: 1 recluta I; dos instancias Nivel II independientes con entityIds únicos. `p08VisualForEnemy` para warrior/hound. Eventos `soldier_attack_windup`, `soldier_attack_hit` y `soldier_hit {sourceId}` sincronizan `attackWindup` y `attack-2` tras daño core, nunca producen hit gameplay. No introducir `enemy_attack_hit` ficticio. Reutilizar RFC ampliado.
 **P08-B1 no autoriza integración, merge, despliegue, aprobación comercial ni modificación de LIVE.**
+
+**Nota de revisión B1 (mismo defecto, sin nuevos alcances):** la función de fondo se invoca antes de poblar `this.views`. Se sustituyó la consulta anticipada de metadatos por anchos deterministas según índice. Así ambas tarjetas de veteranos son efectivamente de 174px también en el primer frame, en vez de heredar temporalmente 180px. Fueron necesarios dos commits de un mismo cambio visual para impedir una discrepancia entre QA y render real.
