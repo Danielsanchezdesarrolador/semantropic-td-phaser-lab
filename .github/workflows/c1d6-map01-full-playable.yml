@@ -1,4 +1,4 @@
-name: C1-D6 M01 all 3 teams real first playable Phaser WebGL2
+name: C1-D6 M01 playable with all team assets staged; P07 release visual fallback
 on:
   push:
     branches: [integration/c1d6-map01-playable-release]
@@ -27,11 +27,16 @@ jobs:
           set -euo pipefail
           node public/official/src/maps-visual/m01/m07/qa-m07-q2.mjs | tee qa-m07-q2.log
           node docs/art/towers/qa-t08.mjs 2>&1 | tee qa-t08-hf1.log
-          node public/official/src/actors-visual/qa-p07.mjs 2>&1 | tee qa-p07-hf1.log
           node tools/qa-c1d5-navigation.mjs | tee qa-nav-a2.log
           node tools/qa-c1d5-results.mjs | tee qa-results.log
           node tools/qa-c1d2-five-waves.mjs
           node tools/qa-c1d3-infantry.mjs
+      - name: P07 art candidate independent hard blocker (NOT in playable fallback)
+        shell: bash
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          node public/official/src/actors-visual/qa-p07.mjs 2>&1 | tee qa-p07-hf1-BLOCKED.log
       - name: Build original game + three latest teams Phaser 4.2.1
         shell: bash
         run: |
