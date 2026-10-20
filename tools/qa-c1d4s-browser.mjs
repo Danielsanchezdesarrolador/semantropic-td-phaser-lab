@@ -89,10 +89,10 @@ try{
   });
   if(!visuals.environment?.includes("m07")||
       visuals.art.maps!=="M07_FIEL_M03"||visuals.art.towers!=="T08_T04"||
-      visuals.art.actors!=="P07_P03"||!Object.values(visuals.assets).every(Boolean)||
+      visuals.art.actors!=="P07_P03"||visuals.art.activeSniperOperator!=="P03_APPROVED"||!Object.values(visuals.assets).every(Boolean)||
       visuals.sniperMounted.length!==1||visuals.sniperMounted[0].historicSource!=="T08_T04"||
       visuals.sniperMounted[0].addedRifleLayers!==0||
-      visuals.sniperMounted[0].operatorTexture!=="actors/allies/sniper-operator/v1/p07-c1c-unarmed"||
+      visuals.sniperMounted[0].operatorTexture!=="actors/allies/sniper-operator/v1/p03-q2"||
       visuals.sniperMounted[0].buildingTexture!=="towers/sniper/level-1")
     throw Error(tag+" M07/T08/P07 visual candidate did not mount correctly "+JSON.stringify(visuals));
   const activeSoldiers=await page.evaluate(()=>window.__SEMANTROPIC_C1D4S.world.soldiers.length);
