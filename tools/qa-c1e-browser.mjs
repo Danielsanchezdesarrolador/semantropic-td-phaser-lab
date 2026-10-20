@@ -29,12 +29,12 @@ let browser;
 const failures=[],reports=[];
 try{
  browser=await chromium.launch({headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--enable-unsafe-swiftshader']});
- async function inspect({tag,width,height,variant,palette}){
+ async function inspect({tag,width,height,variant,palette,towerVariant='A'}){
   const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1,isMobile:width<950});
   const errors=[];
   page.on('pageerror',e=>errors.push('pageerror '+e.message));
   page.on('console',msg=>{if(msg.type()==='error')errors.push('console '+msg.text());});
-  await page.goto(href+'?actors='+variant+'&palette='+palette,{waitUntil:'load',timeout:40000});
+  await page.goto(href+'?actors='+variant+'&palette='+palette+'&towers='+towerVariant,{waitUntil:'load',timeout:40000});
   try{await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1E?.scene,{timeout:50000});}catch(e){
    const reason=await page.locator('#status').textContent().catch(()=>'missing status');
    throw Error(tag+': viewport '+width+'x'+height+' initialization failed: '+reason+' '+errors.join(' | '));
@@ -45,7 +45,7 @@ try{
    const g=scene.game.renderer?.gl;
    return {webgl2:g instanceof WebGL2RenderingContext,actors:scene.actors?.length,towers:scene.towers?.length,sockets:scene.mapView?.plan?.sockets?.length,waypoints:scene.route?.points?.length,textureKeys:scene.atlases?.size,splitTowers:scene.towers?.filter(t=>t.parts?.front).length,artVersion:scene.mapView?.artVersion,sceneActive:scene.scene.isActive()};
   });
-  if(values.actors!==13||values.towers!==4||values.sockets!==8||values.waypoints!==133||values.textureKeys!==4||values.splitTowers!==4||!values.webgl2)throw Error(tag+' invalid scene: '+JSON.stringify(values));
+  if(values.actors!==13||values.towers!==4||values.sockets!==8||values.waypoints!==133||values.textureKeys!==4||values.splitTowers!==(towerVariant==='A'?4:0)||!values.webgl2)throw Error(tag+' invalid scene: '+JSON.stringify(values));
   const canvasBox=await page.locator('#stage canvas').boundingBox();
   if(!canvasBox)throw Error(tag+' canvas missing');
   const centerDelta=Math.abs(canvasBox.x+canvasBox.width/2-width/2);
@@ -72,13 +72,15 @@ try{
   }
   const fatalErrors=errors.filter(s=>!s.includes('WebGL: INVALID_ENUM')); // browser GPU logs can include driver diagnostics
   if(fatalErrors.length)throw Error(tag+' browser JS console errors: '+fatalErrors.slice(0,5).join(' | '));
-  reports.push({tag,size:width+'x'+height,variant,palette,...values});
+  reports.push({tag,size:width+'x'+height,variant,palette,towerVariant,...values});
   await page.close();
  }
  await inspect({tag:'desktop-P04',width:1280,height:768,variant:'P04',palette:'viva'});
  await inspect({tag:'mobile-landscape-P04-A',width:844,height:390,variant:'P04',palette:'equilibrada'});
  await inspect({tag:'mobile-landscape-P04-B',width:932,height:430,variant:'P04',palette:'viva'});
  await inspect({tag:'desktop-P03-previous',width:1280,height:768,variant:'P03',palette:'viva'});
+ await inspect({tag:'desktop-towers-B',width:1280,height:768,variant:'P04',palette:'viva',towerVariant:'B'});
+ await inspect({tag:'desktop-towers-T04',width:1280,height:768,variant:'P04',palette:'viva',towerVariant:'T04'});
  console.log(JSON.stringify({status:'BROWSER_PASS',renderer:'Phaser WebGL2 Chromium SwiftShader',scope:'VISUAL_SCENE_NO_GAMEPLAY',reports},null,2));
 }catch(e){console.error('C1E_BROWSER_FAIL '+(e?.stack||String(e)));process.exitCode=1;
 }finally{await browser?.close();await new Promise(r=>server.close(r));}
