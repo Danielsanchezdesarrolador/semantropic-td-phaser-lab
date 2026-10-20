@@ -10,7 +10,7 @@
 | **QA independiente 21 checks** | [QA_P07_PERSONAJES.json](./QA_P07_PERSONAJES.json) | 12 PASS V8/API/archivo; 8 NOT_RUN; 1 PENDING |
 | **Matriz T08/operador** | [MATRIZ_T08_P07_PERSONAJES.md](./MATRIZ_T08_P07_PERSONAJES.md) | Source T08 leído; montaje BLOQUEADO |
 | **Evidencias/referencia/PNGs** | [EVIDENCIA P07](../evidencias/P07/EVIDENCIA.md) | Original C1-C real; AFTER NOT_RUN |
-| **FRAME ABI oficial** | [README_P07_FRAME_ABI.md](../../README_P07_FRAME_ABI.md) | 7 estados/32 cuadros |
+| **FRAME ABI oficial** | [README_P07_FRAME_ABI.md](../README_P07_FRAME_ABI.md) | 7 estados/32 cuadros |
 | **Manifest/hashes** | [P07_MANIFEST.json](../../../../public/official/art/actors/P07_MANIFEST.json) | 4 archivos reales |
 | **Orco P03-source** | [warrior.png](../../../../public/official/art/actors/p07/png/warrior.png) | 696921 bytes |
 | **Hound P03-source** | [hound.png](../../../../public/official/art/actors/p07/png/hound.png) | 600467 bytes |
@@ -18,6 +18,7 @@
 | **Operador P03 SIN RIFLE** | [sniper_operator_unarmed.png](../../../../public/official/art/actors/p07/png/sniper_operator_unarmed.png) | 539246 bytes |
 | **P07 rig original de P03** | [p07-p03-continuity-rig.mjs](../../../../public/official/art/actors/p07-p03-continuity-rig.mjs) | Fuente editable |
 | **Generador de atlas PNG** | [p07-png-export.mjs](../../../../public/official/art/actors/p07-png-export.mjs) | Codec/fuente/128 cuadros |
+| **Sockets reales de poses del operador** | [P07_OPERATOR_SOCKETS.json](../../../../public/official/art/actors/P07_OPERATOR_SOCKETS.json) | 32 frames, hand/eye/foot / T08 pendiente |
 | **Vitrina P03/P06/P07** | [p07-index.html](../../../../public/official/src/actors-visual/p07-index.html) | Código Phaser, navegador NOT_RUN |
 | **QA Node/PNG** | [qa-p07.mjs](../../../../public/official/src/actors-visual/qa-p07.mjs) | Script listo, no ejecutado en checkout |
 | **QA navegador** | [qa-p07-browser.mjs](../../../../public/official/src/actors-visual/qa-p07-browser.mjs) | Script Playwright, NOT_RUN |
