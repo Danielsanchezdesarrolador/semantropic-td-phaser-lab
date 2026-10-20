@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "c1d2-p05-qa-v1",
+  "team": "P",
+  "milestone": "P05/C1-D2",
+  "date": "2026-10-19",
+  "branch": "feature/art-p05-combat-reactivity",
+  "baseSha": "cb6e7b73edcb6f6df4fa5dace302aac845fc5780",
+  "headSha": "",
+  "headShaPolicy": "Populate SHA in acta after final commit; actual PR head is authoritative because acta/INDEX commits change HEAD.",
+  "prUrl": null,
+  "status": "IN_PROGRESS_PROTOTYPE",
+  "gameplayImplemented": false,
+  "coreMutated": false,
+  "mergePerformed": false,
+  "checks": [
+    {
+      "name": "Branch base and ownership",
+      "command": "GitHub branch list/tree/diff",
+      "status": "PASS",
+      "evidence": "P05 began at exact cb6e7b73; ownership audit final step pending"
+    },
+    {
+      "name": "Contract read",
+      "command": "GitHub fetch integration/phaser/docs/contracts/v1/COMBAT_EVENTS_CONTRACT.md and ACTOR_VISUAL_CONTRACT.md",
+      "status": "PASS",
+      "evidence": "Names candidate, entityId/eventId envelope proposal; not runtime API"
+    },
+    {
+      "name": "Syntax P05 modules",
+      "command": "V8 new Function with imports removed",
+      "status": "PASS",
+      "evidence": "p05-reactivity/painter/gallery/viewadapter/qa-p05 parsed in isolated V8"
+    },
+    {
+      "name": "Atlas metadata",
+      "command": "V8 mocked Canvas2D createP05Atlas × 4",
+      "status": "PASS",
+      "evidence": "4 atlases 1408×832, 32 frames each, 128 total"
+    },
+    {
+      "name": "Distinct pose-drawing traces",
+      "command": "V8 mocked paintP05Frame on 4×7 states",
+      "status": "PASS",
+      "evidence": "Each of 128 frame drawing-command traces distinct within state; NOT pixel proof"
+    },
+    {
+      "name": "Expression sheets",
+      "command": "V8 mocked makeP05ExpressionSheet × 4",
+      "status": "PASS",
+      "evidence": "4 declared 1200×820 sheets constructed without exception; no PNG file export"
+    },
+    {
+      "name": "Reactivity event duplicate",
+      "command": "V8 createP05Reactivity dispatch hit same eventId twice",
+      "status": "PASS",
+      "evidence": "Second dispatch false on all 4 actors"
+    },
+    {
+      "name": "Pause and direction phase",
+      "command": "V8 pause/advance/resume and E→W during walk",
+      "status": "PASS",
+      "evidence": "Paused frame invariant and walk phase preserved"
+    },
+    {
+      "name": "Death versus escape idempotence",
+      "command": "V8 terminal two independent flows per actor",
+      "status": "PASS",
+      "evidence": "One completion per flow, late competing terminal rejected, escape opacity 0"
+    },
+    {
+      "name": "T06 metadata audit",
+      "command": "GitHub fetch feature/art-t06-sniper-vfx catalog.mjs",
+      "status": "PASS",
+      "evidence": "Sniper I (185,204), II (185,206) on 360×420; platform layer SVGs present; art montage NOT verified"
+    },
+    {
+      "name": "Node --check & full qa-p05.mjs",
+      "command": "node --check && node public/official/src/actors-visual/qa-p05.mjs",
+      "status": "NOT_RUN",
+      "evidence": "Only V8 snippets executed; complete repository checkout unavailable in local environment"
+    },
+    {
+      "name": "npm build",
+      "command": "npm run build",
+      "status": "NOT_RUN",
+      "evidence": "Build on branch not executed"
+    },
+    {
+      "name": "Real Chromium Phaser WebGL2",
+      "command": "node public/official/src/actors-visual/qa-p05-browser.mjs",
+      "status": "NOT_RUN",
+      "evidence": "Script committed but browser not run on P05 branch"
+    },
+    {
+      "name": "Desktop screenshot",
+      "command": "Playwright desktop 1280x768 P04 vs P05",
+      "status": "NOT_RUN",
+      "evidence": "No authentic rendered screenshot"
+    },
+    {
+      "name": "Mobile screenshot 844x390",
+      "command": "Playwright emulated landscape",
+      "status": "NOT_RUN",
+      "evidence": "No screenshot or phone hardware"
+    },
+    {
+      "name": "Mobile screenshot 932x430",
+      "command": "Playwright emulated landscape",
+      "status": "NOT_RUN",
+      "evidence": "No screenshot or phone hardware"
+    },
+    {
+      "name": "PNG alpha and pixel-proof",
+      "command": "Playwright export 4 RGBA atlas PNG and hash SHA256",
+      "status": "NOT_RUN",
+      "evidence": "No real P05 image binary written/versioned"
+    },
+    {
+      "name": "T06 mounting/dual rifle",
+      "command": "Visual montage between backStructure and frontRail",
+      "status": "NOT_RUN",
+      "evidence": "BLOCKER: both T06 tower and P05 operator contain drawn weapon; decision pending"
+    },
+    {
+      "name": "Stress/scene cleanup",
+      "command": "Playwright 24 clones, actor change, pause, escape, textures",
+      "status": "NOT_RUN",
+      "evidence": "Viewer contains controls, not executed in actual browser"
+    },
+    {
+      "name": "Physical mobile FPS",
+      "command": "iOS/Android device landscape p50/p95 GPU memory",
+      "status": "NOT_RUN",
+      "evidence": "No hardware measurements"
+    },
+    {
+      "name": "Art Director approval",
+      "command": "Evaluate fluidity and 44/64/80 px",
+      "status": "NOT_RUN",
+      "evidence": "Code-only QA cannot certify painterly premium artwork"
+    }
+  ],
+  "screenshotIndex": [
+    {
+      "path": null,
+      "requestedPath": "docs/art/actors/evidencias/P05/p05-desktop-P04-vs-P05-real-webgl2.png",
+      "captureType": "real-runtime",
+      "viewport": "1280x768",
+      "status": "NOT_RUN"
+    },
+    {
+      "path": null,
+      "requestedPath": "docs/art/actors/evidencias/P05/p05-landscape844-P04-vs-P05-real-webgl2.png",
+      "captureType": "real-runtime",
+      "viewport": "844x390",
+      "status": "NOT_RUN"
+    },
+    {
+      "path": null,
+      "requestedPath": "docs/art/actors/evidencias/P05/p05-landscape932-P04-vs-P05-real-webgl2.png",
+      "captureType": "real-runtime",
+      "viewport": "932x430",
+      "status": "NOT_RUN"
+    }
+  ],
+  "knownBlockers": [
+    "P05 Chromium screenshot baseline and mobile visual acceptance missing",
+    "Four P05 PNG atlases/alpha/clipping/real SHA256 missing",
+    "P05 operator rifle duplicates T06's permanently mounted rifle unless one owner hides/removes it",
+    "T06 operator real deck/frontRail occlusion not mounted in integrated scene",
+    "Core CombatEventBridge event names are proposed until integrator certifies adapter",
+    "P04-driven procedural art plus P05 recoil enhancements may remain below premium painterly target",
+    "Root build/test and physical device performance not yet measured"
+  ],
+  "performanceEstimate": {
+    "atlasRGBA8BytesEach": 4685824,
+    "totalFourActorAtlasesBytes": 18743296,
+    "source": "1408*832*4 bytes/atlas (not measured GPU resident memory)"
+  }
+}
