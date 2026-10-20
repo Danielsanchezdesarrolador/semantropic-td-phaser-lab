@@ -38,3 +38,12 @@ Se amplió **solo el QA de galería relacionado**: `qa-p08-browser.mjs` verifica
 **P08-B1 no autoriza integración, merge, despliegue, aprobación comercial ni modificación de LIVE.**
 
 **Nota de revisión B1 (mismo defecto, sin nuevos alcances):** la función de fondo se invoca antes de poblar `this.views`. Se sustituyó la consulta anticipada de metadatos por anchos deterministas según índice. Así ambas tarjetas de veteranos son efectivamente de 174px también en el primer frame, en vez de heredar temporalmente 180px. Fueron necesarios dos commits de un mismo cambio visual para impedir una discrepancia entre QA y render real.
+
+
+## P08-B1-HF1 · Microcorrectivo de títulos — 20-10-2026
+- **Orden:** corregir exclusivamente el gap entre los dos títulos de Veterano II, documentado por Chromium Actions [#39497698794](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39497698794): `titlesGap=7` (FAIL; mínimo 8), `titleWidths=[179,179]`, `panelsGap=12` (PASS).
+- **Cambio limitado a la galería:** centros de Veterano 1 `425→421` y Veterano 2 `611→615`; paneles se mantienen a 174, textos independientes y tamaño de fuente de 20px sin modificación. Separaciones geométricas **calculadas**: paneles `615−421−174=20`; títulos de ancho 179 `615−421−179=15`, margen estimado mayor que el mínimo 8. No declarar un PASS real de Chromium posterior antes de ejecutar el QA.
+- **Inalterado:** los ocho PNG P07/P08, SHA, rig, exportador, controlador, poses, ataque, anclajes, orco/hound P03, combat core, Infantería I/II, economía, mapa, LIVE y Render. El RFC P08 de integración permanece válido; el único defecto tratado fue la separación de etiquetas.
+- **QA anterior verificable (no atribuir al HF1):** Node22 `qa-p08.mjs`, Node22 `qa-p07.mjs`, `npm run build` PASS y galería Chromium/WebGL2 PASS técnico salvo `titlesGap=7` FAIL en run #39497698794.
+- **QA posterior HF1:** cálculo estático del layout PASS_SOURCE; Node22, build, galería Chromium en 1280×768/844×390/932×430, nueve capturas nuevas y hashes **NOT_RUN hasta ejecución sobre el commit final**. No se reutilizan fotos previas como prueba HF1. Solicitar a Dirección su auditoría aislada si los comandos no están disponibles.
+- **PR:** #39 conserva DRAFT, no merge, no deploy. **SHA de este cambio:** consultar la pestaña [Commits del PR #39](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39/commits); su inclusión en el propio commit cambiaría el SHA.
