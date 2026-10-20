@@ -1,0 +1,161 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "revision": "P07-C1C-VISUAL-CONTINUITY",
+  "date": "2026-10-20",
+  "owner": "PERSONAJES",
+  "branch": "feature/art-p07-continuidad-c1c",
+  "baseSha": "a5116db1f956f8b32b86570600b878ba9d5187ed",
+  "approvedVisualReference": {
+    "file": "SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03.png",
+    "sha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "resolution": [
+      1280,
+      768
+    ]
+  },
+  "visualSource": {
+    "originalBranch": "feature/art-p03-q2-personajes",
+    "originalFile": "public/official/art/actors/p03-rig.mjs",
+    "originalBlobSha": "1a4282e1652ff559b92e18f42db465d6bfb8e729",
+    "p07AuthoringFile": "public/official/art/actors/p07-p03-continuity-rig.mjs",
+    "deliberateChanges": [
+      "new-version-keys",
+      "P03 human helmet alignment in source coordinates",
+      "sniper actor-owned rifle removed; T08 is sole weapon owner"
+    ]
+  },
+  "renderer": {
+    "sourceMethod": "P03 original Canvas2D geometry/palette routed through deterministic local P07 software path/gradient rasterizer",
+    "rasterModule": "public/official/art/actors/p07-raster-canvas.mjs",
+    "exporter": "public/official/art/actors/p07-png-export.mjs",
+    "encoder": "public/official/art/actors/p06-png-generator.mjs",
+    "note": "Software Canvas approximation, not pixel-identical to native Chromium Canvas; visual comparison compulsory before approval"
+  },
+  "packing": {
+    "width": 1408,
+    "height": 832,
+    "frames": 32,
+    "cellWidth": 176,
+    "cellHeight": 208,
+    "cols": 8,
+    "rows": 4,
+    "states": {
+      "idle": 4,
+      "walk": 8,
+      "attackWindup": 3,
+      "attack": 5,
+      "hit": 3,
+      "die": 6,
+      "blocked": 3
+    },
+    "footAnchor": {
+      "x": 0.5,
+      "y": 0.92
+    },
+    "shadowAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "orientation": [
+      "E",
+      "W-mirrored"
+    ]
+  },
+  "assets": [
+    {
+      "canonicalId": "warrior",
+      "atlasKey": "actors/enemies/warrior/v1/p07-c1c",
+      "assetId": "actors/enemies/warrior/v1/p07-c1c",
+      "variant": "continuity",
+      "file": "public/official/art/actors/p07/png/warrior.png",
+      "worldHeightProposal": 91,
+      "sizeBytes": 696921,
+      "sha256": "96bb22bac15eb054ea435389556491ecf040599476b84beb9a318c9abf0a98c7",
+      "gitBlobSha": "36eda0e797f18c0999d14690edd5bc001ecb2ede",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "integrator approval pending",
+      "containsActorRifle": null
+    },
+    {
+      "canonicalId": "hound",
+      "atlasKey": "actors/enemies/hound/v1/p07-c1c",
+      "assetId": "actors/enemies/hound/v1/p07-c1c",
+      "variant": "continuity",
+      "file": "public/official/art/actors/p07/png/hound.png",
+      "worldHeightProposal": 67,
+      "sizeBytes": 600467,
+      "sha256": "959b338bc17bb0fbfb51dd17525041b128b758edd44151f479b5cb81fdc0e8a7",
+      "gitBlobSha": "4892c4a5b004cb86e6806a845e8b7cb43e74417b",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "integrator approval pending",
+      "containsActorRifle": null
+    },
+    {
+      "canonicalId": "infantry_recruit",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p07-c1c",
+      "assetId": "actors/allies/infantry-recruit/v1/p07-c1c",
+      "variant": "continuity",
+      "file": "public/official/art/actors/p07/png/infantry_recruit.png",
+      "worldHeightProposal": 88,
+      "sizeBytes": 610623,
+      "sha256": "b34e0e1b7f47ea1948d91cf15a15f8d7d899411ec4c5349356ceb871bc54c3aa",
+      "gitBlobSha": "f3480db3049bfef41ba6e9f4b3a25a9b8991d0f7",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "integrator approval pending",
+      "containsActorRifle": null
+    },
+    {
+      "canonicalId": "sniper_operator",
+      "atlasKey": "actors/allies/sniper-operator/v1/p07-c1c-unarmed",
+      "assetId": "actors/allies/sniper-operator/v1/p07-c1c-unarmed",
+      "variant": "unarmed",
+      "file": "public/official/art/actors/p07/png/sniper_operator_unarmed.png",
+      "worldHeightProposal": 80,
+      "sizeBytes": 539246,
+      "sha256": "586441a555677ac6f8b67fb232283481e8431f9f608bbaa50dad7639f83f2ace",
+      "gitBlobSha": "a69be1eebfeb11a408d6ddd80271b6ed48713358",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "T08-mounted test pending",
+      "containsActorRifle": false
+    }
+  ],
+  "memory": {
+    "rgba8PerAtlasBytes": 4685824,
+    "totalFourUncompressedBytes": 18743296,
+    "totalCompressedPngBytes": 2447257,
+    "actualGPUMeasured": false
+  },
+  "compatibility": {
+    "preservesP03Identity": true,
+    "strictPixelIdentityToP03Browser": false,
+    "keepsP06AssetsUntouched": true,
+    "keepsP05FsmUntouched": true,
+    "coreBindings": "read-only/integrator",
+    "t08Montage": "NOT_RUN",
+    "coreGameplayModified": false
+  },
+  "approval": {
+    "sourceGenerated": true,
+    "binPngInGit": true,
+    "byteSHA256FromExport": true,
+    "realChromiumQA": false,
+    "physicalDeviceQA": false,
+    "artistApproved": false
+  }
+}

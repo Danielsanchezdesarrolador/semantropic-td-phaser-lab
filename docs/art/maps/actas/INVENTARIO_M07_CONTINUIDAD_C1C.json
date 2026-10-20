@@ -1,0 +1,291 @@
+{
+  "version": "M07-C1C-IDENTITY-LOCK-1",
+  "sourceBranch": "feature/art-m07-continuidad-c1c",
+  "sourceBaseline": "M03/C1C",
+  "sourceScreenshot": {
+    "sha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "dimensions": [
+      1280,
+      768
+    ],
+    "verifiedUpload": true,
+    "repositoryCopy": "NOT_INCLUDED; gallery locally verifies director-provided exact PNG"
+  },
+  "totalProps": 13,
+  "entries": [
+    {
+      "id": "m01-prop-02",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/oak",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "world": {
+        "x": 346,
+        "y": 140
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-prop-03",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/oak",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "world": {
+        "x": 515,
+        "y": 99
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-prop-04",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/oak",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "world": {
+        "x": 834,
+        "y": 115
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-prop-05",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/oak",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "world": {
+        "x": 1192,
+        "y": 137
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-prop-06",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/oak",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "world": {
+        "x": 69,
+        "y": 724
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-prop-07",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/oak",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "world": {
+        "x": 314,
+        "y": 744
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-prop-08",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/oak",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "world": {
+        "x": 752,
+        "y": 731
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-m02-fence-01",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/fence",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/fence-remnant.svg",
+      "world": {
+        "x": 444,
+        "y": 126
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-m02-aqueduct",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/aqueduct",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/aqueduct-remnant.svg",
+      "world": {
+        "x": 102,
+        "y": 113
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-m02-shrine",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/shrine",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/signal-shrine.svg",
+      "world": {
+        "x": 625,
+        "y": 92
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-m02-lookout",
+      "originalC1CAsset": "maps/m01/aurora-v2/svg/lookout",
+      "sourcePath": "public/official/art/maps/m01/m02/svg/watch-post.svg",
+      "world": {
+        "x": 1119,
+        "y": 725
+      },
+      "sourceScale": "Read dynamically from M03 makeM03ArtPlan()",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "background",
+      "depthM03": -1700,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-m03-supply",
+      "originalC1CAsset": "maps/m01/aurora-v3/svg/supply",
+      "sourcePath": "public/official/art/maps/m01/m03/svg/dawn-cache.svg",
+      "world": {
+        "x": 824,
+        "y": 698
+      },
+      "sourceScale": 0.34,
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "low",
+      "depthM03": -1190,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    },
+    {
+      "id": "m01-m03-fern",
+      "originalC1CAsset": "maps/m01/aurora-v3/svg/fern",
+      "sourcePath": "public/official/art/maps/m01/m03/svg/dawn-fern.svg",
+      "world": {
+        "x": 545,
+        "y": 683
+      },
+      "sourceScale": 0.28,
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "layerM03": "low",
+      "depthM03": -1190,
+      "M06State": "M03 object may still be underneath replacement M04/M05/M06 layers; visual context displaced",
+      "M07Correction": "Keep exactly same M03 source texture, world position, depth and scale via mountM01WorldV3",
+      "visualLegibility": "PENDING_REAL_WEBGL2_CAPTURE",
+      "status": "MANTIENE_CODIGO_VERIFICADO"
+    }
+  ],
+  "removedNewElements": [
+    "M04 altered ground/road",
+    "M05 18 added illustrated clusters",
+    "M06 6 alternate landmarks",
+    "M06 1600x960 painted terrain"
+  ],
+  "preservedTechnicals": [
+    "visual snapshot read-only",
+    "candidate event deduplication by eventId",
+    "stale event protection using authoritative core tick",
+    "idempotent destroy",
+    "M03 texture leases only for M07-owned consumers"
+  ],
+  "approval": "The screenshot approves visible appearance only, not hidden animations, other maps, or mechanics."
+}

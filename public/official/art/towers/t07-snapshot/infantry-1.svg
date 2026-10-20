@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="infantry 1 A"><title>infantry 1 A · SEMANTROPIC TD T05</title><defs>
+<linearGradient id="mStone" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fff2cb"/><stop offset=".22" stop-color="#d4c9a6"/><stop offset=".64" stop-color="#899b93"/><stop offset="1" stop-color="#526d74"/></linearGradient>
+<linearGradient id="sideStone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#9fa89d"/><stop offset=".55" stop-color="#627c7f"/><stop offset="1" stop-color="#284d60"/></linearGradient>
+<linearGradient id="iron" x1=".2" y1="0" x2=".9" y2="1"><stop stop-color="#e8e8d1"/><stop offset=".22" stop-color="#8babae"/><stop offset=".57" stop-color="#4b7888"/><stop offset=".89" stop-color="#294861"/><stop offset="1" stop-color="#172f4e"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f0c892"/><stop offset=".4" stop-color="#ae7b50"/><stop offset=".78" stop-color="#785441"/><stop offset="1" stop-color="#493c38"/></linearGradient>
+<linearGradient id="woodShade" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#bd8050"/><stop offset=".6" stop-color="#654b3d"/><stop offset="1" stop-color="#39353a"/></linearGradient>
+<linearGradient id="roof" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#aec3b8"/><stop offset=".2" stop-color="#698d9d"/><stop offset=".47" stop-color="#416f88"/><stop offset=".84" stop-color="#244760"/><stop offset="1" stop-color="#152f52"/></linearGradient>
+<linearGradient id="canvas" x1=".2" y1="0" x2="1" y2="1"><stop stop-color="#e6d8b6"/><stop offset=".38" stop-color="#8da99d"/><stop offset=".86" stop-color="#3d7183"/><stop offset="1" stop-color="#2c4b65"/></linearGradient>
+<linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2bd"/><stop offset=".36" stop-color="#e0bc7d"/><stop offset=".77" stop-color="#9e7649"/><stop offset="1" stop-color="#664c41"/></linearGradient>
+<radialGradient id="optic"><stop stop-color="#f5ffff"/><stop offset=".3" stop-color="#a6fff1"/><stop offset=".58" stop-color="#60b8bb"/><stop offset="1" stop-color="#285d79"/></radialGradient>
+<radialGradient id="light"><stop stop-color="#ffeabb" stop-opacity=".85"/><stop offset=".5" stop-color="#e1ac55" stop-opacity=".28"/><stop offset="1" stop-color="#b48e50" stop-opacity="0"/></radialGradient>
+<pattern id="grain" width="20" height="16" patternUnits="userSpaceOnUse"><path d="M1 5q7-3 14-2M-2 14q9-2 15-1" fill="none" stroke="#ffe1af" stroke-width="1.1" opacity=".21"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+</defs><g id="tower-shadow"><ellipse cx="180" cy="392" rx="136" ry="16" fill="#132c36" opacity=".38" filter="url(#soft)"/><path d="M31 353 174 300 327 351 183 401Z" fill="#263e46" stroke="#193445" stroke-width="4"/><path d="M31 352 175 302 327 351 186 380Z" fill="url(#mStone)" stroke="#e5cf98" stroke-width="3.5"/><path d="M38 355 187 384 324 351V367L187 405 38 376Z" fill="url(#sideStone)" stroke="#304752" stroke-width="3"/><path d="M64 347 171 313 295 347 184 375Z" fill="#76918b" opacity=".45"/><path d="M44 360 186 393 315 359" fill="none" stroke="#f8dda8" stroke-width="2.2" opacity=".72"/><path d="M77 346 186 376 288 348" stroke="#3f6870" stroke-width="4" opacity=".72" fill="none"/></g><g id="barracks-back">
+ <!-- Asymmetric rectangular heavy occupied building with perspective wall bays -->
+ <path d="M72 191 171 147 283 194 282 320 177 358 70 322Z" fill="url(#sideStone)" stroke="#284655" stroke-width="7"/>
+ <path d="M73 191 177 232 177 359 72 320Z" fill="url(#mStone)" stroke="#304b58" stroke-width="5"/>
+ <path d="M178 231 284 191 282 317 178 358Z" fill="url(#sideStone)" stroke="#31515e" stroke-width="5"/>
+ <path d="M77 203 174 239 174 347 76 315Z" fill="url(#grain)" opacity=".65"/>
+ <path d="M92 216v99M155 246v94M224 218v119" stroke="#2c4d61" stroke-width="6" opacity=".4"/>
+ <!-- Main sloped dual-plane canvas/metal roof with irregular wood rafters -->
+ <path d="M44 197 166 101 302 182 183 258Z" fill="url(#roof)" stroke="#243e55" stroke-width="8"/>
+ <path d="M44 197 166 101 180 243Z" fill="url(#canvas)" stroke="#294a60" stroke-width="4"/>
+ <path d="M166 101 302 182 183 258 180 243Z" fill="url(#roof)" stroke="#2c4961" stroke-width="5"/>
+ <path d="M67 187 164 118 175 220Z" fill="url(#grain)" opacity=".35"/>
+ <path d="M180 130 286 181 197 236Z" fill="url(#grain)" opacity=".29"/>
+ <path d="M49 201 184 256 303 185" stroke="url(#wood)" stroke-width="12" fill="none"/>
+ <path d="M54 199 181 251 300 184" stroke="#f2d0a2" stroke-width="3" fill="none"/>
+ <path d="M89 166 102 197M149 124 162 231M232 156l-37 74M272 180l-61 44" stroke="#cbb28c" stroke-width="4" opacity=".68"/>
+ <!-- True vaulted functioning doorway with two openable halves -->
+ <path d="M106 325V276Q107 253 133 247Q159 252 160 283V344Z" fill="#1a3139" stroke="#dbc394" stroke-width="10"/>
+ <path d="M113 326v-45q2-20 19-21v74Z" fill="url(#wood)" stroke="#4c413b" stroke-width="4"/>
+ <path d="M133 262q17 4 19 23v56l-19-7Z" fill="url(#woodShade)" stroke="#3d3b3a" stroke-width="3"/>
+ <path d="M132 264v72" stroke="#ebc78e" stroke-width="4"/>
+ <path d="M113 293l39 14M116 314l36 15" stroke="#3b5761" stroke-width="4" opacity=".83"/>
+ <path d="M99 267 132 241 168 271" stroke="#fbe4ad" stroke-width="5" fill="none"/>
+ <!-- Working side armoury, not decorative gun floating -->
+ <path d="M206 271 251 252 287 266 245 284Z" fill="url(#wood)" stroke="#3c4650" stroke-width="5"/>
+ <path d="M212 282 246 297 246 338 212 326Z" fill="url(#woodShade)" stroke="#463c38" stroke-width="4"/>
+ <path d="M246 295 288 276 287 316 246 338Z" fill="#4a5860" stroke="#263e4d" stroke-width="4"/>
+ <path d="M212 276v-31M273 264v-31" stroke="#376475" stroke-width="9"/>
+ <path d="M209 249 273 224 297 247 244 270Z" fill="url(#canvas)" stroke="#32566d" stroke-width="5"/>
+ <path d="M209 249 245 264 295 248" fill="none" stroke="#e8c18e" stroke-width="5"/>
+ <path d="M261 288l14-7M256 302l18-9" stroke="#d9b385" stroke-width="4"/>
+ <g transform="translate(220 182) scale(0.72)"><path d="M0 5V-58" stroke="#494341" stroke-width="7"/><path d="M3-52Q19-53 38-40L26-26 44-20Q20-14 3-23Z" fill="#284f78" stroke="#e3c189" stroke-width="3"/><path d="M8-48 19-39 11-30" stroke="#afdfd6" stroke-width="3" fill="none"/><circle cy="-59" r="5" fill="url(#brass)"/></g><g transform="translate(175 222) scale(0.72)"><path d="M0-18 23-11 20 17 0 30-20 17-23-11Z" fill="#285b73" stroke="url(#brass)" stroke-width="5"/><path d="M0-13 5-1 15 3 5 7 0 21-5 7-15 3-5-1Z" fill="#ebd4a1"/><circle cx="0" cy="3" r="3" fill="#a3eee2"/></g>
+ <path d="M85 216l12 5v52l-11-5Z" fill="url(#iron)" stroke="#3b4b55" stroke-width="3"/>
+ <path d="M262 231l13-6v47l-13 8Z" fill="#1b3845" stroke="url(#brass)" stroke-width="4"/>
+ <g transform="translate(274 281) scale(0.65)"><ellipse rx="26" ry="27" fill="url(#light)" opacity=".7"/><path d="M-9-12 9-12 12 14-12 14Z" fill="#c8a365" stroke="#263f4c" stroke-width="4"/><path d="M-5-8H5V11H-5Z" fill="#fff1af" opacity=".88"/><path d="M-15-15 0-24 15-15M-15 17H15" fill="none" stroke="#4a5760" stroke-width="4"/></g>
+ <g id="hand-painted-stone-wear"><path d="M253.5 255.4l4.3 -2.3" stroke="#23485b" stroke-width="1.4" opacity="0.22"/><path d="M131.8 240.6l11.7 -2.6" stroke="#e6d9b8" stroke-width="2.2" opacity="0.33"/><path d="M239.4 335.4l9.4 -1.0" stroke="#23485b" stroke-width="1.6" opacity="0.26"/><path d="M101.3 237.2l4.8 -1.8" stroke="#23485b" stroke-width="1.5" opacity="0.40"/><path d="M203.0 238.5l12.7 -1.9" stroke="#23485b" stroke-width="1.4" opacity="0.27"/><path d="M223.1 305.2l11.6 -1.1" stroke="#23485b" stroke-width="1.2" opacity="0.16"/><path d="M107.2 256.1l5.8 -1.6" stroke="#23485b" stroke-width="1.2" opacity="0.34"/><path d="M248.4 260.9l6.3 -2.8" stroke="#23485b" stroke-width="1.5" opacity="0.31"/><path d="M249.4 267.7l7.4 -2.7" stroke="#e6d9b8" stroke-width="2.0" opacity="0.21"/><path d="M240.5 267.3l5.2 -1.1" stroke="#23485b" stroke-width="1.4" opacity="0.24"/><path d="M250.1 220.6l4.0 -2.7" stroke="#e6d9b8" stroke-width="2.0" opacity="0.35"/><path d="M179.8 240.7l7.6 -2.2" stroke="#23485b" stroke-width="1.3" opacity="0.36"/><path d="M192.1 285.3l3.1 -2.0" stroke="#e6d9b8" stroke-width="1.0" opacity="0.18"/><path d="M131.6 268.9l9.1 -1.4" stroke="#23485b" stroke-width="2.8" opacity="0.27"/><path d="M140.7 242.5l6.4 -1.7" stroke="#23485b" stroke-width="1.3" opacity="0.39"/><path d="M200.3 239.7l6.0 -2.1" stroke="#e6d9b8" stroke-width="2.0" opacity="0.35"/><path d="M207.9 278.7l6.6 -2.0" stroke="#23485b" stroke-width="1.6" opacity="0.19"/><path d="M209.9 282.8l8.9 -1.1" stroke="#e6d9b8" stroke-width="1.5" opacity="0.26"/><path d="M236.1 268.3l4.2 -1.2" stroke="#e6d9b8" stroke-width="2.3" opacity="0.39"/><path d="M251.6 303.0l3.4 -2.9" stroke="#e6d9b8" stroke-width="2.2" opacity="0.24"/><path d="M153.7 299.6l8.1 -2.3" stroke="#e6d9b8" stroke-width="1.2" opacity="0.43"/><path d="M169.7 303.9l11.5 -2.7" stroke="#e6d9b8" stroke-width="1.6" opacity="0.33"/><path d="M120.9 228.9l3.1 -2.5" stroke="#23485b" stroke-width="2.0" opacity="0.42"/><path d="M158.9 317.3l11.1 -1.3" stroke="#e6d9b8" stroke-width="1.7" opacity="0.40"/><path d="M238.1 327.6l6.8 -1.4" stroke="#e6d9b8" stroke-width="2.5" opacity="0.28"/><path d="M246.7 325.5l5.7 -1.3" stroke="#23485b" stroke-width="1.7" opacity="0.28"/><path d="M151.8 267.7l6.2 -1.8" stroke="#e6d9b8" stroke-width="2.8" opacity="0.39"/><path d="M145.7 277.5l6.4 -2.7" stroke="#23485b" stroke-width="2.5" opacity="0.18"/><path d="M122.1 266.5l6.8 -1.8" stroke="#23485b" stroke-width="1.3" opacity="0.31"/><path d="M90.9 290.7l10.6 -2.0" stroke="#e6d9b8" stroke-width="1.8" opacity="0.33"/><path d="M262.6 265.8l9.7 -2.5" stroke="#e6d9b8" stroke-width="2.5" opacity="0.16"/><path d="M171.4 280.2l6.2 -1.1" stroke="#23485b" stroke-width="1.5" opacity="0.21"/><path d="M215.5 268.9l9.5 -1.9" stroke="#23485b" stroke-width="1.0" opacity="0.37"/><path d="M217.6 239.0l12.8 -2.9" stroke="#23485b" stroke-width="1.1" opacity="0.35"/><path d="M183.9 292.3l11.4 -2.8" stroke="#e6d9b8" stroke-width="1.8" opacity="0.22"/></g>
+ <g transform="translate(73 329) scale(0.65)"><path d="M-22-17 9-30 31-19 0-6Z" fill="#dfb480" stroke="#4a403a" stroke-width="3"/><path d="M-22-17 0-6V23L-22 9Z" fill="url(#wood)" stroke="#4b4140" stroke-width="3"/><path d="M0-6 31-19V13L0 23Z" fill="url(#woodShade)" stroke="#443f3a" stroke-width="3"/><path d="M-17-10-3-1M8 0l18-8M-17 5 0 14 26 2" stroke="#f0d1a0" stroke-width="4" fill="none"/></g>
+ </g><g id="barracks-front">
+ <!-- Protective low asymmetric entry lip; leaves door usable and actor visible outside -->
+ <path d="M84 337 106 346 123 346 139 355 157 347 179 360 180 374 133 356 87 347Z" fill="url(#mStone)" stroke="#3a5561" stroke-width="4" opacity=".93"/>
+ <path d="M83 339 134 360 182 376" stroke="#f0d29e" stroke-width="3" fill="none"/>
+ <circle cx="105" cy="352" r="4" fill="#2a4352"/><circle cx="104.2" cy="351.1" r="2.6" fill="url(#brass)"/><circle cx="165" cy="363" r="4" fill="#2a4352"/><circle cx="164.2" cy="362.1" r="2.6" fill="url(#brass)"/>
+ </g></svg>
