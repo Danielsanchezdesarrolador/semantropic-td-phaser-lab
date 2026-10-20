@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "semantropic-assets-v1",
+  "artMilestone": "P08-INFANTRY-EVOLUTION-C1D6",
+  "date": "2026-10-20",
+  "owner": "PERSONAJES",
+  "branch": "feature/art-p08-infantry-evolution-combat",
+  "baseSha": "5eef18c3c86c683d9cb38f89d708eb3d9e7c168e",
+  "publicationStatus": "CANDIDATE_DO_NOT_INSTALL",
+  "approvedVisualReference": {
+    "name": "C1-C M03+T04+P03",
+    "sha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef"
+  },
+  "coreReadOnly": {
+    "source": "public/official/src/core-c1d/m01-infantry-combat-a2.mjs",
+    "ref": "integration/c1d6-map01-playable-release",
+    "levels": {
+      "1": {
+        "count": 1,
+        "hp": 110,
+        "damage": 8,
+        "interval": 1.2,
+        "radius": 130,
+        "respawn": 10,
+        "speed": 82,
+        "reach": 20
+      },
+      "2": {
+        "count": 2,
+        "hp": 165,
+        "damage": 12,
+        "interval": 1.1,
+        "radius": 130,
+        "respawn": 9,
+        "speed": 88,
+        "reach": 20
+      }
+    },
+    "combatPresenter": "public/official/src/actors-visual/p08/p08-controller.mjs",
+    "warning": "Numbers are cited from core and read-only; no sprite sets damage/spawns/HP or a third unit."
+  },
+  "visual": {
+    "sourceP03": "public/official/art/actors/p07-p03-continuity-rig.mjs",
+    "painter": "public/official/art/actors/p08/p08-visual-rig.mjs",
+    "exporter": "public/official/art/actors/p08/p08-png-export.mjs",
+    "rasterizer": "public/official/art/actors/p07-raster-canvas.mjs",
+    "encoder": "public/official/art/actors/p06-png-generator.mjs",
+    "p03NeutralPreservation": "warrior and hound P03 neutral source rendered unmodified; combat-only overlay for attackWindup/attack",
+    "sniperOperator": "P03 approved default, untouched in P08",
+    "levelIIIandIV": "PROPOSAL_ONLY"
+  },
+  "packing": {
+    "width": 1408,
+    "height": 832,
+    "columns": 8,
+    "rows": 4,
+    "frameWidth": 176,
+    "frameHeight": 208,
+    "totalFrames": 32,
+    "states": {
+      "idle": 4,
+      "walk": 8,
+      "attackWindup": 3,
+      "attack": 5,
+      "hit": 3,
+      "die": 6,
+      "blocked": 3
+    },
+    "footAnchor": {
+      "x": 0.5,
+      "y": 0.92
+    },
+    "shadowAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "flipEW": true
+  },
+  "authoredAnimations": {
+    "soldierWindup": {
+      "coreEvent": "soldier_attack_windup",
+      "windupSeconds": ".29 + slot*.035",
+      "visualClip": "attackWindup"
+    },
+    "soldierContact": {
+      "coreEvent": "soldier_attack_hit",
+      "visualClip": "attack",
+      "contactFrame": 2,
+      "coreAlreadyAppliedDamage": true
+    },
+    "warriorWindup": {
+      "coreEvent": "enemy_attack_windup",
+      "seconds": 0.32
+    },
+    "houndWindup": {
+      "coreEvent": "enemy_attack_windup",
+      "seconds": 0.21
+    },
+    "enemyContact": {
+      "coreEvent": "soldier_hit",
+      "sourceIdMustMatchEnemy": true,
+      "visualClip": "attack",
+      "contactFrame": 2
+    },
+    "defeat": {
+      "coreEvents": [
+        "soldier_die",
+        "entity_die"
+      ],
+      "visualClip": "die",
+      "coreOwnsRespawn": true
+    }
+  },
+  "alphaRules": {
+    "rgba": true,
+    "bitDepth": 8,
+    "colorType": 6,
+    "RGBMustZeroWhenAlphaZero": true,
+    "borderContactsAllowed": 0,
+    "emptyFramesAllowed": 0,
+    "spriteClipNotGameplayDamage": true
+  },
+  "assets": [
+    {
+      "canonicalId": "infantry_recruit",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p08",
+      "file": "public/official/art/actors/p08/png/infantry_recruit.png",
+      "sizeBytes": 562495,
+      "sha256": "1f130ebc02766afaa020e59f55c30215611ac11c5a14cb52b1101cfcbdb25914",
+      "rgbaSha256": "72951795d9a766d083ee2c2c122b1e2b64bd9be4f88df998768ff32e11f1a52b",
+      "gitBlobSha": "da7918a54043878a512cc2596a6a493add23dfe1",
+      "rgbaBytes": 4685824,
+      "frames": 32,
+      "verifiedNonEmptySourceFrames": 32,
+      "sourceAlphaBorderContacts": 0,
+      "sourcePreCleanupTransparentRgbCount": 0,
+      "level": 1,
+      "kind": "ally",
+      "visualHeight": 88,
+      "variant": "Recluta militar equipado",
+      "runtimeEnabled": false
+    },
+    {
+      "canonicalId": "infantry_veteran",
+      "atlasKey": "actors/allies/infantry-veteran/v1/p08",
+      "file": "public/official/art/actors/p08/png/infantry_veteran.png",
+      "sizeBytes": 612567,
+      "sha256": "774a14dd6770aaa058d7941ccc9c51a6436010af82a62ffc210c43e0ccbbec6f",
+      "rgbaSha256": "c70f59b8b52a6271eeb5d6b1601e63c4f4617bf861743c9dc6eb5a81b4c542ef",
+      "gitBlobSha": "1a7bf8b67a276ca5e8ba07fcfc70cf9df20ef486",
+      "rgbaBytes": 4685824,
+      "frames": 32,
+      "verifiedNonEmptySourceFrames": 32,
+      "sourceAlphaBorderContacts": 0,
+      "sourcePreCleanupTransparentRgbCount": 0,
+      "level": 2,
+      "kind": "ally",
+      "visualHeight": 88,
+      "variant": "Veterano de armadura y escudo ampliados",
+      "runtimeEnabled": false
+    },
+    {
+      "canonicalId": "warrior",
+      "atlasKey": "actors/enemies/warrior/v1/p08-combat",
+      "file": "public/official/art/actors/p08/png/warrior.png",
+      "sizeBytes": 702244,
+      "sha256": "8967215ee1fac10b369e15c5b943bc5bdeafe401da6c291d6922d9eb91dd6c4e",
+      "rgbaSha256": "6e9446ed906d703d3d089de7a503bd511243c4954dbe0ce2df6049c2d544aee5",
+      "gitBlobSha": "2f964839d531a8672a10a6c964f49fe4dea4e2ab",
+      "rgbaBytes": 4685824,
+      "frames": 32,
+      "verifiedNonEmptySourceFrames": 32,
+      "sourceAlphaBorderContacts": 0,
+      "sourcePreCleanupTransparentRgbCount": 0,
+      "level": null,
+      "kind": "enemy",
+      "visualHeight": 91,
+      "variant": "P03 enemy, combat-only effect",
+      "runtimeEnabled": false
+    },
+    {
+      "canonicalId": "hound",
+      "atlasKey": "actors/enemies/hound/v1/p08-combat",
+      "file": "public/official/art/actors/p08/png/hound.png",
+      "sizeBytes": 602802,
+      "sha256": "5e1338e1605f9f266575cb6e73b7a6245a3385447812778613034b0349845e38",
+      "rgbaSha256": "bdca818384bd05bf4bb7ea7ed57e14b4cc642210c7b21d0ae0e3718550cc903d",
+      "gitBlobSha": "072aef0bfbd35116e0d4e29a2e1e8674505b06d4",
+      "rgbaBytes": 4685824,
+      "frames": 32,
+      "verifiedNonEmptySourceFrames": 32,
+      "sourceAlphaBorderContacts": 0,
+      "sourcePreCleanupTransparentRgbCount": 0,
+      "level": null,
+      "kind": "enemy",
+      "visualHeight": 67,
+      "variant": "P03 enemy, combat-only effect",
+      "runtimeEnabled": false
+    }
+  ],
+  "memory": {
+    "totalCompressedBytes": 2480108,
+    "nominalDecodedRGBA8Bytes": 18743296,
+    "gpuMemoryMeasured": false,
+    "androidFpsMeasured": false
+  },
+  "qa": {
+    "sourceV8Generated": true,
+    "actualPngFilesCommitted": true,
+    "transparentRgbCleanSource": true,
+    "independentNode22": false,
+    "chromiumWebGL2": false,
+    "mountedC1D6": false,
+    "artDirectorApproved": false
+  },
+  "ownership": {
+    "allowed": [
+      "public/official/art/actors/**",
+      "public/official/src/actors-visual/**",
+      "docs/art/actors/**"
+    ],
+    "forbidden": [
+      "c1d6-playable/**",
+      "core-c1d/**",
+      "live/**",
+      "production/**",
+      "maps-visual/**",
+      "towers-visual/**",
+      "Render"
+    ]
+  }
+}
