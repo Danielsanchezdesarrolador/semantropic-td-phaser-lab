@@ -16,7 +16,10 @@ for(let i=0;i<4;i++){
  assert.ok(svg.startsWith('<svg')&&svg.trimEnd().endsWith('</svg>'));
  assert.ok(svg.includes('viewBox="0 0 360 420"'));
  assert.ok(svg.length>before.length);
- assert.ok(svg.includes('t04-fund-top')&&svg.includes('t04-painted-microvolume'));
+ // T05 replaces the full art: test T04's preserved snapshot, NOT force obsolete tags into T05.
+ const preserved=await readFile('public/official/art/towers/t04-snapshot/'+t.family+'-'+t.level+'.svg','utf8');
+ assert.ok(preserved.includes('t04-fund-top')&&preserved.includes('t04-painted-microvolume'));
+ assert.ok(svg.includes('tower-shadow')&&svg.includes(t.family==='sniper'?'sniper-back':'barracks-back'));
  for(const key of ['buildFoundationLocal','shadowFootAnchor','operatorAnchorLocal','muzzleLocal','spawnExitLocal']){
    const p=t[key];if(!p)continue;
    assert.equal(p.units,'source-px');assert.ok(p.x>=0&&p.x<=360&&p.y>=0&&p.y<=420);

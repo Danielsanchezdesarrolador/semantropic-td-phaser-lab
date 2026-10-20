@@ -1,0 +1,408 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "manifestRevision": "T05-C1D-deep-v1",
+  "owner": "T",
+  "branch": "feature/art-t05-premium-towers",
+  "baseSha": "140a81ae4b38f915326deefbb35230368389eac8",
+  "headShaSnapshot": "36af946886a6571e5c42955b3b5ba319ef7b8dbf",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/14",
+  "status": "prototype-awaiting-Director-art-review",
+  "engine": "Phaser 4.2.1",
+  "renderer": "WebGL2 required, NOT YET EXECUTED for T05",
+  "gameplayImplemented": false,
+  "licensing": "Original in-house procedural SVG authored for Semantropic TD; confirm commercial clearance of final derivative asset package",
+  "sourceFrame": {
+    "widthPx": 360,
+    "heightPx": 420,
+    "alpha": true
+  },
+  "pixelScale": "world-not-screen",
+  "contentHashStatus": "SHA256 null — not yet final export; GitHub blob SHAs are not PNG content hashes",
+  "signature": "infantry amber/stone/broad door; sniper teal/steel/open platform",
+  "assets": [
+    {
+      "assetId": "towers/infantry/level-1",
+      "canonicalId": "infantry",
+      "level": 1,
+      "owner": "T",
+      "category": "tower",
+      "renderStatus": "prototype",
+      "compositeA": {
+        "path": "public/official/art/towers/infantry/level-1.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true
+      },
+      "compositeB": {
+        "path": "public/official/art/towers/concepts/infantry-B-level-1.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true,
+        "choice": "structurally-different"
+      },
+      "beforeT04": {
+        "path": "public/official/art/towers/t04-snapshot/infantry-1.svg",
+        "format": "image/svg+xml"
+      },
+      "layers": {
+        "shadowFoot": {
+          "path": "public/official/art/towers/layers/infantry-1-shadow.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "backStructure": {
+          "path": "public/official/art/towers/layers/infantry-1-back.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "frontRail": {
+          "path": "public/official/art/towers/layers/infantry-1-front.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        }
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operatorSlot": {
+          "x": 126,
+          "y": 315,
+          "units": "source-px"
+        },
+        "spawnExit": {
+          "x": 133,
+          "y": 348,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 177,
+          "y": 244,
+          "units": "source-px"
+        },
+        "foundation": {
+          "x": 181,
+          "y": 378,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 182,
+          "y": 388,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "previousT04": 0.296,
+        "worldScaleProposal": 0.298,
+        "textureWorldW": 107.28,
+        "textureWorldH": 125.16,
+        "approxVisibleBaseWorld": 88.21,
+        "visualPadM03": 110.24,
+        "visiblePadPercent": 20,
+        "approved": false
+      },
+      "source": {
+        "author": "Equipo T",
+        "origin": "illustrations drawn for SEMANTROPIC TD",
+        "license": "project-owned source (final publication approval pending)"
+      },
+      "animation": {
+        "frames": 1,
+        "sourceCompositeLayers": 3,
+        "microFX": "Phaser tween, no damage, one eventId per trigger"
+      },
+      "actorOwnership": "P04 / integrator",
+      "coreAuthority": "Core/Integrador"
+    },
+    {
+      "assetId": "towers/infantry/level-2",
+      "canonicalId": "infantry",
+      "level": 2,
+      "owner": "T",
+      "category": "tower",
+      "renderStatus": "prototype",
+      "compositeA": {
+        "path": "public/official/art/towers/infantry/level-2.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true
+      },
+      "compositeB": {
+        "path": "public/official/art/towers/concepts/infantry-B-level-2.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true,
+        "choice": "structurally-different"
+      },
+      "beforeT04": {
+        "path": "public/official/art/towers/t04-snapshot/infantry-2.svg",
+        "format": "image/svg+xml"
+      },
+      "layers": {
+        "shadowFoot": {
+          "path": "public/official/art/towers/layers/infantry-2-shadow.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "backStructure": {
+          "path": "public/official/art/towers/layers/infantry-2-back.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "frontRail": {
+          "path": "public/official/art/towers/layers/infantry-2-front.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        }
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operatorSlot": {
+          "x": 128,
+          "y": 315,
+          "units": "source-px"
+        },
+        "spawnExit": {
+          "x": 133,
+          "y": 348,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 160,
+          "y": 177,
+          "units": "source-px"
+        },
+        "foundation": {
+          "x": 181,
+          "y": 378,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 182,
+          "y": 388,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "previousT04": 0.308,
+        "worldScaleProposal": 0.31,
+        "textureWorldW": 111.6,
+        "textureWorldH": 130.2,
+        "approxVisibleBaseWorld": 91.76,
+        "visualPadM03": 110.24,
+        "visiblePadPercent": 16.8,
+        "approved": false
+      },
+      "source": {
+        "author": "Equipo T",
+        "origin": "illustrations drawn for SEMANTROPIC TD",
+        "license": "project-owned source (final publication approval pending)"
+      },
+      "animation": {
+        "frames": 1,
+        "sourceCompositeLayers": 3,
+        "microFX": "Phaser tween, no damage, one eventId per trigger"
+      },
+      "actorOwnership": "P04 / integrator",
+      "coreAuthority": "Core/Integrador"
+    },
+    {
+      "assetId": "towers/sniper/level-1",
+      "canonicalId": "sniper",
+      "level": 1,
+      "owner": "T",
+      "category": "tower",
+      "renderStatus": "prototype",
+      "compositeA": {
+        "path": "public/official/art/towers/sniper/level-1.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true
+      },
+      "compositeB": {
+        "path": "public/official/art/towers/concepts/sniper-B-level-1.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true,
+        "choice": "structurally-different"
+      },
+      "beforeT04": {
+        "path": "public/official/art/towers/t04-snapshot/sniper-1.svg",
+        "format": "image/svg+xml"
+      },
+      "layers": {
+        "shadowFoot": {
+          "path": "public/official/art/towers/layers/sniper-1-shadow.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "backStructure": {
+          "path": "public/official/art/towers/layers/sniper-1-back.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "frontRail": {
+          "path": "public/official/art/towers/layers/sniper-1-front.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        }
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operatorSlot": {
+          "x": 187,
+          "y": 207,
+          "units": "source-px"
+        },
+        "spawnExit": null,
+        "muzzle": {
+          "x": 318,
+          "y": 170,
+          "units": "source-px"
+        },
+        "foundation": {
+          "x": 183,
+          "y": 380,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 181,
+          "y": 390,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "previousT04": 0.312,
+        "worldScaleProposal": 0.31,
+        "textureWorldW": 111.6,
+        "textureWorldH": 130.2,
+        "approxVisibleBaseWorld": 91.76,
+        "visualPadM03": 110.24,
+        "visiblePadPercent": 16.8,
+        "approved": false
+      },
+      "source": {
+        "author": "Equipo T",
+        "origin": "illustrations drawn for SEMANTROPIC TD",
+        "license": "project-owned source (final publication approval pending)"
+      },
+      "animation": {
+        "frames": 1,
+        "sourceCompositeLayers": 3,
+        "microFX": "Phaser tween, no damage, one eventId per trigger"
+      },
+      "actorOwnership": "P04 / integrator",
+      "coreAuthority": "Core/Integrador"
+    },
+    {
+      "assetId": "towers/sniper/level-2",
+      "canonicalId": "sniper",
+      "level": 2,
+      "owner": "T",
+      "category": "tower",
+      "renderStatus": "prototype",
+      "compositeA": {
+        "path": "public/official/art/towers/sniper/level-2.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true
+      },
+      "compositeB": {
+        "path": "public/official/art/towers/concepts/sniper-B-level-2.svg",
+        "format": "image/svg+xml",
+        "sha256": null,
+        "original": true,
+        "choice": "structurally-different"
+      },
+      "beforeT04": {
+        "path": "public/official/art/towers/t04-snapshot/sniper-2.svg",
+        "format": "image/svg+xml"
+      },
+      "layers": {
+        "shadowFoot": {
+          "path": "public/official/art/towers/layers/sniper-2-shadow.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "backStructure": {
+          "path": "public/official/art/towers/layers/sniper-2-back.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        },
+        "frontRail": {
+          "path": "public/official/art/towers/layers/sniper-2-front.svg",
+          "format": "image/svg+xml",
+          "widthPx": 360,
+          "heightPx": 420
+        }
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operatorSlot": {
+          "x": 187,
+          "y": 207,
+          "units": "source-px"
+        },
+        "spawnExit": null,
+        "muzzle": {
+          "x": 319,
+          "y": 170,
+          "units": "source-px"
+        },
+        "foundation": {
+          "x": 183,
+          "y": 380,
+          "units": "source-px"
+        },
+        "shadowFoot": {
+          "x": 181,
+          "y": 390,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "previousT04": 0.319,
+        "worldScaleProposal": 0.322,
+        "textureWorldW": 115.92,
+        "textureWorldH": 135.24,
+        "approxVisibleBaseWorld": 95.31,
+        "visualPadM03": 110.24,
+        "visiblePadPercent": 13.5,
+        "approved": false
+      },
+      "source": {
+        "author": "Equipo T",
+        "origin": "illustrations drawn for SEMANTROPIC TD",
+        "license": "project-owned source (final publication approval pending)"
+      },
+      "animation": {
+        "frames": 1,
+        "sourceCompositeLayers": 3,
+        "microFX": "Phaser tween, no damage, one eventId per trigger"
+      },
+      "actorOwnership": "P04 / integrator",
+      "coreAuthority": "Core/Integrador"
+    }
+  ]
+}
