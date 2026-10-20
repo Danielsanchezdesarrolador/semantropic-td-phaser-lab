@@ -57,11 +57,11 @@ try{
    const activeFx=await page.evaluate(()=>window.__SEMANTROPIC_C1C.scene.fx.jobs.size);
    if(activeFx<1)throw Error('T04 FX did not dispatch to C1C');
    await page.locator('#pause').click();
-   await page.waitForTimeout(120); // Phaser changes scene status at its next game tick.
+   await page.waitForFunction(()=>window.__SEMANTROPIC_C1C?.scene?.scene?.isPaused(),{timeout:5000});
    const paused=await page.evaluate(()=>window.__SEMANTROPIC_C1C.scene.scene.isPaused());
-   if(!paused)throw Error('Pause failed: scene status did not become PAUSED after tick');
+   if(!paused)throw Error('Pause failed after state polling');
    await page.locator('#pause').click();
-   await page.waitForTimeout(120);
+   await page.waitForFunction(()=>window.__SEMANTROPIC_C1C?.scene?.scene?.isActive(),{timeout:5000});
    await page.locator('#sockets').click();
    await page.locator('#palette').selectOption('equilibrada');
    await page.waitForTimeout(200);
