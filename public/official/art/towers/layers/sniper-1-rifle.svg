@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="T07 único rifle instalado T de torre 1"><title>T07 único rifle instalado T de torre 1 — Semantropic TD T07</title><defs>
+<linearGradient id="mStone" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fff2cb"/><stop offset=".22" stop-color="#d4c9a6"/><stop offset=".64" stop-color="#899b93"/><stop offset="1" stop-color="#526d74"/></linearGradient>
+<linearGradient id="sideStone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#9fa89d"/><stop offset=".55" stop-color="#627c7f"/><stop offset="1" stop-color="#284d60"/></linearGradient>
+<linearGradient id="iron" x1=".2" y1="0" x2=".9" y2="1"><stop stop-color="#e8e8d1"/><stop offset=".22" stop-color="#8babae"/><stop offset=".57" stop-color="#4b7888"/><stop offset=".89" stop-color="#294861"/><stop offset="1" stop-color="#172f4e"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f0c892"/><stop offset=".4" stop-color="#ae7b50"/><stop offset=".78" stop-color="#785441"/><stop offset="1" stop-color="#493c38"/></linearGradient>
+<linearGradient id="woodShade" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#bd8050"/><stop offset=".6" stop-color="#654b3d"/><stop offset="1" stop-color="#39353a"/></linearGradient>
+<linearGradient id="roof" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#aec3b8"/><stop offset=".2" stop-color="#698d9d"/><stop offset=".47" stop-color="#416f88"/><stop offset=".84" stop-color="#244760"/><stop offset="1" stop-color="#152f52"/></linearGradient>
+<linearGradient id="canvas" x1=".2" y1="0" x2="1" y2="1"><stop stop-color="#e6d8b6"/><stop offset=".38" stop-color="#8da99d"/><stop offset=".86" stop-color="#3d7183"/><stop offset="1" stop-color="#2c4b65"/></linearGradient>
+<linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2bd"/><stop offset=".36" stop-color="#e0bc7d"/><stop offset=".77" stop-color="#9e7649"/><stop offset="1" stop-color="#664c41"/></linearGradient>
+<radialGradient id="optic"><stop stop-color="#f5ffff"/><stop offset=".3" stop-color="#a6fff1"/><stop offset=".58" stop-color="#60b8bb"/><stop offset="1" stop-color="#285d79"/></radialGradient>
+<radialGradient id="light"><stop stop-color="#ffeabb" stop-opacity=".85"/><stop offset=".5" stop-color="#e1ac55" stop-opacity=".28"/><stop offset="1" stop-color="#b48e50" stop-opacity="0"/></radialGradient>
+<pattern id="grain" width="20" height="16" patternUnits="userSpaceOnUse"><path d="M1 5q7-3 14-2M-2 14q9-2 15-1" fill="none" stroke="#ffe1af" stroke-width="1.1" opacity=".21"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+</defs><defs><linearGradient id="t06Flag" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9f2d6"/><stop offset=".45" stop-color="#3c8c95"/><stop offset="1" stop-color="#205170"/></linearGradient><linearGradient id="t06Arm" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f6e6ba"/><stop offset=".23" stop-color="#b4d2c9"/><stop offset=".6" stop-color="#4e8799"/><stop offset="1" stop-color="#24465c"/></linearGradient><radialGradient id="t06Glow"><stop stop-color="#ffffff"/><stop offset=".25" stop-color="#b8fff0"/><stop offset=".6" stop-color="#4da9a9" stop-opacity=".8"/><stop offset="1" stop-color="#266e84" stop-opacity="0"/></radialGradient><pattern id="t06Stone" width="33" height="28" patternUnits="userSpaceOnUse"><path d="M0 0H33M0 28H33M15 0V28" fill="none" stroke="#395463" stroke-width="2.3" opacity=".36"/><path d="M2 5l9-2M19 19l9-1" fill="none" stroke="#fff2cd" stroke-width="2.8" opacity=".17"/></pattern></defs><g id="t06-precision-rig-l1">
+ <path d="M196 182 253 159 289 171 316 184 287 194 235 200Z" fill="url(#t06Arm)" stroke="#315669" stroke-width="6"/>
+ <path d="M280 172l34-10 17 11-16 14-29-2Z" fill="url(#brass)" stroke="#344d5b" stroke-width="5"/>
+ <ellipse cx="248" cy="162" rx="10" ry="8" fill="url(#optic)" stroke="#b8dacf" stroke-width="4"/>
+ <path d="M233 197l-8 25" stroke="#386878" stroke-width="8"/>
+ <path d="M203 190l21 6" stroke="#e1d2ae" stroke-width="3.5"/>
+</g><g id="t07-rifle-support-1" data-owner="T" data-unarmed-operator="P06">
+ <path d="M225 199l-4 23" stroke="url(#iron)" stroke-width="7"/>
+ <path d="M224 212l20 -6" stroke="url(#brass)" stroke-width="4"/>
+ <circle cx="235" cy="199" r="5" fill="#315e6c" stroke="#ddc494" stroke-width="2"/>
+ <path d="M205 184q-13 -5 -19 3l8 10" fill="none" stroke="#c2a476" stroke-width="4"/>
+ </g></svg>
