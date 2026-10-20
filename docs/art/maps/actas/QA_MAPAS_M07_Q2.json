@@ -5,7 +5,7 @@
   "milestone": "M07-Q2 First Playable Performance & C1C Visual Continuity",
   "branch": "feature/art-m07-q2-performance-c1d5",
   "baselineSha": "2c08eaa13dac309f85f4e76b736db6f66545aac9",
-  "prUrl": null,
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/35",
   "prState": "DRAFT_EXPECTED_NO_MERGE",
   "head": "LOOK_UP_GITHUB_PR_COMMITS",
   "sourceTruth": {
@@ -100,8 +100,8 @@
     },
     {
       "id": "OWNERSHIP_FINAL_DIFF",
-      "status": "PENDING",
-      "evidence": "GitHub compare M07 original to Q2 after documentation; inspect all paths",
+      "status": "PASS_VIA_GITHUB",
+      "evidence": "GitHub compare original M07 -> Q2: 11 modified/added paths at audit, all limited to MAPAS M07 folders or docs/art/maps/actas. PR #35 DRAFT, mergeable clean, base 2c08eaa13dac309f85f4e76b736db6f66545aac9, no core changes.",
       "exitCode": null,
       "command": null
     },
@@ -194,5 +194,12 @@
     "Mobile camera and ENVELOP safe areas under ownership DG; MAPAS branch does not modify camera."
   ],
   "verdict": "TECHNICAL_SOURCE_PATCH_IMPLEMENTED_NOT_NATIVE_BROWSER_QA_APPROVED",
-  "rollback": "Close future PR M07-Q2 without merging; M07 original SHA 2c08eaa... and C1-D4R visual approval unchanged."
+  "rollback": "Close future PR M07-Q2 without merging; M07 original SHA 2c08eaa... and C1-D4R visual approval unchanged.",
+  "ownershipAudit": {
+    "status": "PASS",
+    "auditedChangedPaths": 11,
+    "allMAPASOnly": true,
+    "nonOwned": [],
+    "prNumber": 35
+  }
 }
