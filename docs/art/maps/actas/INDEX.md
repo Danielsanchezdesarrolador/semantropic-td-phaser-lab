@@ -33,8 +33,9 @@
 M01 = mundo **1280×768**, **133** waypoints, entrada (−32,342), salida (1312,400), **8** sockets y camino visual **110**. Hit radius provisional **54**, sin modificación de reglas. M03 no porta economía, daño, guardados ni oleadas.
 
 ## Estado de QA y bloqueantes
-- **[CONFIRMADO EN ARCHIVOS]** V3 reduce base de 134,56 a 93,28 unidades visuales aprox., conserva 4 estados (empty/occupied/selected/ruins).
+- **[CONFIRMADO EN ARCHIVOS]** V3 reduce base de 269,12 a 110,24 unidades visuales aprox., conserva 4 estados (empty/occupied/selected/ruins).
 - **[PROBADO EN SIMULACIÓN V8]** 3 paletas; 8 pads; 13 ilustraciones; 53 objetos; texturas generadas/destruidas. No prueba WebGL2 real.
+- **[OBSERVADO EN CAPTURA VERIFICADA — C1B anterior]** Revisado el archivo real `desktop-B.png` (1280×768) y `mobile-landscape-B.png` (932×430) del artifact [#39342295194](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39342295194). Plataformas M02 excesivas frente a torres T03. **No son capturas M03.**
 - **[NO EJECUTADO]** Node nativo, CI build M03, WebGL2 real, fotografías 1280×768/844×390/932×430, emulación y smartphone físico.
 - **[BLOQUEANTE]** Ratio plataforma/torre T03 real, oclusión con P02, veredicto artístico y autorización del Integrador para integrar/renderizar.
 - **[PENDIENTE]** Publicar miniaturas/testigos **solo después de ejecutar captura genuina**, actualizar QA.json y Acta con resultados verificables.
