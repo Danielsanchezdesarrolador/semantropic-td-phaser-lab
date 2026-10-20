@@ -1,0 +1,63 @@
+name: C1-C Q2 Unified Art QA
+on:
+  push:
+    branches: [integration/c1c-q2-review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime dependencies
+        run: npm install --no-audit --no-fund
+      - name: Check JS syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          find public/official/src public/official/art docs/art tools -type f -name '*.mjs' -print0 | xargs -0 -n1 node --check
+      - name: Map original and upgrades QA
+        run: |
+          node public/official/src/maps-visual/m01/qa.mjs
+          node public/official/src/maps-visual/m01/m02/qa-m02.mjs
+          node public/official/src/maps-visual/m01/m03/qa-m03.mjs
+      - name: Tower original and upgrades QA
+        run: |
+          node docs/art/towers/qa-t01.mjs
+          node docs/art/towers/qa-t03.mjs
+          node docs/art/towers/qa-t04.mjs
+      - name: Actor original and upgrades QA
+        run: |
+          node public/official/src/actors-visual/qa-p01.mjs
+          node public/official/src/actors-visual/qa-p02.mjs
+          node public/official/src/actors-visual/qa-p03.mjs
+      - name: Phaser 4.2.1 static build
+        run: npm run build
+      - name: Check Q2 integrated bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          for p in             dist/dependencias/phaser.min.js             dist/official/data/maps.v5.json             dist/official/src/c1c-q2-review/index.html             dist/official/src/c1c-q2-review/scene.mjs             dist/official/src/maps-visual/m01/m03/renderer-v3.mjs             dist/official/art/maps/m01/m03/svg/dawn-cache.svg             dist/official/src/towers-visual/catalog.mjs             dist/official/art/towers/infantry/level-1.svg             dist/official/art/actors/p03-rig.mjs; do
+             test -s "$p"
+          done
+      - name: Prepare Chromium real WebGL2
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Run Chromium combined scene and screenshot QA
+        run: node tools/qa-c1c-browser.mjs
+      - name: Upload Q2 browser captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1c-q2-webgl2-captures
+          path: artifacts/c1c-browser/
+          if-no-files-found: ignore
+          retention-days: 14
