@@ -59,9 +59,9 @@
     },
     {
       "name": "M06-09 ownership diff",
-      "status": "PENDING",
+      "status": "PASS",
       "command": "compare_commits M05..M06 and inspect changed files",
-      "evidence": "To be completed after documentation finalization"
+      "evidence": "GitHub compare: 17 files changed, 20 commits ahead, 0 behind. All in Equipo M directories. PR #25 clean and mergeable at inspection."
     },
     {
       "name": "M06-10 previous Node regressions",
@@ -156,5 +156,15 @@
     "M06 source-specific lease verified in mocks; multi-view M04/M05 inherited textures require integrator review.",
     "Director final artistic approval and authorized integration not granted."
   ],
-  "rollback": "Close draft PR 25; M05 base and main/production/Render remain untouched."
+  "rollback": "Close draft PR 25; M05 base and main/production/Render remain untouched.",
+  "ownershipDiff": {
+    "status": "PASS",
+    "changedFiles": 17,
+    "onlyTeamM": true,
+    "noCoreChanges": true
+  },
+  "syntaxCollector": {
+    "status": "PASS",
+    "environment": "V8 async parser only, not execution"
+  }
 }
