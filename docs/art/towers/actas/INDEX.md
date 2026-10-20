@@ -1,3 +1,41 @@
+# SEMANTROPIC TD · TORRES T09 — Nodos contextuales / C1-D7
+
+**2026-10-20** · Componente de interfaz visual para menú sobre socket/torre. **PR [#38 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/38)**: rama `feature/art-t09-contextual-nodes` desde `feature/art-t08-continuidad-c1c@d4b913e5b5fbcb6ad884974aa5df595b71a98b8b`. No hay merge, cambios al CORE, ni Render.
+
+## Entrega TORRES T09 vigente para Dirección General
+
+- [ACTA OFICIAL TORRES T09](./ACTA_TORRES_T09_2026-10-20.md) — objetivos, arte, invariantes, QA, bloqueos, rollback.
+
+- [QA TORRES T09 JSON](./QA_TORRES_T09.json) — 9 PASS de fuente/mock/ownership, 9 NOT_RUN y aprobación PENDIENTE.
+
+- [Manifest T09](../ASSET_MANIFEST_T09.json) — nueve iconos 96×96, bytes Git SHA por asset, contratos y autoría.
+
+- [RFC C1-D7](./RFC_T09_C1D7_NODOS_CONTEXTUALES.md) — input de quotes, estados, layout, DOM presenter y responsabilidades de integración.
+
+- [Evidencias T09](../evidencias/T09/VALIDACION_ESTADOS_LAYOUT.md) — V8 29 checks, 100 ciclos de DOM ficticio, límites de material adjunto.
+
+- [QA Node T09](../qa-t09.mjs) — tests para Node real (pendiente ejecutar en checkout completo).
+
+- [Showroom T09 — código](../../../../public/official/src/towers-visual/t09/index.html) — ocho pads PROXY y quotes SIMULADAS, no C1-D7 vivo.
+
+- [Módulo puro de spec](../../../../public/official/src/towers-visual/t09/spec.mjs) · [layout viewport](../../../../public/official/src/towers-visual/t09/layout.mjs) · [presenter DOM](../../../../public/official/src/towers-visual/t09/presenter.mjs) · [CSS](../../../../public/official/src/towers-visual/t09/menu.css).
+
+- [Carpeta iconos SVG](../../../../public/official/art/towers/t09/icons/) — build infantry/sniper, upgrade, sell, rally, close, inspect, cost, blocked.
+
+## Estados de certificación
+
+- [CONFIRMADO FUENTE] TORRES-only; masters T04 intactos, 9 SVG originales, core/live no editado.
+
+- [PROBADO V8] 29 casos de spec/layout y 100 ciclos DOM ficticio sin pérdida de listeners.
+
+- [NO EJECUTADO] QA Node en checkout, npm build, Chromium/WebGL2, escenas C1-D7 reales/touch/50833-50834 antes-después.
+
+- [PENDIENTE DG] conectar a quote/economy/socket selection en C1-D7, revisar arte y desplegar solo si autorizado.
+
+---
+
+## Historial T08-HF1 / T08 / T07 y versiones previas (conservado)
+
 # SEMANTROPIC TD — TORRES T08-HF1 | HOTFIX ESPECÍFICO P07
 
 **20-10-2026** | **Estado:** `[CORREGIDO EN FUENTE]`, `Node/build/WebGL2 [NOT_RUN DESPUÉS DEL HOTFIX]`. Sin cambio estético, sin T09, sin merge, sin deploy. [PR #29 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/29).
