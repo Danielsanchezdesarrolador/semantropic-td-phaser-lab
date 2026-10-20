@@ -40,6 +40,13 @@ for(const [i,a] of m.assets.entries()){
   assert.ok(layers.singleRifle&&layers.rifleOwner==='T'&&layers.operatorOwner==='P07');
   assert.equal(layers.operatorOwner,meta.operatorOwner,'Composition must respect metadata stage');
   assert.equal(layers.operatorAssetId,'sniper_operator_unarmed');
+  assert.equal(meta.operatorOwner,'P07','T08 metadata must use approved P07');
+  assert.equal(a.ownerPolicy.operatorOwner,'P07','T08 manifest must agree with metadata');
+  assert.equal(a.ownerPolicy.rifleOwner,'TORRES','Rifle ownership belongs to TORRES');
+  assert.notEqual(layers.backStructure,a.layers.legacyBack,
+    'Advanced unarmed structure must never be legacy rifle-bearing layer');
+  assert.equal(layers.rifleMounted.replace('../../art/towers/','public/official/art/towers/'),
+    a.layers.singleMountedRifle,'Exactly one dedicated mounted rifle layer');
   const legacyP06=getSniperSingleRifleLayers({...meta,operatorOwner:'P06',artVersion:'T07-RIFLE-UNICO'});
   assert.equal(legacyP06.operatorOwner,'P06','Legacy P06 stage remains supported');
   const plain=await readFile(a.layers.noRifleStructure,'utf8');
