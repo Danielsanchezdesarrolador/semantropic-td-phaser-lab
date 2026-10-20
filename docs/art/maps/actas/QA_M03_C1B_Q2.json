@@ -131,11 +131,11 @@
       "environment": "Genuine integrated screenshot",
       "status": "PENDING",
       "evidencePaths": [],
-      "reason": "M03 apparent width=93.28 from source, M02 prior approx 134.56; 10–25% perimeter margin requires real C1B T03 sprite measurements."
+      "reason": "Legacy C1B real screenshot confirms oversized M02 pads. Source image dimensions DPR2: M02 464*.58=269.12 world texture px, M03 424*.26=110.24. Reduction 59.04%; T03 footprint edge ratio must be measured in NEW actual M03 integrated screenshot."
     }
   ],
   "screenshotIndex": [],
-  "screenshotStatus": "NOT_RUN: no authentic M03 Phaser/browser image was captured",
+  "screenshotStatus": "NOT_RUN — no genuine M03 screenshot; prior C1B M02 screenshots inspected and explicitly kept in referenceScreenshotIndex.",
   "knownBlockers": [
     "Request integrator to host authorized branch M03 and capture genuine same-camera A/B/C at 1280x768,844x390,932x430",
     "Obtain actual T03 tower foundation comparison and review selection/occlusion with P02 actors",
@@ -154,9 +154,42 @@
       "atmosferica"
     ],
     "svgMasterCountNew": 2,
-    "svgMasterCountReused": 7
+    "svgMasterCountReused": 7,
+    "padSizing": {
+      "m02SourceWidthPx": 464,
+      "m02PhaserScale": 0.58,
+      "m02TextureWorldWidth": 269.12,
+      "m03SourceWidthPx": 424,
+      "m03PhaserScale": 0.26,
+      "m03TextureWorldWidth": 110.24,
+      "reductionPercent": 59.04
+    }
   },
   "hardwareValidation": null,
   "renderMemoryMeasuredMiB": null,
-  "theoreticalGeneratedTextureRgbaMiB": 34.43
+  "theoreticalGeneratedTextureRgbaMiB": 34.43,
+  "referenceScreenshotIndex": [
+    {
+      "path": "c1b-browser-evidence.zip/desktop-B.png",
+      "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39342295194",
+      "captureType": "real-runtime",
+      "viewport": {
+        "width": 1280,
+        "height": 768
+      },
+      "renderer": "C1-B Chromium / SwiftShader WebGL2 from prior GitHub Actions",
+      "appliesTo": "M02 only / reference for M03 corrections"
+    },
+    {
+      "path": "c1b-browser-evidence.zip/mobile-landscape-B.png",
+      "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39342295194",
+      "captureType": "real-runtime",
+      "viewport": {
+        "width": 932,
+        "height": 430
+      },
+      "renderer": "C1-B Chromium / SwiftShader WebGL2 from prior GitHub Actions",
+      "appliesTo": "M02 only / reference for M03 corrections"
+    }
+  ]
 }
