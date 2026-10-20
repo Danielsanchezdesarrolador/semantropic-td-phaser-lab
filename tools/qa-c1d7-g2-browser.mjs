@@ -1,0 +1,104 @@
+import {createServer} from "node:http";
+import {readFile,stat,mkdir} from "node:fs/promises";
+import {resolve,join,extname,sep} from "node:path";
+import {chromium} from "playwright";
+const root=resolve("dist"),types={".html":"text/html;charset=utf-8",".mjs":"text/javascript;charset=utf-8",".js":"text/javascript;charset=utf-8",
+ ".json":"application/json",".png":"image/png",".svg":"image/svg+xml",".css":"text/css;charset=utf-8"};
+const srv=createServer(async(req,res)=>{try{const p=resolve(root,"."+decodeURIComponent(new URL(req.url,"http://localhost").pathname));
+ if(!p.startsWith(root+sep)&&p!==root)throw Error("invalid request");
+ const f=(await stat(p)).isDirectory()?join(p,"index.html"):p;
+ res.writeHead(200,{"Content-Type":types[extname(f)]||"application/octet-stream"});res.end(await readFile(f));
+ }catch(e){res.writeHead(404);res.end(String(e));}});
+await new Promise(ok=>srv.listen(0,"127.0.0.1",ok));
+const url="http://127.0.0.1:"+srv.address().port+"/official/src/c1d7-g2-playable/";
+const dir="artifacts/c1d7-g2-browser";await mkdir(dir,{recursive:true});
+let browser;const all=[];
+try{
+ browser=await chromium.launch({headless:true,args:["--use-gl=angle","--use-angle=swiftshader","--enable-webgl","--enable-unsafe-swiftshader"]});
+ for(const [name,w,h] of [["desktop",1280,768],["landscape844",844,390],["landscape932",932,430]]){
+  const mobile=w<1000,page=await browser.newPage({viewport:{width:w,height:h},hasTouch:mobile,isMobile:mobile});
+  const errors=[];page.on("pageerror",e=>errors.push(e.message));
+  const response=await page.goto(url,{waitUntil:"load",timeout:30000});
+  if(response?.status()!==200)throw Error(name+" HTTP "+response?.status());
+  await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7?.scene,null,{timeout:45000});
+  const info=await page.evaluate(()=>{
+   const g=window.__SEMANTROPIC_C1D7;
+   return {gl2:g.scene.game.renderer.gl instanceof WebGL2RenderingContext,
+    art:g.art,gold:g.economy.gold,sockets:g.scene.mapView.plan.sockets.length,route:g.world.route.points.length,
+    p08Textures:["actors/allies/infantry-recruit/v1/p08","actors/allies/infantry-veteran/v1/p08",
+    "actors/enemies/warrior/v1/p08-combat","actors/enemies/hound/v1/p08-combat"].map(k=>g.scene.textures.exists(k))};
+  });
+  if(!info.gl2||info.gold!==365||info.sockets!==8||info.route!==133||
+   info.art.actors!=="P08_B1_HF1_CANDIDATE"||info.art.nodes!=="T09_HF0"||
+   !info.p08Textures.every(Boolean))throw Error(name+" G2 baseline "+JSON.stringify(info));
+  // Real landscape touch/click at a visible socket with no UI occlusion.
+  const spot=await page.evaluate(()=>{
+   const g=window.__SEMANTROPIC_C1D7,rect=g.scene.game.canvas.getBoundingClientRect();
+   return g.scene.mapView.plan.sockets.map((s,i)=>({
+    index:i,x:rect.left+s.world.x/1280*rect.width,y:rect.top+s.world.y/768*rect.height}))
+    .filter(p=>p.x>120&&p.x<innerWidth-90&&p.y>100&&p.y<innerHeight-95)
+    .sort((a,b)=>Math.abs(a.x-innerWidth*.60)+Math.abs(a.y-innerHeight*.55)-
+     Math.abs(b.x-innerWidth*.60)-Math.abs(b.y-innerHeight*.55))[0]??null;
+  });
+  if(!spot)throw Error(name+" no visible socket");
+  if(mobile)await page.touchscreen.tap(spot.x,spot.y);else await page.mouse.click(spot.x,spot.y);
+  await page.waitForFunction(()=>document.querySelectorAll(".t09-node").length>=3,null,{timeout:5000});
+  const menu=await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.get());
+  if(!menu.open||menu.index!==spot.index)throw Error(name+" wrong selected socket "+JSON.stringify({spot,menu}));
+  await page.screenshot({path:dir+"/"+name+"-T09-empty.png",fullPage:true});
+  await page.locator('[data-t09-id="infantry"]').click();
+  const b=await page.evaluate(i=>{
+   const g=window.__SEMANTROPIC_C1D7,t=g.economy.getTower(i);
+   return {tower:t,ledger:g.economy.ledger.length,gold:g.economy.gold,soldiers:g.world.soldiers.length};
+  },spot.index);
+  if(b.tower?.family!=="infantry"||b.gold!==270||b.ledger!==1||b.soldiers!==1)
+   throw Error(name+" infantry failed "+JSON.stringify(b));
+  const first=await page.evaluate(()=>{
+   const g=window.__SEMANTROPIC_C1D7;
+   g.scene.drawSoldiers();
+   return [...g.scene.soldierViews.values()].map(x=>({tex:x.sprite.texture.key,artist:x.artist}));
+  });
+  if(first.length!==1||first[0].tex!=="actors/allies/infantry-recruit/v1/p08")
+   throw Error(name+" recruit not rendered "+JSON.stringify(first));
+  await page.waitForTimeout(300);
+  await page.locator('[data-t09-id="upgrade"]').click();
+  const veterans=await page.evaluate(()=>{
+   const g=window.__SEMANTROPIC_C1D7;g.scene.drawSoldiers();
+   return {level:g.economy.getTower(g.menu.get().index).level,gold:g.economy.gold,
+    roster:[...g.scene.soldierViews.values()].map(x=>({tex:x.sprite.texture.key,artist:x.artist}))};
+  });
+  if(veterans.level!==2||veterans.gold!==135||veterans.roster.length!==2||
+   !veterans.roster.every(x=>x.tex==="actors/allies/infantry-veteran/v1/p08"))
+   throw Error(name+" upgraded veterans not rendered "+JSON.stringify(veterans));
+  await page.screenshot({path:dir+"/"+name+"-T09-2-veterans.png",fullPage:true});
+  // Force genuine CORE wave start, then present actual C1-D5 A2 combat events.
+  await page.locator("#waveStart").click();
+  const combat=await page.evaluate(()=>{
+   const g=window.__SEMANTROPIC_C1D7,w=g.world;
+   let soldiers=0,enemies=0,windups=0,attacks=0;
+   for(let i=0;i<1400&&!w.ended;i++){
+    const ev=w.tick(1/60);
+    g.scene.p08Animator.update(1/60);
+    g.scene.reactEvents(ev);
+    for(const e of ev){
+     if(e.type==="soldier_attack_windup")windups++;
+     if(e.type==="soldier_attack_hit")attacks++;
+    }
+    if(i%60===0){g.scene.drawEnemies();g.scene.drawSoldiers();}
+   }
+   soldiers=w.soldiers.length;enemies=w.actors.length;
+   g.scene.drawEnemies();g.scene.drawSoldiers();g.scene.updateHud();
+   return {windups,attacks,soldiers,enemies,animated:g.scene.p08Animator.entities.size,
+    damageAuthorityOnly:w.kills+w.escapedCount<=w.totalSpawns,
+    frames:[...g.scene.soldierViews.values()].map(x=>x.sprite.frame.name)};
+  });
+  if(!combat.damageAuthorityOnly||combat.windups<1||combat.attacks<1)
+   throw Error(name+" CORE P08 combat events not verified "+JSON.stringify(combat));
+  await page.screenshot({path:dir+"/"+name+"-P08-combat.png",fullPage:true});
+  if(errors.length)throw Error(name+" JS errors "+errors.join(" | "));
+  all.push({name,viewport:w+"x"+h,t09:"real contextual transactions",p08:"one recruit then two veterans",combat});
+  await page.close();
+ }
+ console.log(JSON.stringify({status:"PASS_C1D7_G2_REAL_WEBGL2_T09_P08_INTEGRATED",results:all,physicalMobile:"NOT_RUN",humanVisualApproval:"PENDING"},null,2));
+}catch(e){console.error("C1D7_G2_BROWSER_FAIL",e.stack||String(e));process.exitCode=1}
+finally{await browser?.close();await new Promise(ok=>srv.close(ok))}
