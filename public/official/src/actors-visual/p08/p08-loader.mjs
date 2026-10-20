@@ -15,8 +15,9 @@ export const P08_IMAGES=Object.freeze([
 ]);
 const COUNTS=Object.freeze({idle:4,walk:8,attackWindup:3,attack:5,hit:3,die:6,blocked:3});
 export const P08_STATES=COUNTS;
-export function preloadP08(scene){
- for(const art of P08_IMAGES)scene.load.image(art.atlasKey,art.file);
+export function preloadP08(scene,{baseUrl=null}={}){
+ // Default C1-D6 page uses ../../art; nested P08 gallery uses ../../../art.
+ for(const art of P08_IMAGES)scene.load.image(art.atlasKey,baseUrl?baseUrl+art.file.split('/').at(-1):art.file);
 }
 export function registerP08(scene){
  for(const art of P08_IMAGES){
