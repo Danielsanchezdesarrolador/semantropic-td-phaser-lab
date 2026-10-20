@@ -272,7 +272,7 @@ export function mountM01WorldV6(scene,map,options={}){
  function destroy(){
   if(disposed)return;disposed=true;
   for(const o of objects)if(o?.destroy)o.destroy();
-  for(const key of ownedKeys)if(scene.textures.exists(key))scene.textures.remove(key);
+  releasePaint(scene,paintKey);
   base.destroy();
  }
  return {
