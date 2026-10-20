@@ -59,7 +59,7 @@ const stub=()=>{
  let dead=false;
  return{
   setOrigin(){return this},setDisplaySize(){return this},setScale(){return this},setDepth(){return this},
-  setAlpha(){return this},setStrokeStyle(){return this},setVisible(){return this},
+  setAlpha(){return this},setStrokeStyle(){return this},setVisible(value){this.visible=value;return this},
   setTexture(k){assert.ok(tex.has(k),"missing texture "+k);return this},
   clear(){return this},lineStyle(){return this},beginPath(){return this},moveTo(){return this},
   lineTo(){return this},strokePath(){return this},strokeCircle(){return this},
