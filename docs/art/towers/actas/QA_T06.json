@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "semantropic-qa-v1",
+  "team": "T",
+  "milestone": "T06-C1D2",
+  "branch": "feature/art-t06-sniper-vfx",
+  "baseSha": "ffc06ccf0328e12c3af26a869167673e14d5b2e4",
+  "headSha": "aeeaaecc013aa716994d44ba6b91ee9b73cc6aa4",
+  "headShaRole": "source snapshot before acta/index commits; verify actual head through PR",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/19",
+  "status": "prototype-review",
+  "checks": [
+    {
+      "name": "repo-ownership",
+      "command": "GitHub compare T05→T06",
+      "status": "NOT_RUN",
+      "evidence": "Registrar tras documentación final",
+      "environment": "GitHub"
+    },
+    {
+      "name": "branch-base",
+      "command": "GET branch feature/art-t06-sniper-vfx; compare base commit",
+      "status": "PASS",
+      "evidence": "feature/art-t06-sniper-vfx originally @ ffc06ccf0328e12c3af26a869167673e14d5b2e4",
+      "environment": "GitHub"
+    },
+    {
+      "name": "svg-structure",
+      "command": "Read 2 T06 masters and 6 split layers; check SVG tag balance and 360x420",
+      "status": "PASS",
+      "evidence": "docs/art/towers/evidencias/T06/VALIDACION_ESTATICA.md",
+      "environment": "GitHub file content + JS V8"
+    },
+    {
+      "name": "catalog-exports",
+      "command": "Parse catalog and validateTowerArtV2; projectSourceAnchor on 4 M01 towers",
+      "status": "PASS",
+      "evidence": "docs/art/towers/evidencias/T06/VALIDACION_ESTATICA.md",
+      "environment": "GitHub + JS V8"
+    },
+    {
+      "name": "vfx-javascript",
+      "command": "Parse sniper-vfx.mjs and t06-gallery.mjs",
+      "status": "PASS",
+      "evidence": "docs/art/towers/evidencias/T06/VALIDACION_ESTATICA.md",
+      "environment": "JS V8"
+    },
+    {
+      "name": "vfx-duplicate",
+      "command": "accept attack_fire twice with same eventId",
+      "status": "PASS",
+      "evidence": "docs/art/towers/evidencias/T06/VALIDACION_ESTATICA.md",
+      "environment": "JS V8 Phaser MOCK"
+    },
+    {
+      "name": "vfx-target-gone",
+      "command": "despawn entityId=enemy1, cancel associated target jobs",
+      "status": "PASS",
+      "evidence": "docs/art/towers/evidencias/T06/VALIDACION_ESTATICA.md",
+      "environment": "JS V8 Phaser MOCK"
+    },
+    {
+      "name": "vfx-shutdown",
+      "command": "destroy after shutdown; cancel tweens/timers/objects and unsubscribe",
+      "status": "PASS",
+      "evidence": "docs/art/towers/evidencias/T06/VALIDACION_ESTATICA.md",
+      "environment": "JS V8 Phaser MOCK"
+    },
+    {
+      "name": "fx-two-styles",
+      "command": "accept visualVariant A and B in event envelope",
+      "status": "PASS",
+      "evidence": "docs/art/towers/evidencias/T06/VALIDACION_ESTATICA.md",
+      "environment": "JS V8 Phaser MOCK"
+    },
+    {
+      "name": "node-qa-t01",
+      "command": "node docs/art/towers/qa-t01.mjs",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Node checkout, unavailable"
+    },
+    {
+      "name": "node-qa-t03",
+      "command": "node docs/art/towers/qa-t03.mjs",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Node checkout, unavailable"
+    },
+    {
+      "name": "node-qa-t04",
+      "command": "node docs/art/towers/qa-t04.mjs",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Node checkout, unavailable"
+    },
+    {
+      "name": "node-qa-t05",
+      "command": "node docs/art/towers/qa-t05.mjs",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Node checkout, unavailable"
+    },
+    {
+      "name": "node-qa-t06",
+      "command": "node docs/art/towers/qa-t06.mjs",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Node checkout, unavailable"
+    },
+    {
+      "name": "npm-build",
+      "command": "npm install --no-audit --no-fund && npm run build",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Node checkout, unavailable"
+    },
+    {
+      "name": "chromium-1280x768",
+      "command": "Capture T06 Phaser WebGL2 showroom at 1280x768",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Chromium with local server/checkout unavailable"
+    },
+    {
+      "name": "chromium-844x390",
+      "command": "Capture T06 Phaser WebGL2 showroom at 844x390",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Chromium with local server/checkout unavailable"
+    },
+    {
+      "name": "chromium-932x430",
+      "command": "Capture T06 Phaser WebGL2 showroom at 932x430",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Chromium with local server/checkout unavailable"
+    },
+    {
+      "name": "P04-operator-mount",
+      "command": "Integrate backStructure→P04 operator→frontRail and check muzzle",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "Integrator-owned scene C1-D2"
+    },
+    {
+      "name": "mobile-fps",
+      "command": "Record FPS with 20–30 actors and multiple towers",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "real WebGL2 performance bench unavailable"
+    },
+    {
+      "name": "art-approval",
+      "command": "Director reviews real side-by-side T05/T06 844×390",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "environment": "awaiting true browser captures"
+    }
+  ],
+  "screenshotIndex": [],
+  "knownBlockers": [
+    "No real Phaser 4.2.1/WebGL2 capture for T06",
+    "No integrated Core CombatEventBridge API certified; SniperShotPresenter interface remains candidate",
+    "Need P04 operator/weapon mount verification inside M04",
+    "Visual size 844x390 and FPS unmeasured",
+    "PNG atlas and art sign-off pending"
+  ],
+  "gameplayImplemented": false,
+  "changesCore": false
+}
