@@ -188,8 +188,7 @@ export function makeM04ArtPlan(map){
  const sockets=visualSocketPreview(map),m03=makeM03ArtPlan(map);
  const landmarkType={aqueduct:"acueducto-guardia",shrine:"santuario-refugio",lookout:"puesto-alba"};
  const narrative=m03.illustrations.filter(x=>["aqueduct","shrine","lookout"].includes(x.type)).map(o=>({
-  type:landmarkType[o.type],originalM03Type:o.type,scale:o.type==="shrine"?.34:o.type==="lookout"?.49:.46,
-  ...o,id:"m04-"+o.type,sector:o.type==="aqueduct"?"entrance":o.type==="shrine"?"middle":"exit",
+  ...o,type:landmarkType[o.type],originalM03Type:o.type,scale:o.type==="shrine"?.34:o.type==="lookout"?.49:.46,id:"m04-"+o.type,sector:o.type==="aqueduct"?"entrance":o.type==="shrine"?"middle":"exit",
   source:"M04 original illustrated landmark SVG replacing M02 silhouette",category:"landmark",layer:"propsHigh",
   visualRadiusWorld:o.radiusWorld??30,occlusionRule:o.occlusion==="foreground-fade-candidate"?"foreground-fade-candidate":"background",
   foot:{x:o.x,y:o.footY??o.y}
