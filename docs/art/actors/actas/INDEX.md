@@ -1,3 +1,34 @@
+# EQUIPO P · SEMANTROPIC TD · P04/C1-D — NUEVA ENTREGA
+**Estado:** [PROTOTIPO VISUAL EN REVISIÓN] · [NODE/BROWSER REAL NO EJECUTADO] · [PR DRAFT] · **SIN MERGE**.
+**Rama:** `feature/art-p04-animation-pass`; **base SHA exacta:** `eccadc3743e9f2d6c584097dcd5d9b82ee921e90`.
+**SHA visto antes de actualizar este índice:** `f1f1d38ee3d83f61e65ca5bd5a4826d2f816eada`.
+**HEAD verdadero actualizado:** [PR #15/commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/15/commits). El commit de actualización de este índice mueve SHA, por tanto no se presenta el SHA anterior como HEAD definitivo.
+**PR P04:** [#15 — feature/art-p04-animation-pass → feature/art-p03-q2-personajes](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/15)
+**Versión artística en evaluación:** P04 (P03 histórico permanece preservado).
+
+## Accesos oficiales de P04 para Dirección General
+| Recurso | Enlace | Evidencia |
+|---|---|---|
+| **ACTA OFICIAL P04** | [ACTA_P04_C1D_2026-10-19.md](./ACTA_P04_C1D_2026-10-19.md) | Confirmado en GitHub |
+| **QA JSON P04** | [QA_P04_C1D.json](./QA_P04_C1D.json) | 18 checks; V8 PASS, navegador NOT_RUN |
+| **Matriz/RFC T05** | [MATRIZ_T05_P04.md](./MATRIZ_T05_P04.md) | Datos leídos de T05, integración PENDIENTE |
+| **Inventario de capturas** | [EVIDENCIA P04](../evidencias/P04/EVIDENCIA.md) | NO HAY CAPTURAS P04 REALES |
+| **Manifest 4 actores** | [P04_MANIFEST.json](../../../../public/official/art/actors/P04_MANIFEST.json) | Prototipo / PNG no exportado |
+| Rig y key poses | [p04-poses.mjs](../../../../public/official/art/actors/p04-poses.mjs) | Fuente editable P04 |
+| Dibujo anatómico original | [p04-illustrator.mjs](../../../../public/official/art/actors/p04-illustrator.mjs) | Fuente editable P04 |
+| Vitrina 5 versiones | [p04-index.html](../../../../public/official/src/actors-visual/p04-index.html) | Código; WebGL2 P04 NO EJECUTADO |
+| Controlador vitrina | [p04-gallery.mjs](../../../../public/official/src/actors-visual/p04-gallery.mjs) | Código visual |
+| QA Node reproducible | [qa-p04.mjs](../../../../public/official/src/actors-visual/qa-p04.mjs) | Archivo versionado, Node NO EJECUTADO |
+| QA Chromium reproducible | [qa-p04-browser.mjs](../../../../public/official/src/actors-visual/qa-p04-browser.mjs) | Archivo versionado, Chromium NO EJECUTADO |
+
+## Avance verificable y compuerta
+P04 introduce dibujo base propio (no overpaint P03), poses de marcha y ataque con 4 personajes, hound diagonal, 32 cuadros por personaje/7 estados, pivote 0.5/.92, 5 variantes para comparación y 24 clones ARTÍSTICOS. El rig y los metadatos pasaron comprobaciones V8 simuladas. Esto NO certifica la anatomía en píxeles ni que alcance pintura comercial.
+
+**BLOQUEANTES:** ejecutar Node/build/Phaser WebGL2 P04; conservar capturas 1280×768, 844×390 y 932×430 en GitHub; producir/verificar 4 atlas PNG+SHA256; revisar apoyos/recortes y rostro/arma; montaje con `frontRail` T05; aprobación de Dirección. No hay ni se declaran estadísticas, daño, HP o IA oficiales en P04.
+
+---
+## ARCHIVO HISTÓRICO — P01 → P03 (contenido anterior conservado)
+
 # SEMANTROPIC TD · Equipo P · ÍNDICE DE ACTAS / VERSIONES
 **Última revisión documental:** 19-10-2026
 **Versión artística más reciente:** P-03 / C1-B-Q2 — nuevo rig articulado de cuatro actores, **PROTOTIPO BAJO REVISIÓN**, NO ARTE FINAL.
