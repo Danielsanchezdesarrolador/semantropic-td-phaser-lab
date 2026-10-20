@@ -12,8 +12,8 @@
     {
       "name": "base-and-scope",
       "command": "GitHub compare M04..M05 and verify owned paths",
-      "status": "PENDING",
-      "evidence": "PR #20 files; final check after docs"
+      "status": "PASS",
+      "evidence": "GitHub compare feature/art-m04-illustrated-terrain...feature/art-m05-combat-readiness: 30 changed files, 31 commits ahead, behind=0 at verification; all files in public/official/art/maps/m01/m05/**, src/maps-visual/m01/m05/** or docs/art/maps/actas/**. Live PR #20 files remains authoritative."
     },
     {
       "name": "canonical-route-socket",
@@ -162,5 +162,14 @@
     "gpuMemoryMiB": null,
     "physicalDeviceTest": false
   },
-  "notes": "Node/native browser status NOT_RUN. Existing C1E and PR13 resources are reference only, not modified."
+  "notes": "Node/native browser status NOT_RUN. Existing C1E and PR13 resources are reference only, not modified.",
+  "finalOwnershipAudit": {
+    "status": "PASS",
+    "base": "429c26a82b645b8dc32728fcba44d0f32d130184",
+    "changedFilesAtAudit": 30,
+    "allMOwned": true,
+    "nonOwnedChanges": [],
+    "prNumber": 20,
+    "verifiedSource": "GitHub compare_commits"
+  }
 }
