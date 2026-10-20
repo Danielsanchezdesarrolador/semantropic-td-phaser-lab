@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "c1b-q2-qa-v1",
+  "team": "T",
+  "milestone": "T05-C1D",
+  "branch": "feature/art-t05-premium-towers",
+  "baseSha": "140a81ae4b38f915326deefbb35230368389eac8",
+  "headSha": "4d6688efccb5431665fea1c140e111bb99254166",
+  "headShaIsSnapshot": true,
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/14",
+  "buildCommand": "npm install --no-audit --no-fund && npm run build",
+  "checks": [
+    {
+      "id": "source-a",
+      "category": "SVG",
+      "command": "4 masters A 360×420",
+      "status": "PASS",
+      "reason": "structure verified, not artistic approval",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "source-b",
+      "category": "SVG",
+      "command": "4 structurally different B concepts",
+      "status": "PASS",
+      "reason": "source hierarchy inspected",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "source-layers",
+      "category": "SVG",
+      "command": "12 split shadow/back/front",
+      "status": "PASS",
+      "reason": "nested XML balanced",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "source-t04",
+      "category": "SVG",
+      "command": "4 T04 exact historical snapshots",
+      "status": "PASS",
+      "reason": "baseline retained",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "sheets",
+      "category": "concept",
+      "command": "2 original A/B study sheets 1600×770",
+      "status": "PASS",
+      "reason": "not engine screenshots",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "syntax-js",
+      "category": "code",
+      "command": "parse catalog/fx/t05-gallery",
+      "status": "PASS",
+      "reason": "V8 syntax check",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "syntax-tests",
+      "category": "code",
+      "command": "parse qa-t04/qa-t05",
+      "status": "PASS",
+      "reason": "syntax is not a Node run",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "anchors",
+      "category": "contract",
+      "command": "4 world-point transforms/rotation/layer mappings",
+      "status": "PASS",
+      "reason": "V8 evaluated module",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "vfx",
+      "category": "visual",
+      "command": "eventId duplicate/invalid, cancel, clear, 24 jobs",
+      "status": "PASS",
+      "reason": "mock Phaser only",
+      "environment": "GitHub API / V8 / Phaser mock",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
+      "id": "qa-t01",
+      "category": "Node",
+      "command": "node docs/art/towers/qa-t01.mjs",
+      "status": "NOT_RUN",
+      "reason": "no full clone",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "qa-t03",
+      "category": "Node",
+      "command": "node docs/art/towers/qa-t03.mjs",
+      "status": "NOT_RUN",
+      "reason": "no full clone",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "qa-t04",
+      "category": "Node",
+      "command": "node docs/art/towers/qa-t04.mjs",
+      "status": "NOT_RUN",
+      "reason": "version aware after T05; not run",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "qa-t05",
+      "category": "Node",
+      "command": "node docs/art/towers/qa-t05.mjs",
+      "status": "NOT_RUN",
+      "reason": "not run against checkout",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "build",
+      "category": "build",
+      "command": "npm install && npm run build",
+      "status": "NOT_RUN",
+      "reason": "Phaser not available locally",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "chromium-pc",
+      "category": "WebGL2",
+      "command": "render 1280x768",
+      "status": "NOT_RUN",
+      "reason": "no served T05 build",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "chromium-mobile-a",
+      "category": "WebGL2",
+      "command": "render 844x390",
+      "status": "NOT_RUN",
+      "reason": "no served T05 build",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "chromium-mobile-b",
+      "category": "WebGL2",
+      "command": "render 932x430",
+      "status": "NOT_RUN",
+      "reason": "no served T05 build",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "physical",
+      "category": "device",
+      "command": "iOS / Android horizontal",
+      "status": "NOT_RUN",
+      "reason": "no physical run",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "integrated",
+      "category": "visual",
+      "command": "T05 with M04/P04",
+      "status": "NOT_RUN",
+      "reason": "requires central integrator",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "fps",
+      "category": "performance",
+      "command": "20–30 actors WebGL2 fps, gpu, memory",
+      "status": "NOT_RUN",
+      "reason": "no runtime measurement",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    },
+    {
+      "id": "approval",
+      "category": "art",
+      "command": "Director signs off selected variant",
+      "status": "PENDING",
+      "reason": "no real context screenshots",
+      "environment": "Target runtime",
+      "evidencePaths": []
+    }
+  ],
+  "screenshotIndex": [],
+  "conceptIndex": [
+    {
+      "path": "public/official/art/towers/concepts/T05_SHEET_INFANTERIA_A_B.svg",
+      "captureType": "concept",
+      "viewport": "1600x770",
+      "renderer": "editable SVG"
+    },
+    {
+      "path": "public/official/art/towers/concepts/T05_SHEET_SNIPER_A_B.svg",
+      "captureType": "concept",
+      "viewport": "1600x770",
+      "renderer": "editable SVG"
+    }
+  ],
+  "knownBlockers": [
+    "No T05 build or real Chromium WebGL2 screenshot",
+    "Not yet mounted with M04/P04 in integrated scene",
+    "Approval at 64/90/130px and phone layout pending",
+    "No signed-off painterly/raster PNG final export"
+  ],
+  "gameplayImplemented": false
+}
