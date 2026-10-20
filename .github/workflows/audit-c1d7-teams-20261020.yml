@@ -1,0 +1,79 @@
+name: AUDITORIA C1-D7 — T09 & P08 source and browser checkpoints
+on:
+  push:
+    branches: [audit/c1d7-t09-p08-realqa-20261020]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-teams:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Exact original visual C1-C lock and DG G1 confirmed checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node tools/qa-c1d7-menu.mjs
+          node tools/qa-c1d7-actor-visual.mjs
+      - name: TORRES T09 actual Node checkout QA
+        id: t09
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node docs/art/towers/qa-t09.mjs 2>&1 | tee qa-t09-node.log
+      - name: PERSONAJES P08 actual Node22 checkout 8 PNG QA
+        id: p08
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node public/official/src/actors-visual/p08/qa-p08.mjs 2>&1 | tee qa-p08-node.log
+      - name: Legacy P07 alpha-clean regression inherited in P08
+        id: p07
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node public/official/src/actors-visual/qa-p07.mjs 2>&1 | tee qa-p07-node.log
+      - name: Phaser production build with both candidate teams imported but not activated
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Actual Chromium WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Browser gallery P08 / T09 and original DG G1 without gameplay modifications
+        id: browser
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d7-teams-audit-browser.mjs 2>&1 | tee qa-teams-browser.log
+      - name: BLOCK RELEASE ON ANY TEAM FAILURE — no false QA green
+        shell: bash
+        run: |
+          echo "T09 Node = ${{ steps.t09.outcome }}"
+          echo "P08 Node = ${{ steps.p08.outcome }}"
+          echo "P07 Node = ${{ steps.p07.outcome }}"
+          echo "Browser = ${{ steps.browser.outcome }}"
+          test "${{ steps.t09.outcome }}" = success
+          test "${{ steps.p08.outcome }}" = success
+          test "${{ steps.p07.outcome }}" = success
+          test "${{ steps.browser.outcome }}" = success
+      - name: Preserve exact outputs even on failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: C1D7_AUDITORIA_T09_P08_NODOS_PERSONAJES
+          path: |
+            qa-*.log
+            artifacts/c1d7-team-audit/
+          if-no-files-found: warn
