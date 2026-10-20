@@ -6,6 +6,9 @@
  */
 export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208}={}){
  const data=new Uint8Array(width*height*4);
+ // HF1: quantize transformed coordinates (1e-6 source px) to avoid
+ // platform-dependent last-bit differences in sin/cos/hypot between V8 and Node.
+ const q=v=>Number.isFinite(v)?Math.round(v*1000000)/1000000:v;
  const identity=()=>[1,0,0,1,0,0];
  const mul=(m,n)=>[m[0]*n[0]+m[2]*n[1],m[1]*n[0]+m[3]*n[1],
   m[0]*n[2]+m[2]*n[3],m[1]*n[2]+m[3]*n[3],
@@ -30,7 +33,7 @@ export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208
   translate(x,y){this.transform=mul(this.transform,[1,0,0,1,x,y])}
   rotate(r){const c=Math.cos(r),s=Math.sin(r);this.transform=mul(this.transform,[c,s,-s,c,0,0])}
   scale(x,y){this.transform=mul(this.transform,[x,0,0,y,0,0])}
-  _p(x,y){const m=this.transform;return [m[0]*x+m[2]*y+m[4],m[1]*x+m[3]*y+m[5]]}
+  _p(x,y){const m=this.transform;return [q(m[0]*x+m[2]*y+m[4]),q(m[1]*x+m[3]*y+m[5])]}
   beginPath(){this.points=[];this.closed=false}
   moveTo(x,y){this.points.push(this._p(x,y))}
   lineTo(x,y){this.points.push(this._p(x,y))}
@@ -40,8 +43,8 @@ export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208
    const a=this._p(x1,y1),b=this._p(x2,y2),c=this._p(x3,y3);
    const n=18;
    for(let i=1;i<=n;i++){const t=i/n,v=1-t;this.points.push([
-    v*v*v*p[0]+3*v*v*t*a[0]+3*v*t*t*b[0]+t*t*t*c[0],
-    v*v*v*p[1]+3*v*v*t*a[1]+3*v*t*t*b[1]+t*t*t*c[1]])}
+    q(v*v*v*p[0]+3*v*v*t*a[0]+3*v*t*t*b[0]+t*t*t*c[0]),
+    q(v*v*v*p[1]+3*v*v*t*a[1]+3*v*t*t*b[1]+t*t*t*c[1])])}
   }
   ellipse(x,y,rx,ry,angle=0,start=0,end=2*Math.PI,anticlockwise=false){
    const n=36,cs=Math.cos(angle),sn=Math.sin(angle);
@@ -60,7 +63,7 @@ export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208
    if(!col||typeof col==='string')return hex(col);
    if(col.kind==='linear'){
     const dx=col.b[0]-col.a[0],dy=col.b[1]-col.a[1],l=dx*dx+dy*dy||1,
-     t=Math.max(0,Math.min(1,((x-col.a[0])*dx+(y-col.a[1])*dy)/l)),
+     t=q(Math.max(0,Math.min(1,((x-col.a[0])*dx+(y-col.a[1])*dy)/l))),
      stops=col.stops.sort((a,b)=>a[0]-b[0]);
     if(!stops.length)return [70,100,104];
     if(t<=stops[0][0])return stops[0][1];
@@ -82,7 +85,7 @@ export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208
     const [cx,cy]=this.clipCell;
     if(x<cx+3||y<cy+3||x>=cx+cellWidth-3||y>=cy+cellHeight-3)return;
    }
-   const i=(y*width+x)*4,alpha=Math.max(0,Math.min(1,this.globalAlpha*coverage)),
+   const i=(y*width+x)*4,alpha=Math.max(0,Math.min(1,q(this.globalAlpha*coverage))),
     old=data[i+3]/255,blended=alpha+old*(1-alpha);
    if(blended<.0001)return;
    const rgb=this._color(col,x,y);
@@ -90,11 +93,11 @@ export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208
    data[i+3]=Math.min(255,Math.round(blended*255));
   }
   _circle(x,y,r,col){
-   r=Math.max(.1,r);
+   r=Math.max(.1,q(r));x=q(x);y=q(y);
    for(let yy=Math.floor(y-r-1);yy<=Math.ceil(y+r+1);yy++){
     for(let xx=Math.floor(x-r-1);xx<=Math.ceil(x+r+1);xx++){
-     const d=Math.hypot(xx+.5-x,yy+.5-y);
-     if(d<=r+.45)this._pixel(xx,yy,col,Math.min(1,Math.max(0,(r+.45-d)*1.2)));
+     const dx=q(xx+.5-x),dy=q(yy+.5-y),d=q(Math.sqrt(dx*dx+dy*dy));
+     if(d<=r+.45)this._pixel(xx,yy,col,Math.min(1,Math.max(0,q((r+.45-d)*1.2))));
     }
    }
   }
