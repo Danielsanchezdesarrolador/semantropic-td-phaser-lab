@@ -104,10 +104,10 @@ function makePaintTexture(map,sockets,treatment){
    if(!canPaint(x,y,radius,map,sockets))continue;
    const col=(i%11===0?P.loam:i%5===0?P.meadowLight:i%3===0?P.meadowDeep:P.meadow);
    if(treatment==="atmosfera"){
-    brush(c,x,y,radius*(1.8+rand()),radius*(.3+rand()*.25),col,.035+rand()*.068,zone.angle+(rand()-.5)*.56);
+    brush(c,x,y,radius*(1.8+rand()),radius*(.3+rand()*.25),col,.085+rand()*.115,zone.angle+(rand()-.5)*.56);
     if(i%8===0)brush(c,x+3,y-2,radius*.83,radius*.21,P.wind,.09,zone.angle);
    }else{
-    facet(c,x,y,radius*1.12,col,.05+rand()*.15,zone.angle+(rand()-.5)*.32);
+    facet(c,x,y,radius*1.12,col,.11+rand()*.21,zone.angle+(rand()-.5)*.32);
     if(i%9===0)ridge(c,[[x-radius*.72,y+2],[x+radius*.07,y-radius*.28],[x+radius*.81,y+1]],
       1.5,P.rockDark,.14);
    }
@@ -188,13 +188,13 @@ export function mountM01WorldV6(scene,map,options={}){
  const plan=makeM06ArtPlan(map),objects=[],props=[],ownedKeys=[],missing=[];
  const prefix="maps/m01/painterly-m06/"+palette+"/"+treatment+"/";
  const paintKey=prefix+"ground-painterly";
- let disposed=false,reducedMotion=options.reducedMotion!==false,windTick=0;
+ let disposed=false,reducedMotion=options.reducedMotion!==false,windTick=0,ground=null;
  try{
   if(!scene.textures.exists(paintKey)){
    scene.textures.addCanvas(paintKey,makePaintTexture(map,plan.sockets,treatment));
    ownedKeys.push(paintKey);
   }
-  const ground=scene.add.image(0,0,paintKey).setOrigin(0).setDisplaySize(1280,768).setDepth(-4500);
+  ground=scene.add.image(0,0,paintKey).setOrigin(0).setDisplaySize(1280,768).setDepth(-4500);
   objects.push(ground);
   for(const m of plan.painterlyProps){
    if(!scene.textures.exists(m.key)){missing.push(m.key);continue;}
