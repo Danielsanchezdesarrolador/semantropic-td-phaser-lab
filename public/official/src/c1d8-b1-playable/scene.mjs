@@ -1,5 +1,5 @@
 /** Semantropic C1-D7: Phaser WebGL2 actual Infantry + Sniper combat, visuals deliberately provisional. */
-import {M01CombatWithInfantryA2 as M01CombatWithInfantry,INFANTRY_LVLS} from "../core-c1d/m01-infantry-combat-a2.mjs";
+import {M01CombatWithInfantryA3 as M01CombatWithInfantry,INFANTRY_LVLS} from "../core-c1d/m01-infantry-combat-a3.mjs";
 import {c1d7MenuDTO,c1d7ApplyIntent,c1d7WorldToClient,c1d7NodePlacement} from "../core-c1d/c1d7-contextual-intents.mjs";
 import {m01ReadRecord,m01SaveVictory,m01Result} from "../core-c1d/m01-results-phaser.mjs";
 import {validateM01} from "../maps-visual/m01/renderer.mjs";
