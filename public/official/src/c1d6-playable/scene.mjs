@@ -9,7 +9,7 @@ import {CAST,ANIMATIONS} from "../../art/actors/atlas-source.mjs";
 import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
 const REVIEW=new URLSearchParams(location.search);
-const USE_P03_ACTORS=REVIEW.get("actors")==="p03";  // rollback visual comparison
+const USE_P03_ACTORS=REVIEW.get("actors")!=="p07";  // approved visual default; P07 experimental while QA blocked
 const USE_EXPERIMENTAL_OPERATOR=REVIEW.get("operator")==="p07";  // opt-in ONLY until approved
 
 const $=id=>document.getElementById(id);
@@ -53,7 +53,7 @@ class CombatScene extends Phaser.Scene{
   window.__SEMANTROPIC_C1D6={world:WORLD,economy:WORLD.economy,scene:this,
    stage:"G5_first_playable_M01",nav:"V5_133_nodes_Dijkstra",
    records:"isolated_Phaser_localStorage",
-   art:{maps:"M07-Q2-FIEL",towers:"T08-HF1-T04",actors:USE_P03_ACTORS?"P03_ROLLBACK":"P07-HF1_P03-OPERATOR",
+   art:{maps:"M07-Q2-FIEL",towers:"T08-HF1-T04",actors:USE_P03_ACTORS?"P03_APPROVED_P07_LOADED":"P07-HF1_UNAPPROVED",
     source:"C1C_APPROVED",realCombat:true,realPng:true,
     activeOperator:USE_EXPERIMENTAL_OPERATOR?"P07_EXPERIMENTAL":"P03_APPROVED",
     treatment:"fiel",noVisualRework:true},
