@@ -16,7 +16,8 @@ export const M04_SVG_BASE="/official/art/maps/m01/m04/svg/";
 export const M04_ASSETS=Object.freeze([
  "grama-punta","grama-pluma","helecho-abanico","arbusto-tres-masas",
  "flor-miel","flor-celeste","piedra-estrato","piedra-cuarzo",
- "tronco-caido","caja-guardia","placa-alarma","helecho-rizo"
+ "tronco-caido","caja-guardia","placa-alarma","helecho-rizo",
+ "acueducto-guardia","santuario-refugio","puesto-alba"
 ]);
 const TWO=2*Math.PI;
 const THEMES={
@@ -185,9 +186,11 @@ const CASES=[
 export function makeM04ArtPlan(map){
  validateM01(map);
  const sockets=visualSocketPreview(map),m03=makeM03ArtPlan(map);
+ const landmarkType={aqueduct:"acueducto-guardia",shrine:"santuario-refugio",lookout:"puesto-alba"};
  const narrative=m03.illustrations.filter(x=>["aqueduct","shrine","lookout"].includes(x.type)).map(o=>({
+  type:landmarkType[o.type],originalM03Type:o.type,scale:o.type==="shrine"?.34:o.type==="lookout"?.49:.46,
   ...o,id:"m04-"+o.type,sector:o.type==="aqueduct"?"entrance":o.type==="shrine"?"middle":"exit",
-  source:"M02 original edited staging material",category:"landmark",layer:"propsHigh",
+  source:"M04 original illustrated landmark SVG replacing M02 silhouette",category:"landmark",layer:"propsHigh",
   visualRadiusWorld:o.radiusWorld??30,occlusionRule:o.occlusion==="foreground-fade-candidate"?"foreground-fade-candidate":"background",
   foot:{x:o.x,y:o.footY??o.y}
  }));
@@ -236,7 +239,7 @@ export function mountM01WorldV4(scene,map,{palette="equilibrada",disposeTextures
    suggestedDepth:depth,sprite,shadow,noCollision:true});
  };
  for(const prop of plan.props)putProp(prop,"maps/m01/illustrated-m04/svg/"+prop.type);
- for(const prop of plan.landmarks)putProp(prop,"maps/m01/aurora-v2/svg/"+prop.type);
+ for(const prop of plan.landmarks)putProp(prop,"maps/m01/illustrated-m04/svg/"+prop.type);
  const pads=[];
  for(const s of plan.sockets){
   const spot=map.spots[s.legacySpotIndex],kind=["tempo","power","focus"].includes(spot.kind)?spot.kind:"tempo";
