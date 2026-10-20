@@ -30,14 +30,15 @@
     "exporter": "public/official/art/actors/p07-png-export.mjs",
     "encoder": "public/official/art/actors/p06-png-generator.mjs",
     "note": "Software Canvas approximation, not pixel-identical to native Chromium Canvas; visual comparison compulsory before approval",
-    "determinism": "Quantize transformed coords/Bezier/gradient t/alpha coverage to 1e-6; sqrt distances quantized; PNG filter NONE + fixed-Huffman DEFLATE.",
+    "determinism": "Quantized transformed coordinates, Bezier geometry, gradients, alpha coverage, pixel and stroke sqrt lengths (1e-6). Fixed-Huffman deflate, RGBA8 PNG filter NONE.",
     "compressedHashMeaning": "SHA256 over exact persisted PNG byte stream",
     "rgbaHashMeaning": "SHA256 over row-major RGBA bytes with PNG row filter removed",
     "generatorEnvironment": "V8 isolated runtime; Node22 full checkout not re-executed after HF1",
-    "sourceRevisionCommit": "680df01f4cd37fb880f5700565455ffc63f5b039",
-    "binaryRevisionCommit": "b8e2fa2488d6b136855b0a4b7e1198a35d30e28d",
+    "sourceRevisionCommit": "edfe29f3ac89da893c1852d0aad29808c40ad5cf",
+    "binaryRevisionCommit": "db0d27e9762ee8cd6bb65c7538a364f3c7767985",
     "diagnosticFile": "public/official/src/actors-visual/p07-hf1-png-diagnostics.mjs",
-    "pending": "Independent Node 22 and real Chromium must certify identity."
+    "pending": "Independent Node 22 and real Chromium must certify identity.",
+    "numericPerturbationQa": "20/20 selected frames across 4 actors identical in V8 under +1e-12 sin/cos/hypot/sqrt/atan2 variation; not Node22 runtime proof."
   },
   "packing": {
     "width": 1408,
@@ -77,9 +78,9 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/warrior.png",
       "worldHeightProposal": 91,
-      "sizeBytes": 696970,
-      "sha256": "da8922ef87fcef8a43919dfdcd0a96aa3efc12a892493fac465562f2d39cbf28",
-      "gitBlobSha": "9b502273273e33d89cd601784794268363c06685",
+      "sizeBytes": 696955,
+      "sha256": "41ce773004dc8147463d7198e996b08144ed12824b933edf4d5d737db31bcc5e",
+      "gitBlobSha": "4c484d9479d19b67a4883309afbc935564b45e6c",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
@@ -87,9 +88,9 @@
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
       "containsActorRifle": null,
-      "rgbaSha256": "d49d01c53ca49be3eac278c33f79d5f0325a80195148ab6ed6b3aaf7590acdb4",
+      "rgbaSha256": "3e5aa32b1d2a521a8d738c2a9c1a6e83fb78c258306cb85c363131dfff7a823f",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
     },
     {
       "canonicalId": "hound",
@@ -98,9 +99,9 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/hound.png",
       "worldHeightProposal": 67,
-      "sizeBytes": 600460,
-      "sha256": "e4c152adadb57ec67bc268ed246f67a118b807b6c3fd7fb563679359a509516a",
-      "gitBlobSha": "a22bf52f6074e18f112b16ddbc3b88bd10a3b833",
+      "sizeBytes": 600459,
+      "sha256": "3812bc31e9bc46ebda437f1c88c067811c59fa8928c4f2c608f4462e96934e60",
+      "gitBlobSha": "4fc631fcad695fe5b464abcaae625fed5c233b8c",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
@@ -108,9 +109,9 @@
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
       "containsActorRifle": null,
-      "rgbaSha256": "ff5e85d9788f712294fef4b42e7d6321092cfe1a0273ceed78c3d83147d7fec5",
+      "rgbaSha256": "535c3cf9a3f3695a5fd9b896da65057169857147eacf13c26b7ace31dffb1f4a",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
     },
     {
       "canonicalId": "infantry_recruit",
@@ -119,9 +120,9 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/infantry_recruit.png",
       "worldHeightProposal": 88,
-      "sizeBytes": 610641,
-      "sha256": "83ccc2f9385abc2f0d8d9407dce7786cd9fd6c8b68da77ac8506c1f0b76a747d",
-      "gitBlobSha": "8552d05f4db5949ec095f121f0412921de46e6d6",
+      "sizeBytes": 610640,
+      "sha256": "c372219d8899fb00aed63f42701a7e7d038685430a6d564b2a1784559b6f4559",
+      "gitBlobSha": "8f64c8954266699241da2ef2a138d645a316d2d9",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
@@ -129,9 +130,9 @@
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
       "containsActorRifle": null,
-      "rgbaSha256": "b72d555e5a08aa519702aa09c6758d232289102600d24c44f6c03e5a5fee3bce",
+      "rgbaSha256": "ebb5229a969756483ee18fb94be239411a436b253182efea70e117a000da4f69",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
     },
     {
       "canonicalId": "sniper_operator",
@@ -152,13 +153,13 @@
       "containsActorRifle": false,
       "rgbaSha256": "40079024940d5f085596f0ccaf658c62a610e1b485e81fbc94037cfe2eda79e0",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
     }
   ],
   "memory": {
     "rgba8PerAtlasBytes": 4685824,
     "totalFourUncompressedBytes": 18743296,
-    "totalCompressedPngBytes": 2447320,
+    "totalCompressedPngBytes": 2447303,
     "actualGPUMeasured": false
   },
   "compatibility": {
