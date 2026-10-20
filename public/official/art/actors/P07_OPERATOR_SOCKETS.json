@@ -1,0 +1,1137 @@
+{
+  "version": "p07-operator-sockets-source-derived",
+  "source": "p07-p03-continuity-rig.mjs getP03Pose()",
+  "date": "2026-10-20",
+  "canonicalId": "sniper_operator",
+  "presentationVariant": "p07-c1c-unarmed",
+  "rigAuthoritative": "P03-source-derived",
+  "t08WeaponOwner": "TORRES",
+  "containsRifle": false,
+  "integrationAllowed": "PENDING T08 MONTAGE",
+  "atlasSourceSize": {
+    "w": 176,
+    "h": 208
+  },
+  "footAnchor": {
+    "x": 0.5,
+    "y": 0.92
+  },
+  "shadowAnchor": {
+    "x": 0.5,
+    "y": 1
+  },
+  "t08ReadOnly": {
+    "level1": {
+      "operator": {
+        "x": 185,
+        "y": 198
+      },
+      "stock": {
+        "x": 182,
+        "y": 183
+      },
+      "worldScale": 0.312
+    },
+    "level2": {
+      "operator": {
+        "x": 189,
+        "y": 198
+      },
+      "stock": {
+        "x": 201,
+        "y": 177
+      },
+      "worldScale": 0.319
+    }
+  },
+  "frames": [
+    {
+      "state": "idle",
+      "frame": 0,
+      "name": "idle-0",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "idle",
+      "frame": 1,
+      "name": "idle-1",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "idle",
+      "frame": 2,
+      "name": "idle-2",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "idle",
+      "frame": 3,
+      "name": "idle-3",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 0,
+      "name": "walk-0",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 66.2
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 1,
+      "name": "walk-1",
+      "handGripLocal": {
+        "x": 119.82,
+        "y": 72.975
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65.849
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 2,
+      "name": "walk-2",
+      "handGripLocal": {
+        "x": 120.16,
+        "y": 72.55
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 3,
+      "name": "walk-3",
+      "handGripLocal": {
+        "x": 119.82,
+        "y": 72.975
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 64.151
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 4,
+      "name": "walk-4",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 63.8
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 5,
+      "name": "walk-5",
+      "handGripLocal": {
+        "x": 118.18,
+        "y": 75.025
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 64.151
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 6,
+      "name": "walk-6",
+      "handGripLocal": {
+        "x": 117.84,
+        "y": 75.45
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "walk",
+      "frame": 7,
+      "name": "walk-7",
+      "handGripLocal": {
+        "x": 118.18,
+        "y": 75.025
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65.849
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attackWindup",
+      "frame": 0,
+      "name": "attackWindup-0",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attackWindup",
+      "frame": 1,
+      "name": "attackWindup-1",
+      "handGripLocal": {
+        "x": 117.4,
+        "y": 76
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attackWindup",
+      "frame": 2,
+      "name": "attackWindup-2",
+      "handGripLocal": {
+        "x": 115.8,
+        "y": 78
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attack",
+      "frame": 0,
+      "name": "attack-0",
+      "handGripLocal": {
+        "x": 116,
+        "y": 77.75
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 63.5
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": -0.5,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attack",
+      "frame": 1,
+      "name": "attack-1",
+      "handGripLocal": {
+        "x": 121.4,
+        "y": 71
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 63.5
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0.25,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attack",
+      "frame": 2,
+      "name": "attack-2",
+      "handGripLocal": {
+        "x": 124.2,
+        "y": 67.5
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 63.5
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 1,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attack",
+      "frame": 3,
+      "name": "attack-3",
+      "handGripLocal": {
+        "x": 121.4,
+        "y": 71
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 63.5
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0.65,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "attack",
+      "frame": 4,
+      "name": "attack-4",
+      "handGripLocal": {
+        "x": 119.4,
+        "y": 73.5
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 63.5
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "hit",
+      "frame": 0,
+      "name": "hit-0",
+      "handGripLocal": {
+        "x": 117.56,
+        "y": 75.8
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "hit",
+      "frame": 1,
+      "name": "hit-1",
+      "handGripLocal": {
+        "x": 117.56,
+        "y": 75.8
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "hit",
+      "frame": 2,
+      "name": "hit-2",
+      "handGripLocal": {
+        "x": 117.56,
+        "y": 75.8
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "die",
+      "frame": 0,
+      "name": "die-0",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "die",
+      "frame": 1,
+      "name": "die-1",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "die",
+      "frame": 2,
+      "name": "die-2",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "die",
+      "frame": 3,
+      "name": "die-3",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "die",
+      "frame": 4,
+      "name": "die-4",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "die",
+      "frame": 5,
+      "name": "die-5",
+      "handGripLocal": {
+        "x": 119,
+        "y": 74
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 65
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "blocked",
+      "frame": 0,
+      "name": "blocked-0",
+      "handGripLocal": {
+        "x": 116.6,
+        "y": 77
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 61.4
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "blocked",
+      "frame": 1,
+      "name": "blocked-1",
+      "handGripLocal": {
+        "x": 116.6,
+        "y": 77
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 61.4
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    },
+    {
+      "state": "blocked",
+      "frame": 2,
+      "name": "blocked-2",
+      "handGripLocal": {
+        "x": 116.6,
+        "y": 77
+      },
+      "offHandLocal": {
+        "x": 86,
+        "y": 61.4
+      },
+      "shoulderLocal": {
+        "x": 112,
+        "y": 87
+      },
+      "eyeFocusLocal": {
+        "x": 99,
+        "y": 66
+      },
+      "footPivot": {
+        "x": 88,
+        "y": 191
+      },
+      "headBoundsLocal": {
+        "x": 65,
+        "y": 27,
+        "width": 53,
+        "height": 70
+      },
+      "recoilPhase": 0,
+      "facingE": true,
+      "facingW": "x'=176-x; do not reset phase"
+    }
+  ]
+}
