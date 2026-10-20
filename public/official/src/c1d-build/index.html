@@ -1,0 +1,35 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Semantropic TD · C1-D1 · Construcción y economía reales</title><style>
+:root{color-scheme:dark}*{box-sizing:border-box}body,html{width:100%;height:100%;margin:0;overflow:hidden;background:#102f3a;color:#f2e4bd;font-family:system-ui,sans-serif}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden}#stage{position:absolute;inset:0}#stage canvas{max-width:100%;max-height:100%;touch-action:manipulation}
+header,footer{position:absolute;z-index:5;left:max(7px,env(safe-area-inset-left));right:max(7px,env(safe-area-inset-right));pointer-events:none;display:flex;gap:8px;justify-content:space-between}
+header{top:max(7px,env(safe-area-inset-top));align-items:start}footer{bottom:max(6px,env(safe-area-inset-bottom));align-items:end}
+.panel{background:#102d3ce9;border:1px solid #c6b687;border-radius:9px;padding:7px 10px;max-width:55vw}
+.panel strong{font-size:13px}.panel small{display:block;color:#c9d8cb;font-size:10px}.panel b{color:#ffe29c}
+.controls{display:flex;align-items:center;gap:5px;justify-content:flex-end;flex-wrap:wrap;pointer-events:auto}
+button,select{background:#1d5261ee;border:1px solid #e8c88e;color:#fff1cb;font:700 12px system-ui;padding:6px 9px;border-radius:8px;min-height:42px}
+button:disabled{opacity:.45;cursor:not-allowed}
+#feedback{font-size:11px;max-width:50vw}#installed,#scope{font-size:10px}#log{color:#e6d0ab;font-size:10px}
+#portrait{display:none;position:absolute;z-index:8;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;background:#123440}
+@media(max-width:950px) and (orientation:landscape){.panel{padding:4px 6px}.panel strong{font-size:10px}.panel small,#installed,#scope,#log{font-size:8px}button,select{font-size:10px;min-height:36px;padding:3px 5px}.controls{gap:3px}#feedback{font-size:9px;max-width:30vw}}
+@media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
+</style></head><body><main id="app">
+<div id="stage"></div>
+<header>
+ <div class="panel"><strong>SEMANTROPIC TD · C1-D1</strong><small><span id="scope">Economía real del Mapa 01 · sin combate</span></small><small>Monedas: <b id="coins">365</b> · <span id="render">Comprobando WebGL2…</span></small></div>
+ <div class="panel"><strong>Plataforma <span id="slot">1 / 8</span></strong><small id="installed">Sin torre</small><small id="log">Sin transacciones</small></div>
+</header>
+<footer>
+ <div class="panel" role="status" id="feedback">Selecciona una plataforma para construir una torre real.</div>
+ <div class="controls">
+ <button id="prev" aria-label="Plataforma anterior">◀</button>
+ <button id="next" aria-label="Plataforma siguiente">▶</button>
+ <select id="family" aria-label="Elegir familia"><option value="infantry">Infantería</option><option value="sniper">Francotiradores</option></select>
+ <button id="buy">Construir</button>
+ <button id="upgrade">Mejorar a II</button>
+ <button id="sell">Vender</button>
+ </div>
+</footer>
+<div id="portrait">↻ Gira el dispositivo para evaluar el Mapa 01 horizontal.</div></main>
+<script src="../../../dependencias/phaser.min.js"></script><script type="module" src="./scene.mjs"></script></body></html>

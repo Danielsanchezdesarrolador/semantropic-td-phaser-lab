@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "semantropic-c1d1-qa-v1",
+  "team": "Integrador",
+  "milestone": "C1-D1",
+  "branch": "feature/core-c1d-m01-combat",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/13",
+  "gameplayImplemented": {
+    "build": true,
+    "upgradeToII": true,
+    "sell": true,
+    "combat": false,
+    "waves": false,
+    "stars": false,
+    "save": false
+  },
+  "source": "public/JUEGO_V5_CANVAS.html and M01 maps.v5.json",
+  "checks": [
+    {
+      "name": "source-parity-and-smoke",
+      "command": "node tools/qa-c1d0.mjs",
+      "status": "PASS",
+      "evidence": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39354969958"
+    },
+    {
+      "name": "node-economy",
+      "command": "node tools/qa-c1d1-economy.mjs",
+      "status": "PASS",
+      "evidence": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39354969958"
+    },
+    {
+      "name": "phaser-build",
+      "command": "npm run build",
+      "status": "PASS",
+      "evidence": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39354969958"
+    },
+    {
+      "name": "browser-actual-purchases",
+      "command": "node tools/qa-c1d1-browser.mjs",
+      "status": "PASS",
+      "evidence": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39354969958"
+    },
+    {
+      "name": "physical-iOS-Android",
+      "status": "NOT_RUN"
+    }
+  ],
+  "screenshotIndex": [
+    {
+      "file": "desktop-before.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "desktop-infantry-built.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "desktop-sniper-built.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "mobile844-before.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "mobile844-infantry-built.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "mobile844-sniper-built.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "mobile932-before.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "mobile932-infantry-built.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    },
+    {
+      "file": "mobile932-sniper-built.png",
+      "status": "PASS_REAL_CHROMIUM_WEBGL2",
+      "artifact": "c1d1-build-economy-chromium"
+    }
+  ],
+  "knownBlockers": [
+    "D1 does not implement actual combat",
+    "game saves absent",
+    "production merge prohibited",
+    "real mobile hardware QA not executed"
+  ],
+  "lastConfirmedRunId": 39354969958,
+  "artifactName": "c1d1-build-economy-chromium"
+}
