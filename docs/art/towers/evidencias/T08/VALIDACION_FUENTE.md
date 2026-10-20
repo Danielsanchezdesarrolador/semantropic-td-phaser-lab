@@ -17,3 +17,12 @@ Los dos masters Sniper T08 y cinco capas por nivel `shadow/back/structure/rifle/
 `node docs/art/towers/qa-t08.mjs` y regresiones T01–T07: scripts preparados pero todavía no ejecutados en checkout. `npm run build`: NOT_RUN. Capturas Phaser/WebGL2 T08 auténticas desktop 1280×768 y mobile landscape 844×390/932×430: NOT_RUN; dispositivo físico: NOT_RUN. Sin FPS p50/p95, VRAM ni ejecución de P07 con combate C1-D4.
 
 No existe `.github/workflows/` en HEAD T07 origen, por lo que no se puede inferir CI de esta rama. `screenshotIndex=[]`. El showroom de Torres es un **proxy de geometría**, jamás una captura de la escena completa C1-C/C1-D4.
+
+
+## [LIMITACIÓN DEL RUNNER]
+
+Se intentó evaluar el cuerpo completo de `qa-t08.mjs` con un `readFile` remoto basado en GitHub y V8, pero la conexión limitó la cantidad de llamadas durante la adquisición de todos los archivos. El ensayo integral **NO TERMINÓ** y NO es PASS de Node, V8 integral ni WebGL2. Las comprobaciones GitHub individuales del master (cuatro SHA idénticos) y de capas Sniper (XML simple) sí se completaron independientemente. Permanecen [NOT_RUN] los scripts Node de un checkout completo.
+
+## [COMPROBACIÓN VERSIONADA]
+
+Se recuperaron snapshots `t07-snapshot/infantry-{1,2}.svg` con las marcas T05 esperadas (`tower-shadow`,`barracks-back`) y snapshots `t07-snapshot/sniper-{1,2}.svg` con `t06-precision-rig-l1/l2`; histórico T06 también conserva marcas. Son los archivos históricos que utilizan las regresiones versionadas T05–T07 tras restaurar los masters actuales T04.
