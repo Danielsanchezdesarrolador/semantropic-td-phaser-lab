@@ -12,7 +12,9 @@ for(const [i,m] of manifest.assets.entries()){
  assert.equal(m.assetId,t.assetId);
  const path=m.files[0].path;
  assert.ok(path.startsWith('public/official/art/towers/'));
- const current=await readFile(path,'utf8');
+ // T08 restores T04 into current canonical path; test the T03 archived source instead.
+ const t03Snapshot='public/official/art/towers/t03-snapshot/'+t.family+'-'+t.level+'.svg';
+ const current=await readFile(t03Snapshot,'utf8');
  const baseline=await readFile(m.baseline,'utf8');
  assert.ok(current.startsWith('<svg'));
  assert.ok(current.trim().endsWith('</svg>'));

@@ -15,7 +15,11 @@ for(const a of m.assets){
   const svg=await readFile(p,'utf8');
   assert.ok(svg.startsWith('<svg'));assert.ok(svg.includes('viewBox="0 0 360 420"'));assert.ok(svg.trim().endsWith('</svg>'));
  }
- const newMaster=await readFile(a.files[0].path,'utf8');
+ const currentT08=await readFile(a.files[0].path,'utf8');
+ const historicalT06=await readFile('public/official/art/towers/t06-snapshot/sniper-'+a.level+'.svg','utf8');
+ const originalT04=await readFile('public/official/art/towers/t04-snapshot/sniper-'+a.level+'.svg','utf8');
+ assert.equal(currentT08,originalT04,'C1-C approved visual source restored');
+ const newMaster=historicalT06;
  assert.ok(newMaster.includes('tower-shadow')&&newMaster.includes('t06-sniper-backstructure')&&newMaster.includes('t06-sniper-front-rail'));
  const before=await readFile(a.baseline.path,'utf8');
  assert.notEqual(newMaster,before,'T06 must be materially different from T05');

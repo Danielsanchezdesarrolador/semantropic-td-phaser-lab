@@ -1,3 +1,75 @@
+# SEMANTROPIC TD — TORRES T08-HF1 | HOTFIX ESPECÍFICO P07
+
+**20-10-2026** | **Estado:** `[CORREGIDO EN FUENTE]`, `Node/build/WebGL2 [NOT_RUN DESPUÉS DEL HOTFIX]`. Sin cambio estético, sin T09, sin merge, sin deploy. [PR #29 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/29).
+
+## Documentación correctiva actual
+
+- [ACTA TORRES T08-HF1](./ACTA_TORRES_T08_HF1_2026-10-20.md) — fallo histórico real Actions #39455399642 y corrección P07.
+
+- [QA TORRES T08 JSON actualizado](./QA_TORRES_T08.json) — resultados y estados posteriores al hotfix.
+
+- [RFC TORRES T08-HF1/P07](./RFC_TORRES_T08_HF1_P07.md) — contrato de capas/ownership e instrucciones al Integrador.
+
+- [Test Node qa-t08 ampliado](../qa-t08.mjs) — mismo assert P07 más paridad de manifiesto y compatibilidad P06, pendiente ejecución real.
+
+- [Catálogo T08](../../../../public/official/src/towers-visual/catalog.mjs) — `getSniperSingleRifleLayers()` deriva owner desde `meta.operatorOwner`.
+
+- [Adaptador visual](../../../../public/official/src/towers-visual/t07-core-visual-adapter.mjs) — T08 contract P07, alias histórico T07 P06 intacto.
+
+**Corte técnico:** base real T08 antes del hotfix `ceaf74681887825a435968ffc44397fa17d70339`; commits de corrección `c530e5665334f16fec6754c1d11efcc5c579d449`, `73d95ed8d3565599fd6af24bd71886b14a6c181a`; HEAD final disponible en PR. Los cuatro SVG canónicos conservan blob Git idéntico a T04 PR #9.
+
+**Siguiente gate:** Integrador ejecuta `node docs/art/towers/qa-t08.mjs`, build y Chromium WebGL2 en escena jugable con P07. QA fuente/mocks no significa aprobación artística del grip.
+
+---
+
+## Índice T08 original e historial intacto
+
+# SEMANTROPIC TD · TORRES T08 — Continuidad visual C1-C aprobada
+
+**Fecha:** 2026-10-20. **Hito vigente:** TORRES T08 antirretroceso artístico. La imagen C1-C del propietario (M03+T04+P03) manda sobre el aspecto visible; core funcional C1-D4 (PR#28) se protege. Rama propia `feature/art-t08-continuidad-c1c`, base T07 `f09a9307d675ad4850261f6a6705959c0c61808f`. **PR [#29 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/29)** → `feature/art-t07-sniper-single-rifle`. HEAD antes de este índice `3da97d7b342e02e63a6e2241c2e487ca1ea90f2d` (consultar HEAD exacto más reciente en PR). NO MERGE, NO RENDER.
+
+## Material actual para Dirección General
+
+- [ACTA TORRES T08 (20-oct-2026)](./ACTA_TORRES_T08_2026-10-20.md) — identificación, cuatro blobs T04 exactos, QA, riesgos.
+
+- [QA TORRES T08 JSON](./QA_TORRES_T08.json) — PASS de contenido vs NOT_RUN de navegador/Node.
+
+- [ASSET MANIFEST T08](../ASSET_MANIFEST_T08.json) — fuente histórica, paths y escalas, SHA256 de captura, propiedad de rifle.
+
+- [Prueba Node QA-T08](../qa-t08.mjs) — script listo para ejecutar desde checkout real, hoy NOT_RUN.
+
+- [RFC TORRES/P07/CORE](./RFC_TORRES_T08_P07_C1D4.md) — grip, muzzle, composición de rifle único y tareas integrador.
+
+- [Matriz BEFORE / AFTER](./MATRIZ_TORRES_T08_BEFORE_AFTER.md) — los cuatro edificios, fuente exacta vs composición pendiente.
+
+- [Evidencia estática TORRES T08](../evidencias/T08/VALIDACION_FUENTE.md) — hash de imagen y fuentes reales.
+
+- [Showroom diagnóstico T08](../../../../public/official/src/towers-visual/t08-index.html) — source HTML Phaser, NO captura de mapa C1-D4.
+
+- [Catálogo T08](../../../../public/official/src/towers-visual/catalog.mjs) / [Split rifle único](../../../../public/official/src/towers-visual/sniper-vfx.mjs) / [Adapter read-only](../../../../public/official/src/towers-visual/t07-core-visual-adapter.mjs).
+
+## Referencia aprobada y criterios
+
+PNG original adjunto en conversación: `SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03(3).png`, 1280×768, SHA256 **24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef** [VERIFICADO LOCALMENTE]. No hay binario de la captura original almacenado en este PR. Los cuatro SVG T08 *sí* están byte-idénticos a T04 fuente PR#9 y `t04-snapshot` [VERIFICADO GITHUB].
+
+### Gates
+
+- A — Restauración fuente T04 y ownership exclusivo TORRES: PASS de source.
+
+- B — Render real P07/un-rifle/rail idéntico a captura C1-C: NOT_RUN, bloqueante.
+
+- C — Node, npm build: NOT_RUN.
+
+- D — WebGL2 navegador y contraste 1280/844/932: NOT_RUN.
+
+- E — Validación del propietario / Dirección General de escena real: PENDIENTE.
+
+- `browserScreenshotIndex=[]` y no deben considerarse conceptos o proxy como capturas reales.
+
+---
+
+## Historial y actas T07 / T06 / T05 / T04 / T03 anterior (preservado)
+
 # SEMANTROPIC TD · EQUIPO T — T07 / RIFLE ÚNICO / 20-10-2026
 
 **Entrega actual:** T07 Francotirador I/II, single mechanical rifle property T, P06 actor unarmed; **rama:** `feature/art-t07-sniper-single-rifle` creada desde HEAD T06 `6788b5931fc6161bbfbca6cb25a1c2a83a7e1eb3`. **PR [#24 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/24)** hacia `feature/art-t06-sniper-vfx`. **HEAD documental pre-index:** `9cdabeffdc7e2bb152a418c9bb75b4fdf48ea0ce`, HEAD final en PR para evitar SHA autorreferencial.
