@@ -2,7 +2,7 @@
 **Fecha:** 19-10-2026 · **Rama:** `feature/art-p05-combat-reactivity`
 **Base congelada:** `cb6e7b73edcb6f6df4fa5dace302aac845fc5780` (P04).
 **Estado:** [PROTOTIPO VISUAL] · [TESTS V8 SIMULADOS PASS] · [BROWSER/PÍXELES NOT_RUN] · [NO MERGE].
-**HEAD real:** [PR P05 / pestaña Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pulls?q=is%3Apr+head%3Afeature%2Fart-p05-combat-reactivity), autoridad frente a commits posteriores de esta misma acta.
+**HEAD real:** [PR P05 / pestaña Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/21/commits), autoridad frente a commits posteriores de esta misma acta.
 
 ## Directorio oficial de la nueva entrega
 | Recurso | Link dentro del repo | Estado |
