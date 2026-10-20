@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "semantropic-integrator-qa-v1",
+  "date": "2026-10-20",
+  "milestone": "C1-D4 first playable integrated candidate",
+  "pr": 28,
+  "branch": "integration/c1d4-first-playable-m01",
+  "codeShaVerified": "764aaf72277c7ae1a188ded277d2d58b40d097e8",
+  "ci": {
+    "runId": 39444108514,
+    "status": "SUCCESS",
+    "strictPipefail": true,
+    "artifactId": 12275294138
+  },
+  "art": {
+    "maps": "M06 PR25",
+    "towers": "T07 PR24",
+    "actors": "P06 PR27",
+    "originalBlobsCopied": 182,
+    "p06PngBinaryFiles": 4
+  },
+  "checks": [
+    {
+      "name": "source-ownership-and-182-Git-blobs",
+      "status": "PASS"
+    },
+    {
+      "name": "core-d2-d3-regression-in-node",
+      "status": "PASS"
+    },
+    {
+      "name": "team-native-M06-T07-P06-qa",
+      "status": "PASS",
+      "note": "real Node jobs, not mocks; artistic approval separate"
+    },
+    {
+      "name": "phaser-4.2.1-build",
+      "status": "PASS"
+    },
+    {
+      "name": "chromium-webgl2-desktop-1280x768",
+      "status": "PASS"
+    },
+    {
+      "name": "chromium-webgl2-landscape844x390",
+      "status": "PASS"
+    },
+    {
+      "name": "chromium-webgl2-landscape932x430",
+      "status": "PASS"
+    },
+    {
+      "name": "fullbleed-canvas-and-one-row-touch-ui",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-touchscreen-tap-socket-world-projection",
+      "status": "PASS",
+      "note": "Chromium emulated touch, not phone hardware"
+    },
+    {
+      "name": "real-first-kill-bounty-pause-restart",
+      "status": "PASS"
+    },
+    {
+      "name": "one-rifle-layer-with-P06-unarmed",
+      "status": "PASS",
+      "note": "source and Chromium layers; anatomical hand to stock NOT aligned"
+    },
+    {
+      "name": "anatomical-grip-T07-P06",
+      "status": "BLOCKED",
+      "note": "human screenshot crop shows hands disconnected from mounted rifle"
+    },
+    {
+      "name": "five-waves-in-Chromium-human-input",
+      "status": "NOT_RUN",
+      "note": "five waves validated scripted Node, not full human/browser session"
+    },
+    {
+      "name": "infantry-navmesh-parity-Canvas-V5",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "stars-save-results-persistent",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "mobile-device-physical-qa",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "premium-commercial-art-approval",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "merge-render-staging-deployment",
+      "status": "NOT_RUN"
+    }
+  ],
+  "knownFalsePositive": {
+    "symptom": "CI success despite Chromium timeout in earlier runs",
+    "cause": "pipe without pipefail",
+    "remedy": "set -euo pipefail; use clean run #39444108514"
+  },
+  "release": {
+    "merged": false,
+    "deployed": false,
+    "artApproved": false,
+    "staging": "C1-D1",
+    "next": "T07/P06 grip correction; D3 navmesh; D5 saves and stars; real user playtest"
+  }
+}
