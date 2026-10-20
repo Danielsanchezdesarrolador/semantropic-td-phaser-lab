@@ -1,0 +1,92 @@
+{
+  "schema": "semantropic-integrator-qa-v1",
+  "milestone": "C1-D3 A1 Infantry + Sniper",
+  "date": "2026-10-20",
+  "pr": 26,
+  "branch": "feature/integrator-c1d3-infantry-m01",
+  "runId": 39436587823,
+  "artifactId": 12271711694,
+  "checks": [
+    {
+      "name": "source-v5-infantry-i-ii",
+      "status": "PASS"
+    },
+    {
+      "name": "soldier-block-attack-hp",
+      "status": "PASS",
+      "detail": "Node: 5 blocks,5 melee hits,10 soldier-hit in wave1"
+    },
+    {
+      "name": "upgrade-to-two-units",
+      "status": "PASS"
+    },
+    {
+      "name": "respawn-state-machine",
+      "status": "PASS_FIXTURE_ONLY",
+      "detail": "Forced respawn timer, not natural scenario"
+    },
+    {
+      "name": "sell-cleans-soldiers",
+      "status": "PASS"
+    },
+    {
+      "name": "mixed-five-wave-campaign",
+      "status": "PASS",
+      "detail": "Node scripted: 63 kills, zero leaks, 100 lives, gold 993"
+    },
+    {
+      "name": "node-d2-regression",
+      "status": "PASS"
+    },
+    {
+      "name": "phaser-build-4.2.1",
+      "status": "PASS"
+    },
+    {
+      "name": "chromium-desktop",
+      "status": "PASS",
+      "detail": "Real WebGL2, 1280x768, dual build, kill/reward/pause/restart"
+    },
+    {
+      "name": "chromium-landscape844",
+      "status": "PASS",
+      "detail": "WebGL2 Chromium emulated mobile"
+    },
+    {
+      "name": "chromium-landscape932",
+      "status": "PASS",
+      "detail": "WebGL2 Chromium emulated mobile"
+    },
+    {
+      "name": "full-v5-navmesh-parity",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "art-M06-T07-P06-combined",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "save-stars",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "mobile-hardware",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "staging-deployment",
+      "status": "NOT_RUN"
+    }
+  ],
+  "release": {
+    "draft": true,
+    "merged": false,
+    "deployed": false,
+    "artApproved": false
+  },
+  "risks": [
+    "Simple nearest-waypoint rally + linear chase; NOT full V5 navigation parity.",
+    "Shared M01 hurt used for physical melee (warrior/hound no resist).",
+    "No save/stars or premium art."
+  ]
+}
