@@ -130,7 +130,7 @@ function pose(actor,state,index,total){
   stride:walk?(actor==='hound'?14:13)*sin:0,
   stepLift:walk?Math.max(0,cos)*7:0,
   weight:walk?Math.sin(phase+PI*.55)*3:0,
-  bob:walk?Math.cos(2*phase)*2.5:Math.sin(phase)*.8,
+  bob:walk?Math.cos(2*phase)*2.5:(Math.sin(phase)*.8+Math.cos(phase)*.35),
   shoulder:walk?sin*.09:wind?-.22*tension:attack?-.35+strike*.23:hit?-.16*(1-p):blocked?-.1:0,
   arm:walk?sin*.29:wind?-.8*tension:attack?[-.75,.6,1.3,.6,.1][index]??0:hit?-.36:blocked?-.6:0,
   shieldArm:blocked?-12:attack?-5:walk?cos*4:0,
