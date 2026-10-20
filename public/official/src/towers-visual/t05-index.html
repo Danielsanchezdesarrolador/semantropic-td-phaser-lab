@@ -1,0 +1,30 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Semantropic TD · T05 Rework Profundo A/B</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#133340;color:#f8edc8;font:13px system-ui,sans-serif}
+#app{width:100vw;height:100dvh;position:relative;overflow:hidden}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#stage canvas{max-width:100%;max-height:100%;display:block;touch-action:none}
+header,footer{position:absolute;left:max(7px,env(safe-area-inset-left));right:max(7px,env(safe-area-inset-right));z-index:5;display:flex;gap:5px;justify-content:space-between;align-items:center;pointer-events:none}
+header{top:max(5px,env(safe-area-inset-top));align-items:start}footer{bottom:max(5px,env(safe-area-inset-bottom));justify-content:center;overflow:auto}
+h1{font:700 14px Georgia,serif;margin:0;padding:7px 10px;background:#173744eb;border:1px solid #b5be9e;border-radius:9px}
+small{font:10px system-ui;color:#b9ded5;display:block}
+.tools{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:4px;max-width:80vw;pointer-events:auto}
+button{font:700 11px system-ui;white-space:nowrap;border:1px solid #dec38e;color:#fff1d3;background:#234d5c;border-radius:7px;min-height:39px;padding:5px 8px;cursor:pointer;touch-action:manipulation}
+#status{position:absolute;bottom:57px;left:max(10px,env(safe-area-inset-left));z-index:6;background:#173641ec;padding:5px 9px;border-radius:7px;font-size:11px;color:#d7e6da}
+#towerTitle{position:absolute;bottom:100px;left:0;right:0;z-index:4;text-align:center;color:#f9de9e;font-weight:700;font-size:14px;pointer-events:none}
+#portrait{display:none;position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;padding:22px;background:#173541;z-index:12;font-size:19px}
+@media(max-width:960px) and (orientation:landscape){h1{font-size:10px;padding:4px 5px}small{font-size:8px}button{font-size:9px;padding:4px;min-height:35px}.tools{max-width:74vw}#status,#towerTitle{display:none}}
+@media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
+</style></head><body><div id="app"><div id="stage"></div>
+<header><h1>SEMANTROPIC TD · T05 C1-D<small>REDISEÑO PROFUNDO · ARTE PROTOTIPO, NO COMBATE</small></h1>
+<div class="tools"><button id="auto">Escala mundo</button><button data-height="64">64px</button><button data-height="90">90px</button><button data-height="130">130px</button>
+<button id="zoom">Zoom +35%</button><button id="silhouette">Ver silueta</button><button id="grass">Césped claro/oscuro</button>
+<button id="operator">Ocultar marcador P</button><button id="anchors">Anclajes</button><button id="pause">Ⅱ Pausa</button><button id="reset">Limpiar FX</button></div></header>
+<div id="towerTitle">Cargando variantes de arquitectura…</div>
+<div id="status" role="status">Cargando 24 SVG locales Phaser 4.2.1…</div>
+<footer><button data-tower="0">Infantería I</button><button data-tower="1">Infantería II</button>
+<button data-tower="2">Sniper I</button><button data-tower="3">Sniper II</button>
+<button id="fire">VFX demo</button><button id="upgradeA">Obra A</button><button id="upgradeB">Obra B</button></footer>
+<div id="portrait">↻ Gira el teléfono para inspeccionar la galería T05 en horizontal</div>
+</div><script src="../../../dependencias/phaser.min.js"></script><script type="module" src="./t05-gallery.mjs"></script></body></html>
