@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="sniper 2 B"><title>sniper 2 B · SEMANTROPIC TD T05</title><defs>
+<linearGradient id="mStone" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fff2cb"/><stop offset=".22" stop-color="#d4c9a6"/><stop offset=".64" stop-color="#899b93"/><stop offset="1" stop-color="#526d74"/></linearGradient>
+<linearGradient id="sideStone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#9fa89d"/><stop offset=".55" stop-color="#627c7f"/><stop offset="1" stop-color="#284d60"/></linearGradient>
+<linearGradient id="iron" x1=".2" y1="0" x2=".9" y2="1"><stop stop-color="#e8e8d1"/><stop offset=".22" stop-color="#8babae"/><stop offset=".57" stop-color="#4b7888"/><stop offset=".89" stop-color="#294861"/><stop offset="1" stop-color="#172f4e"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f0c892"/><stop offset=".4" stop-color="#ae7b50"/><stop offset=".78" stop-color="#785441"/><stop offset="1" stop-color="#493c38"/></linearGradient>
+<linearGradient id="woodShade" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#bd8050"/><stop offset=".6" stop-color="#654b3d"/><stop offset="1" stop-color="#39353a"/></linearGradient>
+<linearGradient id="roof" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#aec3b8"/><stop offset=".2" stop-color="#698d9d"/><stop offset=".47" stop-color="#416f88"/><stop offset=".84" stop-color="#244760"/><stop offset="1" stop-color="#152f52"/></linearGradient>
+<linearGradient id="canvas" x1=".2" y1="0" x2="1" y2="1"><stop stop-color="#e6d8b6"/><stop offset=".38" stop-color="#8da99d"/><stop offset=".86" stop-color="#3d7183"/><stop offset="1" stop-color="#2c4b65"/></linearGradient>
+<linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2bd"/><stop offset=".36" stop-color="#e0bc7d"/><stop offset=".77" stop-color="#9e7649"/><stop offset="1" stop-color="#664c41"/></linearGradient>
+<radialGradient id="optic"><stop stop-color="#f5ffff"/><stop offset=".3" stop-color="#a6fff1"/><stop offset=".58" stop-color="#60b8bb"/><stop offset="1" stop-color="#285d79"/></radialGradient>
+<radialGradient id="light"><stop stop-color="#ffeabb" stop-opacity=".85"/><stop offset=".5" stop-color="#e1ac55" stop-opacity=".28"/><stop offset="1" stop-color="#b48e50" stop-opacity="0"/></radialGradient>
+<pattern id="grain" width="20" height="16" patternUnits="userSpaceOnUse"><path d="M1 5q7-3 14-2M-2 14q9-2 15-1" fill="none" stroke="#ffe1af" stroke-width="1.1" opacity=".21"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+</defs><g id="tower-shadow"><ellipse cx="180" cy="392" rx="136" ry="16" fill="#132c36" opacity=".38" filter="url(#soft)"/><path d="M31 353 174 300 327 351 183 401Z" fill="#263e46" stroke="#193445" stroke-width="4"/><path d="M31 352 175 302 327 351 186 380Z" fill="url(#mStone)" stroke="#e5cf98" stroke-width="3.5"/><path d="M38 355 187 384 324 351V367L187 405 38 376Z" fill="url(#sideStone)" stroke="#304752" stroke-width="3"/><path d="M64 347 171 313 295 347 184 375Z" fill="#76918b" opacity=".45"/><path d="M44 360 186 393 315 359" fill="none" stroke="#f8dda8" stroke-width="2.2" opacity=".72"/><path d="M77 346 186 376 288 348" stroke="#3f6870" stroke-width="4" opacity=".72" fill="none"/></g><g id="observatory-back">
+ <!-- DISTINCT B plan: semicircular cantilever observation hood on an asymmetric stone shaft -->
+ <path d="M118 347 129 222 162 180 207 185 251 226 258 341 188 370Z" fill="url(#sideStone)" stroke="#294b5d" stroke-width="7"/>
+ <path d="M126 231 165 198 179 359 122 338Z" fill="url(#mStone)" stroke="#314a56" stroke-width="5"/>
+ <path d="M185 196 245 228 251 340 183 367Z" fill="url(#sideStone)" stroke="#294a59" stroke-width="5"/>
+ <path d="M128 335 244 326M148 258l90 25" stroke="url(#brass)" stroke-width="6"/>
+ <!-- Articulated sweeping curved hood, very different silhouette from A triangular canopy -->
+ <path d="M48 202Q71 102 186 91Q296 102 321 193L297 196Q261 148 188 147Q116 146 80 209Z" fill="url(#roof)" stroke="#244252" stroke-width="8"/>
+ <path d="M61 183Q103 110 181 107Q259 112 301 178" stroke="#a8c8bd" stroke-width="12" opacity=".75" fill="none"/>
+ <path d="M84 201Q129 154 187 151Q252 151 297 194" stroke="url(#brass)" stroke-width="5" fill="none"/>
+ <path d="M86 161l19 21M122 127l12 35M225 121l-9 31M269 146l-17 28" stroke="#e8dbac" stroke-width="5"/>
+ <!-- Hollow platform under canopy, operator slot -->
+ <path d="M67 199 187 161 318 202 182 260Z" fill="url(#mStone)" stroke="#395463" stroke-width="7"/>
+ <path d="M67 202 182 260 318 204V230L184 289 67 235Z" fill="url(#woodShade)" stroke="#385466" stroke-width="6"/>
+ <path d="M82 204 185 251 304 206" stroke="#f0cf99" stroke-width="6" fill="none"/>
+ <path d="M95 197 182 177 282 201" stroke="#6e7972" stroke-width="3" fill="none"/>
+ <!-- supported long lens, permanently mounted but no actor -->
+ <path d="M185 186 259 163 307 183 271 201 217 204Z" fill="url(#iron)" stroke="#294658" stroke-width="6"/>
+ <path d="M288 180l31-11 13 10-32 19Z" fill="url(#brass)" stroke="#385866" stroke-width="5"/>
+ <ellipse cx="243" cy="169" rx="12" ry="9" fill="url(#optic)" stroke="#d6b681" stroke-width="5"/>
+ <path d="M232 201l-8 22" stroke="#40697a" stroke-width="10"/>
+ <g transform="translate(139 323) scale(-1 1)"><path d="M-24 20 8-83M3 27 32-81" stroke="#344e56" stroke-width="11" fill="none"/><path d="M-24 20 8-83M3 27 32-81" stroke="#ce9b67" stroke-width="4" fill="none"/><path d="M-23.0 18.0l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M-16.4 -1.8l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M-9.8 -21.6l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M-3.2 -41.4l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M3.4 -61.2l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M10.0 -81.0l27 5" stroke="#e7bb7f" stroke-width="7"/></g>
+ <g transform="translate(187 249) scale(0.51)"><path d="M0-18 23-11 20 17 0 30-20 17-23-11Z" fill="#285b73" stroke="url(#brass)" stroke-width="5"/><path d="M0-13 5-1 15 3 5 7 0 21-5 7-15 3-5-1Z" fill="#ebd4a1"/><circle cx="0" cy="3" r="3" fill="#a3eee2"/></g>
+ <g id="hand-painted-stone-wear"><path d="M229.3 328.0l8.7 -1.2" stroke="#23485b" stroke-width="2.0" opacity="0.21"/><path d="M160.2 324.6l7.9 -2.9" stroke="#e6d9b8" stroke-width="1.3" opacity="0.27"/><path d="M143.0 312.7l7.0 -2.0" stroke="#e6d9b8" stroke-width="1.6" opacity="0.17"/><path d="M141.0 297.7l9.9 -2.8" stroke="#e6d9b8" stroke-width="1.3" opacity="0.17"/><path d="M196.5 257.1l7.0 -2.7" stroke="#23485b" stroke-width="2.4" opacity="0.25"/><path d="M139.5 299.8l6.1 -1.5" stroke="#e6d9b8" stroke-width="2.6" opacity="0.14"/><path d="M156.4 295.6l10.5 -2.9" stroke="#23485b" stroke-width="1.3" opacity="0.38"/><path d="M206.3 245.0l5.0 -1.3" stroke="#e6d9b8" stroke-width="1.6" opacity="0.15"/><path d="M150.9 310.7l3.3 -1.7" stroke="#e6d9b8" stroke-width="1.5" opacity="0.17"/><path d="M170.8 295.1l12.6 -1.7" stroke="#e6d9b8" stroke-width="2.5" opacity="0.32"/><path d="M172.6 322.3l5.4 -1.5" stroke="#e6d9b8" stroke-width="1.9" opacity="0.25"/><path d="M222.8 240.8l5.4 -1.7" stroke="#e6d9b8" stroke-width="2.7" opacity="0.41"/><path d="M154.5 273.9l12.1 -2.3" stroke="#e6d9b8" stroke-width="1.9" opacity="0.32"/><path d="M150.2 323.3l12.5 -1.2" stroke="#e6d9b8" stroke-width="2.1" opacity="0.43"/><path d="M163.6 245.8l9.6 -2.9" stroke="#e6d9b8" stroke-width="1.9" opacity="0.33"/><path d="M224.0 294.3l10.8 -2.2" stroke="#23485b" stroke-width="1.7" opacity="0.22"/><path d="M165.9 284.7l6.4 -2.0" stroke="#e6d9b8" stroke-width="2.1" opacity="0.38"/><path d="M245.5 287.8l8.2 -2.9" stroke="#e6d9b8" stroke-width="1.5" opacity="0.21"/><path d="M174.5 301.5l3.4 -2.4" stroke="#23485b" stroke-width="2.3" opacity="0.21"/><path d="M195.9 237.7l6.9 -1.7" stroke="#e6d9b8" stroke-width="1.5" opacity="0.20"/><path d="M150.0 304.0l7.2 -2.8" stroke="#e6d9b8" stroke-width="2.0" opacity="0.39"/><path d="M188.1 276.7l9.8 -2.1" stroke="#e6d9b8" stroke-width="2.2" opacity="0.33"/><path d="M183.4 264.8l8.6 -1.4" stroke="#e6d9b8" stroke-width="1.4" opacity="0.25"/><path d="M182.9 295.5l12.5 -2.9" stroke="#e6d9b8" stroke-width="1.3" opacity="0.15"/><path d="M165.4 313.4l12.8 -2.2" stroke="#23485b" stroke-width="1.9" opacity="0.24"/><path d="M245.6 292.4l7.7 -2.5" stroke="#e6d9b8" stroke-width="1.0" opacity="0.22"/><path d="M222.4 271.8l6.4 -2.1" stroke="#23485b" stroke-width="2.5" opacity="0.21"/><path d="M142.6 299.0l9.9 -1.5" stroke="#23485b" stroke-width="1.1" opacity="0.31"/><path d="M221.0 245.0l6.2 -2.2" stroke="#e6d9b8" stroke-width="1.4" opacity="0.41"/><path d="M232.4 290.5l12.7 -3.0" stroke="#23485b" stroke-width="2.5" opacity="0.18"/></g>
+ </g><g id="observatory-veteran">
+ <path d="M257 154l-3-68 24-28 25 31-4 90Z" fill="url(#iron)" stroke="#28495b" stroke-width="6"/>
+ <path d="M254 86l24-28 25 31-25-7Z" fill="url(#roof)" stroke="url(#brass)" stroke-width="5"/>
+ <ellipse cx="278" cy="115" rx="20" ry="23" fill="url(#optic)" stroke="url(#brass)" stroke-width="7"/>
+ <path d="M282 93l7-13" stroke="#edfdf5" stroke-width="4"/>
+ <path d="M101 207 101 143 129 127 130 206" stroke="url(#iron)" stroke-width="12" fill="none"/>
+ <path d="M115 146l38-37 21 12" stroke="#c5d7c4" stroke-width="6" fill="none"/>
+ <g transform="translate(158 117) scale(0.46)"><path d="M0 5V-58" stroke="#494341" stroke-width="7"/><path d="M3-52Q19-53 38-40L26-26 44-20Q20-14 3-23Z" fill="#284f78" stroke="#e3c189" stroke-width="3"/><path d="M8-48 19-39 11-30" stroke="#afdfd6" stroke-width="3" fill="none"/><circle cy="-59" r="5" fill="url(#brass)"/></g>
+ </g><g id="observatory-front-rail">
+ <path d="M93 227 184 263 295 221 296 245 185 290 93 251Z" fill="url(#iron)" stroke="#314e5c" stroke-width="6"/>
+ <path d="M94 226 183 262 297 220" stroke="url(#brass)" stroke-width="5" fill="none"/>
+ <path d="M120 238v24M150 252v22M216 260v20M266 243v18" stroke="#a4c7bd" stroke-width="4"/>
+ </g></svg>
