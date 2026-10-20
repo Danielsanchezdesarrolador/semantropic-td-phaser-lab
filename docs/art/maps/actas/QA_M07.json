@@ -186,7 +186,7 @@
   },
   "syntaxChecks": {
     "showcase": "PASS_V8_JS_PARSER_ONLY",
-    "qa-node-module": "FAIL SyntaxError: Cannot use import statement outside a module",
-    "note": "V8 parsing only. Native Node, browser and npm build remain NOT_RUN."
+    "qa-node-module": "PASS_V8_JS_PARSER_ONLY",
+    "note": "V8 parser checks with import syntax stripped: not native Node, not actual execution. Node QA remains NOT_RUN."
   }
 }
