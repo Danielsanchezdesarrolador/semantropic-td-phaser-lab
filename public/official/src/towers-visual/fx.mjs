@@ -1,7 +1,7 @@
 // T-03: solo animación visual. No resuelve impactos, cooldowns, HP, oro ni spawns.
 // VFX de esta vitrina viven en el clock de Phaser y se cancelan por eventId.
 export class TowerVfxShowcase {
- constructor(scene){this.scene=scene;this.jobs=new Map();this.seen=new Set();this.destroyed=false;}
+ constructor(scene){this.scene=scene;this.jobs=new Map();this.seen=new Set();this.destroyed=false;this.maxJobs=24;this.maxSparks=7;}
  _job(id){const v={id,valid:true,objects:new Set(),timers:new Set(),tweens:new Set()};this.jobs.set(id,v);return v;}
  _add(j,obj){j.objects.add(obj);return obj;}
  _free(j,obj){if(obj?.active)obj.destroy();j.objects.delete(obj);}
@@ -25,7 +25,7 @@ export class TowerVfxShowcase {
   this._tween(j,p,{alpha:0,scaleX:2.7,scaleY:2.4,duration:410,onComplete:()=>this._free(j,p)});
  }
  _spark(j,pos,color=0xf3dd9d,count=5){
-  for(let i=0;i<count;i++){
+  for(let i=0;i<Math.min(count,this.maxSparks);i++){
    const a=(i/count)*Math.PI*2+(i%3)*.17,dist=14+(i%3)*6;
    const dot=this._add(j,this.scene.add.circle(pos.x,pos.y,2.5+(i%2),color,.88).setDepth(1310));
    this._tween(j,dot,{x:pos.x+Math.cos(a)*dist,y:pos.y+Math.sin(a)*dist,alpha:0,duration:270+i*17,onComplete:()=>this._free(j,dot)});
@@ -33,6 +33,7 @@ export class TowerVfxShowcase {
  }
  dispatch({eventId,type,source,target,level=1,method='A'}){
   if(this.destroyed||!eventId||this.seen.has(eventId))return false;
+  if(this.jobs.size>=this.maxJobs)this.cancelEvent(this.jobs.keys().next().value);
   if(!['deploy_visual','attack_visual','upgrade_visual','selection_visual'].includes(type))return false;
   if(!source||!Number.isFinite(source.x)||!Number.isFinite(source.y))return false;
   this.seen.add(eventId);if(this.seen.size>400)this.seen=new Set([eventId]);
@@ -68,8 +69,8 @@ export class TowerVfxShowcase {
    this._flash(j,from,color);
    const bolt=this._add(j,this.scene.add.circle(from.x,from.y,lv===2?5:4,0xfff6d6,1).setStrokeStyle(2,color).setDepth(1332));
    const trail=this._add(j,this.scene.add.graphics().setDepth(1330));
-   this._tween(j,bolt,{x:to.x,y:to.y,ease:'Cubic.In',duration:lv===2?235:315,
-    onUpdate:()=>{trail.clear().lineStyle(lv===2?3:2.5,color,.79).beginPath().moveTo(from.x,from.y).lineTo(bolt.x,bolt.y).strokePath();},
+   this._tween(j,bolt,{x:to.x,y:to.y,ease:'Cubic.In',duration:lv===2?215:270,
+    onUpdate:()=>{trail.clear().lineStyle(lv===2?3:2.5,color,.79).beginPath().moveTo(bolt.x-(bolt.x-from.x)*Math.min(1,75/Math.max(1,Math.hypot(bolt.x-from.x,bolt.y-from.y))),bolt.y-(bolt.y-from.y)*Math.min(1,75/Math.max(1,Math.hypot(bolt.x-from.x,bolt.y-from.y)))).lineTo(bolt.x,bolt.y).strokePath();},
     onComplete:()=>{this._free(j,bolt);this._free(j,trail);this._ring(j,to,color,16);this._spark(j,to,color,lv===2?7:5);}
    });
   });
