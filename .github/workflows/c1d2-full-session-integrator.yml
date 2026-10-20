@@ -1,0 +1,44 @@
+name: C1-D2 Five-Wave QA (isolated integrator)
+on:
+  push:
+    branches:
+      - feature/integrator-c1d2-full-run-qa
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-session-normal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate D2 source and full-session tests
+        run: |
+          node --check public/official/src/core-c1d/m01-combat-world.mjs
+          node --check tools/qa-c1d2-combat.mjs
+          node --check tools/qa-c1d2-five-waves.mjs
+          node tools/qa-c1d2-sniper-parity.mjs
+          node tools/qa-c1d2-combat.mjs
+          node tools/qa-c1d2-five-waves.mjs | tee c1d2-five-waves-output.txt
+      - name: Build official Phaser 4.2.1
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium and Playwright
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Regression Chromium WebGL2 real
+        run: node tools/qa-c1d2-browser.mjs
+      - name: Retain objective QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1d2-complete-session-qa
+          path: |
+            c1d2-five-waves-output.txt
+            artifacts/c1d2-browser/
+          if-no-files-found: warn
