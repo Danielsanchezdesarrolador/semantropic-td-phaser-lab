@@ -100,7 +100,7 @@ try{
   });
   if(!visuals.environment?.includes("m07")||
       visuals.art.maps!=="M07-Q2-FIEL"||visuals.art.towers!=="T08-HF1-T04"||
-      !visuals.art.actors.includes("P07-HF1")||
+      visuals.art.actors!=="P03_APPROVED_P07_LOADED"||
       !Object.values(visuals.assets).every(Boolean)||
       visuals.sniperMounted.length!==1||
       visuals.sniperMounted[0].historicSource!=="T08_T04_APPROVED"||
@@ -120,11 +120,12 @@ try{
    return {kills:g.world.kills,gold:g.economy.gold,lives:g.world.lives,wave:g.world.wave,
     ledger:g.economy.ledger.length,realActors:g.world.actors.length,eventIds:g.world.nextEventId};
   });
-  const pngReal=await page.evaluate(()=>{
+  const activeVisual=await page.evaluate(()=>{
     const t=window.__SEMANTROPIC_C1D6.scene;
-    return [...t.enemyViews.values(),...t.soldierViews.values()].some(v=>v.artist==="P07_HF1_PNG");
+    return [...t.enemyViews.values(),...t.soldierViews.values()].map(v=>v.artist);
   });
-  if(!pngReal)throw Error(tag+" P07-HF1 artwork not actually rendered");
+  if(!activeVisual.length||!activeVisual.every(x=>x==="P03_ORIGINAL"))
+    throw Error(tag+" P07 artwork activated despite known alpha QA BLOCKER "+JSON.stringify(activeVisual));
   if(after.gold<=130||after.kills<1||after.wave!==1||after.ledger<2)throw Error(tag+" no actual hit/reward "+JSON.stringify(after));
   await page.screenshot({path:"artifacts/c1d6-browser/"+tag+"-first-kill.png",fullPage:true});
   await page.locator("#pause").click();
