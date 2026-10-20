@@ -4,12 +4,13 @@ import {resolve,join,extname,sep} from "node:path";
 import {chromium} from "playwright";
 const ROOT=resolve("dist");
 const MIME={".html":"text/html; charset=utf-8",".js":"text/javascript; charset=utf-8",".mjs":"text/javascript; charset=utf-8",".json":"application/json",".svg":"image/svg+xml",".png":"image/png"};
+console.log("C1D2_DIAG",ROOT,"exists=",await stat(join(ROOT,"official/src/c1d2-combat/index.html")).then(x=>x.isFile()).catch(e=>String(e)));
 const srv=createServer(async(req,res)=>{
  try{const url=new URL(req.url||"/","http://localhost"),file=resolve(ROOT,"."+decodeURIComponent(url.pathname));
   if(file!==ROOT&&!file.startsWith(ROOT+sep))throw Error("bad path");
   const chosen=(await stat(file)).isDirectory()?join(file,"index.html"):file;
   res.writeHead(200,{"Content-Type":MIME[extname(chosen)]||"application/octet-stream"});res.end(await readFile(chosen));
- }catch{res.writeHead(404);res.end("not found");}
+ }catch(e){console.error("C1D2_SERVER_404",req.url,String(e));res.writeHead(404);res.end("not found");}
 });
 await new Promise(resolve=>srv.listen(0,"127.0.0.1",resolve));
 const URL="http://127.0.0.1:"+srv.address().port+"/official/src/c1d2-combat/index.html";
