@@ -21,7 +21,7 @@ assert.deepEqual(map.path.at(-1),[1312,400]);
 assert.equal(M03_ROAD_WIDTH,110);
 assert.equal(M03_PAD_SOURCE.width,212);
 assert.equal(M03_PAD_SOURCE.scale,.26);
-assert.equal(M03_PAD_SOURCE.width*M03_PAD_SOURCE.dpr*M03_PAD_SOURCE.scale,110.24);
+assert.ok(Math.abs(M03_PAD_SOURCE.width*M03_PAD_SOURCE.dpr*M03_PAD_SOURCE.scale-110.24)<1e-6);
 const sockets=visualSocketPreview(map);
 assert.deepEqual(sockets.map(s=>[s.world.x,s.world.y]),[
  [96,480],[416,480],[672,544],[736,352],[992,224],[992,544],[1120,608],[1184,352]
