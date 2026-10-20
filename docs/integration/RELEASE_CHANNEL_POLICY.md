@@ -26,3 +26,10 @@ Publicar desde ahora cada **bloque funcional verificado** directamente en el **m
 - CORE manda economía, golpes, enemigos y estadísticas; arte no lo suplanta.
 - Snapshot rollback anterior a C1-D7: `edf84939dfd9aa9e754247b384e5b47fe854b411` (release C1-D6).
 - No modificar `public/JUEGO_V5_CANVAS.html`, `public/official/data/maps.v5.json`, `public/official/data/campaign140.v5.json`, `public/official/src/m01-model.mjs`.
+
+## Release B1 — C1-D8 (20-oct-2026)
+**Decisión ya autorizada:** publicar cada bloque aprobado en https://semantropic-td-jugar.onrender.com/official/src/live/ sin modificar URL.
+**Corrección:** Infantería A3 sí camina en preparación y entre oleadas al nodo de reunión real; el círculo verde (alcance canónico 130wu) y punto destino muestran la orden; un toque fuera de alcance NO cancela el modo; hay botón Cancelar y atajo Escape.
+**QA previo:** [GitHub Actions #39511773777](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39511773777) SUCCESS, core 133 nodos y 2 soldados movidos PC/844×390/932×430, victoria 5 waves 63/0/100 ★★★, derrota 50 fugas. No FPS físico.
+**Código QA probado:** `414dfa35326afca4e9f4ced5c30cd9c689370c52`. **Rollback:** `961af46b7e66962878f7e71e2cf58a07a9281ef9` (C1-D7 G2).
+**Siguientes bloques separados:** B2 bala desde la boca del rifle sniper; B3 golpes visibles soldado/enemigo. Nunca mezclarlos en un hotfix.

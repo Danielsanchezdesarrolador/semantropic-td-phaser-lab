@@ -1,0 +1,51 @@
+name: C1-D8 B1 — Infantería rally táctil sin cambios en combate
+on:
+  push:
+    branches: [feature/integrator-c1d8-b1-rally]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rally-real-world:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fuente histórica/CORE protegidos y pruebas de Infantería
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node --check public/official/src/c1d8-b1-playable/scene.mjs
+          node --check tools/qa-c1d8-b1-browser.mjs
+          node tools/qa-c1d8-b1-rally-core.mjs
+          node tools/qa-c1d5-navigation.mjs
+          node tools/qa-c1d7-menu.mjs
+          node tools/qa-c1d7-actor-visual.mjs
+      - name: Compilar Phaser 4.2.1 sin modificar campaña
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Chromium real WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: T09 Rally PC y móvil; dos soldados se mueven + cinco oleadas
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b1-browser.mjs 2>&1 | tee qa-c1d8-b1-rally.log
+      - name: Capturas y logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_TD_C1D8_B1_RALLY_REAL_TACTIL
+          path: |
+            artifacts/c1d8-b1-browser/
+            qa-c1d8-b1-rally.log
+          if-no-files-found: warn

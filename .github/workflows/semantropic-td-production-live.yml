@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA release permanente C1-D7 (misma URL)
+name: SEMANTROPIC TD — QA release permanente C1-D8 B1 (misma URL)
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -21,20 +21,22 @@ jobs:
           node tools/qa-c1d4r-source-lock.mjs
           node tools/qa-c1d5-navigation.mjs
           node tools/qa-c1d5-results.mjs
+          node tools/qa-c1d8-b1-rally-core.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
           node public/official/src/actors-visual/p08/qa-p08.mjs
           node public/official/src/actors-visual/qa-p07.mjs
-          node --check tools/qa-c1d7-g2-browser.mjs
-          node --check public/official/src/c1d7-g2-playable/scene.mjs
+          node --check tools/qa-c1d8-b1-browser.mjs
+          node --check public/official/src/c1d8-b1-playable/scene.mjs
+          node --check public/official/src/core-c1d/m01-infantry-combat-a3.mjs
       - name: Compilar juego real Phaser 4.2.1
         shell: bash
         run: |
           set -euo pipefail
           npm install --no-audit --no-fund
           npm run build
-      - name: Verificar URL única, archivos G2, Phaser, campaña
+      - name: Verificar URL única, archivos B1, Phaser, campaña
         shell: bash
         run: |
           set -euo pipefail
@@ -46,9 +48,9 @@ jobs:
           const live=readFileSync("dist/official/src/live/index.html","utf8");
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
-          assert(live.includes("../c1d7-g2-playable/scene.mjs"),"Live scene must point to vetted C1D7 G2");
+          assert(live.includes("../c1d8-b1-playable/scene.mjs"),"Live scene must point to vetted C1D7 B1");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
-          for(const p of ["dist/official/src/c1d7-g2-playable/scene.mjs",
+          for(const p of ["dist/official/src/c1d8-b1-playable/scene.mjs",
             "dist/official/src/towers-visual/t09/menu.css",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
@@ -65,13 +67,13 @@ jobs:
           SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
         run: |
           set -euo pipefail
-          node tools/qa-c1d7-g2-browser.mjs 2>&1 | tee qa-c1d7-live-url.log
+          node tools/qa-c1d8-b1-browser.mjs 2>&1 | tee qa-c1d8-b1-live-url.log
       - name: Conservar screenshots y logs de release
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: SEMANTROPIC_TD_C1D7_URL_OFICIAL_QA_REAL
+          name: SEMANTROPIC_TD_C1D8_B1_RALLY_URL_OFICIAL_QA_REAL
           path: |
-            artifacts/c1d7-g2-browser/
-            qa-c1d7-live-url.log
+            artifacts/c1d8-b1-browser/
+            qa-c1d8-b1-live-url.log
           if-no-files-found: warn
