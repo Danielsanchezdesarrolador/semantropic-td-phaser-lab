@@ -38,7 +38,7 @@ try{
   const page=await context.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(href,{waitUntil:'load',timeout:45000});
-  await page.waitForFunction(()=>Boolean(window.__SEMANTROPIC_P05?.scene),{timeout:50000});
+  await page.waitForFunction(()=>Boolean(window.__SEMANTROPIC_P05?.scene),null,{timeout:50000});
   const startup=await page.evaluate(()=>{
    const s=window.__SEMANTROPIC_P05.scene;
    return {phaser:Phaser.VERSION,webgl2:s.game.renderer?.gl instanceof WebGL2RenderingContext,
