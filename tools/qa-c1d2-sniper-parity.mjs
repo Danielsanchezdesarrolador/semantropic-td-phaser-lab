@@ -12,9 +12,9 @@ let st=sniperNominalStats(1,"focus");assert.equal(st.effectiveRange,267);assert.
 assert.equal(e.upgrade(2).ok,true);st=sniperNominalStats(2,"focus");assert.equal(st.effectiveRange,285);assert.equal(st.nominalDamage,66);assert.equal(st.scheduledInterval,1.55);
 
 const power=sniperNominalStats(1,"power");
-assert.equal(power.nominalDamage,47.2);assert.equal(power.effectiveDamagePendingAudit,true);
+assert(Math.abs(power.nominalDamage-47.2)<1e-8);assert.equal(power.effectiveDamagePendingAudit,true);
 const tempo=sniperNominalStats(1,"tempo");
-assert.equal(tempo.scheduledInterval,1.386);
+assert(Math.abs(tempo.scheduledInterval-1.386)<1e-8);
 assert.throws(()=>sniperNominalStats(3,"power"),/unknown level/);
 assert.throws(()=>sniperNominalStats(1,"invalid"),/unknown level/);
 assert.deepEqual(Object.keys(CANONICAL_SPOT_BONUS),["power","focus","tempo"]);
