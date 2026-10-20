@@ -1,0 +1,58 @@
+name: C1-D4R visual continuity locked M03 T04 P03 over actual gameplay
+on:
+  push:
+    branches:
+      - integration/c1d4r-visual-lock
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  c1d4r-art-continuity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Exact original C1-C asset lock and code syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check public/official/src/c1d4r-combat/scene.mjs
+          node --check public/official/src/c1d4r-combat/heritage/t04-catalog.mjs
+          node --check tools/qa-c1d4r-source-lock.mjs
+          node --check tools/qa-c1d4r-browser.mjs
+          node tools/qa-c1d4r-source-lock.mjs | tee c1d4r-source-lock.txt
+      - name: Gameplay regressions C1-D2 and C1-D3
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d2-sniper-parity.mjs
+          node tools/qa-c1d2-combat.mjs
+          node tools/qa-c1d2-five-waves.mjs
+          node tools/qa-c1d3-infantry.mjs | tee c1d4r-real-core-qa.txt
+      - name: Build authentic Phaser 4.2.1
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium real WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Real M03-T04-P03 + core gameplay and mobile touch
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-browser.mjs 2>&1 | tee c1d4r-real-chromium-qa.log
+      - name: Preserve captures and QA including failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1d4r-visual-lock-genuine-before-after
+          path: |
+            artifacts/c1d4r-browser/
+            c1d4r-source-lock.txt
+            c1d4r-real-core-qa.txt
+            c1d4r-real-chromium-qa.log
+          if-no-files-found: warn
