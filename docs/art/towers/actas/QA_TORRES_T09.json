@@ -1,0 +1,178 @@
+{
+  "version": "semantropic-qa-v1",
+  "milestone": "TORRES-T09",
+  "team": "TORRES",
+  "date": "2026-10-20",
+  "pr": 38,
+  "sourceBranch": "feature/art-t09-contextual-nodes",
+  "baseBranch": "feature/art-t08-continuidad-c1c",
+  "baseSha": "d4b913e5b5fbcb6ad884974aa5df595b71a98b8b",
+  "headShaSnapshot": "9cb9403460c91c204f18cdb088ace0d34e1f4969",
+  "headShaNote": "snapshot before final acta/index; GitHub PR HEAD is source of truth",
+  "state": "IMPLEMENTED_COMPONENT_QA_SOURCE_PASS__NODE_AND_INTEGRATION_PENDING",
+  "statusSemantics": "PASS = actually executed only in declared environment; NOT_RUN not an implicit PASS",
+  "sourceRevision": "t09-visual-intent-v1",
+  "t04MastersIdenticalToC1C": true,
+  "realScreenshotIndex": [],
+  "beforeScreenshotsAvailable": false,
+  "tests": [
+    {
+      "name": "branch-base",
+      "status": "PASS",
+      "environment": "GitHub branches API",
+      "evidence": "T09 created from T08-HF1 d4b913e5b5fbcb6ad884974aa5df595b71a98b8b"
+    },
+    {
+      "name": "real-c1d6-context",
+      "status": "PASS",
+      "environment": "GitHub read-only files",
+      "evidence": "production HEAD edf84939dfd9aa9e754247b384e5b47fe854b411; scene.mjs + economy quote shape inspected"
+    },
+    {
+      "name": "t04-master-4",
+      "status": "PASS",
+      "environment": "GitHub file blob SHA audit",
+      "evidence": "4/4 T04 protected master blob SHA unchanged"
+    },
+    {
+      "name": "git-ownership",
+      "status": "PASS",
+      "environment": "GitHub compare T08→T09",
+      "evidence": "9 commits 19 changed paths at checkpoint, 0 non-TORRES. QA-only documentation commits remain TORRES"
+    },
+    {
+      "name": "icon-9",
+      "status": "PASS",
+      "environment": "GitHub tree metadata",
+      "evidence": "9 original transparent source SVGs 96x96, total 4896 bytes; no raster measurement"
+    },
+    {
+      "name": "source-quote-states",
+      "status": "PASS",
+      "environment": "V8 evaluation of source",
+      "evidence": "9 core cases: empty, insufficient gold, infantry-only rally, sniper-only inspect, cap II, paused, victory, rally-target, two build families"
+    },
+    {
+      "name": "layout-safe-areas",
+      "status": "PASS",
+      "environment": "V8 evaluation of source",
+      "evidence": "4 viewports x 5 anchor extremes = 20 fully clamped fits, min 44 CSSpx"
+    },
+    {
+      "name": "camera-projection",
+      "status": "PASS",
+      "environment": "V8 evaluation of source",
+      "evidence": "affine scaled camera → CSS position numeric test"
+    },
+    {
+      "name": "presenter-lifecycle-100",
+      "status": "PASS",
+      "environment": "V8 FakeDOM, not Chrome",
+      "evidence": "100 update/clear, one intent from one click, disabled ignored, 4 listeners fully removed after destroy"
+    },
+    {
+      "name": "node-qa-t09",
+      "status": "NOT_RUN",
+      "environment": "Node on complete repository checkout",
+      "evidence": "Script published; git ls-remote github.com failed DNS"
+    },
+    {
+      "name": "npm-build",
+      "status": "NOT_RUN",
+      "environment": "Node/phaser actual checkout",
+      "evidence": "No real checkout/dependencies downloaded"
+    },
+    {
+      "name": "chromium-webgl2",
+      "status": "NOT_RUN",
+      "environment": "Actual Phaser/browser",
+      "evidence": "Gallery source published; not rendered or captured"
+    },
+    {
+      "name": "mobile-844x390",
+      "status": "NOT_RUN",
+      "environment": "Real browser viewport/touch",
+      "evidence": "Pure CSS geometry test only, not DOM/browser"
+    },
+    {
+      "name": "mobile-932x430",
+      "status": "NOT_RUN",
+      "environment": "Real browser viewport/touch",
+      "evidence": "Pure CSS geometry test only, not DOM/browser"
+    },
+    {
+      "name": "mobile-1536x709",
+      "status": "NOT_RUN",
+      "environment": "Actual Android screenshot comparison",
+      "evidence": "50833.jpg/50834.jpg not supplied separately"
+    },
+    {
+      "name": "c1d7-live-integration",
+      "status": "NOT_RUN",
+      "environment": "DG-owned gameplay scene",
+      "evidence": "No central files or production changed"
+    },
+    {
+      "name": "fps-gpu",
+      "status": "NOT_RUN",
+      "environment": "Device/GPU perf",
+      "evidence": "No FPS p50/p95/draw call measurement"
+    },
+    {
+      "name": "art-signoff",
+      "status": "PENDING",
+      "environment": "User/DG review",
+      "evidence": "Original icons and layout unapproved until real game screenshot"
+    },
+    {
+      "name": "touch-event-e2e",
+      "status": "NOT_RUN",
+      "environment": "Chromium touchscreen simulation",
+      "evidence": "Needs DG integrated canvas"
+    },
+    {
+      "name": "icon-sheet-3x3-source",
+      "status": "PASS",
+      "environment": "GitHub source SVG generation and Node test syntax",
+      "evidence": "public/official/art/towers/t09/T09_ICON_SHEET_3X3.svg is 384x384 and contains nine source groups, one per cell. No browser capture."
+    }
+  ],
+  "summary": {
+    "passes": 10,
+    "notRun": 9,
+    "pending": 1
+  },
+  "legalDomains": [
+    "public/official/src/towers-visual/**",
+    "public/official/art/towers/**",
+    "docs/art/towers/**"
+  ],
+  "blockers": [
+    "Node QA needs actual GitHub Actions checkout and exit code 0",
+    "Real Phaser 4.2.1 WebGL2 demo/browser validation NOT_RUN",
+    "DG C1-D7 must wire onIntent to real economy quotes/trades and update states",
+    "Actual 50833.jpg and 50834.jpg comparison unavailable",
+    "Touch input and safe-area on Android landscape need real browser captures",
+    "Icon art approval pending"
+  ],
+  "risks": [
+    "Gallery quotes deliberately synthetic (117/163/159), never source of game costs",
+    "Presenter is DOM overlay on container owned by DG; scene and core not installed",
+    "Viewport safe rect must be supplied by Integrator using real camera transform, header/footer safe insets"
+  ],
+  "replayCommands": [
+    "node docs/art/towers/qa-t09.mjs",
+    "npm run build"
+  ],
+  "requiredViewportCaptures": [
+    "1280x768",
+    "844x390",
+    "932x430",
+    "1536x709"
+  ],
+  "artifacts": {
+    "iconSheet": "public/official/art/towers/t09/T09_ICON_SHEET_3X3.svg",
+    "grid": "3x3",
+    "cellPx": 128
+  }
+}
