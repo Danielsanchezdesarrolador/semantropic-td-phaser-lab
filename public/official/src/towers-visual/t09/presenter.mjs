@@ -31,7 +31,8 @@ export function mountT09Presenter(host,{onIntent=()=>{},onLayout=null}={}){
  }
  root.addEventListener('pointerdown',stop);root.addEventListener('pointerup',stop);
  root.addEventListener('click',trigger);
- root.addEventListener('keydown',e=>{if(e.key==='Escape'&&current){e.stopPropagation();onIntent({action:'close',socketIndex:current.selectedSocketIndex,revision:current.revision},{nodeId:'escape',specVersion:current.version});}});
+ function onKeyDown(e){if(e.key==='Escape'&&current){e.stopPropagation();onIntent({action:'close',socketIndex:current.selectedSocketIndex,revision:current.revision},{nodeId:'escape',specVersion:current.version});}}
+ root.addEventListener('keydown',onKeyDown);
  // IMPORTANT: overlay has pointer-events:none; only buttons consume pointer events.
  function clear(){
   if(disposed)return;
@@ -80,7 +81,7 @@ export function mountT09Presenter(host,{onIntent=()=>{},onLayout=null}={}){
  function destroy(){
   if(disposed)return;clear();disposed=true;
   root.removeEventListener('pointerdown',stop);root.removeEventListener('pointerup',stop);
-  root.removeEventListener('click',trigger);root.remove();current=null;layout=null;
+  root.removeEventListener('click',trigger);root.removeEventListener('keydown',onKeyDown);root.remove();current=null;layout=null;
  }
  return Object.freeze({update,clear,destroy,get current(){return current},get layout(){return layout},get destroyed(){return disposed},root});
 }
