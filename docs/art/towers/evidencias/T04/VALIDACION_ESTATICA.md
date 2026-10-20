@@ -15,3 +15,6 @@
 [FUENTE EXTERNA VERIFICADA READ-ONLY] GitHub Actions run #39342295194 status SUCCESS para **C1-B anterior**, NO T04.
 
 Histórico: https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39342295194
+
+
+[CONFIRMADO EN GITHUB COMPARE] T03→T04 al cerrar documentación: 5 commits, 21 archivos, cero paths fuera de public/official/art/towers, public/official/src/towers-visual, docs/art/towers. Sin merge.

@@ -22,7 +22,7 @@
 
 - [RFC P03 operador](./RFC_T04_OPERADOR_P03.md) — slot/facing y política frontal del parapeto.
 
-- [Galería T04](../../../public/official/src/towers-visual/t04-index.html) — comparación bajo Phaser después de build; no desplegada.
+- [Galería T04](../../../../public/official/src/towers-visual/t04-index.html) — comparación bajo Phaser después de build; no desplegada.
 
 - [QA reproducible Node](../qa-t04.mjs) — script, **NO EJECUTADO** en clon.
 
