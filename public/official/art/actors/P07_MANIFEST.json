@@ -1,6 +1,6 @@
 {
   "manifestVersion": "semantropic-assets-v1",
-  "revision": "P07-C1C-HF1-NUMERIC-STABILITY",
+  "revision": "P07-HF1-ALPHA-DEBT-CLEANED-IN-P08-BRANCH",
   "date": "2026-10-20",
   "owner": "PERSONAJES",
   "branch": "feature/art-p07-continuidad-c1c",
@@ -35,10 +35,11 @@
     "rgbaHashMeaning": "SHA256 over row-major RGBA bytes with PNG row filter removed",
     "generatorEnvironment": "V8 isolated runtime; Node22 full checkout not re-executed after HF1",
     "sourceRevisionCommit": "edfe29f3ac89da893c1852d0aad29808c40ad5cf",
-    "binaryRevisionCommit": "db0d27e9762ee8cd6bb65c7538a364f3c7767985",
+    "binaryRevisionCommit": "b532b765ee8df40d87ff08e18baaf251ded93ec0",
     "diagnosticFile": "public/official/src/actors-visual/p07-hf1-png-diagnostics.mjs",
     "pending": "Independent Node 22 and real Chromium must certify identity.",
-    "numericPerturbationQa": "20/20 selected frames across 4 actors identical in V8 under +1e-12 sin/cos/hypot/sqrt/atan2 variation; not Node22 runtime proof."
+    "numericPerturbationQa": "20/20 selected frames across 4 actors identical in V8 under +1e-12 sin/cos/hypot/sqrt/atan2 variation; not Node22 runtime proof.",
+    "alphaZeroRule": "RGB must be zero when quantized alpha 0; source pixel writer explicitly zeros all 4 channels in this case."
   },
   "packing": {
     "width": 1408,
@@ -78,9 +79,9 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/warrior.png",
       "worldHeightProposal": 91,
-      "sizeBytes": 696955,
-      "sha256": "41ce773004dc8147463d7198e996b08144ed12824b933edf4d5d737db31bcc5e",
-      "gitBlobSha": "4c484d9479d19b67a4883309afbc935564b45e6c",
+      "sizeBytes": 696874,
+      "sha256": "22f75677f80190a5c07e119619505a22d7f07283777299dcb738b0cbe59fde68",
+      "gitBlobSha": "3f66eafe5aed4e0a61b14c63f8ca07888f9c211f",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
@@ -88,9 +89,9 @@
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
       "containsActorRifle": null,
-      "rgbaSha256": "3e5aa32b1d2a521a8d738c2a9c1a6e83fb78c258306cb85c363131dfff7a823f",
+      "rgbaSha256": "0273fccbc7de208eed70b703a9a1f9b8b30544347cde2d0870a44c9eb0e633ad",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+      "exportRevision": "P08-ALPHA0-RGB0-REEXPORT"
     },
     {
       "canonicalId": "hound",
@@ -99,9 +100,9 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/hound.png",
       "worldHeightProposal": 67,
-      "sizeBytes": 600459,
-      "sha256": "3812bc31e9bc46ebda437f1c88c067811c59fa8928c4f2c608f4462e96934e60",
-      "gitBlobSha": "4fc631fcad695fe5b464abcaae625fed5c233b8c",
+      "sizeBytes": 600437,
+      "sha256": "351c174ac46d60b1d43e8a84124df6ef98c11983ad5a01b2a145fba728fe0caf",
+      "gitBlobSha": "fe6e96a77b3b98f34a161ab3fdc7a2a987af0c5c",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
@@ -109,9 +110,9 @@
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
       "containsActorRifle": null,
-      "rgbaSha256": "535c3cf9a3f3695a5fd9b896da65057169857147eacf13c26b7ace31dffb1f4a",
+      "rgbaSha256": "536fdaf55302a2e39bd6c2ef4244df78f4bee7fbad7a941d6e1881aa6f4d074d",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+      "exportRevision": "P08-ALPHA0-RGB0-REEXPORT"
     },
     {
       "canonicalId": "infantry_recruit",
@@ -120,9 +121,9 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/infantry_recruit.png",
       "worldHeightProposal": 88,
-      "sizeBytes": 610640,
-      "sha256": "c372219d8899fb00aed63f42701a7e7d038685430a6d564b2a1784559b6f4559",
-      "gitBlobSha": "8f64c8954266699241da2ef2a138d645a316d2d9",
+      "sizeBytes": 610585,
+      "sha256": "bee619a8385e8272529811335d935f8c064b5281032957d334c4684cedfd9f80",
+      "gitBlobSha": "4248e8cd530c84e59e47a9cb85a9404b7e9e527c",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
@@ -130,9 +131,9 @@
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
       "containsActorRifle": null,
-      "rgbaSha256": "ebb5229a969756483ee18fb94be239411a436b253182efea70e117a000da4f69",
+      "rgbaSha256": "85f7e7efd0977cfc54b92543d04e203b935bd64d939272c365a81bcaf5671984",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+      "exportRevision": "P08-ALPHA0-RGB0-REEXPORT"
     },
     {
       "canonicalId": "sniper_operator",
@@ -141,9 +142,9 @@
       "variant": "unarmed",
       "file": "public/official/art/actors/p07/png/sniper_operator_unarmed.png",
       "worldHeightProposal": 80,
-      "sizeBytes": 539249,
-      "sha256": "94061e8637c60d9e78d31449ace49c90d4f96337c6cecc481f5fd13bf24eca2f",
-      "gitBlobSha": "e09d62fa685e757bce2545c6111f7575cbbae2fb",
+      "sizeBytes": 539219,
+      "sha256": "5ca036645e6d5dc2704ed8d9a739e869426f0055f415f2539617cd6447f33ad7",
+      "gitBlobSha": "580077e472bccf10c7a03715ca3f41b6def99afd",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
@@ -151,15 +152,15 @@
       "borderContacts": 0,
       "integrationAllowed": "T08-mounted test pending",
       "containsActorRifle": false,
-      "rgbaSha256": "40079024940d5f085596f0ccaf658c62a610e1b485e81fbc94037cfe2eda79e0",
+      "rgbaSha256": "6a64ed527d1fefcba02bf61eb113412044ffc45dae703f888bb22d6ef5909c40",
       "rgbaBytes": 4685824,
-      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+      "exportRevision": "P08-ALPHA0-RGB0-REEXPORT"
     }
   ],
   "memory": {
     "rgba8PerAtlasBytes": 4685824,
     "totalFourUncompressedBytes": 18743296,
-    "totalCompressedPngBytes": 2447303,
+    "totalCompressedPngBytes": 2447115,
     "actualGPUMeasured": false
   },
   "compatibility": {
@@ -181,6 +182,9 @@
     "strictNode22PassAfterHF1": false,
     "shaRGBAFromV8": true,
     "V8NumericPerturbationPass": true,
-    "integratedT08MountingPass": false
+    "integratedT08MountingPass": false,
+    "alphaDebtsAddressedInP08Source": true,
+    "node22P08Recheck": false,
+    "chromiumP08Recheck": false
   }
 }

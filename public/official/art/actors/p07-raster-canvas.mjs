@@ -90,7 +90,11 @@ export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208
    if(blended<.0001)return;
    const rgb=this._color(col,x,y);
    for(let k=0;k<3;k++)data[i+k]=Math.round((rgb[k]*alpha+data[i+k]*old*(1-alpha))/blended);
-   data[i+3]=Math.min(255,Math.round(blended*255));
+   const nextAlpha=Math.min(255,Math.round(blended*255));
+   // P08 alpha debt fix: fully transparent RGBA must have RGB=(0,0,0).
+   // Rounding low-coverage values to alpha=0 previously left nonzero RGB.
+   if(nextAlpha===0){data[i]=0;data[i+1]=0;data[i+2]=0;data[i+3]=0;}
+   else data[i+3]=nextAlpha;
   }
   _circle(x,y,r,col){
    r=Math.max(.1,q(r));x=q(x);y=q(y);

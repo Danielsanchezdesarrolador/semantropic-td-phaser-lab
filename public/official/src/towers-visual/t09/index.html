@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Semantropic TD · T09 Nodos Contextuales (Componente)</title><link rel="stylesheet" href="./menu.css"/>
+<style>*{box-sizing:border-box}html,body{height:100%;margin:0;background:#153e49;color:#ffedce;font:12px system-ui;overflow:hidden}
+#root{position:relative;width:100vw;height:100dvh;overflow:hidden;isolation:isolate}
+#stage{position:absolute;inset:0;display:flex;justify-content:center;align-items:center}#stage canvas{max-width:100%;max-height:100%;display:block;touch-action:manipulation}
+#toolbar{position:absolute;top:max(env(safe-area-inset-top),5px);left:8px;right:8px;z-index:10;display:flex;gap:6px;justify-content:space-between;align-items:flex-start;pointer-events:none}
+#toolbar aside{background:#173b49f1;border:1px solid #dfc49e;border-radius:8px;padding:4px 8px;min-width:190px}
+#toolbar nav{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap;max-width:72vw;pointer-events:auto}
+#toolbar button{min-height:40px;padding:5px 8px;color:#fff0c7;border:1px solid #e4c998;background:#245c6c;border-radius:7px;font-weight:700;font-size:10px;touch-action:manipulation;cursor:pointer}
+#meta{font:10px system-ui;color:#d7e6ce}#status{position:absolute;bottom:max(env(safe-area-inset-bottom),7px);left:8px;right:8px;z-index:11;min-height:20px;padding:5px;border-radius:7px;background:#163d49e0;color:#f4dbab;pointer-events:none}
+@media(max-width:950px) and (orientation:landscape){#toolbar aside{font-size:10px;min-width:150px}#toolbar button{min-height:32px;font-size:9px;padding:3px 6px}#meta{display:none}#status{font-size:9px}}
+@media(max-width:800px) and (orientation:portrait){#status{font-size:10px}}
+</style></head><body><main id="root"><div id="stage"></div>
+<header id="toolbar"><aside><strong>TORRES T09 · UI [PROPUESTA]</strong><div id="meta">Prototipo visual aislado, sin economía real</div></aside>
+<nav><button id="reset">Reiniciar DTO</button><button id="low">Sin oro</button><button id="fund">Con oro</button><button id="wave">Oleada</button><button id="pause">Pausa</button><button id="end">Fin de partida</button><button id="size">Reubicar</button></nav></header>
+<div id="status" role="status">Cargando componente Phaser WebGL2…</div></main>
+<script src="../../../dependencias/phaser.min.js"></script><script type="module" src="./gallery.mjs"></script></body></html>
