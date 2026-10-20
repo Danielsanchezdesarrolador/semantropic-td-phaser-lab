@@ -11,3 +11,5 @@
 **[BLOQUEANTE DE ENTORNO]** Chromium y Node existen en el contenedor, pero `git ls-remote` de github.com falla DNS. Por tanto no fue posible clonar T06 ni cargar sus SVG en una sesión real Phaser; ninguna imagen conceptual se marcó como prueba de runtime.
 
 **[PENDIENTE INTEGRADOR]** compatibilidad final del CombatEventBridge candidato, operador P04 y arte sobre M04, aprobación por Dirección.
+
+**[GITHUB COMPARE PASS]** T05→T06: 10 commits, 21 archivos (11 añadidos, 10 modificados), todas las rutas bajo `docs/art/towers`, `public/official/art/towers`, `public/official/src/towers-visual`; ningún cambio compartido.

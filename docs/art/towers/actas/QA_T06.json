@@ -12,9 +12,9 @@
     {
       "name": "repo-ownership",
       "command": "GitHub compare T05→T06",
-      "status": "NOT_RUN",
-      "evidence": "Registrar tras documentación final",
-      "environment": "GitHub"
+      "status": "PASS",
+      "evidence": "GitHub compare T05→T06: 10 commits / 21 files, 11 added 10 modified, zero paths outside team T. Checked before QA status-only commit.",
+      "environment": "GitHub compare API"
     },
     {
       "name": "branch-base",
