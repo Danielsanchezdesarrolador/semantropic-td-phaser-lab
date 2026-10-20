@@ -1,6 +1,6 @@
 {
   "manifestVersion": "semantropic-assets-v1",
-  "revision": "P07-C1C-VISUAL-CONTINUITY",
+  "revision": "P07-C1C-HF1-NUMERIC-STABILITY",
   "date": "2026-10-20",
   "owner": "PERSONAJES",
   "branch": "feature/art-p07-continuidad-c1c",
@@ -29,7 +29,15 @@
     "rasterModule": "public/official/art/actors/p07-raster-canvas.mjs",
     "exporter": "public/official/art/actors/p07-png-export.mjs",
     "encoder": "public/official/art/actors/p06-png-generator.mjs",
-    "note": "Software Canvas approximation, not pixel-identical to native Chromium Canvas; visual comparison compulsory before approval"
+    "note": "Software Canvas approximation, not pixel-identical to native Chromium Canvas; visual comparison compulsory before approval",
+    "determinism": "Quantize transformed coords/Bezier/gradient t/alpha coverage to 1e-6; sqrt distances quantized; PNG filter NONE + fixed-Huffman DEFLATE.",
+    "compressedHashMeaning": "SHA256 over exact persisted PNG byte stream",
+    "rgbaHashMeaning": "SHA256 over row-major RGBA bytes with PNG row filter removed",
+    "generatorEnvironment": "V8 isolated runtime; Node22 full checkout not re-executed after HF1",
+    "sourceRevisionCommit": "680df01f4cd37fb880f5700565455ffc63f5b039",
+    "binaryRevisionCommit": "b8e2fa2488d6b136855b0a4b7e1198a35d30e28d",
+    "diagnosticFile": "public/official/src/actors-visual/p07-hf1-png-diagnostics.mjs",
+    "pending": "Independent Node 22 and real Chromium must certify identity."
   },
   "packing": {
     "width": 1408,
@@ -69,16 +77,19 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/warrior.png",
       "worldHeightProposal": 91,
-      "sizeBytes": 696921,
-      "sha256": "96bb22bac15eb054ea435389556491ecf040599476b84beb9a318c9abf0a98c7",
-      "gitBlobSha": "36eda0e797f18c0999d14690edd5bc001ecb2ede",
+      "sizeBytes": 696970,
+      "sha256": "da8922ef87fcef8a43919dfdcd0a96aa3efc12a892493fac465562f2d39cbf28",
+      "gitBlobSha": "9b502273273e33d89cd601784794268363c06685",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
       "framesNonempty": 32,
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
-      "containsActorRifle": null
+      "containsActorRifle": null,
+      "rgbaSha256": "d49d01c53ca49be3eac278c33f79d5f0325a80195148ab6ed6b3aaf7590acdb4",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
     },
     {
       "canonicalId": "hound",
@@ -87,16 +98,19 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/hound.png",
       "worldHeightProposal": 67,
-      "sizeBytes": 600467,
-      "sha256": "959b338bc17bb0fbfb51dd17525041b128b758edd44151f479b5cb81fdc0e8a7",
-      "gitBlobSha": "4892c4a5b004cb86e6806a845e8b7cb43e74417b",
+      "sizeBytes": 600460,
+      "sha256": "e4c152adadb57ec67bc268ed246f67a118b807b6c3fd7fb563679359a509516a",
+      "gitBlobSha": "a22bf52f6074e18f112b16ddbc3b88bd10a3b833",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
       "framesNonempty": 32,
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
-      "containsActorRifle": null
+      "containsActorRifle": null,
+      "rgbaSha256": "ff5e85d9788f712294fef4b42e7d6321092cfe1a0273ceed78c3d83147d7fec5",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
     },
     {
       "canonicalId": "infantry_recruit",
@@ -105,16 +119,19 @@
       "variant": "continuity",
       "file": "public/official/art/actors/p07/png/infantry_recruit.png",
       "worldHeightProposal": 88,
-      "sizeBytes": 610623,
-      "sha256": "b34e0e1b7f47ea1948d91cf15a15f8d7d899411ec4c5349356ceb871bc54c3aa",
-      "gitBlobSha": "f3480db3049bfef41ba6e9f4b3a25a9b8991d0f7",
+      "sizeBytes": 610641,
+      "sha256": "83ccc2f9385abc2f0d8d9407dce7786cd9fd6c8b68da77ac8506c1f0b76a747d",
+      "gitBlobSha": "8552d05f4db5949ec095f121f0412921de46e6d6",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
       "framesNonempty": 32,
       "borderContacts": 0,
       "integrationAllowed": "integrator approval pending",
-      "containsActorRifle": null
+      "containsActorRifle": null,
+      "rgbaSha256": "b72d555e5a08aa519702aa09c6758d232289102600d24c44f6c03e5a5fee3bce",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
     },
     {
       "canonicalId": "sniper_operator",
@@ -123,22 +140,25 @@
       "variant": "unarmed",
       "file": "public/official/art/actors/p07/png/sniper_operator_unarmed.png",
       "worldHeightProposal": 80,
-      "sizeBytes": 539246,
-      "sha256": "586441a555677ac6f8b67fb232283481e8431f9f608bbaa50dad7639f83f2ace",
-      "gitBlobSha": "a69be1eebfeb11a408d6ddd80271b6ed48713358",
+      "sizeBytes": 539249,
+      "sha256": "94061e8637c60d9e78d31449ace49c90d4f96337c6cecc481f5fd13bf24eca2f",
+      "gitBlobSha": "e09d62fa685e757bce2545c6111f7575cbbae2fb",
       "pngFormat": "RGBA8",
       "frameCount": 32,
       "alpha": true,
       "framesNonempty": 32,
       "borderContacts": 0,
       "integrationAllowed": "T08-mounted test pending",
-      "containsActorRifle": false
+      "containsActorRifle": false,
+      "rgbaSha256": "40079024940d5f085596f0ccaf658c62a610e1b485e81fbc94037cfe2eda79e0",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6"
     }
   ],
   "memory": {
     "rgba8PerAtlasBytes": 4685824,
     "totalFourUncompressedBytes": 18743296,
-    "totalCompressedPngBytes": 2447257,
+    "totalCompressedPngBytes": 2447320,
     "actualGPUMeasured": false
   },
   "compatibility": {
@@ -156,6 +176,10 @@
     "byteSHA256FromExport": true,
     "realChromiumQA": false,
     "physicalDeviceQA": false,
-    "artistApproved": false
+    "artistApproved": false,
+    "strictNode22PassAfterHF1": false,
+    "shaRGBAFromV8": true,
+    "V8NumericPerturbationPass": true,
+    "integratedT08MountingPass": false
   }
 }
