@@ -24,6 +24,7 @@ jobs:
           node --check tools/qa-c1d7-menu.mjs
           node --check tools/qa-c1d7-browser.mjs
           node tools/qa-c1d7-menu.mjs | tee c1d7-node-economic-qa.log
+          node tools/qa-c1d7-actor-visual.mjs | tee c1d7-visual-bridge-qa.log
           node tools/qa-c1d5-navigation.mjs
           node tools/qa-c1d5-results.mjs
       - name: Build Phaser 4.2.1
@@ -47,5 +48,6 @@ jobs:
           path: |
             artifacts/c1d7-browser/
             c1d7-node-economic-qa.log
+            c1d7-visual-bridge-qa.log
             c1d7-browser-qa.log
           if-no-files-found: warn
