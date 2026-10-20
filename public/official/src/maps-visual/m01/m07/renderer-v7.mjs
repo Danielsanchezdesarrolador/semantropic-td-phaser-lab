@@ -77,6 +77,28 @@ const M03_KEYS=palette=>{
 // M03 original renderer lacks cross-view texture refcount. M07 owns its refcounts
 // only for views created THROUGH this M07 wrapper and never removes foreign keys.
 const LEASE=new WeakMap();
+const POLISH_LEASE=new WeakMap();
+function acquirePolish(scene,key,make){
+ const tm=scene.textures;
+ let cache=POLISH_LEASE.get(tm);if(!cache){cache=new Map();POLISH_LEASE.set(tm,cache);}
+ let item=cache.get(key);
+ if(!item){
+  const authored=!tm.exists(key);
+  if(authored)tm.addCanvas(key,make());
+  item={users:0,authored};cache.set(key,item);
+ }
+ item.users++;
+}
+function releasePolish(scene,key){
+ if(!key)return;
+ const tm=scene.textures,cache=POLISH_LEASE.get(tm),item=cache?.get(key);
+ if(!item)return;
+ item.users--;
+ if(item.users===0){
+  if(item.authored&&tm.exists(key))tm.remove(key);
+  cache.delete(key);
+ }
+}
 function leaseM03(scene,palette,map){
  const tm=scene.textures,keys=M03_KEYS(palette);
  let state=LEASE.get(tm);
@@ -147,23 +169,21 @@ export function mountM01WorldV7(scene,map,options={}){
  assert(M07_TREATMENTS.includes(treatment),"treatment invalid");
  const plan=makeM07ArtPlan(map);
  const {view:base,release}=leaseM03(scene,palette,map);
- let paint=null,paintKey=null,paintOwned=false,disposed=false,latestTick=null,snapshotSeen=false;
+ let paint=null,paintKey=null,paintLeased=false,disposed=false,latestTick=null,snapshotSeen=false;
  const extras=[],knownIds=new Set(plan.sockets.map(s=>s.socketId));
  const observedEvents=new Set();
  const selectedFlags=new Set();
  function forgetExtras(){
   for(const object of extras)if(object?.destroy)object.destroy();
-  if(paintOwned&&paintKey&&scene.textures.exists(paintKey))scene.textures.remove(paintKey);
-  paint=null;paintKey=null;paintOwned=false;
+  if(paintLeased)releasePolish(scene,paintKey);
+  paint=null;paintKey=null;paintLeased=false;
  }
  try{
   if(treatment==="pulido"){
    // One transparent 1280x768 RGBA8 mask; not part of baseline and NEVER per frame.
    paintKey="maps/m01/continuidad-c1c/m07/"+palette+"/grass-minimal";
-   if(!scene.textures.exists(paintKey)){
-    scene.textures.addCanvas(paintKey,bakeOptionalPolish(map,plan.sockets));
-    paintOwned=true;
-   }
+   acquirePolish(scene,paintKey,()=>bakeOptionalPolish(map,plan.sockets));
+   paintLeased=true;
    paint=scene.add.image(0,0,paintKey).setOrigin(0).setDisplaySize(1280,768).setDepth(-4700);
    extras.push(paint);
   }
