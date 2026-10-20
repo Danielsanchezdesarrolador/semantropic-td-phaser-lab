@@ -1,0 +1,48 @@
+name: P08-B1 strictly scoped real Phaser gallery QA
+on:
+  push:
+    branches: [audit/c1d7-p08-b1-gate]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p08-b1-gallery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate all P07 and P08 binaries and core event-only presenter in real Node22
+        shell: bash
+        run: |
+          set -euo pipefail
+          node public/official/src/actors-visual/p08/qa-p08.mjs | tee audit-p08-b1-node.log
+          node public/official/src/actors-visual/qa-p07.mjs | tee audit-p07-b1-node.log
+      - name: Real Phaser build
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Run team B1 source browser QA for 3 sizes and 3 animation states
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-p08-b1-server.mjs 2>&1 | tee audit-p08-b1-chromium.log
+      - name: Preserve real new screenshots and checks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_P08_B1_FINAL_9_CAPTURAS_CHROMIUM
+          path: |
+            docs/art/actors/evidencias/P08/
+            audit-p08-b1-node.log
+            audit-p08-b1-chromium.log
+            audit-p07-b1-node.log
+          if-no-files-found: warn
