@@ -1,6 +1,7 @@
 # PERSONAJES P07 · SEMANTROPIC TD · CONTINUIDAD VISUAL C1-C
 **Fecha:** 20-10-2026 · **Rama:** \`feature/art-p07-continuidad-c1c\` · **Origen P06 SHA:** \`a5116db1f956f8b32b86570600b878ba9d5187ed\`.
 **BEFORE protegido:** captura \`SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03.png\`, 1280×768, SHA-256 \`24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef\`.
+**PR oficial:** [#32 PERSONAJES P07 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/32) · sin merge.
 **Estado:** [CUATRO PNG BINARIOS REALES] · [P03 RECUPERADO EN FUENTE] · [WEBGL2/M07/T08 NOT_RUN] · **NO MERGE**.
 
 ## Acceso oficial para Dirección General
