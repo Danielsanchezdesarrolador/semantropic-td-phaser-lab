@@ -107,14 +107,14 @@
     "note": "Only one active theme. Generated textures are released by destroy(); borrowed SVG cache remains shared."
   },
   "pad": {
-    "baseM02ApproxWorldWidth": 134.56,
+    "baseM02ApproxWorldWidth": 269.12,
     "newMasterLogicalPx": [
       212,
       152
     ],
-    "newScale": 0.44,
-    "newApproxWorldWidth": 93.28,
-    "reductionPercent": 30.68,
+    "newScale": 0.26,
+    "newApproxWorldWidth": 110.24,
+    "reductionPercent": 59.04,
     "sourceSocketFootAnchor": {
       "x": 0.5,
       "y": 1
@@ -124,7 +124,7 @@
       "y": 0.72
     },
     "temporaryHitRadiusWorld": 54,
-    "validation": "Visual silhouette candidate only; 10–25% tower foundation margin requires real screenshot from C1B",
+    "validation": "DPR2 physical canvas textures; Phaser width = logicalWidth*dpr*scale. Actual pad stone silhouette narrower than transparent texture bounds; T03 ratio still needs real C1B v3 screenshot.",
     "modes": [
       "neutral",
       "selected",
@@ -151,5 +151,8 @@
     "Mobile and integrated actor occlusion",
     "Art approval by director"
   ],
-  "status": "ART_PROTOTYPE_NOT_APPROVED"
+  "status": "ART_PROTOTYPE_NOT_APPROVED",
+  "notes": [
+    "QA C1B screenshot evidence #39342295194 reviewed: legacy M02 pads dominate building bases at 1280x768 and 932x430; this M03 pad design responds by reducing rendered texture width from 269.12 to 110.24 world units, not altering socket hit radius."
+  ]
 }
