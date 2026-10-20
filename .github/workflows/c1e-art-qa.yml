@@ -1,0 +1,64 @@
+name: C1-E Unified M04 T05 P04 Art QA
+on:
+  push:
+    branches: [integration/c1e-art-review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integrated-art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Check all art module syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          find public/official/src public/official/art docs/art tools -type f -name '*.mjs' -print0 | xargs -0 -n1 node --check
+      - name: QA maps M01 M02 M03 M04
+        run: |
+          node public/official/src/maps-visual/m01/qa.mjs
+          node public/official/src/maps-visual/m01/m02/qa-m02.mjs
+          node public/official/src/maps-visual/m01/m03/qa-m03.mjs
+          node public/official/src/maps-visual/m01/m04/qa-m04.mjs
+      - name: QA towers T01 T03 T04 T05
+        run: |
+          node docs/art/towers/qa-t01.mjs
+          node docs/art/towers/qa-t03.mjs
+          node docs/art/towers/qa-t04.mjs
+          node docs/art/towers/qa-t05.mjs
+      - name: QA actors P01 P02 P03 P04
+        run: |
+          node public/official/src/actors-visual/qa-p01.mjs
+          node public/official/src/actors-visual/qa-p02.mjs
+          node public/official/src/actors-visual/qa-p03.mjs
+          node public/official/src/actors-visual/qa-p04.mjs
+      - name: Build Phaser
+        run: npm run build
+      - name: Ensure new review bundle is copied
+        shell: bash
+        run: |
+          set -euo pipefail
+          for p in dist/dependencias/phaser.min.js dist/official/src/c1e-art-review/index.html dist/official/src/c1e-art-review/scene.mjs dist/official/src/maps-visual/m01/m04/renderer-v4.mjs dist/official/src/towers-visual/catalog.mjs dist/official/art/actors/p04-illustrator.mjs; do test -s "$p"; done
+      - name: Install real Chromium
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Real browser WebGL2 M04 T05 P04
+        run: node tools/qa-c1e-browser.mjs
+      - name: Upload screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1e-M04-T05-P04-real-chromium
+          path: artifacts/c1e-browser/
+          if-no-files-found: ignore
+          retention-days: 14
