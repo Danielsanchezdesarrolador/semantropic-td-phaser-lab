@@ -1,0 +1,46 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Semantropic TD C1-D4R · Combate real M01 M03+T04+P03 con combate real</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#102f3a;color:#f2e4bd;font-family:system-ui,sans-serif}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden}#stage{position:absolute;inset:0;overflow:hidden}
+#stage canvas{touch-action:manipulation}
+header,footer{position:absolute;z-index:5;left:max(7px,env(safe-area-inset-left));right:max(7px,env(safe-area-inset-right));display:flex;gap:6px;justify-content:space-between;pointer-events:none}
+header{top:max(6px,env(safe-area-inset-top));align-items:start}footer{bottom:max(5px,env(safe-area-inset-bottom));align-items:end}
+.panel{background:#102d3cec;border:1px solid #c6b687;border-radius:9px;padding:6px 9px}
+.panel strong{font-size:13px}.panel small{display:block;color:#c9d8cb;font-size:11px}.panel b{color:#ffe29c}
+.controls{display:flex;align-items:center;gap:4px;justify-content:flex-end;flex-wrap:wrap;pointer-events:auto;max-width:75vw}
+button,select{background:#1d5261ee;border:1px solid #e8c88e;color:#fff1cb;font:700 12px system-ui;padding:6px 8px;border-radius:7px;min-height:42px}
+button:disabled{opacity:.4;cursor:not-allowed}#feedback{font-size:11px;max-width:26vw}#installed{font-size:10px}
+#portrait{display:none;position:absolute;z-index:8;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;background:#123440}
+@media(max-width:950px) and (orientation:landscape){
+ header{top:max(3px,env(safe-area-inset-top))}
+ .panel{padding:3px 6px;border-radius:6px}
+ header .panel:first-child{max-width:60vw}
+ .panel strong{font-size:11px}
+ .panel small,#installed{font-size:10px}
+ footer{align-items:flex-end;bottom:max(3px,env(safe-area-inset-bottom));gap:2px}
+ .controls{width:100%;max-width:none;flex-wrap:nowrap;justify-content:flex-end;gap:2px}
+ .controls button,.controls select{font-size:10px;line-height:1.05;min-height:44px;max-height:48px;
+   padding:4px 5px;white-space:nowrap;flex-shrink:1}
+ #prev,#next{min-width:36px;padding:4px 1px}
+ #family{width:105px;max-width:120px;min-width:85px}
+ #buy{min-width:70px}#upgrade{min-width:55px}#sell{min-width:44px}
+ #waveStart{min-width:90px}#pause,#restart{min-width:56px}
+ #feedback{position:absolute;bottom:49px;left:0;max-width:52vw;font-size:10px;line-height:1.2}
+}
+@media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
+</style></head><body><main id="app"><div id="stage"></div>
+<header><div class="panel"><strong>SEMANTROPIC TD · C1-D4R</strong>
+<small>Primera integración M03 · T04 · P03 — Arte candidato sin aprobación final</small>
+<small>Oro <b id="coins">365</b> · Vidas <b id="lives">100</b> · Onda <b id="wave">0/5</b> · <span id="render">WebGL2…</span></small>
+<small>Bajas <b id="kills">0</b> · Fugas <b id="leaks">0</b> · <b id="state">PREPARACIÓN</b></small></div>
+<div class="panel"><strong>Plataforma <span id="slot">1/8</span></strong><small id="installed">Plataforma vacía</small></div></header>
+<footer><div class="panel" id="feedback" role="status">Cargando combate…</div><div class="controls">
+<button id="prev" aria-label="Plataforma anterior">◀</button><button id="next" aria-label="Plataforma siguiente">▶</button>
+<select id="family" aria-label="Familia"><option value="sniper">Francotirador</option><option value="infantry">Infantería (real)</option></select>
+<button id="buy">Construir</button><button id="upgrade">Mejorar</button><button id="sell">Vender</button>
+<button id="waveStart">Comenzar oleada</button><button id="pause">Pausar</button><button id="restart">Reiniciar</button></div></footer>
+<div id="portrait">↻ Gira el teléfono a horizontal para jugar.</div></main>
+<script src="../../../dependencias/phaser.min.js"></script>
+<script type="module" src="./scene.mjs"></script></body></html>

@@ -12,9 +12,9 @@
 | C1-D3 A1 | [ACTA_C1D3_A1_2026-10-20.md](ACTA_C1D3_A1_2026-10-20.md) / [QA_C1D3_A1.json](QA_C1D3_A1.json) | PR #26 DRAFT; [CI #39436587823 SUCCESS](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39436587823); Infantry I/II real inicial, ruta simplificada |
 | C1-D3 A2 | Pendiente | Paridad navegación/rally/bloqueo/respawn ampliada |
 | C1-D4 prototipo combinado | [ACTA_C1D4_M06_T07_P06_2026-10-20.md](ACTA_C1D4_M06_T07_P06_2026-10-20.md) / [QA_C1D4_M06_T07_P06.json](QA_C1D4_M06_T07_P06.json) | PR #28 DRAFT; [CI #39444108514 SUCCESS](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39444108514) M06/T07/P06 montados, mobile táctil, arte premium/agarre P06↔T07 pendiente |
-| C1-D5 | Pendiente | Estrellas/guardado/resultados permanentes |
+| C1-D4R continuidad | [ACTA_DIRECCION_GENERAL_C1D4R_2026-10-20.md](ACTA_DIRECCION_GENERAL_C1D4R_2026-10-20.md) / [QA_DIRECCION_GENERAL_C1D4R.json](QA_DIRECCION_GENERAL_C1D4R.json) | PR #30 DRAFT; [CI #39451203262 SUCCESS](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39451203262); M03/T04/P03 ORIGINAL + combate C1-D3, a la espera aprobación visual |\n| C1-D5 | Pendiente | Estrellas/guardado/resultados permanentes |
 | C1-D6 | Pendiente | Balance táctico, rendimiento y playtest autorizado |
 
 ## Estado de publicación
 Staging Render comprobado a 20-10-2026: C1-D1 exclusivamente, no C1-D2/C1-D3.
-Los PR #23, #26 y #28 NO se han fusionado ni publicado; evidencias Chrome/SwiftShader NO certifican dispositivos físicos.
+Los PR #23, #26, #28 y #30 NO se han fusionado ni publicado; evidencias Chrome/SwiftShader NO certifican dispositivos físicos.
