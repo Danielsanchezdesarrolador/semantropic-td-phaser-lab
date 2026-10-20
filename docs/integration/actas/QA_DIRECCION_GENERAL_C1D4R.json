@@ -1,0 +1,105 @@
+{
+  "schema": "semantropic-direccion-general-qa-v1",
+  "date": "2026-10-20",
+  "branch": "integration/c1d4r-visual-lock",
+  "pr": 30,
+  "sourcePR": 12,
+  "corePR": 26,
+  "regressedArtPR": 28,
+  "referenceScreenshotSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+  "codeHeadChecked": "0f8ca6199598dce1afa2ae5c062dd666803d5235",
+  "ci": {
+    "run": 39451203262,
+    "status": "SUCCESS",
+    "strictPipefail": true,
+    "artifactId": 12278517252
+  },
+  "coreUnmodified": true,
+  "artDomainsUnmodified": true,
+  "tests": [
+    {
+      "name": "original-M03-P03-Git-blob",
+      "status": "PASS"
+    },
+    {
+      "name": "four-T04-Git-blob",
+      "status": "PASS"
+    },
+    {
+      "name": "source-lock-no-new-art-bridge",
+      "status": "PASS"
+    },
+    {
+      "name": "node-c1d2-and-c1d3-regression",
+      "status": "PASS"
+    },
+    {
+      "name": "Phaser-4.2.1-build",
+      "status": "PASS"
+    },
+    {
+      "name": "Chromium-WebGL2-desktop1280x768",
+      "status": "PASS",
+      "evidence": "GitHub run#39451203262"
+    },
+    {
+      "name": "Chromium-WebGL2-landscape844x390",
+      "status": "PASS",
+      "evidence": "GitHub run#39451203262"
+    },
+    {
+      "name": "Chromium-WebGL2-landscape932x430",
+      "status": "PASS",
+      "evidence": "GitHub run#39451203262"
+    },
+    {
+      "name": "mobile-touch-select-pad",
+      "status": "PASS_EMULATOR_ONLY"
+    },
+    {
+      "name": "real-infantry-sniper-first-kill",
+      "status": "PASS"
+    },
+    {
+      "name": "native-live-five-waves-human-playtest",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "visual-silhouette-recovery-user-approved",
+      "status": "PENDING_USER_REVIEW"
+    },
+    {
+      "name": "physical-mobile-phone",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "stars-saves",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "Render-deployed",
+      "status": "NOT_RUN"
+    }
+  ],
+  "captures": [
+    {
+      "viewport": "1280x768",
+      "sha256": "d0c1417fc9c23a014c91fe4d7bdb10776ddde2d508618f8280aa4289157b78f9"
+    },
+    {
+      "viewport": "844x390",
+      "sha256": "bad22eb2ca3df08309a888d77300f2edbca250a18bd0e231cdfd6c99523209ca"
+    },
+    {
+      "viewport": "932x430",
+      "sha256": "b125f12fabcef91621787021e5c150f0ea314bc8c18c11a30ea5e4a84e0c7db1"
+    }
+  ],
+  "release": {
+    "draft": true,
+    "merge": false,
+    "staging": "C1-D1",
+    "artApproved": false
+  },
+  "decision": "TECHNICALLY_TESTED_PRESENTED_FOR_USER_VISUAL_APPROVAL"
+}

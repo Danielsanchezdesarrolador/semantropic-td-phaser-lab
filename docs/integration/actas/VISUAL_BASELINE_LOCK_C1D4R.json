@@ -89,7 +89,7 @@
     "browser mobile touch"
   ],
   "staging": "C1-D1 unchanged",
-  "latestRestorationGate": "NOT_RUN until new Chromium screenshots; user visual approval required",
+  "latestRestorationGate": "Node source lock PASS + Chromium/WebGL2 3 viewports PASS (run 39451203262). User visual approval pending.",
   "nextApprovedExtensions": "M07 T08 P07 only after comparison and approval, only if preserve C1C appearance",
   "documentationLabels": [
     "CONFIRMED_SOURCE",
@@ -97,5 +97,9 @@
     "PROPOSED",
     "NOT_RUN",
     "BLOCKER"
-  ]
+  ],
+  "verifiedRestorationHead": "0f8ca6199598dce1afa2ae5c062dd666803d5235",
+  "previewGitHubActions": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39451203262",
+  "latestQAArtifact": 12278517252,
+  "lockStatus": "TECHNICAL_GATE_PASS_VISUAL_APPROVAL_REQUIRED"
 }
