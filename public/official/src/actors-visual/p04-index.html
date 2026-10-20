@@ -1,0 +1,67 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#153b41">
+<title>SEMANTROPIC TD · Equipo P · Comparador animación P04</title>
+<style>
+:root{color-scheme:dark;--t:env(safe-area-inset-top,0px);--b:env(safe-area-inset-bottom,0px);--l:env(safe-area-inset-left,0px);--r:env(safe-area-inset-right,0px)}
+*{box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none;margin:0}
+body{background:#15323c;color:#f5e8ca;font:700 12px system-ui,sans-serif}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#stage canvas{display:block;max-width:100%;max-height:100%;touch-action:none}
+#toolbar{position:absolute;z-index:11;top:calc(5px + var(--t));left:calc(6px + var(--l));right:calc(6px + var(--r));display:flex;align-items:center;flex-direction:column;gap:5px;pointer-events:none}
+.group{display:flex;justify-content:center;flex-wrap:wrap;gap:4px;pointer-events:auto;align-items:center}
+button{border:1px solid #c3af7c;border-radius:7px;background:#183e4fee;min-height:35px;padding:5px 8px;color:#ffefd5;font:700 11px system-ui;cursor:pointer;touch-action:manipulation}
+button.active{background:#e5c68f;color:#143943}
+button:focus-visible{outline:2px solid #aaf8d6;outline-offset:1px}
+#footer{position:absolute;z-index:11;bottom:calc(5px + var(--b));left:calc(6px + var(--l));right:calc(6px + var(--r));display:flex;flex-direction:column;gap:5px;align-items:center;pointer-events:none}
+#footer>*{pointer-events:auto}
+#message,#runtime{padding:4px 9px;background:#102f3ce9;border:1px solid #688f88;border-radius:6px;max-width:94vw;text-align:center;font-size:10px}
+#runtime{font-size:9px}
+#portrait{display:none;position:absolute;inset:0;z-index:20;background:#0d2a34;align-items:center;justify-content:center;padding:30px;text-align:center;font-size:21px}
+@media(max-width:850px) and (orientation:portrait){#portrait{display:flex}}
+@media(max-height:475px) and (orientation:landscape){
+ #toolbar{gap:2px;top:calc(1px + var(--t))}
+ button{min-height:28px;padding:2px 5px;font-size:9px}
+ #footer{bottom:calc(1px + var(--b));gap:2px}
+ #message{font-size:9px;padding:2px 5px}
+ #runtime{display:none}
+}
+</style></head><body><main id="app">
+<div id="stage" aria-label="Phaser P04: comparativa P01 P02A P02B P03 P04"></div>
+<div id="toolbar">
+ <nav class="group" aria-label="Seleccionar personaje">
+  <button data-actor="warrior" class="active">Orco Guerrero</button>
+  <button data-actor="hound">Perro de Caza</button>
+  <button data-actor="infantry_recruit">Recluta</button>
+  <button data-actor="sniper_operator">Operador Francotirador</button>
+ </nav>
+ <div class="group" aria-label="Seleccionar estado">
+  <button data-state="idle">Idle</button><button data-state="walk" class="active">Walk</button>
+  <button data-state="attackWindup">Windup</button><button data-state="attack">Attack</button>
+  <button data-state="hit">Hit</button><button data-state="blocked">Blocked</button>
+  <button data-state="die">Die</button>
+ </div>
+ <div class="group">
+  <button id="facing">Frente: E</button>
+  <button id="speed">Velocidad: 1×</button>
+  <button id="pause">Ⅱ Pausar</button>
+  <button id="step">Cuadro siguiente</button>
+  <button id="zoom">Escala: M01</button>
+  <button id="guides">Pivotes: OFF</button>
+  <button id="stress">Horda visual: OFF</button>
+ </div>
+</div>
+<div id="footer">
+ <div class="group">
+  <button id="png">Exportar atlas P04 (PNG)</button>
+  <button id="face">Exportar hoja P04 (PNG)</button>
+ </div>
+ <div id="message" role="status">Inicializando visualizador P04…</div>
+ <div id="runtime">ART prototipo · sin spawns, defensa, IA, HP, proyectiles ni combate real</div>
+</div>
+<div id="portrait">↻ Gira a horizontal para comparar los personajes y sus animaciones.</div>
+</main>
+<script src="../../../dependencias/phaser.min.js"></script>
+<script type="module" src="./p04-gallery.mjs"></script>
+</body></html>
