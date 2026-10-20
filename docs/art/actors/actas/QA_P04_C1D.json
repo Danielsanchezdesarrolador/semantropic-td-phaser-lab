@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "c1d-p04-qa-v1",
+  "team": "P",
+  "milestone": "P04/C1-D",
+  "date": "2026-10-19",
+  "branch": "feature/art-p04-animation-pass",
+  "baseSha": "eccadc3743e9f2d6c584097dcd5d9b82ee921e90",
+  "headShaAtAudit": "3458f39cc35b03a1756a5ace1fc7fa4259665393",
+  "headShaNote": "Historical snapshot: HEAD moves when documenting. Use GitHub PR #15 Commits for live authoritative SHA.",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/15",
+  "buildCommand": "npm run build",
+  "gameplayImplemented": false,
+  "mergePerformed": false,
+  "physicalDeviceTested": false,
+  "checks": [
+    {
+      "id": "P04-01",
+      "category": "git",
+      "command": "Read GitHub branches, P03/P04 HEAD",
+      "environment": "connected GitHub API",
+      "status": "PASS",
+      "reason": "P04 initially based on exact P03 eccadc...",
+      "evidencePaths": [
+        "public/official/art/actors/p04-poses.mjs"
+      ]
+    },
+    {
+      "id": "P04-02",
+      "category": "contracts",
+      "command": "Read P03/ActorVisual/TowerVisual read-only",
+      "environment": "connected GitHub API",
+      "status": "PASS",
+      "reason": "P04 preserves all seven state IDs and pivots",
+      "evidencePaths": [
+        "public/official/art/actors/p04-poses.mjs"
+      ]
+    },
+    {
+      "id": "P04-03",
+      "category": "syntax",
+      "command": "new Function + AsyncFunction after removing ESM imports",
+      "environment": "isolated V8",
+      "status": "PASS",
+      "reason": "P04 pose/illustrator/gallery/nodeQA and browserQA parsed after ESM stripped",
+      "evidencePaths": [
+        "public/official/art/actors/p04-poses.mjs",
+        "public/official/art/actors/p04-illustrator.mjs"
+      ]
+    },
+    {
+      "id": "P04-04",
+      "category": "mock-drawing",
+      "command": "makeP04Atlas for 4 actors",
+      "environment": "isolated V8 mocked Canvas2D",
+      "status": "PASS",
+      "reason": "4 atlases 1408x832, 32 metadata frames each, 128 total",
+      "evidencePaths": [
+        "public/official/art/actors/p04-illustrator.mjs"
+      ]
+    },
+    {
+      "id": "P04-05",
+      "category": "mock-pose",
+      "command": "paintP04Frame all 7 states/4 actors",
+      "environment": "isolated V8 mocked Canvas2D",
+      "status": "PASS",
+      "reason": "Each state has distinct geometric command traces for all frames; not pixel-level proof",
+      "evidencePaths": [
+        "public/official/art/actors/p04-poses.mjs",
+        "public/official/art/actors/p04-illustrator.mjs"
+      ]
+    },
+    {
+      "id": "P04-06",
+      "category": "mock-sheet",
+      "command": "makeP04CharacterSheet for all 4",
+      "environment": "isolated V8 mocked Canvas2D",
+      "status": "PASS",
+      "reason": "4 programmatic study sheets with dimensions 1200x820; NOT raster/PDF exports",
+      "evidencePaths": [
+        "public/official/art/actors/p04-illustrator.mjs"
+      ]
+    },
+    {
+      "id": "P04-07",
+      "category": "mock-registration",
+      "command": "installP04Atlas for four actors",
+      "environment": "isolated V8 mocked Phaser.TextureManager",
+      "status": "PASS",
+      "reason": "32 unique keys/actor, no registration exceptions",
+      "evidencePaths": [
+        "public/official/art/actors/p04-illustrator.mjs"
+      ]
+    },
+    {
+      "id": "P04-08",
+      "category": "node",
+      "command": "node --check + node public/official/src/actors-visual/qa-p04.mjs",
+      "environment": "full checkout, Node 22",
+      "status": "NOT_RUN",
+      "reason": "Source is versioned but full repository cannot be fetched into local runtime from connected GitHub",
+      "evidencePaths": [
+        "public/official/src/actors-visual/qa-p04.mjs"
+      ]
+    },
+    {
+      "id": "P04-09",
+      "category": "build",
+      "command": "npm run build",
+      "environment": "checkout with Phaser 4.2.1 installed",
+      "status": "NOT_RUN",
+      "reason": "No build executed this turn",
+      "evidencePaths": []
+    },
+    {
+      "id": "P04-10",
+      "category": "browser",
+      "command": "node public/official/src/actors-visual/qa-p04-browser.mjs",
+      "environment": "Chromium/Phaser 4.2.1/WebGL2",
+      "status": "NOT_RUN",
+      "reason": "Browser QA script committed but not run against P04",
+      "evidencePaths": [
+        "public/official/src/actors-visual/qa-p04-browser.mjs"
+      ]
+    },
+    {
+      "id": "P04-11",
+      "category": "capture",
+      "command": "desktop P01/P02A/P02B/P03/P04 same frame",
+      "environment": "Chromium viewport 1280x768",
+      "status": "NOT_RUN",
+      "reason": "Missing actual screenshot",
+      "evidencePaths": []
+    },
+    {
+      "id": "P04-12",
+      "category": "capture",
+      "command": "mobile-landscape before/after",
+      "environment": "Chromium 844x390 and 932x430",
+      "status": "NOT_RUN",
+      "reason": "No emulator browser screenshots from P04",
+      "evidencePaths": []
+    },
+    {
+      "id": "P04-13",
+      "category": "stress",
+      "command": "24 render-only sprites+pause/resume+texture cleanup",
+      "environment": "real Phaser browser/WebGL2",
+      "status": "NOT_RUN",
+      "reason": "Controls coded, visual runtime not executed",
+      "evidencePaths": [
+        "public/official/src/actors-visual/p04-gallery.mjs"
+      ]
+    },
+    {
+      "id": "P04-14",
+      "category": "tower-anchor",
+      "command": "review T05 operators/sniper/frontRail",
+      "environment": "GitHub source read-only",
+      "status": "PASS",
+      "reason": "T05 data contains operatorAnchorLocal (187,207) for sniper I/II, frontRail refs; actual mounted actor NOT verified",
+      "evidencePaths": [
+        "docs/art/actors/actas/MATRIZ_T05_P04.md"
+      ]
+    },
+    {
+      "id": "P04-15",
+      "category": "tower-mount",
+      "command": "render P04 sniper on T05 vigía I and II with frontRail",
+      "environment": "M01 integrated Phaser",
+      "status": "PENDING",
+      "reason": "No cross-branch scene mounted: integrator action required",
+      "evidencePaths": [
+        "docs/art/actors/actas/MATRIZ_T05_P04.md"
+      ]
+    },
+    {
+      "id": "P04-16",
+      "category": "alpha-png",
+      "command": "export real 4 RGBA atlases, SHA256 original",
+      "environment": "Chromium/PNG decoder",
+      "status": "NOT_RUN",
+      "reason": "No binary PNG exported/versioned, manifest hash NULL",
+      "evidencePaths": [
+        "public/official/art/actors/P04_MANIFEST.json"
+      ]
+    },
+    {
+      "id": "P04-17",
+      "category": "mobile-device",
+      "command": "Android/iPhone physical QA and p50/p95 FPS",
+      "environment": "physical hardware",
+      "status": "NOT_RUN",
+      "reason": "No measured device metrics",
+      "evidencePaths": []
+    },
+    {
+      "id": "P04-18",
+      "category": "approval",
+      "command": "artistic acceptance of 44/64/80px, foot sliding and art originality",
+      "environment": "Direction + screenshots",
+      "status": "PENDING",
+      "reason": "Mock drawing cannot establish premium quality",
+      "evidencePaths": [
+        "docs/art/actors/evidencias/P04/EVIDENCIA.md"
+      ]
+    }
+  ],
+  "screenshotIndex": [
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "1280x768",
+      "renderer": "Chromium/WebGL2",
+      "status": "NOT_RUN",
+      "requestedPath": "docs/art/actors/evidencias/P04/P04-desktop-real-webgl2.png"
+    },
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "844x390",
+      "renderer": "Chromium/WebGL2 emulated mobile",
+      "status": "NOT_RUN",
+      "requestedPath": "docs/art/actors/evidencias/P04/P04-mobile844-real-webgl2.png"
+    },
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "932x430",
+      "renderer": "Chromium/WebGL2 emulated mobile",
+      "status": "NOT_RUN",
+      "requestedPath": "docs/art/actors/evidencias/P04/P04-mobile932-real-webgl2.png"
+    },
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "1280x768 close-up",
+      "renderer": "Chromium/WebGL2",
+      "status": "NOT_RUN",
+      "requestedPath": "docs/art/actors/evidencias/P04/P04-closeup-real-webgl2.png"
+    }
+  ],
+  "knownBlockers": [
+    "No real Chromium P04 screenshots or physical iPhone/Android QA",
+    "No true P04 rendered pixel/alpha clipping verification",
+    "T05 platform/deck frontRail integrated scene not executed",
+    "Four real PNG atlas files and SHA256 pending",
+    "Premium commercial art approval not automatically earned by V8 QA",
+    "Combat remains outside Equipo P's scope"
+  ],
+  "referenceC1C": {
+    "branch": "integration/c1c-q2-review",
+    "status": "read-only; historical C1-B QA cannot certify P04"
+  }
+}
