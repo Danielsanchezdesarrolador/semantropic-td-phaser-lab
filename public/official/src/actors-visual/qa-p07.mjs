@@ -9,6 +9,7 @@ import {inflateSync} from 'node:zlib';
 import {P07_ACTORS,P07_STATES,buildP07Atlas} from '../../art/actors/p07-png-export.mjs';
 import {sha256P06} from '../../art/actors/p06-hash.mjs';
 import {P03_ACTORS} from '../../art/actors/p03-rig.mjs';
+import {readP07Png,reportP07Mismatch} from './p07-hf1-png-diagnostics.mjs';
 const mf=JSON.parse(readFileSync(new URL('../../art/actors/P07_MANIFEST.json',import.meta.url),'utf8'));
 const u32=(b,i)=>b.readUInt32BE(i),totals={bytes:0,frames:0,actors:0};
 function inspectPNG(bytes,expected){
@@ -53,7 +54,28 @@ for(const asset of mf.assets){
  assert.equal(data.length,asset.sizeBytes);
  const parsed=inspectPNG(data,asset);
  const regen=buildP07Atlas(asset.canonicalId);
- assert(Buffer.from(regen.png).equals(data),'P07 raster source was NOT byte-for-byte reproducible');
+ // HF1: the original strict byte equality assertion remains a HARD GATE.
+ // Record exact compressed/decompressed SHA, first byte/pixel, and affected frames.
+ const diagnostic=reportP07Mismatch(data,regen.png,asset.canonicalId);
+ console.log('[P07-HF1] '+asset.canonicalId+' compressed='+diagnostic.stored.pngSha256+
+  ' regenerated='+diagnostic.regenerated.pngSha256+
+  ' RGBA stored='+diagnostic.stored.rgbaSha256+
+  ' RGBA regenerated='+diagnostic.regenerated.rgbaSha256+
+  ' classification='+diagnostic.classification);
+ if(diagnostic.classification!=='BYTE_IDENTICAL')
+  console.error('[P07-HF1] FULL MISMATCH DIAGNOSTIC '+JSON.stringify(diagnostic));
+ assert.equal(diagnostic.stored.rgbaSha256,asset.rgbaSha256,
+  'Persisted PNG RGBA differs from P07-HF1 manifest');
+ assert.equal(diagnostic.regenerated.rgbaSha256,asset.rgbaSha256,
+  'Regenerated P07 RGBA differs from committed P07-HF1 pixel payload');
+ assert.equal(regen.rgbaSha256,asset.rgbaSha256,
+  'Canvas source RGBA does not match canonical expected payload');
+ assert.equal(diagnostic.stored.transparentNonzeroRgbPixels,0,
+  'PNG RGB fringe inside fully transparent areas');
+ assert.equal(diagnostic.stored.gamma,null,
+  'Unexpected gAMA: P07 RGBA export deliberately carries no gamma chunk');
+ assert(Buffer.from(regen.png).equals(data),
+  'P07 raster source was NOT byte-for-byte reproducible: '+diagnostic.classification);
  assert.equal(regen.atlasKey,asset.atlasKey);
  assert.equal(regen.frameCount,32);
  assert(P03_ACTORS.some(x=>x.actorId===asset.canonicalId));
@@ -69,4 +91,6 @@ assert(p07rig.includes('head'));
 assert(!p07rig.includes('rifle(c,[-17,-26],null,P.arm*.075)'),
  'The duplicate sniper actor rifle must never be reinstated in P07');
 console.log('PASS PERSONAJES P07',JSON.stringify(totals));
+console.log('[P07-HF1] Node environment '+JSON.stringify({node:process.version,v8:process.versions.v8,
+ platform:process.platform,arch:process.arch,gitSha:process.env.GITHUB_SHA||null}));
 console.log('NOT_RUN: Chromium/WebGL2 M07/T08 mounted, real core C1-D4, physical phone, art approval');
