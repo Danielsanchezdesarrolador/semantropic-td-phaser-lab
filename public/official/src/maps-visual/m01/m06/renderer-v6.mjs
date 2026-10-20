@@ -35,6 +35,26 @@ const COLOR={
  }
 };
 const TWO=2*Math.PI;
+const PAINT_LEASES=new WeakMap(); // texture manager -> owned textures with live view count
+function acquirePaint(scene,key,makeTexture){
+ const tm=scene.textures;
+ let cache=PAINT_LEASES.get(tm);if(!cache){cache=new Map();PAINT_LEASES.set(tm,cache);}
+ const existing=cache.get(key);
+ if(existing){existing.refs++;return;}
+ const authored=!tm.exists(key);
+ if(authored)tm.addCanvas(key,makeTexture());
+ cache.set(key,{refs:1,authored});
+}
+function releasePaint(scene,key){
+ const tm=scene.textures,cache=PAINT_LEASES.get(tm),item=cache?.get(key);
+ if(!item)return;
+ item.refs--;
+ if(item.refs===0){
+  if(item.authored&&tm.exists(key))tm.remove(key);
+  cache.delete(key);
+ }
+}
+
 const requireM06=(yes,what)=>{if(!yes)throw Error("[M06] "+what)};
 function rng(seed){return()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
 function routeDistance(x,y,path){
@@ -185,15 +205,12 @@ export function mountM01WorldV6(scene,map,options={}){
   palette,treatment:treatment==="atmosfera"?"bucolico":"contraste",
   disposeTextures:options.disposeTextures!==false
  });
- const plan=makeM06ArtPlan(map),objects=[],props=[],ownedKeys=[],missing=[];
+ const plan=makeM06ArtPlan(map),objects=[],props=[],missing=[];
  const prefix="maps/m01/painterly-m06/"+palette+"/"+treatment+"/";
  const paintKey=prefix+"ground-painterly";
  let disposed=false,reducedMotion=options.reducedMotion!==false,windTick=0,ground=null;
  try{
-  if(!scene.textures.exists(paintKey)){
-   scene.textures.addCanvas(paintKey,makePaintTexture(map,plan.sockets,treatment));
-   ownedKeys.push(paintKey);
-  }
+  acquirePaint(scene,paintKey,()=>makePaintTexture(map,plan.sockets,treatment));
   ground=scene.add.image(0,0,paintKey).setOrigin(0).setDisplaySize(1280,768).setDepth(-4500);
   objects.push(ground);
   for(const m of plan.painterlyProps){
@@ -209,7 +226,7 @@ export function mountM01WorldV6(scene,map,options={}){
   }
  }catch(error){
   for(const o of objects)if(o?.destroy)o.destroy();
-  for(const key of ownedKeys)if(scene.textures.exists(key))scene.textures.remove(key);
+  releasePaint(scene,paintKey);
   base.destroy();
   throw error;
  }
@@ -236,7 +253,12 @@ export function mountM01WorldV6(scene,map,options={}){
   snapshotSeen=false;lastAuthoritativeTick=null;
   return base.resetVisuals();
  }
- function setReducedMotion(next){if(disposed)return false;reducedMotion=!!next;return true;}
+ function setReducedMotion(next){
+  if(disposed)return false;
+  reducedMotion=!!next;
+  if(reducedMotion)for(const p of props)p.sprite.setAngle(0);
+  return true;
+ }
  function updateAmbient(timeMs=0){
   if(disposed||reducedMotion)return;
   // Whole-game update clock from Phaser scene only. No window timer/listener.
