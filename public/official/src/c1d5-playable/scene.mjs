@@ -1,5 +1,5 @@
 /** Semantropic C1-D5: Phaser WebGL2 actual Infantry + Sniper combat, visuals deliberately provisional. */
-import {M01CombatWithInfantry} from "../core-c1d/m01-infantry-combat.mjs";
+import {M01CombatWithInfantryA2 as M01CombatWithInfantry} from "../core-c1d/m01-infantry-combat-a2.mjs";
 import {m01ReadRecord,m01SaveVictory,m01Result} from "../core-c1d/m01-results-phaser.mjs";
 import {validateM01} from "../maps-visual/m01/renderer.mjs";
 import {preloadM03Illustrations,mountM01WorldV3} from "../maps-visual/m01/m03/renderer-v3.mjs";
@@ -10,14 +10,15 @@ import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
 
 const $=id=>document.getElementById(id);
 const assert=(c,m)=>{if(!c)throw Error("C1-D2: "+m);};
-let MAP,CAMPAIGN,WORLD,SCENE,chosenSocket=0,resultShown=false;
+let MAP,CAMPAIGN,WORLD,SCENE,chosenSocket=0,resultShown=false,rallyMode=false;
 function feedback(s){$("feedback").textContent=s;}
 class CombatScene extends Phaser.Scene{
  constructor(){super("C1D3Combined");this.towerViews=[];this.towerMounts=new Map();this.enemyViews=new Map();this.soldierViews=new Map();this.accumulator=0;this.fxFires=0;this.p03Actors=new Map();}
  preload(){
   this.load.on("loaderror",file=>feedback("Error cargando patrimonio C1-C: "+file.key));
   preloadM03Illustrations(this);
-  for(const meta of TOWER_ART_V2)this.load.svg(meta.assetId,meta.url,{width:360,height:420});
+  for(const meta of TOWER_ART_V2)this.load.svg(meta.assetId,
+   "../c1d4r-combat/"+meta.url.replace(/^\.\//,""),{width:360,height:420});
  }
  create(){
   for(const info of CAST){
@@ -31,6 +32,11 @@ class CombatScene extends Phaser.Scene{
   assert(this.mapView.plan.sockets.length===8,"socket count");
   this.selection=this.add.circle(0,0,51,0,0).setStrokeStyle(4,0xf5d484).setDepth(45000);
   this.input.on("pointerdown",p=>{
+   if(rallyMode){
+    const result=WORLD.setInfantryRally(chosenSocket,p.x,p.y);
+    feedback(result.ok?"Nueva posición del escuadrón: los soldados seguirán el camino.":"Punto fuera del alcance del cuartel.");
+    rallyMode=false;updatePanel();return;
+   }
    const nearest=this.mapView.plan.sockets.map((s,index)=>({index,d:Math.hypot(p.x-s.world.x,p.y-s.world.y)})).sort((a,b)=>a.d-b.d)[0];
    if(nearest&&nearest.d<=55){chosenSocket=nearest.index;this.drawTowers();updatePanel();}
   });
@@ -38,6 +44,8 @@ class CombatScene extends Phaser.Scene{
   $("render").textContent=this.game.renderer?.gl instanceof WebGL2RenderingContext?"WebGL2 real":"ERROR: WebGL2";
   showBestScore();
   window.__SEMANTROPIC_C1D5={world:WORLD,economy:WORLD.economy,scene:this,
+   stage:"G5_first_playable_M01",nav:"V5_133_nodes_Dijkstra",
+   records:"isolated_Phaser_localStorage",
    art:{maps:"M03",towers:"T04",actors:"P03",source:"C1C_PR12",realCombat:true,originalSVG:true},
    diagnostics:()=>({towers:this.towerMounts.size,enemies:this.enemyViews.size,
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
@@ -188,6 +196,10 @@ function updatePanel(){
  if(!WORLD)return;
  const economy=WORLD.economy,tower=economy.getTower(chosenSocket),spec=selectedFamily();
  $("slot").textContent=(chosenSocket+1)+"/8";
+ const rally=$("rally");
+ rally.hidden=!(tower?.family==="infantry");
+ rally.disabled=!(tower?.family==="infantry")||WORLD.ended;
+ rally.textContent=rallyMode?"Toca camino":"↗ Reunión";
  $("installed").textContent=tower?tower.family+" · nivel "+tower.level:"Plataforma vacía";
  const q=economy.quote(chosenSocket,spec),up=economy.quoteUpgrade(chosenSocket),sell=economy.quoteSell(chosenSocket);
  $("buy").disabled=!q.ok;$("buy").textContent=window.innerWidth<1000
@@ -235,6 +247,12 @@ function wireControls(){
  $("waveStart").onclick=()=>{if(WORLD.startWave())feedback("Oleada "+WORLD.wave+" iniciada: enemigos y disparos reales.");SCENE.updateHud();};
  $("pause").onclick=()=>{if(WORLD.paused)WORLD.resume();else WORLD.pause();SCENE.updateHud();};
  $("restart").onclick=()=>window.location.reload();
+ $("rally").onclick=()=>{
+  const t=WORLD.economy.getTower(chosenSocket);
+  if(!t||t.family!=="infantry"||WORLD.ended){feedback("Selecciona primero un cuartel.");return;}
+  rallyMode=!rallyMode;updatePanel();
+  feedback(rallyMode?"Toca un punto del camino, dentro del alcance del cuartel.":"Cambio de punto de reunión cancelado.");
+ };
  $("resultRestart").onclick=()=>window.location.reload();
  updatePanel();
 }
