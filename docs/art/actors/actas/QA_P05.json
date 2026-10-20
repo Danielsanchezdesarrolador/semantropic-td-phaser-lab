@@ -5,10 +5,10 @@
   "date": "2026-10-19",
   "branch": "feature/art-p05-combat-reactivity",
   "baseSha": "cb6e7b73edcb6f6df4fa5dace302aac845fc5780",
-  "headSha": "",
+  "headSha": "38bfd47dab12c346b98b9873ca5cb615be063aa8",
   "headShaPolicy": "Populate SHA in acta after final commit; actual PR head is authoritative because acta/INDEX commits change HEAD.",
-  "prUrl": null,
-  "status": "IN_PROGRESS_PROTOTYPE",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/21",
+  "status": "PR_DRAFT_AWAITING_REAL_ART_QA",
   "gameplayImplemented": false,
   "coreMutated": false,
   "mergePerformed": false,
@@ -176,5 +176,6 @@
     "atlasRGBA8BytesEach": 4685824,
     "totalFourActorAtlasesBytes": 18743296,
     "source": "1408*832*4 bytes/atlas (not measured GPU resident memory)"
-  }
+  },
+  "headShaCapturedAt": "PR #21 creation (snapshot, not final HEAD; see PR commits)"
 }
