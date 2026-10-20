@@ -1,3 +1,22 @@
+# PERSONAJES P07-HF1 · CORRECCIÓN DE REPRODUCIBILIDAD (20-10-2026)
+**PR:** [#32 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/32) · **Rama:** \`feature/art-p07-continuidad-c1c\` · NO MERGE/DEPLOY.
+**Problema:** [Actions 39455632045](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39455632045) **FAIL_NODE22**: regeneración del atlas no idéntica byte a byte.
+**Estado HF1:** 4 PNG regenerados preservando rig P03, 128 frames no vacíos, 0 bordes, 20/20 frames muestreados estables ante perturbación numérica en V8. **Node22 CI HF1 / Chromium / integración T08: NOT_RUN; aprobación artística: PENDING.**
+
+| Recurso HF1 de PERSONAJES | Enlace |
+|---|---|
+| **Acta correctiva principal** | [ACTA_P07_HF1_PERSONAJES_2026-10-20.md](./ACTA_P07_HF1_PERSONAJES_2026-10-20.md) |
+| **QA actualizado y evidencias históricas** | [QA_P07_PERSONAJES.json](./QA_P07_PERSONAJES.json) |
+| **Manifest definitivo 4 PNG / SHA256 PNG + RGBA** | [P07_MANIFEST.json](../../../../public/official/art/actors/P07_MANIFEST.json) |
+| **Script de diagnóstico por frame y píxel, CRC y gamma** | [p07-hf1-png-diagnostics.mjs](../../../../public/official/src/actors-visual/p07-hf1-png-diagnostics.mjs) |
+| **Node 22 forense 4 PNG, sale distinto de cero si falla** | [qa-p07-hf1-forensic.mjs](../../../../public/official/src/actors-visual/qa-p07-hf1-forensic.mjs) |
+| **QA original CON aserción estricta, ampliado** | [qa-p07.mjs](../../../../public/official/src/actors-visual/qa-p07.mjs) |
+| **Evidencia PNG HF1, CI original y browsers pendientes** | [EVIDENCIA P07](../evidencias/P07/EVIDENCIA.md) |
+
+**PRECEDENCIA:** los SHA/TAMAÑOS de la tabla HF1 en \`P07_MANIFEST.json\` reemplazan las huellas del ACTA P07 inicial; fuente histórica P03, C1-C visual y C1-D4R funcional NO son sustituidos. La validación real Node22 exit0 continúa bloqueante.
+
+---
+
 # PERSONAJES P07 · SEMANTROPIC TD · CONTINUIDAD VISUAL C1-C
 **Fecha:** 20-10-2026 · **Rama:** \`feature/art-p07-continuidad-c1c\` · **Origen P06 SHA:** \`a5116db1f956f8b32b86570600b878ba9d5187ed\`.
 **BEFORE protegido:** captura \`SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03.png\`, 1280×768, SHA-256 \`24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef\`.
