@@ -1,3 +1,5 @@
+> **FE DE ERRATAS / 20-10-2026 — P07-HF1:** este documento registra la entrega P07 ORIGINAL y sus SHA de referencia histórica. Tras el fallo real Node22 en Actions #39455632045, se corrigió el rasterizador y se sustituyeron los cuatro PNG dentro del MISMO PR #32. Los hashes, bytes y estado vigente están ahora en [ACTA_P07_HF1_PERSONAJES_2026-10-20.md](./ACTA_P07_HF1_PERSONAJES_2026-10-20.md) y [P07_MANIFEST.json](../../../../public/official/art/actors/P07_MANIFEST.json). NO declarar PASS_NODE/arte aprobado hasta prueba post-HF1.
+
 # ACTA OFICIAL — PERSONAJES P07 · CONTINUIDAD VISUAL C1-C
 **Proyecto:** SEMANTROPIC TD · **Fecha:** 20-10-2026 · **Motor:** Phaser 4.2.1 / WebGL2
 **Rama:** \`feature/art-p07-continuidad-c1c\` · **Base exacta:** \`a5116db1f956f8b32b86570600b878ba9d5187ed\` (P06 PR #27)
