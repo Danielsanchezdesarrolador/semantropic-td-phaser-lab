@@ -4,7 +4,7 @@
   "team": "PERSONAJES",
   "branch": "feature/art-p07-continuidad-c1c",
   "originSha": "a5116db1f956f8b32b86570600b878ba9d5187ed",
-  "prUrl": null,
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/32",
   "historicalSourceBlobSha": "1a4282e1652ff559b92e18f42db465d6bfb8e729",
   "approvedScreenshotSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
   "evidenceMethod": "Real GitHub blob exports plus isolated V8 vector renderer; not a Phaser browser",
