@@ -1,0 +1,299 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "team": "M",
+  "milestone": "M06/C1-D2",
+  "artVersion": "maps/m01/painterly-combat-m06/v1",
+  "branch": "feature/art-m06-combat-painterly",
+  "baseSha": "aa902e3bba5ada7e19d0a6de75650c076c23f3f6",
+  "status": "prototype",
+  "approved": false,
+  "designConcept": "six chapters of a defended valley; atmosphere/structural A-B actually change terrain volume strokes",
+  "world": {
+    "width": 1280,
+    "height": 768,
+    "routeVertices": 133,
+    "pads": 8,
+    "visualRoadWidth": 110,
+    "visualHitRadiusWorld": 54
+  },
+  "sourceOfTruth": {
+    "path": "public/official/data/maps.v5.json",
+    "gitBlobSha1": "1da0e20145e1312f3d75443debabea17e3db507c",
+    "canonicalDataUntouched": true
+  },
+  "editableResources": [
+    {
+      "assetId": "maps/m01/painterly-m06/svg/sentinel-oak",
+      "owner": "M",
+      "category": "environment-illustration",
+      "zone": "entrada",
+      "canonicalMapId": 1,
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m06/svg/sentinel-oak.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "a13083936ab49e5a2d28c48d4cffbc2538453172",
+          "sizeSourcePx": [
+            360,
+            270
+          ],
+          "transparent": true,
+          "sourceEditable": true
+        }
+      ],
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "renderKey": "maps/m01/painterly-m06/svg/sentinel-oak",
+      "collision": false,
+      "status": "prototype",
+      "author": "Semantropic TD — equipo M with AI assistance",
+      "license": "original_project_art_pending_director_commercial_review"
+    },
+    {
+      "assetId": "maps/m01/painterly-m06/svg/wind-sapling",
+      "owner": "M",
+      "category": "environment-illustration",
+      "zone": "recodo",
+      "canonicalMapId": 1,
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m06/svg/wind-sapling.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "7ebaa6cf6858962e3218b9db8b786a87032b618e",
+          "sizeSourcePx": [
+            360,
+            270
+          ],
+          "transparent": true,
+          "sourceEditable": true
+        }
+      ],
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "renderKey": "maps/m01/painterly-m06/svg/wind-sapling",
+      "collision": false,
+      "status": "prototype",
+      "author": "Semantropic TD — equipo M with AI assistance",
+      "license": "original_project_art_pending_director_commercial_review"
+    },
+    {
+      "assetId": "maps/m01/painterly-m06/svg/schist-terrace",
+      "owner": "M",
+      "category": "environment-illustration",
+      "zone": "valle",
+      "canonicalMapId": 1,
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m06/svg/schist-terrace.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "948584b2782ea8f87cf4e13a73de6e1e077c0574",
+          "sizeSourcePx": [
+            360,
+            270
+          ],
+          "transparent": true,
+          "sourceEditable": true
+        }
+      ],
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "renderKey": "maps/m01/painterly-m06/svg/schist-terrace",
+      "collision": false,
+      "status": "prototype",
+      "author": "Semantropic TD — equipo M with AI assistance",
+      "license": "original_project_art_pending_director_commercial_review"
+    },
+    {
+      "assetId": "maps/m01/painterly-m06/svg/meadow-tuft",
+      "owner": "M",
+      "category": "environment-illustration",
+      "zone": "meseta",
+      "canonicalMapId": 1,
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m06/svg/meadow-tuft.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "23f3e1760ff3ba7f0f7ae621ba904e73dd983a3e",
+          "sizeSourcePx": [
+            360,
+            270
+          ],
+          "transparent": true,
+          "sourceEditable": true
+        }
+      ],
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "renderKey": "maps/m01/painterly-m06/svg/meadow-tuft",
+      "collision": false,
+      "status": "prototype",
+      "author": "Semantropic TD — equipo M with AI assistance",
+      "license": "original_project_art_pending_director_commercial_review"
+    },
+    {
+      "assetId": "maps/m01/painterly-m06/svg/guard-ruin",
+      "owner": "M",
+      "category": "environment-illustration",
+      "zone": "regreso",
+      "canonicalMapId": 1,
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m06/svg/guard-ruin.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "f13a3a70dd3a3f240bcf5698535b47d4d11e4448",
+          "sizeSourcePx": [
+            360,
+            270
+          ],
+          "transparent": true,
+          "sourceEditable": true
+        }
+      ],
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "renderKey": "maps/m01/painterly-m06/svg/guard-ruin",
+      "collision": false,
+      "status": "prototype",
+      "author": "Semantropic TD — equipo M with AI assistance",
+      "license": "original_project_art_pending_director_commercial_review"
+    },
+    {
+      "assetId": "maps/m01/painterly-m06/svg/fortress-gate",
+      "owner": "M",
+      "category": "environment-illustration",
+      "zone": "puerta",
+      "canonicalMapId": 1,
+      "files": [
+        {
+          "path": "public/official/art/maps/m01/m06/svg/fortress-gate.svg",
+          "type": "image/svg+xml",
+          "gitBlobSha1": "42a13c0a36f3acb3899a799e6b0312a73303cc94",
+          "sizeSourcePx": [
+            360,
+            270
+          ],
+          "transparent": true,
+          "sourceEditable": true
+        }
+      ],
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "renderKey": "maps/m01/painterly-m06/svg/fortress-gate",
+      "collision": false,
+      "status": "prototype",
+      "author": "Semantropic TD — equipo M with AI assistance",
+      "license": "original_project_art_pending_director_commercial_review"
+    }
+  ],
+  "artGenerated": {
+    "textureName": "maps/m01/painterly-m06/{palette}/{treatment}/ground-painterly",
+    "widthPx": 1600,
+    "heightPx": 960,
+    "worldSize": [
+      1280,
+      768
+    ],
+    "dpr": 1.25,
+    "variants": [
+      "atmosfera",
+      "relieve"
+    ],
+    "paletteOptions": [
+      "equilibrada",
+      "viva",
+      "atmosferica"
+    ],
+    "sourceFile": "public/official/src/maps-visual/m01/m06/renderer-v6.mjs",
+    "pipeline": "Deterministic Canvas2D baked ON MOUNT into Phaser; not recreated in update",
+    "alpha": true,
+    "sourceEditable": true,
+    "treatmentA": "broad soft interlocking curved brush strokes, reduced opacity shadow, warm atmospheric glazing",
+    "treatmentB": "angular planar strokes, slate strata with deliberate contour shadow, higher local value separation"
+  },
+  "memory": {
+    "additionalPainterlyUncompressedRGBA_MiB": 5.86,
+    "sixSVGAtSourceDimensionsReferenceRGBA_MiB": 2.22,
+    "totalAdditionalTheoreticalMiB": 8.08,
+    "inheritedM04CanvasEstimateMiB": 27.86,
+    "actualGPUOrFpsMeasured": false,
+    "caveats": [
+      "Theoretical RGBA8 only; driver allocations, SVG rasterization, mipmaps and CPU decode extra",
+      "Inherited M04 textures and shared 42 legacy SVG remain. 48 SVG source keys in total."
+    ]
+  },
+  "interface": {
+    "module": "public/official/src/maps-visual/m01/m06/renderer-v6.mjs",
+    "exports": [
+      "M06_VERSION",
+      "M06_ASSETS",
+      "M06_TREATMENTS",
+      "makeM06ArtPlan",
+      "preloadM06Illustrations",
+      "mountM01WorldV6"
+    ],
+    "viewMethods": [
+      "applyVisualSnapshot",
+      "projectEvent",
+      "resetVisuals",
+      "setReducedMotion",
+      "updateAmbient",
+      "setSocketVisualState",
+      "updateDebug",
+      "destroy"
+    ],
+    "note": "No autonomous bus, no construction, no damage or resources. Snapshot authoritative; event tick ordering guard."
+  },
+  "qa": {
+    "v8MockExecuted": true,
+    "nodeNativeExecuted": false,
+    "realBrowserExecuted": false,
+    "physicalMobileExecuted": false,
+    "integratedTowersActorsExecuted": false,
+    "screenshotsReal": [],
+    "artDirectionApproved": false
+  },
+  "externalReferences": {
+    "corePR22": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/22",
+    "precedingTeamPR20": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/20"
+  },
+  "provenance": {
+    "statement": "Original AI-assisted code-drawn SVG illustrations and authored deterministic scene paint; no external game assets copied.",
+    "licenseReview": "PENDING"
+  }
+}
