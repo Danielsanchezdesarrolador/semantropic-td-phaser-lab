@@ -1,84 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="Infantería I — Cuartel de Reclutas"><title>Infantería I — Cuartel de Reclutas — Semantropic TD T-04 Q2</title><defs>
-<linearGradient id="stone" x1=".1" x2=".9" y1=".1" y2=".85"><stop stop-color="#f0e6d0"/><stop offset=".24" stop-color="#bdbbb0"/><stop offset=".7" stop-color="#6c8087"/><stop offset="1" stop-color="#385563"/></linearGradient>
-<linearGradient id="stoneDark" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#77878a"/><stop offset=".65" stop-color="#455c67"/><stop offset="1" stop-color="#263a4b"/></linearGradient>
-<linearGradient id="timber" x1=".05" x2=".95" y1="0" y2="1"><stop stop-color="#e1b77b"/><stop offset=".32" stop-color="#b08252"/><stop offset="1" stop-color="#6d4936"/></linearGradient>
-<linearGradient id="timberSide" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#946342"/><stop offset="1" stop-color="#4e3835"/></linearGradient>
-<linearGradient id="roof" x1=".05" x2=".85" y1="0" y2="1"><stop stop-color="#82afb3"/><stop offset=".3" stop-color="#477894"/><stop offset=".72" stop-color="#315572"/><stop offset="1" stop-color="#192f4b"/></linearGradient>
-<linearGradient id="bronze" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0b7"/><stop offset=".28" stop-color="#dfb77d"/><stop offset=".7" stop-color="#a87945"/><stop offset="1" stop-color="#75553b"/></linearGradient>
-<linearGradient id="steel" x1="0" x2=".9" y1="0" y2="1"><stop stop-color="#e7e4cd"/><stop offset=".4" stop-color="#91a8a8"/><stop offset=".77" stop-color="#486778"/><stop offset="1" stop-color="#244454"/></linearGradient>
-<linearGradient id="cloth" x1=".1" x2=".8" y1=".1" y2=".9"><stop stop-color="#498bb0"/><stop offset=".48" stop-color="#255779"/><stop offset="1" stop-color="#173e69"/></linearGradient>
-<radialGradient id="amber"><stop stop-color="#fff8ca" stop-opacity=".98"/><stop offset=".3" stop-color="#f9c36a" stop-opacity=".82"/><stop offset="1" stop-color="#ffaf4f" stop-opacity="0"/></radialGradient>
-<radialGradient id="teal"><stop stop-color="#e8ffff"/><stop offset=".4" stop-color="#76cad0"/><stop offset="1" stop-color="#255f78"/></radialGradient>
-<filter id="blur"><feGaussianBlur stdDeviation="5"/></filter>
-<pattern id="shingles" width="26" height="21" patternUnits="userSpaceOnUse"><path d="M0 1H26M0 21H26M13 1V21" stroke="#d0c496" stroke-opacity=".22" stroke-width="2"/><path d="M0 18H26" stroke="#172d4a" stroke-opacity=".46" stroke-width="4"/></pattern>
-<pattern id="masonry" width="34" height="24" patternUnits="userSpaceOnUse"><path d="M0 1H34M0 24H34M17 1V24" stroke="#2c4957" stroke-width="2" opacity=".34"/><path d="M2 5h9" stroke="#fff8df" stroke-width="3" opacity=".16"/></pattern>
-<linearGradient id="t04-fund-top" x1="0" y1="0" x2=".6" y2="1"><stop stop-color="#f3e6bb"/><stop offset=".36" stop-color="#b2b4a6"/><stop offset=".75" stop-color="#70877e"/><stop offset="1" stop-color="#355467"/></linearGradient>
-<linearGradient id="t04-steel" x1="0" y1=".1" x2=".9" y2="1"><stop stop-color="#c9e2d6"/><stop offset=".26" stop-color="#8ca9b1"/><stop offset=".72" stop-color="#406276"/><stop offset="1" stop-color="#183c58"/></linearGradient>
-<linearGradient id="t04-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bb"/><stop offset=".48" stop-color="#d4ab70"/><stop offset="1" stop-color="#845737"/></linearGradient>
-<radialGradient id="t04-paint-light"><stop stop-color="#fff3b0" stop-opacity=".55"/><stop offset=".47" stop-color="#edb76e" stop-opacity=".18"/><stop offset="1" stop-color="#d9ad60" stop-opacity="0"/></radialGradient></defs><ellipse cx="180" cy="394" rx="143" ry="17" fill="#122b34" opacity=".32" filter="url(#blur)"/>
-<!-- T04: cimentacion escalonada, sin equivaler al pad/collider del mapa -->
-<path d="M25 353 169 298 335 351 185 409 25 379Z" fill="#243c45" stroke="#1c3440" stroke-width="4"/>
-<path d="M25 353 170 298 335 351 186 389Z" fill="url(#t04-fund-top)" stroke="#d7c59b" stroke-width="5"/>
-<path d="M32 358 184 393 328 351 328 374 186 411 32 380Z" fill="url(#stoneDark)" stroke="#314b57" stroke-width="4"/>
-<path d="M28 353 181 394 333 350" fill="none" stroke="#e9ddbd" stroke-width="3" opacity=".7"/>
-<path d="M55 344 171 305 309 348 184 381Z" fill="#809a90" opacity=".75"/>
-<path d="M55 344 171 305 309 348 184 381Z" fill="url(#masonry)" opacity=".45"/>
-<path d="M40 368 79 377 79 391 41 379ZM99 382 143 393 143 407 98 396ZM230 391 274 376 272 390 231 403Z" fill="url(#stone)" stroke="#34505b" stroke-width="2"/>
-<path d="M44 370 74 377M104 386l33 8M237 393l30-11" fill="none" stroke="#f3ead2" stroke-width="2" opacity=".65"/>
-<path d="M80 340 183 376 278 340" fill="none" stroke="#3d696b" stroke-width="5" opacity=".75"/>
-<path d="M61 354 167 315M106 367 209 328" stroke="#435965" stroke-width="3" opacity=".45"/>
-<circle cx="46" cy="369" r="3" fill="#e6cd8f"/><circle cx="185" cy="397" r="3" fill="#e6cd8f"/><circle cx="310" cy="370" r="3" fill="#e6cd8f"/>
-<!-- muro lateral 3/4: las piezas principales dan volumen y materialidad -->
-<path d="M83 203 181 239 181 351 82 313Z" fill="url(#stone)" stroke="#2c4551" stroke-width="6"/>
-<path d="M181 239 284 194 280 308 181 351Z" fill="url(#stoneDark)" stroke="#2a4050" stroke-width="6"/>
-<path d="M88 210 178 244 178 342 87 308Z" fill="url(#masonry)" opacity=".56"/>
-<path d="M184 241 277 203 276 302 184 343Z" fill="url(#masonry)" opacity=".65"/>
-<path d="M90 303 183 339 275 301" stroke="#b7a68a" stroke-width="8" fill="none"/>
-<path d="M95 238h70" stroke="#253f4f" stroke-width="2" opacity=".3"/><path d="M90 238v19" stroke="#344a56" stroke-width="2" opacity=".28"/><path d="M126 238v19" stroke="#344a56" stroke-width="2" opacity=".28"/><path d="M95 260h70" stroke="#253f4f" stroke-width="2" opacity=".3"/><path d="M108 260v19" stroke="#344a56" stroke-width="2" opacity=".28"/><path d="M144 260v19" stroke="#344a56" stroke-width="2" opacity=".28"/><path d="M95 282h70" stroke="#253f4f" stroke-width="2" opacity=".3"/><path d="M90 282v19" stroke="#344a56" stroke-width="2" opacity=".28"/><path d="M126 282v19" stroke="#344a56" stroke-width="2" opacity=".28"/>
-<!-- tejado profundo y gablete frontal, no silueta de caja -->
-<path d="M63 209 165 122 292 186 184 246Z" fill="#183448" stroke="#304a54" stroke-width="8"/>
-<path d="M67 205 165 119 178 238Z" fill="url(#roof)" stroke="#293e53" stroke-width="5"/>
-<path d="M165 119 293 188 182 246 178 238Z" fill="url(#roof)" stroke="#24445b" stroke-width="6"/>
-<path d="M81 197 165 132 177 222Z" fill="url(#shingles)" opacity=".78"/>
-<path d="M173 137 275 190 185 236Z" fill="url(#shingles)" opacity=".7"/>
-<path d="M67 207 181 247 296 190" fill="none" stroke="url(#timber)" stroke-width="11" stroke-linejoin="round"/>
-<path d="M68 210 181 250 295 193" fill="none" stroke="#f4d19a" stroke-width="2.5" opacity=".72"/>
-<path d="M96 184 166 125M123 197 172 155M194 235 271 191" stroke="#b2c7be" stroke-width="3" opacity=".42"/>
-<!-- puerta hundida en perspectiva y arco de piedra -->
-<path d="M110 321V279Q110 254 135 255Q161 257 160 285V341L135 333Z" fill="#223b43" stroke="#d5b786" stroke-width="10"/>
-<path d="M118 325V280Q119 267 135 268Q153 272 152 286V335L135 331Z" fill="url(#timberSide)" stroke="#392f2e" stroke-width="3"/>
-<path d="M135 268V334" stroke="#deb37d" stroke-width="4"/>
-<circle cx="126" cy="305" r="4.6" fill="#39464a"/><circle cx="125.5" cy="304.2" r="2.8" fill="url(#bronze)"/><circle cx="125" cy="303.5" r="1" fill="#fff5d1"/><circle cx="145" cy="312" r="4.6" fill="#39464a"/><circle cx="144.5" cy="311.2" r="2.8" fill="url(#bronze)"/><circle cx="144" cy="310.5" r="1" fill="#fff5d1"/>
-<path d="M101 269 135 245 171 266" stroke="#f5e1ad" stroke-width="5" fill="none"/>
-<!-- ventana lateral y aspillera -->
-<path d="M228 247 250 236 250 279 228 288Z" fill="#1d343e" stroke="url(#bronze)" stroke-width="5"/>
-<path d="M236 249v31M229 262l21-9" stroke="#bd9c66" stroke-width="4"/>
-<path d="M102 250l12 3" stroke="#344753" stroke-width="7"/>
-<!-- armería y huellas de uso -->
-<path d="M267 282 298 268 309 286 278 302Z" fill="url(#timber)" stroke="#463b34" stroke-width="4"/>
-<path d="M279 299V323L308 305V283" fill="url(#timberSide)" stroke="#554130" stroke-width="4"/>
-<path d="M292 262 284 293M302 259 294 293" stroke="#8c9e98" stroke-width="5"/>
-<g transform="translate(241 174) scale(0.7)"><path d="M0 0V-57" stroke="#493d37" stroke-width="7"/><path d="M0-57 39-52Q20-37 42-30L1-34Z" fill="url(#cloth)" stroke="#c6a778" stroke-width="3"/><path d="M4-54Q17-50 30-51" fill="none" stroke="#d7e6cc" stroke-width="2" opacity=".65"/><circle cy="-58" r="5" fill="url(#bronze)"/></g><g transform="translate(174 215) scale(0.6)"><path d="M0-25 19-12 18 15 0 29-18 15-19-12Z" fill="url(#cloth)" stroke="url(#bronze)" stroke-width="5"/><path d="M0-16 5-4 16 0 5 4 0 17-5 4-16 0-5-4Z" fill="#f7d69b"/><circle r="3" fill="#caeff0"/></g><g transform="translate(268 277) scale(0.62)"><ellipse cx="0" cy="3" rx="23" ry="28" fill="url(#amber)" opacity=".72"/><path d="M-7-14 7-14 9 13-9 13Z" fill="#e5b46a" stroke="#473c38" stroke-width="3"/><path d="M-5-10h10v20H-5Z" fill="#fff4b6"/><path d="M-12-16 0-23 12-16" fill="none" stroke="#3e484a" stroke-width="4"/><path d="M-13 16H13" stroke="url(#bronze)" stroke-width="4"/></g>
-<g transform="translate(72 330) scale(0.8)"><ellipse cx="0" cy="21" rx="18" ry="7" fill="#152d32" opacity=".4"/><path d="M-13-12Q-20 2-13 21Q0 27 13 21Q20 3 13-12Z" fill="url(#timberSide)" stroke="#443932" stroke-width="4"/><ellipse cy="-13" rx="13" ry="6" fill="#c7a073" stroke="#473a31" stroke-width="3"/><path d="M-16-1Q0 4 16-1M-15 14Q0 18 15 14" fill="none" stroke="url(#steel)" stroke-width="5"/><path d="M-5-8V18M5-8V20" stroke="#ddad71" stroke-width="2" opacity=".45"/></g><g transform="translate(133 365)"><path d="M-43 7 24-18 52-5-14 22Z" fill="#b1b1a2" stroke="#415866" stroke-width="4"/><path d="M-44 13 -15 28 54 0 52-5 -14 22 -43 7Z" fill="#5d7779"/><path d="M-30 0 36-24M-12 12 54-13" stroke="#eee3c2" stroke-width="3"/></g>
-<!-- placa frontal y refuerzos -->
-<path d="M89 223 181 259M190 262 276 222" stroke="#e5cd9e" stroke-width="6" opacity=".85"/>
-<circle cx="94" cy="227" r="4.8" fill="#39464a"/><circle cx="93.5" cy="226.2" r="3" fill="url(#bronze)"/><circle cx="93" cy="225.5" r="1" fill="#fff5d1"/><circle cx="270" cy="223" r="4.8" fill="#39464a"/><circle cx="269.5" cy="222.2" r="3" fill="url(#bronze)"/><circle cx="269" cy="221.5" r="1" fill="#fff5d1"/><circle cx="179" cy="257" r="4.8" fill="#39464a"/><circle cx="178.5" cy="256.2" r="3" fill="url(#bronze)"/><circle cx="178" cy="255.5" r="1" fill="#fff5d1"/>
-<g id="t04-painted-microvolume"><path d="M85 241q4 -3 7 0l-4 2" stroke="#f1d9a7" stroke-width="2.5" fill="none" opacity=".43"/><path d="M108 270q4 -3 7 0l-4 2" stroke="#2d4753" stroke-width="1.7" fill="none" opacity=".43"/><path d="M131 299q4 -3 7 0l-4 2" stroke="#f1d9a7" stroke-width="1.7" fill="none" opacity=".43"/><path d="M154 253q4 -3 7 0l-4 2" stroke="#2d4753" stroke-width="2.5" fill="none" opacity=".43"/><path d="M177 282q4 -3 7 0l-4 2" stroke="#f1d9a7" stroke-width="1.7" fill="none" opacity=".43"/><path d="M200 311q4 -3 7 0l-4 2" stroke="#2d4753" stroke-width="1.7" fill="none" opacity=".43"/><path d="M223 265q4 -3 7 0l-4 2" stroke="#f1d9a7" stroke-width="2.5" fill="none" opacity=".43"/><path d="M246 294q4 -3 7 0l-4 2" stroke="#2d4753" stroke-width="1.7" fill="none" opacity=".43"/><path d="M88 248q4 -3 7 0l-4 2" stroke="#f1d9a7" stroke-width="1.7" fill="none" opacity=".43"/>
-<path d="M94 244l17 8M210 255l14-5M250 300l16-5" stroke="#e6ceab" stroke-width="3" opacity=".55"/>
-<path d="M84 320Q159 356 185 362" stroke="#172e3c" stroke-width="5" opacity=".23" fill="none"/>
-<path d="M190 351q42-12 68-28" stroke="#e7dac0" stroke-width="3" opacity=".4" fill="none"/>
-</g>
-<!-- T04 I: señal física de acceso y cubierta utilitaria de Guardia del Amanecer -->
-<g id="t04-infantry-i-functional">
-<path d="M102 323Q110 300 128 294l27 4" stroke="#d3a773" stroke-width="6" fill="none"/>
-<path d="M111 278Q117 263 134 264Q154 266 155 288" fill="none" stroke="#fff1bd" stroke-width="3" opacity=".75"/>
-<path d="M116 319l20 10 18-1" fill="none" stroke="#1b2f36" stroke-width="4"/>
-<path d="M64 311l22-10 17 7-20 13Z" fill="url(#t04-steel)" stroke="#28455a" stroke-width="3"/>
-<path d="M81 322l2 17 18-9 2-22" fill="url(#timber)" stroke="#554235" stroke-width="3"/>
-<path d="M77 305v-22" stroke="#345d67" stroke-width="5"/><path d="M74 282l13 1-3-9Z" fill="#d6b57f"/>
-<path d="M220 291l19-9 18 8-20 10Z" fill="url(#t04-steel)" stroke="#355468" stroke-width="3"/>
-<path d="M237 299v20l20-9v-20" fill="#536f73" stroke="#2c4953" stroke-width="3"/>
-<path d="M241 284v-14M253 281v-15" stroke="#ddc291" stroke-width="3"/>
-<ellipse cx="136" cy="270" rx="18" ry="13" fill="url(#t04-paint-light)" opacity=".4"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="infantry 1 A"><title>infantry 1 A · SEMANTROPIC TD T05</title><defs>
+<linearGradient id="mStone" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fff2cb"/><stop offset=".22" stop-color="#d4c9a6"/><stop offset=".64" stop-color="#899b93"/><stop offset="1" stop-color="#526d74"/></linearGradient>
+<linearGradient id="sideStone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#9fa89d"/><stop offset=".55" stop-color="#627c7f"/><stop offset="1" stop-color="#284d60"/></linearGradient>
+<linearGradient id="iron" x1=".2" y1="0" x2=".9" y2="1"><stop stop-color="#e8e8d1"/><stop offset=".22" stop-color="#8babae"/><stop offset=".57" stop-color="#4b7888"/><stop offset=".89" stop-color="#294861"/><stop offset="1" stop-color="#172f4e"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f0c892"/><stop offset=".4" stop-color="#ae7b50"/><stop offset=".78" stop-color="#785441"/><stop offset="1" stop-color="#493c38"/></linearGradient>
+<linearGradient id="woodShade" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#bd8050"/><stop offset=".6" stop-color="#654b3d"/><stop offset="1" stop-color="#39353a"/></linearGradient>
+<linearGradient id="roof" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#aec3b8"/><stop offset=".2" stop-color="#698d9d"/><stop offset=".47" stop-color="#416f88"/><stop offset=".84" stop-color="#244760"/><stop offset="1" stop-color="#152f52"/></linearGradient>
+<linearGradient id="canvas" x1=".2" y1="0" x2="1" y2="1"><stop stop-color="#e6d8b6"/><stop offset=".38" stop-color="#8da99d"/><stop offset=".86" stop-color="#3d7183"/><stop offset="1" stop-color="#2c4b65"/></linearGradient>
+<linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2bd"/><stop offset=".36" stop-color="#e0bc7d"/><stop offset=".77" stop-color="#9e7649"/><stop offset="1" stop-color="#664c41"/></linearGradient>
+<radialGradient id="optic"><stop stop-color="#f5ffff"/><stop offset=".3" stop-color="#a6fff1"/><stop offset=".58" stop-color="#60b8bb"/><stop offset="1" stop-color="#285d79"/></radialGradient>
+<radialGradient id="light"><stop stop-color="#ffeabb" stop-opacity=".85"/><stop offset=".5" stop-color="#e1ac55" stop-opacity=".28"/><stop offset="1" stop-color="#b48e50" stop-opacity="0"/></radialGradient>
+<pattern id="grain" width="20" height="16" patternUnits="userSpaceOnUse"><path d="M1 5q7-3 14-2M-2 14q9-2 15-1" fill="none" stroke="#ffe1af" stroke-width="1.1" opacity=".21"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+</defs><g id="tower-shadow"><ellipse cx="180" cy="392" rx="136" ry="16" fill="#132c36" opacity=".38" filter="url(#soft)"/><path d="M31 353 174 300 327 351 183 401Z" fill="#263e46" stroke="#193445" stroke-width="4"/><path d="M31 352 175 302 327 351 186 380Z" fill="url(#mStone)" stroke="#e5cf98" stroke-width="3.5"/><path d="M38 355 187 384 324 351V367L187 405 38 376Z" fill="url(#sideStone)" stroke="#304752" stroke-width="3"/><path d="M64 347 171 313 295 347 184 375Z" fill="#76918b" opacity=".45"/><path d="M44 360 186 393 315 359" fill="none" stroke="#f8dda8" stroke-width="2.2" opacity=".72"/><path d="M77 346 186 376 288 348" stroke="#3f6870" stroke-width="4" opacity=".72" fill="none"/></g><g id="barracks-back">
+ <!-- Asymmetric rectangular heavy occupied building with perspective wall bays -->
+ <path d="M72 191 171 147 283 194 282 320 177 358 70 322Z" fill="url(#sideStone)" stroke="#284655" stroke-width="7"/>
+ <path d="M73 191 177 232 177 359 72 320Z" fill="url(#mStone)" stroke="#304b58" stroke-width="5"/>
+ <path d="M178 231 284 191 282 317 178 358Z" fill="url(#sideStone)" stroke="#31515e" stroke-width="5"/>
+ <path d="M77 203 174 239 174 347 76 315Z" fill="url(#grain)" opacity=".65"/>
+ <path d="M92 216v99M155 246v94M224 218v119" stroke="#2c4d61" stroke-width="6" opacity=".4"/>
+ <!-- Main sloped dual-plane canvas/metal roof with irregular wood rafters -->
+ <path d="M44 197 166 101 302 182 183 258Z" fill="url(#roof)" stroke="#243e55" stroke-width="8"/>
+ <path d="M44 197 166 101 180 243Z" fill="url(#canvas)" stroke="#294a60" stroke-width="4"/>
+ <path d="M166 101 302 182 183 258 180 243Z" fill="url(#roof)" stroke="#2c4961" stroke-width="5"/>
+ <path d="M67 187 164 118 175 220Z" fill="url(#grain)" opacity=".35"/>
+ <path d="M180 130 286 181 197 236Z" fill="url(#grain)" opacity=".29"/>
+ <path d="M49 201 184 256 303 185" stroke="url(#wood)" stroke-width="12" fill="none"/>
+ <path d="M54 199 181 251 300 184" stroke="#f2d0a2" stroke-width="3" fill="none"/>
+ <path d="M89 166 102 197M149 124 162 231M232 156l-37 74M272 180l-61 44" stroke="#cbb28c" stroke-width="4" opacity=".68"/>
+ <!-- True vaulted functioning doorway with two openable halves -->
+ <path d="M106 325V276Q107 253 133 247Q159 252 160 283V344Z" fill="#1a3139" stroke="#dbc394" stroke-width="10"/>
+ <path d="M113 326v-45q2-20 19-21v74Z" fill="url(#wood)" stroke="#4c413b" stroke-width="4"/>
+ <path d="M133 262q17 4 19 23v56l-19-7Z" fill="url(#woodShade)" stroke="#3d3b3a" stroke-width="3"/>
+ <path d="M132 264v72" stroke="#ebc78e" stroke-width="4"/>
+ <path d="M113 293l39 14M116 314l36 15" stroke="#3b5761" stroke-width="4" opacity=".83"/>
+ <path d="M99 267 132 241 168 271" stroke="#fbe4ad" stroke-width="5" fill="none"/>
+ <!-- Working side armoury, not decorative gun floating -->
+ <path d="M206 271 251 252 287 266 245 284Z" fill="url(#wood)" stroke="#3c4650" stroke-width="5"/>
+ <path d="M212 282 246 297 246 338 212 326Z" fill="url(#woodShade)" stroke="#463c38" stroke-width="4"/>
+ <path d="M246 295 288 276 287 316 246 338Z" fill="#4a5860" stroke="#263e4d" stroke-width="4"/>
+ <path d="M212 276v-31M273 264v-31" stroke="#376475" stroke-width="9"/>
+ <path d="M209 249 273 224 297 247 244 270Z" fill="url(#canvas)" stroke="#32566d" stroke-width="5"/>
+ <path d="M209 249 245 264 295 248" fill="none" stroke="#e8c18e" stroke-width="5"/>
+ <path d="M261 288l14-7M256 302l18-9" stroke="#d9b385" stroke-width="4"/>
+ <g transform="translate(220 182) scale(0.72)"><path d="M0 5V-58" stroke="#494341" stroke-width="7"/><path d="M3-52Q19-53 38-40L26-26 44-20Q20-14 3-23Z" fill="#284f78" stroke="#e3c189" stroke-width="3"/><path d="M8-48 19-39 11-30" stroke="#afdfd6" stroke-width="3" fill="none"/><circle cy="-59" r="5" fill="url(#brass)"/></g><g transform="translate(175 222) scale(0.72)"><path d="M0-18 23-11 20 17 0 30-20 17-23-11Z" fill="#285b73" stroke="url(#brass)" stroke-width="5"/><path d="M0-13 5-1 15 3 5 7 0 21-5 7-15 3-5-1Z" fill="#ebd4a1"/><circle cx="0" cy="3" r="3" fill="#a3eee2"/></g>
+ <path d="M85 216l12 5v52l-11-5Z" fill="url(#iron)" stroke="#3b4b55" stroke-width="3"/>
+ <path d="M262 231l13-6v47l-13 8Z" fill="#1b3845" stroke="url(#brass)" stroke-width="4"/>
+ <g transform="translate(274 281) scale(0.65)"><ellipse rx="26" ry="27" fill="url(#light)" opacity=".7"/><path d="M-9-12 9-12 12 14-12 14Z" fill="#c8a365" stroke="#263f4c" stroke-width="4"/><path d="M-5-8H5V11H-5Z" fill="#fff1af" opacity=".88"/><path d="M-15-15 0-24 15-15M-15 17H15" fill="none" stroke="#4a5760" stroke-width="4"/></g>
+ <g id="hand-painted-stone-wear"><path d="M253.5 255.4l4.3 -2.3" stroke="#23485b" stroke-width="1.4" opacity="0.22"/><path d="M131.8 240.6l11.7 -2.6" stroke="#e6d9b8" stroke-width="2.2" opacity="0.33"/><path d="M239.4 335.4l9.4 -1.0" stroke="#23485b" stroke-width="1.6" opacity="0.26"/><path d="M101.3 237.2l4.8 -1.8" stroke="#23485b" stroke-width="1.5" opacity="0.40"/><path d="M203.0 238.5l12.7 -1.9" stroke="#23485b" stroke-width="1.4" opacity="0.27"/><path d="M223.1 305.2l11.6 -1.1" stroke="#23485b" stroke-width="1.2" opacity="0.16"/><path d="M107.2 256.1l5.8 -1.6" stroke="#23485b" stroke-width="1.2" opacity="0.34"/><path d="M248.4 260.9l6.3 -2.8" stroke="#23485b" stroke-width="1.5" opacity="0.31"/><path d="M249.4 267.7l7.4 -2.7" stroke="#e6d9b8" stroke-width="2.0" opacity="0.21"/><path d="M240.5 267.3l5.2 -1.1" stroke="#23485b" stroke-width="1.4" opacity="0.24"/><path d="M250.1 220.6l4.0 -2.7" stroke="#e6d9b8" stroke-width="2.0" opacity="0.35"/><path d="M179.8 240.7l7.6 -2.2" stroke="#23485b" stroke-width="1.3" opacity="0.36"/><path d="M192.1 285.3l3.1 -2.0" stroke="#e6d9b8" stroke-width="1.0" opacity="0.18"/><path d="M131.6 268.9l9.1 -1.4" stroke="#23485b" stroke-width="2.8" opacity="0.27"/><path d="M140.7 242.5l6.4 -1.7" stroke="#23485b" stroke-width="1.3" opacity="0.39"/><path d="M200.3 239.7l6.0 -2.1" stroke="#e6d9b8" stroke-width="2.0" opacity="0.35"/><path d="M207.9 278.7l6.6 -2.0" stroke="#23485b" stroke-width="1.6" opacity="0.19"/><path d="M209.9 282.8l8.9 -1.1" stroke="#e6d9b8" stroke-width="1.5" opacity="0.26"/><path d="M236.1 268.3l4.2 -1.2" stroke="#e6d9b8" stroke-width="2.3" opacity="0.39"/><path d="M251.6 303.0l3.4 -2.9" stroke="#e6d9b8" stroke-width="2.2" opacity="0.24"/><path d="M153.7 299.6l8.1 -2.3" stroke="#e6d9b8" stroke-width="1.2" opacity="0.43"/><path d="M169.7 303.9l11.5 -2.7" stroke="#e6d9b8" stroke-width="1.6" opacity="0.33"/><path d="M120.9 228.9l3.1 -2.5" stroke="#23485b" stroke-width="2.0" opacity="0.42"/><path d="M158.9 317.3l11.1 -1.3" stroke="#e6d9b8" stroke-width="1.7" opacity="0.40"/><path d="M238.1 327.6l6.8 -1.4" stroke="#e6d9b8" stroke-width="2.5" opacity="0.28"/><path d="M246.7 325.5l5.7 -1.3" stroke="#23485b" stroke-width="1.7" opacity="0.28"/><path d="M151.8 267.7l6.2 -1.8" stroke="#e6d9b8" stroke-width="2.8" opacity="0.39"/><path d="M145.7 277.5l6.4 -2.7" stroke="#23485b" stroke-width="2.5" opacity="0.18"/><path d="M122.1 266.5l6.8 -1.8" stroke="#23485b" stroke-width="1.3" opacity="0.31"/><path d="M90.9 290.7l10.6 -2.0" stroke="#e6d9b8" stroke-width="1.8" opacity="0.33"/><path d="M262.6 265.8l9.7 -2.5" stroke="#e6d9b8" stroke-width="2.5" opacity="0.16"/><path d="M171.4 280.2l6.2 -1.1" stroke="#23485b" stroke-width="1.5" opacity="0.21"/><path d="M215.5 268.9l9.5 -1.9" stroke="#23485b" stroke-width="1.0" opacity="0.37"/><path d="M217.6 239.0l12.8 -2.9" stroke="#23485b" stroke-width="1.1" opacity="0.35"/><path d="M183.9 292.3l11.4 -2.8" stroke="#e6d9b8" stroke-width="1.8" opacity="0.22"/></g>
+ <g transform="translate(73 329) scale(0.65)"><path d="M-22-17 9-30 31-19 0-6Z" fill="#dfb480" stroke="#4a403a" stroke-width="3"/><path d="M-22-17 0-6V23L-22 9Z" fill="url(#wood)" stroke="#4b4140" stroke-width="3"/><path d="M0-6 31-19V13L0 23Z" fill="url(#woodShade)" stroke="#443f3a" stroke-width="3"/><path d="M-17-10-3-1M8 0l18-8M-17 5 0 14 26 2" stroke="#f0d1a0" stroke-width="4" fill="none"/></g>
+ </g><g id="barracks-front">
+ <!-- Protective low asymmetric entry lip; leaves door usable and actor visible outside -->
+ <path d="M84 337 106 346 123 346 139 355 157 347 179 360 180 374 133 356 87 347Z" fill="url(#mStone)" stroke="#3a5561" stroke-width="4" opacity=".93"/>
+ <path d="M83 339 134 360 182 376" stroke="#f0d29e" stroke-width="3" fill="none"/>
+ <circle cx="105" cy="352" r="4" fill="#2a4352"/><circle cx="104.2" cy="351.1" r="2.6" fill="url(#brass)"/><circle cx="165" cy="363" r="4" fill="#2a4352"/><circle cx="164.2" cy="362.1" r="2.6" fill="url(#brass)"/>
+ </g></svg>

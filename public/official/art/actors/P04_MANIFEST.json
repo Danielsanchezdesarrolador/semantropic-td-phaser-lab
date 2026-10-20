@@ -1,0 +1,265 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "milestone": "P04-C1D",
+  "date": "2026-10-19",
+  "owner": "P",
+  "status": "prototype",
+  "source": {
+    "original": "New hand-authored-in-code procedural character painting/rig by Semantropic Equipo P (OpenAI-generated assistance)",
+    "originalSource": "public/official/art/actors/p04-illustrator.mjs",
+    "animationSource": "public/official/art/actors/p04-poses.mjs",
+    "derivesFrom": "P03 ABI only; does not trace/overpaint P03 sprites",
+    "licensing": "original project code/artwork, pending legal and director commercial-release review",
+    "externalCommercialAssets": false,
+    "aiGeneratedConceptImagesIncluded": false
+  },
+  "baseSha": "eccadc3743e9f2d6c584097dcd5d9b82ee921e90",
+  "runtime": {
+    "engine": "Phaser 4.2.1 / WebGL2 targeted",
+    "frames": {
+      "idle": 4,
+      "walk": 8,
+      "attackWindup": 3,
+      "attack": 5,
+      "hit": 3,
+      "die": 6,
+      "blocked": 3
+    },
+    "framePx": {
+      "width": 176,
+      "height": 208
+    },
+    "columns": 8,
+    "rows": 4,
+    "atlasPx": {
+      "width": 1408,
+      "height": 832
+    },
+    "nominalDecodedBytesPerAtlas": 4685824,
+    "nominalDecodedMiBPerAtlas": 4.47,
+    "activeGallery5AtlasesNominalMiB": 22.35,
+    "footAnchor": {
+      "x": 0.5,
+      "y": 0.92
+    },
+    "shadowAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "facings": [
+      "E",
+      "W-mirrored"
+    ],
+    "missingFacings": [
+      "N",
+      "S",
+      "diagonal"
+    ],
+    "atlasGeneration": "on selected actor; never on per-frame update",
+    "assetCacheCleanup": "scene gallery removes five textures before actor replacement and on shutdown",
+    "productionAtlasPNGCommitted": false,
+    "alphaPNGVisuallyVerified": false,
+    "imagePixelClippingChecked": false,
+    "highQualityArtistApproved": false,
+    "realBrowserPhaserQaExecuted": false
+  },
+  "actors": [
+    {
+      "assetId": "actors/enemies/warrior/v1/p04",
+      "canonicalId": "warrior",
+      "label": "Orco Guerrero",
+      "owner": "P",
+      "category": "actor",
+      "faction": "enemy",
+      "variant": "P04",
+      "status": "prototype",
+      "worldHeightProposal": 91,
+      "frameCount": 32,
+      "atlasKey": "actors/enemies/warrior/v1/p04",
+      "frameNames": [
+        "idle",
+        "walk",
+        "attackWindup",
+        "attack",
+        "hit",
+        "die",
+        "blocked"
+      ],
+      "sourceFile": "public/official/art/actors/p04-illustrator.mjs",
+      "animationFile": "public/official/art/actors/p04-poses.mjs",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "headReservedOffsetWorld": 154,
+      "sourcePng": null,
+      "sourcePngSha256": null,
+      "role": "ground-unit",
+      "realAttackDamageFromArt": false,
+      "fps": {
+        "idle": 5,
+        "walk": 8.8,
+        "attackWindup": 9,
+        "attack": 12.5,
+        "hit": 13,
+        "die": 10,
+        "blocked": 10
+      }
+    },
+    {
+      "assetId": "actors/enemies/hound/v1/p04",
+      "canonicalId": "hound",
+      "label": "Perro de Caza",
+      "owner": "P",
+      "category": "actor",
+      "faction": "enemy",
+      "variant": "P04",
+      "status": "prototype",
+      "worldHeightProposal": 67,
+      "frameCount": 32,
+      "atlasKey": "actors/enemies/hound/v1/p04",
+      "frameNames": [
+        "idle",
+        "walk",
+        "attackWindup",
+        "attack",
+        "hit",
+        "die",
+        "blocked"
+      ],
+      "sourceFile": "public/official/art/actors/p04-illustrator.mjs",
+      "animationFile": "public/official/art/actors/p04-poses.mjs",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "headReservedOffsetWorld": 87,
+      "sourcePng": null,
+      "sourcePngSha256": null,
+      "role": "quadruped",
+      "realAttackDamageFromArt": false,
+      "fps": {
+        "idle": 5,
+        "walk": 12,
+        "attackWindup": 10,
+        "attack": 13,
+        "hit": 13,
+        "die": 10,
+        "blocked": 10
+      }
+    },
+    {
+      "assetId": "actors/allies/infantry-recruit/v1/p04",
+      "canonicalId": "infantry_recruit",
+      "label": "Soldado Recluta",
+      "owner": "P",
+      "category": "actor",
+      "faction": "ally",
+      "variant": "P04",
+      "status": "prototype",
+      "worldHeightProposal": 88,
+      "frameCount": 32,
+      "atlasKey": "actors/allies/infantry-recruit/v1/p04",
+      "frameNames": [
+        "idle",
+        "walk",
+        "attackWindup",
+        "attack",
+        "hit",
+        "die",
+        "blocked"
+      ],
+      "sourceFile": "public/official/art/actors/p04-illustrator.mjs",
+      "animationFile": "public/official/art/actors/p04-poses.mjs",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "headReservedOffsetWorld": 150,
+      "sourcePng": null,
+      "sourcePngSha256": null,
+      "role": "ground-unit",
+      "realAttackDamageFromArt": false,
+      "fps": {
+        "idle": 5,
+        "walk": 9,
+        "attackWindup": 9,
+        "attack": 12,
+        "hit": 12,
+        "die": 9,
+        "blocked": 9
+      }
+    },
+    {
+      "assetId": "actors/allies/sniper-operator/v1/p04",
+      "canonicalId": "sniper_operator",
+      "label": "Operador Francotirador",
+      "owner": "P",
+      "category": "actor",
+      "faction": "ally",
+      "variant": "P04",
+      "status": "prototype",
+      "worldHeightProposal": 80,
+      "frameCount": 32,
+      "atlasKey": "actors/allies/sniper-operator/v1/p04",
+      "frameNames": [
+        "idle",
+        "walk",
+        "attackWindup",
+        "attack",
+        "hit",
+        "die",
+        "blocked"
+      ],
+      "sourceFile": "public/official/art/actors/p04-illustrator.mjs",
+      "animationFile": "public/official/art/actors/p04-poses.mjs",
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "headReservedOffsetWorld": 146,
+      "sourcePng": null,
+      "sourcePngSha256": null,
+      "role": "tower-operator",
+      "realAttackDamageFromArt": false,
+      "fps": {
+        "idle": 5,
+        "walk": 7.5,
+        "attackWindup": 9,
+        "attack": 11,
+        "hit": 11,
+        "die": 8,
+        "blocked": 8
+      }
+    }
+  ],
+  "actorCount": 4,
+  "gameplayImplemented": false,
+  "coreMovementModified": false,
+  "healthModified": false,
+  "economyModified": false,
+  "projectilesModified": false,
+  "blockers": [
+    "Need true raster PNG export, alpha test, SHA256 and original source signoff",
+    "Need P04 actual browser WebGL2 screenshots 3 viewports, 20-30 clones, pause, face sheets",
+    "Need detailed artistry review for actual frame anatomy, alpha clipping and shading",
+    "T05 railing/deck alignment not validated in same scene",
+    "Core combat integration belongs to Integrator; no gameplay port asserted"
+  ]
+}

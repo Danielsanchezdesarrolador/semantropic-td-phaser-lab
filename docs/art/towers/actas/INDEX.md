@@ -1,53 +1,67 @@
-# EQUIPO T · INDEX de actas y QA — C1-B / T04 Q2
+# SEMANTROPIC TD · EQUIPO T — INDEX DE VERSIONES Y ACTAS
 
-**Vigente:** T04-Q2, prototipo en revisión. **Branch:** `feature/art-t04-q2-torres`. **Base congelada:** `c0ca8792a2d79fd5c6d5ca66b7832a9e97e4eea2`.
+**Versión candidata:** T05 / C1-D · 2026-10-19. **Rama:** `feature/art-t05-premium-towers`. **Base protegida:** `140a81ae4b38f915326deefbb35230368389eac8`. **HEAD antes del commit del índice:** `10bd05bd55c032f054f952e212efea847d4c871c`. SHA final en [PR #14](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/14); evitar un valor autorreferencial falso.
 
-**Último HEAD de código+QA inspeccionado al redactar índice:** `729bb712b7b56714ff0a2a72d0031f8b60521c79`. Este índice y acta se añaden en commit posterior; el HEAD **actual** se consulta en [PR #9](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/9) o en la vista de rama, para evitar incluir un SHA autorreferencial imposible.
+**Pull Request:** [#14 — T05 rediseño profundo (DRAFT)](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/14) → `feature/art-t04-q2-torres` · NO MERGE.
 
-**PR:** [#9 DRAFT → feature/art-t03-torres](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/9). Sin merge y sin cambios en integración C1-B.
+## Enlaces para Dirección e Integración
 
-## Documentos principales
+- [ACTA T05 C1-D completa](./ACTA_T05_C1D_2026-10-19.md)
 
-- [ACTA T04](./ACTA_T04_C1B_Q2_2026-10-19.md) — identificación A-L, inventario y decisiones.
+- [QA T05 C1-D JSON](./QA_T05_C1D.json) — estructura de pruebas PASS/MOCK vs NOT_RUN.
 
-- [QA JSON T04](./QA_T04_C1B_Q2.json) — ejecución registrada, limitaciones y bloqueantes.
+- [MANIFEST T05 original](../ASSET_MANIFEST_T05_C1D.json) — A/B, capas, source size y anclajes.
 
-- [MANIFEST T04 v1](../ASSET_MANIFEST_T04_Q2.json) — 4 assets, anclajes, escalas y derechos.
+- [BIBLIA ARTÍSTICA T05](../BIBLIA_ARTISTICA_T05_C1D.md) — recomendado A, alternativa B.
 
-- [MATRIZ DE ANCLAJES](../MATRIZ_ANCLAJES_T04_Q2.md) — comparación escalas T03→T04, pad real M02 y propuesta M03.
+- [MATRIZ T05](../MATRIZ_ANCLAJES_T05_C1D.md) — escalas, pad M03 y cifras FIT móviles.
 
-- [VALIDACIÓN ESTÁTICA](../evidencias/T04/VALIDACION_ESTATICA.md) — registros de evaluación V8 mock y comprobaciones estructurales.
+- [RFC hacia Integrador/M04/P04](./RFC_T05_SPLIT_M04_P04.md) — frontRail y operador.
 
-- [RFC M03 pad](./RFC_T04_PAD_M03.md) — disminuir SOLO disco visual, no geometría.
+- [VALIDACIÓN ESTÁTICA](../evidencias/T05/VALIDACION_ESTATICA.md) — no confundir con browser.
 
-- [RFC P03 operador](./RFC_T04_OPERADOR_P03.md) — slot/facing y política frontal del parapeto.
+- [QA Node T05](../qa-t05.mjs) — script reproducible, aún NOT_RUN.
 
-- [Galería T04](../../../../public/official/src/towers-visual/t04-index.html) — comparación bajo Phaser después de build; no desplegada.
+- [Galería Phaser T05](../../../../public/official/src/towers-visual/t05-index.html) — revisar tras build.
 
-- [QA reproducible Node](../qa-t04.mjs) — script, **NO EJECUTADO** en clon.
+- [Lámina A/B Infantería](../../../../public/official/art/towers/concepts/T05_SHEET_INFANTERIA_A_B.svg) y [Lámina A/B Sniper](../../../../public/official/art/towers/concepts/T05_SHEET_SNIPER_A_B.svg) — CONCEPTO original, NO captura de runtime.
 
-## Historial de versiones
+## Estado de las entregas
 
-| Fase | Ref | Entregables | Estado |
+| Lote | Documentación | PR | Estado |
 
 |---|---|---|---|
 
-| T01/T02 | [Reporte](../REPORTE_T01_T02.md) | Primeros 4 SVG y galería | Baseline |
+| T01/T02 | [Reporte](../REPORTE_T01_T02.md) | [#1](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/1) | Baseline |
 
-| T03 | [Biblia](../BIBLIA_ARTISTICA_T03.md), [Manifest](../ASSET_MANIFEST_T03_V2.json), [QA](../REPORTE_T03_QA.md), [PR #5](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/5) | Primer rework premium | Baseline conservada |
+| T03 | [Biblia](../BIBLIA_ARTISTICA_T03.md), [QA](../REPORTE_T03_QA.md) | [#5](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/5) | Baseline conservado |
 
-| T04 Q2 | [Este índice](./INDEX.md), [PR #9](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/9) | Cimiento, microvolumen, anclajes, VFX, comparación A/B | Prototipo Q2 |
+| T04/Q2 | [ACTA](./ACTA_T04_C1B_Q2_2026-10-19.md), [QA](./QA_T04_C1B_Q2.json) | [#9](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/9) | Snapshots completos |
 
-## Evidencia y pendientes
+| **T05/C1-D** | [ACTA](./ACTA_T05_C1D_2026-10-19.md), [QA](./QA_T05_C1D.json) | [#14](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/14) | PROTOTIPO revisión |
 
-- [CONFIRMADO EN ARCHIVOS] Cuatro SVG T04, cuatro SVG snapshot T03, catálogo T03-compatible, VFX acotados, galería nueva, manifesto/QA/RFC.
+## Hitos de T05
 
-- [PROBADO EN ENTORNO JS SIMULADO] sintaxis de módulos; deduplicación, cancelación y límite de 24 jobs con Phaser MOCK, **NO Phaser real**.
+- T05-0: auditar T04 y C1-C solo lectura: PASS código; capturas C1-C no auditadas localmente.
 
-- [NO EJECUTADO] Node script final, npm build T04, WebGL2 navegador y capturas reales 1280×768, 844×390, 932×430.
+- T05-1: dos láminas A/B y siluetas SVG: PASS entregadas, no certificación visual.
 
-- [BLOQUEANTE PARA APROBACIÓN ARTÍSTICA] ensamblaje visual auténtico C1-B con P03 y M03, escala/oclusiones/capturas móviles.
+- T05-2/3: cuatro edificios A + cuatro B con estructuras nuevas y frontRail separado: PASS archivos.
 
-- **Capturas:** no hay imágenes T04 de runtime persistentes; `screenshotIndex` vacío. No presentar como finales gráficos IA o mock.
+- T05-4: galería T05, iluminación leve y FX refinados sin gameplay: PASS código; browser NOT_RUN.
 
-- **Responsables:** T conserva assets/metadata; M revisa disco; P revisa operador; Integrador ejecuta escena conjunta y QA visual.
+- T05-5: QA fuentes/JS V8 MOCK PASS; Node real, Chrome WebGL2 y foto integrada NOT_RUN.
+
+- T05-6: PR #14 y documentación persistente en GitHub: PASS al verificar PR final.
+
+## Bloqueantes
+
+1. Ejecutar `node docs/art/towers/qa-t01.mjs`, `qa-t03.mjs`, `qa-t04.mjs`, `qa-t05.mjs` y `npm run build`.
+
+2. Capturas **REALES PHASER** antes T04/A/B con mismo socket en 1280×768, 844×390, 932×430; `screenshotIndex=[]` hasta entonces.
+
+3. Inspección con P04 y M04 para operador/muzzle/rail/oclusiones y ratificación de worldScale.
+
+4. Aprobación artística de Dirección, posible export raster y retoque antes de llamarlo final.
+
+**Ningún archivo de M/P/core ni Render fue modificado por este Equipo.**
