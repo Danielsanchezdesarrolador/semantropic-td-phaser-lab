@@ -1,0 +1,53 @@
+name: C1-D1 M01 Real Construction and Economy
+on:
+  push:
+    branches: [feature/core-c1d-m01-combat]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  c1d1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check ESM syntax
+        run: |
+          node --check public/official/src/core-c1d/construction-economy.mjs
+          node --check public/official/src/c1d-build/scene.mjs
+          node --check tools/qa-c1d1-economy.mjs
+          node --check tools/qa-c1d1-browser.mjs
+      - name: Parity audit of original V5 and no-defense smoke
+        run: node tools/qa-c1d0.mjs
+      - name: Real purchase, upgrade, refund and accounting QA
+        run: node tools/qa-c1d1-economy.mjs
+      - name: Install Phaser 4.2.1 dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build
+        run: npm run build
+      - name: Verify build paths
+        run: |
+          test -s dist/official/src/core-c1d/construction-economy.mjs
+          test -s dist/official/src/c1d-build/index.html
+          test -s dist/official/src/c1d-build/scene.mjs
+          test -s dist/official/data/maps.v5.json
+          test -s dist/dependencias/phaser.min.js
+      - name: Install Chromium
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Test actual Phaser purchases in browser
+        run: node tools/qa-c1d1-browser.mjs
+      - name: Upload C1-D1 browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1d1-build-economy-chromium
+          path: artifacts/c1d1-browser/
+          if-no-files-found: ignore
+          retention-days: 14
