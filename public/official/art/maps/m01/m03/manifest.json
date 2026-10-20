@@ -1,0 +1,155 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "team": "M",
+  "milestone": "M03/C1B-Q2",
+  "bundleId": "maps/m01/aurora-v3/q2-1",
+  "branch": "feature/art-m03-q2-mapas",
+  "gitSourceState": "All sources editable in GitHub, not promoted to final approved art",
+  "canonicalMapId": 1,
+  "world": {
+    "width": 1280,
+    "height": 768,
+    "waypoints": 133,
+    "spots": 8,
+    "roadVisualWidth": 110,
+    "hitRadiusWorld": 54
+  },
+  "approach": "Original hybrid: painterly deterministic Canvas source for large art + original SVG masters reused/added; rendered in Phaser4/WebGL2 in future QA",
+  "themes": [
+    "equilibrada",
+    "viva",
+    "atmosferica"
+  ],
+  "mutableGameplay": false,
+  "rendererModule": "public/official/src/maps-visual/m01/m03/renderer-v3.mjs",
+  "rendererBlobSha": "72d36fbeb75c2d22dff28f680b9805bd81d57ad9",
+  "editables": [
+    {
+      "id": "maps/m01/aurora-v3/svg/supply",
+      "path": "public/official/art/maps/m01/m03/svg/dawn-cache.svg",
+      "blobSha1": "512ac5d19aba9a10cf6e6cd4b8dc214cb5254468",
+      "mime": "image/svg+xml",
+      "sourceDimensions": [
+        280,
+        230
+      ],
+      "alpha": true,
+      "origin": "original project vector paths made with generative assistance",
+      "commercialRights": "require art approval"
+    },
+    {
+      "id": "maps/m01/aurora-v3/svg/fern",
+      "path": "public/official/art/maps/m01/m03/svg/dawn-fern.svg",
+      "blobSha1": "aa412c8d62ceff8db4933e40b42dcb78b4358224",
+      "mime": "image/svg+xml",
+      "sourceDimensions": [
+        210,
+        180
+      ],
+      "alpha": true,
+      "origin": "original project vector paths made with generative assistance",
+      "commercialRights": "require art approval"
+    },
+    {
+      "id": "maps/m01/aurora-v3/source",
+      "path": "public/official/src/maps-visual/m01/m03/renderer-v3.mjs",
+      "blobSha1": "72d36fbeb75c2d22dff28f680b9805bd81d57ad9",
+      "mime": "text/javascript",
+      "alpha": null,
+      "origin": "M03 artist-authored source code",
+      "commercialRights": "require art approval"
+    }
+  ],
+  "borrowedResources": {
+    "from": "M02 Aurora v2",
+    "source": "public/official/art/maps/m01/m02/manifest.json",
+    "svgTypes": [
+      "oak",
+      "lookout",
+      "shrine",
+      "aqueduct",
+      "fence"
+    ],
+    "count": 7,
+    "note": "Phaser preload uses all 7 existing sources; renderer instantiates selected originals only"
+  },
+  "textures": {
+    "namespace": "maps/m01/aurora-v3/{palette}/",
+    "sourcePixels": {
+      "ground": [
+        2560,
+        1536
+      ],
+      "road": [
+        2560,
+        1536
+      ],
+      "pad": [
+        424,
+        304
+      ]
+    },
+    "families": [
+      "ground",
+      "road",
+      "pad/tempo/empty",
+      "pad/tempo/occupied",
+      "pad/tempo/ruins",
+      "pad/power/empty",
+      "pad/power/occupied",
+      "pad/power/ruins",
+      "pad/focus/empty",
+      "pad/focus/occupied",
+      "pad/focus/ruins"
+    ],
+    "generatedPerPalette": 11,
+    "reusedSvgCache": 9,
+    "note": "Only one active theme. Generated textures are released by destroy(); borrowed SVG cache remains shared."
+  },
+  "pad": {
+    "baseM02ApproxWorldWidth": 134.56,
+    "newMasterLogicalPx": [
+      212,
+      152
+    ],
+    "newScale": 0.44,
+    "newApproxWorldWidth": 93.28,
+    "reductionPercent": 30.68,
+    "sourceSocketFootAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "renderSpriteOrigin": {
+      "x": 0.5,
+      "y": 0.72
+    },
+    "temporaryHitRadiusWorld": 54,
+    "validation": "Visual silhouette candidate only; 10–25% tower foundation margin requires real screenshot from C1B",
+    "modes": [
+      "neutral",
+      "selected",
+      "occupied",
+      "ruins"
+    ]
+  },
+  "atlasFrames": null,
+  "budgets": {
+    "twoFullSizeRgba8MiB": 30,
+    "ninePadTexturesRgba8MiB": 4.43,
+    "generatedTextureTotalRgba8MiB": 34.43,
+    "actualGpuMemoryMiB": null,
+    "note": "Theoretical uncompressed texture bytes, excludes GPU allocation overhead, SVG textures, staging buffers and browser cache; measured memory NOT_AVAILABLE."
+  },
+  "licenceAndProvenance": {
+    "use": "original Semantropic TD artwork, not another game IP",
+    "legalReview": "pending",
+    "generation": "hand-authored vector geometry and authored procedural painting code with AI assistance"
+  },
+  "blockers": [
+    "Real Phaser screenshot 1280x768 & 844x390 & 932x430",
+    "C1B tower-to-pad ratio with actual T03 sprites",
+    "Mobile and integrated actor occlusion",
+    "Art approval by director"
+  ],
+  "status": "ART_PROTOTYPE_NOT_APPROVED"
+}
