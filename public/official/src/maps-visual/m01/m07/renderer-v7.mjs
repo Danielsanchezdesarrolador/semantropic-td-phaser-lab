@@ -196,8 +196,16 @@ export function mountM01WorldV7(scene,map,options={}){
   if(disposed||!knownIds.has(socketId))return false;
   if(!["neutral","empty","occupied","selected","ruins","ruined"].includes(state))return false;
   const next=state==="ruined"?"ruins":state;
+  if(next==="selected"){
+   // Selection MUST NOT replace occupied or ruined art with an empty pad glyph.
+   const pad=base.padObjects.find(p=>p.socket.socketId===socketId);
+   if(!pad)return false;
+   pad.selection.setVisible(true);
+   selectedFlags.add(socketId);
+   return true;
+  }
   const ok=base.setSocketVisualState(socketId,next);
-  if(ok){if(next==="selected")selectedFlags.add(socketId);else selectedFlags.delete(socketId);}
+  if(ok)selectedFlags.delete(socketId);
   return ok;
  }
  function applyVisualSnapshot(snapshot){
@@ -270,7 +278,8 @@ export function mountM01WorldV7(scene,map,options={}){
  }
  function destroy(){
   if(disposed)return;disposed=true;
-  forgetExtras();base.destroy();release();observedEvents.clear();selectedFlags.clear();
+  try{forgetExtras();base.destroy();}
+  finally{release();observedEvents.clear();selectedFlags.clear();socketTick.clear();}
  }
  return {
   contractVersion:"map-visual-m07-v1",artVersion:M07_VERSION,palette,treatment,plan,
