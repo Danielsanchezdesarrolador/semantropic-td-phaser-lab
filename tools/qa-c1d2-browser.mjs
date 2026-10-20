@@ -13,7 +13,7 @@ const srv=createServer(async(req,res)=>{
  }catch(e){console.error("C1D2_SERVER_404",req.url,String(e));res.writeHead(404);res.end("not found");}
 });
 await new Promise(resolve=>srv.listen(0,"127.0.0.1",resolve));
-const URL="http://127.0.0.1:"+srv.address().port+"/official/src/c1d2-combat/index.html";
+const TEST_URL="http://127.0.0.1:"+srv.address().port+"/official/src/c1d2-combat/index.html";
 await mkdir("artifacts/c1d2-browser",{recursive:true});
 let browser;
 try{
@@ -22,8 +22,8 @@ try{
  for(const [tag,width,height] of [["desktop",1280,768],["landscape844",844,390],["landscape932",932,430]]){
   const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1,isMobile:width<950});
   const errors=[];page.on("pageerror",e=>errors.push(e.message));
-  const response=await page.goto(URL,{waitUntil:"load",timeout:30000});
-  if(!response||response.status()!==200)throw Error(tag+" HTTP "+response?.status()+" "+URL+" content="+(await page.content()).slice(0,500));
+  const response=await page.goto(TEST_URL,{waitUntil:"load",timeout:30000});
+  if(!response||response.status()!==200)throw Error(tag+" HTTP "+response?.status()+" "+TEST_URL+" content="+(await page.content()).slice(0,500));
   try{await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D2?.scene,{timeout:45000});}
   catch{throw Error(tag+" initialization failed url="+page.url()+" html="+(await page.content()).slice(0,500)+" errors="+errors.join(","));}
   const initial=await page.evaluate(()=>{
