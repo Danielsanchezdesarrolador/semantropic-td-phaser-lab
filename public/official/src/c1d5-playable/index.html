@@ -22,6 +22,9 @@ button:disabled{opacity:.4;cursor:not-allowed}#feedback{font-size:11px;max-width
 #resultDetail{font-size:14px;line-height:1.5}
 #resultSaved{display:block;font-size:11px;color:#c7d6ce;margin:12px 0}
 #resultRestart{font-size:15px;min-height:46px}
+#rally{min-height:32px;padding:3px 7px;margin-top:3px;font-size:11px}
+@media(max-width:950px) and (orientation:landscape){#rally{min-height:34px;font-size:10px}}
+
 #portrait{display:none;position:absolute;z-index:8;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;background:#123440}
 @media(max-width:950px) and (orientation:landscape){
  header{top:max(3px,env(safe-area-inset-top))}
@@ -45,7 +48,7 @@ button:disabled{opacity:.4;cursor:not-allowed}#feedback{font-size:11px;max-width
 <small>Mapa 01 · 5 oleadas · apariencia C1-C aprobada · combate real</small>
 <small>Oro <b id="coins">365</b> · Vidas <b id="lives">100</b> · Onda <b id="wave">0/5</b> · <span id="render">WebGL2…</span></small>
 <small>Bajas <b id="kills">0</b> · Fugas <b id="leaks">0</b> · <b id="state">PREPARACIÓN</b></small><small id="record">Récord: sin completar</small></div>
-<div class="panel"><strong>Plataforma <span id="slot">1/8</span></strong><small id="installed">Plataforma vacía</small></div></header>
+<div class="panel"><strong>Plataforma <span id="slot">1/8</span></strong><small id="installed">Plataforma vacía</small><button id="rally" hidden title="Mover escuadrón de Infantería a un punto del camino">↗ Reunión</button></div></header>
 <footer><div class="panel" id="feedback" role="status">Cargando combate…</div><div class="controls">
 <button id="prev" aria-label="Plataforma anterior">◀</button><button id="next" aria-label="Plataforma siguiente">▶</button>
 <select id="family" aria-label="Familia"><option value="sniper">Francotirador</option><option value="infantry">Infantería (real)</option></select>
