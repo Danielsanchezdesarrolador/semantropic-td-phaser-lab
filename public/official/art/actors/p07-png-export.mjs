@@ -38,10 +38,11 @@ export function buildP07Atlas(actorId){
  }
  if(n!==32)throw Error('P07 expected 32 frames, got '+n);
  const png=encodeP06Png(c.canvas),sha256=sha256P06(png);
+ const rgbaSha256=sha256P06(c.canvas.data),rgbaBytes=c.canvas.data.byteLength;
  const borderFrames=Object.values(frames).flat().filter(x=>x.border>0);
  const emptyFrames=Object.values(frames).flat().filter(x=>x.visible===0);
  if(borderFrames.length||emptyFrames.length)throw Error('P07 alpha frame QA failed '+actorId);
- return Object.freeze({actorId,version:P07_VERSION,png,sha256,width:W,height:H,
+ return Object.freeze({actorId,version:P07_VERSION,png,sha256,rgbaSha256,rgbaBytes,width:W,height:H,
   atlasKey:P07_ACTORS.find(x=>x.actorId===actorId).atlasKey,frames,
   frameCount:n,sourcePaint:'p07-p03-continuity-rig.mjs',rasterMethod:'P07 software Canvas-like fallback',
   sourceScreenshotSha256:'24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef'});
