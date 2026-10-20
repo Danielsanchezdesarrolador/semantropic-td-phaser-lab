@@ -1,0 +1,30 @@
+name: C1-D0 Canvas V5 Source Contracts Audit
+on:
+  push:
+    branches: [feature/core-c1d-m01-combat]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  c1d0-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify C1-D0 Node module syntax
+        run: |
+          node --check public/official/src/core-c1d/contract-audit.mjs
+          node --check tools/qa-c1d0.mjs
+      - name: Verify M01 source contracts and no-tower natural defeat
+        run: node tools/qa-c1d0.mjs
+      - name: Install Phaser for isolated build
+        run: npm install --no-audit --no-fund
+      - name: Check Phaser 4.2.1 package build
+        run: npm run build
+      - name: Record scope
+        run: echo 'PASS C1-D0 CONTRACTS ONLY; NOT playable combat, NOT a browser validation.'
