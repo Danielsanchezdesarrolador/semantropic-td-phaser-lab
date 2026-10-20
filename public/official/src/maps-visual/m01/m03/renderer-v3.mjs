@@ -10,7 +10,7 @@ export const M03_VERSION="maps/m01/aurora-v3/q2-1";
 export const M03_ROAD_WIDTH=110;
 export const M03_WORLD=Object.freeze({width:1280,height:768});
 export const M03_PALETTES=Object.freeze(["equilibrada","viva","atmosferica"]);
-export const M03_PAD_SOURCE=Object.freeze({width:212,height:152,dpr:2,scale:.44,approxWorldWidth:93.28});
+export const M03_PAD_SOURCE=Object.freeze({width:212,height:152,dpr:2,scale:.26,textureWidthPx:424,approxWorldWidth:110.24});
 export const M03_PROTOTYPE_HIT_RADIUS=54;
 export const M03_SVG_BASE="/official/art/maps/m01/m03/svg/";
 export const M03_SVGS=Object.freeze({supply:"dawn-cache.svg",fern:"dawn-fern.svg"});
@@ -284,6 +284,6 @@ export function mountM01WorldV3(scene,map,options={}){
   occlusionMetadata:props.map(({id,foot,category,suggestedDepth,occlusionRule,visualRadiusWorld,provisionalOccludedAlpha})=>({
     id,foot,category,suggestedDepth,occlusionRule,visualRadiusWorld,provisionalOccludedAlpha
   })),
-  getPadMetrics:()=>({sourceWidth:M03_PAD_SOURCE.width,visualScale:M03_PAD_SOURCE.scale,apparentWorldWidth:M03_PAD_SOURCE.approxWorldWidth,legacyM02ApproxWorldWidth:232*.58,hitRadiusWorld:M03_PROTOTYPE_HIT_RADIUS,ratioToTower:"NOT VERIFIED UNTIL REAL C1B SCREENSHOT"}),
+  getPadMetrics:()=>({sourceWidth:M03_PAD_SOURCE.width,visualScale:M03_PAD_SOURCE.scale,apparentWorldWidth:M03_PAD_SOURCE.approxWorldWidth,legacyM02ApproxWorldWidth:232*2*.58,hitRadiusWorld:M03_PROTOTYPE_HIT_RADIUS,ratioToTower:"NOT VERIFIED UNTIL REAL C1B SCREENSHOT"}),
   setSocketVisualState,updateDebug,updateAmbient(){},destroy};
 }
