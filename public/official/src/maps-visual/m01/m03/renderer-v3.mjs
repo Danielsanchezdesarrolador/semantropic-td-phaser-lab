@@ -183,7 +183,11 @@ export function makeM03ArtPlan(map){
   {id:"m01-m03-fern",type:"fern",x:545,y:683,scale:.28,footY:683,occlusion:"low",category:"vegetation",radiusWorld:14}
  ];
  const semanticRadius={oak:24,waymarker:13,fence:22,wagon:21,lookout:29,shrine:24,aqueduct:28};
- const illustrations=src.illustrations.filter(v=>!["wagon","waymarker"].includes(v.type)).map(v=>({
+ // Curate three distinct story zones rather than crowd the entry with tree and aqueduct.
+ const landmarkSet=src.landmarks.map(v=>v.type==="shrine"?{...v,x:625,y:92,footY:92}:({...v}));
+ const illustrations=src.illustrations.filter(v=>!["wagon","waymarker"].includes(v.type))
+  .filter(v=>v.type!=="oak"||landmarkSet.every(l=>Math.hypot(v.x-l.x,v.y-l.y)>109))
+  .map(v=>v.type==="shrine"?{...v,x:625,y:92,footY:92}:v).map(v=>({
   ...v,category:["oak"].includes(v.type)?"vegetation":"narrative",
   radiusWorld:semanticRadius[v.type]||21,
   footY:v.footY??v.y
@@ -194,7 +198,7 @@ export function makeM03ArtPlan(map){
  must(exclusions.length===0,"authored prop violates route/socket reserve: "+exclusions.map(x=>x.id).join(","));
  return {
   canonicalPath:map.path.map(p=>[...p]),sockets,illustrations,
-  landmarks:src.landmarks.map(x=>({...x})),
+  landmarks:landmarkSet,
   excludedFromPrevious:["wagon","waymarker"],
   visualWidth:M03_ROAD_WIDTH,collisionAuthority:"integrator-only",
   protagonist:"path > towers/actors > pads > terrain"
@@ -235,7 +239,9 @@ export function mountM01WorldV3(scene,map,options={}){
   const x=socket.world.x,y=socket.world.y;
   const shadow=put(scene.add.ellipse(x,y+10,88,24,0x1a4548,.38).setDepth(-1040),"shadows");
   const sprite=put(scene.add.image(x,y,prefix+"pad/"+kind+"/empty").setOrigin(.5,.72).setScale(M03_PAD_SOURCE.scale).setDepth(-1000),"pads");
-  pads.push({socket,kind,visualState:"neutral",sprite,shadow,sourcePx:M03_PAD_SOURCE,footWorld:{x,y}});
+  const selection=put(scene.add.ellipse(x,y+5,94,32,0xffe1a4,.055)
+   .setStrokeStyle(2.5,0xf7d78e,.95).setVisible(false).setDepth(-990),"pads");
+  pads.push({socket,kind,visualState:"neutral",sprite,shadow,selection,sourcePx:M03_PAD_SOURCE,footWorld:{x,y}});
  }
  const overlay=put(scene.add.graphics().setDepth(2500),"debug");
  let disposed=false;
@@ -246,6 +252,7 @@ export function mountM01WorldV3(scene,map,options={}){
   const glyph=state==="occupied"?"occupied":state==="ruins"?"ruins":"empty";
   pad.visualState=state;
   pad.sprite.setTexture(prefix+"pad/"+pad.kind+"/"+glyph);
+  pad.selection.setVisible(state==="selected");
   // The selected indicator is rendered in the debug overlay, not a global gameplay event.
   return true;
  }
