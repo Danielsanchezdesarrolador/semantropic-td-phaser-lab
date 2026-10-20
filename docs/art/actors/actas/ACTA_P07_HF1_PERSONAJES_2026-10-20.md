@@ -14,7 +14,8 @@ En el entorno V8 con el que se exportó P07 antes de HF1, el \`warrior.png\` se 
 ## 2. EXPERIMENTO CONTROLADO: SENSIBILIDAD NUMÉRICA
 Se introdujo deliberadamente una variación \`+1e-12\` en operaciones \`sin/cos/hypot/sqrt/atan2\` del entorno V8 sobre \`warrior idle-0\`.
 - Renderer anterior: **45 canales RGB/A distintos**, de los cuales **13 diferencias alfa**.
-- Prototipo HF1: **0 diferencias** al mismo perturbador.
+- La **primera propuesta** HF1 resolvió `warrior idle-0`, pero una prueba ampliada (4 actores ×5 estados) detectó **5/20 muestras inestables**, mayormente hound; NO se liberó como solución final.
+- Se encontró otra fuente de divergencia: `stroke()` utilizaba `Math.hypot` sin normalizar al elegir cantidad de submuestras del contorno. Se reemplazó por longitud `sqrt` normalizada a 1e-6. **Prueba final: 20/20 cuadros muestreados exactamente iguales bajo el mismo perturbador.**
 - Comparación renderer original vs HF1 sin perturbador, mismo frame: **94 canales distintos, 0 canales alfa distintos** (en el primer cuadro probado).
 Esta prueba **demuestra susceptibilidad y eficacia frente a esa perturbación**, NO demuestra que la variación idéntica sea la causa efectiva del fallo Node22. Node en CI todavía no ha sido re-ejecutado con la corrección.
 
@@ -27,16 +28,16 @@ Esta prueba **demuestra susceptibilidad y eficacia frente a esa perturbación**,
 No se modificó \`p07-p03-continuity-rig.mjs\`, fuente histórica P03, colisiones, gameplay ni contratos fuera de dominio.
 
 ## 4. BINARIOS REALES HF1 Y HUELLAS DUAL PNG/RGBA
-Se regeneraron y sustituyeron los cuatro objetos Git PNG RGBA8 fuente P03 en commit \`b8e2fa2488d6b136855b0a4b7e1198a35d30e28d\`. ABI exacto: 1408×832, 8×4 de 176×208, 32 frames por actor, 128 global; estados \`idle4,walk8,attackWindup3,attack5,hit3,die6,blocked3\`; pivote 0.5/0.92. Cada fuente V8 produjo 32 cuadros no vacíos y cero contactos alfa en bordes.
+Se regeneraron y sustituyeron los cuatro objetos Git PNG RGBA8 fuente P03 en commit \`db0d27e9762ee8cd6bb65c7538a364f3c7767985\`. ABI exacto: 1408×832, 8×4 de 176×208, 32 frames por actor, 128 global; estados \`idle4,walk8,attackWindup3,attack5,hit3,die6,blocked3\`; pivote 0.5/0.92. Cada fuente V8 produjo 32 cuadros no vacíos y cero contactos alfa en bordes.
 
 | Actor | Bytes PNG HF1 | SHA256 PNG comprimido (bytes exactos) | SHA256 RGBA crudo (4.685.824 bytes) |
 |---|---:|---|---|
-| warrior | 696970 | \`da8922ef87fcef8a43919dfdcd0a96aa3efc12a892493fac465562f2d39cbf28\` | \`d49d01c53ca49be3eac278c33f79d5f0325a80195148ab6ed6b3aaf7590acdb4\` |
-| hound | 600460 | \`e4c152adadb57ec67bc268ed246f67a118b807b6c3fd7fb563679359a509516a\` | \`ff5e85d9788f712294fef4b42e7d6321092cfe1a0273ceed78c3d83147d7fec5\` |
-| infantry_recruit | 610641 | \`83ccc2f9385abc2f0d8d9407dce7786cd9fd6c8b68da77ac8506c1f0b76a747d\` | \`b72d555e5a08aa519702aa09c6758d232289102600d24c44f6c03e5a5fee3bce\` |
+| warrior | 696955 | \`41ce773004dc8147463d7198e996b08144ed12824b933edf4d5d737db31bcc5e\` | \`3e5aa32b1d2a521a8d738c2a9c1a6e83fb78c258306cb85c363131dfff7a823f\` |
+| hound | 600459 | \`3812bc31e9bc46ebda437f1c88c067811c59fa8928c4f2c608f4462e96934e60\` | \`535c3cf9a3f3695a5fd9b896da65057169857147eacf13c26b7ace31dffb1f4a\` |
+| infantry_recruit | 610640 | \`c372219d8899fb00aed63f42701a7e7d038685430a6d564b2a1784559b6f4559\` | \`ebb5229a969756483ee18fb94be239411a436b253182efea70e117a000da4f69\` |
 | sniper_operator_unarmed | 539249 | \`94061e8637c60d9e78d31449ace49c90d4f96337c6cecc481f5fd13bf24eca2f\` | \`40079024940d5f085596f0ccaf658c62a610e1b485e81fbc94037cfe2eda79e0\` |
 
-**Total PNG comprimido:** 2.447.320 bytes; RGBA nominal 18.743.296 bytes (cuatro).
+**Total PNG comprimido:** 2.447.303 bytes; RGBA nominal 18.743.296 bytes (cuatro).
 El SHA PNG mide archivo/compresión/chunks; el SHA RGBA mide píxeles decodificados, permitiendo separar diferencias de encoding de cambios visuales. No afirmar que CRC/chunks ya fueron decodificados en Node HF1; se versionó el lector y falta ejecutarlo.
 
 ## 5. QA FORENSE QUE NO OCULTA EL FALLO
