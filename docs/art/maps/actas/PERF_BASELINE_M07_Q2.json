@@ -1,0 +1,167 @@
+{
+  "schema": "semantropic-mapas-perf-v1",
+  "milestone": "MAPAS_M07_Q2_C1D5",
+  "date": "2026-10-20",
+  "environmentNotes": [
+    "V8 test doubles evaluate downloaded original GitHub M03 and two M07 versions, not browser or GPU",
+    "Rendering code draws mock Canvas, so counters are texture creates/removes not GPU allocations"
+  ],
+  "sourceVersions": {
+    "before": "feature/art-m07-continuidad-c1c@2c08eaa13dac309f85f4e76b736db6f66545aac9",
+    "afterBranch": "feature/art-m07-q2-performance-c1d5",
+    "headSha": "DYNAMIC_SEE_PR_COMMITS"
+  },
+  "invariant": {
+    "world": [
+      1280,
+      768
+    ],
+    "map": "M01",
+    "pathVertices": 133,
+    "pads": 8,
+    "props": 13,
+    "defaultPalette": "viva",
+    "defaultTreatment": "fiel",
+    "additionalArtAssets": 0
+  },
+  "sourceSimulatedComparison": {
+    "status": "PASS_V8_ACTUAL_GITHUB_SOURCE_MOCK_CANVAS_PHASER",
+    "scenario": "50 sequential mounts/destroys, alternating fiel and pulido; same canonical M01",
+    "before": {
+      "cycles": 50,
+      "canvasTextureCreateCalls": 575,
+      "canvasTextureRemoveCalls": 575,
+      "historicalM03CacheAfter": 0,
+      "polishAfter": 0,
+      "svgAfter": 9
+    },
+    "after": {
+      "cycles": 50,
+      "canvasTextureCreateCalls": 36,
+      "canvasTextureRemoveCalls": 25,
+      "historicalM03CacheAfter": 11,
+      "polishAfter": 0,
+      "svgAfter": 9
+    },
+    "explanation": "Before: 11 generated M03 textures each mount plus 25 optional polish canvases. After: M03 11 generated once and reused, polish generated/released 25 times. These are texture-operation counts only.",
+    "eventAndSafety": {
+      "cyclesQA50": "PASS_V8_MOCK",
+      "selectionOccupiedPreserved": true,
+      "staleSaleAndSnapshotRejected": true,
+      "foreignM03SourceSceneStillUsableAfterM07Close": true,
+      "syntheticDisplayFixtures": 63
+    }
+  },
+  "theoreticalMemory": {
+    "historicalGenerated": {
+      "ground": [
+        2560,
+        1536
+      ],
+      "road": [
+        2560,
+        1536
+      ],
+      "pads9Each": [
+        424,
+        304
+      ],
+      "totalCanvasTextureFamilies": 11,
+      "rgba8UncompressedMiB": 34.43
+    },
+    "sharedHistoricalSvgKeys": 9,
+    "actualDecodedSvgGpuMemoryMiB": null,
+    "optionalPolish": {
+      "activeOnlyIfOptIn": true,
+      "pixels": [
+        1280,
+        768
+      ],
+      "rgba8UncompressedMiB": 3.75
+    },
+    "warnings": [
+      "34.43 MiB is a CPU/theoretical single RGBA8 representation, not observed GPU memory",
+      "Phaser/driver may allocate additional memory, mipmaps, staging surfaces, and JS source decode",
+      "Keeping 11 generated canvases until the Phaser texture manager shuts down is intentional bounded retention, NOT a measured leak",
+      "A direct old M03 renderer with disposeTextures:true can delete textures despite M07 cache; Integrator must avoid mixed unsafe cleanup"
+    ]
+  },
+  "browserRows": [
+    {
+      "platform": "desktop",
+      "viewport": [
+        1280,
+        768
+      ],
+      "renderer": "NOT_RUN",
+      "initializationMs": null,
+      "displayObjects": null,
+      "svgKeys": null,
+      "generatedTextures": null,
+      "newTextures": null,
+      "frametimeP50MsAt0": null,
+      "frametimeP95MsAt0": null,
+      "frametimeP50MsAt63Synthetic": null,
+      "frametimeP95MsAt63Synthetic": null,
+      "drawCalls": null,
+      "realGpuMiB": null,
+      "physicalPhone": false,
+      "status": "NOT_RUN_NO_BRANCH_HTTP_BROWSER_RUN"
+    },
+    {
+      "platform": "mobile_emulated_1",
+      "viewport": [
+        844,
+        390
+      ],
+      "renderer": "NOT_RUN",
+      "initializationMs": null,
+      "displayObjects": null,
+      "svgKeys": null,
+      "generatedTextures": null,
+      "newTextures": null,
+      "frametimeP50MsAt0": null,
+      "frametimeP95MsAt0": null,
+      "frametimeP50MsAt63Synthetic": null,
+      "frametimeP95MsAt63Synthetic": null,
+      "drawCalls": null,
+      "realGpuMiB": null,
+      "physicalPhone": false,
+      "status": "NOT_RUN_NO_BRANCH_HTTP_BROWSER_RUN"
+    },
+    {
+      "platform": "mobile_emulated_2",
+      "viewport": [
+        932,
+        430
+      ],
+      "renderer": "NOT_RUN",
+      "initializationMs": null,
+      "displayObjects": null,
+      "svgKeys": null,
+      "generatedTextures": null,
+      "newTextures": null,
+      "frametimeP50MsAt0": null,
+      "frametimeP95MsAt0": null,
+      "frametimeP50MsAt63Synthetic": null,
+      "frametimeP95MsAt63Synthetic": null,
+      "drawCalls": null,
+      "realGpuMiB": null,
+      "physicalPhone": false,
+      "status": "NOT_RUN_NO_BRANCH_HTTP_BROWSER_RUN"
+    }
+  ],
+  "comparisons": {
+    "beforeAfterWebGL2FrameTime": "NOT_RUN",
+    "benchmarkReal63CoreSpawns": "NOT_RUN_INTEGRATOR_C1D5",
+    "mobilePhysical": "NOT_RUN",
+    "browserCapturePath": "docs/art/maps/evidencias/M07-Q2/PERF_CHROMIUM_M07_Q2.json (generated only when runner is actually executed)",
+    "runnerPath": "public/official/src/maps-visual/m01/m07/capture-m07-q2.mjs"
+  },
+  "screenshots": {
+    "generatedThisIteration": 0,
+    "sha256Index": [],
+    "approvedHistoricalC1CPngSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef"
+  },
+  "performanceVerdict": "Mock texture allocation/deallocation churn reduced; no verified FPS or physical device improvement yet."
+}
