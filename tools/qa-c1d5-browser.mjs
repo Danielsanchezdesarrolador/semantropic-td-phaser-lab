@@ -159,6 +159,54 @@ try{
  if(pageErrors.length)throw Error("Natural defeat page errors "+pageErrors.join("|"));
  await page.close();
  console.log("C1D5_REAL_BROWSER_NATURAL_DEFEAT",JSON.stringify(outcome));
+ // Verified real WIN core accelerated only inside browser QA (no invented victory flag).
+ const winningPage=await browser.newPage({viewport:{width:1280,height:768}});
+ const winErrors=[];winningPage.on("pageerror",e=>winErrors.push(e.message));
+ await winningPage.goto(TEST_URL,{waitUntil:"load"});
+ await winningPage.waitForFunction(()=>!!window.__SEMANTROPIC_C1D5?.world,null,{timeout:45000});
+ const victory=await winningPage.evaluate(()=>{
+  const c=window.__SEMANTROPIC_C1D5,w=c.world,order=[0,2,4,7,1,3,5,6];
+  if(!w.economy.build(0,"infantry").ok||!w.economy.build(2,"sniper").ok)
+   throw Error("Could not create real winning strategy");
+  w.syncTowers();
+  let turns=0;
+  for(let wave=1;wave<=5&&!w.ended;wave++){
+   if(!w.startWave())throw Error("wave blocked "+wave);
+   let steps=0;
+   while(w.active&&!w.ended&&steps++<30000){
+    w.tick(1/60);turns++;
+    if(steps%60===0)for(const pad of order)if(!w.economy.getTower(pad)){
+     if(w.economy.quote(pad,"sniper").ok){
+      if(!w.economy.build(pad,"sniper").ok)throw Error("purchase inconsistent");break;
+     }
+    }
+   }
+   if(steps>=30000)throw Error("wave timeout "+wave);
+  }
+  c.scene.drawTowers();
+  return {ended:w.ended,won:w.won,wave:w.wave,kills:w.kills,
+   escaped:w.escapedCount,spawns:w.totalSpawns,lives:w.lives,turns};
+ });
+ if(!victory.ended||!victory.won||victory.wave!==5||victory.spawns!==63||
+    victory.kills!==63||victory.escaped!==0||victory.lives!==100)
+  throw Error("Real full core victory parity invalid "+JSON.stringify(victory));
+ await winningPage.waitForFunction(()=>!document.querySelector("#results").hidden,null,{timeout:8000});
+ const wonStars=await winningPage.locator("#resultStars").textContent();
+ if(wonStars!=="★★★")throw Error("Real victory wrong stars "+wonStars);
+ const persisted=await winningPage.evaluate(()=>JSON.parse(
+  localStorage.getItem("semantropic_td_phaser_m01_normal_v1")||"null"));
+ if(!persisted||persisted.stars!==3||persisted.outcome!=="victory"||
+   persisted.escapes!==0)throw Error("Real core victory record missing "+JSON.stringify(persisted));
+ await winningPage.screenshot({path:"artifacts/c1d5-browser/desktop-real-victory-3stars.png",fullPage:true});
+ await winningPage.locator("#resultRestart").click();
+ await winningPage.waitForFunction(()=>window.__SEMANTROPIC_C1D5?.world?.wave===0,null,{timeout:45000});
+ const bestAfter=await winningPage.locator("#record").textContent();
+ if(!bestAfter.includes("★★★"))throw Error("Record lost on fresh session "+bestAfter);
+ if(winErrors.length)throw Error("Winning browser errors "+winErrors.join("|"));
+ console.log("C1D5_REAL_BROWSER_VICTORY_AND_PERSISTENCE",JSON.stringify({victory,stars:wonStars,
+  record:bestAfter,humanPlaytest:false,execution:"scripted real core in Chromium WebGL2"}));
+ await winningPage.close();
+
  console.log(JSON.stringify({status:"PASS_C1D5_REAL_CHROMIUM_WEBGL2",results},null,2));
 }catch(e){console.error("C1D5_BROWSER_FAIL",e.stack||String(e));process.exitCode=1;}
 finally{await browser?.close();await new Promise(resolve=>srv.close(resolve));}
