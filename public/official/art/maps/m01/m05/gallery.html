@@ -1,0 +1,15 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M05 · Comparación real misma cámara</title><style>body{margin:0;background:#11393c;color:#f3e9ca;font:14px system-ui;padding:17px}h1{margin:0 0 8px;font-size:22px}p{max-width:980px;line-height:1.4;color:#c7e1d8}nav{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 15px}
+button{min-height:43px;cursor:pointer;background:#225363;color:#f2e5c8;border:1px solid #c4ac7d;border-radius:8px;padding:7px 14px;font-weight:800}
+section{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pane{background:#0c2c37;border:1px solid #cfb986;border-radius:11px;overflow:hidden}.pane b{display:block;background:#143d42;padding:10px 13px;color:#ffe4a6}iframe{width:100%;aspect-ratio:1280/768;border:0;display:block}
+aside{margin-top:13px;color:#e9d7af;font-size:12px}a{color:#f3d09a}@media(max-width:840px){section{grid-template-columns:1fr}}
+</style></head><body><h1>SEMANTROPIC TD · C1-D2 / M05</h1><p>Comparación en dos vistas Phaser independientes con el mismo mapa, encuadre y estados visuales de plataformas. Estas ventanas solo mostrarán imágenes reales tras servir la rama por HTTP y disponer de WebGL2. No constituyen un juego jugable ni fotografías de QA previamente realizadas.</p>
+<nav><button onclick="setModes('m04','bucolico')">Antes M04 / Después M05 A</button><button onclick="setModes('bucolico','contraste')">M05 A / M05 B</button></nav>
+<section><div class="pane"><b id="leftLabel">ANTES · M04</b><iframe id="left" title="Primer mapa antes" src="index.html?mode=m04"></iframe></div>
+<div class="pane"><b id="rightLabel">DESPUÉS · M05 A</b><iframe id="right" title="Primer mapa después" src="index.html?mode=bucolico"></iframe></div></section>
+<aside>Enfoque M05: seis zonas × tres clústeres únicos; figuras y rutas canónicas no modificadas. La comparación con cuatro torres T05 y 13 actores P04 requiere el montaje autorizado del Integrador. <a href="M05_PLANCHA_18_MICROAMBIENTES.html">Consultar los 18 SVG originales</a>.</aside>
+<script>
+function setModes(a,b){document.getElementById("left").src="index.html?mode="+a;document.getElementById("right").src="index.html?mode="+b;
+document.getElementById("leftLabel").textContent=a==="m04"?"ANTES · M04":"M05 · A LUMINOSA";
+document.getElementById("rightLabel").textContent=b==="bucolico"?"DESPUÉS · M05 A":"M05 · B CONTRASTE ORGÁNICO";}
+</script></body></html>
