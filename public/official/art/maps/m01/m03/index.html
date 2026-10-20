@@ -1,0 +1,71 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#183d3a">
+<title>Semantropic TD · M03 Q2 · Praderas del Amanecer</title>
+<style>
+:root{color-scheme:dark;--top:env(safe-area-inset-top,0px);--bottom:env(safe-area-inset-bottom,0px);--left:env(safe-area-inset-left,0px);--right:env(safe-area-inset-right,0px)}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;overscroll-behavior:none;touch-action:none}
+body{background:#123b3b;color:#fff1d1;font:13px/1.3 'Trebuchet MS',system-ui,sans-serif}
+#app{width:100vw;height:100dvh;position:relative;overflow:hidden;background:linear-gradient(125deg,#457d62,#90bd77)}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#stage canvas{display:block;max-width:100%;max-height:100%;touch-action:none}
+#top{position:absolute;z-index:15;left:calc(var(--left) + 9px);right:calc(var(--right) + 9px);top:calc(var(--top) + 7px);display:flex;align-items:start;justify-content:space-between;gap:9px;pointer-events:none}
+.brand{background:linear-gradient(#1e4b4deb,#0b2d39ee);border:1px solid #e2c58c;border-radius:9px;padding:8px 12px;box-shadow:0 4px 12px #10343eaa}
+.brand strong{font-weight:900;color:#ffe5a4;font-size:16px;letter-spacing:.03em}.brand small{display:block;color:#ccddd1}
+#variantName{color:#b9ead4;font-size:11px;margin-top:2px}
+nav,.toolbar{display:flex;gap:4px;pointer-events:auto;flex-wrap:wrap}
+button{border:1px solid #eed4a0;border-radius:7px;background:linear-gradient(#375d62fa,#152f3deb);color:#fdf0d6;font:800 11px system-ui;min-height:44px;white-space:nowrap;padding:6px 10px;cursor:pointer;touch-action:manipulation}
+button.active{border:2px solid #fff0c3;background:linear-gradient(#f0c373,#a77a39);color:#253944}
+button:disabled{opacity:.45}
+#bottom{position:absolute;z-index:15;left:calc(var(--left) + 9px);right:calc(var(--right) + 9px);bottom:calc(var(--bottom) + 8px);display:flex;align-items:end;justify-content:space-between;gap:8px;pointer-events:none}
+.info{background:#0d303ccf;border:1px solid #7caaa3;border-radius:8px;padding:7px 10px;max-width:340px;font-size:10px;color:#e0ede1}
+.info b{color:#ffe5b4}
+#message{position:absolute;left:calc(var(--left) + 10px);bottom:calc(var(--bottom) + 74px);z-index:10;background:#102f38db;padding:5px 9px;border-radius:5px;font-size:10px;color:#d7efe0;pointer-events:none}
+#inspection{position:absolute;left:calc(var(--left) + 10px);bottom:calc(var(--bottom) + 74px);z-index:22;background:linear-gradient(#204b51f3,#0d2f3dec);border:2px solid #efcf92;border-radius:9px;padding:10px;width:min(350px,48vw)}
+#inspection[hidden],#blocker[hidden]{display:none}
+#inspection strong{color:#ffe1a6;font-size:13px}
+#inspection p{font-size:11px;line-height:1.3;margin:6px 0}
+#blocker{position:absolute;inset:0;z-index:95;display:grid;place-items:center;text-align:center;background:#15363ef2;color:#f8e7c3;padding:30px;font-size:17px}
+#rotate{display:none;position:absolute;inset:0;z-index:90;background:#0c2a36f2;color:#ffeac2;font-size:21px;align-items:center;justify-content:center;text-align:center}
+@media(max-width:950px) and (orientation:landscape){
+ #top{left:calc(var(--left) + 4px);right:calc(var(--right) + 4px);top:calc(var(--top) + 3px);gap:3px}
+ .brand{padding:3px 6px;border-radius:5px}.brand strong{font-size:9px}.brand small,#variantName{font-size:8px;margin:0}
+ nav,.toolbar{gap:2px}
+ button{min-height:36px;font-size:9px;padding:4px 5px;border-radius:5px}
+ #bottom{left:calc(var(--left) + 4px);right:calc(var(--right) + 4px);bottom:calc(var(--bottom) + 3px);gap:2px}
+ .info,#message{display:none}
+ #inspection{left:calc(var(--left) + 5px);bottom:calc(var(--bottom) + 43px);padding:6px;max-height:110px;overflow:auto}
+ #inspection strong{font-size:11px}#inspection p{font-size:9px;margin:3px 0}
+}
+@media(orientation:portrait) and (max-width:950px){#rotate{display:flex}}
+</style></head><body><main id="app">
+<div id="stage" aria-label="Comparador M03 de Praderas del Amanecer en Phaser"></div>
+<div id="top">
+ <div class="brand"><strong>SEMANTROPIC TD · M-03</strong><small>Praderas del Amanecer · Q2 Art Pass</small><div id="variantName">Preparando mapa…</div></div>
+ <nav aria-label="Antes y después">
+  <button data-variant="m01">A · M01</button><button data-variant="m02">B · M02</button>
+  <button data-variant="equilibrada" class="active">C · M03</button><button data-variant="viva">Viva</button>
+  <button data-variant="atmosferica">Atmosférica</button>
+ </nav>
+</div>
+<div id="inspection" hidden>
+ <strong>Plataforma de construcción (vista exclusivamente artística)</strong>
+ <p id="socketText">Selecciona un socket.</p><p id="stateText"></p>
+ <button id="close">Cerrar ✕</button>
+</div>
+<div id="message">Mapa visual — no combate, no construye torres.</div>
+<div id="bottom">
+ <div class="toolbar">
+  <button id="occupiedBtn">Alternar base ocupada</button><button id="pathToggle">Ruta</button>
+  <button id="hitToggle">Sockets</button><button id="occlusionToggle">Oclusión</button>
+ </div>
+ <div class="toolbar" aria-label="Encuadre local de comparación">
+  <button data-zoom=".84">84%</button><button data-zoom=".92">92%</button><button data-zoom="1" class="active">100%</button><button id="reset">↺</button>
+ </div>
+ <div class="info"><b>VITRINA Q2 · SOLO ARTE</b><div><span id="engine">WebGL2 por verificar</span><br><span id="socketCount">8</span> pads · <span id="propsCount">—</span> props · diámetro base <span id="padWidth">~93</span> u · cámara <span id="zoomText">100%</span></div></div>
+</div>
+<div id="blocker">Cargando Phaser, SVG originales y mapa canónico…</div>
+<div id="rotate">↻ Gira el teléfono para inspeccionar el mapa</div>
+</main>
+<script src="../../../../../dependencias/phaser.min.js"></script>
+<script type="module" src="../../../../src/maps-visual/m01/m03/showcase-v3.mjs"></script>
+</body></html>
