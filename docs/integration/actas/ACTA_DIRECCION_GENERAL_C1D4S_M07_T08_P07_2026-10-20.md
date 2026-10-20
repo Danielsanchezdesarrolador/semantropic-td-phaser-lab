@@ -32,3 +32,7 @@ Integración de 72 blobs de Git en su namespace, sin tocar core ni staging.
 
 ## Próximo gate
 Nueva CI para C1-D4S con fallback P03 como visual predeterminado. Hasta que T08/P07 reparen sus pruebas y demuestren grip/continuidad, mantener ambos como componentes candidatos y NO promocionar PR #33.
+
+## Validación adicional: operador P03 como fallback funcional (después de rechazo P07)
+[PASS CHROMIUM/WebGL2 REAL] [Actions #39457360704](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39457360704) ejecutó C1-D4R aprobado y luego C1-D4S con operador P03 original predeterminado. Tres viewports, touch/compra/kill/bonus/pause/restart pasaron. Arte candidato de T08/M07 luce fiel; operador igual que el aprobado. Artifact real ID 12280953608, screenshot primer kill. El run general termina FAILURE **intencional** por T08/P07 QA pendientes, no por navegador; los dos pasos browser son SUCCESS. Se preserva variante opt-in `?operator=p07` sólo para inspección, rechazada para montaje predeterminado por cambio de casco/cabeza.
+[DECISIÓN] Preservar rollback PR #30, mantener PR #33 DRAFT; acciones correctivas en TORRES #29 y PERSONAJES #32. No autorizar merge/deploy aún.
