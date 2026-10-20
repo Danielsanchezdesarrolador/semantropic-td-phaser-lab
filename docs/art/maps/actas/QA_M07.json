@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "team-mapas-m07-qa-v1",
+  "team": "MAPAS",
+  "milestone": "M07/C1-C-VISUAL-LOCK",
+  "date": "2026-10-20",
+  "branch": "feature/art-m07-continuidad-c1c",
+  "baseSha": "fa7f5f90a059b3292a20a7b3834ac43c81176ac7",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/31",
+  "currentHeadSha": null,
+  "headAuthority": "GitHub PR #31 / commits after final index update",
+  "status": "CONTINUIDAD_RESTAURADA_EN_CODIGO_PENDIENTE_QA_WEBGL2_Y_APROBACION",
+  "approvedReference": {
+    "sha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "dimensions": [
+      1280,
+      768
+    ],
+    "locallyVerified": true,
+    "imageCommittedToRepo": false,
+    "galleryPhotoHandling": "User chooses original local PNG; JS checks SHA256 before rendering untouched image"
+  },
+  "historicalC1C": {
+    "branch": "integration/c1c-q2-review",
+    "PR": 12,
+    "visualSource": "M03 Viva / T04 / P03",
+    "historicalCI": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39347724679",
+    "pastArtifacts": "Real C1C captures, NOT new M07 evidence"
+  },
+  "functionalLatest": {
+    "PR": 28,
+    "branch": "integration/c1d4-first-playable-m01",
+    "note": "Core mechanics reference only; team M does not change scene"
+  },
+  "checks": [
+    {
+      "id": "M07-01-base",
+      "status": "PASS",
+      "tool": "GitHub get branch HEAD / create_branch",
+      "evidence": "M06 HEAD fa7f5f90a059b3292a20a7b3834ac43c81176ac7 at creation. M07 branched exactly from it."
+    },
+    {
+      "id": "M07-02-reference",
+      "status": "PASS",
+      "tool": "PIL + hashlib.sha256 on director-provided original PNG",
+      "evidence": "Original screenshot 1280x768 RGB, sha256=24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef"
+    },
+    {
+      "id": "M07-03-M03-source",
+      "status": "PASS",
+      "tool": "GitHub fetch_file M03 renderer + C1C review scene",
+      "evidence": "C1C uses mountM01WorldV3 with palette Viva; M07 imports same source, does not change M03 file."
+    },
+    {
+      "id": "M07-04-identical-assets",
+      "status": "PASS",
+      "tool": "V8 actual M03/M07 art-plan evaluation from GitHub sources",
+      "evidence": "13/13 prop IDs and xy world positions identical; seven original oaks, fence, aqueduct, shrine, lookout, supply and fern."
+    },
+    {
+      "id": "M07-05-canon",
+      "status": "PASS",
+      "tool": "V8 inspect makeM07ArtPlan and maps.v5.json original",
+      "evidence": "10 maps; M01 133 waypoint, 8 sockets, path ends (-32,342),(1312,400), width 110; visual hit 54."
+    },
+    {
+      "id": "M07-06-default-lightweight",
+      "status": "PASS",
+      "tool": "V8 mocked scene & preloadM07Illustrations",
+      "evidence": "Default FIEL 9 inherited SVG keys (M02 7, M03 2), 53 objects, 13 props, 8 pads; zero M06 SVGs or generated visual layers."
+    },
+    {
+      "id": "M07-07-polish-opt-in",
+      "status": "PASS",
+      "tool": "V8 scene mock",
+      "evidence": "PULIDO uses same M03 world with only one optional 1280x768 fine turf overlay, 54 objects; no new trees or route."
+    },
+    {
+      "id": "M07-08-read-only-adapter",
+      "status": "PASS",
+      "tool": "V8 applyVisualSnapshot/projectEvent from M07 source",
+      "evidence": "Occupied+selected retains occupied pad, stale tower_sold tick=19 rejected after snapshot tick=20, duplicate event rejected."
+    },
+    {
+      "id": "M07-09-lease-cleanup",
+      "status": "PASS",
+      "tool": "V8 mount/destroy twice + two simultaneous visual views",
+      "evidence": "Historical M03 generated textures removed after last M07 owner; optional polish texture held while 2nd view alive, then removed; 9 shared SVG cached."
+    },
+    {
+      "id": "M07-10-ownership",
+      "status": "PENDING",
+      "tool": "GitHub compare M06/M07",
+      "evidence": "Must inspect final diff after acta and INDEX updates."
+    },
+    {
+      "id": "M07-11-Node",
+      "status": "NOT_RUN",
+      "tool": "node public/official/src/maps-visual/m01/m07/qa-m07.mjs [original PNG]",
+      "evidence": "Script created in GitHub, no native Node checkout of M07 executed."
+    },
+    {
+      "id": "M07-12-regression",
+      "status": "NOT_RUN",
+      "tool": "node M03/M04/M05/M06/M07 QA scripts",
+      "evidence": "No native checkout/workflow on MAPAS branch run."
+    },
+    {
+      "id": "M07-13-build",
+      "status": "NOT_RUN",
+      "tool": "npm run build",
+      "evidence": "No build runner connected to MAPAS branch, shared CI/workflow cannot be altered by M team."
+    },
+    {
+      "id": "M07-14-Chromium-Desktop",
+      "status": "NOT_RUN",
+      "tool": "capture-m07.mjs http://127.0.0.1:8080 -- 1280x768",
+      "evidence": "No new real-browser screenshot of M07 created."
+    },
+    {
+      "id": "M07-15-Chromium-Mobile",
+      "status": "NOT_RUN",
+      "tool": "capture-m07.mjs 844x390 / 932x430 viewport emulation",
+      "evidence": "Script exists; Chromium run not executed."
+    },
+    {
+      "id": "M07-16-C1D4-Core",
+      "status": "NOT_RUN",
+      "tool": "Integrate M07 as read-only map source with functional C1-D4 PR #28",
+      "evidence": "Core gameplay imported only by Integrator; no kills/escapes/economy executed from MAPAS code."
+    },
+    {
+      "id": "M07-17-Director-approval",
+      "status": "NOT_RUN",
+      "tool": "Compare approved original screenshot to genuine same-camera T/P/C1-D4 screenshot",
+      "evidence": "No equal-object screenshot after M07; owner review pending."
+    },
+    {
+      "id": "M07-18-Device",
+      "status": "NOT_RUN",
+      "tool": "Physical iOS/Android landscape + real FPS/GPU/thermal",
+      "evidence": "No actual devices tested."
+    }
+  ],
+  "screenshots": {
+    "originalVerifiedUpload": 1,
+    "originalStoredInsideGitHub": 0,
+    "genuineM07WebGL2": 0,
+    "genuineIntegratedC1D4M07": 0,
+    "screenshotIndex": []
+  },
+  "mockResults": {
+    "totalScenarios": 2,
+    "faithfulSceneObjects": 53,
+    "optionalPolishedSceneObjects": 54,
+    "baseSVGLoaded": 9,
+    "originalSceneProps": 13,
+    "canonicPads": 8,
+    "resourceLeaseTests": "PASS_V8",
+    "canvasExtraMiBDefault": 0,
+    "optionalPolishCanvasRgba8MiB": 3.75
+  },
+  "knownRisks": [
+    "New M07 screenshot has not been captured or compared at equal T04/P03 scene content",
+    "Default M03 source is source-fidelity, but same-pixel equivalence to approved CI screenshot requires WebGL2 actual run",
+    "M07 loader has only M03 resources; comparison iframe M06 is separate and heavy (PC QA only)",
+    "Default C1D4 scene currently mounts its own map; central integrator must swap art adapter without changing core",
+    "M03 inherited texture manager shares resources with other scenes; M07-local ref leases do not cover external M03 consumers",
+    "Original reference PNG is verified locally but not committed; gallery reads it in-browser after user selects exact file"
+  ],
+  "verdicts": {
+    "identityCode": "MANTIENE",
+    "geometry": "MANTIENE",
+    "tacticalLegibility": "PENDIENTE_BROWSER",
+    "mobile": "NOT_RUN",
+    "combatC1D4": "NOT_RUN",
+    "commercialArt": "NO_APROBADO"
+  },
+  "rollback": "Close draft PR #31; base M06 PR #25, functional C1D4 PR #28 and C1C screenshot remain untouched."
+}
