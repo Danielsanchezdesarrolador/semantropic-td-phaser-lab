@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "c1b-q2-qa-v1",
+  "team": "M",
+  "milestone": "M03/C1B-Q2",
+  "branch": "feature/art-m03-q2-mapas",
+  "baseSha": "a2cde5a52ec05d2a0136426cf8121c69c85af45b",
+  "headSha": "6342bebe0d8d80a037defeaf475b04a6b04e5496",
+  "headShaScope": "Implementation state observed when QA.json was authored; subsequent documentation commits advance PR HEAD. Live PR/GitHub branch is authoritative.",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/11",
+  "buildCommand": "node public/official/src/maps-visual/m01/m03/qa-m03.mjs && npm run build",
+  "gameplayImplemented": false,
+  "reviewerWorkflow": {
+    "name": "C1-B integration original",
+    "id": 39342295194,
+    "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39342295194",
+    "result": "SUCCESS reported for prior C1-B, NOT proof for M03"
+  },
+  "checks": [
+    {
+      "id": "M03-SOURCE-001",
+      "category": "syntax",
+      "command": "ECMAScript source transformation and new Function() in V8 evaluator",
+      "environment": "GitHub connector tool V8 (not Node.js)",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m03/renderer-v3.mjs",
+        "public/official/src/maps-visual/m01/m03/showcase-v3.mjs",
+        "public/official/src/maps-visual/m01/m03/qa-m03.mjs"
+      ],
+      "reason": "V8 parser accepted renderer, showcase and QA after removing module import/export syntax; not equivalent to Node executable test."
+    },
+    {
+      "id": "M03-MAP-002",
+      "category": "data-contract",
+      "command": "makeM03ArtPlan(map) with V5 imported JSON",
+      "environment": "V8 connector evaluator",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m03/renderer-v3.mjs"
+      ],
+      "reason": "133 route points, 8 sockets, identical world positions/endpoints, 110-wide drawn route; source JSON not mutated by plan."
+    },
+    {
+      "id": "M03-PROP-003",
+      "category": "clearance",
+      "command": "Strict source plan clearance guard and world layout traversal",
+      "environment": "V8 with M01/M02 sourced from GitHub",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m03/renderer-v3.mjs"
+      ],
+      "reason": "13 illustration placements, three landmark zones; rejects intersection with path/socket reserved margins in pure JS."
+    },
+    {
+      "id": "M03-PAD-004",
+      "category": "visual-states",
+      "command": "setSocketVisualState(occupied/selected/ruins) on all three palettes",
+      "environment": "V8 mocked Phaser scene with Canvas2D proxy",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m03/renderer-v3.mjs"
+      ],
+      "reason": "8 pad sprites per palette, 53 GameObjects; actual renderer not invoked."
+    },
+    {
+      "id": "M03-ASSET-005",
+      "category": "lifecycle",
+      "command": "mountM01WorldV3 + updateDebug + destroy twice for 3 themes",
+      "environment": "V8 mocked Canvas and Phaser",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m03/renderer-v3.mjs"
+      ],
+      "reason": "11 generated texture keys per theme recycled and destroyed, 9 shared SVG texture references remain cached as intended."
+    },
+    {
+      "id": "M03-OWNERSHIP-006",
+      "category": "git",
+      "command": "Compare feature/art-m02-mapas...feature/art-m03-q2-mapas",
+      "environment": "GitHub connector",
+      "status": "PENDING",
+      "evidencePaths": [
+        "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/11/files"
+      ],
+      "reason": "Final Git ownership diff must be rechecked after acta/index commits."
+    },
+    {
+      "id": "M03-NODE-007",
+      "category": "node",
+      "command": "node public/official/src/maps-visual/m01/m03/qa-m03.mjs",
+      "environment": "Node 20 authorized QA runner",
+      "status": "NOT_RUN",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m03/qa-m03.mjs"
+      ],
+      "reason": "Connected tooling cannot execute Node against the GitHub branch checkout; runnable script delivered."
+    },
+    {
+      "id": "M03-BUILD-008",
+      "category": "build",
+      "command": "npm run build",
+      "environment": "CI checkout",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "No build/deployment permission granted to M branch; existing C1B build applies to prior source only."
+    },
+    {
+      "id": "M03-BROWSER-009",
+      "category": "browser",
+      "command": "node public/official/src/maps-visual/m01/m03/capture-m03.mjs http://localhost:8080",
+      "environment": "Authorized Chromium with Playwright and WebGL2",
+      "status": "NOT_RUN",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m03/capture-m03.mjs"
+      ],
+      "reason": "No browser QA session hosted for this branch; capture outputs deliberately not fabricated."
+    },
+    {
+      "id": "M03-DEVICES-010",
+      "category": "mobile",
+      "command": "Playwright 1280x768; 844x390; 932x430 + real smartphone",
+      "environment": "Emulator and physical iOS/Android",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "No device or emulator QA performed."
+    },
+    {
+      "id": "M03-RATIO-011",
+      "category": "art-ratio",
+      "command": "Measure M03 actual pad edge vs T03 base at identical camera",
+      "environment": "Genuine integrated screenshot",
+      "status": "PENDING",
+      "evidencePaths": [],
+      "reason": "M03 apparent width=93.28 from source, M02 prior approx 134.56; 10–25% perimeter margin requires real C1B T03 sprite measurements."
+    }
+  ],
+  "screenshotIndex": [],
+  "screenshotStatus": "NOT_RUN: no authentic M03 Phaser/browser image was captured",
+  "knownBlockers": [
+    "Request integrator to host authorized branch M03 and capture genuine same-camera A/B/C at 1280x768,844x390,932x430",
+    "Obtain actual T03 tower foundation comparison and review selection/occlusion with P02 actors",
+    "Director must approve premium style, pad reduction and material readability; not inferred from static QA"
+  ],
+  "qaWitness": {
+    "method": "V8 JS execution of GitHub-authored source with Canvas/Phaser mocks",
+    "pathPoints": 133,
+    "sockets": 8,
+    "landmarks": 3,
+    "illustratedProps": 13,
+    "renderedObjectsPerPalette": 53,
+    "paletteNames": [
+      "equilibrada",
+      "viva",
+      "atmosferica"
+    ],
+    "svgMasterCountNew": 2,
+    "svgMasterCountReused": 7
+  },
+  "hardwareValidation": null,
+  "renderMemoryMeasuredMiB": null,
+  "theoreticalGeneratedTextureRgbaMiB": 34.43
+}
