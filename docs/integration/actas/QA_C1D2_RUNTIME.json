@@ -28,19 +28,19 @@
       "evidence": "GitHub Actions #39427116327"
     },
     {
-      "name": "browser-webgl2-first-attempt",
-      "status": "FAIL",
-      "evidence": "GitHub Actions #39427116327 initialization timeout; diagnosis in next push"
+      "name": "browser-webgl2-current",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39428335136: 1280x768 / 844x390 / 932x430, real kill/reward/pause"
     },
     {
       "name": "desktop-capture",
-      "status": "NOT_RUN",
-      "evidence": "No authentic PNG due browser failure"
+      "status": "PASS",
+      "evidence": "Artifact ID 12266543135, desktop before and first-kill real Chromium"
     },
     {
       "name": "mobile-captures",
-      "status": "NOT_RUN",
-      "evidence": "844x390 and 932x430 not reached"
+      "status": "PASS",
+      "evidence": "Artifact ID 12266543135, landscape844 and landscape932 before and first-kill (emulated Chromium; NOT physical)"
     },
     {
       "name": "integration-M05-T06-P05",
@@ -76,5 +76,19 @@
     "stagingUntouched": true,
     "merged": false,
     "visualArtIntegrations": false
-  }
+  },
+  "runHistory": [
+    {
+      "id": 39427116327,
+      "result": "FAIL",
+      "reason": "browser QA script global URL shadow, no scene reached"
+    },
+    {
+      "id": 39428335136,
+      "result": "SUCCESS",
+      "artifact": 12266543135,
+      "source": "GitHub Actions with Node, real build and Chromium WebGL2"
+    }
+  ],
+  "notes": "PASS confirms first sniper I kill/reward/pause, NOT full five-wave balancing, iOS physical, or M05/T06/P05 integration."
 }
