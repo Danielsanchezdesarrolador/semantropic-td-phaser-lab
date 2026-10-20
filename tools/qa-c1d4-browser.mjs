@@ -24,7 +24,7 @@ try{
   const errors=[];page.on("pageerror",e=>errors.push(e.message));
   const response=await page.goto(TEST_URL,{waitUntil:"load",timeout:30000});
   if(!response||response.status()!==200)throw Error(tag+" HTTP "+response?.status()+" "+TEST_URL+" content="+(await page.content()).slice(0,500));
-  try{await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D4?.scene,{timeout:45000});}
+  try{await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D4?.scene,null,{timeout:45000});}
   catch{throw Error(tag+" initialization failed url="+page.url()+" html="+(await page.content()).slice(0,500)+" errors="+errors.join(","));}
   const initial=await page.evaluate(()=>{
    const g=window.__SEMANTROPIC_C1D4;
@@ -76,7 +76,7 @@ try{
   const activeSoldiers=await page.evaluate(()=>window.__SEMANTROPIC_C1D4.world.soldiers.length);
   if(activeSoldiers!==1)throw Error(tag+" Infantry did not spawn actual soldier");
   await page.locator("#waveStart").click();
-  await page.waitForFunction(()=>window.__SEMANTROPIC_C1D4.world.kills>0,{timeout:90000});
+  await page.waitForFunction(()=>window.__SEMANTROPIC_C1D4.world.kills>0,null,{timeout:90000});
   const after=await page.evaluate(()=>{
    const g=window.__SEMANTROPIC_C1D4;
    return {kills:g.world.kills,gold:g.economy.gold,lives:g.world.lives,wave:g.world.wave,
@@ -93,7 +93,7 @@ try{
   results.push({tag,viewport:width+"x"+height,webgl2:true,m06:true,t07RifleUnique:true,p06Png:true,builtInfantry:true,builtSniper:true,realKill:true,
    reward:true,paused:true,kills:after.kills});
   await page.locator("#restart").click();
-  await page.waitForFunction(()=>window.__SEMANTROPIC_C1D4?.economy?.gold===365&&window.__SEMANTROPIC_C1D4?.world?.wave===0,{timeout:45000});
+  await page.waitForFunction(()=>window.__SEMANTROPIC_C1D4?.economy?.gold===365&&window.__SEMANTROPIC_C1D4?.world?.wave===0,null,{timeout:45000});
   await page.screenshot({path:"artifacts/c1d4-browser/"+tag+"-restarted.png",fullPage:true});
   await page.close();
  }
