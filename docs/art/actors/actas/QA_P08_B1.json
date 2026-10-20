@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "p08-b1-qa-v1",
+  "date": "2026-10-20",
+  "team": "PERSONAJES",
+  "task": "P08-B1 cierre visual",
+  "pr": 39,
+  "baselineHead": "7265c84664699955afce188e0227d56887d58a6b",
+  "branch": "feature/art-p08-infantry-evolution-combat",
+  "postCommitHead": "see PR #39 Commits; single atomic commit",
+  "isolation": "Only Personajes namespaces, no LIVE / core / gameplay files",
+  "galleryOnly": true,
+  "before": {
+    "workflowRun": 39491269733,
+    "latestRelatedRun": 39492188188,
+    "artifactRun": 39492188188,
+    "artifactId": 12297010101,
+    "artifactURL": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39492188188/artifacts/12297010101",
+    "filePrefix": "artifacts/c1d7-team-audit/p08-",
+    "originalChromium": true,
+    "integratedC1D7": false,
+    "screenshots": [
+      {
+        "viewport": "1280x768",
+        "state": "idle",
+        "sha256": "46f31743f74df95a58251ce361d5f0aa4cfed05c55e075a7e6c93672c9127ab6",
+        "file": "p08-1280x768-idle.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "1280x768",
+        "state": "attackWindup",
+        "sha256": "f012c6129f5321537c0488caa838eae855e74e7546c59658e3aca5267be82214",
+        "file": "p08-1280x768-attackWindup.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "1280x768",
+        "state": "attack",
+        "sha256": "79d102a52a0fc611879c5bcd76cfdff43a541ab2e772feace44da1643f73cae6",
+        "file": "p08-1280x768-attack.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "844x390",
+        "state": "idle",
+        "sha256": "a3c1a28850d6075c014956d08c92d3f45b95994ecf7d3144746de449cd83980e",
+        "file": "p08-844x390-idle.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "844x390",
+        "state": "attackWindup",
+        "sha256": "8ae007d131d0da513a22566f9d66c035f980ce85261cad68e25e5728af8a9fe4",
+        "file": "p08-844x390-attackWindup.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "844x390",
+        "state": "attack",
+        "sha256": "b2940a5a864ce06a53aab826ca520a44beb2b885b8b00c66b97476471e2fe4aa",
+        "file": "p08-844x390-attack.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "932x430",
+        "state": "idle",
+        "sha256": "62ba3ac357dadb035af93ba84eebd6d087b8b97766a6eaeb75e5a060e17dab56",
+        "file": "p08-932x430-idle.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "932x430",
+        "state": "attackWindup",
+        "sha256": "db642a7f882ea955480a3ac0c58d7c6b9429e40dc421e875d557057cee3f464b",
+        "file": "p08-932x430-attackWindup.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      },
+      {
+        "viewport": "932x430",
+        "state": "attack",
+        "sha256": "f446a2771e39119b3498bc885a326adab4af2fa033a5eced0ec8b262aaa5bd91",
+        "file": "p08-932x430-attack.png",
+        "provenance": "REAL Chromium/WebGL2 BEFORE B1"
+      }
+    ]
+  },
+  "change": {
+    "file": "public/official/src/actors-visual/p08/gallery.mjs",
+    "cause": "2 veteran cards and titles overlap",
+    "oldCentres": [
+      453,
+      594
+    ],
+    "newCentres": [
+      425,
+      611
+    ],
+    "oldPanelWidth": 180,
+    "newPanelWidth": 174,
+    "oldPanelOverlapPx": 39,
+    "newPanelGapPx": 12,
+    "oldTexts": [
+      "II · VETERANOS (1)",
+      "II · VETERANOS (2)"
+    ],
+    "newTexts": [
+      "II · VETERANO 1",
+      "II · VETERANO 2"
+    ],
+    "newTextFontPx": 20,
+    "backgroundFirstPaint": "B1 follow-up: panel width must depend on index, because paintBackdrop() runs before views exist",
+    "actualFirstRenderPanelWidth": 174
+  },
+  "tests": [
+    {
+      "id": "B1-01",
+      "status": "PASS_CI_BEFORE",
+      "test": "Node22 P08 QA on HEAD baseline",
+      "command": "node public/official/src/actors-visual/p08/qa-p08.mjs",
+      "source": "Actions #39492188188 and #39491269733 job logs; PASS_NODE eight PNG/256 frames",
+      "afterChange": "NOT_RUN"
+    },
+    {
+      "id": "B1-02",
+      "status": "PASS_CI_BEFORE",
+      "test": "Node22 P07 QA baseline",
+      "command": "node public/official/src/actors-visual/qa-p07.mjs",
+      "source": "Actions Node22 logs: byte-identical and no transparent RGB debt",
+      "afterChange": "NOT_RUN"
+    },
+    {
+      "id": "B1-03",
+      "status": "PASS_CI_BEFORE",
+      "test": "Build baseline",
+      "command": "npm run build",
+      "source": "Actions audit #39491269733 and official audit report",
+      "afterChange": "NOT_RUN"
+    },
+    {
+      "id": "B1-04",
+      "status": "PASS_CHROMIUM_BEFORE",
+      "test": "Nine real source gallery screenshots 1280×768, 844×390, 932×430 × idle/windup/attack",
+      "source": "Actions #39492188188 artifact #12297010101; SHA256 of extracted original PNG bytes",
+      "afterChange": "NOT_RUN"
+    },
+    {
+      "id": "B1-05",
+      "status": "PASS_SOURCE_LAYOUT",
+      "test": "Veterans no longer overlap mathematically",
+      "method": "world-centres diff 186px minus 174px panel width = +12px; old centres diff141 - panel180 = -39px; first paint is index-based (not dependent on populated views)",
+      "afterChange": "PASS_SOURCE_LAYOUT"
+    },
+    {
+      "id": "B1-06",
+      "status": "PASS_LOCAL_CHROMIUM_TEXT_METRICS",
+      "test": "Native Chromium Canvas text metrics on local 20px bold system-ui",
+      "method": "II · VETERANO 1 width≈154.46px vs panel174px; x-centres differ186px; titles gap≈31.54px",
+      "afterChange": "PASS_TEXT_METRIC_ONLY_NOT_FULL_GALLERY"
+    },
+    {
+      "id": "B1-07",
+      "status": "PASS_SOURCE_READ_ONLY",
+      "test": "PNG/rig/anchors/core unchanged",
+      "method": "One-commit GitHub tree diff; confirm after branch update",
+      "afterChange": "PENDING_FINAL_DIFF"
+    },
+    {
+      "id": "B1-08",
+      "status": "NOT_RUN",
+      "test": "Chromium P08 corrected gallery 9 PNG screenshots and post SHA256",
+      "command": "P08_REVIEW_URL=http://127.0.0.1:PORT/official/src/actors-visual/p08/index.html node public/official/src/actors-visual/p08/qa-p08-browser.mjs",
+      "reason": "Current runtime cannot fetch full private GitHub checkout/Phaser dependency; script added assertion + SHA capture"
+    },
+    {
+      "id": "B1-09",
+      "status": "NOT_RUN",
+      "test": "44/64/80px real visual perceptibility on corrected Phaser",
+      "reason": "Actual browser after commit not run; no claim of approved low-res readability"
+    },
+    {
+      "id": "B1-10",
+      "status": "NOT_RUN",
+      "test": "Live C1-D7 real combat / five waves / Android device",
+      "reason": "Integrator-only, Android physical not accessible"
+    }
+  ],
+  "visualReview": {
+    "baseline": "orco and hound P03 neutral recognizable in before shots; attack/windup gallery visual cues present, mobile resized scene small; not artist-approved",
+    "levelII": "Veteran armor appears visually different from Recruit in original desktop images; 44/64/80px after B1 not certified",
+    "p03NoModification": true,
+    "requiresOwnerApproval": true
+  },
+  "mergeAuthorized": false,
+  "liveModified": false,
+  "commitInfo": {
+    "baseline": "7265c84664699955afce188e0227d56887d58a6b",
+    "firstCommit": "e88389a59416c1a8df37d31a02ae3ecc1fe9e02c",
+    "secondCommit": "see PR #39 Commits",
+    "note": "second corrective commit for same veteran-card width issue; necessary to keep visual render and QA consistent"
+  }
+}
