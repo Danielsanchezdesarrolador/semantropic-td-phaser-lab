@@ -13,3 +13,5 @@ El CI GitHub de C1-C anterior, si existe, NO constituye aprobación ni prueba re
 Dos concept sheets SVG dentro de `public/official/art/towers/concepts/`: `[CONCEPTO EDITABLE]` y NO `[CAPTURA REAL PHASER]`.
 
 Screenshots T05 reales: NINGUNO. Aprobación artística: PENDING. Ningún cuadro de FPS inventado.
+
+[CONFIRMADO EN GITHUB DIFF] 40 changed files, 9 commits at checkpoint, all paths T-owned, zero changes M/P/core/shared. This QA-only commit remains T-owned.

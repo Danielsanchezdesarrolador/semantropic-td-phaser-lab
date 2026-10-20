@@ -10,6 +10,17 @@
   "buildCommand": "npm install --no-audit --no-fund && npm run build",
   "checks": [
     {
+      "id": "ownership",
+      "category": "git",
+      "command": "GitHub compare T04→T05",
+      "status": "PASS",
+      "reason": "Verified initial final diff 9 commits, 40 files only in T namespaces; after this QA-only commit still constrained",
+      "environment": "GitHub compare API",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T05/VALIDACION_ESTATICA.md"
+      ]
+    },
+    {
       "id": "source-a",
       "category": "SVG",
       "command": "4 masters A 360×420",
