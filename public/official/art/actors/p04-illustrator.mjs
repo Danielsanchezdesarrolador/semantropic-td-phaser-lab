@@ -104,7 +104,11 @@ function shield(c,x,y,rotation,p,active){
  bossGem(c,-1,-2,9,'#e0c479');c.restore();
 }
 function faceOrc(c,p,m){
- c.save();c.translate(m.chin*8,m.breath*.26);c.rotate(m.chin*.5);
+ c.save();
+ // Torso rig is local y=-88. Faces are authored in FULL foot-space coordinates.
+ // Undo torso-space origin before drawing the head, or it clips off the atlas.
+ c.translate(0,88);
+ c.translate(m.chin*8,m.breath*.26);c.rotate(m.chin*.5);
  oval(c,0,-137,28,27,gradient(c,-27,-158,27,-116,p.skinHi,p.skinShade,p.skin),'#2d4d40',3.6);
  // Tapered ears and angular nose, not an interchangeable human head.
  ribbon(c,[[-19,-146],[-35,-154],[-33,-136],[-20,-130]],p.skin,'#3b584b',2.2);
@@ -200,7 +204,7 @@ function paintBiped(c,id,m,p){
   axe(c,handR[0],handR[1],m.weaponAngle);
   polishedPlate(c,[[-57,-10],[-40,-17],[-29,-2],[-35,13],[-56,9]],p);
  }else{
-  faceRecruit(c,p,m,isSniper);
+  c.save();c.translate(0,88);faceRecruit(c,p,m,isSniper);c.restore();
   if(isSniper){
    // Rifle is one readable source of geometry. Muzzle FLASH remains T05/core.
    c.save();c.translate(-7,-16);c.rotate(m.weaponAngle);
