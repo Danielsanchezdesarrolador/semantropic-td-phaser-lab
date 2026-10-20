@@ -1,0 +1,236 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "status": "prototype",
+  "owner": "P",
+  "milestone": "P03/C1-B-Q2",
+  "approvedByDirector": false,
+  "gameplayIntegrated": false,
+  "atlasExportedPngInGitHub": false,
+  "originalArtwork": {
+    "origin": "Procedural original editable Semantropic TD P03 (Canvas 2D articulated rigs), no borrowed franchise assets",
+    "source": "public/official/art/actors/p03-rig.mjs",
+    "sheetSource": "public/official/art/actors/p03-face-sheet.mjs",
+    "licensing": "Produced originally for the project; approval/commercial provenance review pending",
+    "conceptSheets": "P02 AI-generated images in prior discussion are ONLY visual references and are not versioned assets"
+  },
+  "packing": {
+    "canvasBake": "once on selection / not per tick",
+    "frameWidthPx": 176,
+    "frameHeightPx": 208,
+    "columns": 8,
+    "rows": 4,
+    "atlasWidthPx": 1408,
+    "atlasHeightPx": 832,
+    "framesPerAtlas": 32,
+    "nominalRGBA8Bytes": 4685824,
+    "nominalRGBA8MiB": 4.47,
+    "phases": {
+      "idle": 4,
+      "walk": 8,
+      "attackWindup": 3,
+      "attack": 5,
+      "hit": 3,
+      "die": 6,
+      "blocked": 3
+    },
+    "compatibleFrameNames": true,
+    "footAnchor": {
+      "x": 0.5,
+      "y": 0.92
+    },
+    "shadowAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "orientations": [
+      "E",
+      "W-mirrored"
+    ],
+    "physicalColliderFromArt": false
+  },
+  "performance": {
+    "comparisonTexturesPerSelectedActor": 4,
+    "nominalMemory4AtlasesMiB": 17.88,
+    "realGPUTelemetry": null,
+    "cleanup": "this.textures.remove(key) before changing actor",
+    "mobileLOD": "not implemented",
+    "measureRealDevice": "pending"
+  },
+  "files": [
+    "public/official/art/actors/p03-rig.mjs",
+    "public/official/art/actors/p03-face-sheet.mjs",
+    "public/official/src/actors-visual/p03-index.html",
+    "public/official/src/actors-visual/p03-gallery.mjs",
+    "public/official/src/actors-visual/qa-p03.mjs"
+  ],
+  "assets": [
+    {
+      "assetId": "actors/enemies/warrior/v1/p03-q2",
+      "canonicalId": "warrior",
+      "label": "Orco Guerrero",
+      "owner": "P",
+      "faction": "enemy",
+      "status": "prototype",
+      "category": "actor",
+      "sourceFile": "public/official/art/actors/p03-rig.mjs",
+      "atlasKey": "actors/enemies/warrior/v1/p03-q2",
+      "sourceWidthPx": 176,
+      "sourceHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "sourceSha256": null,
+      "binFile": null,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "bodyWorldHeightProposal": 91,
+      "headOverlayOffsetWorld": 107,
+      "hpDisplay": "core renderer only; no dummy live HP",
+      "shadowDisplay": "Phaser separate object",
+      "orientation": [
+        "E",
+        "W-mirrored"
+      ],
+      "facingsMissing": [
+        "N",
+        "S",
+        "diagonal"
+      ],
+      "poses": "Original P03 articulated poses; 32 frame keys compatible with P01/2"
+    },
+    {
+      "assetId": "actors/enemies/hound/v1/p03-q2",
+      "canonicalId": "hound",
+      "label": "Perro de Caza",
+      "owner": "P",
+      "faction": "enemy",
+      "status": "prototype",
+      "category": "actor",
+      "sourceFile": "public/official/art/actors/p03-rig.mjs",
+      "atlasKey": "actors/enemies/hound/v1/p03-q2",
+      "sourceWidthPx": 176,
+      "sourceHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "sourceSha256": null,
+      "binFile": null,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "bodyWorldHeightProposal": 67,
+      "headOverlayOffsetWorld": 78,
+      "hpDisplay": "core renderer only; no dummy live HP",
+      "shadowDisplay": "Phaser separate object",
+      "orientation": [
+        "E",
+        "W-mirrored"
+      ],
+      "facingsMissing": [
+        "N",
+        "S",
+        "diagonal"
+      ],
+      "poses": "Original P03 articulated poses; 32 frame keys compatible with P01/2"
+    },
+    {
+      "assetId": "actors/allies/infantry-recruit/v1/p03-q2",
+      "canonicalId": "infantry_recruit",
+      "label": "Soldado Recluta",
+      "owner": "P",
+      "faction": "ally",
+      "status": "prototype",
+      "category": "actor",
+      "sourceFile": "public/official/art/actors/p03-rig.mjs",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p03-q2",
+      "sourceWidthPx": 176,
+      "sourceHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "sourceSha256": null,
+      "binFile": null,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "bodyWorldHeightProposal": 88,
+      "headOverlayOffsetWorld": 105,
+      "hpDisplay": "core renderer only; no dummy live HP",
+      "shadowDisplay": "Phaser separate object",
+      "orientation": [
+        "E",
+        "W-mirrored"
+      ],
+      "facingsMissing": [
+        "N",
+        "S",
+        "diagonal"
+      ],
+      "poses": "Original P03 articulated poses; 32 frame keys compatible with P01/2"
+    },
+    {
+      "assetId": "actors/allies/sniper-operator/v1/p03-q2",
+      "canonicalId": "sniper_operator",
+      "label": "Operador Francotirador",
+      "owner": "P",
+      "faction": "ally",
+      "status": "prototype",
+      "category": "actor",
+      "sourceFile": "public/official/art/actors/p03-rig.mjs",
+      "atlasKey": "actors/allies/sniper-operator/v1/p03-q2",
+      "sourceWidthPx": 176,
+      "sourceHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "sourceSha256": null,
+      "binFile": null,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "bodyWorldHeightProposal": 80,
+      "headOverlayOffsetWorld": 96,
+      "hpDisplay": "core renderer only; no dummy live HP",
+      "shadowDisplay": "Phaser separate object",
+      "orientation": [
+        "E",
+        "W-mirrored"
+      ],
+      "facingsMissing": [
+        "N",
+        "S",
+        "diagonal"
+      ],
+      "poses": "Original P03 articulated poses; 32 frame keys compatible with P01/2"
+    }
+  ],
+  "knownBlockers": [
+    "Need actual browser/Phaser WebGL2 render at 1280x768,844x390,932x430",
+    "Need original transparent exported PNG committed with real SHA256 before final asset approval",
+    "Need visual review for anatomy and pictorial quality at 44/64/80px",
+    "Need tower T04 operatorAnchorLocal and infantry spawnExitLocal measured in same scene; T03 reference provisional",
+    "Foot slide and weapon clipping require real browser screenshots and frame-to-frame review",
+    "No Combat Events Bridge / gameplay from P03"
+  ]
+}
