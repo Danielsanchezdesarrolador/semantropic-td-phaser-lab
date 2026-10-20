@@ -13,7 +13,7 @@ const srv=createServer(async(req,res)=>{
  }catch(e){console.error("C1D6_SERVER_404",req.url,String(e));res.writeHead(404);res.end("not found");}
 });
 await new Promise(resolve=>srv.listen(0,"127.0.0.1",resolve));
-const TEST_URL="http://127.0.0.1:"+srv.address().port+"/official/src/c1d6-playable/index.html";
+const TEST_URL="http://127.0.0.1:"+srv.address().port+(process.env.SEMANTROPIC_PLAYTEST_PATH||"/official/src/c1d6-playable/index.html");
 await mkdir("artifacts/c1d6-browser",{recursive:true});
 let browser;
 try{

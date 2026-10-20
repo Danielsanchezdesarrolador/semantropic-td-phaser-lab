@@ -1,0 +1,70 @@
+name: SEMANTROPIC TD single live URL - official release QA
+on:
+  push:
+    branches: [production/semantropic-td-live]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  permanent-playable-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preserve protected approved artwork and C1-D6 game
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node tools/qa-c1d5-navigation.mjs
+          node tools/qa-c1d5-results.mjs
+          node --check tools/qa-c1d6-browser.mjs
+          node --check public/official/src/c1d6-playable/scene.mjs
+      - name: Build real Phaser static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Check single canonical URL root and stable live entry
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module -e '
+          import assert from "node:assert/strict";
+          import {readFileSync,existsSync} from "node:fs";
+          const root=readFileSync("dist/index.html","utf8");
+          const live=readFileSync("dist/official/src/live/index.html","utf8");
+          const shortcut=readFileSync("dist/play-m01/index.html","utf8");
+          assert(root.includes("official/src/live/"),"Root URL does not open permanent live path");
+          assert(shortcut.includes("official/src/live/"),"Legacy shortcut does not open permanent path");
+          assert(live.includes("../c1d6-playable/scene.mjs"),"Live entry no longer binds vetted scene");
+          assert(existsSync("dist/official/src/c1d6-playable/scene.mjs"));
+          assert(existsSync("dist/official/data/maps.v5.json"));
+          assert(existsSync("dist/official/data/campaign140.v5.json"));
+          assert(existsSync("dist/dependencias/phaser.min.js"));
+          console.log("PASS: stable URL /official/src/live/ + root redirect + Phaser + M01 assets");
+          '
+      - name: Install Chromium WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Open actual permanent live entry and play three resolutions plus real game outcomes
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d6-browser.mjs 2>&1 | tee qa-official-live-url.log
+      - name: Save live URL screenshots and QA logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_TD_PRODUCCION_URL_UNICA_REAL_QA
+          path: |
+            artifacts/c1d6-browser/
+            qa-official-live-url.log
+          if-no-files-found: warn
