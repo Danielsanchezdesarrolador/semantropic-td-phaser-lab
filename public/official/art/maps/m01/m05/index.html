@@ -1,0 +1,62 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173b3c">
+<title>SEMANTROPIC TD · M05 · Escenario preparado para combate</title>
+<style>
+:root{color-scheme:dark;--t:env(safe-area-inset-top,0px);--b:env(safe-area-inset-bottom,0px);--l:env(safe-area-inset-left,0px);--r:env(safe-area-inset-right,0px)}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;overscroll-behavior:none;touch-action:none}
+body{background:#173a3c;color:#f4e9d0;font:13px/1.3 system-ui,sans-serif}
+main{position:relative;overflow:hidden;width:100vw;height:100dvh;background:#598c74}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#stage canvas{max-width:100%;max-height:100%;display:block;touch-action:none}
+.top{position:absolute;z-index:20;top:calc(var(--t) + 7px);left:calc(var(--l) + 9px);right:calc(var(--r) + 9px);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;pointer-events:none}
+.head,.metrics{background:linear-gradient(#214d4cec,#0e2c3de9);border:1px solid #d5bc90;box-shadow:0 4px 19px #153338a8;border-radius:10px;padding:7px 11px}
+.head strong{color:#ffe2a9;font-weight:900;font-size:15px}
+.head small{display:block;font-size:10px;color:#b9dcd0}
+.head em{display:block;font-style:normal;font-size:11px;color:#e3eed6}
+nav,.controls{display:flex;gap:4px;pointer-events:auto;align-items:center;flex-wrap:wrap}
+button{min-height:44px;white-space:nowrap;padding:7px 9px;font:800 11px system-ui;border-radius:7px;color:#eaf2d9;border:1px solid #ded0a2;background:linear-gradient(#356267,#153743);cursor:pointer;touch-action:manipulation}
+button.active{background:linear-gradient(#efd59e,#ab8c51);color:#1d3940;border:2px solid #fff3c8}
+button:focus-visible{outline:3px solid #f6dd7c;outline-offset:2px}
+.bottom{position:absolute;z-index:20;bottom:calc(var(--b) + 8px);left:calc(var(--l) + 9px);right:calc(var(--r) + 9px);display:flex;justify-content:space-between;gap:8px;align-items:end;pointer-events:none}
+.metrics{font-size:10px;line-height:1.45;min-width:180px}.metrics b{color:#ffe6af}
+#status{position:absolute;bottom:calc(var(--b) + 78px);left:calc(var(--l) + 10px);background:#102d38cb;color:#d3ebe3;padding:5px 9px;border-radius:7px;font-size:10px;max-width:45vw;pointer-events:none}
+#socketPanel{position:absolute;z-index:26;bottom:calc(var(--b) + 80px);left:calc(var(--l) + 10px);width:min(350px,51vw);padding:9px 12px;background:#10373df4;border:2px solid #e8cb8a;border-radius:9px}
+#socketPanel[hidden],#blocker[hidden]{display:none}
+#socketPanel strong{color:#ffe2aa}#socketPanel p{font-size:11px}
+#blocker{position:absolute;inset:0;z-index:97;background:#0c2e37f5;color:#ffeaca;display:grid;place-items:center;text-align:center;padding:28px;font-size:18px}
+#turnPhone{display:none;position:absolute;z-index:90;inset:0;background:#0e3037f2;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:21px}
+@media(max-width:980px) and (orientation:landscape){
+ .top{top:calc(var(--t) + 3px);left:calc(var(--l) + 4px);right:calc(var(--r) + 4px);gap:2px}
+ .head{padding:3px 6px;border-radius:5px}.head strong{font-size:9px}.head small,.head em{font-size:8px}
+ nav,.controls{gap:2px}button{min-height:35px;padding:3px 6px;font-size:9px;border-radius:5px}
+ .bottom{left:calc(var(--l) + 3px);right:calc(var(--r) + 3px);bottom:calc(var(--b) + 3px);gap:2px}
+ .metrics,#status{display:none}#socketPanel{bottom:calc(var(--b) + 45px);left:calc(var(--l) + 4px);padding:5px;max-height:114px;overflow:auto}
+ #socketPanel p{font-size:9px;margin:3px 0}
+}
+@media(orientation:portrait) and (max-width:980px){#turnPhone{display:flex}}
+</style></head><body><main>
+<div id="stage" aria-label="Praderas del Amanecer M05, visor Phaser original no jugable"></div>
+<div class="top">
+ <div class="head"><strong>SEMANTROPIC TD · M-05</strong><small>Praderas del Amanecer · Art Combat Readiness</small><em id="mode">Carga de escenario</em></div>
+ <nav aria-label="Comparador artístico">
+  <button data-mode="m04">Antes M04</button><button data-mode="bucolico" class="active">M05 A · Luz</button><button data-mode="contraste">M05 B · Profundidad</button>
+  <button data-palette="equilibrada" class="active">Equilibrada</button>
+  <button data-palette="viva">Viva</button><button data-palette="atmosferica">Atmosférica</button>
+ </nav>
+</div>
+<div id="status">Cargando arte original. No ejecuta combate ni construye torres.</div>
+<div id="socketPanel" hidden><strong>Plataforma oficial — solo vista</strong><p id="socketInfo"></p><button id="closeSocket">Cerrar ×</button></div>
+<div class="bottom">
+ <div class="controls">
+  <button id="fixture">Bases ocupadas (muestra)</button><button id="route">Ruta</button><button id="sockets">8 sockets</button><button id="occlusion">Oclusión</button>
+ </div>
+ <div class="controls"><button data-zoom=".84">84 %</button><button data-zoom=".92">92 %</button><button data-zoom="1" class="active">100 %</button></div>
+ <div class="metrics"><b>PROTOTIPO VISUAL SIN GAMEPLAY</b><div id="runtime">WebGL2 por verificar</div><div><span id="clusters">—</span> · <span id="pads">8</span> pads · <span id="zoom">100%</span></div></div>
+</div>
+<div id="blocker">Cargando M04, microambientes M05 y Phaser WebGL2…</div>
+<div id="turnPhone">↻ Gira el dispositivo a horizontal</div>
+</main>
+<script src="../../../../../dependencias/phaser.min.js"></script>
+<script type="module" src="../../../../src/maps-visual/m01/m05/showcase-v5.mjs"></script>
+</body></html>

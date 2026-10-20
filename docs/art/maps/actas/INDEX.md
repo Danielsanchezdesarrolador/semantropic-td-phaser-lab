@@ -1,4 +1,35 @@
-# SEMANTROPIC TD — EQUIPO M · ÍNDICE OFICIAL DE ACTAS
+# SEMANTROPIC TD — EQUIPO M · REGISTRO DE ACTAS Y ARTE
+
+## Etapa actual: M-05 / C1-D2 — Mapas listos visualmente para revisión de combate
+**Fecha:** 19-10-2026. **Rama:** [feature/art-m05-combat-readiness](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m05-combat-readiness).  
+**Base exacta:** `429c26a82b645b8dc32728fcba44d0f32d130184` (M04).  
+**HEAD validado al crear esta sección:** `958ab70831b51a613615e8f3a5dc5c71ef0b6dd1`; el commit del índice produce un HEAD posterior. **El HEAD vigente con SHA inmutable se consulta en [PR #20 / commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/20/commits)**.  
+**PR oficial:** [#20 — M05/C1-D2 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/20), contra `feature/art-m04-illustrated-terrain`, **NO MERGE**.
+
+| Documento/arte | Enlace | Estado verificable |
+|---|---|---|
+| ACTA M05 | [ACTA_M05_2026-10-19.md](ACTA_M05_2026-10-19.md) | PRESENTE |
+| QA M05 JSON | [QA_M05.json](QA_M05.json) | 14 checks; PASS mocks, Node/browser NOT_RUN |
+| RFC de adaptador socket | [RFC_M05_PAD_STATE_AND_OCCLUSION_C1D2.md](RFC_M05_PAD_STATE_AND_OCCLUSION_C1D2.md) | PROPUESTA para Integrador |
+| Manifest 18 fuentes | [manifest.json](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m05-combat-readiness/public/official/art/maps/m01/m05/manifest.json) | PRESENTE · estado prototype |
+| Hoja 18 SVG | [M05_PLANCHA_18_MICROAMBIENTES.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m05-combat-readiness/public/official/art/maps/m01/m05/M05_PLANCHA_18_MICROAMBIENTES.html) | 6 zonas × 3 variantes editables |
+| Renderer M05 | [renderer-v5.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m05-combat-readiness/public/official/src/maps-visual/m01/m05/renderer-v5.mjs) | NUEVO / ESTRUCTURAL PROBADO |
+| Vitrina Phaser | [index.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m05-combat-readiness/public/official/art/maps/m01/m05/index.html) | ENTREGADA / NO EJECUTADA REAL |
+| Comparador A/B | [gallery.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m05-combat-readiness/public/official/art/maps/m01/m05/gallery.html) | MISMO ENCUADRE / SIN CAPTURAS |
+| QA Node ESM | [qa-m05.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m05-combat-readiness/public/official/src/maps-visual/m01/m05/qa-m05.mjs) | NOT_RUN EN NODE |
+| Capturador real Chromium | [capture-m05.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m05-combat-readiness/public/official/src/maps-visual/m01/m05/capture-m05.mjs) | NOT_RUN EN CHROME |
+| Fotos M05 | `docs/art/maps/evidencias/M05/` | NO GENERADAS |
+| Revisión integrada previa | [PR #17 C1-E](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/17) | M04+T05+P04, NO M05 |
+
+**Estado QA:** [PROBADO EN SIMULACIÓN V8] 3 paletas × 2 tratamientos, 18 clústeres adicionales, 8 pads, 109 objetos, 0 referencias faltantes, snapshots y eventos visuales sin gameplay, texturas limpiadas. [NO EJECUTADO] Chromium Phaser/WebGL2 M05 1280×768 / 844×390 / 932×430, Node nativo, CI, 4 torres/13 actores T05/P04 y móvil físico. [BLOQUEANTE] Dirección General debe elegir tratamiento A/B con pruebas reales, ratificar entrada de eventos y verificar oclusión.
+
+**Datos V5 protegidos:** mapa M01 133 puntos, 8 sockets, 110 ancho gráfico, selección visual 54; no hay nuevos caminos, precios, oleadas, daño ni guardados.  
+**Regla de ownership:** sólo `public/official/art/maps/m01/m05/**`, `public/official/src/maps-visual/m01/m05/**`, `docs/art/maps/actas/**`.  
+**Rollback:** cerrar PR #20 sin merge; no tocar M04/C1-E/C1-D2/Canvas V5.
+
+---
+
+## Archivo histórico: M-01 a M-04
 
 **Etapa artística vigente: M-04 C1-D (M01 Praderas del Amanecer).**  
 **Rama vigente:** [feature/art-m04-illustrated-terrain](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m04-illustrated-terrain).  
