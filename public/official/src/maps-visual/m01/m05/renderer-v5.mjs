@@ -5,7 +5,7 @@
  * Contracts map-socket-v1/combat-events-v1: read-only ART PROJECTION, NOT gameplay.
  */
 import {validateM01,visualSocketPreview} from "../renderer.mjs";
-import {preloadM04Illustrations,mountM01WorldV4,M04_PALETTES,M04_PAD} from "../m04/renderer-v4.mjs";
+import {preloadM04Illustrations,mountM01WorldV4,makeM04ArtPlan,M04_PALETTES,M04_PAD} from "../m04/renderer-v4.mjs";
 
 export const M05_VERSION="maps/m01/combat-readiness-m05/1.0.0";
 export const M05_WORLD=Object.freeze({width:1280,height:768,visualRoadWidth:110,hitRadiusWorld:54});
@@ -52,7 +52,7 @@ const padDist=(x,y,sockets)=>Math.min(...sockets.map(s=>Math.hypot(x-s.world.x,y
 export function makeM05ArtPlan(map){
  validateM01(map);
  const pads=visualSocketPreview(map);
- const landmarks=[{x:102,y:113},{x:625,y:92},{x:1119,y:725}]; // visual anchors from M04 approved source, NOT navigation.
+ const landmarks=makeM04ArtPlan(map).landmarks; // source-of-truth M04 decorative anchors, NOT navigation.
  const props=M05_ASSETS.map((id,i)=>{
   const spec=ART_LAYOUT[i],zone=M05_ZONES[Math.floor(i/3)].id;
   const aestheticRadiusWorld=440*spec.scale*.30; // graphic-canopy envelope, not collider
@@ -140,10 +140,14 @@ export function mountM01WorldV5(scene,map,options={}){
   if(disposed)return false;
   if(!snapshot||!Array.isArray(snapshot.sockets))return false;
   const records=new Map(snapshot.sockets.filter(r=>socketIds.has(r?.socketId)).map(r=>[r.socketId,r]));
+  let selectedSocketId=socketIds.has(snapshot.selectedSocketId)?snapshot.selectedSocketId:null;
   for(const s of plan.sockets){
-   const state=projectSocketVisualState(records.get(s.socketId));
+   const record=records.get(s.socketId);
+   const state=projectSocketVisualState(record);
    setSocketVisualState(s.socketId,state);
+   if(record?.selected===true)selectedSocketId=s.socketId;
   }
+  base.updateDebug({...overlayFlags,selectedSocket:selectedSocketId});
   return true;
  }
  function projectEvent(event){
