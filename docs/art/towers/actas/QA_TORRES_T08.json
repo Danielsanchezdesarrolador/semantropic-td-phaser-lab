@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "semantropic-qa-v1",
+  "team": "TORRES",
+  "milestone": "T08-C1C-VISUAL-CONTINUITY",
+  "created": "2026-10-20",
+  "branch": "feature/art-t08-continuidad-c1c",
+  "baseSha": "f09a9307d675ad4850261f6a6705959c0c61808f",
+  "headShaSnapshot": "095899bdb66fbc73bba55ebc0da1a73e052d7064",
+  "headShaNote": "snapshot before QA/ACTA/index; true head in PR #29",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/29",
+  "status": "PROTOTYPE_AND_HISTORICAL_SOURCE_RESTORED__NOT_ART_APPROVED",
+  "sourceReferenceSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+  "fullSceneC1CReproduced": false,
+  "gameplayAltered": false,
+  "checks": [
+    {
+      "name": "reference-sha256",
+      "command": "sha256sum uploaded C1C original 1280x768",
+      "status": "PASS",
+      "environment": "container SHA256 + Pillow",
+      "evidence": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef"
+    },
+    {
+      "name": "branch-base",
+      "command": "GitHub branch T07 HEAD and create_branch T08",
+      "status": "PASS",
+      "environment": "GitHub API",
+      "evidence": "f09a9307d675ad4850261f6a6705959c0c61808f"
+    },
+    {
+      "name": "historical-pr",
+      "command": "Read PR#9 T04 and PR#12 C1C scene",
+      "status": "PASS",
+      "environment": "GitHub API",
+      "evidence": "T04 master, socket indices 1,3,4,5"
+    },
+    {
+      "name": "byte-restoration",
+      "command": "Verify Git blob SHAs 4 T08 master vs T04 historical",
+      "status": "PASS",
+      "environment": "GitHub fetch_file",
+      "evidence": "4/4 exact blob IDs"
+    },
+    {
+      "name": "sniper-svg-xml",
+      "command": "Check nested SVG elements of 2 masters and their T08 layers",
+      "status": "PASS",
+      "environment": "V8 GitHub source structural parser",
+      "evidence": "14 SVG in sniper subset"
+    },
+    {
+      "name": "catalog",
+      "command": "Parse T08 catalog validate four canonical IDs and source anchor",
+      "status": "PASS",
+      "environment": "V8",
+      "evidence": "T04 scales .296/.308/.312/.319"
+    },
+    {
+      "name": "versioned-tests",
+      "command": "Parse patched T03–T07 regression scripts",
+      "status": "PASS",
+      "environment": "V8 AsyncFunction syntax only",
+      "evidence": "NO Node execution"
+    },
+    {
+      "name": "t08-page-parse",
+      "command": "Parse T08 showroom module and HTML links",
+      "status": "PASS",
+      "environment": "V8 parse only",
+      "evidence": "real WebGL2 NOT_RUN"
+    },
+    {
+      "name": "ownership",
+      "command": "GitHub compare T07→T08 at documentary checkpoint",
+      "status": "PASS",
+      "environment": "GitHub Compare API",
+      "evidence": "7 commits / 37 files, 0 outside TORRES; subsequent document commits still TORRES"
+    },
+    {
+      "name": "node-qa-t01",
+      "command": "node docs/art/towers/qa-t01.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "not run"
+    },
+    {
+      "name": "node-qa-t03",
+      "command": "node docs/art/towers/qa-t03.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "not run"
+    },
+    {
+      "name": "node-qa-t04",
+      "command": "node docs/art/towers/qa-t04.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "not run"
+    },
+    {
+      "name": "node-qa-t05",
+      "command": "node docs/art/towers/qa-t05.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "not run"
+    },
+    {
+      "name": "node-qa-t06",
+      "command": "node docs/art/towers/qa-t06.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "not run"
+    },
+    {
+      "name": "node-qa-t07",
+      "command": "node docs/art/towers/qa-t07.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "not run"
+    },
+    {
+      "name": "node-qa-t08",
+      "command": "node docs/art/towers/qa-t08.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "script committed, not executed"
+    },
+    {
+      "name": "npm-build",
+      "command": "npm run build (with proper pipefail status handling)",
+      "status": "NOT_RUN",
+      "environment": "Node checkout",
+      "evidence": "no checkout/deps"
+    },
+    {
+      "name": "webgl2-desktop",
+      "command": "Real Phaser WebGL2 T08/C1D4 at 1280x768",
+      "status": "NOT_RUN",
+      "environment": "Chromium browser served app",
+      "evidence": "none"
+    },
+    {
+      "name": "webgl2-mobile-844",
+      "command": "Real Phaser WebGL2 T08/C1D4 at 844x390",
+      "status": "NOT_RUN",
+      "environment": "Chromium emulated landscape",
+      "evidence": "none"
+    },
+    {
+      "name": "webgl2-mobile-932",
+      "command": "Real Phaser WebGL2 T08/C1D4 at 932x430",
+      "status": "NOT_RUN",
+      "environment": "Chromium emulated landscape",
+      "evidence": "none"
+    },
+    {
+      "name": "device-real",
+      "command": "iOS/Android physical device",
+      "status": "NOT_RUN",
+      "environment": "device",
+      "evidence": "none"
+    },
+    {
+      "name": "p07-contact",
+      "command": "P07 unarmed operator eye/hand/rifle/rail in real assembled scene",
+      "status": "NOT_RUN",
+      "environment": "Integrator + Personas",
+      "evidence": "none"
+    },
+    {
+      "name": "c1d4-combat",
+      "command": "buy/upgrade/sell/pause/escape/hit with actual 133/8/5",
+      "status": "NOT_RUN",
+      "environment": "core integrator full scene",
+      "evidence": "none"
+    },
+    {
+      "name": "performance",
+      "command": "FPS p50/p95, GPU memory, draw calls on 30 actors",
+      "status": "NOT_RUN",
+      "environment": "real Chromium/device",
+      "evidence": "none"
+    },
+    {
+      "name": "art-approval",
+      "command": "Owner C1C-vs-C1D4-T08 real screenshot approval",
+      "status": "PENDING",
+      "environment": "Director General/user",
+      "evidence": "not signed off"
+    }
+  ],
+  "browserScreenshotIndex": [],
+  "historicalImageEvidence": {
+    "source": "user-uploaded PNG in conversation; not committed to GitHub",
+    "sha256Verified": true
+  },
+  "artifacts": [
+    "docs/art/towers/ASSET_MANIFEST_T08.json",
+    "docs/art/towers/qa-t08.mjs",
+    "docs/art/towers/actas/RFC_TORRES_T08_P07_C1D4.md",
+    "docs/art/towers/actas/MATRIZ_TORRES_T08_BEFORE_AFTER.md"
+  ],
+  "blockers": [
+    "No T08 live integrated C1D4 scene screenshot under original camera/palette/actors",
+    "No P07 real avatar grip alignment",
+    "Node/build not yet run on complete GitHub checkout",
+    "No .github/workflows from T07 base branch",
+    "No mobile performance measurements",
+    "No user approval of integrated appearance"
+  ],
+  "recommendation": "KEEP T04 masters exact; do NOT merge PR before Integrator supplies real same-camera C1C comparison"
+}

@@ -1,5 +1,5 @@
-// SEMANTROPIC TD T05 | source 360x420 | T03/T04 public API preserved for C1-C.
-// T05 art is NOT approved. Visual scale numbers proposals, never core collision radius.
+// SEMANTROPIC TD TORRES T08: user-approved C1C/T04 visuals restored from PR#9.
+// Core unchanged; anchors and worldScale restored from T04. Source pixel contact P07 PENDING.
 const WIDTH=360,HEIGHT=420;
 export const TOWER_ART_V2=Object.freeze([
   {
@@ -13,31 +13,31 @@ export const TOWER_ART_V2=Object.freeze([
       "widthPx": 360,
       "heightPx": 420
     },
-    "worldScaleProposal": 0.298,
-    "worldWidthProposal": 107.28,
-    "worldHeightProposal": 125.16,
+    "worldScaleProposal": 0.296,
+    "worldWidthProposal": 106.56,
+    "worldHeightProposal": 124.32,
     "footAnchor": {
       "x": 0.5,
       "y": 0.93
     },
     "shadowFootAnchor": {
-      "x": 182,
-      "y": 388,
+      "x": 180,
+      "y": 391,
       "units": "source-px"
     },
     "operatorAnchorLocal": {
-      "x": 126,
-      "y": 315,
+      "x": 138,
+      "y": 319,
       "units": "source-px"
     },
     "spawnExitLocal": {
-      "x": 133,
-      "y": 348,
+      "x": 139,
+      "y": 350,
       "units": "source-px"
     },
     "muzzleLocal": {
-      "x": 177,
-      "y": 244,
+      "x": 183,
+      "y": 248,
       "units": "source-px"
     },
     "visualOffsetWorld": {
@@ -58,12 +58,12 @@ export const TOWER_ART_V2=Object.freeze([
     "status": "prototype",
     "textureKey": "towers/infantry/level-1",
     "fixtureId": "fixture-T03-1",
-    "artVersion": "T05-C1D",
+    "artVersion": "T08-C1C-T04-CONTINUITY",
     "worldScaleBaselineT03": 0.276,
-    "foundationVisibleWidthSourcePx": 296,
+    "foundationVisibleWidthSourcePx": 306,
     "buildFoundationLocal": {
-      "x": 181,
-      "y": 378,
+      "x": 180,
+      "y": 382,
       "units": "source-px"
     },
     "t03SnapshotUrl": "../../art/towers/t03-snapshot/infantry-1.svg",
@@ -75,7 +75,7 @@ export const TOWER_ART_V2=Object.freeze([
       "hud": "UI-above-all-vfx"
     },
     "operatorNote": "P-owned recruit, exit anchor is presentation only.",
-    "artApproval": "prototype-awaiting-direction",
+    "artApproval": "VISUAL_SOURCE_RESTORED__RUNTIME_NOT_YET_APPROVED",
     "worldScaleBaselineT04": 0.296,
     "visibleGeometryTopSourcePx": 101,
     "t04SnapshotUrl": "../../art/towers/t04-snapshot/infantry-1.svg",
@@ -85,7 +85,13 @@ export const TOWER_ART_V2=Object.freeze([
       "backStructure": "../../art/towers/layers/infantry-1-back.svg",
       "frontRail": "../../art/towers/layers/infantry-1-front.svg"
     },
-    "artNotes": "Deep barracks entrance, separate troop exit. No actor painted into SVG."
+    "artNotes": "Deep barracks entrance, separate troop exit. No actor painted into SVG.",
+    "t07PreviousScale": 0.298,
+    "t04ApprovedSourceBlob": null,
+    "t07SnapshotUrl": "../../art/towers/t07-snapshot/infantry-1.svg",
+    "t08HistoricalApproval": "C1C 1280x768 PNG SHA256 24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "visualIdentity": "T04 original silhouette restored byte-for-byte; core statistics unchanged",
+    "t08RifleComposition": "sniper: structureNoRifle + external P07 unarmed + 1 rifleMounted + frontRail"
   },
   {
     "assetId": "towers/infantry/level-2",
@@ -98,31 +104,31 @@ export const TOWER_ART_V2=Object.freeze([
       "widthPx": 360,
       "heightPx": 420
     },
-    "worldScaleProposal": 0.31,
-    "worldWidthProposal": 111.6,
-    "worldHeightProposal": 130.2,
+    "worldScaleProposal": 0.308,
+    "worldWidthProposal": 110.88,
+    "worldHeightProposal": 129.36,
     "footAnchor": {
       "x": 0.5,
       "y": 0.93
     },
     "shadowFootAnchor": {
-      "x": 182,
-      "y": 388,
+      "x": 180,
+      "y": 391,
       "units": "source-px"
     },
     "operatorAnchorLocal": {
-      "x": 128,
-      "y": 315,
+      "x": 144,
+      "y": 328,
       "units": "source-px"
     },
     "spawnExitLocal": {
-      "x": 133,
-      "y": 348,
+      "x": 145,
+      "y": 355,
       "units": "source-px"
     },
     "muzzleLocal": {
-      "x": 160,
-      "y": 177,
+      "x": 183,
+      "y": 209,
       "units": "source-px"
     },
     "visualOffsetWorld": {
@@ -143,12 +149,12 @@ export const TOWER_ART_V2=Object.freeze([
     "status": "prototype",
     "textureKey": "towers/infantry/level-2",
     "fixtureId": "fixture-T03-2",
-    "artVersion": "T05-C1D",
+    "artVersion": "T08-C1C-T04-CONTINUITY",
     "worldScaleBaselineT03": 0.296,
-    "foundationVisibleWidthSourcePx": 296,
+    "foundationVisibleWidthSourcePx": 306,
     "buildFoundationLocal": {
-      "x": 181,
-      "y": 378,
+      "x": 180,
+      "y": 382,
       "units": "source-px"
     },
     "t03SnapshotUrl": "../../art/towers/t03-snapshot/infantry-2.svg",
@@ -160,7 +166,7 @@ export const TOWER_ART_V2=Object.freeze([
       "hud": "UI-above-all-vfx"
     },
     "operatorNote": "P-owned recruit, exit anchor is presentation only.",
-    "artApproval": "prototype-awaiting-direction",
+    "artApproval": "VISUAL_SOURCE_RESTORED__RUNTIME_NOT_YET_APPROVED",
     "worldScaleBaselineT04": 0.308,
     "visibleGeometryTopSourcePx": 82,
     "t04SnapshotUrl": "../../art/towers/t04-snapshot/infantry-2.svg",
@@ -170,40 +176,46 @@ export const TOWER_ART_V2=Object.freeze([
       "backStructure": "../../art/towers/layers/infantry-2-back.svg",
       "frontRail": "../../art/towers/layers/infantry-2-front.svg"
     },
-    "artNotes": "Deep barracks entrance, separate troop exit. No actor painted into SVG."
+    "artNotes": "Deep barracks entrance, separate troop exit. No actor painted into SVG.",
+    "t07PreviousScale": 0.31,
+    "t04ApprovedSourceBlob": null,
+    "t07SnapshotUrl": "../../art/towers/t07-snapshot/infantry-2.svg",
+    "t08HistoricalApproval": "C1C 1280x768 PNG SHA256 24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "visualIdentity": "T04 original silhouette restored byte-for-byte; core statistics unchanged",
+    "t08RifleComposition": "sniper: structureNoRifle + external P07 unarmed + 1 rifleMounted + frontRail"
   },
   {
     "assetId": "towers/sniper/level-1",
     "family": "sniper",
     "level": 1,
     "branch": null,
-    "title": "Vigía de Reconocimiento",
+    "title": "Vigía Recluta",
     "url": "../../art/towers/sniper/level-1.svg",
     "sourceSize": {
       "widthPx": 360,
       "heightPx": 420
     },
-    "worldScaleProposal": 0.318,
-    "worldWidthProposal": 114.48,
-    "worldHeightProposal": 133.56,
+    "worldScaleProposal": 0.312,
+    "worldWidthProposal": 112.32,
+    "worldHeightProposal": 131.04,
     "footAnchor": {
       "x": 0.5,
       "y": 0.93
     },
     "shadowFootAnchor": {
-      "x": 181,
-      "y": 390,
+      "x": 180,
+      "y": 391,
       "units": "source-px"
     },
     "operatorAnchorLocal": {
       "x": 185,
-      "y": 204,
+      "y": 198,
       "units": "source-px"
     },
     "spawnExitLocal": null,
     "muzzleLocal": {
-      "x": 321,
-      "y": 174,
+      "x": 299,
+      "y": 156,
       "units": "source-px"
     },
     "visualOffsetWorld": {
@@ -224,12 +236,12 @@ export const TOWER_ART_V2=Object.freeze([
     "status": "prototype",
     "textureKey": "towers/sniper/level-1",
     "fixtureId": "fixture-T03-3",
-    "artVersion": "T07-RIFLE-UNICO",
+    "artVersion": "T08-C1C-T04-CONTINUITY",
     "worldScaleBaselineT03": 0.303,
-    "foundationVisibleWidthSourcePx": 296,
+    "foundationVisibleWidthSourcePx": 306,
     "buildFoundationLocal": {
-      "x": 183,
-      "y": 380,
+      "x": 180,
+      "y": 382,
       "units": "source-px"
     },
     "t03SnapshotUrl": "../../art/towers/t03-snapshot/sniper-1.svg",
@@ -241,7 +253,7 @@ export const TOWER_ART_V2=Object.freeze([
       "hud": "UI-above-all-vfx"
     },
     "operatorNote": "EMPTY visual source-pixel foot placement. P-owned actor; requires central depth policy",
-    "artApproval": "prototype",
+    "artApproval": "VISUAL_SOURCE_RESTORED__RUNTIME_NOT_YET_APPROVED",
     "worldScaleBaselineT04": 0.312,
     "visibleGeometryTopSourcePx": 72,
     "t04SnapshotUrl": "../../art/towers/t04-snapshot/sniper-1.svg",
@@ -256,15 +268,15 @@ export const TOWER_ART_V2=Object.freeze([
     "artNotes": "Open observation deck; operator P feet at source y207; front rail separate. Rifle permanently mounted as tower mechanism.",
     "worldScaleBaselineT05": 0.31,
     "fireEffectOriginLocal": {
-      "x": 321,
-      "y": 174,
+      "x": 299,
+      "y": 156,
       "units": "source-px"
     },
     "frontRailBoundsLocal": {
-      "x0": 87,
-      "y0": 219,
-      "x1": 284,
-      "y1": 281,
+      "x0": 66,
+      "y0": 205,
+      "x1": 298,
+      "y1": 263,
       "units": "source-px"
     },
     "t05SnapshotUrl": "../../art/towers/t05-snapshot/sniper-1.svg",
@@ -275,7 +287,7 @@ export const TOWER_ART_V2=Object.freeze([
     "artStatus": "prototype",
     "fxContractStatus": "candidate-event-adapter",
     "rifleOwner": "T",
-    "operatorOwner": "P06",
+    "operatorOwner": "P07",
     "operatorAssetId": "sniper_operator_unarmed",
     "renderRailOwner": "T",
     "shotAuthority": "core",
@@ -283,24 +295,24 @@ export const TOWER_ART_V2=Object.freeze([
     "t07ArchitecturalBUrl": "../../art/towers/concepts/sniper-T07-B-level-1.svg",
     "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P06",
     "opticalFocusLocal": {
-      "x": 248,
-      "y": 162,
+      "x": 249,
+      "y": 151,
       "units": "source-px"
     },
     "stockGripLocal": {
-      "x": 205,
-      "y": 184,
+      "x": 182,
+      "y": 183,
       "units": "source-px"
     },
     "recoilPivotLocal": {
-      "x": 235,
-      "y": 199,
+      "x": 223,
+      "y": 180,
       "units": "source-px"
     },
     "platformDepthLocal": {
-      "backY": 161,
-      "operatorFootY": 204,
-      "railFrontY": 219,
+      "backY": 139,
+      "operatorFootY": 198,
+      "railFrontY": 260,
       "units": "source-px"
     },
     "rifleActionWeights": {
@@ -318,40 +330,48 @@ export const TOWER_ART_V2=Object.freeze([
     "fxStyles": [
       "A-precision-trace",
       "B-energy-orb"
-    ]
+    ],
+    "t07PreviousScale": 0.318,
+    "t04ApprovedSourceBlob": null,
+    "t07SnapshotUrl": "../../art/towers/t07-snapshot/sniper-1.svg",
+    "t08HistoricalApproval": "C1C 1280x768 PNG SHA256 24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "visualIdentity": "T04 original silhouette restored byte-for-byte; core statistics unchanged",
+    "t08RifleComposition": "sniper: structureNoRifle + external P07 unarmed + 1 rifleMounted + frontRail",
+    "t08GripStatus": "PROPOSED_P07_CONTACT_PENDING",
+    "t08VariantPolicy": "T04 main identity ONLY; T07 B archived, not active for approved appearance"
   },
   {
     "assetId": "towers/sniper/level-2",
     "family": "sniper",
     "level": 2,
     "branch": null,
-    "title": "Vigía de Precisión Reforzado",
+    "title": "Vigía Veterano",
     "url": "../../art/towers/sniper/level-2.svg",
     "sourceSize": {
       "widthPx": 360,
       "heightPx": 420
     },
-    "worldScaleProposal": 0.328,
-    "worldWidthProposal": 118.08,
-    "worldHeightProposal": 137.76,
+    "worldScaleProposal": 0.319,
+    "worldWidthProposal": 114.84,
+    "worldHeightProposal": 133.98,
     "footAnchor": {
       "x": 0.5,
       "y": 0.93
     },
     "shadowFootAnchor": {
-      "x": 181,
-      "y": 390,
+      "x": 180,
+      "y": 391,
       "units": "source-px"
     },
     "operatorAnchorLocal": {
-      "x": 185,
-      "y": 206,
+      "x": 189,
+      "y": 198,
       "units": "source-px"
     },
     "spawnExitLocal": null,
     "muzzleLocal": {
-      "x": 330,
-      "y": 171,
+      "x": 307,
+      "y": 149,
       "units": "source-px"
     },
     "visualOffsetWorld": {
@@ -372,12 +392,12 @@ export const TOWER_ART_V2=Object.freeze([
     "status": "prototype",
     "textureKey": "towers/sniper/level-2",
     "fixtureId": "fixture-T03-4",
-    "artVersion": "T07-RIFLE-UNICO",
+    "artVersion": "T08-C1C-T04-CONTINUITY",
     "worldScaleBaselineT03": 0.317,
-    "foundationVisibleWidthSourcePx": 296,
+    "foundationVisibleWidthSourcePx": 306,
     "buildFoundationLocal": {
-      "x": 183,
-      "y": 380,
+      "x": 180,
+      "y": 382,
       "units": "source-px"
     },
     "t03SnapshotUrl": "../../art/towers/t03-snapshot/sniper-2.svg",
@@ -389,7 +409,7 @@ export const TOWER_ART_V2=Object.freeze([
       "hud": "UI-above-all-vfx"
     },
     "operatorNote": "EMPTY visual source-pixel foot placement. P-owned actor; requires central depth policy",
-    "artApproval": "prototype",
+    "artApproval": "VISUAL_SOURCE_RESTORED__RUNTIME_NOT_YET_APPROVED",
     "worldScaleBaselineT04": 0.319,
     "visibleGeometryTopSourcePx": 68,
     "t04SnapshotUrl": "../../art/towers/t04-snapshot/sniper-2.svg",
@@ -404,15 +424,15 @@ export const TOWER_ART_V2=Object.freeze([
     "artNotes": "Open observation deck; operator P feet at source y207; front rail separate. Rifle permanently mounted as tower mechanism.",
     "worldScaleBaselineT05": 0.322,
     "fireEffectOriginLocal": {
-      "x": 330,
-      "y": 171,
+      "x": 307,
+      "y": 149,
       "units": "source-px"
     },
     "frontRailBoundsLocal": {
-      "x0": 72,
-      "y0": 213,
-      "x1": 299,
-      "y1": 290,
+      "x0": 65,
+      "y0": 200,
+      "x1": 304,
+      "y1": 265,
       "units": "source-px"
     },
     "t05SnapshotUrl": "../../art/towers/t05-snapshot/sniper-2.svg",
@@ -423,7 +443,7 @@ export const TOWER_ART_V2=Object.freeze([
     "artStatus": "prototype",
     "fxContractStatus": "candidate-event-adapter",
     "rifleOwner": "T",
-    "operatorOwner": "P06",
+    "operatorOwner": "P07",
     "operatorAssetId": "sniper_operator_unarmed",
     "renderRailOwner": "T",
     "shotAuthority": "core",
@@ -431,24 +451,24 @@ export const TOWER_ART_V2=Object.freeze([
     "t07ArchitecturalBUrl": "../../art/towers/concepts/sniper-T07-B-level-2.svg",
     "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P06",
     "opticalFocusLocal": {
-      "x": 258,
-      "y": 154,
+      "x": 246,
+      "y": 141,
       "units": "source-px"
     },
     "stockGripLocal": {
-      "x": 209,
-      "y": 182,
+      "x": 201,
+      "y": 177,
       "units": "source-px"
     },
     "recoilPivotLocal": {
-      "x": 245,
-      "y": 191,
+      "x": 232,
+      "y": 172,
       "units": "source-px"
     },
     "platformDepthLocal": {
-      "backY": 150,
-      "operatorFootY": 206,
-      "railFrontY": 213,
+      "backY": 128,
+      "operatorFootY": 198,
+      "railFrontY": 262,
       "units": "source-px"
     },
     "rifleActionWeights": {
@@ -466,7 +486,15 @@ export const TOWER_ART_V2=Object.freeze([
     "fxStyles": [
       "A-precision-trace",
       "B-energy-orb"
-    ]
+    ],
+    "t07PreviousScale": 0.328,
+    "t04ApprovedSourceBlob": null,
+    "t07SnapshotUrl": "../../art/towers/t07-snapshot/sniper-2.svg",
+    "t08HistoricalApproval": "C1C 1280x768 PNG SHA256 24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "visualIdentity": "T04 original silhouette restored byte-for-byte; core statistics unchanged",
+    "t08RifleComposition": "sniper: structureNoRifle + external P07 unarmed + 1 rifleMounted + frontRail",
+    "t08GripStatus": "PROPOSED_P07_CONTACT_PENDING",
+    "t08VariantPolicy": "T04 main identity ONLY; T07 B archived, not active for approved appearance"
   }
 ]);
 export const TOWER_ART=TOWER_ART_V2;

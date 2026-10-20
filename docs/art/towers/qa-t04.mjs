@@ -19,7 +19,8 @@ for(let i=0;i<4;i++){
  // T05 replaces the full art: test T04's preserved snapshot, NOT force obsolete tags into T05.
  const preserved=await readFile('public/official/art/towers/t04-snapshot/'+t.family+'-'+t.level+'.svg','utf8');
  assert.ok(preserved.includes('t04-fund-top')&&preserved.includes('t04-painted-microvolume'));
- assert.ok(svg.includes('tower-shadow')&&svg.includes(t.family==='sniper'?'sniper-back':'barracks-back'));
+ // T08 is byte-for-byte T04; do NOT require obsolete T05 art group labels.
+ assert.equal(svg,preserved,'T08 current master MUST exactly match T04 historical snapshot');
  for(const key of ['buildFoundationLocal','shadowFootAnchor','operatorAnchorLocal','muzzleLocal','spawnExitLocal']){
    const p=t[key];if(!p)continue;
    assert.equal(p.units,'source-px');assert.ok(p.x>=0&&p.x<=360&&p.y>=0&&p.y<=420);

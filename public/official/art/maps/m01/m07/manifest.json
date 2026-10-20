@@ -1,0 +1,156 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "team": "MAPAS",
+  "milestone": "M07/C1-C-CONTINUIDAD",
+  "branch": "feature/art-m07-continuidad-c1c",
+  "baseSha": "fa7f5f90a059b3292a20a7b3834ac43c81176ac7",
+  "status": "identity-restoration-code-pending-real-render-approval",
+  "approved": false,
+  "visualBaseline": {
+    "pngSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "dimensions": [
+      1280,
+      768
+    ],
+    "exactC1CScene": "integration/c1c-q2-review",
+    "palette": "viva",
+    "historicalM03Path": "public/official/src/maps-visual/m01/m03/renderer-v3.mjs",
+    "screenshotCopyCommitted": false
+  },
+  "implementation": {
+    "renderer": "public/official/src/maps-visual/m01/m07/renderer-v7.mjs",
+    "showcase": "public/official/art/maps/m01/m07/index.html",
+    "gallery": "public/official/art/maps/m01/m07/gallery.html",
+    "originalM03NoEdits": true,
+    "defaultTreatment": "fiel",
+    "optInTreatment": "pulido",
+    "sourceCanon": {
+      "world": [
+        1280,
+        768
+      ],
+      "route": 133,
+      "pads": 8,
+      "roadVisualWidth": 110,
+      "padGraphicWidth": 110.24
+    }
+  },
+  "reusedSourceAssets": [
+    {
+      "type": "oak",
+      "path": "public/official/art/maps/m01/m02/svg/oak-illustrated.svg",
+      "blobSha1": "000defc434ebc58e8bc737f76685512482ace95f",
+      "key": "maps/m01/aurora-v2/svg/oak",
+      "source": "original project owned by MAPAS; inherited unmodified from M02/M03",
+      "alpha": true,
+      "sourceEditable": true
+    },
+    {
+      "type": "fence",
+      "path": "public/official/art/maps/m01/m02/svg/fence-remnant.svg",
+      "blobSha1": "114044407eb478ba87e80d2f9968f56cc0ce1dae",
+      "key": "maps/m01/aurora-v2/svg/fence",
+      "source": "original project owned by MAPAS; inherited unmodified from M02/M03",
+      "alpha": true,
+      "sourceEditable": true
+    },
+    {
+      "type": "aqueduct",
+      "path": "public/official/art/maps/m01/m02/svg/aqueduct-remnant.svg",
+      "blobSha1": "07321a22bee9a8fb75d421cacdc1389642447d64",
+      "key": "maps/m01/aurora-v2/svg/aqueduct",
+      "source": "original project owned by MAPAS; inherited unmodified from M02/M03",
+      "alpha": true,
+      "sourceEditable": true
+    },
+    {
+      "type": "shrine",
+      "path": "public/official/art/maps/m01/m02/svg/signal-shrine.svg",
+      "blobSha1": "63e2e3912a1985af03350afebcffe9e8f510b8a0",
+      "key": "maps/m01/aurora-v2/svg/shrine",
+      "source": "original project owned by MAPAS; inherited unmodified from M02/M03",
+      "alpha": true,
+      "sourceEditable": true
+    },
+    {
+      "type": "lookout",
+      "path": "public/official/art/maps/m01/m02/svg/watch-post.svg",
+      "blobSha1": "56c3b1ce697e5ab1fddf12a45201d0f7c0ce4a31",
+      "key": "maps/m01/aurora-v2/svg/lookout",
+      "source": "original project owned by MAPAS; inherited unmodified from M02/M03",
+      "alpha": true,
+      "sourceEditable": true
+    },
+    {
+      "type": "supply",
+      "path": "public/official/art/maps/m01/m03/svg/dawn-cache.svg",
+      "blobSha1": "512ac5d19aba9a10cf6e6cd4b8dc214cb5254468",
+      "key": "maps/m01/aurora-v3/svg/supply",
+      "source": "original project owned by MAPAS; inherited unmodified from M02/M03",
+      "alpha": true,
+      "sourceEditable": true
+    },
+    {
+      "type": "fern",
+      "path": "public/official/art/maps/m01/m03/svg/dawn-fern.svg",
+      "blobSha1": "aa412c8d62ceff8db4933e40b42dcb78b4358224",
+      "key": "maps/m01/aurora-v3/svg/fern",
+      "source": "original project owned by MAPAS; inherited unmodified from M02/M03",
+      "alpha": true,
+      "sourceEditable": true
+    }
+  ],
+  "uniqueVisibleSourceAssets": 7,
+  "visibleSceneProps": 13,
+  "preloadAlsoIncludesButNotRendered": [
+    "waymarker",
+    "wagon"
+  ],
+  "newIllustratedSVGCount": 0,
+  "textureBudget": {
+    "M03HistoricalGeneratedPerPalette": 11,
+    "M03GroundPixels": [
+      2560,
+      1536
+    ],
+    "M03RoadPixels": [
+      2560,
+      1536
+    ],
+    "padVariants": 9,
+    "padPixels": [
+      424,
+      304
+    ],
+    "optionalPolishPixels": [
+      1280,
+      768
+    ],
+    "optionalAdditionalRgba8MiB": 3.75,
+    "defaultAdditionalRgba8MiB": 0,
+    "actualGpuAllocationMiB": null,
+    "actualFps": null,
+    "cachePolicy": "M07-owned leases for M03-generated canvas textures and optional polish; inherited M02/M03 shared SVG loaded once"
+  },
+  "visualPolicy": [
+    "No replacement for approved lobed oak",
+    "No different gate, road or pads",
+    "Default inherits exact M03 Viva source",
+    "Core C1D4 governs HP, damage, economy, targeting and all combat",
+    "No camera override"
+  ],
+  "qa": {
+    "sourceInspection": true,
+    "imageSourceSha256VerifiedLocally": true,
+    "v8MockExecuted": true,
+    "nodeNativeExecuted": false,
+    "chromiumRealExecuted": false,
+    "originalShotDiffVerified": false,
+    "integratedC1D4": false,
+    "phoneHardwareQA": false
+  },
+  "rights": {
+    "origin": "All reused project-owned M02/M03 sources with generative assistance; no third-party character art substituted",
+    "clearance": "Commercial use review by director still required"
+  }
+}
