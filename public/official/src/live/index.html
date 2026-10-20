@@ -1,0 +1,63 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SEMANTROPIC TD — Jugar Mapa 01 | Canal oficial</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#102f3a;color:#f2e4bd;font-family:system-ui,sans-serif}
+#app{position:relative;width:100vw;height:100dvh;overflow:hidden}#stage{position:absolute;inset:0;overflow:hidden}
+#stage canvas{touch-action:manipulation}
+header,footer{position:absolute;z-index:5;left:max(7px,env(safe-area-inset-left));right:max(7px,env(safe-area-inset-right));display:flex;gap:6px;justify-content:space-between;pointer-events:none}
+header{top:max(6px,env(safe-area-inset-top));align-items:start}footer{bottom:max(5px,env(safe-area-inset-bottom));align-items:end}
+.panel{background:#102d3cec;border:1px solid #c6b687;border-radius:9px;padding:6px 9px}
+.panel strong{font-size:13px}.panel small{display:block;color:#c9d8cb;font-size:11px}.panel b{color:#ffe29c}
+.controls{display:flex;align-items:center;gap:4px;justify-content:flex-end;flex-wrap:wrap;pointer-events:auto;max-width:75vw}
+button,select{background:#1d5261ee;border:1px solid #e8c88e;color:#fff1cb;font:700 12px system-ui;padding:6px 8px;border-radius:7px;min-height:42px}
+button:disabled{opacity:.4;cursor:not-allowed}#feedback{font-size:11px;max-width:26vw}#installed{font-size:10px}
+#results[hidden]{display:none!important}
+#results{position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
+ background:#0d2735b8;backdrop-filter:blur(3px);padding:max(12px,env(safe-area-inset-left))}
+#results article{width:min(480px,94vw);max-height:88dvh;overflow:auto;background:#183a43f5;color:#f6ebce;
+ border:2px solid #ecd28b;border-radius:17px;padding:24px;text-align:center;box-shadow:0 20px 80px #0009}
+#results h2{font-size:clamp(20px,4vw,28px);margin:4px 0 6px}
+#resultStars{font-size:clamp(27px,6vw,40px);letter-spacing:.05em;color:#ffe18a;margin:10px 0}
+#resultDetail{font-size:14px;line-height:1.5}
+#resultSaved{display:block;font-size:11px;color:#c7d6ce;margin:12px 0}
+#resultRestart{font-size:15px;min-height:46px}
+#rally{pointer-events:auto;position:relative;z-index:6;min-height:32px;padding:3px 7px;margin-top:3px;font-size:11px}
+@media(max-width:950px) and (orientation:landscape){#rally{min-height:34px;font-size:10px}}
+
+#portrait{display:none;position:absolute;z-index:8;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;background:#123440}
+@media(max-width:950px) and (orientation:landscape){
+ header{top:max(3px,env(safe-area-inset-top))}
+ .panel{padding:3px 6px;border-radius:6px}
+ header .panel:first-child{max-width:60vw}
+ .panel strong{font-size:11px}
+ .panel small,#installed{font-size:10px}
+ footer{align-items:flex-end;bottom:max(3px,env(safe-area-inset-bottom));gap:2px}
+ .controls{width:100%;max-width:none;flex-wrap:nowrap;justify-content:flex-end;gap:2px}
+ .controls button,.controls select{font-size:10px;line-height:1.05;min-height:44px;max-height:48px;
+   padding:4px 5px;white-space:nowrap;flex-shrink:1}
+ #prev,#next{min-width:36px;padding:4px 1px}
+ #family{width:105px;max-width:120px;min-width:85px}
+ #buy{min-width:70px}#upgrade{min-width:55px}#sell{min-width:44px}
+ #waveStart{min-width:90px}#pause,#restart{min-width:56px}
+ #feedback{position:absolute;bottom:49px;left:0;max-width:52vw;font-size:10px;line-height:1.2}
+}
+@media(max-width:950px) and (orientation:portrait){#portrait{display:flex}}
+</style></head><body><main id="app"><div id="stage"></div>
+<header><div class="panel"><strong>SEMANTROPIC TD · C1-D6</strong>
+<small>Mapa 01 · primera versión jugable · continuidad C1-C</small>
+<small>Oro <b id="coins">365</b> · Vidas <b id="lives">100</b> · Onda <b id="wave">0/5</b> · <span id="render">WebGL2…</span></small>
+<small>Bajas <b id="kills">0</b> · Fugas <b id="leaks">0</b> · <b id="state">PREPARACIÓN</b></small><small id="record">Récord: sin completar</small></div>
+<div class="panel"><strong>Plataforma <span id="slot">1/8</span></strong><small id="installed">Plataforma vacía</small><button id="rally" hidden title="Mover escuadrón de Infantería a un punto del camino">↗ Reunión</button></div></header>
+<footer><div class="panel" id="feedback" role="status">Cargando combate…</div><div class="controls">
+<button id="prev" aria-label="Plataforma anterior">◀</button><button id="next" aria-label="Plataforma siguiente">▶</button>
+<select id="family" aria-label="Familia"><option value="sniper">Francotirador</option><option value="infantry">Infantería (real)</option></select>
+<button id="buy">Construir</button><button id="upgrade">Mejorar</button><button id="sell">Vender</button>
+<button id="waveStart">Comenzar oleada</button><button id="pause">Pausar</button><button id="restart">Reiniciar</button></div></footer>
+<section id="results" role="dialog" aria-modal="true" aria-labelledby="resultTitle" hidden>
+<article><h2 id="resultTitle">Resultado</h2><div id="resultStars" aria-label="Estrellas obtenidas"></div>
+<p id="resultDetail"></p><small id="resultSaved"></small>
+<button id="resultRestart">Volver a jugar el Mapa 01</button></article></section>
+<div id="portrait">↻ Gira el teléfono a horizontal para jugar.</div></main>
+<script src="../../../dependencias/phaser.min.js"></script>
+<script type="module" src="../c1d6-playable/scene.mjs?release=c1d6"></script></body></html>
