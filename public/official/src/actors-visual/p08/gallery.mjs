@@ -3,8 +3,8 @@ const STAGE={width:1280,height:768},H=208,W=176;
 const cfg={state:'attack',time:0,paused:false,stepped:false,worldHeight:80,guides:false};
 let gallery;
 const labels=[{id:'infantry_recruit',x:196,title:'I · RECLUTA',scale:88/171},
- {id:'infantry_veteran',x:453,title:'II · VETERANOS (1)',scale:88/171},
- {id:'infantry_veteran',x:594,title:'II · VETERANOS (2)',scale:88/171},
+ {id:'infantry_veteran',x:425,title:'II · VETERANO 1',scale:88/171},
+ {id:'infantry_veteran',x:611,title:'II · VETERANO 2',scale:88/171},
  {id:'warrior',x:897,title:'ORCO · P03',scale:91/171},
  {id:'hound',x:1112,title:'HOUND · P03',scale:67/114}];
 const $=id=>document.getElementById(id);
@@ -37,10 +37,12 @@ class P08Review extends Phaser.Scene{
    const sh=this.add.ellipse(item.x,y+3,item.id==='hound'?50:42,12,0x133932,.55).setDepth(5);
    const sprite=this.add.image(item.x,y,atlas.atlasKey,'idle-0')
      .setOrigin(.5,.92).setScale(item.scale).setDepth(y+5);
-   this.add.text(item.x,558,item.title,{
-    fontFamily:'system-ui',fontSize:'17px',fontStyle:'bold',color:i>=3?'#f1d49e':'#ddf0d7'
+   // B1: 2 veteranos tienen columnas independientes. Nunca abarcar el panel vecino.
+   const title=this.add.text(item.x,558,item.title,{
+    fontFamily:'system-ui',fontSize:i===1||i===2?'20px':'17px',
+    fontStyle:'bold',color:i>=3?'#f1d49e':'#ddf0d7'
    }).setOrigin(.5).setDepth(1200);
-   this.views.push({sprite,sh,item,index:i});
+   this.views.push({sprite,sh,item,index:i,title,panelWidth:i===1||i===2?174:i===4?172:180});
   }
   this.help=this.add.text(STAGE.width/2,626,'',{
    fontFamily:'system-ui',fontSize:'16px',color:'#f4e4bc'
@@ -58,9 +60,10 @@ class P08Review extends Phaser.Scene{
    g.fillStyle(i%2?0x386a53:0xcee0a0,.15).fillEllipse(x,y,22+i%5*7,4+i%3*2);
   }
   for(const [i,item] of labels.entries()){
-   g.fillStyle(0x23474b,.75).fillRoundedRect(item.x-(i===4?86:90),253,i===4?172:180,288,14);
+   const panelWidth=this.views[i]?.panelWidth??(i===4?172:180);
+   g.fillStyle(0x23474b,.75).fillRoundedRect(item.x-panelWidth/2,253,panelWidth,288,14);
    g.lineStyle(2,i<3?0x9ac6b3:0xcfb991,.85)
-    .strokeRoundedRect(item.x-(i===4?86:90),253,i===4?172:180,288,14);
+    .strokeRoundedRect(item.x-panelWidth/2,253,panelWidth,288,14);
   }
  }
  paintGuides(){
