@@ -221,13 +221,13 @@ function biped(c,id,P){
   // Human facial mask with brow and guard visor.
   oval(c,0,-38,21,26,skin,'#59615e',2);
   if(sniper){
-   helmet(c,true);
+   c.save();c.translate(0,100);helmet(c,true);c.restore(); // Re-anchor historical P03 visor over the actual skull
    // P07 continuity: omit duplicate rifle only; tower T07/T08 owns mounted weapon.
    path(c,[[11,-17],[22,-11]],'#d7c5a5',3);
   }else{
    oval(c,-6,-43,3.5,3,'#253f4c','',0);
    oval(c,11,-43,3.5,3,'#253f4c','',0);
-   helmet(c,false);
+   c.save();c.translate(0,100);helmet(c,false);c.restore(); // Preserve P03 recruit helmet silhouette within cell
    shield(c,[handL[0]+2,handL[1]+13],P.wind*.14-P.shieldArm*.015);
    sword(c,handR,-.12+P.arm*.7);
   }
