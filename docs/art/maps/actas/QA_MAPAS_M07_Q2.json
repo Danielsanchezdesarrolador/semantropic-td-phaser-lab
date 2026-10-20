@@ -1,0 +1,198 @@
+{
+  "schema": "semantropic-mapas-m07q2-qa-v1",
+  "date": "2026-10-20",
+  "team": "MAPAS",
+  "milestone": "M07-Q2 First Playable Performance & C1C Visual Continuity",
+  "branch": "feature/art-m07-q2-performance-c1d5",
+  "baselineSha": "2c08eaa13dac309f85f4e76b736db6f66545aac9",
+  "prUrl": null,
+  "prState": "DRAFT_EXPECTED_NO_MERGE",
+  "head": "LOOK_UP_GITHUB_PR_COMMITS",
+  "sourceTruth": {
+    "originalPNG": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "maps": 10,
+    "map01Route": 133,
+    "sockets": 8,
+    "originalProps": 13,
+    "terrainPalette": "viva",
+    "defaultTreatment": "fiel",
+    "artAssetAdditions": 0,
+    "coreFilesTouched": 0
+  },
+  "checks": [
+    {
+      "id": "BASE_HEAD",
+      "status": "PASS_VIA_GITHUB",
+      "evidence": "Branch created exactly from feature/art-m07-continuidad-c1c@2c08eaa13dac309f85f4e76b736db6f66545aac9",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "PNG_REFERENCE",
+      "status": "PASS_VIA_LOCAL_BYTES",
+      "evidence": "PIL 1280x768 and SHA256 24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "M03_VISUAL_IDENTITY",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "M07-Q2 delegates to unedited M03 Viva source, 13 original props, 133 route vertices, 8 sockets, no M04/M05/M06 additions",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "TEXTURE_REPLAY",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "50 mounts alternated, baseline Canvas create/remove 575/575 vs Q2 36/25; new historical cache retains fixed 11 keys",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "M03_FOREIGN_AFTER_M07",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "M07 mounting first, foreign direct M03 disposeTextures:false later; closing M07 does not delete textures M03 uses",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "M07_TWO_VIEWS",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "Two M07 views share historical generated keys and optional polish refcount; polish removed on last owner",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "ORDERING_CORE_TICKS",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "Snapshot tick20 occupied & selected, sold event22, stale built event21 rejected, stale snapshot21 rejected, duplicate ID rejected",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "PAD_DIRECT_SELECTION",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "setSocketVisualState('selected') now preserves occupied pad glyph and shows selection ring",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "PROPS_LAYERING",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "13 original props and same M03 depths; no new scene display items under default fiel",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "STRESS_63_FIXTURES",
+      "status": "PASS_VIA_SOURCE_V8_MOCK",
+      "evidence": "63 synthetic display shapes can be created/destroyed with zero per-frame map Canvas re-bakes; not true core enemies",
+      "exitCode": null,
+      "command": null,
+      "note": "Executed with GitHub module sources inside V8 and simulated Phaser/Canvas, not Node/Chrome"
+    },
+    {
+      "id": "OWNERSHIP_FINAL_DIFF",
+      "status": "PENDING",
+      "evidence": "GitHub compare M07 original to Q2 after documentation; inspect all paths",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "NODE_ESM_QA",
+      "status": "NOT_RUN",
+      "evidence": "node public/official/src/maps-visual/m01/m07/qa-m07-q2.mjs (real Node checkout unavailable in this session)",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "NODE_M03_TO_M07_REGRESSION",
+      "status": "NOT_RUN",
+      "evidence": "node qa-m03.mjs ... qa-m07.mjs on checked-out GitHub source; old regression updated to stable 11-key cache",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "NPM_BUILD",
+      "status": "NOT_RUN",
+      "evidence": "npm run build on M07-Q2 branch; no global build modification authorized",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "CHROMIUM_1280",
+      "status": "NOT_RUN",
+      "evidence": "capture-m07-q2.mjs real Chromium WebGL2 1280x768; use local HTTP branch server",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "CHROMIUM_844",
+      "status": "NOT_RUN",
+      "evidence": "capture-m07-q2.mjs real Chromium WebGL2 844x390 device emulation",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "CHROMIUM_932",
+      "status": "NOT_RUN",
+      "evidence": "capture-m07-q2.mjs real Chromium WebGL2 932x430 device emulation",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "REAL_CORE_C1D5",
+      "status": "NOT_RUN",
+      "evidence": "Integrator-only C1-D5 real 5 waves, 63 cumulative spawns, damage/escape/barracks/sniper/economy",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "PHYSICAL_PHONE",
+      "status": "NOT_RUN",
+      "evidence": "Physical Android/iPhone touch and GPU/thermal measurement not conducted",
+      "exitCode": null,
+      "command": null
+    },
+    {
+      "id": "VISUAL_ACCEPTANCE",
+      "status": "NOT_RUN",
+      "evidence": "Real Phaser equal-camera C1C before and Q2 after with T/P and core; owner approval pending",
+      "exitCode": null,
+      "command": null
+    }
+  ],
+  "mockCounters": {
+    "cycles": 50,
+    "baselineCanvasCreates": 575,
+    "baselineCanvasRemoves": 575,
+    "q2CanvasCreates": 36,
+    "q2CanvasRemoves": 25,
+    "persistentCanvasKeys": 11,
+    "persistentSvgKeys": 9,
+    "optionalPolishAfterDestroy": 0,
+    "syntheticShapesTested": 63,
+    "actualCoreEnemiesTested": 0
+  },
+  "nativeNodeExecuted": false,
+  "chromiumWebGL2Executed": false,
+  "physicalDeviceExecuted": false,
+  "screenshotIndex": [],
+  "performanceFile": "docs/art/maps/actas/PERF_BASELINE_M07_Q2.json",
+  "knownBlockers": [
+    "Only source and V8 mocks executed. Real Chromium/WebGL2 screenshots and frame timings must run before visual certification.",
+    "C1-D5 core 5 waves/63 actual spawns cannot be asserted by MAPAS; DG Integrator owns scene, HP and economy.",
+    "M03 direct renderer with default disposeTextures:true can remove textures shared with Q2: Integrator must manage shared lifecycle (use M07 wrapper or M03 disposeTextures:false).",
+    "Q2 intentionally leaves 11 historical generated M03 Canvas textures in Phaser TextureManager cache until manager destruction; theoretical RGBA8 approx 34.43 MiB, GPU not measured.",
+    "Mobile camera and ENVELOP safe areas under ownership DG; MAPAS branch does not modify camera."
+  ],
+  "verdict": "TECHNICAL_SOURCE_PATCH_IMPLEMENTED_NOT_NATIVE_BROWSER_QA_APPROVED",
+  "rollback": "Close future PR M07-Q2 without merging; M07 original SHA 2c08eaa... and C1-D4R visual approval unchanged."
+}
