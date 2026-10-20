@@ -67,7 +67,7 @@ const textures=new Map(),objects=[];
 function sprite(){
  let dead=false;return{
   setOrigin(){return this},setDepth(){return this},setScale(){return this},setDisplaySize(){return this},
-  setAlpha(){return this},setTexture(name){assert.ok(textures.has(name),"unresolved texture "+name);return this},
+  setAlpha(){return this},setVisible(){return this},setStrokeStyle(){return this},setTexture(name){assert.ok(textures.has(name),"unresolved texture "+name);return this},
   clear(){return this},lineStyle(){return this},beginPath(){return this},moveTo(){return this},
   lineTo(){return this},strokePath(){return this},fillStyle(){return this},fillCircle(){return this},
   strokeCircle(){return this},destroy(){dead=true;},get destroyed(){return dead;}
