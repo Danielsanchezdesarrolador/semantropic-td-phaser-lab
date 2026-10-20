@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "semantropic-integrator-qa-v1",
+  "milestone": "C1-D2 M01 core runtime",
+  "date": "2026-10-20",
+  "branch": "feature/core-c1d2-runtime-m01",
+  "pr": 22,
+  "source": "Canvas V5 protected and canonical data",
+  "headShaRole": "See live PR #22; SHA changes with QA fixes",
+  "checks": [
+    {
+      "name": "source-parity",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327 (Canvas nominal and combat source string checks)"
+    },
+    {
+      "name": "syntax-node",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327"
+    },
+    {
+      "name": "node-combat-world",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327 (hit, kill, bounty, pause, waves, 50 escapes, loss)"
+    },
+    {
+      "name": "phaser-build-4.2.1",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327"
+    },
+    {
+      "name": "browser-webgl2-current",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39428335136: 1280x768 / 844x390 / 932x430, real kill/reward/pause"
+    },
+    {
+      "name": "desktop-capture",
+      "status": "PASS",
+      "evidence": "Artifact ID 12266543135, desktop before and first-kill real Chromium"
+    },
+    {
+      "name": "mobile-captures",
+      "status": "PASS",
+      "evidence": "Artifact ID 12266543135, landscape844 and landscape932 before and first-kill (emulated Chromium; NOT physical)"
+    },
+    {
+      "name": "integration-M05-T06-P05",
+      "status": "NOT_RUN",
+      "evidence": "Art PR #19 #20 #21 remain isolated, dual rifle blocker"
+    },
+    {
+      "name": "render-staging-promotion",
+      "status": "NOT_RUN",
+      "evidence": "No permission without CI & QA acceptance"
+    },
+    {
+      "name": "physical-ios-android",
+      "status": "NOT_RUN",
+      "evidence": "Emulator even when available not physical hardware"
+    }
+  ],
+  "knownBlockers": [
+    "browser scene init, first CI failed",
+    "T06 P05 double rifle",
+    "Infantry actual combat next C1-D3",
+    "no saves stars",
+    "no commercial art approval"
+  ],
+  "gameplayImplemented": {
+    "sniperI_II": true,
+    "warriorHound": true,
+    "infantry": false,
+    "saves": false,
+    "stars": false
+  },
+  "release": {
+    "stagingUntouched": true,
+    "merged": false,
+    "visualArtIntegrations": false
+  },
+  "runHistory": [
+    {
+      "id": 39427116327,
+      "result": "FAIL",
+      "reason": "browser QA script global URL shadow, no scene reached"
+    },
+    {
+      "id": 39428335136,
+      "result": "SUCCESS",
+      "artifact": 12266543135,
+      "source": "GitHub Actions with Node, real build and Chromium WebGL2"
+    }
+  ],
+  "notes": "PASS confirms first sniper I kill/reward/pause, NOT full five-wave balancing, iOS physical, or M05/T06/P05 integration."
+}

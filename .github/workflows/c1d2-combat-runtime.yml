@@ -1,0 +1,43 @@
+name: C1-D2 M01 Core Combat Runtime — Node + WebGL2
+on:
+  push:
+    branches: [feature/core-c1d2-runtime-m01]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  combat-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Core and scene syntax
+        run: |
+          node --check public/official/src/core-c1d/m01-combat-world.mjs
+          node --check public/official/src/c1d2-combat/scene.mjs
+          node --check tools/qa-c1d2-combat.mjs
+          node --check tools/qa-c1d2-browser.mjs
+      - name: Protected V5 source parity and core combat
+        run: |
+          node tools/qa-c1d2-sniper-parity.mjs
+          node tools/qa-c1d2-combat.mjs
+      - name: Build actual Phaser 4.2.1
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Playwright browser
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Real WebGL2 browser gameplay
+        run: node tools/qa-c1d2-browser.mjs
+      - name: Upload real Chromium screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1d2-real-webgl2-evidence
+          path: artifacts/c1d2-browser/
+          if-no-files-found: warn
