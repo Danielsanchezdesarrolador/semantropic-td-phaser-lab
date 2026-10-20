@@ -1,3 +1,39 @@
+# SEMANTROPIC TD · EQUIPO P · P06/C1-D2 — ATLAS BINARIOS + OPERADOR SIN RIFLE
+**Fecha:** 2026-10-20 · **Rama:** `feature/art-p06-animated-actors` · **Base SHA:** `15be56b487d0b4d7b1ca0a222f0c48feda0068ca`
+**Estado:** [4 PNG RGBA REALES VERSIONADOS] · [V8/ALFA SOURCE QA PASS] · [CHROMIUM/T07 ART PENDING] · **NO MERGE**.
+**HEAD actual:** PR P06 → pestaña Commits (al actualizar este índice HEAD cambia).
+**PR DRAFT:** [#27 P06/C1-D2](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/27) → `feature/art-p05-combat-reactivity`, sin merge.
+
+## Acceso oficial P06 — Dirección General
+| Artefacto | Enlace GitHub relativo | Estado |
+|---|---|---|
+| **ACTA oficial P06** | [ACTA_P06_2026-10-20.md](./ACTA_P06_2026-10-20.md) | PUBLICADA |
+| **QA JSON** | [QA_P06.json](./QA_P06.json) | 12 PASS / 10 NOT_RUN |
+| **RFC montaje T07 / core** | [MATRIZ_T07_P06.md](./MATRIZ_T07_P06.md) | BLOQUEANTE grip actual |
+| **Registro de PNG/QA visual** | [EVIDENCIA P06](../evidencias/P06/EVIDENCIA.md) | PNG REALES / screenshots NOT_RUN |
+| **Manifest con SHA256** | [P06_MANIFEST.json](../../../../public/official/art/actors/P06_MANIFEST.json) | 4 binarios firmados |
+| **PNG warrior** | [warrior.png](../../../../public/official/art/actors/p06/png/warrior.png) | 342686 bytes |
+| **PNG hound** | [hound.png](../../../../public/official/art/actors/p06/png/hound.png) | 234736 bytes |
+| **PNG recruit** | [infantry_recruit.png](../../../../public/official/art/actors/p06/png/infantry_recruit.png) | 325087 bytes |
+| **PNG sniper SIN RIFLE** | [sniper_operator_unarmed.png](../../../../public/official/art/actors/p06/png/sniper_operator_unarmed.png) | 270400 bytes |
+| **Fuente reproducible del PNG** | [p06-png-generator.mjs](../../../../public/official/art/actors/p06-png-generator.mjs) | Código original editable |
+| **SHA256** | [p06-hash.mjs](../../../../public/official/art/actors/p06-hash.mjs) | Verificador autocontenido |
+| **Grip/eye/shoulder** | [p06-operator-sockets.json](../../../../public/official/art/actors/p06-operator-sockets.json) | 7 estados E/W |
+| **Loader de PNG Phaser** | [p06-atlas-loader.mjs](../../../../public/official/src/actors-visual/p06-atlas-loader.mjs) | Código publicado |
+| **Adapter PR22 read-only** | [p06-core-projection.mjs](../../../../public/official/src/actors-visual/p06-core-projection.mjs) | Solo propuesta |
+| **Viewer standalone** | [p06-index.html](../../../../public/official/src/actors-visual/p06-index.html) | Código Phaser, REAL browser NOT_RUN |
+| **Node PNG decode QA** | [qa-p06.mjs](../../../../public/official/src/actors-visual/qa-p06.mjs) | Script persistido, NOT_RUN |
+| **Chromium 3 tamaños** | [qa-p06-browser.mjs](../../../../public/official/src/actors-visual/qa-p06-browser.mjs) | Script persistido, NOT_RUN |
+
+## Compromisos y bloqueantes
+P06 mantiene el canon de 4 personajes y 32 cuadros, 1408×832, pivotes .5/.92, shadow .5/1 y las versiones P04/P05 sin cambios. El editor P06 separa arma única de T07 de manos/cuerpo del operador y persiste PNG binarios reales.
+**BLOQUEANTE:** manos P06 vs stockGrip T07 no coinciden en la escala propuesta 80wu, falta screenshot integrado con `frontRail`. El core PR22 usa `originWorld` para attack_fire y T07 visual necesita muzzle del cañón: adapter central pendiente.
+**CALIDAD:** si el arte sigue pareciendo demasiado geométrico, Dirección puede rechazar su canon visual conservando el avance técnico de fuente/PNG. No declarar look premium aprobado por pasar tests.
+**QA visual:** 1280×768, 844×390, 932×430, 24 instancias, alpha re-decode desde checkout, filmstrips, iPhone/Android físico y FPS permanecen NOT_RUN.
+
+---
+## HISTORIAL INTACTO DE P01 A P05
+
 # EQUIPO P · SEMANTROPIC TD · P05/C1-D2 — REACTIVIDAD
 **Fecha:** 19-10-2026 · **Rama:** `feature/art-p05-combat-reactivity`
 **Base congelada:** `cb6e7b73edcb6f6df4fa5dace302aac845fc5780` (P04).
