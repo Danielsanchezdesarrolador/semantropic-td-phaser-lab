@@ -75,30 +75,107 @@ try{
   await page.locator("#waveStart").click();
   const combat=await page.evaluate(()=>{
    const g=window.__SEMANTROPIC_C1D7,w=g.world;
-   let soldiers=0,enemies=0,windups=0,attacks=0;
+   let soldiers=0,enemies=0,windups=0,attacks=0,confirmedContactFrame2=0;
    for(let i=0;i<1400&&!w.ended;i++){
     const ev=w.tick(1/60);
     g.scene.p08Animator.update(1/60);
     g.scene.reactEvents(ev);
     for(const e of ev){
      if(e.type==="soldier_attack_windup")windups++;
-     if(e.type==="soldier_attack_hit")attacks++;
+     if(e.type==="soldier_attack_hit"){
+      attacks++;
+      const frame=g.scene.p08Animator.snapshot(e.entityId);
+      if(frame?.state==="attack"&&frame.frame===2)confirmedContactFrame2++;
+     }
     }
     if(i%60===0){g.scene.drawEnemies();g.scene.drawSoldiers();}
    }
    soldiers=w.soldiers.length;enemies=w.actors.length;
    g.scene.drawEnemies();g.scene.drawSoldiers();g.scene.updateHud();
-   return {windups,attacks,soldiers,enemies,animated:g.scene.p08Animator.entities.size,
+   return {windups,attacks,confirmedContactFrame2,soldiers,enemies,animated:g.scene.p08Animator.entities.size,
     damageAuthorityOnly:w.kills+w.escapedCount<=w.totalSpawns,
     frames:[...g.scene.soldierViews.values()].map(x=>x.sprite.frame.name)};
   });
-  if(!combat.damageAuthorityOnly||combat.windups<1||combat.attacks<1)
+  if(!combat.damageAuthorityOnly||combat.windups<1||combat.attacks<1||combat.confirmedContactFrame2<1)
    throw Error(name+" CORE P08 combat events not verified "+JSON.stringify(combat));
   await page.screenshot({path:dir+"/"+name+"-P08-combat.png",fullPage:true});
   if(errors.length)throw Error(name+" JS errors "+errors.join(" | "));
   all.push({name,viewport:w+"x"+h,t09:"real contextual transactions",p08:"one recruit then two veterans",combat});
   await page.close();
  }
+ // Complete five-wave victory with real CORE and real P08 event presenter, never fabricate a victory.
+ const win=await browser.newPage({viewport:{width:1280,height:768}});
+ const winErr=[];win.on("pageerror",e=>winErr.push(e.message));
+ await win.goto(url,{waitUntil:"load"});await win.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7,null,{timeout:45000});
+ const victory=await win.evaluate(()=>{
+  const g=window.__SEMANTROPIC_C1D7,w=g.world,order=[0,2,4,7,1,3,5,6];
+  if(!w.economy.build(0,"infantry").ok||!w.economy.build(2,"sniper").ok)
+   throw Error("Cannot buy initial authentic towers");
+  w.syncTowers();g.scene.drawTowers();
+  let ticks=0,melee=0;
+  for(let wave=1;wave<=5&&!w.ended;wave++){
+   if(!w.startWave())throw Error("Blocked wave "+wave);
+   let steps=0;
+   while(w.active&&!w.ended&&steps++<30000){
+    const events=w.tick(1/60);g.scene.p08Animator.update(1/60);g.scene.reactEvents(events);
+    ticks++;melee+=events.filter(e=>e.type==="soldier_attack_hit").length;
+    if(steps%60===0)for(const pad of order){
+     if(!w.economy.getTower(pad)&&w.economy.quote(pad,"sniper").ok){
+      if(!w.economy.build(pad,"sniper").ok)throw Error("Purchase failed");break;
+     }
+    }
+   }
+   if(steps>=30000)throw Error("Timed out on wave "+wave);
+  }
+  g.scene.drawTowers();g.scene.drawSoldiers();g.scene.drawEnemies();
+  return {ended:w.ended,won:w.won,wave:w.wave,kills:w.kills,escaped:w.escapedCount,
+   lives:w.lives,spawns:w.totalSpawns,ticks,melee};
+ });
+ if(!victory.ended||!victory.won||victory.wave!==5||victory.kills!==63||
+  victory.escaped!==0||victory.lives!==100||victory.spawns!==63)
+  throw Error("G2 five-wave real victory not valid "+JSON.stringify(victory));
+ await win.waitForFunction(()=>!document.getElementById("results").hidden,null,{timeout:8000});
+ const stars=await win.locator("#resultStars").textContent();
+ if(stars!=="★★★")throw Error("Victory stars wrong: "+stars);
+ const saved=await win.evaluate(()=>JSON.parse(localStorage.getItem("semantropic_td_phaser_m01_normal_v1")||"null"));
+ if(saved?.stars!==3||saved?.escapes!==0)throw Error("G2 real victory local record missing "+JSON.stringify(saved));
+ await win.screenshot({path:dir+"/desktop-FULL-VICTORY-5WAVES.png",fullPage:true});
+ await win.locator("#resultRestart").click();
+ await win.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.world?.wave===0,null,{timeout:45000});
+ const rec=await win.locator("#record").textContent();
+ if(!rec.includes("★★★"))throw Error("G2 record lost on restart "+rec);
+ if(winErr.length)throw Error("G2 win JS errors "+winErr.join("|"));
+ await win.close();
+ // Authentic natural defeat with 50 leaks; no score or victory generated.
+ const lose=await browser.newPage({viewport:{width:1280,height:768}}),loseErr=[];
+ lose.on("pageerror",e=>loseErr.push(e.message));
+ await lose.goto(url,{waitUntil:"load"});
+ await lose.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7,null,{timeout:45000});
+ const defeat=await lose.evaluate(()=>{
+  const g=window.__SEMANTROPIC_C1D7,w=g.world;
+  let ticks=0;
+  for(let wave=1;wave<=5&&!w.ended;wave++){
+   if(!w.startWave())throw Error("Loss wave did not start "+wave);
+   let steps=0;
+   while(w.active&&!w.ended&&steps++<29000){
+    const ev=w.tick(1/60);
+    g.scene.p08Animator.update(1/60);g.scene.reactEvents(ev);ticks++;
+   }
+   if(steps>=29000)throw Error("Loss core timed out");
+  }
+  return {ended:w.ended,won:w.won,lives:w.lives,escaped:w.escapedCount,ticks};
+ });
+ if(!defeat.ended||defeat.won||defeat.lives!==0||defeat.escaped!==50)
+  throw Error("G2 natural loss parity "+JSON.stringify(defeat));
+ await lose.waitForFunction(()=>!document.getElementById("results").hidden,null,{timeout:8000});
+ if((await lose.locator("#resultStars").textContent())!=="Sin estrellas")
+  throw Error("G2 defeat must award no stars");
+ if(await lose.evaluate(()=>!!localStorage.getItem("semantropic_td_phaser_m01_normal_v1")))
+  throw Error("G2 defeat saved fake victory");
+ await lose.screenshot({path:dir+"/desktop-FULL-DEFEAT.png",fullPage:true});
+ if(loseErr.length)throw Error("G2 defeat JS errors "+loseErr.join("|"));
+ await lose.close();
+ console.log("PASS_C1D7_G2_FULL_M01_CORE_WIN_LOSS",JSON.stringify({victory,stars,recordAfterReload:rec,defeat}));
  console.log(JSON.stringify({status:"PASS_C1D7_G2_REAL_WEBGL2_T09_P08_INTEGRATED",results:all,physicalMobile:"NOT_RUN",humanVisualApproval:"PENDING"},null,2));
 }catch(e){console.error("C1D7_G2_BROWSER_FAIL",e.stack||String(e));process.exitCode=1}
 finally{await browser?.close();await new Promise(ok=>srv.close(ok))}
