@@ -105,7 +105,7 @@ export function createP07RasterCanvas(width,height,{cellWidth=176,cellHeight=208
    const p=this.points;if(p.length<2)return;
    const segs=p.length-(this.closed?0:1),rad=this.lineWidth/2;
    for(let j=0;j<segs;j++){
-    const a=p[j],b=p[(j+1)%p.length],len=Math.hypot(a[0]-b[0],a[1]-b[1]);
+    const a=p[j],b=p[(j+1)%p.length],len=q(Math.sqrt(q((a[0]-b[0])**2)+q((a[1]-b[1])**2)));
     const steps=Math.max(1,Math.ceil(len*1.1));
     for(let k=0;k<=steps;k++){let t=k/steps;this._circle(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,rad,this.strokeStyle)}
    }
