@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="sniper 1 A"><title>sniper 1 A · SEMANTROPIC TD T05</title><defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="Vigía T06 nivel 1"><title>Vigía T06 nivel 1 — Original Semantropic TD T06</title><defs>
 <linearGradient id="mStone" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fff2cb"/><stop offset=".22" stop-color="#d4c9a6"/><stop offset=".64" stop-color="#899b93"/><stop offset="1" stop-color="#526d74"/></linearGradient>
 <linearGradient id="sideStone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#9fa89d"/><stop offset=".55" stop-color="#627c7f"/><stop offset="1" stop-color="#284d60"/></linearGradient>
 <linearGradient id="iron" x1=".2" y1="0" x2=".9" y2="1"><stop stop-color="#e8e8d1"/><stop offset=".22" stop-color="#8babae"/><stop offset=".57" stop-color="#4b7888"/><stop offset=".89" stop-color="#294861"/><stop offset="1" stop-color="#172f4e"/></linearGradient>
@@ -11,42 +11,59 @@
 <radialGradient id="light"><stop stop-color="#ffeabb" stop-opacity=".85"/><stop offset=".5" stop-color="#e1ac55" stop-opacity=".28"/><stop offset="1" stop-color="#b48e50" stop-opacity="0"/></radialGradient>
 <pattern id="grain" width="20" height="16" patternUnits="userSpaceOnUse"><path d="M1 5q7-3 14-2M-2 14q9-2 15-1" fill="none" stroke="#ffe1af" stroke-width="1.1" opacity=".21"/></pattern>
 <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
-</defs><g id="tower-shadow"><ellipse cx="180" cy="392" rx="136" ry="16" fill="#132c36" opacity=".38" filter="url(#soft)"/><path d="M31 353 174 300 327 351 183 401Z" fill="#263e46" stroke="#193445" stroke-width="4"/><path d="M31 352 175 302 327 351 186 380Z" fill="url(#mStone)" stroke="#e5cf98" stroke-width="3.5"/><path d="M38 355 187 384 324 351V367L187 405 38 376Z" fill="url(#sideStone)" stroke="#304752" stroke-width="3"/><path d="M64 347 171 313 295 347 184 375Z" fill="#76918b" opacity=".45"/><path d="M44 360 186 393 315 359" fill="none" stroke="#f8dda8" stroke-width="2.2" opacity=".72"/><path d="M77 346 186 376 288 348" stroke="#3f6870" stroke-width="4" opacity=".72" fill="none"/></g><g id="sniper-back">
- <!-- Triangular lattice mast with open gaps, real connected foundation -->
- <path d="M137 332 177 176 199 176 242 337" fill="none" stroke="#23465c" stroke-width="22"/>
- <path d="M135 332 176 175M241 339l-43-162" stroke="url(#wood)" stroke-width="13" fill="none"/>
- <path d="M126 348 230 233M252 345 152 229M146 322l99-52" stroke="#355e6c" stroke-width="11" fill="none"/>
- <path d="M131 344 234 235M247 344 148 233" stroke="#c6aa7f" stroke-width="4" opacity=".82" fill="none"/>
- <path d="M102 351l26-14 25 14-22 13Z" fill="url(#iron)" stroke="#385665" stroke-width="4"/>
- <path d="M220 348l29-16 22 14-24 15Z" fill="url(#iron)" stroke="#365867" stroke-width="4"/>
- <g transform="translate(136 305)"><path d="M-24 20 8-83M3 27 32-81" stroke="#344e56" stroke-width="11" fill="none"/><path d="M-24 20 8-83M3 27 32-81" stroke="#ce9b67" stroke-width="4" fill="none"/><path d="M-23.0 18.0l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M-16.4 -1.8l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M-9.8 -21.6l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M-3.2 -41.4l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M3.4 -61.2l27 5" stroke="#e7bb7f" stroke-width="7"/><path d="M10.0 -81.0l27 5" stroke="#e7bb7f" stroke-width="7"/></g>
- <!-- Top work deck: operator rear placement x190,y180 (no sprite) -->
- <path d="M67 189 179 136 304 185 186 249Z" fill="url(#wood)" stroke="#254558" stroke-width="8"/>
- <path d="M65 190 185 249 306 187V215L186 277 66 217Z" fill="url(#woodShade)" stroke="#294a5c" stroke-width="6"/>
- <path d="M81 185 181 146 288 186 181 234Z" fill="url(#mStone)" stroke="#b4aa87" stroke-width="4"/>
- <path d="M82 200 184 255 302 194" stroke="#f6dc9e" stroke-width="5" fill="none"/>
- <!-- Narrow rear rain wing away from operator -->
- <path d="M105 149 153 72 217 105 183 148 146 162Z" fill="url(#canvas)" stroke="#315067" stroke-width="7"/>
- <path d="M113 144 154 87 193 111 147 150" fill="#dbd0ab" opacity=".25"/>
- <path d="M103 153V204M213 108V151" stroke="url(#wood)" stroke-width="9"/>
- <path d="M104 147 149 162 216 110" stroke="url(#brass)" stroke-width="5" fill="none"/>
- <!-- rear balustrade only, transparent operator work area -->
- <path d="M74 185V148l29-11v62l79 32v19L73 206Z" fill="url(#wood)" stroke="#3e4c52" stroke-width="5"/>
- <path d="M107 139 185 172v58" stroke="#b5bba7" stroke-width="5" fill="none"/>
- <path d="M114 158l61 26" stroke="#ebd3a4" stroke-width="4"/>
- <!-- mounted physical rifle/scope: is T installed fixture (operator is P) -->
- <path d="M204 179 249 158 296 174 278 188 241 188Z" fill="url(#iron)" stroke="#2b485a" stroke-width="5"/>
- <path d="M273 172 317 163 323 172 293 184Z" fill="url(#brass)" stroke="#355364" stroke-width="5"/>
- <ellipse cx="250" cy="159" rx="10" ry="8" fill="url(#optic)" stroke="#ddca98" stroke-width="4"/>
- <path d="M240 187l-8 24" stroke="#355e70" stroke-width="9"/>
- <path d="M136 224 191 245 263 211" fill="none" stroke="#e5c58f" stroke-width="5"/>
- <g transform="translate(134 133) scale(0.5)"><path d="M0 5V-58" stroke="#494341" stroke-width="7"/><path d="M3-52Q19-53 38-40L26-26 44-20Q20-14 3-23Z" fill="#284f78" stroke="#e3c189" stroke-width="3"/><path d="M8-48 19-39 11-30" stroke="#afdfd6" stroke-width="3" fill="none"/><circle cy="-59" r="5" fill="url(#brass)"/></g>
- <g transform="translate(254 255) scale(0.46)"><ellipse rx="26" ry="27" fill="url(#light)" opacity=".7"/><path d="M-9-12 9-12 12 14-12 14Z" fill="#c8a365" stroke="#263f4c" stroke-width="4"/><path d="M-5-8H5V11H-5Z" fill="#fff1af" opacity=".88"/><path d="M-15-15 0-24 15-15M-15 17H15" fill="none" stroke="#4a5760" stroke-width="4"/></g>
- <g id="hand-painted-stone-wear"><path d="M200.9 281.3l8.7 -3.0" stroke="#e6d9b8" stroke-width="1.7" opacity="0.33"/><path d="M185.0 296.6l10.3 -2.8" stroke="#23485b" stroke-width="1.8" opacity="0.38"/><path d="M172.3 276.6l7.1 -2.2" stroke="#e6d9b8" stroke-width="2.5" opacity="0.38"/><path d="M239.0 286.3l11.5 -2.0" stroke="#23485b" stroke-width="1.4" opacity="0.22"/><path d="M186.6 239.7l6.2 -1.9" stroke="#e6d9b8" stroke-width="2.4" opacity="0.40"/><path d="M154.2 274.9l10.8 -1.6" stroke="#e6d9b8" stroke-width="2.3" opacity="0.35"/><path d="M145.5 305.0l6.1 -1.8" stroke="#23485b" stroke-width="1.3" opacity="0.24"/><path d="M208.3 238.4l10.9 -2.9" stroke="#23485b" stroke-width="1.2" opacity="0.30"/><path d="M133.6 267.2l10.5 -2.4" stroke="#23485b" stroke-width="2.1" opacity="0.36"/><path d="M140.2 319.7l12.3 -2.4" stroke="#e6d9b8" stroke-width="1.9" opacity="0.36"/><path d="M228.7 288.2l12.1 -1.3" stroke="#23485b" stroke-width="1.2" opacity="0.17"/><path d="M238.8 316.9l10.5 -1.4" stroke="#e6d9b8" stroke-width="1.5" opacity="0.29"/><path d="M167.2 265.3l3.9 -2.4" stroke="#23485b" stroke-width="2.3" opacity="0.15"/><path d="M173.6 254.9l3.7 -2.3" stroke="#e6d9b8" stroke-width="2.4" opacity="0.22"/><path d="M134.4 317.6l5.8 -1.7" stroke="#e6d9b8" stroke-width="2.4" opacity="0.27"/><path d="M226.8 313.7l12.4 -1.1" stroke="#e6d9b8" stroke-width="2.0" opacity="0.17"/><path d="M177.1 296.6l4.1 -2.8" stroke="#e6d9b8" stroke-width="2.5" opacity="0.29"/><path d="M151.8 252.2l7.6 -1.2" stroke="#e6d9b8" stroke-width="2.9" opacity="0.23"/><path d="M243.7 243.3l10.2 -1.2" stroke="#e6d9b8" stroke-width="2.3" opacity="0.14"/><path d="M236.5 319.8l3.8 -1.3" stroke="#e6d9b8" stroke-width="2.6" opacity="0.27"/><path d="M156.6 261.2l7.5 -2.1" stroke="#e6d9b8" stroke-width="2.3" opacity="0.21"/><path d="M208.8 257.4l3.0 -2.7" stroke="#23485b" stroke-width="2.8" opacity="0.29"/></g>
- </g><g id="sniper-front-rail">
- <!-- Front lower parapet drawn ABOVE operator ONLY if Integrator mounts split layers -->
- <path d="M93 207 184 246 287 208 286 231 185 270 93 233Z" fill="url(#sideStone)" stroke="#294958" stroke-width="6"/>
- <path d="M99 209 184 249 280 211" stroke="url(#brass)" stroke-width="6" fill="none"/>
- <path d="M119 220v24M152 236v24M221 239v16M252 225v13" stroke="#c3d8ce" stroke-width="4"/>
- <circle cx="105" cy="227" r="4" fill="#2a4352"/><circle cx="104.2" cy="226.1" r="2.6" fill="url(#brass)"/><circle cx="183" cy="260" r="4" fill="#2a4352"/><circle cx="182.2" cy="259.1" r="2.6" fill="url(#brass)"/><circle cx="275" cy="218" r="4" fill="#2a4352"/><circle cx="274.2" cy="217.1" r="2.6" fill="url(#brass)"/>
- </g></svg>
+</defs><defs><linearGradient id="t06Flag" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9f2d6"/><stop offset=".45" stop-color="#3c8c95"/><stop offset="1" stop-color="#205170"/></linearGradient><linearGradient id="t06Arm" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f6e6ba"/><stop offset=".23" stop-color="#b4d2c9"/><stop offset=".6" stop-color="#4e8799"/><stop offset="1" stop-color="#24465c"/></linearGradient><radialGradient id="t06Glow"><stop stop-color="#ffffff"/><stop offset=".25" stop-color="#b8fff0"/><stop offset=".6" stop-color="#4da9a9" stop-opacity=".8"/><stop offset="1" stop-color="#266e84" stop-opacity="0"/></radialGradient><pattern id="t06Stone" width="33" height="28" patternUnits="userSpaceOnUse"><path d="M0 0H33M0 28H33M15 0V28" fill="none" stroke="#395463" stroke-width="2.3" opacity=".36"/><path d="M2 5l9-2M19 19l9-1" fill="none" stroke="#fff2cd" stroke-width="2.8" opacity=".17"/></pattern></defs><g id="tower-shadow" data-version="t06"><ellipse cx="185" cy="390" rx="132" ry="18" fill="#193e47" opacity=".36" filter="url(#soft)"/><path d="M40 347 172 299 323 347 186 397 40 377Z" fill="#2c4853" stroke="#213946" stroke-width="5"/><path d="M40 347 172 299 323 347 184 379Z" fill="url(#mStone)" stroke="#e5d7ac" stroke-width="4"/><path d="M44 358 185 386 319 350V369L184 402 44 376Z" fill="url(#sideStone)" stroke="#34535f" stroke-width="4"/><path d="M64 345 173 310 293 347 184 372Z" fill="url(#t06Stone)" opacity=".65"/><path d="M47 367l136 31 129-37" fill="none" stroke="#dbc99d" stroke-width="2.5"/><path d="M66 352l114 26 112-27" fill="none" stroke="#365c65" stroke-width="4"/><path d="M108 321 92 338M166 310l15 5M272 334l19 10" stroke="#e5d6ae" stroke-width="3.3" opacity=".65"/></g><g id="t06-sniper-backstructure" data-owned="T" data-operator-slot="P">
+ 
+<g id="t06-support-structure">
+ <path d="M111 215 135 224 133 339 105 333Z" fill="url(#wood)" stroke="#304f5b" stroke-width="6"/>
+ <path d="M135 226 157 236 159 352 133 339Z" fill="url(#woodShade)" stroke="#294957" stroke-width="6"/>
+ <path d="M223 220 247 206 268 326 241 340Z" fill="url(#iron)" stroke="#294d60" stroke-width="7"/>
+ <path d="M239 221 252 214 268 322 252 333Z" fill="#344f5d" stroke="#c6b181" stroke-width="4"/>
+ <path d="M115 307 247 232M252 306 123 241M143 333 242 270" stroke="#335f70" stroke-width="16" fill="none"/>
+ <path d="M115 307 247 232M252 306 123 241M143 333 242 270" stroke="#dfb781" stroke-width="4" opacity=".75" fill="none"/>
+ <path d="M103 335 139 354 164 347 129 329Z" fill="url(#iron)" stroke="#43525a" stroke-width="5"/>
+ <path d="M233 338 264 324 280 339 249 353Z" fill="url(#iron)" stroke="#3a515f" stroke-width="5"/>
+ <path d="M99 285 110 280M123 281l14 4" stroke="#f4d8a0" stroke-width="3"/>
+</g><g id="t06-recruit-banner">
+ <path d="M95 164V88" stroke="#4a5656" stroke-width="7"/>
+ <path d="M97 92q25-8 45 7l-13 14 16 9q-28 1-48-7Z" fill="url(#t06Flag)" stroke="url(#brass)" stroke-width="3"/>
+ <path d="M102 100l20 3-14 8" fill="none" stroke="#e4e2ba" stroke-width="3"/>
+ <circle cx="95" cy="86" r="5" fill="url(#brass)"/>
+ </g>
+<g id="t06-deck-l1">
+ <path d="M72 194 181 141 294 185 182 244Z" fill="url(#wood)" stroke="#2e4e5f" stroke-width="7"/>
+ <path d="M72 196 183 244 294 186V218L183 271 73 219Z" fill="url(#woodShade)" stroke="#385565" stroke-width="6"/>
+ <path d="M82 192 183 154 283 186 181 230Z" fill="url(#mStone)" stroke="#d1c6a5" stroke-width="3"/>
+ <path d="M78 216 182 262 290 213" stroke="url(#brass)" stroke-width="5" fill="none"/>
+ <path d="M110 185 177 213 244 186" stroke="#8c8170" stroke-width="3" opacity=".4" fill="none"/>
+ <!-- small rain shield, rear upper left: diagonal roof never occludes actor -->
+ <path d="M92 152 146 87 204 114 156 167Z" fill="url(#roof)" stroke="#2b4e64" stroke-width="7"/>
+ <path d="M104 148 146 101 192 118 156 156" fill="url(#canvas)" opacity=".45"/>
+ <path d="M92 154 158 168 205 114" fill="none" stroke="url(#wood)" stroke-width="8"/>
+ <path d="M93 153V202M204 113V169" stroke="url(#woodShade)" stroke-width="8"/>
+</g>
+<g id="t06-precision-rig-l1">
+ <path d="M196 182 253 159 289 171 316 184 287 194 235 200Z" fill="url(#t06Arm)" stroke="#315669" stroke-width="6"/>
+ <path d="M280 172l34-10 17 11-16 14-29-2Z" fill="url(#brass)" stroke="#344d5b" stroke-width="5"/>
+ <ellipse cx="248" cy="162" rx="10" ry="8" fill="url(#optic)" stroke="#b8dacf" stroke-width="4"/>
+ <path d="M233 197l-8 25" stroke="#386878" stroke-width="8"/>
+ <path d="M203 190l21 6" stroke="#e1d2ae" stroke-width="3.5"/>
+</g>
+ <g id="t06-rail-rear">
+  <path d="M76 191V149l28-16 10 63 69 35v19L75 216Z" fill="url(#wood)" stroke="#2d4c59" stroke-width="5"/>
+  <path d="M106 137 183 176V229" stroke="url(#brass)" stroke-width="4.5" fill="none"/>
+  <path d="M111 153l58 27" stroke="#f3d5a6" stroke-width="3.5"/>
+ </g>
+ <g id="t06-guided-stairs"><path d="M121 245 90 346M145 255 126 361" stroke="url(#wood)" stroke-width="11"/>
+  <path d="M117 261l25 9" stroke="#e8c08b" stroke-width="7"/><path d="M111 281l25 9" stroke="#bf936a" stroke-width="7"/><path d="M105 301l25 9" stroke="#e8c08b" stroke-width="7"/><path d="M99 321l25 9" stroke="#bf936a" stroke-width="7"/><path d="M93 341l25 9" stroke="#e8c08b" stroke-width="7"/>
+  <path d="M113 245l-34 99M142 256l-24 111" stroke="#314d57" stroke-width="2.2" opacity=".65"/>
+ </g>
+ <g transform="translate(188 236) scale(0.58)"><path d="M0-17 20-10 18 13 0 25-18 13-20-10Z" fill="#285d72" stroke="url(#brass)" stroke-width="4"/><path d="M0-10 5 0 13 4 5 8 0 18-5 8-13 4-5 0Z" fill="#e5dfa8"/><circle cx="0" cy="4" r="3" fill="#91eee5"/></g><g transform="translate(261 256)"><ellipse rx="19" ry="20" fill="url(#light)" opacity=".68"/><path d="M-7-12 7-12 10 10-10 10Z" fill="url(#brass)" stroke="#37485a" stroke-width="3"/><path d="M-4-8H4V7H-4Z" fill="#fef2b1"/><path d="M-10-14 0-20 10-14M-10 12H10" stroke="#4b5660" stroke-width="3" fill="none"/></g>
+ <g id="t06-wear-material"><path d="M78 190l7 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M127 221l8 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M176 252l9 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M225 283l10 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M274 314l11 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M106 202l12 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M155 233l13 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M204 264l7 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M253 295l8 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M85 326l9 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M134 214l10 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M183 245l11 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M232 276l12 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M281 307l13 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M113 195l7 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M162 226l8 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M211 257l9 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M260 288l10 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M92 319l11 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M141 207l12 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M190 238l13 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M239 269l7 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M288 300l8 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M120 331l9 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M169 219l10 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M218 250l11 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M267 281l12 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M99 312l13 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M148 200l7 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M113 310l23 5M228 315l26-8" stroke="#d9bf92" stroke-width="3" opacity=".6"/></g>
+ <circle cx="119" cy="233" r="5" fill="#243a47"/><circle cx="118" cy="232" r="2.7" fill="url(#brass)"/><circle cx="262" cy="240" r="5" fill="#243a47"/><circle cx="261" cy="239" r="2.7" fill="url(#brass)"/><circle cx="182" cy="254" r="5" fill="#243a47"/><circle cx="181" cy="253" r="2.7" fill="url(#brass)"/>
+</g><g id="t06-sniper-front-rail" data-operator-occlusion="feet-only">
+ <path d="M88 219 182 257 284 219 284 242 182 281 87 244Z" fill="url(#sideStone)" stroke="#2c5060" stroke-width="6"/>
+ <path d="M91 222 182 258 281 222" fill="none" stroke="url(#brass)" stroke-width="6"/>
+ <path d="M112 231v23M150 247v20M218 253v21M260 232v20" stroke="#e0cda9" stroke-width="4.5"/>
+ <path d="M100 239l16 6M222 265l22-10" stroke="#74988f" stroke-width="3"/>
+ <circle cx="111" cy="250" r="5" fill="#243a47"/><circle cx="110" cy="249" r="2.7" fill="url(#brass)"/><circle cx="183" cy="273" r="5" fill="#243a47"/><circle cx="182" cy="272" r="2.7" fill="url(#brass)"/><circle cx="277" cy="231" r="5" fill="#243a47"/><circle cx="276" cy="230" r="2.7" fill="url(#brass)"/>
+</g></svg>

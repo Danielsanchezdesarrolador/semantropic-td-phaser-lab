@@ -1,3 +1,41 @@
+# SEMANTROPIC TD · EQUIPO T — ÍNDICE ACTUAL C1-D2 / T06
+
+**Candidato vigente: Francotirador T06**, rama `feature/art-t06-sniper-vfx`. **Base autorizada exacta:** `ffc06ccf0328e12c3af26a869167673e14d5b2e4`; snapshot HEAD antes de este índice `fd72fce3ac03506aa846a2614e96948861aa0965`. **PR [#19 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/19) → `feature/art-t05-premium-towers`**. Sin merge ni despliegue.
+
+## Documentos T06 para Dirección General
+
+- [ACTA T06 oficial](./ACTA_T06_2026-10-19.md) — inventario, arquitectura I/II, estados de QA, riesgos y decisiones solicitadas.
+
+- [QA T06 JSON](./QA_T06.json) — comprobaciones PASS reales de contenido y Phaser MOCK frente a NOT_RUN del runtime.
+
+- [Manifiesto assets T06](../ASSET_MANIFEST_T06_C1D2.json) — 2 masters, 6 capas, 2 snapshots T05, propuestas de escala y autoría.
+
+- [Script QA reproducible](../qa-t06.mjs) — tests Node, aún NO EJECUTADOS sobre checkout.
+
+- [RFC hacia Integrador C1-D2](./RFC_T06_C1D2_EVENTS.md) — envelope propuesto de attack_fire y oclusión P04.
+
+- [Evidencia comprobada T06](../evidencias/T06/VALIDACION_ESTATICA.md) — estructura SVG, parser, mocks, fallo corregido.
+
+- [Showroom T06 en fuente](../../../../public/official/src/towers-visual/t06-index.html) — requiere build/servidor Phaser 4.2.1 real.
+
+- [Adaptador de disparo visual](../../../../public/official/src/towers-visual/sniper-vfx.mjs) — `SniperShotPresenter`, sin daño real.
+
+## Estado T06
+
+- **[CONFIRMADO EN FUENTE]** dos Francotiradores 3/4 reconstruidos, seis capas editables y dos T05 snapshots; `footAnchor` constante; `muzzle/fireEffectOriginLocal` definidos.
+
+- **[PROBADO CON JS Y PHASER MOCK]** parse y anclajes, eventos A/B y dedup, target desaparecido, cancelación de objetos y cierre.
+
+- **[NO EJECUTADO]** Node qa-t06 en checkout, npm build, Phaser WebGL2 real, móvil, capturas 1280×768/844×390/932×430, gameplay Core, FPS.
+
+- **[PENDIENTE DECISIÓN]** aprobación artística de Dirección, integración `CombatEventBridge` por Integrador, montaje P04/rail y eventual atlas PNG comercial.
+
+- `screenshotIndex=[]`. La escena es showroom de eventos **sintéticos**; NO representa un combate real funcional.
+
+---
+
+## Historial anterior — T05/C1-D y versiones previas (conservado sin cambios)
+
 # SEMANTROPIC TD · EQUIPO T — INDEX DE VERSIONES Y ACTAS
 
 **Versión candidata:** T05 / C1-D · 2026-10-19. **Rama:** `feature/art-t05-premium-towers`. **Base protegida:** `140a81ae4b38f915326deefbb35230368389eac8`. **HEAD antes del commit del índice:** `10bd05bd55c032f054f952e212efea847d4c871c`. SHA final en [PR #14](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/14); evitar un valor autorreferencial falso.
