@@ -44,8 +44,10 @@ jobs:
           npm install --no-save playwright@1.57.0
           npx playwright install --with-deps chromium
       - name: Validate integrated C1-D4 at three viewports
+        shell: bash
         run: |
-          node tools/qa-c1d4-browser.mjs | tee c1d4-chromium-qa.log
+          set -euo pipefail
+          node tools/qa-c1d4-browser.mjs 2>&1 | tee c1d4-chromium-qa.log
       - name: Screenshot and diagnostic artifacts
         if: always()
         uses: actions/upload-artifact@v4
