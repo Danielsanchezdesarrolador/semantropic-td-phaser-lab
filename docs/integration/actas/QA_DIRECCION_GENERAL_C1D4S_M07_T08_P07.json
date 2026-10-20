@@ -93,7 +93,7 @@
     },
     {
       "name": "P07 original operator fallback default",
-      "status": "CODE_PRESENT_QA_PENDING",
+      "status": "PASS_CHROMIUM_WEBGL2",
       "reason": "opt-in ?operator=p07 for art review"
     },
     {
@@ -107,5 +107,15 @@
   ],
   "rollback": "PR#30 C1-D4R unchanged",
   "noMerge": true,
-  "noDeploy": true
+  "noDeploy": true,
+  "latestFallback": {
+    "run": 39457360704,
+    "artifactId": 12280953608,
+    "chromiumBaseline": "PASS",
+    "chromiumCandidate": "PASS",
+    "operatorDefault": "P03_APPROVED",
+    "operatorExperimental": "P07_UNAPPROVED_OPT_IN",
+    "finalGate": "FAIL_DUE_T08_P07_SOURCE_QA",
+    "visualCrop": "P03 operator silhouette/head matches approved C1-D4R by real screenshot"
+  }
 }
