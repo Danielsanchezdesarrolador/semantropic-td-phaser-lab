@@ -31,6 +31,22 @@ try{
    return {webgl2:g.scene.game.renderer.gl instanceof WebGL2RenderingContext,
     route:g.world.map.path.length,sockets:g.world.map.spots.length,gold:g.world.economy.gold,lives:g.world.lives};
   });
+  if(width<1000){
+   const screen=await page.evaluate(()=>{
+    const canvas=document.querySelector("#stage canvas"),r=canvas.getBoundingClientRect();
+    const ids=["prev","next","family","buy","upgrade","sell","waveStart","pause","restart"];
+    const rects=ids.map(id=>{const b=document.getElementById(id).getBoundingClientRect();
+      return{id,left:b.left,right:b.right,top:b.top,bottom:b.bottom,height:b.height,width:b.width};});
+    return {screenWidth:innerWidth,screenHeight:innerHeight,canvas:{left:r.left,right:r.right,
+      top:r.top,bottom:r.bottom},controls:rects};
+   });
+   if(screen.canvas.left>1||screen.canvas.right<width-1||screen.canvas.top>1||
+     screen.canvas.bottom<height-1)throw Error(tag+" letterbox still present "+JSON.stringify(screen));
+   if(screen.controls.some(x=>x.left<0||x.right>width+1||x.top<0||x.bottom>height+1||
+     x.height<40))throw Error(tag+" controls out of safe viewport "+JSON.stringify(screen));
+   for(let i=1;i<screen.controls.length;i++)if(screen.controls[i].top>screen.controls[0].top+8)
+     throw Error(tag+" controls wrap into second line "+JSON.stringify(screen.controls));
+  }
   if(!initial.webgl2||initial.gold!==365||initial.lives!==100||initial.route!==133||initial.sockets!==8)
    throw Error(tag+" invalid initial scene "+JSON.stringify(initial));
   await page.screenshot({path:"artifacts/c1d4-browser/"+tag+"-before.png",fullPage:true});
