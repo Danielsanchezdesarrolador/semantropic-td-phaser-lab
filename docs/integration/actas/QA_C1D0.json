@@ -4,15 +4,15 @@
   "milestone": "C1-D0",
   "branch": "feature/core-c1d-m01-combat",
   "baseSha": "053237d559ab5b0f014deee37e997e328095831f",
-  "headSha": null,
-  "prUrl": null,
+  "headSha": "see PR HEAD (self-updating documentation)",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/13",
   "gameplayImplemented": false,
   "checks": [
     {
       "name": "contract-audit-node",
       "command": "node tools/qa-c1d0.mjs",
-      "status": "NOT_RUN",
-      "evidence": null
+      "status": "PASS",
+      "evidence": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39350436854"
     },
     {
       "name": "real-combat-in-browser",
@@ -23,11 +23,18 @@
       "name": "canvas-v5-full-formulas",
       "status": "PENDING",
       "evidence": null
+    },
+    {
+      "name": "phaser-static-package-build",
+      "command": "npm run build",
+      "status": "PASS",
+      "evidence": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39350436854"
     }
   ],
   "knownBlockers": [
     "effective Canvas V5 gameplay algorithms not fully audited",
     "M01 only smoke model without build/attack/HP combat",
     "no gameplay Phaser scene committed"
-  ]
+  ],
+  "lastTestedSha": "f392a8f9344ec021a23f480849242e6a8b28422d"
 }
