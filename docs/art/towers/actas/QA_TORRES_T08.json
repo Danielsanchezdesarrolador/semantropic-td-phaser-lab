@@ -8,7 +8,7 @@
   "headShaSnapshot": "095899bdb66fbc73bba55ebc0da1a73e052d7064",
   "headShaNote": "snapshot before QA/ACTA/index; true head in PR #29",
   "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/29",
-  "status": "PROTOTYPE_AND_HISTORICAL_SOURCE_RESTORED__NOT_ART_APPROVED",
+  "status": "HOTFIX_SOURCE_CORRECTED__AWAITING_NODE_AND_INTEGRATION_QA",
   "sourceReferenceSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
   "fullSceneC1CReproduced": false,
   "gameplayAltered": false,
@@ -208,5 +208,57 @@
     "No mobile performance measurements",
     "No user approval of integrated appearance"
   ],
-  "recommendation": "KEEP T04 masters exact; do NOT merge PR before Integrator supplies real same-camera C1C comparison"
+  "recommendation": "KEEP T04 masters exact; do NOT merge PR before Integrator supplies real same-camera C1C comparison",
+  "hotfix": {
+    "id": "T08-HF1",
+    "date": "2026-10-20",
+    "PR": 29,
+    "originalFailure": {
+      "runId": 39455399642,
+      "jobId": 118740821956,
+      "runner": "GitHub Actions Ubuntu, Node v22.23.3",
+      "beforeHotfix": true,
+      "command": "node docs/art/towers/qa-t08.mjs",
+      "status": "FAIL",
+      "exitCode": 1,
+      "assertion": "layers.singleRifle && layers.rifleOwner==='T' && layers.operatorOwner==='P07'",
+      "line": 38,
+      "buildSkipped": true,
+      "chromiumSkipped": true
+    },
+    "codeCommit": "c530e5665334f16fec6754c1d11efcc5c579d449",
+    "qaExtensionCommit": "73d95ed8d3565599fd6af24bd71886b14a6c181a",
+    "sourceV8Mock": {
+      "status": "PASS",
+      "checks": 13,
+      "failed": 0,
+      "environment": "V8 with Phaser-mock and GitHub source; NOT Node checkout",
+      "notes": "P07 T08 and P06 legacy, read-only adapter, no phantom hit, event dedup and cleanup"
+    },
+    "gitMasterCheck": {
+      "status": "PASS",
+      "unchanged": 4,
+      "shaType": "Git blob SHA-1; not screenshot SHA",
+      "ids": [
+        "66e85f802e696d662d14b9154bf6924dbb6ba4b6",
+        "25884d1754950f8d764c0f03b797e10e7ecac212",
+        "52ec5b04b744a9583a9a07464a107c6b5f1cf293",
+        "c1689a19e9467dd39c6c5af380d63b22176ead5d"
+      ]
+    },
+    "ownershipCheck": {
+      "status": "PASS",
+      "foreignPaths": 0,
+      "comparison": "feature/art-t07-sniper-single-rifle...feature/art-t08-continuidad-c1c"
+    },
+    "postHotfix": {
+      "nodeQaT08": "NOT_RUN",
+      "npmBuild": "NOT_RUN",
+      "chromiumWebGL2": "NOT_RUN",
+      "P07RealMontage": "NOT_RUN",
+      "screenshots": [],
+      "humanApproval": "PENDING"
+    },
+    "limitations": "Cannot clone GitHub into local container (github.com DNS resolution failed). Previous Actions #39455399642 tests prior code, not updated PR29 HEAD."
+  }
 }
