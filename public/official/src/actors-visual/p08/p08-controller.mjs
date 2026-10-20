@@ -91,6 +91,9 @@ export class P08AnimationController{
    // CONFIRMED authoritative core hit; never create a hit on frame 2.
    if(m.dead||!m.pendingTarget||String(m.pendingTarget)!==String(e.targetId))return false;
    m.pendingTarget=null;m.hitConfirmed=true;transition(m,'attack',.25);
+   // The REAL core hit has already occurred. Show contact keyframe 2 NOW,
+   // not .1s later, then proceed into recovery (visual only).
+   m.age=m.duration*2/P08_CLIPS.attack.frames;
   }else if(t==='soldier_hit'){
    if(!m.dead){m.sourceId=e.sourceId??null;transition(m,'hit',.21);}
    // Enemy attack impact has NO standalone event. This is the proven core
@@ -99,6 +102,7 @@ export class P08AnimationController{
     const src=this.entities.get(e.sourceId);
     if(src&&!src.dead&&String(src.pendingTarget)===String(id)){
      src.pendingTarget=null;src.hitConfirmed=true;transition(src,'attack',.25);
+     src.age=src.duration*2/P08_CLIPS.attack.frames;
     }
    }
   }else if(t==='enemy_blocked'){
@@ -121,7 +125,10 @@ export class P08AnimationController{
    if(m.clip==='attackWindup'){
     // Anticipation MUST NOT infer actual strike or damage; holds at final
     // anticipatory frame until matching authoritative hit event arrives.
-    m.age=m.duration;continue;
+    // Interrupted/out-of-range attack: never synthesize impact.
+    // Hold final anticipation for a short event grace period, then cancel.
+    if(m.age<m.duration+.18)continue;
+    m.pendingTarget=null;transition(m,m.blocked?'blocked':m.locomotion?'walk':'idle');continue;
    }
    if(m.clip==='hit'||m.clip==='attack'||m.clip==='die'){
     transition(m,m.blocked?'blocked':m.locomotion?'walk':'idle');continue;
