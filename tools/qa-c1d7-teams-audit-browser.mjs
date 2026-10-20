@@ -28,6 +28,9 @@ try{
    if(response?.status()!==200)throw Error(team+" "+w+" HTTP "+response?.status());
    await page.waitForFunction((k)=>k==="p08"?!!window.__SEMANTROPIC_P08?.scene:
     !!window.__SEMANTROPIC_T09,team,{timeout:40000});
+   if(team==="t09")await page.waitForFunction(()=>
+    window.__SEMANTROPIC_T09?.getVisualState()?.selected!==null&&
+    window.__SEMANTROPIC_T09.getVisualState().nodeCount>0,null,{timeout:25000});
    const state=await page.evaluate(team=>{
     if(team==="p08"){
      const s=window.__SEMANTROPIC_P08.scene;
@@ -36,12 +39,12 @@ try{
       veterans:s.views.filter(v=>v.item.id==="infantry_veteran").length,
       allAtlas:s.views.every(v=>s.textures.get(v.sprite.texture.key).has("attack-2"))};
     }
-    return {...window.__SEMANTROPIC_T09.getVisualState(),type:"T09",version:Phaser.VERSION};
+    return {...window.__SEMANTROPIC_T09.getVisualState(),galleryStatus:window.__SEMANTROPIC_T09.status,type:"T09",version:Phaser.VERSION};
    },team);
    if(state.version!=="4.2.1")throw Error("Wrong Phaser version "+JSON.stringify(state));
    if(team==="p08"&&(!state.gl2||state.actors!==5||state.veterans!==2||!state.allAtlas))
     throw Error("P08 invalid art gallery "+JSON.stringify(state));
-   if(team==="t09"&&state.status!=="COMPONENT_DEMO_NOT_GAMEPLAY")
+   if(team==="t09"&&(state.galleryStatus!=="COMPONENT_DEMO_NOT_GAMEPLAY"||state.nodeCount<1))
     throw Error("T09 showcase invalid "+JSON.stringify(state));
    if(team==="p08"){
     for(const phase of ["idle","attackWindup","attack"]){
