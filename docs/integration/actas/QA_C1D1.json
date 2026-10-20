@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "semantropic-c1d1-qa-v1",
+  "team": "Integrador",
+  "milestone": "C1-D1",
+  "branch": "feature/core-c1d-m01-combat",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/13",
+  "gameplayImplemented": {
+    "build": true,
+    "upgradeToII": true,
+    "sell": true,
+    "combat": false,
+    "waves": false,
+    "stars": false,
+    "save": false
+  },
+  "source": "public/JUEGO_V5_CANVAS.html and M01 maps.v5.json",
+  "checks": [
+    {
+      "name": "source-parity-and-smoke",
+      "command": "node tools/qa-c1d0.mjs",
+      "status": "PENDING_CI"
+    },
+    {
+      "name": "node-economy",
+      "command": "node tools/qa-c1d1-economy.mjs",
+      "status": "PENDING_CI"
+    },
+    {
+      "name": "phaser-build",
+      "command": "npm run build",
+      "status": "PENDING_CI"
+    },
+    {
+      "name": "browser-actual-purchases",
+      "command": "node tools/qa-c1d1-browser.mjs",
+      "status": "PENDING_CI"
+    },
+    {
+      "name": "physical-iOS-Android",
+      "status": "NOT_RUN"
+    }
+  ],
+  "screenshotIndex": [],
+  "knownBlockers": [
+    "D1 does not implement actual combat",
+    "game saves absent",
+    "production merge prohibited",
+    "real mobile hardware QA not executed"
+  ]
+}
