@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "c1b-q2-qa-v1",
+  "team": "T",
+  "milestone": "T04-C1B-Q2",
+  "branch": "feature/art-t04-q2-torres",
+  "baseSha": "c0ca8792a2d79fd5c6d5ca66b7832a9e97e4eea2",
+  "headSha": "729bb712b7b56714ff0a2a72d0031f8b60521c79",
+  "headShaMeaning": "HEAD snapshot before documentation self-referential commit; actual branch HEAD appears in PR",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/9",
+  "buildCommand": "npm install --no-audit --no-fund && npm run build",
+  "checks": [
+    {
+      "id": "code-ownership",
+      "category": "code",
+      "command": "GitHub compare feature/art-t03-torres...feature/art-t04-q2-torres",
+      "environment": "GitHub connector",
+      "status": "PASS",
+      "evidencePaths": [
+        "docs/art/towers/actas/ACTA_T04_C1B_Q2_2026-10-19.md"
+      ],
+      "reason": "GitHub compare T03→T04: 5 commits, 21 files modificados SOLO namespace T, sin paths protegidos"
+    },
+    {
+      "id": "svg-four",
+      "category": "assets",
+      "command": "SVG tag/root, source 360x420 en branch",
+      "environment": "V8, GitHub content",
+      "status": "PASS",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T04/VALIDACION_ESTATICA.md"
+      ],
+      "reason": "4 de 4 assets; chequeo estático, no arte aprobado"
+    },
+    {
+      "id": "js-parse",
+      "category": "syntax",
+      "command": "Parse catalog.mjs fx.mjs t04-gallery.mjs",
+      "environment": "V8 Function()",
+      "status": "PASS",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T04/VALIDACION_ESTATICA.md"
+      ],
+      "reason": "análisis sintáctico, no ejecución navegador"
+    },
+    {
+      "id": "anchors",
+      "category": "contract",
+      "command": "validateTowerArtV2(); projectSourceAnchor() rotación/escala",
+      "environment": "V8 on fetched module",
+      "status": "PASS",
+      "evidencePaths": [
+        "docs/art/towers/MATRIZ_ANCLAJES_T04_Q2.md"
+      ],
+      "reason": "cuatro proyecciones finitas"
+    },
+    {
+      "id": "fx-duplicate",
+      "category": "vfx",
+      "command": "dispatch(eventId repetido), cancelEvent, clear",
+      "environment": "V8 Phaser MOCK",
+      "status": "PASS",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T04/VALIDACION_ESTATICA.md"
+      ],
+      "reason": "no Phaser real; prueba limitada mock"
+    },
+    {
+      "id": "fx-bound",
+      "category": "vfx",
+      "command": "30 dispatch() events / maxJobs=24",
+      "environment": "V8 Phaser MOCK",
+      "status": "PASS",
+      "evidencePaths": [
+        "docs/art/towers/evidencias/T04/VALIDACION_ESTATICA.md"
+      ],
+      "reason": "máximo 24 en mock"
+    },
+    {
+      "id": "qa-t03",
+      "category": "regression",
+      "command": "node docs/art/towers/qa-t03.mjs",
+      "environment": "Node checkout repo",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "sin checkout de repo / deps"
+    },
+    {
+      "id": "qa-t04",
+      "category": "regression",
+      "command": "node docs/art/towers/qa-t04.mjs",
+      "environment": "Node checkout repo",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "script publicado, ejecución pendiente"
+    },
+    {
+      "id": "build-phaser",
+      "category": "build",
+      "command": "npm install --no-audit --no-fund && npm run build",
+      "environment": "Node checkout + npm dependencies",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "sin checkout repo ni node_modules Phaser"
+    },
+    {
+      "id": "webgl",
+      "category": "browser",
+      "command": "Chromium WebGL2 /official/src/towers-visual/t04-index.html",
+      "environment": "Chromium real browser",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "sin arte disponible como checkout ejecutable"
+    },
+    {
+      "id": "screen-1280",
+      "category": "screenshots",
+      "command": "capture at 1280x768 before/after",
+      "environment": "real-runtime Phaser",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "sin captura real"
+    },
+    {
+      "id": "screen-844",
+      "category": "screenshots",
+      "command": "capture 844x390 before/after",
+      "environment": "Chromium mobile emulation",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "sin captura real"
+    },
+    {
+      "id": "screen-932",
+      "category": "screenshots",
+      "command": "capture 932x430 before/after",
+      "environment": "Chromium mobile emulation",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "sin captura real"
+    },
+    {
+      "id": "actors",
+      "category": "integration",
+      "command": "superpose P03 operator/recruit on M03 pad",
+      "environment": "integration branch C1-B-Q2",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "P03/M03 módulos aislados, integrador controla escena"
+    },
+    {
+      "id": "device",
+      "category": "mobile",
+      "command": "iOS/Android landscape physical",
+      "environment": "physical device",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "no hardware device runtime"
+    }
+  ],
+  "screenshotIndex": [],
+  "plannedScreenshotViewports": [
+    "1280x768",
+    "844x390",
+    "932x430"
+  ],
+  "knownBlockers": [
+    "T04 Phaser real/browser screenshots NOT_RUN",
+    "T04 actual node/build NOT_RUN",
+    "M03 pad change only RFC, not merged",
+    "P03 operator/occlusion unverified in joined C1-B scene",
+    "Art direction approval required before calling premium final"
+  ],
+  "gameplayImplemented": false
+}
