@@ -269,6 +269,7 @@ class CombatScene extends Phaser.Scene{
 }
 
 function placeMenu(){
+ if(USE_T09_NODES)return;
  if(contextIndex===null||!SCENE?.game?.canvas)return;
  const r=SCENE.game.canvas.getBoundingClientRect(),app=$("app").getBoundingClientRect();
  const pos=c1d7WorldToClient(SCENE.mapView.plan.sockets[contextIndex].world,r);
@@ -278,6 +279,8 @@ function placeMenu(){
  el.style.left=n.left+"px";el.style.top=n.top+"px";
 }
 function closeMenu(){
+ if(t09Presenter)t09Presenter.clear();
+ t09Revision++;
  contextIndex=null;contextKey="";
  $("contextMenu").hidden=true;$("menuActions").replaceChildren();
  SCENE?.selection?.setVisible(false);
@@ -287,7 +290,8 @@ function openMenu(index){
  contextIndex=index;chosenSocket=index;contextKey="";
  const socket=SCENE.mapView.plan.sockets[index].world;
  SCENE.selection.setPosition(socket.x,socket.y).setVisible(true);
- $("contextMenu").hidden=false;updatePanel(true);return true;
+ $("contextMenu").hidden=USE_T09_NODES;
+ updatePanel(true);return true;
 }
 function actionLabel(action,level){
  const k=action.intent;
@@ -300,6 +304,40 @@ function actionLabel(action,level){
 }
 function updatePanel(force=false){
  if(contextIndex===null||!WORLD)return;
+ if(USE_T09_NODES&&t09Presenter){
+  if(WORLD.ended){closeMenu();return;}
+  const index=contextIndex,eco=WORLD.economy,raw=eco.getTower(index),sock=eco.getSocket(index);
+  const quotes={buildInfantry:eco.quote(index,"infantry"),buildSniper:eco.quote(index,"sniper"),
+   upgrade:eco.quoteUpgrade(index),sell:eco.quoteSell(index)};
+  const mode=WORLD.paused?"paused":WORLD.active?"wave":"preparation";
+  const stateKey=JSON.stringify({index,raw,quotes,mode,gold:eco.gold});
+  if(!force&&stateKey===contextKey)return;
+  contextKey=stateKey;
+  const world=SCENE.mapView.plan.sockets[index].world;
+  const rect=SCENE.game.canvas.getBoundingClientRect(),host=$("app").getBoundingClientRect();
+  const p=c1d7WorldToClient(world,rect);
+  const anchorScreen={x:p.x-host.left,y:p.y-host.top};
+  const header=$("hud").getBoundingClientRect(),ctrl=$("hudControls").getBoundingClientRect();
+  const feedbackRect=$("feedback").getBoundingClientRect();
+  // Keep a compact safe region; no DOM popover and no input outside the Phaser view.
+  const safe={left:Math.max(8,rect.left-host.left+8),
+   top:Math.max(8,header.bottom-host.top+6,ctrl.bottom-host.top+6),
+   right:Math.min(host.width-8,rect.right-host.left-8),
+   bottom:Math.min(host.height-8,feedbackRect.top-host.top-5)};
+  // If header/feedback take too much space, fall back to the whole game viewport.
+  if(safe.right-safe.left<210||safe.bottom-safe.top<175){
+   safe.left=8;safe.right=host.width-8;safe.top=8;safe.bottom=host.height-8;
+  }
+  const tower=raw?{id:String(raw.id),family:raw.family,level:raw.level}:null;
+  const spec=getContextMenuVisualSpec({socket:{index,socketId:sock?.socketId??null},
+   tower,quotes,mode,permissions:{canRally:raw?.family==="infantry",canInspect:false},
+   worldPoint:world,revision:++t09Revision});
+  t09Presenter.update(spec,{anchorScreen,viewportSafeRect:safe,
+   nodeDiameter:host.height<=430?46:54});
+  $("contextMenu").hidden=true;
+  return;
+ }
+
  if(WORLD.ended){closeMenu();return;}
  const d=c1d7MenuDTO(WORLD.economy,contextIndex,{paused:WORLD.paused,ended:WORLD.ended});
  if(!d){closeMenu();return;}
