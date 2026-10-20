@@ -55,7 +55,13 @@ export class P08AnimationController{
   if(t==='scene_reset'){this.entities.clear();this.seen.clear();this.seenQueue.length=0;this.paused=false;return true;}
   if(t==='game_paused'){this.paused=true;return true}
   if(t==='game_resumed'){this.paused=false;return true}
-  if(t==='wave_clear')return true;
+  if(t==='wave_clear'){
+   // Between waves discard unfinished visual windups, never synthesize attack.
+   for(const m of this.entities.values())if(!m.dead&&m.clip==='attackWindup'){
+    m.pendingTarget=null;transition(m,m.blocked?'blocked':m.locomotion?'walk':'idle');
+   }
+   return true;
+  }
   const id=e.entityId;if(id===null||id===undefined)return false;
   // Dedup per core event; events without IDs retain distinct frame/tick keys.
   const eventKey=e.eventId!=null?'id:'+e.eventId:
