@@ -103,7 +103,7 @@ export class SniperShotPresenter {
   if(this.destroyed||!e||!ALLOWED.has(e.type))return false;
   if(e.type==='scene_reset'){this.clear();return true;}
   if(e.type==='entity_die'||e.type==='despawn'){
-   if(e.entityId!==undefined&&e.entityId!==null)this.cancelTarget(e.entityId);
+   if(e.entityId!==undefined&&e.entityId!==null){this.cancelTarget(e.entityId);this.cancelEntity(e.entityId);}
    return true;
   }
   if(typeof e.eventId!=='string'||!e.eventId.length||this.seen.has(e.eventId))return false;
@@ -118,6 +118,11 @@ export class SniperShotPresenter {
   if(e.type==='attack_windup')this._windup(job,copy(from),PT(to)?copy(to):null);
   else this._fire(job,copy(from),copy(to),e.payload?.visualVariant??this.variant);
   return true;
+ }
+ cancelEntity(entityId){
+  let count=0;
+  for(const [id,j] of [...this.jobs])if(j.entityId===entityId){this.cancel(id);count++;}
+  return count;
  }
  cancelTarget(targetId){
   let count=0;
