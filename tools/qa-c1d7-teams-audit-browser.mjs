@@ -27,7 +27,7 @@ try{
    const response=await page.goto(host+path,{waitUntil:"load",timeout:30000});
    if(response?.status()!==200)throw Error(team+" "+w+" HTTP "+response?.status());
    await page.waitForFunction((k)=>k==="p08"?!!window.__SEMANTROPIC_P08?.scene:
-    !!window.__SEMANTROPIC_T09,k=team,{timeout:40000});
+    !!window.__SEMANTROPIC_T09,team,{timeout:40000});
    const state=await page.evaluate(team=>{
     if(team==="p08"){
      const s=window.__SEMANTROPIC_P08.scene;
