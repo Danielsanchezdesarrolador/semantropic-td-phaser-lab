@@ -1,4 +1,5 @@
 # PERSONAJES P08 — INFANTERÍA EVOLUTIVA Y COMBATE LEGIBLE · 20-10-2026
+**PR oficial:** [#39 PERSONAJES P08 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39), sin merge.
 **Rama:** `feature/art-p08-infantry-evolution-combat` · **Base:** `5eef18c3c86c683d9cb38f89d708eb3d9e7c168e` (P07-HF1).
 **Estado:** 4 atlas y 4 asset sheets PNG REALES; 1 recluta visual nivel I, 2 veteranos visuales nivel II, orco/hound P03; NO INTEGRADO, NO MERGE, NO LIVE. Node22 y Chromium reales siguen NOT_RUN.
 
