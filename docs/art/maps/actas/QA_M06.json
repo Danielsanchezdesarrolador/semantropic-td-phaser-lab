@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "semantropic-team-qa-v1",
+  "team": "M",
+  "milestone": "M06/C1-D2",
+  "branch": "feature/art-m06-combat-painterly",
+  "baseSha": "aa902e3bba5ada7e19d0a6de75650c076c23f3f6",
+  "headSha": null,
+  "headShaPolicy": "GitHub PR #25 commits is authoritative: any QA/index edit advances branch HEAD.",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/25",
+  "status": "PROTOTYPE_VISUAL_REVISABLE_NOT_ART_APPROVED",
+  "checks": [
+    {
+      "name": "M06-01 branch SHA",
+      "status": "PASS",
+      "command": "GitHub branch fetch 20-Oct-2026; create branch from aa902e3bba5ada7e19d0a6de75650c076c23f3f6",
+      "evidence": "GitHub HEAD of feature/art-m05-combat-readiness matched order at branch creation"
+    },
+    {
+      "name": "M06-02 geometry",
+      "status": "PASS",
+      "command": "makeM06ArtPlan from actual V5 JS, route/sockets and clearance",
+      "evidence": "V8 original source evaluator: 133 points, 8 sockets, all six M06 SVGs clear of route/pads"
+    },
+    {
+      "name": "M06-03 editable assets",
+      "status": "PASS",
+      "command": "GitHub fetch_file for six original SVG and manifest",
+      "evidence": "Six SHA-backed SVGs + manifest under public/official/art/maps/m01/m06/"
+    },
+    {
+      "name": "M06-04 3 palettes x A/B",
+      "status": "PASS",
+      "command": "mountM01WorldV6 with V8 Phaser/Canvas2D mocks for six variants",
+      "evidence": "6 PASS, 122 display objects, 6 new props, eight pads, zero missing textures, single M06 generated canvas 1600x960"
+    },
+    {
+      "name": "M06-05 snapshots",
+      "status": "PASS",
+      "command": "V8 applyVisualSnapshot tick=100 + stale tower_sold tick=99",
+      "evidence": "Snapshot true, stale event rejected with snapshot-authoritative"
+    },
+    {
+      "name": "M06-06 reduced motion",
+      "status": "PASS",
+      "command": "V8 updateAmbient + setReducedMotion(true)",
+      "evidence": "Mounted without exception, no window timers; orientation reset in M06 source"
+    },
+    {
+      "name": "M06-07 cleanup and lease",
+      "status": "PASS",
+      "command": "V8 destroy twice each; mount two concurrent views sharing paint texture; release in sequence",
+      "evidence": "6 scenes cleanup: M06 paint texture removed; dual view retained texture while second alive, then removed"
+    },
+    {
+      "name": "M06-08 source quality",
+      "status": "PASS",
+      "command": "Inspect differences of paintTexture treatment A (bezier brush) vs B (facets and contours)",
+      "evidence": "Two distinct source algorithms; not claim real visual preference"
+    },
+    {
+      "name": "M06-09 ownership diff",
+      "status": "PASS",
+      "command": "compare_commits M05..M06 and inspect changed files",
+      "evidence": "GitHub compare: 17 files changed, 20 commits ahead, 0 behind. All in Equipo M directories. PR #25 clean and mergeable at inspection."
+    },
+    {
+      "name": "M06-10 previous Node regressions",
+      "status": "NOT_RUN",
+      "command": "node .../qa-m03.mjs && node .../qa-m04.mjs && node .../qa-m05.mjs && node .../qa-m06.mjs",
+      "evidence": "No Node checkout of this GitHub branch executed; delivered scripts must run in CI"
+    },
+    {
+      "name": "M06-11 build",
+      "status": "NOT_RUN",
+      "command": "npm run build on feature/art-m06-combat-painterly",
+      "evidence": "No permitted central workflow edits or isolated build runner connected"
+    },
+    {
+      "name": "M06-12 WebGL2 browser",
+      "status": "NOT_RUN",
+      "command": "node public/official/src/maps-visual/m01/m06/capture-m06.mjs http://127.0.0.1:8080",
+      "evidence": "No authentic browser screenshots of M06 captured"
+    },
+    {
+      "name": "M06-13 device QA",
+      "status": "NOT_RUN",
+      "command": "Chromium 1280x768 844x390 932x430; real iPhone/Android",
+      "evidence": "No device or mobile emulation executed for M06"
+    },
+    {
+      "name": "M06-14 actual core PR22 QA",
+      "status": "NOT_RUN",
+      "command": "Integrator stage same-screen M06 + 4 T06 + 13 P05 + core sniper hit/escape",
+      "evidence": "M-team owns no core scene, cannot claim integrated combat"
+    },
+    {
+      "name": "M06-15 performance",
+      "status": "NOT_RUN",
+      "command": "Profile FPS p50/p95, memory GPU/draw calls in Chromium hardware",
+      "evidence": "Theoretical RGBA counts only; never measured"
+    },
+    {
+      "name": "M06-16 art acceptance",
+      "status": "NOT_RUN",
+      "command": "Art director real frame comparison M04/M05A/M05B/M06A/M06B",
+      "evidence": "Commercial painterly finish not approved"
+    },
+    {
+      "name": "M06-17 negative branch contract",
+      "status": "NOT_RUN",
+      "command": "Integrator check missing texture, mid-windup pause, deleted target and real escape",
+      "evidence": "These are runtime C1-D2 integration scenarios, not scene mocks"
+    }
+  ],
+  "screenshotIndex": [],
+  "screenshotStatus": "NO M06 CHROMIUM REAL CAPTURE, NO REAL MOBILE DEVICE TEST",
+  "previousEvidence": [
+    {
+      "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/22",
+      "role": "C1-D2 real Sniper mechanics, NOT evidence of M06 art integration"
+    }
+  ],
+  "scope": {
+    "world": [
+      1280,
+      768
+    ],
+    "canonicalRouteVertices": 133,
+    "pads": 8,
+    "visualRoadWidth": 110,
+    "M05PreservedClusterCount": 18,
+    "customSVGsM06": 6,
+    "oneOffCanvas": [
+      1600,
+      960
+    ],
+    "paletteCount": 3,
+    "treatmentCount": 2,
+    "displayObjectsPerMockMount": 122,
+    "totalSharedSVGKeys": 48,
+    "gameplayImplemented": false
+  },
+  "measuredGpuMiB": null,
+  "measuredFpsMedian": null,
+  "measuredFpsP95": null,
+  "derivedEstimates": {
+    "additionalRGBA8CanvasMiB": 5.86,
+    "additionalSixSvgSourceRgbaReferenceMiB": 2.22
+  },
+  "knownBlockers": [
+    "Real WebGL2 screenshots before/after at 1280x768, 844x390 and 932x430 are NOT_RUN.",
+    "Art quality (premium painterly) may still be insufficient without painterly raster polish.",
+    "C1-D2 PR #22 currently uses M03 and provisional enemies, not M06/T06/P05.",
+    "Sniper projectile core originWorld differs from T06 required muzzleWorld: central adapter required.",
+    "No actual HP/tracer occlusion review under 13/20+ P05 enemies on real game screen.",
+    "M06 source-specific lease verified in mocks; multi-view M04/M05 inherited textures require integrator review.",
+    "Director final artistic approval and authorized integration not granted."
+  ],
+  "rollback": "Close draft PR 25; M05 base and main/production/Render remain untouched.",
+  "ownershipDiff": {
+    "status": "PASS",
+    "changedFiles": 17,
+    "onlyTeamM": true,
+    "noCoreChanges": true
+  },
+  "syntaxCollector": {
+    "status": "PASS",
+    "environment": "V8 async parser only, not execution"
+  }
+}

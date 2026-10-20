@@ -1,4 +1,40 @@
-# SEMANTROPIC TD — EQUIPO M · REGISTRO DE ACTAS Y ARTE
+# SEMANTROPIC TD — EQUIPO M · ACTAS ARTÍSTICAS
+
+## Lote M06 / 20-10-2026 · Sexta revisión pictórica de Mapa 01
+
+**Rama:** [feature/art-m06-combat-painterly](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m06-combat-painterly)  
+**Base congelada:** `feature/art-m05-combat-readiness @ aa902e3bba5ada7e19d0a6de75650c076c23f3f6`  
+**HEAD real:** consultar [commits de PR #25](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/25/commits); el índice es en sí un commit nuevo, por lo que no se inventa SHA autorreferencial.  
+**PR DRAFT:** [#25 M06/C1-D2](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/25), destino `feature/art-m05-combat-readiness`, **NO MERGE**.
+
+| Documento/fuente | Acceso | Estado |
+|---|---|---|
+| Acta M06 | [ACTA_M06_2026-10-20.md](ACTA_M06_2026-10-20.md) | PRESENCIA CONFIRMADA |
+| QA estructurado M06 | [QA_M06.json](QA_M06.json) | Mock PASS, Node/Chromium NOT_RUN |
+| RFC Integrador/PR22 | [RFC_M06_C1D2_COHESION_COMBATE.md](RFC_M06_C1D2_COHESION_COMBATE.md) | PROPUESTA, NO CONTRATO EN CORE |
+| Manifest de arte M06 | [manifest.json](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m06-combat-painterly/public/official/art/maps/m01/m06/manifest.json) | 6 SVG nuevos y textura procedural versionada |
+| SVG 3/4 propios | [M06/svg/](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m06-combat-painterly/public/official/art/maps/m01/m06/svg) | 6 fuentes editables |
+| Renderer A/B | [renderer-v6.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m06-combat-painterly/public/official/src/maps-visual/m01/m06/renderer-v6.mjs) | IMPLEMENTADO y PROBADO EN V8 MOCK |
+| Vitrina real Phaser | [index.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m06-combat-painterly/public/official/art/maps/m01/m06/index.html) | FUENTE DISPONIBLE, navegador NOT_RUN |
+| Galería misma cámara | [gallery.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m06-combat-painterly/public/official/art/maps/m01/m06/gallery.html) | COMPARADOR DISPONIBLE |
+| QA Node ESM | [qa-m06.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m06-combat-painterly/public/official/src/maps-visual/m01/m06/qa-m06.mjs) | LISTO, NOT_RUN |
+| Capturador Chromium | [capture-m06.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m06-combat-painterly/public/official/src/maps-visual/m01/m06/capture-m06.mjs) | LISTO, NOT_RUN |
+| Capturas auténticas M06 | `docs/art/maps/evidencias/M06/` | SIN CAPTURAS GENERADAS |
+| Core independiente | [PR #22 C1-D2 Sniper real](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/22) | NO ES PR M06, NO MODIFICADO |
+
+**[CONFIRMADO EN CÓDIGO]** A = pincelada atmosférica con curvas/volúmenes suaves; B = relieve por facetas/estratos. Ambos comparten ruta M01 133, ocho pads, ancho 110, selección visual 54 y heredan los 18 microambientes M05.
+
+**[PROBADO EN V8 + MOCKS]** Seis montajes, 122 GameObjects por tratamiento/paleta, 48 SVG precargados, 6 nuevos, 1600×960 Canvas bake, snapshot read-only y resource lease entre dos vistas; 0 errores después de dos correcciones locales.
+
+**[NO EJECUTADO]** Node en checkout real, `npm run build`, capturas Phaser WebGL2 escritorio/móvil, ejecución iPhone/Android física, FPS/GPU, integración 4 T06/13 P05 y HP/tracers de combate real. M06 NO es un juego jugable nuevo.
+
+**[BLOQUEANTE]** Revisar conflicto core PR22 `originWorld` vs T06 `muzzleWorld` en RFC; montaje real M/T/P y evaluación de riqueza pictórica antes de elevar a staging.
+
+**OWNERSHIP/ROLLBACK:** sólo `public/official/art/maps/m01/m06/**`, `public/official/src/maps-visual/m01/m06/**` y `docs/art/maps/actas/**`. Cerrar PR #25 sin fusionar revierte por completo el lote. Datos/Canvas/core/Render permanecen protegidos.
+
+---
+
+## Registro anterior: M01 a M05
 
 ## Etapa actual: M-05 / C1-D2 — Mapas listos visualmente para revisión de combate
 **Fecha:** 19-10-2026. **Rama:** [feature/art-m05-combat-readiness](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m05-combat-readiness).  
