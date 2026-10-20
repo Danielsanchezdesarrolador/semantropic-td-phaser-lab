@@ -11,7 +11,7 @@ function updateUi(){
  $("versionLabel").textContent=mode==="m03"?"M-03 · baseline original":"M-04 · "+mode;
  $("terrainLabel").textContent=mode==="m03"?"M03 tradicional":"M04 paisaje ilustrado";
  $("density").textContent=mode==="m03"?"13 (M03)":String(world?.plan?.props?.length||0)+" + 3 hitos";
- $("sockets").textContent=world?.padObjects?.length||"8";
+ $("socketCount").textContent=world?.padObjects?.length||"8";
  $("occupied").textContent=occupied?"Alternar libres":"Alternar ocupadas";
  for(const b of document.querySelectorAll("[data-variant]"))b.classList.toggle("on",b.dataset.variant===mode);
  for(const b of document.querySelectorAll("[data-zoom]"))b.classList.toggle("on",Number(b.dataset.zoom)===zoom);
