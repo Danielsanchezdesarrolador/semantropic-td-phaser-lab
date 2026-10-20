@@ -1,0 +1,101 @@
+{
+  "schema": "semantropic-visual-baseline-lock-v1",
+  "date": "2026-10-20",
+  "decision": "USER_APPROVED_C1C_AND_REJECTED_C1D4_ART_REWORK",
+  "sourceScreenshot": {
+    "filename": "SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03.png",
+    "width": 1280,
+    "height": 768,
+    "sha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "sourcePR": 12,
+    "sourceBranch": "integration/c1c-q2-review",
+    "headSha": "053237d559ab5b0f014deee37e997e328095831f",
+    "linkedReference": "user supplied image; preserve unchanged with transferred prompts"
+  },
+  "functionalBaseline": {
+    "PR": 28,
+    "branch": "integration/c1d4-first-playable-m01",
+    "headSha": "f9ba3cbbe0b1733782e5b368691179d5afdf864c",
+    "corePR": 26,
+    "protect": [
+      "public/JUEGO_V5_CANVAS.html",
+      "public/official/data/maps.v5.json",
+      "public/official/data/campaign140.v5.json",
+      "public/official/src/m01-model.mjs"
+    ]
+  },
+  "c1cAssetEvidence": {
+    "M03": {
+      "path": "public/official/src/maps-visual/m01/m03/renderer-v3.mjs",
+      "historicalHash": "d0e72f80a730c030e497721f7d05dad32be3b61a",
+      "currentHashIdentical": true
+    },
+    "P03": {
+      "path": "public/official/art/actors/p03-rig.mjs",
+      "historicalHash": "1a4282e1652ff559b92e18f42db465d6bfb8e729",
+      "currentHashIdentical": true
+    },
+    "T04": {
+      "status": "four exact historical blobs copied into integrator isolated heritage folder",
+      "paths": [
+        "public/official/src/c1d4r-combat/heritage/t04/towers/infantry/level-1.svg",
+        "public/official/src/c1d4r-combat/heritage/t04/towers/infantry/level-2.svg",
+        "public/official/src/c1d4r-combat/heritage/t04/towers/sniper/level-1.svg",
+        "public/official/src/c1d4r-combat/heritage/t04/towers/sniper/level-2.svg"
+      ]
+    }
+  },
+  "lockedVisuals": [
+    {
+      "item": "terrain/green hills/road",
+      "approved": "M03 viva",
+      "rejected": "M06 painterly look",
+      "policy": "use inherited unchanged M03",
+      "status": "RESTORATION_IMPLEMENTATION_PENDING_CHROMIUM"
+    },
+    {
+      "item": "orc warrior/hound",
+      "approved": "P03 articulated rig",
+      "rejected": "P06 procedural PNG aesthetic",
+      "policy": "use P03 source drawing/frames unchanged",
+      "status": "RESTORATION_IMPLEMENTATION_PENDING_CHROMIUM"
+    },
+    {
+      "item": "infantry/sniper architecture",
+      "approved": "T04 original 4 variants",
+      "rejected": "T07 reworked silhouette",
+      "policy": "use 4 immutable historical SVG file contents",
+      "status": "ORIGINAL_GIT_BLOBS_RECOVERED"
+    },
+    {
+      "item": "sniper operator",
+      "approved": "P03 original depiction and T04 slot",
+      "rejected": "P06 unarmed operator disconnected from T07 grip",
+      "policy": "use original C1C placement, no T07 rifleMounted in restored view",
+      "status": "RESTORATION_PENDING_VISUAL_QA"
+    }
+  ],
+  "untouchedGameplay": [
+    "M01CombatWithInfantry",
+    "M01CombatWorld",
+    "M01BuildEconomy",
+    "133 route points",
+    "eight pads",
+    "five waves",
+    "63 spawns",
+    "gold 365",
+    "lives 100",
+    "sniper and infantry real combat",
+    "browser mobile touch"
+  ],
+  "staging": "C1-D1 unchanged",
+  "latestRestorationGate": "NOT_RUN until new Chromium screenshots; user visual approval required",
+  "nextApprovedExtensions": "M07 T08 P07 only after comparison and approval, only if preserve C1C appearance",
+  "documentationLabels": [
+    "CONFIRMED_SOURCE",
+    "OBSERVED_ORIGINAL_CAPTURE",
+    "PROPOSED",
+    "NOT_RUN",
+    "BLOCKER"
+  ]
+}
