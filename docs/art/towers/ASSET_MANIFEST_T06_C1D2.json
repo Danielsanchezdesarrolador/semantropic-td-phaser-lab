@@ -1,0 +1,297 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "manifestRevision": "T06-C1D2-sniper-vfx-v1",
+  "owner": "T",
+  "date": "2026-10-19",
+  "sourceBranch": "feature/art-t06-sniper-vfx",
+  "baseSha": "ffc06ccf0328e12c3af26a869167673e14d5b2e4",
+  "headShaSnapshot": "c29b74647617e6f340b3ec40925e5fa708f68319",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/19",
+  "status": "prototype-not-art-approved",
+  "gameplayImplemented": false,
+  "engine": "Phaser 4.2.1",
+  "world": {
+    "width": 1280,
+    "height": 768,
+    "m03PadVisualWidthWorld": 110.24,
+    "operatorOwnedBy": "P",
+    "shotAuthority": "Integrator core"
+  },
+  "code": {
+    "presenter": "public/official/src/towers-visual/sniper-vfx.mjs",
+    "gallery": "public/official/src/towers-visual/t06-index.html",
+    "visualApi": "SniperShotPresenter.accept(event)",
+    "bridgeStatus": "candidate-not-certified"
+  },
+  "assets": [
+    {
+      "assetId": "towers/sniper/level-1",
+      "owner": "T",
+      "canonicalId": "sniper",
+      "level": 1,
+      "variant": "T06 reconstructed premium 3/4",
+      "status": "prototype",
+      "files": [
+        {
+          "path": "public/official/art/towers/sniper/level-1.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        }
+      ],
+      "baseline": {
+        "path": "public/official/art/towers/t05-snapshot/sniper-1.svg"
+      },
+      "layers": {
+        "shadowFoot": {
+          "path": "public/official/art/towers/layers/sniper-1-shadow.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        },
+        "backStructure": {
+          "path": "public/official/art/towers/layers/sniper-1-back.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        },
+        "frontRail": {
+          "path": "public/official/art/towers/layers/sniper-1-front.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        }
+      },
+      "frame": {
+        "widthPx": 360,
+        "heightPx": 420,
+        "count": 1,
+        "layout": "single",
+        "transparency": true
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 185,
+          "y": 204,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 321,
+          "y": 174,
+          "units": "source-px"
+        },
+        "fireEffectOrigin": {
+          "x": 321,
+          "y": 174,
+          "units": "source-px"
+        },
+        "frontRailBounds": {
+          "x0": 87,
+          "y0": 219,
+          "x1": 284,
+          "y1": 281,
+          "units": "source-px"
+        },
+        "foundation": {
+          "x": 183,
+          "y": 380,
+          "units": "source-px"
+        },
+        "shadow": {
+          "x": 181,
+          "y": 390,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.318,
+        "previousT05": 0.31,
+        "worldHeightProposal": 133.56,
+        "worldWidthProposal": 114.48,
+        "hitboxChanged": false,
+        "approved": false
+      },
+      "animation": {
+        "sourceFrames": 1,
+        "visualEventStates": [
+          "idle",
+          "target_acquire",
+          "windup",
+          "fire",
+          "recoil",
+          "recover"
+        ],
+        "vfxStyles": [
+          "A-precision-trace",
+          "B-brief-energy-orb"
+        ],
+        "actorFramesSuppliedByP": false
+      },
+      "source": {
+        "origin": "Diseño vectorial original Semantropic TD",
+        "author": "Equipo T",
+        "license": "Propiedad del proyecto, aprobación comercial final pendiente",
+        "sourceFile": "public/official/art/towers/sniper/level-1.svg"
+      }
+    },
+    {
+      "assetId": "towers/sniper/level-2",
+      "owner": "T",
+      "canonicalId": "sniper",
+      "level": 2,
+      "variant": "T06 reconstructed premium 3/4",
+      "status": "prototype",
+      "files": [
+        {
+          "path": "public/official/art/towers/sniper/level-2.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        }
+      ],
+      "baseline": {
+        "path": "public/official/art/towers/t05-snapshot/sniper-2.svg"
+      },
+      "layers": {
+        "shadowFoot": {
+          "path": "public/official/art/towers/layers/sniper-2-shadow.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        },
+        "backStructure": {
+          "path": "public/official/art/towers/layers/sniper-2-back.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        },
+        "frontRail": {
+          "path": "public/official/art/towers/layers/sniper-2-front.svg",
+          "type": "image/svg+xml",
+          "sourceEditable": true,
+          "sha256": null
+        }
+      },
+      "frame": {
+        "widthPx": 360,
+        "heightPx": 420,
+        "count": 1,
+        "layout": "single",
+        "transparency": true
+      },
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 185,
+          "y": 206,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 330,
+          "y": 171,
+          "units": "source-px"
+        },
+        "fireEffectOrigin": {
+          "x": 330,
+          "y": 171,
+          "units": "source-px"
+        },
+        "frontRailBounds": {
+          "x0": 72,
+          "y0": 213,
+          "x1": 299,
+          "y1": 290,
+          "units": "source-px"
+        },
+        "foundation": {
+          "x": 183,
+          "y": 380,
+          "units": "source-px"
+        },
+        "shadow": {
+          "x": 181,
+          "y": 390,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.328,
+        "previousT05": 0.322,
+        "worldHeightProposal": 137.76,
+        "worldWidthProposal": 118.08,
+        "hitboxChanged": false,
+        "approved": false
+      },
+      "animation": {
+        "sourceFrames": 1,
+        "visualEventStates": [
+          "idle",
+          "target_acquire",
+          "windup",
+          "fire",
+          "recoil",
+          "recover"
+        ],
+        "vfxStyles": [
+          "A-precision-trace",
+          "B-brief-energy-orb"
+        ],
+        "actorFramesSuppliedByP": false
+      },
+      "source": {
+        "origin": "Diseño vectorial original Semantropic TD",
+        "author": "Equipo T",
+        "license": "Propiedad del proyecto, aprobación comercial final pendiente",
+        "sourceFile": "public/official/art/towers/sniper/level-2.svg"
+      }
+    }
+  ],
+  "vfx": {
+    "file": "public/official/src/towers-visual/sniper-vfx.mjs",
+    "variants": [
+      {
+        "id": "A",
+        "name": "Precisión luminosa",
+        "trailMaxWorldPx": 62
+      },
+      {
+        "id": "B",
+        "name": "Orbe energético breve",
+        "trailMaxWorldPx": 42
+      }
+    ],
+    "sceneClock": true,
+    "maxActiveDefault": 16,
+    "maxSeenDefault": 512,
+    "hitAuthority": "core-only",
+    "eventsCandidate": [
+      "attack_windup",
+      "attack_fire",
+      "entity_die",
+      "despawn",
+      "scene_reset"
+    ]
+  },
+  "performance": {
+    "bytesPerRgba360x420Uncompressed": 604800,
+    "numberOfSvgTexturesShowroomPreloaded": 10,
+    "estimatedTotalRgbaBytesWithoutMipmaps": 6048000,
+    "estimateOnly": true,
+    "actualGpuMemoryMeasured": false
+  },
+  "unverified": [
+    "real Phaser WebGL2 runtime",
+    "Chromium screenshots 1280x768/844x390/932x430",
+    "real Bridge event schema",
+    "operator P04 mount and rail occlusion",
+    "device FPS",
+    "PNG atlas export"
+  ]
+}
