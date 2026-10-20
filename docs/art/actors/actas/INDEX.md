@@ -1,3 +1,36 @@
+# PERSONAJES P07 · SEMANTROPIC TD · CONTINUIDAD VISUAL C1-C
+**Fecha:** 20-10-2026 · **Rama:** \`feature/art-p07-continuidad-c1c\` · **Origen P06 SHA:** \`a5116db1f956f8b32b86570600b878ba9d5187ed\`.
+**BEFORE protegido:** captura \`SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03.png\`, 1280×768, SHA-256 \`24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef\`.
+**Estado:** [CUATRO PNG BINARIOS REALES] · [P03 RECUPERADO EN FUENTE] · [WEBGL2/M07/T08 NOT_RUN] · **NO MERGE**.
+
+## Acceso oficial para Dirección General
+| Archivo | Enlace versionado | Certidumbre |
+|---|---|---|
+| **Acta oficial completa P07** | [ACTA_P07_PERSONAJES_2026-10-20.md](./ACTA_P07_PERSONAJES_2026-10-20.md) | Disponible |
+| **QA independiente 21 checks** | [QA_P07_PERSONAJES.json](./QA_P07_PERSONAJES.json) | 12 PASS V8/API/archivo; 8 NOT_RUN; 1 PENDING |
+| **Matriz T08/operador** | [MATRIZ_T08_P07_PERSONAJES.md](./MATRIZ_T08_P07_PERSONAJES.md) | Source T08 leído; montaje BLOQUEADO |
+| **Evidencias/referencia/PNGs** | [EVIDENCIA P07](../evidencias/P07/EVIDENCIA.md) | Original C1-C real; AFTER NOT_RUN |
+| **FRAME ABI oficial** | [README_P07_FRAME_ABI.md](../../README_P07_FRAME_ABI.md) | 7 estados/32 cuadros |
+| **Manifest/hashes** | [P07_MANIFEST.json](../../../../public/official/art/actors/P07_MANIFEST.json) | 4 archivos reales |
+| **Orco P03-source** | [warrior.png](../../../../public/official/art/actors/p07/png/warrior.png) | 696921 bytes |
+| **Hound P03-source** | [hound.png](../../../../public/official/art/actors/p07/png/hound.png) | 600467 bytes |
+| **Recluta P03-source** | [infantry_recruit.png](../../../../public/official/art/actors/p07/png/infantry_recruit.png) | 610623 bytes |
+| **Operador P03 SIN RIFLE** | [sniper_operator_unarmed.png](../../../../public/official/art/actors/p07/png/sniper_operator_unarmed.png) | 539246 bytes |
+| **P07 rig original de P03** | [p07-p03-continuity-rig.mjs](../../../../public/official/art/actors/p07-p03-continuity-rig.mjs) | Fuente editable |
+| **Generador de atlas PNG** | [p07-png-export.mjs](../../../../public/official/art/actors/p07-png-export.mjs) | Codec/fuente/128 cuadros |
+| **Vitrina P03/P06/P07** | [p07-index.html](../../../../public/official/src/actors-visual/p07-index.html) | Código Phaser, navegador NOT_RUN |
+| **QA Node/PNG** | [qa-p07.mjs](../../../../public/official/src/actors-visual/qa-p07.mjs) | Script listo, no ejecutado en checkout |
+| **QA navegador** | [qa-p07-browser.mjs](../../../../public/official/src/actors-visual/qa-p07-browser.mjs) | Script Playwright, NOT_RUN |
+
+## Decisión pendiente
+- El P07 RESTAURA el pintor P03. El antiguo C1-C es la referencia estética aprobada; el gameplay C1-D4 no debe retroceder.
+- P07 está exportado como 4 PNG binarios **reales**, pero su rasterización CPU no equivale necesariamente a un frame pintado por Chromium; inspección visual real obligatoria.
+- Operador sin rifle actor, pero manos/culata T08 con desajuste fuente/escala; se necesita escena compuesta y un solo rifle, sin intervenir Tower/core desde P.
+- Probar C1-D4 M07+T08+P07 a 1280×768 y horizontal móvil, preservar camino/economía/Infantería y solicitar aprobación artística expresa. No merge/deploy.
+
+---
+## HISTORIAL COMPLETO P01 → P06 (CONSERVADO)
+
 # SEMANTROPIC TD · EQUIPO P · P06/C1-D2 — ATLAS BINARIOS + OPERADOR SIN RIFLE
 **Fecha:** 2026-10-20 · **Rama:** `feature/art-p06-animated-actors` · **Base SHA:** `15be56b487d0b4d7b1ca0a222f0c48feda0068ca`
 **Estado:** [4 PNG RGBA REALES VERSIONADOS] · [V8/ALFA SOURCE QA PASS] · [CHROMIUM/T07 ART PENDING] · **NO MERGE**.
