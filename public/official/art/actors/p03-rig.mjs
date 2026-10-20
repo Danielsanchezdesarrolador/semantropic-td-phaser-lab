@@ -300,16 +300,24 @@ export function getP03Pose(actorId,state,frame){
  return pose(actorId,state,frame,anim.frames);
 }
 export function paintP03Frame(c,actorId,state,frame,{silhouette=false}={}){
+ // A silhouette uses its OWN offscreen canvas. Doing source-in on a face sheet
+ // would otherwise erase all previously drawn cells in the parent canvas.
+ if(silhouette){
+  const off=document.createElement('canvas');
+  off.width=FRAME_WIDTH;off.height=FRAME_HEIGHT;
+  const o=off.getContext('2d',{alpha:true});
+  if(!o)throw Error('Contexto para silueta P03 no disponible');
+  paintP03Frame(o,actorId,state,frame,{silhouette:false});
+  o.globalCompositeOperation='source-in';
+  o.fillStyle='#142730';o.fillRect(0,0,FRAME_WIDTH,FRAME_HEIGHT);
+  c.drawImage(off,0,0);
+  return;
+ }
  const P=getP03Pose(actorId,state,frame);
  c.save();c.lineJoin='round';c.lineCap='round';
  c.translate(FRAME_WIDTH*.5,FRAME_HEIGHT*.92);
  if(actorId==='hound')hound(c,P);
  else biped(c,actorId,P);
- if(silhouette){
-  // Clip overlay only onto non-transparent painted pixels: black silhouette sheet.
-  c.globalCompositeOperation='source-in';c.fillStyle='#17262f';
-  c.fillRect(-FRAME_WIDTH/2,-FRAME_HEIGHT*.92,FRAME_WIDTH,FRAME_HEIGHT);
- }
  c.restore();
 }
 export function createP03Atlas(actorId,options={}){
