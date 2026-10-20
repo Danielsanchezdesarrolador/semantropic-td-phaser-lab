@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "semantropic-integrator-qa-v1",
+  "milestone": "C1-D2 M01 core runtime",
+  "date": "2026-10-20",
+  "branch": "feature/core-c1d2-runtime-m01",
+  "pr": 22,
+  "source": "Canvas V5 protected and canonical data",
+  "headShaRole": "See live PR #22; SHA changes with QA fixes",
+  "checks": [
+    {
+      "name": "source-parity",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327 (Canvas nominal and combat source string checks)"
+    },
+    {
+      "name": "syntax-node",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327"
+    },
+    {
+      "name": "node-combat-world",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327 (hit, kill, bounty, pause, waves, 50 escapes, loss)"
+    },
+    {
+      "name": "phaser-build-4.2.1",
+      "status": "PASS",
+      "evidence": "GitHub Actions #39427116327"
+    },
+    {
+      "name": "browser-webgl2-first-attempt",
+      "status": "FAIL",
+      "evidence": "GitHub Actions #39427116327 initialization timeout; diagnosis in next push"
+    },
+    {
+      "name": "desktop-capture",
+      "status": "NOT_RUN",
+      "evidence": "No authentic PNG due browser failure"
+    },
+    {
+      "name": "mobile-captures",
+      "status": "NOT_RUN",
+      "evidence": "844x390 and 932x430 not reached"
+    },
+    {
+      "name": "integration-M05-T06-P05",
+      "status": "NOT_RUN",
+      "evidence": "Art PR #19 #20 #21 remain isolated, dual rifle blocker"
+    },
+    {
+      "name": "render-staging-promotion",
+      "status": "NOT_RUN",
+      "evidence": "No permission without CI & QA acceptance"
+    },
+    {
+      "name": "physical-ios-android",
+      "status": "NOT_RUN",
+      "evidence": "Emulator even when available not physical hardware"
+    }
+  ],
+  "knownBlockers": [
+    "browser scene init, first CI failed",
+    "T06 P05 double rifle",
+    "Infantry actual combat next C1-D3",
+    "no saves stars",
+    "no commercial art approval"
+  ],
+  "gameplayImplemented": {
+    "sniperI_II": true,
+    "warriorHound": true,
+    "infantry": false,
+    "saves": false,
+    "stars": false
+  },
+  "release": {
+    "stagingUntouched": true,
+    "merged": false,
+    "visualArtIntegrations": false
+  }
+}
