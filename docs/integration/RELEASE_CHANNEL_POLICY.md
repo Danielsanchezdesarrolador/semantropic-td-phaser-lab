@@ -33,3 +33,9 @@ Publicar desde ahora cada **bloque funcional verificado** directamente en el **m
 **QA previo:** [GitHub Actions #39511773777](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39511773777) SUCCESS, core 133 nodos y 2 soldados movidos PC/844×390/932×430, victoria 5 waves 63/0/100 ★★★, derrota 50 fugas. No FPS físico.
 **Código QA probado:** `414dfa35326afca4e9f4ced5c30cd9c689370c52`. **Rollback:** `961af46b7e66962878f7e71e2cf58a07a9281ef9` (C1-D7 G2).
 **Siguientes bloques separados:** B2 bala desde la boca del rifle sniper; B3 golpes visibles soldado/enemigo. Nunca mezclarlos en un hotfix.
+
+## Actualización LIVE C1-D8/B3 — impactos más perceptibles (20-oct-2026)
+- QA [Actions #39514307992](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39514307992) SUCCESS sobre `ff9344ed7eb64cd1ce0dc4edc0a83a1ff5872717` con 3 viewports y juego completo.
+- Presentación pura: antelación en cuerpo, impulso frame 2 del impacto y retroceso; efectos efímeros sólo al consumir `soldier_attack_hit` y `soldier_hit` del core. No modificación de daño, HP, cadencia, monedas o atlas P08.
+- Se conserva Rally B1 y la identidad visual M07/T08/T04/P08. Rollback: `b70a28d93e42375af19f69514b1171486849e396` LIVE anterior.
+- Bloque separado TORRES T10/B2 (nacimiento de bala en cañón) aún EN PROCESO y NO incluido en este release.
