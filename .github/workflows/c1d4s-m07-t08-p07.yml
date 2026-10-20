@@ -1,0 +1,60 @@
+name: C1-D4S MAPAS M07 TORRES T08 PERSONAJES P07
+on:
+  push:
+    branches: [integration/c1d4s-m07-t08-p07-review]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  combined-art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and approved reference source lock
+        run: |
+          node --check public/official/src/c1d4s-combat/scene.mjs
+          node --check tools/qa-c1d4s-browser.mjs
+          node tools/qa-c1d4r-source-lock.mjs
+      - name: Team QA and core regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          node public/official/src/maps-visual/m01/m07/qa-m07.mjs | tee qa-m07.log
+          node docs/art/towers/qa-t08.mjs | tee qa-t08.log
+          node public/official/src/actors-visual/qa-p07.mjs | tee qa-p07.log
+          node tools/qa-c1d2-sniper-parity.mjs
+          node tools/qa-c1d2-combat.mjs
+          node tools/qa-c1d2-five-waves.mjs | tee qa-fivewaves.log
+          node tools/qa-c1d3-infantry.mjs | tee qa-infantry.log
+      - name: Build Phaser 4.2.1
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Real WebGL2 approved C1-D4R before
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-browser.mjs 2>&1 | tee qa-baseline-c1d4r.log
+      - name: Real WebGL2 M07 T08 P07 after
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4s-browser.mjs 2>&1 | tee qa-candidate-c1d4s.log
+      - name: Upload screenshots and QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: C1D4S_MAPAS_M07_TORRES_T08_PERSONAJES_P07_COMPARACION
+          path: |
+            artifacts/c1d4r-browser/
+            artifacts/c1d4s-browser/
+            qa-*.log
+          if-no-files-found: warn
