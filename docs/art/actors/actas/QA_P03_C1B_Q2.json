@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "c1b-q2-qa-v1",
+  "team": "P",
+  "milestone": "P03/C1-B-Q2",
+  "date": "2026-10-19",
+  "branch": "feature/art-p03-q2-personajes",
+  "baseSha": "a15b78ffcb365b2d2f717ce3706c9d92f3d75bf3",
+  "headSha": "8bd37138382390351196e6c6787a27040135b545",
+  "headShaCapturedAt": "PR #10 creation; documentation commits after this timestamp advance the branch. Current HEAD is authoritative on the PR.",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/10",
+  "buildCommand": "npm run build",
+  "nodeQaCommand": "node public/official/src/actors-visual/qa-p03.mjs",
+  "gameplayImplemented": false,
+  "mergePerformed": false,
+  "renderDeployment": false,
+  "referenceIntegration": {
+    "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/8",
+    "runUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39342295194",
+    "conclusion": "success (historical C1-B, NOT P03)",
+    "doesNotCertifyP03": true
+  },
+  "checks": [
+    {
+      "id": "P03-QA-01",
+      "category": "branch",
+      "command": "GitHub branches + contents read",
+      "environment": "connected GitHub API",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/art/actors/p03-rig.mjs"
+      ],
+      "reason": "Branch starts at exact P02 a15b78...; only P-owned paths touched"
+    },
+    {
+      "id": "P03-QA-02",
+      "category": "static-v8",
+      "command": "new Function syntax check",
+      "environment": "V8 isolated in functions.exec (not node/npm)",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/art/actors/p03-rig.mjs",
+        "public/official/src/actors-visual/p03-gallery.mjs",
+        "public/official/art/actors/p03-face-sheet.mjs"
+      ],
+      "reason": "JS transforms remove import/export for isolated syntactic parsing"
+    },
+    {
+      "id": "P03-QA-03",
+      "category": "mock-draw",
+      "command": "paintP03Frame for 4 actors x 7 states",
+      "environment": "V8 with Canvas graphics mock",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/art/actors/p03-rig.mjs"
+      ],
+      "reason": "128/128 pose geometry traces unique within each animation state after correcting idle breathing"
+    },
+    {
+      "id": "P03-QA-04",
+      "category": "mock-texture",
+      "command": "createP03Atlas + registerP03Atlas 4 actors",
+      "environment": "V8 with document.canvas and Phaser textures mocks",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/art/actors/p03-rig.mjs"
+      ],
+      "reason": "4 generated 1408x832, 32 metadata frames each, no duplicate frame keys"
+    },
+    {
+      "id": "P03-QA-05",
+      "category": "node",
+      "command": "node public/official/src/actors-visual/qa-p03.mjs",
+      "environment": "checkout Node.js",
+      "status": "NOT_RUN",
+      "evidencePaths": [
+        "public/official/src/actors-visual/qa-p03.mjs"
+      ],
+      "reason": "GitHub branch cannot be checked out and run in this connected tool context. Static V8 is not Node."
+    },
+    {
+      "id": "P03-QA-06",
+      "category": "build",
+      "command": "npm run build",
+      "environment": "checkout with package dependencies",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "Not executed on this branch"
+    },
+    {
+      "id": "P03-QA-07",
+      "category": "browser-webgl2",
+      "command": "serve dist and navigate p03-index.html",
+      "environment": "Chromium + Phaser 4.2.1/WebGL2",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "No live browser execution accessible for this feature branch; C1-B historical CI is not equivalent"
+    },
+    {
+      "id": "P03-QA-08",
+      "category": "browser-desktop",
+      "command": "capture 1280x768 P02 A/B vs P03 per character",
+      "environment": "Chromium viewport 1280x768",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "Real capture absent"
+    },
+    {
+      "id": "P03-QA-09",
+      "category": "browser-mobile",
+      "command": "capture 844x390 and 932x430",
+      "environment": "Chromium mobile landscape emulation",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "Emulated captures absent"
+    },
+    {
+      "id": "P03-QA-10",
+      "category": "physical-device",
+      "command": "inspect landscape touchscreen and memory",
+      "environment": "iOS/Android physical",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "No access to physical phone"
+    },
+    {
+      "id": "P03-QA-11",
+      "category": "png-export",
+      "command": "export PNG and inspect alpha and SHA256",
+      "environment": "Chromium + PNG inspection",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "Browser export not performed; manifest does not invent hashes"
+    },
+    {
+      "id": "P03-QA-12",
+      "category": "art-acceptance",
+      "command": "Director reviews silhouettes at 44/64/80px vs C1-B and T04",
+      "environment": "Director / integrated scene",
+      "status": "PENDING",
+      "evidencePaths": [
+        "public/official/art/actors/p03-face-sheet.mjs"
+      ],
+      "reason": "Render cannot be approved on code-only tests"
+    },
+    {
+      "id": "P03-QA-13",
+      "category": "t04-anchors",
+      "command": "compare operatorAnchorLocal and spawnExitLocal in T04 scene",
+      "environment": "same Phaser integrated scene",
+      "status": "PENDING",
+      "evidencePaths": [
+        "docs/art/actors/actas/MATRIZ_T04_P03.md"
+      ],
+      "reason": "T03 catalog read-only anchors available; T04 geometry not yet ratified"
+    }
+  ],
+  "screenshotIndex": [
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "1280x768",
+      "renderer": "Phaser WebGL2 Chromium",
+      "status": "NOT_RUN",
+      "requestedOutput": "docs/art/actors/evidencias/P03/desktop-p03.webp"
+    },
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "844x390",
+      "renderer": "Phaser WebGL2 Chromium emulation",
+      "status": "NOT_RUN",
+      "requestedOutput": "docs/art/actors/evidencias/P03/mobile844-p03.webp"
+    },
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "932x430",
+      "renderer": "Phaser WebGL2 Chromium emulation",
+      "status": "NOT_RUN",
+      "requestedOutput": "docs/art/actors/evidencias/P03/mobile932-p03.webp"
+    },
+    {
+      "path": null,
+      "captureType": "real-runtime",
+      "viewport": "1280x768 detail",
+      "renderer": "Phaser WebGL2 Chromium",
+      "status": "NOT_RUN",
+      "requestedOutput": "docs/art/actors/evidencias/P03/closeup-p03.webp"
+    }
+  ],
+  "knownBlockers": [
+    "Real Phaser 4.2.1 + WebGL2 browser screenshots missing on P03 branch",
+    "No proof of physical device readability or performance",
+    "P03 rig quality needs art/animation frame-by-frame review",
+    "PNG exports not versioned nor hashed",
+    "T04 operator/soldier alignment not verified",
+    "Combat Events Bridge not integrated and out of scope"
+  ],
+  "qualityNotes": [
+    "Unique Canvas operation signatures validate changing geometry, not pixel-level silhouettes, aesthetics, lack of clipping, GPU or FPS",
+    "Face sheet is generated in browser from original rig; not an approved concept portrait",
+    "Integration run #39342295194 is baseline evidence only, not QA of P03"
+  ]
+}
