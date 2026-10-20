@@ -1,4 +1,35 @@
-# SEMANTROPIC TD — ÍNDICE MAESTRO DE ACTAS · EQUIPO M
+# SEMANTROPIC TD — EQUIPO M · ÍNDICE OFICIAL DE ACTAS
+
+**Etapa artística vigente: M-04 C1-D (M01 Praderas del Amanecer).**  
+**Rama vigente:** [feature/art-m04-illustrated-terrain](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m04-illustrated-terrain).  
+**BASE EXACTA M03:** `dd7274369996b592de9a827e3c7d399e086bca65`.  
+**HEAD actual:** verificar SHA completo en [PR #16 / commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/16/commits). El índice mismo es un commit, por lo que no se inventa un SHA autorreferencial.  
+**PR activo:** [#16 M04 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/16), hacia `feature/art-m03-q2-mapas`, SIN MERGE.
+
+| Entregable M04 | Enlace directo | Estado |
+|---|---|---|
+| Acta M04 | [ACTA_M04_C1D_2026-10-19.md](ACTA_M04_C1D_2026-10-19.md) | CONFIRMADO EN ARCHIVOS |
+| QA.json persistente | [QA_M04_C1D.json](QA_M04_C1D.json) | PASS mocks / NO Node ni navegador |
+| Manifest de 15 SVG | [manifest.json](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m04-illustrated-terrain/public/official/art/maps/m01/m04/manifest.json) | VERSIONADO |
+| Plancha 12 recursos | [M04_PLANCHA_12_PROPS.svg](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m04-illustrated-terrain/public/official/art/maps/m01/m04/M04_PLANCHA_12_PROPS.svg) | 4×3 editable |
+| Renderer M04 | [renderer-v4.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m04-illustrated-terrain/public/official/src/maps-visual/m01/m04/renderer-v4.mjs) | IMPLEMENTADO |
+| Vitrina Phaser | [M04 index.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m04-illustrated-terrain/public/official/art/maps/m01/m04/index.html) | SIN SERVIR EN BROWSER |
+| Galería M03 vs M04 | [gallery.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m04-illustrated-terrain/public/official/art/maps/m01/m04/gallery.html) | COMPARADOR ENTREGADO |
+| QA Node | [qa-m04.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m04-illustrated-terrain/public/official/src/maps-visual/m01/m04/qa-m04.mjs) | NOT_RUN (disponible) |
+| Capturador Playwright | [capture-m04.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m04-illustrated-terrain/public/official/src/maps-visual/m01/m04/capture-m04.mjs) | NOT_RUN (disponible) |
+| Capturas M04 | `docs/art/maps/evidencias/M04/` | SIN FOTOS, NO EJECUTADO |
+| Referencia integrada anterior | [C1-C/Q2 PR #12](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/12) | M03/T04/P03, NO M04 |
+
+### Semáforo de QA
+**[PROBADO EN SIMULACIÓN]** 3 paletas; 8 pads, 133 vértices, 20 props nuevos + 3 hitos; carga de 24 SVG compartidos, sin claves perdidas, 11 texturas generadas y limpieza idempotente por paleta.  
+**[NO EJECUTADO]** build Node nativo y Chromium Phaser M04 real 1280×768, 844×390, 932×430; móvil físico, medición FPS/memoria.  
+**[BLOQUEANTE]** foto conjunta con T04/T05 y P03/P04, política de oclusión, revisión de franjas FIT y aprobación pictórica del director.  
+**[PROTEGIDO]** ningún cambio M03, datos V5 ni archivos compartidos. PR #16 aislado.  
+**ROLLBACK:** cerrar PR #16 sin fusionar.
+
+---
+
+## Archivo histórico anterior (M-01 → M-03)
 
 **Dirección General / consulta automática en GitHub · 19-10-2026**  
 **Línea vigente candidata:** M-03 Q2 «Praderas del Amanecer / Aurora v3».  
