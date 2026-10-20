@@ -1,0 +1,36 @@
+import assert from "node:assert/strict";
+import {C1D7ActorVisualController} from "../public/official/src/core-c1d/c1d7-actor-visual-controller.mjs";
+import {ANIMATIONS} from "../public/official/art/actors/atlas-source.mjs";
+const v=new C1D7ActorVisualController();
+const ev=(eventId,type,data={})=>({eventId,type,...data});
+v.accept([ev("1","soldier_attack_windup",{entityId:11,targetId:20,windup:.29})],1);
+assert.equal(v.sample("soldier",11,1.1,"walk").phase,"attackWindup");
+assert(v.frame("soldier",11,1.1,"walk",ANIMATIONS).frame>=0);
+v.accept([ev("1","soldier_attack_windup",{entityId:11,windup:.29})],1.1);
+assert.equal(v.diagnostics().accepted,1,"Duplicate event id creates duplicate animation");
+v.accept([ev("2","soldier_attack_hit",{entityId:11,targetId:20,damage:8})],1.35);
+assert.equal(v.sample("soldier",11,1.38,"walk").phase,"attack");
+v.accept([ev("3","hit_applied",{entityId:20,sourceId:11,damage:8})],1.39);
+assert.equal(v.sample("enemy",20,1.4,"walk").phase,"hit");
+v.accept([ev("4","enemy_attack_windup",{entityId:20,targetId:11,windup:.32})],1.7);
+assert.equal(v.sample("enemy",20,1.75,"blocked").phase,"attackWindup");
+v.accept([ev("5","soldier_hit",{entityId:11,sourceId:20,damage:7,hp:103})],2.05);
+assert.equal(v.sample("enemy",20,2.06,"blocked").phase,"attack");
+assert.equal(v.sample("soldier",11,2.06,"idle").phase,"hit");
+const before=v.frame("enemy",20,2.06,"idle",ANIMATIONS);
+const paused=v.frame("enemy",20,2.06,"idle",ANIMATIONS);
+assert.deepEqual(before,paused,"Visual progression changes during paused simulator time");
+v.accept([ev("6","soldier_die",{entityId:11})],2.2);
+assert.equal(v.sample("soldier",11,2.3,"idle").phase,"die");
+v.accept([ev("7","soldier_respawn",{entityId:11})],6);
+assert.equal(v.sample("soldier",11,6,"walk").phase,"walk");
+v.accept([ev("8","entity_die",{entityId:20})],6);
+assert.equal(v.sample("enemy",20,6.1,"idle").phase,"die");
+v.accept([ev("9","entity_escape",{entityId:20})],6.2);
+assert.equal(v.sample("enemy",20,6.21,"walk").phase,"walk");
+v.accept([ev("10","scene_reset")],6.4);
+assert.equal(v.diagnostics().states,0);
+assert.equal(v.diagnostics().seen,0);
+console.log(JSON.stringify({status:"PASS_C1D7_G2_VISUAL_ONLY_EVENT_BRIDGE",realEventNames:true,
+ phases:"attackWindup/attack/hit/die/respawn",noTimers:true,duplicatesDeduped:true,
+ pauseDeterministic:true,coreMutation:false,sceneIntegration:"PENDING_P08_ASSETS"},null,2));

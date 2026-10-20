@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "p08-qa-v1",
+  "milestone": "P08-INFANTRY-EVOLUTION-C1D6",
+  "date": "2026-10-20",
+  "owner": "PERSONAJES",
+  "branch": "feature/art-p08-infantry-evolution-combat",
+  "baseSha": "5eef18c3c86c683d9cb38f89d708eb3d9e7c168e",
+  "status": "CANDIDATE_ASSETS_AND_CONTROLLER_NOT_INTEGRATED",
+  "sourceOfTruth": "C1-D6 M01 core; C1-C P03 visual reference protected",
+  "tests": [
+    {
+      "name": "P07 inherited alpha-zero RGB repair",
+      "status": "PASS_V8_SOURCE",
+      "evidence": "p07-raster-canvas.mjs zeroes RGB when quantized alpha reaches 0; four P07 PNGs regenerated in P08 branch. Independent Node decode NOT_RUN."
+    },
+    {
+      "name": "P08 four persisted PNGs",
+      "status": "PASS_GIT",
+      "evidence": "PNG binary blobs infantry_recruit, infantry_veteran, warrior and hound all appear in Git tree, P08_MANIFEST.json includes SHA256."
+    },
+    {
+      "name": "128 new frame source audit",
+      "status": "PASS_V8",
+      "evidence": "P08 source exporter 32 frames per actor, no empty or frame-border alpha contacts. Independent Node after checkout NOT_RUN."
+    },
+    {
+      "name": "P03 identity protection",
+      "status": "PASS_SOURCE",
+      "evidence": "P08 painter delegates neutral to P03 rig; adds combat-only overlays to warrior/hound. Pixel-by-pixel Node regression NOT_RUN."
+    },
+    {
+      "name": "Level I recruit versus Level II veteran art",
+      "status": "PASS_V8_SAMPLE",
+      "evidence": "Inspected source-rendered attack poses; veteran added reinforced armor, helmet/visor/shield. Artistic approval PENDING."
+    },
+    {
+      "name": "8 controller event fixtures",
+      "status": "PASS_V8",
+      "evidence": "Windup, confirmed contact frame2, enemy sourceId hit frame2, death, veteran respawn, pause, no derived core hit and removal all passed V8 isolated."
+    },
+    {
+      "name": "Node22 eight-PNG regression",
+      "status": "NOT_RUN",
+      "command": "node public/official/src/actors-visual/p08/qa-p08.mjs",
+      "evidence": "Script is versioned; no full local checkout/Node execution of all PNGs."
+    },
+    {
+      "name": "Native build",
+      "status": "NOT_RUN",
+      "command": "npm run build"
+    },
+    {
+      "name": "Phaser WebGL2 desktop",
+      "status": "NOT_RUN",
+      "command": "qa-p08-browser.mjs 1280x768"
+    },
+    {
+      "name": "Phaser WebGL2 landscape mobile",
+      "status": "NOT_RUN",
+      "command": "qa-p08-browser.mjs 844x390 / 932x430"
+    },
+    {
+      "name": "Android physical readability",
+      "status": "PENDING",
+      "evidence": "Reference images 50833/50834 not available as verified files here; Android real must be assessed by integrator."
+    },
+    {
+      "name": "Live core C1-D6/C1-D7 upgraded soldiers",
+      "status": "NOT_RUN",
+      "evidence": "P08 is NOT mounted into C1-D6; no game changes or measured damage/HP changes."
+    },
+    {
+      "name": "Visual artist acceptance",
+      "status": "PENDING",
+      "evidence": "C1-C screenshot is protected but no after integrated screenshot exists."
+    },
+    {
+      "name": "Complete privacy/ownership diff",
+      "status": "PENDING",
+      "evidence": "Check GitHub compare before PR creation."
+    }
+  ],
+  "technical": {
+    "actors": [
+      "infantry_recruit",
+      "infantry_veteran",
+      "warrior",
+      "hound"
+    ],
+    "atlasSize": [
+      1408,
+      832
+    ],
+    "frameSize": [
+      176,
+      208
+    ],
+    "framesPerActor": 32,
+    "coreLevel1Soldiers": 1,
+    "coreLevel2Soldiers": 2,
+    "coreDamageModified": false,
+    "gameplaySceneModified": false,
+    "productionModified": false,
+    "serverDeployed": false
+  },
+  "notes": [
+    "Do not claim PASS_NODE from V8 mocks.",
+    "Do not claim rendered Android screenshots from source pose sheets.",
+    "Level II atlas drawn once but used by two distinct core entities.",
+    "Weapon/attack pose is entirely visual; confirmed damage is core event only."
+  ],
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39"
+}

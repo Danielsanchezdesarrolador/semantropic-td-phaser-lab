@@ -1,0 +1,53 @@
+name: C1-D7 G1 integrator real contextual tower nodes - Phaser WebGL2
+on:
+  push:
+    branches: [feature/integrator-c1d7-contextual-ui]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  c1d7-contextual-g1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Protected C1-C art, syntax, gameplay regression, real economy
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node --check public/official/src/core-c1d/c1d7-contextual-intents.mjs
+          node --check public/official/src/c1d7-playable/scene.mjs
+          node --check tools/qa-c1d7-menu.mjs
+          node --check tools/qa-c1d7-browser.mjs
+          node tools/qa-c1d7-menu.mjs | tee c1d7-node-economic-qa.log
+          node tools/qa-c1d7-actor-visual.mjs | tee c1d7-visual-bridge-qa.log
+          node tools/qa-c1d5-navigation.mjs
+          node tools/qa-c1d5-results.mjs
+      - name: Build Phaser 4.2.1
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install actual Chromium with WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Four landscape viewports real tap/context node/build/sell plus portrait
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d7-browser.mjs 2>&1 | tee c1d7-browser-qa.log
+      - name: Save visual and test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: C1D7_G1_NODOS_CONTEXTUALES_CHROMIUM
+          path: |
+            artifacts/c1d7-browser/
+            c1d7-node-economic-qa.log
+            c1d7-visual-bridge-qa.log
+            c1d7-browser-qa.log
+          if-no-files-found: warn

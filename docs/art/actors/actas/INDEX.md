@@ -1,3 +1,34 @@
+# PERSONAJES P08 — INFANTERÍA EVOLUTIVA Y COMBATE LEGIBLE · 20-10-2026
+**PR oficial:** [#39 PERSONAJES P08 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39), sin merge.
+**Rama:** `feature/art-p08-infantry-evolution-combat` · **Base:** `5eef18c3c86c683d9cb38f89d708eb3d9e7c168e` (P07-HF1).
+**Estado:** 4 atlas y 4 asset sheets PNG REALES; 1 recluta visual nivel I, 2 veteranos visuales nivel II, orco/hound P03; NO INTEGRADO, NO MERGE, NO LIVE. Node22 y Chromium reales siguen NOT_RUN.
+
+| Documento / recurso oficial P08 | Acceso |
+|---|---|
+| **Acta completa P08** | [ACTA_P08_PERSONAJES_2026-10-20.md](./ACTA_P08_PERSONAJES_2026-10-20.md) |
+| **QA P08, con pendientes reales** | [QA_P08_PERSONAJES.json](./QA_P08_PERSONAJES.json) |
+| **RFC Dirección / Integrador** | [RFC_P08_INTEGRACION_C1D6_C1D7.md](./RFC_P08_INTEGRACION_C1D6_C1D7.md) |
+| **Manifest y SHA256 de 4 nuevos PNG** | [P08_MANIFEST.json](../../../../public/official/art/actors/P08_MANIFEST.json) |
+| **Recluta nivel I PNG** | [infantry_recruit.png](../../../../public/official/art/actors/p08/png/infantry_recruit.png) |
+| **Veterano nivel II PNG** | [infantry_veteran.png](../../../../public/official/art/actors/p08/png/infantry_veteran.png) |
+| **Orco P03 con combate** | [warrior.png](../../../../public/official/art/actors/p08/png/warrior.png) |
+| **Hound P03 con combate** | [hound.png](../../../../public/official/art/actors/p08/png/hound.png) |
+| **Sheet Recluta I** | [INFANTRY_I_SHEET.png](../../../../public/official/art/actors/p08/sheets/INFANTRY_I_SHEET.png) |
+| **Sheet 2 Veteranos II** | [INFANTRY_II_TWO_VETERANS_SHEET.png](../../../../public/official/art/actors/p08/sheets/INFANTRY_II_TWO_VETERANS_SHEET.png) |
+| **Sheet Orco neutral/ataque** | [WARRIOR_P03_NEUTRAL_ATTACK.png](../../../../public/official/art/actors/p08/sheets/WARRIOR_P03_NEUTRAL_ATTACK.png) |
+| **Sheet Hound neutral/ataque** | [HOUND_P03_NEUTRAL_ATTACK.png](../../../../public/official/art/actors/p08/sheets/HOUND_P03_NEUTRAL_ATTACK.png) |
+| **Galería Phaser visual** | [p08/index.html](../../../../public/official/src/actors-visual/p08/index.html) |
+| **Loader / controlador de eventos reales** | [p08-loader.mjs](../../../../public/official/src/actors-visual/p08/p08-loader.mjs) / [p08-controller.mjs](../../../../public/official/src/actors-visual/p08/p08-controller.mjs) |
+| **QA Node22 estricto** | [qa-p08.mjs](../../../../public/official/src/actors-visual/p08/qa-p08.mjs) |
+| **QA Chromium 3 viewports** | [qa-p08-browser.mjs](../../../../public/official/src/actors-visual/p08/qa-p08-browser.mjs) (NOT_RUN) |
+
+**Protecciones:** core INFANTRY_LVLS, Mapas, Torres, C1-D6/C1-D7 y producción LIVE intactos. El operador sniper queda P03 aprobado. Los sprites P08 no instancian unidades ni aplican daño.
+**Aceptación bloqueada:** Node22 exit 0 sobre 8 PNG, Chromium WebGL2 capturas reales, imagen Android a escala jugable y aprobación Dirección.
+
+---
+
+## HISTÓRICO CONSERVADO — P01 a P07
+
 # PERSONAJES P07-HF1 · CORRECCIÓN DE REPRODUCIBILIDAD (20-10-2026)
 **PR:** [#32 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/32) · **Rama:** \`feature/art-p07-continuidad-c1c\` · NO MERGE/DEPLOY.
 **Problema:** [Actions 39455632045](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39455632045) **FAIL_NODE22**: regeneración del atlas no idéntica byte a byte.
