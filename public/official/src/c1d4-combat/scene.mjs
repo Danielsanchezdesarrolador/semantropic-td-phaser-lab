@@ -163,9 +163,11 @@ function updatePanel(){
  $("slot").textContent=(chosenSocket+1)+"/8";
  $("installed").textContent=tower?tower.family+" · nivel "+tower.level:"Plataforma vacía";
  const q=economy.quote(chosenSocket,spec),up=economy.quoteUpgrade(chosenSocket),sell=economy.quoteSell(chosenSocket);
- $("buy").disabled=!q.ok;$("buy").textContent="Construir "+(spec==="sniper"?"Francotirador 140":"Infantería 95");
- $("upgrade").disabled=!up.ok;$("upgrade").textContent="Mejorar "+(up.cost||"");
- $("sell").disabled=!sell.ok;$("sell").textContent="Vender "+(sell.refund||"");
+ $("buy").disabled=!q.ok;$("buy").textContent=window.innerWidth<1000
+  ?"Construir "+(spec==="sniper"?"140":"95")
+  :"Construir "+(spec==="sniper"?"Francotirador 140":"Infantería 95");
+ $("upgrade").disabled=!up.ok;$("upgrade").textContent=(window.innerWidth<1000?"↑ ":"Mejorar ")+(up.cost||"");
+ $("sell").disabled=!sell.ok;$("sell").textContent=(window.innerWidth<1000?"$ ":"Vender ")+(sell.refund||"");
 }
 function selectedFamily(){return $("family").value;}
 function trade(method,...args){
@@ -198,7 +200,9 @@ async function start(){
   assert(gl&&gl instanceof WebGL2RenderingContext,"WebGL2 requerido");
   new Phaser.Game({type:Phaser.WEBGL,canvas,context:gl,parent:"stage",width:1280,height:768,
     backgroundColor:"#183b37",antialias:true,audio:{noAudio:true},
-    scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH,width:1280,height:768},
+    scale:{mode:(window.innerWidth<1000&&window.innerWidth>window.innerHeight)
+      ?Phaser.Scale.ENVELOP:Phaser.Scale.FIT,
+      autoCenter:Phaser.Scale.CENTER_BOTH,width:1280,height:768},
     scene:[CombatScene]});
  }catch(error){console.error(error);feedback("BLOQUEANTE: "+error.message);}
 }
