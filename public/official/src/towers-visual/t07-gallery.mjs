@@ -21,6 +21,8 @@ class T07Scene extends Phaser.Scene{
  }
  create(){
   if(this.errors.length)throw Error('Missing asset: '+this.errors.join(','));
+  const realGL=this.game.renderer?.gl;
+  if(!realGL||typeof WebGL2RenderingContext==='undefined'||!(realGL instanceof WebGL2RenderingContext))throw Error('Phaser renderer WebGL2 NOT VERIFIED');
   this.land=this.add.graphics().setDepth(-50);
   this.pads=this.add.graphics().setDepth(-10);
   this.guide=this.add.graphics().setDepth(990);
