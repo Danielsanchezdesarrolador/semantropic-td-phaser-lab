@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="270" viewBox="0 0 300 270"><defs><linearGradient id="stone" x1=".06" y1=".05" x2=".9" y2="1"><stop stop-color="#f2e7ce"/><stop offset=".4" stop-color="#adbfaf"/><stop offset="1" stop-color="#496b74"/></linearGradient><linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe5ac"/><stop offset=".5" stop-color="#bea177"/><stop offset="1" stop-color="#566f75"/></linearGradient><linearGradient id="timber" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9bb83"/><stop offset=".5" stop-color="#aa7951"/><stop offset="1" stop-color="#5e4d45"/></linearGradient><linearGradient id="crystal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ebffdf"/><stop offset=".45" stop-color="#91ddd2"/><stop offset="1" stop-color="#3d8aa4"/></linearGradient><radialGradient id="aura"><stop stop-color="#b4ffed" stop-opacity=".8"/><stop offset=".6" stop-color="#b3f8de" stop-opacity=".18"/><stop offset="1" stop-color="#9ffff1" stop-opacity="0"/></radialGradient></defs><ellipse cx="155" cy="237" rx="124" ry="17" fill="#1e4f51" opacity=".28"/>
+<!-- human shelter + technical alarm observatory -->
+<path d="M45 190 152 159l116 35-99 54-116-26Z" fill="#54706d" stroke="#3e646c" stroke-width="6"/>
+<path d="m44 178 104-36 116 41-91 47-122-27Z" fill="url(#stone)" stroke="#516e70" stroke-width="5"/>
+<path d="m72 164 72-25 96 40-74 35Z" fill="#d7d9b5" stroke="#728784" stroke-width="3"/>
+<path d="m66 182 19-85 30-21 29 24 4 98-27 23Z" fill="url(#stone)" stroke="#416671" stroke-width="5"/>
+<path d="m192 186 10-97 32-15 25 34-7 92-27 22Z" fill="url(#stone)" stroke="#456670" stroke-width="5"/>
+<path d="m85 106 29-20 19 18-18 17-34 9m124-29 30-16 13 25-20 21-29-8" fill="#f4e9d0" opacity=".73"/>
+<path d="M96 101 153 55l71 46-17 20-53-39-43 36Z" fill="url(#timber)" stroke="#655a4f" stroke-width="5"/>
+<path d="m99 102 54-36 61 36-12 9-47-29-40 33Z" fill="#e4bf84" opacity=".65"/>
+<path d="m142 58-4-21 12-9 15 13-2 18" fill="url(#bronze)" stroke="#4e6b73" stroke-width="4"/>
+<circle cx="151" cy="37" r="43" fill="url(#aura)"/><path d="m150 6 22 29-18 31-19-29Z" fill="url(#crystal)" stroke="#e6fff2" stroke-width="4"/>
+<path d="m150 17 8 20-6 17" stroke="#4f90a4" stroke-width="4"/>
+<!-- lookout slit, integrated plaque, living vines -->
+<path d="M139 113 154 103l19 10v36l-17 13-19-10Z" fill="#2c555c" stroke="#d2c08d" stroke-width="3"/>
+<path d="m146 139 10-26 9 27" stroke="#8bd5c7" stroke-width="4"/>
+<path d="m55 208 26-9m138 3 25-13" stroke="#e6d7b2" stroke-width="4"/>
+<path d="m73 148-16 9 5 23m185-40 21 11-12 26" fill="none" stroke="#6ca083" stroke-width="8" stroke-linecap="round"/>
+<path d="M72 235q24-15 35-8m121-1 28 10" stroke="#93b17e" stroke-width="8"/></svg>

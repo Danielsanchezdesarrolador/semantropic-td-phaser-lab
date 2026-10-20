@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="270" viewBox="0 0 300 270"><defs><linearGradient id="stone" x1=".06" y1=".05" x2=".9" y2="1"><stop stop-color="#f2e7ce"/><stop offset=".4" stop-color="#adbfaf"/><stop offset="1" stop-color="#496b74"/></linearGradient><linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe5ac"/><stop offset=".5" stop-color="#bea177"/><stop offset="1" stop-color="#566f75"/></linearGradient><linearGradient id="timber" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9bb83"/><stop offset=".5" stop-color="#aa7951"/><stop offset="1" stop-color="#5e4d45"/></linearGradient><linearGradient id="crystal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ebffdf"/><stop offset=".45" stop-color="#91ddd2"/><stop offset="1" stop-color="#3d8aa4"/></linearGradient><radialGradient id="aura"><stop stop-color="#b4ffed" stop-opacity=".8"/><stop offset=".6" stop-color="#b3f8de" stop-opacity=".18"/><stop offset="1" stop-color="#9ffff1" stop-opacity="0"/></radialGradient></defs><ellipse cx="149" cy="240" rx="133" ry="22" fill="#153e45" opacity=".30"/>
+<!-- military human watch post, not constructible tower -->
+<path d="m24 206 91-42 142 30-92 62Z" fill="#42656b" stroke="#3c565d" stroke-width="6"/>
+<path d="m25 193 89-37 142 29-90 56Z" fill="url(#stone)" stroke="#466773" stroke-width="6"/>
+<path d="m44 193 77-25 107 24-76 35Z" fill="#ddd7b7" stroke="#6a8381" stroke-width="3"/>
+<path d="M84 190 91 103l47-30 48 24 10 91-56 27Z" fill="url(#stone)" stroke="#3c616a" stroke-width="6"/>
+<path d="m138 73 47 23 11 92-56 27Z" fill="#537d84" opacity=".75"/>
+<path d="M95 122 142 95l44 24-49 31Z" fill="#2b555d" stroke="#e1c990" stroke-width="5"/>
+<path d="m101 150 36-20 35 16-31 21Z" fill="url(#timber)" stroke="#62574b" stroke-width="3"/>
+<!-- shelter roof, flat angled distinctive protective shape -->
+<path d="M58 114 140 44l92 63-25 24-69-47-57 53Z" fill="url(#timber)" stroke="#514f48" stroke-width="7"/>
+<path d="m75 111 65-58 77 51-17 12-61-41-51 47Z" fill="#dbb67c" opacity=".69"/>
+<path d="m136 45-2-29 13-3 5 31" stroke="#ddc48d" stroke-width="6"/>
+<path d="M144 13 202 24l-18 26-40-7Z" fill="#368e89" stroke="#efd59d" stroke-width="4"/>
+<path d="m157 27 20 5-12 7" fill="#bfeadd"/>
+<!-- supplies and guard parapet -->
+<path d="m28 189 43-21 44 16-38 25Z" fill="url(#timber)" stroke="#5c5449" stroke-width="4"/>
+<path d="m28 189 49 20v24l-48-18Zm49 20 38-25v25l-38 24Z" fill="#966e4e" stroke="#544d48" stroke-width="4"/>
+<path d="m42 204 21 7m23-10 17-11" stroke="#e8bf83" stroke-width="3"/>
+<path d="m177 190 40-13 23 18-45 18Z" fill="url(#bronze)" stroke="#536a6c" stroke-width="4"/>
+<path d="m183 194 29 5m-144 29 42-4m90-2 29-7" stroke="#e3dcc1" stroke-width="3"/>
+<path d="m52 240 20-5m140-5 31 11" stroke="#6e9d7c" stroke-width="9" stroke-linecap="round"/></svg>

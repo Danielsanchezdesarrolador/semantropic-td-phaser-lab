@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "c1b-q2-qa-v1",
+  "team": "M",
+  "milestone": "M04/C1-D",
+  "branch": "feature/art-m04-illustrated-terrain",
+  "baseSha": "dd7274369996b592de9a827e3c7d399e086bca65",
+  "headSha": null,
+  "headShaNote": "PR #16 HEAD advances when acta/index are committed. Query GitHub PR commits for current immutable SHA; do not fabricate self-referential hash.",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/16",
+  "gameplayImplemented": false,
+  "buildCommand": "node public/official/src/maps-visual/m01/m04/qa-m04.mjs && npm run build",
+  "checks": [
+    {
+      "id": "M04-01-BRANCH",
+      "category": "git",
+      "environment": "GitHub connector",
+      "command": "compare feature/art-m03-q2-mapas...feature/art-m04-illustrated-terrain",
+      "status": "PASS",
+      "evidencePaths": [
+        "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/16/files"
+      ],
+      "reason": "All authored diff paths under public/official/src/maps-visual/m01/m04/, art/maps/m01/m04/, docs/art/maps/."
+    },
+    {
+      "id": "M04-02-CANON",
+      "category": "contract",
+      "environment": "V8 JS evaluator based on real remote map sources",
+      "command": "validateM01/map art plan from V5",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m04/renderer-v4.mjs"
+      ],
+      "reason": "133 route vertices, 8 stable socket world positions, visual path outer 110, hit radius 54; source data not edited."
+    },
+    {
+      "id": "M04-03-ASSET",
+      "category": "source",
+      "environment": "GitHub connector files",
+      "command": "fetch all 15 SVG sources and inspect unique blob SHAs",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/art/maps/m01/m04/manifest.json",
+        "public/official/art/maps/m01/m04/M04_PLANCHA_12_PROPS.svg"
+      ],
+      "reason": "15 unique project SVGs and editable sheet; 12 props + 3 redesigned original landmarks. No commercial art quality approval claimed."
+    },
+    {
+      "id": "M04-04-PLACEMENT",
+      "category": "visual-clearance",
+      "environment": "V8 evaluation of makeM04ArtPlan from authenticated repo sources",
+      "command": "makeM04ArtPlan(maps[0])",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m04/renderer-v4.mjs"
+      ],
+      "reason": "20 safe placed props; 2 proposed positions rejected; 3 landmarks kept in authored narrative zones. High-prop occlusion remains for central review."
+    },
+    {
+      "id": "M04-05-MOUNT",
+      "category": "render-structure",
+      "environment": "V8 simulated Canvas2D and Phaser game objects",
+      "command": "preloadM04Illustrations + mountM01WorldV4 3 palettes",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m04/renderer-v4.mjs"
+      ],
+      "reason": "3 palettes each 8 pads and 23 graphics props/landmarks; latest missing texture keys fixed to zero; scene contains 73 objects."
+    },
+    {
+      "id": "M04-06-CACHE",
+      "category": "lifecycle",
+      "environment": "V8 with mocked Canvas2D / Phaser texture manager",
+      "command": "mount, set visual states, destroy(), destroy()",
+      "status": "PASS",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m04/renderer-v4.mjs"
+      ],
+      "reason": "11 generated texture keys released by destroy, 24 shared SVG keys retained; no texture generated per frame."
+    },
+    {
+      "id": "M04-07-NODE",
+      "category": "node",
+      "environment": "Node 20+ checkout required",
+      "command": "node public/official/src/maps-visual/m01/m04/qa-m04.mjs",
+      "status": "NOT_RUN",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m04/qa-m04.mjs"
+      ],
+      "reason": "Native Node against branch checkout was not run. Script prepared, earlier tests are V8 mocks only."
+    },
+    {
+      "id": "M04-08-BUILD",
+      "category": "build",
+      "environment": "authorized CI required",
+      "command": "npm run build",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "No deployment/central build permission granted; main/Render workflows protected."
+    },
+    {
+      "id": "M04-09-CHROME",
+      "category": "browser",
+      "environment": "Chromium/SwiftShader + Phaser 4.2.1 WebGL2",
+      "command": "node public/official/src/maps-visual/m01/m04/capture-m04.mjs http://127.0.0.1:8080",
+      "status": "NOT_RUN",
+      "evidencePaths": [
+        "public/official/src/maps-visual/m01/m04/capture-m04.mjs"
+      ],
+      "reason": "No M04 branch preview/Chrome session served; genuine screenshots not captured."
+    },
+    {
+      "id": "M04-10-MOBILE",
+      "category": "emulation",
+      "environment": "Chromium emulation 844x390 and 932x430; physical phone separate",
+      "command": "QA touch and safe-area review",
+      "status": "NOT_RUN",
+      "evidencePaths": [],
+      "reason": "M04 runtime not inspected in browser or phone."
+    },
+    {
+      "id": "M04-11-VISUAL-T04-P03",
+      "category": "integration",
+      "environment": "Integrador C1C/C1D review",
+      "command": "Compare M04 with T04/T05 and P03/P04",
+      "status": "PENDING",
+      "evidencePaths": [],
+      "reason": "No joint screenshot M04+T04/P03; MAP-owned view is only baseline comparison."
+    },
+    {
+      "id": "M04-12-ART-APPROVAL",
+      "category": "art",
+      "environment": "Director review",
+      "command": "Inspect real same-camera M03/M04 frames, mobile",
+      "status": "PENDING",
+      "evidencePaths": [],
+      "reason": "Source richness does not prove commercial premium finish."
+    }
+  ],
+  "screenshotIndex": [],
+  "screenshotStatus": "NOT_RUN — no M04 real-runtime capture has been generated",
+  "referenceScreenshots": [
+    {
+      "source": "C1C PR #12 GitHub",
+      "label": "real C1C M03/T04/P03 QA prior to M04",
+      "captureType": "previous-milestone-reference",
+      "status": "NOT_RELABELED",
+      "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/12"
+    }
+  ],
+  "artMetrics": {
+    "illustratedSvgMasters": 15,
+    "propSheetCells": 12,
+    "newLandmarks": 3,
+    "safeAddedProps": 20,
+    "rejectedProposedProps": 2,
+    "visualRoadWidth": 110,
+    "padBoxWorldWidth": 110.24,
+    "padHitRadiusWorld": 54,
+    "paletteCount": 3,
+    "objectsPerPaletteMock": 73,
+    "generatedTexturesPerPalette": 11
+  },
+  "performance": {
+    "generatedRGBATheoreticalMiB": 27.86,
+    "actualGpuMiB": null,
+    "measuredFpsAvg": null,
+    "measuredFpsP95": null,
+    "physicalDevice": null
+  },
+  "knownBlockers": [
+    "Need real Phaser 4.2.1/Chrome WebGL2 capture in 1280x768 / 844x390 / 932x430",
+    "Need ratio of M04 pad against T04/T05 actual building art and P03/P04 actor occlusion",
+    "Need director approved illustrated finish; SVG/Canvas sources remain prototype",
+    "Need mobile full-bleed proposal via integrator if FIT sidebars hamper scene"
+  ],
+  "rollback": "Close PR 16 without merge. No M03 baseline or shared scene files modified."
+}
