@@ -20,7 +20,7 @@ try{
  browser=await chromium.launch({headless:true,args:["--use-gl=angle","--use-angle=swiftshader","--enable-webgl","--enable-unsafe-swiftshader"]});
  const results=[];
  for(const [tag,width,height] of [["desktop",1280,768],["landscape844",844,390],["landscape932",932,430]]){
-  const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1,isMobile:width<950});
+  const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1,isMobile:width<950,hasTouch:width<950});
   const errors=[];page.on("pageerror",e=>errors.push(e.message));
   const response=await page.goto(TEST_URL,{waitUntil:"load",timeout:30000});
   if(!response||response.status()!==200)throw Error(tag+" HTTP "+response?.status()+" "+TEST_URL+" content="+(await page.content()).slice(0,500));
@@ -50,6 +50,23 @@ try{
   if(!initial.webgl2||initial.gold!==365||initial.lives!==100||initial.route!==133||initial.sockets!==8)
    throw Error(tag+" invalid initial scene "+JSON.stringify(initial));
   await page.screenshot({path:"artifacts/c1d4-browser/"+tag+"-before.png",fullPage:true});
+  const tapTarget=await page.evaluate(()=>{
+   const c=document.querySelector("#stage canvas").getBoundingClientRect();
+   const sockets=window.__SEMANTROPIC_C1D4.scene.mapView.plan.sockets;
+   return sockets.map((s,index)=>({index,
+    x:c.left+c.width*s.world.x/1280,y:c.top+c.height*s.world.y/768}))
+    .find(s=>s.index>0&&s.x>70&&s.x<innerWidth-70&&s.y>90&&s.y<innerHeight-100)||null;
+  });
+  if(!tapTarget)throw Error(tag+" no tappable in-scene socket candidate");
+  if(width<950)await page.touchscreen.tap(tapTarget.x,tapTarget.y);
+  else await page.mouse.click(tapTarget.x,tapTarget.y);
+  const selected=await page.locator("#slot").textContent();
+  if(selected!==String(tapTarget.index+1)+"/8")
+   throw Error(tag+" screen-to-world touch selected wrong platform "+JSON.stringify({tapTarget,selected}));
+  for(let step=0;step<tapTarget.index;step++)await page.locator("#prev").click();
+  const restored=await page.locator("#slot").textContent();
+  if(restored!=="1/8")throw Error(tag+" restored selection wrong "+restored);
+
   await page.locator("#family").selectOption("infantry");
   await page.locator("#buy").click();
   await page.locator("#next").click();
