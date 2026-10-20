@@ -150,7 +150,6 @@ try{
       if(Math.abs(pose.x)>8)contactLunges++;
      }
      if(e.type==="soldier_hit")enemyHits++;
-     }
     }
     if(i%60===0){g.scene.drawEnemies();g.scene.drawSoldiers();}
    }
