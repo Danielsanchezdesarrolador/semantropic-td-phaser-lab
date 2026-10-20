@@ -388,7 +388,7 @@ export function validateTowerArtV2(list=TOWER_ART_V2){
   if(m.footAnchor.x!==.5||m.footAnchor.y!==.93)throw Error('Foot drift');
   if(m.worldScaleProposal<.26||m.worldScaleProposal>.34)throw Error('Unratified scale out of safe proposal band');
   for(const key of ['shadowFootAnchor','buildFoundationLocal','operatorAnchorLocal','spawnExitLocal','muzzleLocal','fireEffectOriginLocal']){
-   const p=m[key];if(p===null)continue;
+   const p=m[key];if(p===null||p===undefined)continue;
    if(!p||p.units!=='source-px'||p.x<0||p.x>WIDTH||p.y<0||p.y>HEIGHT)throw Error('Invalid source px anchor '+key);
   }
   for(const key of ['shadowFoot','backStructure','frontRail']){
