@@ -102,7 +102,7 @@ try{
   await page.close();
  }
  const portrait=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
- await portrait.goto(URL,{waitUntil:"load"});
+ await portrait.goto(TEST_URL,{waitUntil:"load"});
  const block=await portrait.locator("#portrait").evaluate(el=>getComputedStyle(el).display);
  if(block!=="flex")throw Error("Portrait overlay missing "+block);
  await portrait.close();
