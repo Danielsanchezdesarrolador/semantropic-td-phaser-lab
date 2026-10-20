@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "c1d0-audit-v1",
+  "team": "Integrador",
+  "milestone": "C1-D0",
+  "branch": "feature/core-c1d-m01-combat",
+  "baseSha": "053237d559ab5b0f014deee37e997e328095831f",
+  "headSha": null,
+  "prUrl": null,
+  "gameplayImplemented": false,
+  "checks": [
+    {
+      "name": "contract-audit-node",
+      "command": "node tools/qa-c1d0.mjs",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "real-combat-in-browser",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "canvas-v5-full-formulas",
+      "status": "PENDING",
+      "evidence": null
+    }
+  ],
+  "knownBlockers": [
+    "effective Canvas V5 gameplay algorithms not fully audited",
+    "M01 only smoke model without build/attack/HP combat",
+    "no gameplay Phaser scene committed"
+  ]
+}
