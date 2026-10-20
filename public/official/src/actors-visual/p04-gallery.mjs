@@ -68,6 +68,7 @@ class P04Gallery extends Phaser.Scene{
   this.readout=this.add.text(W/2,659,'',{fontFamily:'system-ui',fontSize:'15px',color:'#e8e1bf'})
     .setOrigin(.5).setDepth(251);
   activeScene=this;this.loadActor(opt.actorId);
+  this.events.once('shutdown',()=>{this.clearCurrent();activeScene=null;});
   const g=this.game.renderer?.gl;
   const isGL=typeof WebGL2RenderingContext!=='undefined'&&g instanceof WebGL2RenderingContext;
   $('runtime').textContent='Phaser '+Phaser.VERSION+' / '+(isGL?'WebGL2 del navegador':'WebGL2 NO VALIDADO')+
@@ -154,7 +155,7 @@ function bind(){
   if(activeScene)activeScene.elapsed=0;choice();
  }));
  $('facing').addEventListener('click',()=>{opt.facing=opt.facing==='E'?'W':'E';choice();});
- $('pause').addEventListener('click',()=>{opt.paused=!opt.paused;choice();});
+ $('pause').addEventListener('click',()=>{opt.paused=!opt.paused;if(!opt.paused)opt.stepFrame=null;choice();});
  $('speed').addEventListener('click',()=>{opt.speed=opt.speed===.5?1:opt.speed===1?1.5:.5;choice();});
  $('zoom').addEventListener('click',()=>{opt.zoom=opt.zoom===1?1.8:1;choice();});
  $('guides').addEventListener('click',()=>{opt.drawGuides=!opt.drawGuides;activeScene?.renderGuides();choice();});
