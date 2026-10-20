@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "semantropic-td-c1d5-qa-v1",
+  "date": "2026-10-20",
+  "branch": "feature/integrator-c1d5-m01-playable",
+  "PR": 34,
+  "testedCodeSha": "a5d51eeadc65b984a3bd229dfe862960b9a85537",
+  "sourceBaseline": {
+    "pr": 30,
+    "visual": "C1-C M03 T04 P03",
+    "checksum": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef"
+  },
+  "CI": {
+    "run": 39465476757,
+    "conclusion": "SUCCESS",
+    "artifactId": 12284871818,
+    "strictPipefail": true
+  },
+  "coreM01": {
+    "pathVertices": 133,
+    "sockets": 8,
+    "waves": 5,
+    "spawns": 63,
+    "initialGold": 365,
+    "lives": 100,
+    "leakDamage": 2,
+    "infantry": [
+      "I",
+      "II"
+    ],
+    "sniper": [
+      "I",
+      "II"
+    ]
+  },
+  "checks": [
+    {
+      "name": "baseline art historical Git SHAs lock",
+      "status": "PASS"
+    },
+    {
+      "name": "Nav graph Dijkstra 133 nodes/formation 34",
+      "status": "PASS_NODE_REAL"
+    },
+    {
+      "name": "Rally touch desktop/2 mobile landscape",
+      "status": "PASS_CHROMIUM_EMULATION"
+    },
+    {
+      "name": "Core 5 waves scripted win 63 kills,0 leaks",
+      "status": "PASS_NODE_REAL"
+    },
+    {
+      "name": "Core regression C1D2 C1D3",
+      "status": "PASS"
+    },
+    {
+      "name": "Phaser 4.2.1 npm build",
+      "status": "PASS"
+    },
+    {
+      "name": "Browser desktop1280x768",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "Browser landscape844x390",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "Browser landscape932x430",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "Natural no defense defeat 50 leaks",
+      "status": "PASS_CHROMIUM_WEBGL2",
+      "ticks": 11067
+    },
+    {
+      "name": "No record after defeat",
+      "status": "PASS_CHROMIUM"
+    },
+    {
+      "name": "Scripted real core victory 5 waves, 63/0/100",
+      "status": "PASS_CHROMIUM_WEBGL2",
+      "ticks": 8174
+    },
+    {
+      "name": "3 stars and browser record after reload",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "Star thresholds source Canvas V5",
+      "status": "PASS",
+      "note": "2 stars up to 25 escapes provisional in V5"
+    },
+    {
+      "name": "M01 all 5 waves human playable session",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "Art commercial final user review",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "Physical iPhone/Android GPU FPS",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "Full Canvas V5 infantry behavior beyond M01 I/II",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "Global campaign progress/cloud save",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "Render isolated test deployment",
+      "status": "NOT_RUN"
+    }
+  ],
+  "artifacts": {
+    "artifactId": 12284871818,
+    "folder": "artifacts/c1d5-browser",
+    "screenshots": [
+      "desktop-first-kill.png",
+      "desktop-natural-defeat.png",
+      "desktop-real-victory-3stars.png",
+      "landscape844-first-kill.png",
+      "landscape932-first-kill.png"
+    ]
+  },
+  "release": {
+    "merge": false,
+    "renderDeployed": false,
+    "stage": "DRAFT",
+    "next": "Human full-playthrough + QA performance + approval"
+  }
+}

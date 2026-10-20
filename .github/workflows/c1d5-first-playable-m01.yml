@@ -1,0 +1,56 @@
+name: C1-D5 first playable M01 navigation results persistence and C1C visual lock
+on:
+  push:
+    branches: [feature/integrator-c1d5-m01-playable]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  m01-first-playable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Exact approved original visual source lock
+        run: |
+          node tools/qa-c1d4r-source-lock.mjs
+          node --check public/official/src/core-c1d/m01-infantry-nav.mjs
+          node --check public/official/src/core-c1d/m01-infantry-combat-a2.mjs
+          node --check public/official/src/core-c1d/m01-results-phaser.mjs
+          node --check public/official/src/c1d5-playable/scene.mjs
+          node --check tools/qa-c1d5-browser.mjs
+      - name: Original core regressions and first-playable logic
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d2-sniper-parity.mjs
+          node tools/qa-c1d2-combat.mjs
+          node tools/qa-c1d2-five-waves.mjs
+          node tools/qa-c1d3-infantry.mjs
+          node tools/qa-c1d5-results.mjs | tee qa-c1d5-results.log
+          node tools/qa-c1d5-navigation.mjs | tee qa-c1d5-navigation.log
+      - name: Build Phaser 4.2.1 WebGL2 with protected C1C art
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install actual Chromium
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: M01 game real browser desktop and mobile and results
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d5-browser.mjs 2>&1 | tee qa-c1d5-browser.log
+      - name: Upload C1-D5 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: C1D5_PRIMERA_VERSION_JUGABLE_M01_FOTOS_Y_QA
+          path: |
+            artifacts/c1d5-browser/
+            qa-c1d5-*.log
+          if-no-files-found: warn
