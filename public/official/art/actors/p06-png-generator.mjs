@@ -17,6 +17,13 @@ const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
 function image(){const {width:w,height:h,columns:c,rows:r}=P06_FRAME;
  return {width:w*c,height:h*r,data:new Uint8Array(w*c*h*r*4)}}
 function pixel(s,x,y,rgb,alpha=255){
+ if(s.cellTransform){
+  const t=s.cellTransform;
+  x=Math.round(t.cx+(x-t.cx)*t.sx);
+  y=Math.round(t.cy+(y-t.cy)*t.sy);
+  // Ensure no frame can write its neighbour, even during oversized keyposes.
+  if(x<t.left+3||x>t.left+172||y<t.top+3||y>t.top+204)return;
+ }
  x|=0;y|=0;if(x<0||y<0||x>=s.width||y>=s.height||alpha<=0)return;
  const i=(y*s.width+x)*4,was=s.data[i+3],a=alpha/255,old=was/255,out=a+old*(1-a);
  if(out<=0)return;
@@ -43,6 +50,10 @@ function segment(s,x1,y1,x2,y2,width,rgb){
 function blend(c,shade=1){return c.map(v=>Math.round(Math.max(0,Math.min(255,v*shade))))}
 const note=(s,x,y,color,w=3)=>ellipse(s,x,y,w,w,color);
 function paintActor(s,id,state,index,x,y){
+ // Pixel-space art board, independently fitted to its immutable 176×208 cell.
+ // This avoids border clipping and any paint leakage between adjacent frames.
+ s.cellTransform={cx:x+88,cy:y+191,sx:id==='hound'?.78:.85,
+   sy:id==='hound'?.89:.84,left:x,top:y};
  const base=P06_ACTORS[id],p=base.colors.map(hex),dark=p[0],main=p[1],light=p[2],
  ink=p[3],trim=p[4],face=p[5],wave=Math.PI*2*index/(P06_STATES[state]);
  const walk=state==='walk',wind=state==='attackWindup',attack=state==='attack',
@@ -186,6 +197,7 @@ function paintActor(s,id,state,index,x,y){
    }
   }
  }
+ s.cellTransform=null;
 }
 const crcTable=(()=>{let a=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;a[n]=c>>>0;}return a})();
 function crc32(bytes){let c=-1;for(const b of bytes)c=crcTable[(c^b)&255]^(c>>>8);return(c^-1)>>>0}
