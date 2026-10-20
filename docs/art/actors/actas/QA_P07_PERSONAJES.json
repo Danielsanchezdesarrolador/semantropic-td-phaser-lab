@@ -196,21 +196,21 @@
   "atlas": [
     {
       "actor": "warrior",
-      "bytes": 696970,
-      "sha256": "da8922ef87fcef8a43919dfdcd0a96aa3efc12a892493fac465562f2d39cbf28",
-      "rgbaSha256": "d49d01c53ca49be3eac278c33f79d5f0325a80195148ab6ed6b3aaf7590acdb4"
+      "bytes": 696955,
+      "sha256": "41ce773004dc8147463d7198e996b08144ed12824b933edf4d5d737db31bcc5e",
+      "rgbaSha256": "3e5aa32b1d2a521a8d738c2a9c1a6e83fb78c258306cb85c363131dfff7a823f"
     },
     {
       "actor": "hound",
-      "bytes": 600460,
-      "sha256": "e4c152adadb57ec67bc268ed246f67a118b807b6c3fd7fb563679359a509516a",
-      "rgbaSha256": "ff5e85d9788f712294fef4b42e7d6321092cfe1a0273ceed78c3d83147d7fec5"
+      "bytes": 600459,
+      "sha256": "3812bc31e9bc46ebda437f1c88c067811c59fa8928c4f2c608f4462e96934e60",
+      "rgbaSha256": "535c3cf9a3f3695a5fd9b896da65057169857147eacf13c26b7ace31dffb1f4a"
     },
     {
       "actor": "infantry_recruit",
-      "bytes": 610641,
-      "sha256": "83ccc2f9385abc2f0d8d9407dce7786cd9fd6c8b68da77ac8506c1f0b76a747d",
-      "rgbaSha256": "b72d555e5a08aa519702aa09c6758d232289102600d24c44f6c03e5a5fee3bce"
+      "bytes": 610640,
+      "sha256": "c372219d8899fb00aed63f42701a7e7d038685430a6d564b2a1784559b6f4559",
+      "rgbaSha256": "ebb5229a969756483ee18fb94be239411a436b253182efea70e117a000da4f69"
     },
     {
       "actor": "sniper_operator_unarmed",
@@ -245,32 +245,36 @@
         "alphaChannelsDiffer": 13
       },
       "after": {
-        "pixelChannelsDiffer": 0
+        "pixelChannelsDiffer": 0,
+        "testedFrames": 20,
+        "passFrames": 20,
+        "sample": "All four actor types × idle/walk/attack/hit/die selected frames"
       },
       "sample": "warrior idle-0; injected +1e-12 to sin/cos/hypot/sqrt/atan2",
-      "environment": "V8 model isolate (NOT Node22)"
+      "environment": "V8 model isolate (NOT Node22)",
+      "note": "After the first quantization, 5 of 20 sampled frames still differed. Quantized stroke sampling length too; then 20/20 exact. This is V8 sensitivity QA only."
     },
-    "correctedPNGCommit": "b8e2fa2488d6b136855b0a4b7e1198a35d30e28d",
-    "sourceCommit": "680df01f4cd37fb880f5700565455ffc63f5b039",
+    "correctedPNGCommit": "db0d27e9762ee8cd6bb65c7538a364f3c7767985",
+    "sourceCommit": "edfe29f3ac89da893c1852d0aad29808c40ad5cf",
     "rasterMachinePrecision": 0.000001,
     "auditedExports": [
       {
         "id": "warrior",
-        "bytes": 696970,
-        "pngSha256": "da8922ef87fcef8a43919dfdcd0a96aa3efc12a892493fac465562f2d39cbf28",
-        "rgbaSha256": "d49d01c53ca49be3eac278c33f79d5f0325a80195148ab6ed6b3aaf7590acdb4"
+        "bytes": 696955,
+        "pngSha256": "41ce773004dc8147463d7198e996b08144ed12824b933edf4d5d737db31bcc5e",
+        "rgbaSha256": "3e5aa32b1d2a521a8d738c2a9c1a6e83fb78c258306cb85c363131dfff7a823f"
       },
       {
         "id": "hound",
-        "bytes": 600460,
-        "pngSha256": "e4c152adadb57ec67bc268ed246f67a118b807b6c3fd7fb563679359a509516a",
-        "rgbaSha256": "ff5e85d9788f712294fef4b42e7d6321092cfe1a0273ceed78c3d83147d7fec5"
+        "bytes": 600459,
+        "pngSha256": "3812bc31e9bc46ebda437f1c88c067811c59fa8928c4f2c608f4462e96934e60",
+        "rgbaSha256": "535c3cf9a3f3695a5fd9b896da65057169857147eacf13c26b7ace31dffb1f4a"
       },
       {
         "id": "infantry_recruit",
-        "bytes": 610641,
-        "pngSha256": "83ccc2f9385abc2f0d8d9407dce7786cd9fd6c8b68da77ac8506c1f0b76a747d",
-        "rgbaSha256": "b72d555e5a08aa519702aa09c6758d232289102600d24c44f6c03e5a5fee3bce"
+        "bytes": 610640,
+        "pngSha256": "c372219d8899fb00aed63f42701a7e7d038685430a6d564b2a1784559b6f4559",
+        "rgbaSha256": "ebb5229a969756483ee18fb94be239411a436b253182efea70e117a000da4f69"
       },
       {
         "id": "sniper_operator_unarmed",
@@ -281,13 +285,15 @@
     ],
     "afterHotfixExecution": {
       "v8Renderer": "PASS_V8",
-      "fourPNGExportAndSHA": "PASS_V8",
-      "alphaFrames": "PASS_V8 128/128; borders 0",
+      "fourPNGExportAndSHA": "PASS_V8 final hashes",
+      "alphaFrames": "PASS_V8 128/128 no empty, no borders",
       "node22FullQA": "NOT_RUN",
       "build": "NOT_RUN",
       "chromiumWebGL2": "NOT_RUN",
       "t08MountedScene": "BLOQUEANTE",
-      "finalArtApproval": "PENDING"
-    }
+      "finalArtApproval": "PENDING",
+      "v8NumericPerturbation": "PASS_V8 20/20 samples"
+    },
+    "noMergedChanges": true
   }
 }
