@@ -18,7 +18,7 @@ El contrato emite SOLO intenciones `build_infantry`, `build_sniper`, `upgrade`, 
 
 ## 4. Diseño original de iconos
 
-Se crearon NUEVE iconos SVG fuente de 96×96, transparentes, nombres estables en `public/official/art/towers/t09/icons/`: `build-infantry`, `build-sniper`, `upgrade`, `sell`, `rally`, `close`, `inspect`, `cost`, `blocked`. Estética cartoon militar original con techo pizarra, mirador madera, bronce, metal verde-azul; sin copied geometry de otras marcas. Medición Git real: archivos suman **4.896 bytes fuente**, NO VRAM. Todos listados individualmente con path, bytes y blob SHA en [manifest](../ASSET_MANIFEST_T09.json). Los SVG son editables, no atlas PNG final de producción.
+Se crearon NUEVE iconos SVG fuente de 96×96, transparentes, nombres estables en `public/official/art/towers/t09/icons/`: `build-infantry`, `build-sniper`, `upgrade`, `sell`, `rally`, `close`, `inspect`, `cost`, `blocked`. Estética cartoon militar original con techo pizarra, mirador madera, bronce, metal verde-azul; sin copied geometry de otras marcas. Medición Git real: archivos suman **4.896 bytes fuente**, NO VRAM. Todos listados individualmente con path, bytes y blob SHA en [manifest](../ASSET_MANIFEST_T09.json). Se entrega además una **icon sheet** SVG 384×384 con cuadrícula matemática 3×3 (9 celdas 128×128, cada icono 96×96 centrado). Los SVG son editables, no atlas PNG final de producción.
 
 ## 5. Layout táctil y visibilidad
 

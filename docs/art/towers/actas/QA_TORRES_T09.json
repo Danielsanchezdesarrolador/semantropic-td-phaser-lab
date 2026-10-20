@@ -129,10 +129,16 @@
       "status": "NOT_RUN",
       "environment": "Chromium touchscreen simulation",
       "evidence": "Needs DG integrated canvas"
+    },
+    {
+      "name": "icon-sheet-3x3-source",
+      "status": "PASS",
+      "environment": "GitHub source SVG generation and Node test syntax",
+      "evidence": "public/official/art/towers/t09/T09_ICON_SHEET_3X3.svg is 384x384 and contains nine source groups, one per cell. No browser capture."
     }
   ],
   "summary": {
-    "passes": 9,
+    "passes": 10,
     "notRun": 9,
     "pending": 1
   },
@@ -163,5 +169,10 @@
     "844x390",
     "932x430",
     "1536x709"
-  ]
+  ],
+  "artifacts": {
+    "iconSheet": "public/official/art/towers/t09/T09_ICON_SHEET_3X3.svg",
+    "grid": "3x3",
+    "cellPx": 128
+  }
 }

@@ -20,7 +20,8 @@
 
 - [Módulo puro de spec](../../../../public/official/src/towers-visual/t09/spec.mjs) · [layout viewport](../../../../public/official/src/towers-visual/t09/layout.mjs) · [presenter DOM](../../../../public/official/src/towers-visual/t09/presenter.mjs) · [CSS](../../../../public/official/src/towers-visual/t09/menu.css).
 
-- [Carpeta iconos SVG](../../../../public/official/art/towers/t09/icons/) — build infantry/sniper, upgrade, sell, rally, close, inspect, cost, blocked.
+- [Carpeta iconos SVG](../../../../public/official/art/towers/t09/icons/) — nueve SVG fuente individuales.
+- [ICON SHEET 3×3 T09](../../../../public/official/art/towers/t09/T09_ICON_SHEET_3X3.svg) — atlas transparente 384×384, nueve celdas exactas 128×128.
 
 ## Estados de certificación
 
