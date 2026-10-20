@@ -18,7 +18,7 @@ let chromium;
 try{({chromium}=await import("playwright"));}
 catch(err){console.error("NOT_RUN: playwright/Chromium unavailable; no frame data or screenshots generated.");process.exit(2);}
 const sizeList=[{width:1280,height:768},{width:844,height:390},{width:932,height:430}];
-const runs=[],errorsGlobal=[];
+const runs=[],baselineStaticCaptures=[];
 await mkdir(output,{recursive:true});
 const browser=await chromium.launch({
  headless:true,args:["--use-gl=angle","--use-angle=swiftshader","--enable-webgl","--ignore-gpu-blocklist"]
@@ -34,7 +34,21 @@ try{
    const started=performance.now();
    await page.goto(source.url+target,{waitUntil:"networkidle",timeout:60000});
    await page.locator("#blocker").waitFor({state:"hidden",timeout:30000});
-   await page.waitForFunction(()=>window.__SEMANTROPIC_MAPAS_M07_Q2_QA__?.metrics?.()?.webgl2Real===true,{timeout:30000});
+   const hasHooks=await page.evaluate(()=>Boolean(window.__SEMANTROPIC_MAPAS_M07_Q2_QA__));
+   if(!hasHooks&&source.label==="original-m07"){
+    // Prior M07 has no Q2 diagnostic hook: preserve an ACTUAL screenshot,
+    // but NEVER invent synthetic density, frame stats, or texture counts.
+    const filename="original-m07_"+viewport.width+"x"+viewport.height+"_map-only-REAL.png";
+    const absolute=resolve(output,filename);
+    await page.screenshot({path:absolute,animations:"disabled"});
+    baselineStaticCaptures.push({source:"original-m07",viewport,density:0,
+     status:"PASS_REAL_BASELINE_IMAGE_ONLY_METRICS_NOT_RUN",
+     screenshot:"docs/art/maps/evidencias/M07-Q2/"+filename,
+     screenshotSha256:createHash("sha256").update(await readFile(absolute)).digest("hex")});
+    await context.close();continue;
+   }
+   if(!hasHooks)throw Error("M07-Q2 QA hooks unavailable on "+source.label);
+   await page.waitForFunction(()=>window.__SEMANTROPIC_MAPAS_M07_Q2_QA__?.metrics?.()?.webgl2Real===true,null,{timeout:30000});
    const readyMs=performance.now()-started;
    for(const density of [0,13,63]){
     const data=await page.evaluate(async count=>{
@@ -93,9 +107,10 @@ try{
   status:"PASS_REAL_CHROMIUM_WEBGL2_MAP_ONLY",generatedAt:new Date().toISOString(),
   browser:"Chromium headless with SwiftShader WebGL2",physicalAndroidOrIPhone:false,
   genuineCoreCombat:false,expectedWaves:5,expectedCumulativeSpawns:63,
-  sourceBeforeAvailable:originalPresent,
-  baselineResult:originalPresent?"M07_FIEL_ART_BASELINE_REAL":"NOT_RUN_NO_BEFORE_BASE",
-  snapshots:runs.length,renderPerf:runs,comparisons:compare,
+  sourceBeforeAvailable:originalPresent||baselineStaticCaptures.length>0,
+  baselineStaticCaptures,
+  baselineResult:originalPresent?"M07_FIEL_WITH_REAL_PERF_METRICS":baselineStaticCaptures.length?"M07_FIEL_REAL_IMAGES_ONLY_PERF_NOT_RUN":"NOT_RUN_NO_BEFORE_BASE",
+  snapshots:runs.length+baselineStaticCaptures.length,renderPerf:runs,comparisons:compare,
   integrationBlocked:"C1-D5 real 5 waves, hit/death/escape/economy HUD belong exclusively to Integrator; no such actions are asserted"
  };
  await writeFile(resolve(output,"PERF_CHROMIUM_M07_Q2.json"),JSON.stringify(summary,null,2)+"\n");
