@@ -4,13 +4,15 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {TOWER_ART_V2,validateTowerArtV2,getSniperSingleRifleLayers,projectSourceAnchor} from '../../../public/official/src/towers-visual/catalog.mjs';
-import {adaptSniperCoreEvent} from '../../../public/official/src/towers-visual/t07-core-visual-adapter.mjs';
+import {adaptSniperCoreEvent,T07_VISUAL_CORE_CONTRACT,T08_VISUAL_CORE_CONTRACT} from '../../../public/official/src/towers-visual/t07-core-visual-adapter.mjs';
 import {SniperShotPresenter} from '../../../public/official/src/towers-visual/sniper-vfx.mjs';
 const m=JSON.parse(await readFile('docs/art/towers/ASSET_MANIFEST_T08.json','utf8'));
 assert.equal(m.manifestRevision,'TORRES-T08-C1C-CONTINUITY');
 assert.equal(m.assets.length,4);
 assert.equal(m.approvedC1CReference.sha256,'24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef');
 assert.equal(validateTowerArtV2(),true);
+assert.equal(T07_VISUAL_CORE_CONTRACT.operatorOwner,'P06','T07 legacy alias must not be mutated');
+assert.equal(T08_VISUAL_CORE_CONTRACT.operatorOwner,'P07','T08 adapter contract requires P07');
 assert.deepEqual(TOWER_ART_V2.map(x=>x.assetId),[
  'towers/infantry/level-1','towers/infantry/level-2','towers/sniper/level-1','towers/sniper/level-2']);
 const scales=[.296,.308,.312,.319];
@@ -36,6 +38,10 @@ for(const [i,a] of m.assets.entries()){
  if(meta.family==='sniper'){
   const layers=getSniperSingleRifleLayers(meta);
   assert.ok(layers.singleRifle&&layers.rifleOwner==='T'&&layers.operatorOwner==='P07');
+  assert.equal(layers.operatorOwner,meta.operatorOwner,'Composition must respect metadata stage');
+  assert.equal(layers.operatorAssetId,'sniper_operator_unarmed');
+  const legacyP06=getSniperSingleRifleLayers({...meta,operatorOwner:'P06',artVersion:'T07-RIFLE-UNICO'});
+  assert.equal(legacyP06.operatorOwner,'P06','Legacy P06 stage remains supported');
   const plain=await readFile(a.layers.noRifleStructure,'utf8');
   const rifle=await readFile(a.layers.singleMountedRifle,'utf8');
   const legacy=await readFile(a.layers.legacyBack,'utf8');

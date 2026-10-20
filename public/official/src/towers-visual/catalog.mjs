@@ -293,7 +293,7 @@ export const TOWER_ART_V2=Object.freeze([
     "shotAuthority": "core",
     "t06SnapshotUrl": "../../art/towers/t06-snapshot/sniper-1.svg",
     "t07ArchitecturalBUrl": "../../art/towers/concepts/sniper-T07-B-level-1.svg",
-    "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P06",
+    "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P07",
     "opticalFocusLocal": {
       "x": 249,
       "y": 151,
@@ -449,7 +449,7 @@ export const TOWER_ART_V2=Object.freeze([
     "shotAuthority": "core",
     "t06SnapshotUrl": "../../art/towers/t06-snapshot/sniper-2.svg",
     "t07ArchitecturalBUrl": "../../art/towers/concepts/sniper-T07-B-level-2.svg",
-    "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P06",
+    "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P07",
     "opticalFocusLocal": {
       "x": 246,
       "y": 141,
@@ -557,16 +557,16 @@ export function getSniperFireVisualAnchor(sprite,meta){
 /**
  * T07 explicit one-rifle composition. Existing C1-E 'A' remains backwards-compatible:
  * shadowFoot → backStructure(includes ONE rifle) → operator P → frontRail.
- * NEW T07 mode: shadowFoot → structureNoRifle → P06 unarmed → rifleMounted(ONE) → frontRail.
+ * T07/T08 split mode: shadowFoot → structureNoRifle → operator from metadata (P07 on T08) → rifleMounted(ONE) → frontRail.
  * This is metadata only; layering / depth / actor creation belongs to Integrator.
  */
 export function getSniperSingleRifleLayers(meta){
- if(meta?.family!=='sniper'||meta.rifleOwner!=='T')throw Error('T07 rifle ownership limited to Sniper');
+ if(meta?.family!=='sniper'||meta.rifleOwner!=='T')throw Error('Sniper single-rifle ownership limited to T');
  const a=meta.layerAssets;
  if(!a.structureNoRifle||!a.rifleMounted)throw Error('Missing dedicated weapon layer');
  return {split:true,composite:meta.url,shadowFoot:a.shadowFoot,backStructure:a.structureNoRifle,
   operatorSlot:meta.operatorAnchorLocal,rifleMounted:a.rifleMounted,frontRail:a.frontRail,
-  rifleOwner:'T',operatorOwner:'P06',operatorAssetId:'sniper_operator_unarmed',
+  rifleOwner:'T',operatorOwner:meta.operatorOwner??'P06',operatorAssetId:meta.operatorAssetId??'sniper_operator_unarmed',
   footAnchor:meta.footAnchor,singleRifle:true};
 }
 export function getSniperRifleVisualPoints(sprite,meta){
