@@ -152,5 +152,40 @@
   "rights": {
     "origin": "All reused project-owned M02/M03 sources with generative assistance; no third-party character art substituted",
     "clearance": "Commercial use review by director still required"
+  },
+  "optimizationQ2": {
+    "milestone": "MAPAS_M07_Q2_C1D5",
+    "sourceBranch": "feature/art-m07-q2-performance-c1d5",
+    "baseApprovedM07": "2c08eaa13dac309f85f4e76b736db6f66545aac9",
+    "newVisualAssets": 0,
+    "replacedOriginalSvgAssets": 0,
+    "originalM03SourceUntouched": true,
+    "original7SvgBlobHashesUnmodified": true,
+    "originalProps": 13,
+    "canonicalPads": 8,
+    "routeVertices": 133,
+    "originalPalette": "viva",
+    "defaultTreatment": "fiel",
+    "newGameMechanics": 0,
+    "changes": [
+      "Retain bounded 11 M03 original generated texture keys to avoid deleting resources of foreign M03 scenes",
+      "Keep optional polish canvas reference-counted and release at last M07 owner",
+      "Ignore stale visual snapshots/event ticks to prevent sold-tower resurrection",
+      "Direct pad selection never changes occupied/ruins glyph to empty",
+      "Read-only perf counters and optional qa=1 63 SYNTHETIC marker stress fixture"
+    ],
+    "measurements": {
+      "mock50CyclesOriginalTextureCreates": 575,
+      "mock50CyclesQ2TextureCreates": 36,
+      "mock50CyclesOriginalTextureRemoves": 575,
+      "mock50CyclesQ2TextureRemoves": 25,
+      "realBrowserFPS": null,
+      "realGPUAllocationMiB": null,
+      "retainedHistoricalRGBA8MiBTheoretical": 34.43
+    },
+    "caveats": [
+      "Direct M03 with disposeTextures:true outside M07 can still delete shared textures; Integrator must coordinate",
+      "Mock source results are not real Chromium or physical mobile proof."
+    ]
   }
 }
