@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "p06-art-qa-v2",
+  "team": "P",
+  "milestone": "P06-C1-D2",
+  "date": "2026-10-20",
+  "branch": "feature/art-p06-animated-actors",
+  "baseSha": "15be56b487d0b4d7b1ca0a222f0c48feda0068ca",
+  "headSha": "",
+  "headShaNote": "Snapshot updated in PR; see PR Commits for exact current HEAD.",
+  "prUrl": null,
+  "status": "CANDIDATE_BINARIES_COMMITTED_ART_AND_MOUNT_PENDING",
+  "gameplayImplemented": false,
+  "coreModified": false,
+  "mergePerformed": false,
+  "checks": [
+    {
+      "name": "Base HEAD P05",
+      "command": "GitHub branch/PR21 compare",
+      "status": "PASS",
+      "evidence": "P05 actual HEAD 15be56b487d0b4d7b1ca0a222f0c48feda0068ca matches order."
+    },
+    {
+      "name": "Branch isolation",
+      "command": "create_branch exact SHA / final compare",
+      "status": "PASS",
+      "evidence": "P06 branch separate; ownership-only modifications, final compare after docs."
+    },
+    {
+      "name": "Source generator JS syntax",
+      "command": "new Function source ESM strip in isolated V8",
+      "status": "PASS",
+      "evidence": "p06-png-generator.mjs executed and returned PNG buffers for four actors."
+    },
+    {
+      "name": "Real RGBA8 PNG export",
+      "command": "generateP06Atlas × 4; GitHub create_blob(base64) + git tree commit",
+      "status": "PASS",
+      "evidence": "4 real binary PNG committed to public/official/art/actors/p06/png/; export commit 802e51fe4e3d09c830c9bc78d7a07be8abf1398e."
+    },
+    {
+      "name": "Actual PNG signature and frame metadata",
+      "command": "V8 examine Uint8Array PNG header and generated RGBA pixel data",
+      "status": "PASS",
+      "evidence": "4 files contain PNG signature, IHDR width1408 height832 color6 depth8; 32 frame layouts in generator."
+    },
+    {
+      "name": "Real SHA256 computed",
+      "command": "sha256P06(Uint8Array exported bytes)",
+      "status": "PASS",
+      "evidence": "Four genuine checksums in P06_MANIFEST.json derived from exported compressed binary bytes; independent checkout rehash NOT_RUN."
+    },
+    {
+      "name": "SHA256 known-answer",
+      "command": "sha256P06(Uint8Array([97,98,99]))",
+      "status": "PASS",
+      "evidence": "abc digest ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad."
+    },
+    {
+      "name": "PNG independent small decode",
+      "command": "Pillow open and load independent 7x5 RGBA sample encoded by P06 engine",
+      "status": "PASS",
+      "evidence": "Local Pillow 12.3 decoded 7×5, PNG RGBA, expected pixel (211,130,58,255); full atlas independent decode NOT_RUN."
+    },
+    {
+      "name": "Frame alpha isolation 128",
+      "command": "V8 RGBA source pixel audit after corrective transform",
+      "status": "PASS",
+      "evidence": "128/128 nonempty, zero alpha contacts at frame borders; affected PNG regenerated and checksums updated."
+    },
+    {
+      "name": "Unarmed operator asset",
+      "command": "Read P06 generator + operator-sockets + T07 metadata",
+      "status": "PASS",
+      "evidence": "Dedicated binary sniper_operator_unarmed.png without gun-drawing branch; P05 armed remains intact. Real mounted screenshot NOT_RUN."
+    },
+    {
+      "name": "PR22 core events mapping",
+      "command": "Fetch PR22 m01-combat-world.mjs and V8 createP06CoreProjection fixtures",
+      "status": "PASS",
+      "evidence": "Tested warrior die and hound escape; spawn HP, hp_changed, duplicate hit rejection, pause, callback terminal 1x."
+    },
+    {
+      "name": "T07 stock/grip source-mismatch RFC",
+      "command": "Read T07 catalog.mjs source point references",
+      "status": "PASS",
+      "evidence": "Calculated 80wu actor hand y=-42.11wu vs T07 stock level1 y=-6.36wu; mounting accuracy NOT validated."
+    },
+    {
+      "name": "Node full PNG re-decode/hash after checkout",
+      "command": "node public/official/src/actors-visual/qa-p06.mjs",
+      "status": "NOT_RUN",
+      "evidence": "Script versioned; checkout/binary files not accessible together in current local runtime."
+    },
+    {
+      "name": "npm build Phaser 4.2.1",
+      "command": "npm run build",
+      "status": "NOT_RUN",
+      "evidence": "No full repository checkout."
+    },
+    {
+      "name": "Phaser/WebGL2 desktop screenshot",
+      "command": "node public/official/src/actors-visual/qa-p06-browser.mjs 1280×768",
+      "status": "NOT_RUN",
+      "evidence": "No Chromium run against GitHub P06 branch."
+    },
+    {
+      "name": "Phaser/WebGL2 landscape844 screenshot",
+      "command": "qa-p06-browser.mjs 844×390",
+      "status": "NOT_RUN",
+      "evidence": "No real emulator screenshot."
+    },
+    {
+      "name": "Phaser/WebGL2 landscape932 screenshot",
+      "command": "qa-p06-browser.mjs 932×430",
+      "status": "NOT_RUN",
+      "evidence": "No real emulator screenshot."
+    },
+    {
+      "name": "Stress 24 actors 4 textures",
+      "command": "Playwright select 24 clones and profile FPS",
+      "status": "NOT_RUN",
+      "evidence": "Viewer code exists; mobile GPU metrics not measured."
+    },
+    {
+      "name": "Mounted T07 I/II frontRail + single rifle",
+      "command": "Integrated real scene with tower-back→P06→rifleMounted→frontRail",
+      "status": "NOT_RUN",
+      "evidence": "Blocker: handGrip actor source vs stockGrip T07 world mismatch; Directorate/T07 need reconciliation."
+    },
+    {
+      "name": "Core projectile origin adapter",
+      "command": "PR22 attack_fire originWorld vs T07 muzzleWorld",
+      "status": "NOT_RUN",
+      "evidence": "Integrator-owned reconciliation; no visual projectile emitted by P06."
+    },
+    {
+      "name": "Physical iPhone/Android",
+      "command": "Landscape touch/FPS p50/p95 and GPU memory",
+      "status": "NOT_RUN",
+      "evidence": "No physical devices available."
+    },
+    {
+      "name": "Art premium/mobile acceptance",
+      "command": "Visual approval 44/64/80px same M01/M06 camera and T07 montage",
+      "status": "NOT_RUN",
+      "evidence": "Programmatic PNG generation and byte checks do not establish painterly commercial quality."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": null,
+      "requestedPath": "docs/art/actors/evidencias/P06/p06-desktop-real-webgl2.png",
+      "viewport": "1280x768",
+      "status": "NOT_RUN",
+      "real": false
+    },
+    {
+      "path": null,
+      "requestedPath": "docs/art/actors/evidencias/P06/p06-landscape844-real-webgl2.png",
+      "viewport": "844x390",
+      "status": "NOT_RUN",
+      "real": false
+    },
+    {
+      "path": null,
+      "requestedPath": "docs/art/actors/evidencias/P06/p06-landscape932-real-webgl2.png",
+      "viewport": "932x430",
+      "status": "NOT_RUN",
+      "real": false
+    }
+  ],
+  "knownBlockers": [
+    "Mounted operator grip height and rifle stock slot T07 require correction and actual Chromium screenshot.",
+    "Independent full PNG decode/re-hash after checkout and actual Phaser 4.2.1 browser render not yet run.",
+    "Quality is procedural prototype, not approved painterly commercial art.",
+    "M06 foliage visibility and mobile screen experience not measured in real scene.",
+    "C1-D2 gameplay bridge and projectile muzzle adapter are owned by Integrator; infantry blocking remains unimplemented in core."
+  ],
+  "actualExports": [
+    {
+      "id": "warrior",
+      "bytes": 342686,
+      "sha256": "bb0a8198bfdd36e9170bac15dffa062cb87dd8845e7ceb03620cff93257093e9"
+    },
+    {
+      "id": "hound",
+      "bytes": 234736,
+      "sha256": "b94a9ac5d6a0c7c28f040de952a829d47599f8b45fb4791ca7c156d794f2ae8c"
+    },
+    {
+      "id": "infantry_recruit",
+      "bytes": 325087,
+      "sha256": "9347993eb8085c799fa3c457cd3f7164a0f16480350f59425002b2130c4764bb"
+    },
+    {
+      "id": "sniper_operator_unarmed",
+      "bytes": 270400,
+      "sha256": "92da13f5b7431043bf2b0116b3fd400f3be35c4d303e67db043d35f1faf79d5f"
+    }
+  ]
+}
