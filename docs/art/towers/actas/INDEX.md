@@ -1,3 +1,29 @@
+# SEMANTROPIC TD — TORRES T08-HF1 | HOTFIX ESPECÍFICO P07
+
+**20-10-2026** | **Estado:** `[CORREGIDO EN FUENTE]`, `Node/build/WebGL2 [NOT_RUN DESPUÉS DEL HOTFIX]`. Sin cambio estético, sin T09, sin merge, sin deploy. [PR #29 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/29).
+
+## Documentación correctiva actual
+
+- [ACTA TORRES T08-HF1](./ACTA_TORRES_T08_HF1_2026-10-20.md) — fallo histórico real Actions #39455399642 y corrección P07.
+
+- [QA TORRES T08 JSON actualizado](./QA_TORRES_T08.json) — resultados y estados posteriores al hotfix.
+
+- [RFC TORRES T08-HF1/P07](./RFC_TORRES_T08_HF1_P07.md) — contrato de capas/ownership e instrucciones al Integrador.
+
+- [Test Node qa-t08 ampliado](../qa-t08.mjs) — mismo assert P07 más paridad de manifiesto y compatibilidad P06, pendiente ejecución real.
+
+- [Catálogo T08](../../../../public/official/src/towers-visual/catalog.mjs) — `getSniperSingleRifleLayers()` deriva owner desde `meta.operatorOwner`.
+
+- [Adaptador visual](../../../../public/official/src/towers-visual/t07-core-visual-adapter.mjs) — T08 contract P07, alias histórico T07 P06 intacto.
+
+**Corte técnico:** base real T08 antes del hotfix `ceaf74681887825a435968ffc44397fa17d70339`; commits de corrección `c530e5665334f16fec6754c1d11efcc5c579d449`, `73d95ed8d3565599fd6af24bd71886b14a6c181a`; HEAD final disponible en PR. Los cuatro SVG canónicos conservan blob Git idéntico a T04 PR #9.
+
+**Siguiente gate:** Integrador ejecuta `node docs/art/towers/qa-t08.mjs`, build y Chromium WebGL2 en escena jugable con P07. QA fuente/mocks no significa aprobación artística del grip.
+
+---
+
+## Índice T08 original e historial intacto
+
 # SEMANTROPIC TD · TORRES T08 — Continuidad visual C1-C aprobada
 
 **Fecha:** 2026-10-20. **Hito vigente:** TORRES T08 antirretroceso artístico. La imagen C1-C del propietario (M03+T04+P03) manda sobre el aspecto visible; core funcional C1-D4 (PR#28) se protege. Rama propia `feature/art-t08-continuidad-c1c`, base T07 `f09a9307d675ad4850261f6a6705959c0c61808f`. **PR [#29 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/29)** → `feature/art-t07-sniper-single-rifle`. HEAD antes de este índice `3da97d7b342e02e63a6e2241c2e487ca1ea90f2d` (consultar HEAD exacto más reciente en PR). NO MERGE, NO RENDER.
