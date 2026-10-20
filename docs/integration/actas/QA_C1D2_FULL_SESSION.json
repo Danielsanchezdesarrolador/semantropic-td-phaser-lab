@@ -1,0 +1,82 @@
+{
+  "schema": "semantropic-integrator-qa-v1",
+  "date": "2026-10-20",
+  "milestone": "G3 C1-D2 five-wave M01 Normal",
+  "pr": 23,
+  "branch": "feature/integrator-c1d2-full-run-qa",
+  "basePr": 22,
+  "source": "original protected Canvas V5",
+  "checks": [
+    {
+      "name": "complete-five-waves-core-node",
+      "status": "PASS",
+      "run": 39435006224,
+      "detail": "63 spawned and killed, 5/5 waves, no leaks with four scripted policies"
+    },
+    {
+      "name": "natural-defeat-without-towers",
+      "status": "PASS",
+      "run": 39435006224,
+      "detail": "50 escapes, 0 lives, 1 defeat event"
+    },
+    {
+      "name": "one-sniper-possible-win",
+      "status": "PASS",
+      "run": 39435006224,
+      "detail": "21 kills, 42 leaks, 16 lives. Balance RISK not endorsement"
+    },
+    {
+      "name": "credit-dedup-ledger",
+      "status": "PASS",
+      "run": 39435006224,
+      "detail": "63 bounties once, four wave bonuses once"
+    },
+    {
+      "name": "webgl2-smoke-first-kill",
+      "status": "PASS",
+      "run": 39435006224,
+      "detail": "1280x768,844x390,932x430, real browser engine"
+    },
+    {
+      "name": "full-five-wave-human-playtest",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "physical-iphone-android",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "visual-M06-T07-P06",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "stars-saves",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "render-deploy",
+      "status": "NOT_RUN"
+    }
+  ],
+  "results": {
+    "noTower": {
+      "leaks": 50,
+      "defeat": true
+    },
+    "oneSniper": {
+      "kills": 21,
+      "leaks": 42,
+      "lives": 16,
+      "win": true
+    },
+    "scriptedCoverage": {
+      "kills": 63,
+      "leaks": 0,
+      "lives": 100,
+      "win": true
+    }
+  },
+  "approval": "DRAFT core validation only",
+  "merge": false,
+  "deploy": false
+}
