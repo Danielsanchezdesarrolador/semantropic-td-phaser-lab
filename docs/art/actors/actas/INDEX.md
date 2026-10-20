@@ -2,7 +2,7 @@
 **Fecha:** 2026-10-20 · **Rama:** `feature/art-p06-animated-actors` · **Base SHA:** `15be56b487d0b4d7b1ca0a222f0c48feda0068ca`
 **Estado:** [4 PNG RGBA REALES VERSIONADOS] · [V8/ALFA SOURCE QA PASS] · [CHROMIUM/T07 ART PENDING] · **NO MERGE**.
 **HEAD actual:** PR P06 → pestaña Commits (al actualizar este índice HEAD cambia).
-**PR de destino:** `feature/art-p05-combat-reactivity` (DRAFT).
+**PR DRAFT:** [#27 P06/C1-D2](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/27) → `feature/art-p05-combat-reactivity`, sin merge.
 
 ## Acceso oficial P06 — Dirección General
 | Artefacto | Enlace GitHub relativo | Estado |
