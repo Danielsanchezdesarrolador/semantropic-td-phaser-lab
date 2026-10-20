@@ -108,7 +108,7 @@ export class SniperShotPresenter {
    return true;
   }
   if(e.type==='entity_die'||e.type==='entity_escape'||e.type==='despawn'){
-   if(e.entityId!==undefined&&e.entityId!==null){this.cancelTarget(e.entityId);this.cancelEntity(e.entityId);}
+   if(e.entityId!==undefined&&e.entityId!==null){this.cancelTarget(e.entityId,e.type==='entity_die');this.cancelEntity(e.entityId);}
    return true;
   }
   // Correlate a REAL hit to an earlier fire by bulletId; reject phantom FX.
@@ -154,9 +154,9 @@ export class SniperShotPresenter {
   for(const [id,j] of [...this.jobs])if(j.entityId===entityId){this.cancel(id);count++;}
   return count;
  }
- cancelTarget(targetId){
+ cancelTarget(targetId,preserveConfirmedHit=false){
   let count=0;
-  for(const [id,j] of [...this.jobs])if(j.targetId===targetId){this.cancel(id);count++;}
+  for(const [id,j] of [...this.jobs])if(j.targetId===targetId&&!(preserveConfirmedHit&&j.hitShown)){this.cancel(id);count++;}
   return count;
  }
  cancel(id){
