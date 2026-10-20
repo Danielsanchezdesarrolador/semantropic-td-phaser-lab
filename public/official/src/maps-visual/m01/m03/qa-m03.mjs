@@ -20,7 +20,8 @@ assert.deepEqual(map.path[0],[-32,342]);
 assert.deepEqual(map.path.at(-1),[1312,400]);
 assert.equal(M03_ROAD_WIDTH,110);
 assert.equal(M03_PAD_SOURCE.width,212);
-assert.equal(M03_PAD_SOURCE.scale,.44);
+assert.equal(M03_PAD_SOURCE.scale,.26);
+assert.equal(M03_PAD_SOURCE.width*M03_PAD_SOURCE.dpr*M03_PAD_SOURCE.scale,110.24);
 const sockets=visualSocketPreview(map);
 assert.deepEqual(sockets.map(s=>[s.world.x,s.world.y]),[
  [96,480],[416,480],[672,544],[736,352],[992,224],[992,544],[1120,608],[1184,352]
@@ -95,7 +96,7 @@ for(const palette of M03_PALETTES){
  assert.equal(root.propObjects.length,plan.illustrations.length);
  assert.equal(root.layerGroups.pads.length,8);
  assert.equal(root.getPadMetrics().hitRadiusWorld,54);
- assert.equal(root.getPadMetrics().apparentWorldWidth,93.28);
+ assert.equal(root.getPadMetrics().apparentWorldWidth,110.24);
  const first=root.padObjects[0].socket.socketId;
  assert.equal(root.setSocketVisualState(first,"occupied"),true);
  assert.equal(root.padObjects[0].visualState,"occupied");
@@ -115,7 +116,7 @@ assert.equal(JSON.stringify({path:map.path,spots:map.spots}),CANON,"source data 
 assert.equal(textures.size,9,"borrowed SVG textures persist for shared resource lifecycle");
 console.log(JSON.stringify({
  status:"PASS",evidence:"NODE_WITH_MOCKS_NOT_BROWSER",module:M03_VERSION,map:1,route:133,sockets:8,roadWidth:110,
- pad:{priorApprox:232*.58,currentApprox:93.28,reductionPercent:+((1-93.28/(232*.58))*100).toFixed(1),hitRadius:54},
+ pad:{priorApprox:232*2*.58,currentApprox:110.24,reductionPercent:+((1-110.24/(232*2*.58))*100).toFixed(1),hitRadius:54},
  landmarks:3,props:plan.illustrations.length,palettes:results,
  pending:["PC real WebGL2 screenshot","844x390 and 932x430 emulated QA","Actual T03 pad/tower footprint ratio","Real actor occlusion","Director art approval"]
 },null,2));
