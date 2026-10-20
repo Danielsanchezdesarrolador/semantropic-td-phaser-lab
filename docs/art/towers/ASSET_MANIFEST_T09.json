@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "semantropic-art-manifest-v1",
+  "milestone": "T09",
+  "date": "2026-10-20",
+  "owner": "TORRES",
+  "branch": "feature/art-t09-contextual-nodes",
+  "baseSha": "d4b913e5b5fbcb6ad884974aa5df595b71a98b8b",
+  "headShaSnapshot": "2db7fdf163058a3c0de2dde9524679e926de32cd",
+  "status": "PROPOSAL_IMPLEMENTED_IN_ISOLATION__AWAITING_C1D7_INTEGRATOR_QA",
+  "engine": "Phaser 4.2.1/WebGL2",
+  "reference": {
+    "approvedPhotoSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "approvedArtLine": "M03 Viva + T04 towers + P03 characters; T08-HF1 canonical masters restored",
+    "liveProductionSnapshotSha": "edf84939dfd9aa9e754247b384e5b47fe854b411",
+    "observedPlayScene": "public/official/src/c1d6-playable/scene.mjs",
+    "userMobileBeforeShots": [
+      "50833.jpg",
+      "50834.jpg"
+    ],
+    "beforeShotsBytesAvailable": false
+  },
+  "t04MastersProtected": {
+    "infantry/level-1.svg": "66e85f802e696d662d14b9154bf6924dbb6ba4b6",
+    "infantry/level-2.svg": "25884d1754950f8d764c0f03b797e10e7ecac212",
+    "sniper/level-1.svg": "52ec5b04b744a9583a9a07464a107c6b5f1cf293",
+    "sniper/level-2.svg": "c1689a19e9467dd39c6c5af380d63b22176ead5d"
+  },
+  "icons": [
+    {
+      "id": "blocked",
+      "path": "public/official/art/towers/t09/icons/blocked.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 440,
+      "gitBlobSha": "ab2022235122ca3ed7d61967fb0d4acbe9bcf39b",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "build-infantry",
+      "path": "public/official/art/towers/t09/icons/build-infantry.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 640,
+      "gitBlobSha": "6d64973a0ed1b407868ef57671e24bb0c78bcb46",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "build-sniper",
+      "path": "public/official/art/towers/t09/icons/build-sniper.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 775,
+      "gitBlobSha": "ce4233fe87a3dd9c391fbaa4711eb78c47ec2dba",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "close",
+      "path": "public/official/art/towers/t09/icons/close.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 358,
+      "gitBlobSha": "95399fbee851e1c1f6c7166602044645a162448f",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "cost",
+      "path": "public/official/art/towers/t09/icons/cost.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 418,
+      "gitBlobSha": "5d766eacb3731e472f51e5b7d5f040bd6c06a0a4",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "inspect",
+      "path": "public/official/art/towers/t09/icons/inspect.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 483,
+      "gitBlobSha": "e1c0db77233b39f51b3284abcb0afe33b3e4aa88",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "rally",
+      "path": "public/official/art/towers/t09/icons/rally.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 574,
+      "gitBlobSha": "d23a414696838e89bb6c93fcafa29766d05f9e1e",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "sell",
+      "path": "public/official/art/towers/t09/icons/sell.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 671,
+      "gitBlobSha": "16942269b4daa0417632823a683d7d3c4e520479",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    },
+    {
+      "id": "upgrade",
+      "path": "public/official/art/towers/t09/icons/upgrade.svg",
+      "fileFormat": "image/svg+xml",
+      "sizeBytesGit": 537,
+      "gitBlobSha": "3b5435fd0a50bc7e030d6c098eeede9358d483bc",
+      "canvas": {
+        "widthPx": 96,
+        "heightPx": 96
+      },
+      "transparentBackground": true,
+      "author": "Original Semantropic TD TORRES T09",
+      "commercialSourceApproval": "PENDING"
+    }
+  ],
+  "totalSVGBytes": 4896,
+  "sourceFiles": [
+    "public/official/src/towers-visual/t09/spec.mjs",
+    "public/official/src/towers-visual/t09/layout.mjs",
+    "public/official/src/towers-visual/t09/presenter.mjs",
+    "public/official/src/towers-visual/t09/menu.css",
+    "public/official/src/towers-visual/t09/gallery.mjs",
+    "public/official/src/towers-visual/t09/index.html",
+    "docs/art/towers/qa-t09.mjs"
+  ],
+  "exports": {
+    "pure": "getContextMenuVisualSpec({socket,tower,quotes,mode,permissions,worldPoint,rangeWorld,revision})",
+    "layout": "layoutContextNodes({anchorScreen,viewportSafeRect,nodeSpecs,nodeDiameter})",
+    "coordinate": "projectWorldToScreen({worldPoint,matrix,canvasRect,hostRect,renderSize})",
+    "adapter": "mountT09Presenter(host,{onIntent,onLayout})",
+    "iconPaths": "T09_ICONS"
+  },
+  "intents": [
+    "build_infantry",
+    "build_sniper",
+    "upgrade",
+    "sell",
+    "set_rally",
+    "inspect",
+    "close"
+  ],
+  "requirements": {
+    "minTouchSizeCSSPx": 44,
+    "maximumActiveMenus": 1,
+    "quotesAsInputOnly": true,
+    "moneyEdited": false,
+    "coreWrites": false,
+    "hasGlobalEventListeners": false,
+    "liveSceneEdited": false,
+    "actorSpritesChanged": false
+  },
+  "qa": {
+    "sourceV8PureChecks": 29,
+    "sourceV8LifecycleRepeat": 100,
+    "sourceV8LifecyclePass": true,
+    "nodeRealCheckout": "NOT_RUN",
+    "npmBuild": "NOT_RUN",
+    "chromiumPhaserWebGL2": "NOT_RUN",
+    "actualC1D7PlayerTaps": "NOT_RUN",
+    "physicalMobile": "NOT_RUN",
+    "screenshotsReal": [],
+    "fpsRecorded": false,
+    "whyNoNode": "Container lacks GitHub DNS; complete repo checkout not available"
+  },
+  "sourceStatus": "Icons are SVG original source assets, NOT live C1-D7 screenshots. Gallery uses synthetic quotes and eight PROXY pads."
+}
