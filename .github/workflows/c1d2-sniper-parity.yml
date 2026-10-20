@@ -1,0 +1,30 @@
+name: C1-D2 Sniper Contract Parity — Preparatory QA
+on:
+  push:
+    branches: [feature/core-c1d2-sniper-combat]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  nominal-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax tests
+        run: |
+          node --check public/official/src/core-c1d/sniper-parity.mjs
+          node --check tools/qa-c1d2-sniper-parity.mjs
+      - name: Canvas V5 sniper I-II source parity
+        run: node tools/qa-c1d2-sniper-parity.mjs
+      - name: Build static game package
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Scope disclosure
+        run: echo 'C1-D2 starter ONLY — no real attack runtime, no browser combat QA, no deployed D2 build.'
