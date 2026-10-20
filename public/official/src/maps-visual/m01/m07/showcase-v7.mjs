@@ -5,16 +5,13 @@
  */
 import {validateM01,visualSocketPreview} from "../renderer.mjs";
 import {preloadM07Illustrations,mountM01WorldV7,M07_CANONICAL_PALETTE} from "./renderer-v7.mjs";
-import {preloadM06Illustrations,mountM01WorldV6} from "../m06/renderer-v6.mjs";
 const $=id=>document.getElementById(id),params=new URLSearchParams(location.search);
-const MODES=new Set(["fiel","pulido","m06-atmosfera","m06-relieve"]);
+const MODES=new Set(["fiel","pulido"]);
 let mode=MODES.has(params.get("mode"))?params.get("mode"):"fiel";
 let map=null,scene=null,view=null,showPads=false,showRoute=false,selected=null;
 let motionReduced=true,markers=[],markerCount=0;
 const modeNames={
- fiel:"M07 • Fiel a M03/C1-C",pulido:"M07 • Pulido conservador",
- "m06-atmosfera":"M06 • Atmosférica (comparación)",
- "m06-relieve":"M06 • Relieve (comparación)"
+ fiel:"M07 • Fiel a M03/C1-C",pulido:"M07 • Pulido conservador"
 };
 function clearMarkers(){markers.forEach(x=>x.destroy());markers=[];}
 function pathMarkers(n){
@@ -53,19 +50,14 @@ function setMode(next){
  clearMarkers();
  view?.destroy();view=null;
  try{
-  if(next.startsWith("m06-")){
-   view=mountM01WorldV6(scene,map,{palette:M07_CANONICAL_PALETTE,
-    treatment:next==="m06-atmosfera"?"atmosfera":"relieve",reducedMotion:true});
-  }else{
-   view=mountM01WorldV7(scene,map,{palette:M07_CANONICAL_PALETTE,treatment:next});
-  }
+  view=mountM01WorldV7(scene,map,{palette:M07_CANONICAL_PALETTE,treatment:next});
   if(view.missing?.length)throw Error("SVG faltantes: "+JSON.stringify(view.missing));
   mode=next;syncPads();pathMarkers(markerCount);updateLabels();$("blocker").hidden=true;
  }catch(err){$("blocker").hidden=false;$("blocker").textContent="No se pudo montar: "+err.message;console.error(err);}
 }
 function updateLabels(){
  $("modeName").textContent=modeNames[mode];
- $("snapshot").textContent=mode.startsWith("m06-")?"M06: arte descartado como dirección por defecto":"M07: terreno M03 Viva preservado";
+ $("snapshot").textContent="M07: terreno M03 Viva preservado";
  $("markers").textContent=markerCount?"Marcadores sintéticos: "+markerCount:"Sin marcadores";
  $("runtimeCounts").textContent=(view?.padObjects?.length||0)+" pads · "+(view?.propObjects?.length||0)+" props";
  for(const el of document.querySelectorAll("[data-mode]"))el.classList.toggle("selected",el.dataset.mode===mode);
@@ -83,7 +75,7 @@ function controls(){
 }
 class M07Review extends Phaser.Scene{
  constructor(){super("M07Review")}
- preload(){preloadM07Illustrations(this);preloadM06Illustrations(this)}
+ preload(){preloadM07Illustrations(this)}
  create(){
   scene=this;
   const real=typeof WebGL2RenderingContext!=="undefined"&&this.game.renderer?.gl instanceof WebGL2RenderingContext;
