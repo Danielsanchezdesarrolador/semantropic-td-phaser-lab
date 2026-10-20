@@ -1,0 +1,84 @@
+{
+  "schema": "SEMANTROPIC_C1D7_G1_QA_V1",
+  "pr": 37,
+  "branch": "feature/integrator-c1d7-contextual-ui",
+  "baselineSha": "edf84939dfd9aa9e754247b384e5b47fe854b411",
+  "testedHead": "9792c6dfd5c177a8d4e718f5a01a4eac8a4f120d",
+  "run": 39480048631,
+  "result": "SUCCESS",
+  "artifactId": 12290527350,
+  "liveURL": "https://semantropic-td-jugar.onrender.com/",
+  "liveUnchanged": true,
+  "visualBaseline": "C1-C M03 T04 P03",
+  "checks": [
+    {
+      "name": "real economy DTO & transitions +8 pads",
+      "status": "PASS_NODE"
+    },
+    {
+      "name": "real build I upgrade II 2 soldiers, sell refund sniper",
+      "status": "PASS_NODE_CHROMIUM"
+    },
+    {
+      "name": "pause lock and close menu, viewport clamp",
+      "status": "PASS_CHROMIUM"
+    },
+    {
+      "name": "1280x768",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "844x390",
+      "status": "PASS_CHROMIUM_WEBGL2_TOUCH_EMULATED"
+    },
+    {
+      "name": "932x430",
+      "status": "PASS_CHROMIUM_WEBGL2_TOUCH_EMULATED"
+    },
+    {
+      "name": "1536x709",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "390x844 portrait overlay",
+      "status": "PASS_CHROMIUM"
+    },
+    {
+      "name": "C1C historical source hash",
+      "status": "PASS_NODE"
+    },
+    {
+      "name": "visual-only event-controller nonmutating",
+      "status": "PASS_NODE_NOT_YET_RENDERED"
+    },
+    {
+      "name": "original C1-D6 core untouched",
+      "status": "CONFIRMED_SOURCE"
+    },
+    {
+      "name": "T09 assets integration",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "P08 soldier levels and attack visual frames",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "five waves in updated UI browser",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "physical mobile, FPS and letterboxing analysis",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "user art approval",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "merge/deploy to permanent site",
+      "status": "NOT_RUN"
+    }
+  ],
+  "note": "CI pass authorizes G1 technical checkpoint, not C1-D7 release."
+}
