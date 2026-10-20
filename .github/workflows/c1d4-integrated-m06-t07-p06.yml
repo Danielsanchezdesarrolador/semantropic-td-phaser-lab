@@ -1,0 +1,57 @@
+name: C1-D4 M06 T07 P06 + C1-D3 first playable integration
+on:
+  push:
+    branches:
+      - integration/c1d4-first-playable-m01
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-art-combat-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax all paths and playtest
+        run: |
+          node --check public/official/src/c1d4-combat/scene.mjs
+          node --check public/official/src/maps-visual/m01/m06/renderer-v6.mjs
+          node --check public/official/src/towers-visual/t07-core-visual-adapter.mjs
+          node --check public/official/src/towers-visual/sniper-vfx.mjs
+          node --check public/official/src/actors-visual/p06-atlas-loader.mjs
+          node --check public/official/src/actors-visual/p06-core-projection.mjs
+          node --check tools/qa-c1d4-browser.mjs
+      - name: Source and gameplay regression (D2 D3)
+        run: |
+          node tools/qa-c1d2-sniper-parity.mjs
+          node tools/qa-c1d2-combat.mjs
+          node tools/qa-c1d2-five-waves.mjs
+          node tools/qa-c1d3-infantry.mjs
+      - name: Native team M T P QA (not mocks)
+        run: |
+          node public/official/src/maps-visual/m01/m06/qa-m06.mjs
+          node docs/art/towers/qa-t07.mjs
+          node public/official/src/actors-visual/qa-p06.mjs
+      - name: Build Phaser 4.2.1 including all three asset domains
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install real Chromium/WebGL2 browser
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Validate integrated C1-D4 at three viewports
+        run: |
+          node tools/qa-c1d4-browser.mjs | tee c1d4-chromium-qa.log
+      - name: Screenshot and diagnostic artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c1d4-integrated-m06-t07-p06-captures
+          path: |
+            artifacts/c1d4-browser/
+            c1d4-chromium-qa.log
+          if-no-files-found: warn
