@@ -1,3 +1,34 @@
+# EQUIPO P · SEMANTROPIC TD · P05/C1-D2 — REACTIVIDAD
+**Fecha:** 19-10-2026 · **Rama:** `feature/art-p05-combat-reactivity`
+**Base congelada:** `cb6e7b73edcb6f6df4fa5dace302aac845fc5780` (P04).
+**Estado:** [PROTOTIPO VISUAL] · [TESTS V8 SIMULADOS PASS] · [BROWSER/PÍXELES NOT_RUN] · [NO MERGE].
+**HEAD real:** [PR P05 / pestaña Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/21/commits), autoridad frente a commits posteriores de esta misma acta.
+
+## Directorio oficial de la nueva entrega
+| Recurso | Link dentro del repo | Estado |
+|---|---|---|
+| **Acta exhaustiva P05** | [ACTA_P05_2026-10-19.md](./ACTA_P05_2026-10-19.md) | [CONFIRMADO EN ARCHIVOS] |
+| **QA independiente P05** | [QA_P05.json](./QA_P05.json) | 10 PASS V8/API + 11 NOT_RUN |
+| **RFC P05→T06** | [MATRIZ_T06_P05.md](./MATRIZ_T06_P05.md) | T06 anclajes leídos; doble rifle BLOQUEANTE |
+| **Capturas/evidencias P05** | [EVIDENCIA.md](../evidencias/P05/EVIDENCIA.md) | NO HAY PNG REAL de Chromium |
+| **Manifest P05** | [P05_MANIFEST.json](../../../../public/official/art/actors/P05_MANIFEST.json) | 4 atlas lógicos/128 cuadros; hashes pendientes |
+| **Controlador puro de reacciones** | [p05-reactivity.mjs](../../../../public/official/art/actors/p05-reactivity.mjs) | Hit/blocked/die/escape, dedup, pause |
+| **Fuente gráfica P05** | [p05-painter.mjs](../../../../public/official/art/actors/p05-painter.mjs) | Fuente basada en el dibujador P04 |
+| **Adaptador Phaser read-only** | [p05-view-adapter.mjs](../../../../public/official/src/actors-visual/p05-view-adapter.mjs) | Interfaz propuesta, no bridge core |
+| **Galería P04/P05** | [p05-index.html](../../../../public/official/src/actors-visual/p05-index.html) | Código; WebGL2 P05 NO EJECUTADO |
+| **QA Node** | [qa-p05.mjs](../../../../public/official/src/actors-visual/qa-p05.mjs) | Script disponible; Node checkout NOT_RUN |
+| **QA navegador** | [qa-p05-browser.mjs](../../../../public/official/src/actors-visual/qa-p05-browser.mjs) | Script disponible; Chromium NOT_RUN |
+
+## Cambio clave
+P05 separa *muerte por evento del core* de *fuga por evento del core*, con callbacks puramente visuales e idempotentes. Reacciona a impactos y bloqueos sin reescribir HP/escudos, daño, economía, movimiento ni entidad real. El controlador mantiene fase walk al virar E/W y pausa el reloj propio. Escape es **fade sin atlas nuevo**: quedan protegidos los 32 frames por actor.
+
+**RIESGO T06:** tower sniper T06 tiene su propio rifle montado y P04→P05 dibuja otro. No certificar montaje en T06 ni hacer merge sin resolver la duplicación; RFC obligatorio.
+
+**Bloqueantes:** imágenes reales de Chromium 1280×768, 844×390, 932×430; PNG RGBA+hash; control de alpha y foot滑; móvil físico; aprobación pictórica. PR debe permanecer DRAFT.
+
+---
+## ARCHIVO HISTÓRICO P01 → P04 (conservado)
+
 # EQUIPO P · SEMANTROPIC TD · P04/C1-D — NUEVA ENTREGA
 **Estado:** [PROTOTIPO VISUAL EN REVISIÓN] · [NODE/BROWSER REAL NO EJECUTADO] · [PR DRAFT] · **SIN MERGE**.
 **Rama:** `feature/art-p04-animation-pass`; **base SHA exacta:** `eccadc3743e9f2d6c584097dcd5d9b82ee921e90`.
