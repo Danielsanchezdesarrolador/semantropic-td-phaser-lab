@@ -1,0 +1,251 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "owner": "P",
+  "milestone": "P06/C1-D2",
+  "status": "candidate-art-review",
+  "date": "2026-10-20",
+  "baseSha": "15be56b487d0b4d7b1ca0a222f0c48feda0068ca",
+  "exportCommit": "802e51fe4e3d09c830c9bc78d7a07be8abf1398e",
+  "source": "public/official/art/actors/p06-png-generator.mjs",
+  "checksumSource": "public/official/art/actors/p06-hash.mjs",
+  "license": {
+    "origin": "Original procedural illustrations developed exclusively for SEMANTROPIC TD with OpenAI assistance. No third party sprites copied.",
+    "commercialUse": "Subject to project owner visual/legal acceptance.",
+    "editable": true
+  },
+  "rendererTarget": "Phaser 4.2.1 WebGL2",
+  "runtimeBinding": "P06 visual adapter proposed only; integrator/core owns combat",
+  "frame": {
+    "width": 176,
+    "height": 208,
+    "columns": 8,
+    "rows": 4,
+    "total": 32,
+    "atlasWidth": 1408,
+    "atlasHeight": 832,
+    "frameNaming": "state-N",
+    "stateOrder": [
+      {
+        "name": "idle",
+        "firstFrame": 0,
+        "frames": 4,
+        "lastFrame": 3
+      },
+      {
+        "name": "walk",
+        "firstFrame": 4,
+        "frames": 8,
+        "lastFrame": 11
+      },
+      {
+        "name": "attackWindup",
+        "firstFrame": 12,
+        "frames": 3,
+        "lastFrame": 14
+      },
+      {
+        "name": "attack",
+        "firstFrame": 15,
+        "frames": 5,
+        "lastFrame": 19
+      },
+      {
+        "name": "hit",
+        "firstFrame": 20,
+        "frames": 3,
+        "lastFrame": 22
+      },
+      {
+        "name": "die",
+        "firstFrame": 23,
+        "frames": 6,
+        "lastFrame": 28
+      },
+      {
+        "name": "blocked",
+        "firstFrame": 29,
+        "frames": 3,
+        "lastFrame": 31
+      }
+    ],
+    "footAnchor": {
+      "x": 0.5,
+      "y": 0.92
+    },
+    "shadowAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "orientations": [
+      "E",
+      "W-mirrored"
+    ],
+    "escapeFallback": {
+      "atlasState": "walk",
+      "fadeMs": 300
+    }
+  },
+  "memory": {
+    "nominalRGBA8BytesPerAtlas": 4685824,
+    "nominalFourAtlasBytes": 18743296,
+    "notes": "Uncompressed texture estimate, not actual VRAM or measured FPS."
+  },
+  "assets": [
+    {
+      "canonicalId": "warrior",
+      "assetId": "actors/enemies/warrior/v1/p06",
+      "atlasKey": "actors/enemies/warrior/v1/p06",
+      "role": "ground-actor",
+      "file": "public/official/art/actors/p06/png/warrior.png",
+      "sha256": "bb0a8198bfdd36e9170bac15dffa062cb87dd8845e7ceb03620cff93257093e9",
+      "bytes": 342686,
+      "pngColorType": 6,
+      "bitDepth": 8,
+      "rgba": true,
+      "alphaChannel": true,
+      "alphaNonzeroPixelCount": 297362,
+      "alphaPartialPixelCount": 48449,
+      "width": 1408,
+      "height": 832,
+      "frames": 32,
+      "worldHeightProposal": 91,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "integrationAllowed": true,
+      "armedForSoloShowroom": false,
+      "actorVariant": "P06",
+      "t07SingleRifleOwner": null
+    },
+    {
+      "canonicalId": "hound",
+      "assetId": "actors/enemies/hound/v1/p06",
+      "atlasKey": "actors/enemies/hound/v1/p06",
+      "role": "ground-actor",
+      "file": "public/official/art/actors/p06/png/hound.png",
+      "sha256": "b94a9ac5d6a0c7c28f040de952a829d47599f8b45fb4791ca7c156d794f2ae8c",
+      "bytes": 234736,
+      "pngColorType": 6,
+      "bitDepth": 8,
+      "rgba": true,
+      "alphaChannel": true,
+      "alphaNonzeroPixelCount": 215732,
+      "alphaPartialPixelCount": 37231,
+      "width": 1408,
+      "height": 832,
+      "frames": 32,
+      "worldHeightProposal": 67,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "integrationAllowed": true,
+      "armedForSoloShowroom": false,
+      "actorVariant": "P06",
+      "t07SingleRifleOwner": null
+    },
+    {
+      "canonicalId": "infantry_recruit",
+      "assetId": "actors/allies/infantry-recruit/v1/p06",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p06",
+      "role": "ground-actor",
+      "file": "public/official/art/actors/p06/png/infantry_recruit.png",
+      "sha256": "9347993eb8085c799fa3c457cd3f7164a0f16480350f59425002b2130c4764bb",
+      "bytes": 325087,
+      "pngColorType": 6,
+      "bitDepth": 8,
+      "rgba": true,
+      "alphaChannel": true,
+      "alphaNonzeroPixelCount": 272321,
+      "alphaPartialPixelCount": 45205,
+      "width": 1408,
+      "height": 832,
+      "frames": 32,
+      "worldHeightProposal": 88,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "integrationAllowed": true,
+      "armedForSoloShowroom": false,
+      "actorVariant": "P06",
+      "t07SingleRifleOwner": null
+    },
+    {
+      "canonicalId": "sniper_operator",
+      "assetId": "actors/allies/sniper-operator/v1/p06-unarmed",
+      "atlasKey": "actors/allies/sniper-operator/v1/p06-unarmed",
+      "role": "tower-operator-unarmed",
+      "file": "public/official/art/actors/p06/png/sniper_operator_unarmed.png",
+      "sha256": "92da13f5b7431043bf2b0116b3fd400f3be35c4d303e67db043d35f1faf79d5f",
+      "bytes": 270400,
+      "pngColorType": 6,
+      "bitDepth": 8,
+      "rgba": true,
+      "alphaChannel": true,
+      "alphaNonzeroPixelCount": 224493,
+      "alphaPartialPixelCount": 39144,
+      "width": 1408,
+      "height": 832,
+      "frames": 32,
+      "worldHeightProposal": 80,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "integrationAllowed": "pending T07 mounting",
+      "armedForSoloShowroom": false,
+      "actorVariant": "sniper_operator_unarmed",
+      "t07SingleRifleOwner": "T"
+    }
+  ],
+  "namedVariants": {
+    "sniper_operator_unarmed": {
+      "canonicalId": "sniper_operator",
+      "atlasKey": "actors/allies/sniper-operator/v1/p06-unarmed",
+      "primary": "public/official/art/actors/p06/png/sniper_operator_unarmed.png",
+      "containsRifle": false,
+      "containsMuzzle": false,
+      "operatorGunOwner": "T07",
+      "sourcePoseNodes": "public/official/art/actors/p06-operator-sockets.json",
+      "integrationAllowed": "pending visual montage",
+      "legacyArmedP05": {
+        "atlasKey": "actors/allies/sniper-operator/v1/p05",
+        "integrationAllowed": false
+      }
+    }
+  },
+  "verification": {
+    "outputBinaryCommitted": true,
+    "sha256ComputedFromExportedBytes": true,
+    "PNGPostCheckoutIndependentDecode": false,
+    "runtimePhaserBrowserQA": false,
+    "physicalDeviceQA": false,
+    "visualPremiumApproved": false,
+    "clippingPixelQA": true,
+    "clippingDetails": "V8 generated source-image RGBA alpha reviewed for all 32 cells per actor: zero blank and zero border-contact frames after correction. Not an independent decoded post-checkout test or browser art acceptance."
+  },
+  "restrictions": [
+    "Do not modify C1-D2 damage, projectile stats or economy",
+    "No art event may trigger real attacks/HP changes",
+    "Operator unarmed P06 only, T07 owns rifle",
+    "No approval until verified RGBA transparency, mobile readability, frame clipping and mounted frontRail"
+  ]
+}

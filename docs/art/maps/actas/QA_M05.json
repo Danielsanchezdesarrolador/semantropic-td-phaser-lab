@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "semantropic-team-qa-v1",
+  "team": "M",
+  "milestone": "M05/C1-D2",
+  "branch": "feature/art-m05-combat-readiness",
+  "baseSha": "429c26a82b645b8dc32728fcba44d0f32d130184",
+  "headSha": null,
+  "headShaSource": "Head immutable SHA after acta/index commits: GitHub PR #20 commits (avoid self-referential stale SHA)",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/20",
+  "status": "ART_VISUAL_IMPLEMENTED_NOT_APPROVED",
+  "checks": [
+    {
+      "name": "base-and-scope",
+      "command": "GitHub compare M04..M05 and verify owned paths",
+      "status": "PASS",
+      "evidence": "GitHub compare feature/art-m04-illustrated-terrain...feature/art-m05-combat-readiness: 30 changed files, 31 commits ahead, behind=0 at verification; all files in public/official/art/maps/m01/m05/**, src/maps-visual/m01/m05/** or docs/art/maps/actas/**. Live PR #20 files remains authoritative."
+    },
+    {
+      "name": "canonical-route-socket",
+      "command": "makeM05ArtPlan on maps.v5.json source, 133 route / 8 pads / width 110",
+      "status": "PASS",
+      "evidence": "V8 GitHub original source evaluation; 133,8,110"
+    },
+    {
+      "name": "six-zones-18-clusters",
+      "command": "makeM05ArtPlan(map) visual exclusion assertions",
+      "status": "PASS",
+      "evidence": "V8 evaluator 6 zones, each 3, strict route/pad/landmark exclusion"
+    },
+    {
+      "name": "svgs-original",
+      "command": "18 GitHub fetch_file sources and unique blob SHA registry",
+      "status": "PASS",
+      "evidence": "public/official/art/maps/m01/m05/manifest.json with 18 source Git blob hashes"
+    },
+    {
+      "name": "palettes-treatments",
+      "command": "mountM01WorldV5(scene,map) for 3 palettes x 2 treatments",
+      "status": "PASS",
+      "evidence": "V8 simulated Canvas and Phaser: 6 runs, 18 clusters, 109 objects, 8 pads, no missing resources"
+    },
+    {
+      "name": "read-only-snapshot",
+      "command": "applyVisualSnapshot occupied/selected, no core access",
+      "status": "PASS",
+      "evidence": "V8 simulated scene with snapshot projection; no mutation to core objects"
+    },
+    {
+      "name": "visual-event-dedupe",
+      "command": "projectEvent eventId tower_sold twice, scene_reset",
+      "status": "PASS",
+      "evidence": "V8 simulated scene first consumed, duplicate rejected, reset visual-only"
+    },
+    {
+      "name": "cleanup",
+      "command": "destroy() twice, check 11 generated textures cleared and all 109 objects",
+      "status": "PASS",
+      "evidence": "V8 mocked Phaser resources; all six treatments cleaned, 42 shared SVG keys retained"
+    },
+    {
+      "name": "node-esm-qa",
+      "command": "node public/official/src/maps-visual/m01/m05/qa-m05.mjs",
+      "status": "NOT_RUN",
+      "evidence": "Script present; native Node checkout not executed"
+    },
+    {
+      "name": "npm-build",
+      "command": "npm run build",
+      "status": "NOT_RUN",
+      "evidence": "No change to CI/build/Render permitted for M team"
+    },
+    {
+      "name": "real-webgl2",
+      "command": "node public/official/src/maps-visual/m01/m05/capture-m05.mjs http://127.0.0.1:8080",
+      "status": "NOT_RUN",
+      "evidence": "No M05 browser served, no screenshot claimed"
+    },
+    {
+      "name": "mobile-landscape",
+      "command": "Real Chromium 844x390 and 932x430 + physical iOS/Android",
+      "status": "NOT_RUN",
+      "evidence": "Viewport capture script prepared; physical device not run"
+    },
+    {
+      "name": "integrated-combat",
+      "command": "C1-D2 T05 4 towers / P04 13 actors same-camera M04 vs M05",
+      "status": "NOT_RUN",
+      "evidence": "Integrator-owned scene/call; M05 no combat implementation"
+    },
+    {
+      "name": "director-art-approval",
+      "command": "Review real images at 1280x768 and 844x390",
+      "status": "NOT_RUN",
+      "evidence": "No authentic M05 image to evaluate"
+    }
+  ],
+  "screenshotIndex": [],
+  "screenshotStatus": "NO M05 PHASER BROWSER CAPTURE EXECUTED",
+  "referenceScreenshots": [
+    {
+      "source": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/17",
+      "milestone": "C1-E M04+T05+P04",
+      "role": "previous reference, not M05 proof"
+    }
+  ],
+  "knownBlockers": [
+    "Node ESM QA and Chromium WebGL2 screenshots not executed in this tool session",
+    "M05 not mounted in Integrator's C1-D2 or C1-E scenes; 4 towers and 13 actors remain Integrator QA",
+    "Original SVG art is a visual prototype and may require further raster/painterly pass",
+    "Touch occlusion and FIT full-bleed mobile issues need real screenshots and separate Integrator decision",
+    "Candidate tower event names are not certified Core CombatEventBridge APIs"
+  ],
+  "gameplayImplemented": false,
+  "invariants": {
+    "maps": 10,
+    "routePoints": 133,
+    "sockets": 8,
+    "roadVisualWidth": 110,
+    "viewHitRadius": 54,
+    "padSourceWorldWidth": 110.24,
+    "originalM05Clusters": 18,
+    "zones": 6,
+    "clustersEachZone": 3
+  },
+  "mockExecution": {
+    "environment": "V8 with Canvas2D/Phaser mocks from actual GitHub source",
+    "paletteCount": 3,
+    "treatmentsEachPalette": 2,
+    "scenesMounted": 6,
+    "objectsEachScene": 109,
+    "svgLoadedTotalWithInheritedAssets": 42,
+    "createdM04TexturesPerScene": 11,
+    "generatedM05FullSizeCanvas": 0,
+    "missingAssets": 0,
+    "eventProjection": {
+      "snapshotReadOnly": true,
+      "duplicateEventIgnored": true,
+      "sceneResetVisualOnly": true
+    }
+  },
+  "expectedRealQA": {
+    "viewports": [
+      {
+        "width": 1280,
+        "height": 768
+      },
+      {
+        "width": 844,
+        "height": 390
+      },
+      {
+        "width": 932,
+        "height": 430
+      }
+    ],
+    "integratedTowerCount": 4,
+    "integratedActorCount": 13
+  },
+  "performance": {
+    "fpsAverage": null,
+    "fpsP95": null,
+    "gpuMemoryMiB": null,
+    "physicalDeviceTest": false
+  },
+  "notes": "Node/native browser status NOT_RUN. Existing C1E and PR13 resources are reference only, not modified.",
+  "finalOwnershipAudit": {
+    "status": "PASS",
+    "base": "429c26a82b645b8dc32728fcba44d0f32d130184",
+    "changedFilesAtAudit": 30,
+    "allMOwned": true,
+    "nonOwnedChanges": [],
+    "prNumber": 20,
+    "verifiedSource": "GitHub compare_commits"
+  }
+}

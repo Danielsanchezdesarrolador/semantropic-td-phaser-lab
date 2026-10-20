@@ -31,18 +31,16 @@ export class TowerVfxShowcase {
    this._tween(j,dot,{x:pos.x+Math.cos(a)*dist,y:pos.y+Math.sin(a)*dist,alpha:0,duration:270+i*17,onComplete:()=>this._free(j,dot)});
   }
  }
- dispatch({eventId,type,source,target,level=1,method='A'}){
+ dispatch({eventId,type,source,target,level=1,method='A',targetId=null}){
   if(this.destroyed||!eventId||this.seen.has(eventId))return false;
-  if(this.jobs.size>=this.maxJobs)this.cancelEvent(this.jobs.keys().next().value);
   if(!['deploy_visual','attack_visual','upgrade_visual','selection_visual'].includes(type))return false;
   if(!source||!Number.isFinite(source.x)||!Number.isFinite(source.y))return false;
+  if(type==='attack_visual'&&(!target||!Number.isFinite(target.x)||!Number.isFinite(target.y)))return false;
+  if(this.jobs.size>=this.maxJobs)this.cancelEvent(this.jobs.keys().next().value);
   this.seen.add(eventId);if(this.seen.size>400)this.seen=new Set([eventId]);
   const j=this._job(eventId);
   if(type==='deploy_visual')this._deploy(j,source,level);
-  if(type==='attack_visual'){
-   if(!target||!Number.isFinite(target.x)||!Number.isFinite(target.y)){this.cancelEvent(eventId);return false;}
-   this._attack(j,source,target,level);
-  }
+  if(type==='attack_visual')this._attack(j,source,target,level);
   if(type==='upgrade_visual')this._upgrade(j,source,method);
   if(type==='selection_visual')this._ring(j,source,0xf1d18f,35);
   this._later(j,1500,()=>this.cancelEvent(eventId,false));
@@ -69,7 +67,7 @@ export class TowerVfxShowcase {
    this._flash(j,from,color);
    const bolt=this._add(j,this.scene.add.circle(from.x,from.y,lv===2?5:4,0xfff6d6,1).setStrokeStyle(2,color).setDepth(1332));
    const trail=this._add(j,this.scene.add.graphics().setDepth(1330));
-   this._tween(j,bolt,{x:to.x,y:to.y,ease:'Cubic.In',duration:lv===2?215:270,
+   this._tween(j,bolt,{x:to.x,y:to.y,ease:'Cubic.In',duration:lv===2?206:258,
     onUpdate:()=>{trail.clear().lineStyle(lv===2?3:2.5,color,.79).beginPath().moveTo(bolt.x-(bolt.x-from.x)*Math.min(1,75/Math.max(1,Math.hypot(bolt.x-from.x,bolt.y-from.y))),bolt.y-(bolt.y-from.y)*Math.min(1,75/Math.max(1,Math.hypot(bolt.x-from.x,bolt.y-from.y)))).lineTo(bolt.x,bolt.y).strokePath();},
     onComplete:()=>{this._free(j,bolt);this._free(j,trail);this._ring(j,to,color,16);this._spark(j,to,color,lv===2?7:5);}
    });

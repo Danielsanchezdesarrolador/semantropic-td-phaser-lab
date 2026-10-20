@@ -1,0 +1,668 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "team": "M",
+  "milestone": "M05/C1-D2",
+  "branch": "feature/art-m05-combat-readiness",
+  "baseSha": "429c26a82b645b8dc32728fcba44d0f32d130184",
+  "bundle": "maps/m01/combat-readiness-m05",
+  "status": "prototype",
+  "notApprovedForProduction": true,
+  "sourceMap": {
+    "path": "public/official/data/maps.v5.json",
+    "gitBlobSha1": "1da0e20145e1312f3d75443debabea17e3db507c",
+    "sourceHashSha256": null,
+    "sha256Status": "Computed only in executed QA runner; do not invent"
+  },
+  "world": {
+    "width": 1280,
+    "height": 768,
+    "routeVertices": 133,
+    "sockets": 8,
+    "visualRoadWidth": 110,
+    "prototypeHitRadiusWorld": 54
+  },
+  "originals": [
+    {
+      "assetId": "maps/m01/combat-m05/svg/entrada-01-centinela-de-brezos",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "entrada",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/entrada-01-centinela-de-brezos.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "3b0e5a5ede3c632d1da590b9689c53682468cf32",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/entrada-01-centinela-de-brezos",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/entrada-02-rocales-miel",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "entrada",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/entrada-02-rocales-miel.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "72f36463bcc587302c3a6a5ecac0865040d994f6",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/entrada-02-rocales-miel",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/entrada-03-retoño-de-guardia",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "entrada",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/entrada-03-retoño-de-guardia.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "22857a63725f8c3fca690acf048e7a578a07022d",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/entrada-03-retoño-de-guardia",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/recodo-01-juncos-cobrizos",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "recodo",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/recodo-01-juncos-cobrizos.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "61338555b8e64400c7939eeff701b154b775d20f",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/recodo-01-juncos-cobrizos",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/recodo-02-piedras-pisadas",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "recodo",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/recodo-02-piedras-pisadas.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "ef41c433a07d27bf57bee49ab0d02f61e1532a68",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/recodo-02-piedras-pisadas",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/recodo-03-bosquecillo-de-viento",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "recodo",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/recodo-03-bosquecillo-de-viento.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "8ac1d7523d932435d3dbc0470614e9689db5f57c",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/recodo-03-bosquecillo-de-viento",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/valle-01-helechal-cobertizo",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "valle",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/valle-01-helechal-cobertizo.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "012f07395c755bfae3e4d9ffdd7b0c8c6e43260c",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/valle-01-helechal-cobertizo",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/valle-02-claros-azules",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "valle",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/valle-02-claros-azules.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "f20cbda32e58d5183d539bf1e34c9947337615a4",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/valle-02-claros-azules",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/valle-03-raices-del-refugio",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "valle",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/valle-03-raices-del-refugio.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "278f9903fc52f58a5e5347ce2c46f0d790b0ea01",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/valle-03-raices-del-refugio",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/meseta-01-pizarra-y-hebras",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "meseta",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/meseta-01-pizarra-y-hebras.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "f8f88699ee77ffe826e1acb9e18f63e575c44657",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/meseta-01-pizarra-y-hebras",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/meseta-02-retamas-del-alto",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "meseta",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/meseta-02-retamas-del-alto.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "a6ad41d5d68e4e527c22bbd8165f40f75900638c",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/meseta-02-retamas-del-alto",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/meseta-03-rocas-con-musgo",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "meseta",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/meseta-03-rocas-con-musgo.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "c81d61555f42b99bb030957ef60f57718695152c",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/meseta-03-rocas-con-musgo",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/regreso-01-rosal-de-regreso",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "regreso",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/regreso-01-rosal-de-regreso.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "3a43694a2137f3c05c3a89c522aa96c07adf3c68",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/regreso-01-rosal-de-regreso",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/regreso-02-troncos-ribera",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "regreso",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/regreso-02-troncos-ribera.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "ee89157713501f76aaeacc8376420fd77623927b",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/regreso-02-troncos-ribera",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/regreso-03-vigias-silvestres",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "regreso",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/regreso-03-vigias-silvestres.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "c1d132c88a86691f07ef9c277a1bd45e2d386785",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/regreso-03-vigias-silvestres",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/puerta-01-barrera-floral",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "puerta",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/puerta-01-barrera-floral.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "6ace9bb1d58a2975cd708ab78193a2c08f82b4ad",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/puerta-01-barrera-floral",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/puerta-02-arboleda-de-puerta",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "puerta",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/puerta-02-arboleda-de-puerta.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "8ea56f1ef18e31b1fb1fd6a2ff41972aa2947cd3",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/puerta-02-arboleda-de-puerta",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    },
+    {
+      "assetId": "maps/m01/combat-m05/svg/puerta-03-suministros-ocultos",
+      "owner": "M",
+      "category": "illustrated-environment-cluster",
+      "canonicalMap": 1,
+      "zone": "puerta",
+      "variant": "M05 A/B original cluster",
+      "source": {
+        "path": "public/official/art/maps/m01/m05/svg/puerta-03-suministros-ocultos.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "83ebbcc0e0d0f42f75119fa93a82201edc150f9a",
+        "sha256": null
+      },
+      "dimensions": {
+        "widthPx": 440,
+        "heightPx": 280
+      },
+      "frames": {
+        "count": 1,
+        "layout": "single-image"
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "renderKey": "maps/m01/combat-m05/svg/puerta-03-suministros-ocultos",
+      "origin": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "status": "prototype",
+      "gameplayCollider": false
+    }
+  ],
+  "materialTechniques": [
+    "multi-layer vegetation",
+    "fractured rocks with shadow/highlight",
+    "human defense remnants",
+    "sunlight highlights",
+    "local watercolor ground washes"
+  ],
+  "paletteVariants": [
+    "equilibrada",
+    "viva",
+    "atmosferica"
+  ],
+  "treatments": [
+    "bucolico",
+    "contraste"
+  ],
+  "textures": {
+    "newSvgClusterKeys": 18,
+    "legacyM04SceneTexturesReused": 11,
+    "baseM04TheoreticalRGBA_MiB": 27.86,
+    "newSvgSourcePixelRGBAReferenceMiB": 8.46,
+    "note": "Reference arithmetic only: actual Phaser SVG decoded textures can use different dimensions/mips/driver; GPU RAM NOT measured.",
+    "noNewFullCanvas": true,
+    "perFrameRebaking": false,
+    "sharedSvgCachedOnce": true
+  },
+  "metadata": {
+    "teamOwnership": "M",
+    "source": "Original author-edited SVG art composed for Semantropic TD with AI assistance",
+    "copyright": "No borrowed images, no external game assets",
+    "licenseStatus": "proyecto-original-pendiente-revision-comercial-direccion",
+    "sourceFilesEditable": true
+  },
+  "access": {
+    "presentationOnly": true,
+    "callableAPIs": [
+      "preloadM05Illustrations",
+      "makeM05ArtPlan",
+      "mountM01WorldV5",
+      "projectSocketVisualState",
+      "applyVisualSnapshot",
+      "projectEvent",
+      "resetVisuals",
+      "destroy"
+    ],
+    "candidateEvents": [
+      "tower_built",
+      "tower_upgraded",
+      "tower_sold",
+      "tower_ruined",
+      "tower_rebuilt",
+      "scene_reset"
+    ],
+    "bridgeRuntimeStatus": "not-integrated-only-proposed-visual-event-projection"
+  },
+  "plan": {
+    "zones": [
+      "entrada",
+      "recodo",
+      "valle",
+      "meseta",
+      "regreso",
+      "puerta"
+    ],
+    "clustersPerZone": 3,
+    "placeableClusterCount": 18,
+    "sourceWorldPath": "imported from M04/V5",
+    "noCollision": true,
+    "highObjectsBehindActors": true,
+    "padVisualWidthWorld": 110.24,
+    "hitRadiusView": 54
+  },
+  "visualQA": {
+    "realWebGL2": false,
+    "realScreenshots": [],
+    "nodeQAexecuted": false,
+    "structuralV8MockExecuted": true,
+    "integratedT05P04": false
+  },
+  "links": {
+    "showroom": "public/official/art/maps/m01/m05/index.html",
+    "gallery": "public/official/art/maps/m01/m05/gallery.html",
+    "contactSheet": "public/official/art/maps/m01/m05/M05_PLANCHA_18_MICROAMBIENTES.html"
+  }
+}
