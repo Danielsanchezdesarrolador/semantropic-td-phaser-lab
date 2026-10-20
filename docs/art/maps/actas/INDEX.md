@@ -4,7 +4,7 @@
 
 **Rama exclusiva:** [feature/art-m07-q2-performance-c1d5](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m07-q2-performance-c1d5).  
 **Base exacta:** `feature/art-m07-continuidad-c1c @ 2c08eaa13dac309f85f4e76b736db6f66545aac9` ([PR #31 MAPAS M07](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/31)).  
-**PR nuevo:** consultar [pull requests del repositorio](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pulls) y su futura acta; DRAFT, NO MERGE.  
+**PR oficial:** [#35 MAPAS M07-Q2](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/35), destino `feature/art-m07-continuidad-c1c`, **DRAFT SIN MERGE**. **HEAD verificable:** [PR #35 → Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/35/commits); cada modificación del índice crea un SHA nuevo.  
 **Visual lock C1-C:** PNG del propietario 1280×768 SHA256 `24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef`; default M03 paleta Viva y modo Fiel inalterados.  
 **Referencia funcional:** C1-D4R [PR #30](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/30), nuevo C1-D5 a cargo exclusivo de Dirección General.
 
