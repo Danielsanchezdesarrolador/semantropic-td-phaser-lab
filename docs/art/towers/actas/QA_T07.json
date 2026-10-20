@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "semantropic-qa-v1",
+  "team": "T",
+  "milestone": "T07-RIFLE-UNICO",
+  "status": "prototype-review",
+  "branch": "feature/art-t07-sniper-single-rifle",
+  "baseSha": "6788b5931fc6161bbfbca6cb25a1c2a83a7e1eb3",
+  "headShaSnapshot": "8a102a0b29da6e42d7832f658ddea299d13161e0",
+  "headShaNote": "Pre-acta snapshot; latest HEAD via PR #24",
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/24",
+  "gameplayImplemented": false,
+  "sourcePreview": "public/official/src/towers-visual/t07-index.html",
+  "checks": [
+    {
+      "name": "git-base",
+      "command": "GET T06 branch HEAD before create_branch",
+      "status": "PASS",
+      "environment": "GitHub remote branch head",
+      "evidence": "base 6788b5931fc6161bbfbca6cb25a1c2a83a7e1eb3"
+    },
+    {
+      "name": "svg-16",
+      "command": "GitHub fetch 16 SVG and JS balanced-tag/frame check",
+      "status": "PASS",
+      "environment": "GitHub + V8",
+      "evidence": "16/16 valid structure/viewBox"
+    },
+    {
+      "name": "single-rifle",
+      "command": "count precision-rig marker in full/B/back/rifle vs structure",
+      "status": "PASS",
+      "environment": "GitHub + V8",
+      "evidence": "one rifle legacy/advanced, zero in no-rifle structure"
+    },
+    {
+      "name": "catalog",
+      "command": "validateTowerArtV2 and getSniperSingleRifleLayers",
+      "status": "PASS",
+      "environment": "V8",
+      "evidence": "four canonical IDs; foot preserved"
+    },
+    {
+      "name": "anchor",
+      "command": "getSniperRifleVisualPoints with rotation",
+      "status": "PASS",
+      "environment": "V8",
+      "evidence": "finite source-px→world"
+    },
+    {
+      "name": "adapter",
+      "command": "adaptSniperCoreEvent from PR22-like originWorld event",
+      "status": "PASS",
+      "environment": "V8 with catalog import resolved",
+      "evidence": "origin preserved; projected muzzle emitted"
+    },
+    {
+      "name": "duplicate",
+      "command": "accept attack_fire eventId twice",
+      "status": "PASS",
+      "environment": "Phaser MOCK V8",
+      "evidence": "one accepted"
+    },
+    {
+      "name": "no-fake-hit",
+      "command": "fire does not create hit until hit_applied",
+      "status": "PASS",
+      "environment": "Phaser MOCK V8",
+      "evidence": "zero pre-hit visual impacts"
+    },
+    {
+      "name": "hit",
+      "command": "correlated bulletId/tower/target hit_applied once",
+      "status": "PASS",
+      "environment": "Phaser MOCK V8",
+      "evidence": "one authorized cue; duplicate rejected"
+    },
+    {
+      "name": "death",
+      "command": "entity_die after confirmed hit",
+      "status": "PASS",
+      "environment": "Phaser MOCK V8",
+      "evidence": "no second effect"
+    },
+    {
+      "name": "despawn",
+      "command": "despawn cancels target jobs",
+      "status": "PASS",
+      "environment": "Phaser MOCK V8",
+      "evidence": "jobs 0"
+    },
+    {
+      "name": "sale",
+      "command": "tower_sold cancels shooter jobs",
+      "status": "PASS",
+      "environment": "Phaser MOCK V8",
+      "evidence": "jobs 0"
+    },
+    {
+      "name": "cleanup",
+      "command": "clear and shutdown removes objects/timers/tweens",
+      "status": "PASS",
+      "environment": "Phaser MOCK V8",
+      "evidence": "cleaned, no listener leak"
+    },
+    {
+      "name": "ownership",
+      "command": "GitHub compare T06…T07 final",
+      "status": "NOT_RUN",
+      "environment": "GitHub",
+      "evidence": "confirm after docs"
+    },
+    {
+      "name": "qa-node",
+      "command": "node docs/art/towers/qa-t07.mjs",
+      "status": "NOT_RUN",
+      "environment": "Node actual checkout",
+      "evidence": "script published; not executed"
+    },
+    {
+      "name": "qa-legacy",
+      "command": "node docs/art/towers/qa-t01.mjs qa-t03 etc",
+      "status": "NOT_RUN",
+      "environment": "Node actual checkout",
+      "evidence": "not executed"
+    },
+    {
+      "name": "npm-build",
+      "command": "npm run build",
+      "status": "NOT_RUN",
+      "environment": "local Phaser checkout",
+      "evidence": "no local source+deps"
+    },
+    {
+      "name": "browser-1280",
+      "command": "Chromium Phaser WebGL2 1280x768 actual screenshots",
+      "status": "NOT_RUN",
+      "environment": "Chromium real",
+      "evidence": "not served"
+    },
+    {
+      "name": "browser-844",
+      "command": "Chromium Phaser WebGL2 844x390 actual screenshots",
+      "status": "NOT_RUN",
+      "environment": "Chromium real",
+      "evidence": "not served"
+    },
+    {
+      "name": "browser-932",
+      "command": "Chromium Phaser WebGL2 932x430 actual screenshots",
+      "status": "NOT_RUN",
+      "environment": "Chromium real",
+      "evidence": "not served"
+    },
+    {
+      "name": "p06",
+      "command": "actual P06 unarmed montage and rifle overlap",
+      "status": "NOT_RUN",
+      "environment": "Integrator/P06",
+      "evidence": "no joined scene"
+    },
+    {
+      "name": "core",
+      "command": "actual C1-D2 core event bridge",
+      "status": "NOT_RUN",
+      "environment": "Integrator",
+      "evidence": "interface only"
+    },
+    {
+      "name": "perf",
+      "command": "FPS p50/p95 GPU memory, 30 enemies",
+      "status": "NOT_RUN",
+      "environment": "physical/browser",
+      "evidence": "no real runtime"
+    },
+    {
+      "name": "approval",
+      "command": "Director visual review at game size",
+      "status": "NOT_RUN",
+      "environment": "Director",
+      "evidence": "not approved"
+    }
+  ],
+  "screenshotIndex": [],
+  "knownBlockers": [
+    "P06 unarmed sprite not yet verified joined with T07",
+    "PR22 originWorld versus T muzzleWorld requires central installed adapter",
+    "No real T07 WebGL2 screenshots or device QA",
+    "No user art approval",
+    "No stats/economy/path changes authorized"
+  ],
+  "perfMeasured": false
+}
