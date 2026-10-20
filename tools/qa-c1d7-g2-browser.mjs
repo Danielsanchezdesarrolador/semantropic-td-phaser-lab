@@ -176,6 +176,32 @@ try{
  if(loseErr.length)throw Error("G2 defeat JS errors "+loseErr.join("|"));
  await lose.close();
  console.log("PASS_C1D7_G2_FULL_M01_CORE_WIN_LOSS",JSON.stringify({victory,stars,recordAfterReload:rec,defeat}));
+ // Verify that P08-B1-HF1 fixed the actual overlapping veteran titles in Phaser.
+ const gallery=[];
+ for(const [w,h] of [[1280,768],[844,390],[932,430]]){
+  const pg=await browser.newPage({viewport:{width:w,height:h}});
+  const err=[];pg.on("pageerror",e=>err.push(e.message));
+  const response=await pg.goto(url.replace("/c1d7-g2-playable/","/actors-visual/p08/"),{waitUntil:"load"});
+  if(response?.status()!==200)throw Error("P08 HF1 gallery HTTP "+response?.status());
+  await pg.waitForFunction(()=>!!window.__SEMANTROPIC_P08?.scene,null,{timeout:45000});
+  const gap=await pg.evaluate(()=>{
+   const s=window.__SEMANTROPIC_P08.scene;
+   const vets=s.views.filter(v=>v.item.id==="infantry_veteran");
+   const [a,b]=vets;
+   return {count:vets.length,titlesGap:(b.title.x-b.title.displayWidth/2)-
+      (a.title.x+a.title.displayWidth/2),
+    cardsGap:(b.sprite.x-b.panelWidth/2)-(a.sprite.x+a.panelWidth/2),
+    texts:vets.map(v=>v.title.text),texturesOK:vets.every(v=>s.textures.exists(v.sprite.texture.key))};
+  });
+  if(gap.count!==2||gap.titlesGap<8||gap.cardsGap<8||!gap.texturesOK)
+   throw Error("P08-HF1 real gallery titles/panels overlap "+w+"x"+h+" "+JSON.stringify(gap));
+  await pg.screenshot({path:dir+"/P08-HF1-gallery-"+w+"x"+h+".png",fullPage:true});
+  if(err.length)throw Error("P08-HF1 Chromium "+err.join("|"));
+  gallery.push({viewport:w+"x"+h,...gap});
+  await pg.close();
+ }
+ console.log("PASS_P08_B1_HF1_REAL_GALLERY_3_VIEWPORTS",JSON.stringify(gallery));
+
  console.log(JSON.stringify({status:"PASS_C1D7_G2_REAL_WEBGL2_T09_P08_INTEGRATED",results:all,physicalMobile:"NOT_RUN",humanVisualApproval:"PENDING"},null,2));
 }catch(e){console.error("C1D7_G2_BROWSER_FAIL",e.stack||String(e));process.exitCode=1}
 finally{await browser?.close();await new Promise(ok=>srv.close(ok))}
