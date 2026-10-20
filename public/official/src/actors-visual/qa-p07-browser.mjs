@@ -59,7 +59,7 @@ try{
   await page.locator('#pause').click();
   await page.locator('#step').click();
   await page.locator('#stress').click();
-  const clones=await page.evaluate(()=>window.__SEMANTROPIC_P07.scene.clones.length);
+  const clones=await page.evaluate(()=>window.__SEMANTROPIC_P07.scene.copies.length);
   if(clones!==24)throw Error('P07 clone count '+clones);
   await page.waitForTimeout(120);
   const screenshot='p07-'+name+'-real-webgl2.png';
