@@ -1,0 +1,52 @@
+name: C1-D8 B3 — golpes corporales perceptibles de soldado y enemigos
+on:
+  push:
+    branches: [feature/integrator-c1d8-b3-combat-impact]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  visual-combat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Core protegido, motion NO aplica dano ni modifica arte
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node --check public/official/src/c1d8-b3-playable/scene.mjs
+          node --check tools/qa-c1d8-b3-browser.mjs
+          node tools/qa-c1d8-b3-motion.mjs
+          node tools/qa-c1d8-b1-rally-core.mjs
+          node tools/qa-c1d5-navigation.mjs
+          node public/official/src/actors-visual/p08/qa-p08.mjs
+          node docs/art/towers/qa-t09.mjs
+      - name: Build Phaser
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Chromium WebGL2 real
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Tres pantallas, rally B1, golpes B3 core verificados y 5 oleadas
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b3-browser.mjs 2>&1 | tee qa-c1d8-b3-browser.log
+      - name: Capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_TD_C1D8_B3_GOLPES_REALES
+          path: |
+            artifacts/c1d8-b3-browser/
+            qa-c1d8-b3-browser.log
+          if-no-files-found: warn
