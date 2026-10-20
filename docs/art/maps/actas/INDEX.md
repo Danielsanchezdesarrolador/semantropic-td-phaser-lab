@@ -1,4 +1,37 @@
-# SEMANTROPIC TD — MAPAS · ÍNDICE OFICIAL DE CONTINUIDAD ARTÍSTICA
+# SEMANTROPIC TD — EQUIPO MAPAS / ÍNDICE HISTÓRICO
+
+## NUEVO: M07-Q2 · PRIMERA PARTIDA REAL C1-D5 / OPTIMIZACIÓN SIN REDISEÑO · 20-10-2026
+
+**Rama exclusiva:** [feature/art-m07-q2-performance-c1d5](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m07-q2-performance-c1d5).  
+**Base exacta:** `feature/art-m07-continuidad-c1c @ 2c08eaa13dac309f85f4e76b736db6f66545aac9` ([PR #31 MAPAS M07](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/31)).  
+**PR nuevo:** consultar [pull requests del repositorio](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pulls) y su futura acta; DRAFT, NO MERGE.  
+**Visual lock C1-C:** PNG del propietario 1280×768 SHA256 `24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef`; default M03 paleta Viva y modo Fiel inalterados.  
+**Referencia funcional:** C1-D4R [PR #30](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/30), nuevo C1-D5 a cargo exclusivo de Dirección General.
+
+| Archivo / evidencia | Acceso | Estado |
+|---|---|---|
+| Acta oficial M07-Q2 | [ACTA_MAPAS_M07_Q2_PERF_C1D5_2026-10-20.md](ACTA_MAPAS_M07_Q2_PERF_C1D5_2026-10-20.md) | [CONFIRMADO EN GITHUB] |
+| QA estructurado | [QA_MAPAS_M07_Q2.json](QA_MAPAS_M07_Q2.json) | V8 fuente simulada PASS; Node/Chrome NOT_RUN |
+| Datos antes/después | [PERF_BASELINE_M07_Q2.json](PERF_BASELINE_M07_Q2.json) | 50 ciclos: 575→36 creates en mocks; FPS reales NOT_RUN |
+| RFC para Integrador | [RFC_MAPAS_M07_Q2_C1D5_LIFECYCLE.md](RFC_MAPAS_M07_Q2_C1D5_LIFECYCLE.md) | PROPUESTA, DG debe ratificar |
+| Renderer M07-Q2 | [renderer-v7.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/renderer-v7.mjs) | IDENTIDAD M03 INALTERADA |
+| QA Node Q2 | [qa-m07-q2.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/qa-m07-q2.mjs) | Archivo listo, ejecución nativa NOT_RUN |
+| QA Node legado adaptado | [qa-m07.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/qa-m07.mjs) | Assertions actualizadas a retención M03 Q2, ejecución nativa NOT_RUN |
+| Captura Chromium con frame timing | [capture-m07-q2.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/capture-m07-q2.mjs) | Script preparado, Chromium NOT_RUN |
+| Evidencias PNG nuevas | `docs/art/maps/evidencias/M07-Q2/**` | No generadas, SHA256 nuevas 0 |
+| Asset manifest M07+Q2 | [manifest.json](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/art/maps/m01/m07/manifest.json) | 7 fuentes reutilizadas, 0 assets nuevos |
+
+**[PROBADO EN V8 CON MOCKS]** 50 montajes/desmontajes; 575 → 36 llamadas a `addCanvas` y 575 → 25 `textures.remove` frente a M07 original; 11 claves Canvas M03 cacheadas de forma estable, 9 SVG originales retenidos, Pulido opcional libera su textura, selección no vacía un pad ocupado, venta tick22 no revive por tick21, escena M03 directa con `disposeTextures:false` no pierde recursos al cerrar M07.
+
+**[RIESGO EXPLÍCITO]** El M03 directo con `disposeTextures:true` todavía puede eliminar texturas comunes cuando cierra: resolver ownership en Dirección General, sin tocar fuente M03.
+
+**[NO EJECUTADO]** Node nativo, build, Chromium WebGL2 real 1280×768 / 844×390 / 932×430, p50/p95 del navegador, hardware móvil, partida C1-D5 de cinco oleadas y 63 apariciones oficiales, capturas integradas C1-C vs M07-Q2. La prueba de 63 MARCADORES sintéticos no es combate.
+
+**Rollback:** cerrar PR M07-Q2 sin fusionar; Canvas V5, M07 aprobado, C1-D4R, escenas comunes, Torres, Personajes, Render y campaña quedan intactos.
+
+---
+
+## Archivo histórico M01–M07
 
 ## M-07 · RESTAURACIÓN VISUAL C1-C / M03 VIVA · 20-10-2026
 
