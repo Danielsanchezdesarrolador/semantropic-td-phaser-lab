@@ -3,8 +3,8 @@ const STAGE={width:1280,height:768},H=208,W=176;
 const cfg={state:'attack',time:0,paused:false,stepped:false,worldHeight:80,guides:false};
 let gallery;
 const labels=[{id:'infantry_recruit',x:196,title:'I · RECLUTA',scale:88/171},
- {id:'infantry_veteran',x:425,title:'II · VETERANO 1',scale:88/171},
- {id:'infantry_veteran',x:611,title:'II · VETERANO 2',scale:88/171},
+ {id:'infantry_veteran',x:421,title:'II · VETERANO 1',scale:88/171},
+ {id:'infantry_veteran',x:615,title:'II · VETERANO 2',scale:88/171},
  {id:'warrior',x:897,title:'ORCO · P03',scale:91/171},
  {id:'hound',x:1112,title:'HOUND · P03',scale:67/114}];
 const $=id=>document.getElementById(id);

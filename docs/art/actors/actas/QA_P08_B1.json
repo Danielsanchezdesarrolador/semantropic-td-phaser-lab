@@ -197,5 +197,50 @@
     "firstCommit": "e88389a59416c1a8df37d31a02ae3ecc1fe9e02c",
     "secondCommit": "see PR #39 Commits",
     "note": "second corrective commit for same veteran-card width issue; necessary to keep visual render and QA consistent"
+  },
+  "microHotfix": {
+    "id": "P08-B1-HF1",
+    "date": "2026-10-20",
+    "sourceRun": 39497698794,
+    "baselineHead": "a03710e47bb7943d5b496036a0c1f8edcaf0135f",
+    "scopedFile": "public/official/src/actors-visual/p08/gallery.mjs",
+    "oldVeteranCenters": [
+      425,
+      611
+    ],
+    "newVeteranCenters": [
+      421,
+      615
+    ],
+    "panelWidth": 174,
+    "realChromiumBaseline": {
+      "titlesGap": 7,
+      "panelsGap": 12,
+      "titleWidths": [
+        179,
+        179
+      ],
+      "titlesStatus": "FAIL",
+      "panelsStatus": "PASS"
+    },
+    "staticPrediction": {
+      "titlesGap": 15,
+      "panelsGap": 20,
+      "titlesThreshold": 8,
+      "panelsThreshold": 8,
+      "status": "PASS_SOURCE_GEOMETRY_ONLY"
+    },
+    "afterCommit": {
+      "nodeP08": "NOT_RUN",
+      "nodeP07": "NOT_RUN",
+      "build": "NOT_RUN",
+      "chromiumWebGL2": "NOT_RUN",
+      "screenshotSha256": "NOT_RUN",
+      "deviceQA": "NOT_RUN"
+    },
+    "otherChanges": "NONE: one visual overlap fix; all PNGs, rigs, controller, core and LIVE untouched",
+    "commit": "Use PR #39 Commits: self-referential SHA cannot be included inside same atomic commit",
+    "approved": false,
+    "mergeAuthorized": false
   }
 }
