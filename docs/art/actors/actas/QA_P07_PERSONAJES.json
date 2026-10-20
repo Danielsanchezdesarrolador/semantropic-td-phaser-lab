@@ -1,0 +1,224 @@
+{
+  "version": "qa-p07-personajes-c1c",
+  "date": "2026-10-20",
+  "team": "PERSONAJES",
+  "branch": "feature/art-p07-continuidad-c1c",
+  "originSha": "a5116db1f956f8b32b86570600b878ba9d5187ed",
+  "prUrl": null,
+  "historicalSourceBlobSha": "1a4282e1652ff559b92e18f42db465d6bfb8e729",
+  "approvedScreenshotSha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+  "evidenceMethod": "Real GitHub blob exports plus isolated V8 vector renderer; not a Phaser browser",
+  "summary": "4 RGBA8 PNGs committed; 128 nonempty frames, zero edge contacts. Artist/director/browser and mounted real gameplay acceptance NOT_RUN.",
+  "checks": [
+    {
+      "id": "P07-01",
+      "name": "Reference screenshot real checksum",
+      "command": "sha256sum user-uploaded 1280x768 PNG",
+      "environment": "container sha256sum",
+      "status": "PASS",
+      "detail": "Checksum exactly matches order 24103e..."
+    },
+    {
+      "id": "P07-02",
+      "name": "Historic P03 actual rig source",
+      "command": "GitHub fetch_file feature/art-p03-q2-personajes/p03-rig.mjs",
+      "environment": "GitHub connector",
+      "status": "PASS",
+      "detail": "Original P03 blob SHA1 1a4282e1...; source unchanged"
+    },
+    {
+      "id": "P07-03",
+      "name": "P07 base HEAD exact",
+      "command": "GitHub branch head before create_branch",
+      "environment": "GitHub connector",
+      "status": "PASS",
+      "detail": "P06 head equals a5116db1..."
+    },
+    {
+      "id": "P07-04",
+      "name": "Original P03 orc/hound shapes preserved",
+      "command": "P07 P03 painter original source copy, except listed code replacements",
+      "environment": "GitHub source diff / V8 frame render",
+      "status": "PASS",
+      "detail": "Orc face/axe and hound spine/body geometry from historical P03, not P06 heuristic"
+    },
+    {
+      "id": "P07-05",
+      "name": "Unarmed sniper unique rifle",
+      "command": "Historical rifle(c...) call removed only in P07 fork",
+      "environment": "GitHub read + V8 single-frame rendering",
+      "status": "PASS",
+      "detail": "P07 operator has arms/visor and no actor-owned rifle; T08 gun remains read-only"
+    },
+    {
+      "id": "P07-06",
+      "name": "Human helmet correction",
+      "command": "Source coordinate offset +100 in copied rig",
+      "environment": "V8 software raster sample",
+      "status": "PASS",
+      "detail": "P03 recruit and sniper helmets now visible in source-derived sample; browser NOT_RUN"
+    },
+    {
+      "id": "P07-07",
+      "name": "Four actual atlas binaries",
+      "command": "GitHub create_blob base64 + git tree commit",
+      "environment": "GitHub connector",
+      "status": "PASS",
+      "detail": "Four new binary blobs under public/official/art/actors/p07/png/"
+    },
+    {
+      "id": "P07-08",
+      "name": "Actual 128 frames alpha/edge QA",
+      "command": "buildP07Atlas (32x4) with cell-isolated raster",
+      "environment": "V8 render+source alpha",
+      "status": "PASS",
+      "detail": "128 nonempty frames; zero border contacts"
+    },
+    {
+      "id": "P07-09",
+      "name": "Byte stream SHA256",
+      "command": "sha256P06 exported Uint8Array real PNG",
+      "environment": "V8 algorithm with known test from P06",
+      "status": "PASS",
+      "detail": "Four SHA256 hashes emitted and added to manifest; independent Node checkout verify pending"
+    },
+    {
+      "id": "P07-10",
+      "name": "ABI compatibility",
+      "command": "P03 ANIMATIONS map with idle4 walk8 windup3 attack5 hit3 die6 blocked3",
+      "environment": "GitHub/V8",
+      "status": "PASS",
+      "detail": "P07 176x208 cell, 8x4, 1408x832 PNGs and new P07 keys"
+    },
+    {
+      "id": "P07-11",
+      "name": "T08 branch read-only",
+      "command": "GitHub T08 catalog metadata read",
+      "environment": "GitHub connector",
+      "status": "PASS",
+      "detail": "Level I/II operator/stock points extracted; mismatch RFC; real fit not proven"
+    },
+    {
+      "id": "P07-12",
+      "name": "P07 gallery source syntax",
+      "command": "new Function(strip ESM) for p07-gallery.mjs",
+      "environment": "V8 mock parse",
+      "status": "PASS",
+      "detail": "Viewer code parses; browser execution not assumed"
+    },
+    {
+      "id": "P07-13",
+      "name": "Node independent PNG inflate/hash",
+      "command": "node public/official/src/actors-visual/qa-p07.mjs",
+      "environment": "checkout Node 22",
+      "status": "NOT_RUN",
+      "detail": "Real checkout not available locally to run all four P07 files together"
+    },
+    {
+      "id": "P07-14",
+      "name": "Full Phaser build",
+      "command": "npm run build",
+      "environment": "checkout with Phaser4.2.1",
+      "status": "NOT_RUN",
+      "detail": "Full checkout/build not executed"
+    },
+    {
+      "id": "P07-15",
+      "name": "Chromium/WebGL2 desktop screenshot",
+      "command": "node public/official/src/actors-visual/qa-p07-browser.mjs 1280x768",
+      "environment": "Phaser browser",
+      "status": "NOT_RUN",
+      "detail": "Script versioned but not run on P07 branch"
+    },
+    {
+      "id": "P07-16",
+      "name": "Chromium mobile landscape",
+      "command": "qa-p07-browser.mjs 844x390 / 932x430",
+      "environment": "Phaser emulation",
+      "status": "NOT_RUN",
+      "detail": "No page screenshots from P07 runtime"
+    },
+    {
+      "id": "P07-17",
+      "name": "Animated filmstrips/WebM real",
+      "command": "Playwright record filmstrips and rendered cycles",
+      "environment": "Phaser/WebGL2",
+      "status": "NOT_RUN",
+      "detail": "Viewer export exists; no video or GIF captured"
+    },
+    {
+      "id": "P07-18",
+      "name": "M07 + T08 mounted scene",
+      "command": "Integrate P07 actor into live C1-D4 M01",
+      "environment": "Integrator",
+      "status": "NOT_RUN",
+      "detail": "T08 grip/socket unresolved; source-only comparison cannot certify"
+    },
+    {
+      "id": "P07-19",
+      "name": "C1-D4 gameplay regression",
+      "command": "133 route/8 pads/5 waves/63 spawns, infantry+sniper, buy/upgrade/hit/escape",
+      "environment": "Integrator real QA",
+      "status": "NOT_RUN",
+      "detail": "P07 does not alter these; no end-to-end integration executed"
+    },
+    {
+      "id": "P07-20",
+      "name": "Physical iOS/Android FPS and memory",
+      "command": "Phone real device QA",
+      "environment": "Hardware",
+      "status": "NOT_RUN",
+      "detail": "No physical mobile device test"
+    },
+    {
+      "id": "P07-21",
+      "name": "Owner artistic approval",
+      "command": "Compare original screenshot to integrated 1280x768 actual same camera",
+      "environment": "Owner/director review",
+      "status": "PENDING",
+      "detail": "No actual post-integration screenshot; art fidelity not approved"
+    }
+  ],
+  "screenshots": {
+    "approvedBefore": {
+      "file": "SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03.png",
+      "sha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+      "source": "user-upload",
+      "actual": true
+    },
+    "p07After": {
+      "actual": false,
+      "path": null,
+      "status": "NOT_RUN",
+      "requested": "docs/art/actors/evidencias/P07/P07-desktop-real-webgl2.png"
+    }
+  },
+  "atlas": [
+    {
+      "actor": "warrior",
+      "bytes": 696921,
+      "sha256": "96bb22bac15eb054ea435389556491ecf040599476b84beb9a318c9abf0a98c7"
+    },
+    {
+      "actor": "hound",
+      "bytes": 600467,
+      "sha256": "959b338bc17bb0fbfb51dd17525041b128b758edd44151f479b5cb81fdc0e8a7"
+    },
+    {
+      "actor": "infantry_recruit",
+      "bytes": 610623,
+      "sha256": "b34e0e1b7f47ea1948d91cf15a15f8d7d899411ec4c5349356ceb871bc54c3aa"
+    },
+    {
+      "actor": "sniper_operator_unarmed",
+      "bytes": 539246,
+      "sha256": "586441a555677ac6f8b67fb232283481e8431f9f608bbaa50dad7639f83f2ace"
+    }
+  ],
+  "risks": [
+    "P07 raster approximation vs native Canvas may change antialias and material softness",
+    "T08 stockGrip/world relative hand mismatch requires integrator correction",
+    "No real Chromium runtime benchmark or same-frame original C1C screenshot comparison for integrated M07/T08",
+    "Do not attribute C1-D4 combat to P07 standalone showroom"
+  ]
+}
