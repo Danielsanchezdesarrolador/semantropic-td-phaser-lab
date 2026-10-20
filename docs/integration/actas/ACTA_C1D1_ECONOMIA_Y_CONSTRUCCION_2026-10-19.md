@@ -35,3 +35,8 @@ Primer bloque REAL de la migración del gameplay desde Canvas V5: compra, mejora
 
 ## Próxima fase
 C1-D2: Francotiradores reales (selección de objetivos por rango/prioridad, cooldown, daño efectivo) después de ampliar dominio con entidades enemigas y resolver eventos del core, sin simular impacto por VFX. Posteriormente C1-D3 soldados Infantería y bloqueo. C1-D4 vista/HUD de juego, C1-D5 resultados reales y C1-D6 QA de balance.
+
+## QA efectivamente realizado (posterior a la publicación inicial)
+[CI #39354969958](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39354969958) **SUCCESS**: contrato/smoke D0, pruebas de compra/upgrade/venta D1 en Node, compilación Phaser 4.2.1, Chromium WebGL2 real en escritorio 1280×768 y móviles emulados 844×390 / 932×430. Se realizaron transacciones de compra Infantería 95, upgrade 135, venta con abono 149 y compra Francotirador 140; los saldos y ledger coincidieron; también se comprobó que no puede comprarse nivel III ni una mejora Sniper sin oro suficiente.
+**Evidencia visual real:** artifact GitHub Actions `c1d1-build-economy-chromium`, nueve PNG (antes, Infantería y Francotiradores en tres viewports). Sin prueba en hardware Android/iPhone real.
+**Dictamen:** aceptar C1-D1 como núcleo de construcción/economía **en rama experimental**, sin aprobar combate, guardados, UX móvil definitiva ni merge a producción.
