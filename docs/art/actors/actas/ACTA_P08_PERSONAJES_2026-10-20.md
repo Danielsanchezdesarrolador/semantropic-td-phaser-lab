@@ -1,5 +1,6 @@
 # ACTA OFICIAL P08 — INFANTERÍA EVOLUTIVA / COMBATE LEGIBLE
 **SEMANTROPIC TD · Equipo PERSONAJES · 20 de octubre de 2026**
+**PR:** [#39 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39) · no merge.
 **Rama:** `feature/art-p08-infantry-evolution-combat` · **Base exacta:** `5eef18c3c86c683d9cb38f89d708eb3d9e7c168e` (P07-HF1).
 **Estado:** ASSETS REALES EN GITHUB / ADAPTADOR PROPUESTO / NO MERGE / NO DESPLIEGUE.
 **Referencia protegida:** C1-C P03, SHA256 `24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef`. C1-D6 funcional de core, no sustituido.
