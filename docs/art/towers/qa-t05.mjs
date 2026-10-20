@@ -18,7 +18,14 @@ for(const [i,item] of manifest.assets.entries()){
   assert.ok(!allFiles.has(path));allFiles.add(path);
  }
  const full=await readFile(item.compositeA.path,'utf8'),alt=await readFile(item.compositeB.path,'utf8');
- assert.ok(full.includes('tower-shadow')&&full.includes(meta.family==='sniper'?'sniper-back':'barracks-back'));
+ // Historically correct T05 image lives in versioned snapshot; T08 current is T04 identity.
+ const T05snapshot='public/official/art/towers/'+(meta.family==='sniper'
+   ?'t05-snapshot/sniper-'+meta.level+'.svg'
+   :'t07-snapshot/infantry-'+meta.level+'.svg');
+ const archivedT05=await readFile(T05snapshot,'utf8');
+ assert.ok(archivedT05.includes('tower-shadow')&&archivedT05.includes(meta.family==='sniper'?'sniper-back':'barracks-back'));
+ const restoredT04=await readFile(item.beforeT04.path,'utf8');
+ assert.equal(full,restoredT04,'T08 must restore T04 identity, not T05 alternative');
  assert.notEqual(full,alt,'A/B must be structurally different');
  const old=await readFile(item.beforeT04.path,'utf8');assert.ok(old.includes('t04-fund-top'));
  const c=getTowerVisualLayers(meta,'A');assert.equal(c.split,true);

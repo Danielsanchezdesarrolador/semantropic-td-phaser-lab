@@ -13,17 +13,25 @@ const svg=async p=>{const s=await readFile(p,'utf8');assert.ok(s.startsWith('<sv
 for(const item of manifest.assets){
  const m=TOWER_ART_V2.find(x=>x.assetId===item.assetId);
  assert.ok(m&&m.family==='sniper'&&m.level===item.level);
- assert.equal(m.rifleOwner,'T');assert.equal(m.operatorAssetId,'sniper_operator_unarmed');
+ assert.equal(m.rifleOwner,'T');// The unarmed operator ID is stable; T08 owner stage advances to P07.
+ assert.equal(m.operatorAssetId,'sniper_operator_unarmed');
+ assert.equal(m.operatorOwner,'P07');
  const layers=getSniperSingleRifleLayers(m);assert.ok(layers.singleRifle);
  const master=await svg(item.master),structure=await svg(item.files.structureNoRifle),rifle=await svg(item.files.rifleMounted);
+ const historicalT07=await svg('public/official/art/towers/t07-snapshot/sniper-'+item.level+'.svg');
+ const originalT04=await svg('public/official/art/towers/t04-snapshot/sniper-'+item.level+'.svg');
+ assert.equal(master,originalT04,'T08 visual gate: exactly historical approved T04');
  const legacyBack=await svg(item.files.backStructure),before=await svg(item.baselineT06),B=await svg(item.alternativeB);
  await svg(item.files.shadowFoot);await svg(item.files.frontRail);
  assert.notEqual(master,before);assert.notEqual(master,B);
  const token='id="t06-precision-rig-l'+item.level+'"';
- assert.equal(master.split(token).length-1,1,'exactly one installed master rifle');
- assert.equal(legacyBack.split(token).length-1,1,'legacy back retains a SINGLE rifle');
- assert.equal(structure.split(token).length-1,0,'advanced structure has NO rifle');
- assert.equal(rifle.split(token).length-1,1,'advanced rifle layer contains one original T rifle');
+ assert.equal(historicalT07.split(token).length-1,1,'T07 archived rifle must remain verifiable');
+ const t08='id="t08-one-mounted-rifle"';
+ assert.equal(legacyBack.split(t08).length-1,1,'T08 legacy must include one rifle');
+ assert.equal(rifle.split(t08).length-1,1,'T08 advanced rifle layer must include one rifle');
+ assert.equal(structure.split(t08).length-1,0,'T08 no-rifle structure clean');
+ assert.equal(master.split('id="t04-sniper-').length-1,1,'T04 source keeps its historic functional gun group');
+ 
  for(const key of ['stockGripLocal','opticalFocusLocal','recoilPivotLocal','fireEffectOriginLocal','operatorAnchorLocal']){
   const a=m[key];assert.equal(a.units,'source-px');
   const world=projectSourceAnchor({x:300,y:400,scaleX:m.worldScaleProposal,scaleY:m.worldScaleProposal,rotation:0.45},m,key);
