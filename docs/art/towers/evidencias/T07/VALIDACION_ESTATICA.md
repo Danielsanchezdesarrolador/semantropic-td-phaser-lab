@@ -49,3 +49,6 @@ Fecha de corte: 20 octubre 2026. Equipo T / rama `feature/art-t07-sniper-single-
 ## Métricas estimadas, NO medición GPU
 
 Cada SVG de 360×420 rasterizado RGBA sin mipmaps ≈604800 bytes por textura. Número real de texturas depende de preloads/dedupe del browser; no hay medición de VRAM ni FPS.
+
+## [CONFIRMADO EN GITHUB COMPARE]
+10 commits, 28 archivos (17 added / 11 modified) T06→T07, ninguna ruta ajena a `docs/art/towers`, `public/official/art/towers` y `public/official/src/towers-visual`; las ramas de Core/P/M y escenas compartidas permanecen sin cambios desde Equipo T. El commit adicional de este QA cambia exclusivamente dos archivos documentales T.

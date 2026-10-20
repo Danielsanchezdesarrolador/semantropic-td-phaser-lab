@@ -104,10 +104,10 @@
     },
     {
       "name": "ownership",
-      "command": "GitHub compare T06…T07 final",
-      "status": "NOT_RUN",
-      "environment": "GitHub",
-      "evidence": "confirm after docs"
+      "command": "GitHub compare feature/art-t06-sniper-vfx...feature/art-t07-sniper-single-rifle",
+      "status": "PASS",
+      "environment": "GitHub Compare API",
+      "evidence": "At documentary checkpoint: 10 commits, 28 changed files (17 added/11 modified), 0 foreign paths. This QA-only commit remains within team-T namespace."
     },
     {
       "name": "qa-node",
