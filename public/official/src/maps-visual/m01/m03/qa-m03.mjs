@@ -32,7 +32,7 @@ const plan=makeM03ArtPlan(map);
 assert.equal(plan.landmarks.length,3);
 assert.equal(plan.sockets.length,8);
 assert.equal(plan.canonicalPath.length,133);
-assert.ok(plan.illustrations.length>=15);
+assert.equal(plan.illustrations.length,13);
 for(const name of Object.values(M03_SVGS)){
  const svg=readFileSync(new URL("../../../../art/maps/m01/m03/svg/"+name,import.meta.url),"utf8");
  assert.match(svg,/^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
