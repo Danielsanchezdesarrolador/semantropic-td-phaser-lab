@@ -103,26 +103,26 @@ function accent(c,id,state,frame){
  if(id==='warrior'){
   if(attack&&n>=1&&n<=3){
    c.globalAlpha=n===2?.95:.5;
-   combatGlow(c,[[70,-154],[90,-143],[97,-117],[91,-90]],1);
+   combatGlow(c,[[35,-149],[51,-136],[65,-114],[63,-91]],1);
   }else if(!attack&&n===2){
-   c.globalAlpha=.52;path(c,[[71,-150],[84,-148]],'#e8d4a9',4);
+   c.globalAlpha=.52;path(c,[[39,-145],[53,-140]],'#e8d4a9',4);
   }
  }else if(id==='hound'){
   if(attack&&n>=1&&n<=3){
    c.globalAlpha=n===2?.94:.55;
-   combatGlow(c,[[88,-69],[104,-63],[112,-51]],1);
-   path(c,[[69,-14],[82,-19],[90,-15]],'#f1ddb9',3);
+   combatGlow(c,[[54,-77],[66,-65],[76,-51]],1);
+   path(c,[[43,-14],[56,-19],[64,-15]],'#f1ddb9',3);
   }else if(!attack&&n===2){
-   path(c,[[56,-28],[68,-30]],'#eddeb4',3.5);
+   path(c,[[45,-28],[59,-30]],'#eddeb4',3.5);
   }
  }else{
   const veteran=id==='infantry_veteran';
   if(attack&&n>=1&&n<=3){
    c.globalAlpha=n===2?.90:.55;
    const dx=veteran?10:0;
-   combatGlow(c,[[65+dx,-149],[80+dx,-132],[94+dx,-111],[91+dx,-93]],veteran?2:1);
+   combatGlow(c,[[39+dx,-149],[53+dx,-132],[64+dx,-112],[62+dx,-93]],veteran?2:1);
   }else if(!attack&&n===2){
-   c.globalAlpha=.65;path(c,[[56,-133],[73,-139]],veteran?'#e8ce8c':'#a9d0d5',3);
+   c.globalAlpha=.65;path(c,[[43,-133],[57,-139]],veteran?'#e8ce8c':'#a9d0d5',3);
   }
  }
  c.restore();
