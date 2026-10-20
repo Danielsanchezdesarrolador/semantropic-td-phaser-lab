@@ -13,7 +13,7 @@ const server=createServer(async(req,res)=>{
  }catch(e){res.writeHead(404);res.end("not found "+String(e));}
 });
 await new Promise(r=>server.listen(0,"127.0.0.1",r));
-const URL="http://127.0.0.1:"+server.address().port+"/official/src/c1d7-playable/index.html";
+const TEST_URL="http://127.0.0.1:"+server.address().port+"/official/src/c1d7-playable/index.html";
 await mkdir("artifacts/c1d7-browser",{recursive:true});
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let browser;
@@ -25,7 +25,7 @@ try{
    ["landscape932",932,430],["androidWide",1536,709]]){
   const page=await browser.newPage({viewport:{width,height},isMobile:width<1000,hasTouch:width<1000});
   const errors=[];page.on("pageerror",e=>errors.push(e.message));
-  const response=await page.goto(URL,{waitUntil:"load",timeout:30000});
+  const response=await page.goto(TEST_URL,{waitUntil:"load",timeout:30000});
   if(response?.status()!==200)throw Error(tag+" HTTP bad "+response?.status());
   await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7?.scene,null,{timeout:45000});
   const start=await page.evaluate(()=>{
