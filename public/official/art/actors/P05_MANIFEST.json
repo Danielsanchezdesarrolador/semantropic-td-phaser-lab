@@ -1,0 +1,262 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "owner": "P",
+  "milestone": "P05/C1-D2",
+  "status": "prototype",
+  "baseSha": "cb6e7b73edcb6f6df4fa5dace302aac845fc5780",
+  "officialEngine": "Phaser 4.2.1/WebGL2",
+  "mainTarget": "M01 visual reactions (not combat simulation)",
+  "rights": {
+    "originalAuthoring": "Semantropic TD Equipo P with OpenAI-assisted source drawing; new authored reactivity overlay on original P04 painter",
+    "sourceEditable": "public/official/art/actors/p05-painter.mjs",
+    "animationLogicEditable": "public/official/art/actors/p05-reactivity.mjs",
+    "noThirdPartyArtHotlink": true,
+    "externalAssetsIncluded": false,
+    "approval": "Art Direction acceptance and commercial review pending"
+  },
+  "packing": {
+    "widthPx": 1408,
+    "heightPx": 832,
+    "cellWidthPx": 176,
+    "cellHeightPx": 208,
+    "columns": 8,
+    "rows": 4,
+    "frames": 32,
+    "decodedRgba8BytesPerAtlas": 4685824,
+    "decodedRgba8MiBPerAtlas": 4.469,
+    "footAnchor": {
+      "x": 0.5,
+      "y": 0.92
+    },
+    "shadowAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "framesByState": {
+      "idle": 4,
+      "walk": 8,
+      "attackWindup": 3,
+      "attack": 5,
+      "hit": 3,
+      "die": 6,
+      "blocked": 3
+    },
+    "escape": {
+      "runtimeAtlasState": "walk",
+      "durationMs": 300,
+      "alphaFade": true,
+      "atlasFramesAdded": 0
+    },
+    "orientation": [
+      "E",
+      "W-mirrored"
+    ],
+    "futureFacings": [
+      "N",
+      "S"
+    ],
+    "canonicalColliderChanged": false,
+    "memoryEstimateTwoComparatorsMiB": 8.938,
+    "memoryEstimateP05FourActorsMiB": 17.876
+  },
+  "dynamic": {
+    "visualEventsCandidate": [
+      "spawn",
+      "move_state",
+      "attack_windup",
+      "attack_fire",
+      "hit_applied",
+      "blocked",
+      "status_applied",
+      "status_removed",
+      "entity_die",
+      "entity_escape",
+      "despawn",
+      "game_paused",
+      "game_resumed",
+      "scene_reset"
+    ],
+    "presentationModel": "createP05Reactivity({actorId,entityId,onVisualDone})",
+    "boundedEventDedup": true,
+    "doubleRewardPreventedByDesign": "No reward, kill, HP, escape life, currency, or core API writes exist here.",
+    "authoritativeGameplayAdapterInstalled": false,
+    "onVisualDone": "Only visual lifecycle notification; core remains authoritative."
+  },
+  "assets": [
+    {
+      "assetId": "actors/enemies/warrior/v1/p05",
+      "canonicalId": "warrior",
+      "faction": "enemy",
+      "displayName": "Orco Guerrero",
+      "owner": "P",
+      "category": "actor",
+      "status": "prototype",
+      "variant": "P05",
+      "atlasKey": "actors/enemies/warrior/v1/p05",
+      "sourceFile": "public/official/art/actors/p05-painter.mjs",
+      "sourceBaseline": "public/official/art/actors/p04-illustrator.mjs",
+      "worldHeightProposal": 91,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "pngFile": null,
+      "sha256": null,
+      "overlayHpOffsetWorld": 104,
+      "overlayShieldOffsetWorld": 113,
+      "reelFpsSource": "public/official/art/actors/p04-poses.mjs",
+      "faceSheetSizePx": [
+        1200,
+        820
+      ],
+      "actingNotes": "clear recoil, blocking arc and recover"
+    },
+    {
+      "assetId": "actors/enemies/hound/v1/p05",
+      "canonicalId": "hound",
+      "faction": "enemy",
+      "displayName": "Perro de Caza",
+      "owner": "P",
+      "category": "actor",
+      "status": "prototype",
+      "variant": "P05",
+      "atlasKey": "actors/enemies/hound/v1/p05",
+      "sourceFile": "public/official/art/actors/p05-painter.mjs",
+      "sourceBaseline": "public/official/art/actors/p04-illustrator.mjs",
+      "worldHeightProposal": 67,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "pngFile": null,
+      "sha256": null,
+      "overlayHpOffsetWorld": 80,
+      "overlayShieldOffsetWorld": 89,
+      "reelFpsSource": "public/official/art/actors/p04-poses.mjs",
+      "faceSheetSizePx": [
+        1200,
+        820
+      ],
+      "actingNotes": "four-foot P04 baseline with P05 contact/resilience cues"
+    },
+    {
+      "assetId": "actors/allies/infantry-recruit/v1/p05",
+      "canonicalId": "infantry_recruit",
+      "faction": "ally",
+      "displayName": "Soldado Recluta",
+      "owner": "P",
+      "category": "actor",
+      "status": "prototype",
+      "variant": "P05",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p05",
+      "sourceFile": "public/official/art/actors/p05-painter.mjs",
+      "sourceBaseline": "public/official/art/actors/p04-illustrator.mjs",
+      "worldHeightProposal": 88,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "pngFile": null,
+      "sha256": null,
+      "overlayHpOffsetWorld": 101,
+      "overlayShieldOffsetWorld": 110,
+      "reelFpsSource": "public/official/art/actors/p04-poses.mjs",
+      "faceSheetSizePx": [
+        1200,
+        820
+      ],
+      "actingNotes": "shield-forward reactive cue, no combat system"
+    },
+    {
+      "assetId": "actors/allies/sniper-operator/v1/p05",
+      "canonicalId": "sniper_operator",
+      "faction": "ally",
+      "displayName": "Operador Francotirador",
+      "owner": "P",
+      "category": "actor",
+      "status": "prototype",
+      "variant": "P05",
+      "atlasKey": "actors/allies/sniper-operator/v1/p05",
+      "sourceFile": "public/official/art/actors/p05-painter.mjs",
+      "sourceBaseline": "public/official/art/actors/p04-illustrator.mjs",
+      "worldHeightProposal": 80,
+      "footAnchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "shadowAnchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "frameWidthPx": 176,
+      "frameHeightPx": 208,
+      "atlasWidthPx": 1408,
+      "atlasHeightPx": 832,
+      "frameCount": 32,
+      "pngFile": null,
+      "sha256": null,
+      "overlayHpOffsetWorld": 93,
+      "overlayShieldOffsetWorld": 102,
+      "reelFpsSource": "public/official/art/actors/p04-poses.mjs",
+      "faceSheetSizePx": [
+        1200,
+        820
+      ],
+      "actingNotes": "P05 visual reaction; montage T06 frontRail must be verified"
+    }
+  ],
+  "t06OperatorConstraint": {
+    "source": "feature/art-t06-sniper-vfx read-only; operator placed between backStructure and frontRail",
+    "mountingVerified": false,
+    "sourcePointReview": "docs/art/actors/actas/MATRIZ_T06_P05.md"
+  },
+  "qa": {
+    "simulatedCanvasStructuralStatus": "pending separate verification",
+    "realBrowserPhaserRun": false,
+    "physicalMobileRun": false,
+    "pngActualExportRun": false,
+    "framePixelAlphaVerified": false,
+    "fpsMeasured": false
+  },
+  "blockers": [
+    "Real browser screenshot P04 vs P05 1280x768 844x390 932x430 pending",
+    "T06 operator montage screenshot actual frontRail pending",
+    "Four RGBA PNG masters, hashes and alpha inspection pending",
+    "Foot skid/contact and visual premium quality require direct artistic review",
+    "C1-D2 event names and contract must be ratified by Integrator; bridge not assumed"
+  ],
+  "files": [
+    "public/official/art/actors/p05-reactivity.mjs",
+    "public/official/art/actors/p05-painter.mjs",
+    "public/official/src/actors-visual/p05-view-adapter.mjs",
+    "public/official/src/actors-visual/p05-index.html",
+    "public/official/src/actors-visual/p05-gallery.mjs"
+  ]
+}
