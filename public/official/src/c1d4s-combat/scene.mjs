@@ -5,6 +5,9 @@ import {preloadM07Illustrations,mountM01WorldV7} from "../maps-visual/m01/m07/re
 import {TOWER_ART_V2,validateTowerArtV2,projectSourceAnchor} from "../towers-visual/catalog.mjs";
 import {SniperShotPresenter} from "../towers-visual/sniper-vfx.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
+import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
+import {CAST} from "../../art/actors/atlas-source.mjs";
+const OPERATOR_CANDIDATE=new URLSearchParams(location.search).get("operator")==="p07";
 
 const $=id=>document.getElementById(id);
 const assert=(c,m)=>{if(!c)throw Error("C1-D2: "+m);};
@@ -19,6 +22,10 @@ class CombatScene extends Phaser.Scene{
  }
  create(){
   registerP07(this);
+  if(!OPERATOR_CANDIDATE){
+   const p03=createP03Atlas("sniper_operator");
+   registerP03Atlas(this,p03);
+  }
   for(const id of ["warrior","hound","infantry_recruit","sniper_operator"])
     this.p07Actors.set(id,p07ItemFor(id));
   this.mapView=mountM01WorldV7(this,MAP,{palette:"viva",treatment:"fiel"});
@@ -32,7 +39,10 @@ class CombatScene extends Phaser.Scene{
   this.drawTowers();this.updateHud();
   $("render").textContent=this.game.renderer?.gl instanceof WebGL2RenderingContext?"WebGL2 real":"ERROR: WebGL2";
   window.__SEMANTROPIC_C1D4S={world:WORLD,economy:WORLD.economy,scene:this,
-   art:{maps:"M07_FIEL_M03",towers:"T08_T04",actors:"P07_P03",source:"C1C_PR12",realCombat:true,originalSVG:true,actualPng:true,artApproval:"PENDING"},
+   art:{maps:"M07_FIEL_M03",towers:"T08_T04",actors:"P07_P03",source:"C1C_PR12",
+    realCombat:true,originalSVG:true,actualPng:true,
+    activeSniperOperator:OPERATOR_CANDIDATE?"P07_UNAPPROVED":"P03_APPROVED",
+    artApproval:"PENDING_TEAM_FIX"},
    diagnostics:()=>({towers:this.towerMounts.size,enemies:this.enemyViews.size,
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
   this.events.once("shutdown",()=>{this.shots.destroy();this.mapView.destroy();});
@@ -57,12 +67,18 @@ class CombatScene extends Phaser.Scene{
     // Exactly C1-C: original P03 operator rig over the unchanged T04 composite.
     // NO extra T07 rifleMounted (the user's screenshot already defines the gun's appearance).
     const point=projectSourceAnchor(sprite,meta,"operatorAnchorLocal");
+    // By default retain exact P03 approved operator (including appearance).
+    // Opt-in ?operator=p07 permits review ONLY; no promotion while P07 fails QA/fidelity.
     const a=p07ItemFor("sniper_operator");
-    const operator=this.add.image(point.x,point.y,a.atlasKey,"idle-0")
-     .setOrigin(.5,.92).setScale(Math.min(.83,a.worldHeight/171*.70)).setDepth(point.y+3);
+    const legacy=CAST.find(v=>v.actorId==="sniper_operator");
+    const operatorKey=OPERATOR_CANDIDATE?a.atlasKey:legacy.atlasKey+"/p03-q2";
+    const scale=Math.min(.83,(legacy.heightWorld/171)*.70);
+    const operator=this.add.image(point.x,point.y,operatorKey,"idle-0")
+     .setOrigin(.5,.92).setScale(scale).setDepth(point.y+3);
     this.towerViews.push(operator);
     mount.operator=operator;mount.operatorState="idle";mount.operatorUntil=0;
-    mount.operatorAtlas="P07";mount.addedRifleLayers=0;mount.operatorContainsRifle=false;
+    mount.operatorAtlas=OPERATOR_CANDIDATE?"P07_UNAPPROVED":"P03_APPROVED";
+    mount.addedRifleLayers=0;mount.operatorContainsRifle=OPERATOR_CANDIDATE?false:true;
    }
    this.towerMounts.set(tower.id,mount);
   }
