@@ -33,3 +33,12 @@ export const T07_VISUAL_CORE_CONTRACT=Object.freeze({
  projectileVisualId:'optional RFC bulletId with eventId',
  damageOwnedBy:'core',rifleOwner:'T',operatorOwner:'P06',operatorAsset:'sniper_operator_unarmed'
 });
+
+/** T08 CURRENT adapter contract; keep T07_VISUAL_CORE_CONTRACT immutable as legacy P06 alias. */
+export const T08_VISUAL_CORE_CONTRACT=Object.freeze({
+ ...T07_VISUAL_CORE_CONTRACT,
+ status:'candidate-read-only-adapter-t08',
+ operatorOwner:'P07',
+ operatorAsset:'sniper_operator_unarmed',
+ rifleOwner:'T'
+});

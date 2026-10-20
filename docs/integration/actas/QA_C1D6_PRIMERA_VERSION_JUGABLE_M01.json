@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "semantropic-c1d6-playable-real-qa-v1",
+  "date": "2026-10-20",
+  "pr": 36,
+  "branch": "integration/c1d6-map01-playable-release",
+  "codeSha": "b68cde6bb8d2230eadda999cd13232a55f2c0aa5",
+  "CI": {
+    "run": 39469370610,
+    "conclusion": "SUCCESS",
+    "artifactId": 12286566855
+  },
+  "teamHeads": {
+    "MAPAS": "61fd5c15f9b8c7d24ef29d96997359922bc24771",
+    "TORRES": "d4b913e5b5fbcb6ad884974aa5df595b71a98b8b",
+    "PERSONAJES": "5eef18c3c86c683d9cb38f89d708eb3d9e7c168e"
+  },
+  "visual": {
+    "approved": "C1-C M03/T04/P03",
+    "defaultTerrain": "M07_Q2_FIEL",
+    "defaultTowers": "T08_T04_ORIGINAL",
+    "defaultActors": "P03_APPROVED",
+    "P07": "PRELOADED_BLOCKED_FOR_RELEASE",
+    "reason": "45 transparent pixels with nonzero RGB"
+  },
+  "gameplay": {
+    "waves": 5,
+    "spawns": 63,
+    "routePoints": 133,
+    "pads": 8,
+    "infantryLevels": [
+      1,
+      2
+    ],
+    "sniperLevels": [
+      1,
+      2
+    ],
+    "fullVictory": {
+      "kills": 63,
+      "escapes": 0,
+      "lives": 100,
+      "stars": 3
+    },
+    "fullDefeat": {
+      "escapes": 50,
+      "lives": 0,
+      "stars": 0
+    },
+    "recordPersisted": true
+  },
+  "checks": [
+    {
+      "name": "M07 Q2 Node",
+      "status": "PASS"
+    },
+    {
+      "name": "T08 HF1 Node",
+      "status": "PASS"
+    },
+    {
+      "name": "P07 HF1 Node",
+      "status": "FAIL_ISOLATED_ART_BLOCKER"
+    },
+    {
+      "name": "C1-D5 Node gameplay navigation and results",
+      "status": "PASS"
+    },
+    {
+      "name": "Phaser 4.2.1 build",
+      "status": "PASS"
+    },
+    {
+      "name": "Chromium desktop 1280x768",
+      "status": "PASS"
+    },
+    {
+      "name": "Chromium emulated touch 844x390",
+      "status": "PASS"
+    },
+    {
+      "name": "Chromium emulated touch 932x430",
+      "status": "PASS"
+    },
+    {
+      "name": "core scripted full 5-wave win",
+      "status": "PASS"
+    },
+    {
+      "name": "core natural loss",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile physical device",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "human full game",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "P07 player visual approved",
+      "status": "BLOCKED"
+    },
+    {
+      "name": "Render isolated publish",
+      "status": "PENDING_WORKSPACE_CONFIRMATION"
+    }
+  ],
+  "deploy": {
+    "existingStagingUntouched": true,
+    "newIsolatedSite": false,
+    "siteUrl": null
+  }
+}

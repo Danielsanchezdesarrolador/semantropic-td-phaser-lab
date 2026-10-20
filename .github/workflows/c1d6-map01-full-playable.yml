@@ -1,0 +1,63 @@
+name: C1-D6 M01 playable with all team assets staged; P07 release visual fallback
+on:
+  push:
+    branches: [integration/c1d6-map01-playable-release]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  m01-playable-all-teams:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Baseline visual locked and JS syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node --check public/official/src/c1d6-playable/scene.mjs
+          node --check tools/qa-c1d6-browser.mjs
+      - name: Three team latest real Node QA + M01 full regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          node public/official/src/maps-visual/m01/m07/qa-m07-q2.mjs | tee qa-m07-q2.log
+          node docs/art/towers/qa-t08.mjs 2>&1 | tee qa-t08-hf1.log
+          node tools/qa-c1d5-navigation.mjs | tee qa-nav-a2.log
+          node tools/qa-c1d5-results.mjs | tee qa-results.log
+          node tools/qa-c1d2-five-waves.mjs
+          node tools/qa-c1d3-infantry.mjs
+      - name: P07 art candidate independent hard blocker (NOT in playable fallback)
+        shell: bash
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          node public/official/src/actors-visual/qa-p07.mjs 2>&1 | tee qa-p07-hf1-BLOCKED.log
+      - name: Build original game + three latest teams Phaser 4.2.1
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install real headless Chromium
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Verify playable real game three screens and victory plus record
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d6-browser.mjs 2>&1 | tee qa-c1d6-browser.log
+      - name: Preserve all screenshots and QA logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: C1D6_MAPA01_MAPAS_TORRES_PERSONAJES_PRIMERA_PARTIDA_REAL
+          path: |
+            artifacts/c1d6-browser/
+            qa-*.log
+          if-no-files-found: warn

@@ -1,4 +1,73 @@
-# SEMANTROPIC TD — EQUIPO M · ACTAS ARTÍSTICAS
+# SEMANTROPIC TD — EQUIPO MAPAS / ÍNDICE HISTÓRICO
+
+## NUEVO: M07-Q2 · PRIMERA PARTIDA REAL C1-D5 / OPTIMIZACIÓN SIN REDISEÑO · 20-10-2026
+
+**Rama exclusiva:** [feature/art-m07-q2-performance-c1d5](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m07-q2-performance-c1d5).  
+**Base exacta:** `feature/art-m07-continuidad-c1c @ 2c08eaa13dac309f85f4e76b736db6f66545aac9` ([PR #31 MAPAS M07](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/31)).  
+**PR oficial:** [#35 MAPAS M07-Q2](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/35), destino `feature/art-m07-continuidad-c1c`, **DRAFT SIN MERGE**. **HEAD verificable:** [PR #35 → Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/35/commits); cada modificación del índice crea un SHA nuevo.  
+**Visual lock C1-C:** PNG del propietario 1280×768 SHA256 `24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef`; default M03 paleta Viva y modo Fiel inalterados.  
+**Referencia funcional:** C1-D4R [PR #30](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/30), nuevo C1-D5 a cargo exclusivo de Dirección General.
+
+| Archivo / evidencia | Acceso | Estado |
+|---|---|---|
+| Acta oficial M07-Q2 | [ACTA_MAPAS_M07_Q2_PERF_C1D5_2026-10-20.md](ACTA_MAPAS_M07_Q2_PERF_C1D5_2026-10-20.md) | [CONFIRMADO EN GITHUB] |
+| QA estructurado | [QA_MAPAS_M07_Q2.json](QA_MAPAS_M07_Q2.json) | V8 fuente simulada PASS; Node/Chrome NOT_RUN |
+| Datos antes/después | [PERF_BASELINE_M07_Q2.json](PERF_BASELINE_M07_Q2.json) | 50 ciclos: 575→36 creates en mocks; FPS reales NOT_RUN |
+| RFC para Integrador | [RFC_MAPAS_M07_Q2_C1D5_LIFECYCLE.md](RFC_MAPAS_M07_Q2_C1D5_LIFECYCLE.md) | PROPUESTA, DG debe ratificar |
+| Renderer M07-Q2 | [renderer-v7.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/renderer-v7.mjs) | IDENTIDAD M03 INALTERADA |
+| QA Node Q2 | [qa-m07-q2.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/qa-m07-q2.mjs) | Archivo listo, ejecución nativa NOT_RUN |
+| QA Node legado adaptado | [qa-m07.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/qa-m07.mjs) | Assertions actualizadas a retención M03 Q2, ejecución nativa NOT_RUN |
+| Captura Chromium con frame timing | [capture-m07-q2.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/src/maps-visual/m01/m07/capture-m07-q2.mjs) | Script preparado, Chromium NOT_RUN |
+| Evidencias PNG nuevas | `docs/art/maps/evidencias/M07-Q2/**` | No generadas, SHA256 nuevas 0 |
+| Asset manifest M07+Q2 | [manifest.json](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-q2-performance-c1d5/public/official/art/maps/m01/m07/manifest.json) | 7 fuentes reutilizadas, 0 assets nuevos |
+
+**[PROBADO EN V8 CON MOCKS]** 50 montajes/desmontajes; 575 → 36 llamadas a `addCanvas` y 575 → 25 `textures.remove` frente a M07 original; 11 claves Canvas M03 cacheadas de forma estable, 9 SVG originales retenidos, Pulido opcional libera su textura, selección no vacía un pad ocupado, venta tick22 no revive por tick21, escena M03 directa con `disposeTextures:false` no pierde recursos al cerrar M07.
+
+**[RIESGO EXPLÍCITO]** El M03 directo con `disposeTextures:true` todavía puede eliminar texturas comunes cuando cierra: resolver ownership en Dirección General, sin tocar fuente M03.
+
+**[NO EJECUTADO]** Node nativo, build, Chromium WebGL2 real 1280×768 / 844×390 / 932×430, p50/p95 del navegador, hardware móvil, partida C1-D5 de cinco oleadas y 63 apariciones oficiales, capturas integradas C1-C vs M07-Q2. La prueba de 63 MARCADORES sintéticos no es combate.
+
+**Rollback:** cerrar PR M07-Q2 sin fusionar; Canvas V5, M07 aprobado, C1-D4R, escenas comunes, Torres, Personajes, Render y campaña quedan intactos.
+
+---
+
+## Archivo histórico M01–M07
+
+## M-07 · RESTAURACIÓN VISUAL C1-C / M03 VIVA · 20-10-2026
+
+**PR borrador:** [#31 MAPAS/M07](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/31), destino `feature/art-m06-combat-painterly`, **NO MERGE**.  
+**Rama exclusiva:** [feature/art-m07-continuidad-c1c](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/tree/feature/art-m07-continuidad-c1c).  
+**SHA base congelado:** `fa7f5f90a059b3292a20a7b3834ac43c81176ac7` (M06).  
+**HEAD verificable:** [PR #31 → Commits](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/31/commits); cada cambio de índice añade un commit, no escribir HEAD propio inventado.  
+**PNG C1-C original verificado SHA256:** `24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef` (1280×768; archivo del Director, no sustituido).  
+**Baseline visual:** M03/C1C [PR #12](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/12).  
+**Baseline funcional:** C1-D4 [PR #28](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/28) **sólo referencia, sin cambios**.
+
+| Entregable M07 | Acceso | Estado real |
+|---|---|---|
+| Acta de continuidad con comparativa | [ACTA_MAPAS_M07_CONTINUIDAD_C1C_2026-10-20.md](ACTA_MAPAS_M07_CONTINUIDAD_C1C_2026-10-20.md) | CONFIRMADO EN GITHUB |
+| QA estructurado | [QA_M07.json](QA_M07.json) | V8 PASS / NODE & CHROMIUM NOT_RUN |
+| Inventario objeto por objeto | [INVENTARIO_M07_CONTINUIDAD_C1C.json](INVENTARIO_M07_CONTINUIDAD_C1C.json) | 13 props, posiciones M03 |
+| RFC Integrador C1-D4 | [RFC_MAPAS_M07_C1D4_INTEGRACION_FIEL.md](RFC_MAPAS_M07_C1D4_INTEGRACION_FIEL.md) | PROPUESTA, NO APLICADO |
+| Renderer conservador | [renderer-v7.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-continuidad-c1c/public/official/src/maps-visual/m01/m07/renderer-v7.mjs) | M03 Viva original por defecto |
+| Manifest de fuentes históricas | [manifest.json](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-continuidad-c1c/public/official/art/maps/m01/m07/manifest.json) | 7 SHA blobs únicos M02/M03 |
+| Vitrina standalone de M07 | [index.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-continuidad-c1c/public/official/art/maps/m01/m07/index.html) | FUENTE, SIN RENDER PHASER PROBADO |
+| Galería triple verificadora PNG | [gallery.html](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-continuidad-c1c/public/official/art/maps/m01/m07/gallery.html) | Acepta sólo el PNG sha256 correcto, comparación map-only |
+| QA Node | [qa-m07.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-continuidad-c1c/public/official/src/maps-visual/m01/m07/qa-m07.mjs) | NOT_RUN EN NODE NATIVO |
+| Capturador Chromium | [capture-m07.mjs](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/blob/feature/art-m07-continuidad-c1c/public/official/src/maps-visual/m01/m07/capture-m07.mjs) | NOT_RUN EN CHROMIUM |
+| Capturas M07 reales | `docs/art/maps/evidencias/M07` (directorio se genera sólo al ejecutar capturador) | NO EXISTEN TODAVÍA |
+
+**[CONFIRMADO EN FUENTE]** M07 Fiel crea M03 Viva original con 13 props, 7 oaks lobulados, camino arena S de 133 vértices, 8 pads y siete recursos únicos propios reutilizados (9 SVG precargados incluyendo recursos no instanciados). Las capas M04/M05/M06 quedan **desactivadas visualmente** por no usarse en ese montaje.
+
+**[PROBADO EN V8+PHASER/CANVAS MOCKS]** 53 objetos Fiel, 54 Pulido opcional; selección de pad ocupado preservada, secuencia snapshot/evento/duplicado, caches con dos vistas, destroy doble idempotente.
+
+**[NOT_RUN]** QA Node nativo y build; Chromium 1280×768/844×390/932×430; original/after con idénticos T/P/HUD, integración C1-D4, iOS/Android físicos y aprobación de Dirección. La foto C1-C verificada **no es** captura nueva de M07.
+
+**Rollback:** cerrar PR #31. M03/M04/M05/M06, core C1-D4, otros equipos, main, producción y Render siguen protegidos.
+
+---
+
+## Archivo histórico anterior: M01 a M06
 
 ## Lote M06 / 20-10-2026 · Sexta revisión pictórica de Mapa 01
 

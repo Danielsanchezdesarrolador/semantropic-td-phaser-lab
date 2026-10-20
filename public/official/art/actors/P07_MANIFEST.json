@@ -1,0 +1,186 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "revision": "P07-C1C-HF1-NUMERIC-STABILITY",
+  "date": "2026-10-20",
+  "owner": "PERSONAJES",
+  "branch": "feature/art-p07-continuidad-c1c",
+  "baseSha": "a5116db1f956f8b32b86570600b878ba9d5187ed",
+  "approvedVisualReference": {
+    "file": "SEMANTROPIC_TD_REFERENCIA_VISUAL_APROBADA_C1C_M03_T04_P03.png",
+    "sha256": "24103e45a0e1249fa4b89d4e65ea16d9e147bdf1e2462e5c4063469a931842ef",
+    "resolution": [
+      1280,
+      768
+    ]
+  },
+  "visualSource": {
+    "originalBranch": "feature/art-p03-q2-personajes",
+    "originalFile": "public/official/art/actors/p03-rig.mjs",
+    "originalBlobSha": "1a4282e1652ff559b92e18f42db465d6bfb8e729",
+    "p07AuthoringFile": "public/official/art/actors/p07-p03-continuity-rig.mjs",
+    "deliberateChanges": [
+      "new-version-keys",
+      "P03 human helmet alignment in source coordinates",
+      "sniper actor-owned rifle removed; T08 is sole weapon owner"
+    ]
+  },
+  "renderer": {
+    "sourceMethod": "P03 original Canvas2D geometry/palette routed through deterministic local P07 software path/gradient rasterizer",
+    "rasterModule": "public/official/art/actors/p07-raster-canvas.mjs",
+    "exporter": "public/official/art/actors/p07-png-export.mjs",
+    "encoder": "public/official/art/actors/p06-png-generator.mjs",
+    "note": "Software Canvas approximation, not pixel-identical to native Chromium Canvas; visual comparison compulsory before approval",
+    "determinism": "Quantized transformed coordinates, Bezier geometry, gradients, alpha coverage, pixel and stroke sqrt lengths (1e-6). Fixed-Huffman deflate, RGBA8 PNG filter NONE.",
+    "compressedHashMeaning": "SHA256 over exact persisted PNG byte stream",
+    "rgbaHashMeaning": "SHA256 over row-major RGBA bytes with PNG row filter removed",
+    "generatorEnvironment": "V8 isolated runtime; Node22 full checkout not re-executed after HF1",
+    "sourceRevisionCommit": "edfe29f3ac89da893c1852d0aad29808c40ad5cf",
+    "binaryRevisionCommit": "db0d27e9762ee8cd6bb65c7538a364f3c7767985",
+    "diagnosticFile": "public/official/src/actors-visual/p07-hf1-png-diagnostics.mjs",
+    "pending": "Independent Node 22 and real Chromium must certify identity.",
+    "numericPerturbationQa": "20/20 selected frames across 4 actors identical in V8 under +1e-12 sin/cos/hypot/sqrt/atan2 variation; not Node22 runtime proof."
+  },
+  "packing": {
+    "width": 1408,
+    "height": 832,
+    "frames": 32,
+    "cellWidth": 176,
+    "cellHeight": 208,
+    "cols": 8,
+    "rows": 4,
+    "states": {
+      "idle": 4,
+      "walk": 8,
+      "attackWindup": 3,
+      "attack": 5,
+      "hit": 3,
+      "die": 6,
+      "blocked": 3
+    },
+    "footAnchor": {
+      "x": 0.5,
+      "y": 0.92
+    },
+    "shadowAnchor": {
+      "x": 0.5,
+      "y": 1
+    },
+    "orientation": [
+      "E",
+      "W-mirrored"
+    ]
+  },
+  "assets": [
+    {
+      "canonicalId": "warrior",
+      "atlasKey": "actors/enemies/warrior/v1/p07-c1c",
+      "assetId": "actors/enemies/warrior/v1/p07-c1c",
+      "variant": "continuity",
+      "file": "public/official/art/actors/p07/png/warrior.png",
+      "worldHeightProposal": 91,
+      "sizeBytes": 696955,
+      "sha256": "41ce773004dc8147463d7198e996b08144ed12824b933edf4d5d737db31bcc5e",
+      "gitBlobSha": "4c484d9479d19b67a4883309afbc935564b45e6c",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "integrator approval pending",
+      "containsActorRifle": null,
+      "rgbaSha256": "3e5aa32b1d2a521a8d738c2a9c1a6e83fb78c258306cb85c363131dfff7a823f",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+    },
+    {
+      "canonicalId": "hound",
+      "atlasKey": "actors/enemies/hound/v1/p07-c1c",
+      "assetId": "actors/enemies/hound/v1/p07-c1c",
+      "variant": "continuity",
+      "file": "public/official/art/actors/p07/png/hound.png",
+      "worldHeightProposal": 67,
+      "sizeBytes": 600459,
+      "sha256": "3812bc31e9bc46ebda437f1c88c067811c59fa8928c4f2c608f4462e96934e60",
+      "gitBlobSha": "4fc631fcad695fe5b464abcaae625fed5c233b8c",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "integrator approval pending",
+      "containsActorRifle": null,
+      "rgbaSha256": "535c3cf9a3f3695a5fd9b896da65057169857147eacf13c26b7ace31dffb1f4a",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+    },
+    {
+      "canonicalId": "infantry_recruit",
+      "atlasKey": "actors/allies/infantry-recruit/v1/p07-c1c",
+      "assetId": "actors/allies/infantry-recruit/v1/p07-c1c",
+      "variant": "continuity",
+      "file": "public/official/art/actors/p07/png/infantry_recruit.png",
+      "worldHeightProposal": 88,
+      "sizeBytes": 610640,
+      "sha256": "c372219d8899fb00aed63f42701a7e7d038685430a6d564b2a1784559b6f4559",
+      "gitBlobSha": "8f64c8954266699241da2ef2a138d645a316d2d9",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "integrator approval pending",
+      "containsActorRifle": null,
+      "rgbaSha256": "ebb5229a969756483ee18fb94be239411a436b253182efea70e117a000da4f69",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+    },
+    {
+      "canonicalId": "sniper_operator",
+      "atlasKey": "actors/allies/sniper-operator/v1/p07-c1c-unarmed",
+      "assetId": "actors/allies/sniper-operator/v1/p07-c1c-unarmed",
+      "variant": "unarmed",
+      "file": "public/official/art/actors/p07/png/sniper_operator_unarmed.png",
+      "worldHeightProposal": 80,
+      "sizeBytes": 539249,
+      "sha256": "94061e8637c60d9e78d31449ace49c90d4f96337c6cecc481f5fd13bf24eca2f",
+      "gitBlobSha": "e09d62fa685e757bce2545c6111f7575cbbae2fb",
+      "pngFormat": "RGBA8",
+      "frameCount": 32,
+      "alpha": true,
+      "framesNonempty": 32,
+      "borderContacts": 0,
+      "integrationAllowed": "T08-mounted test pending",
+      "containsActorRifle": false,
+      "rgbaSha256": "40079024940d5f085596f0ccaf658c62a610e1b485e81fbc94037cfe2eda79e0",
+      "rgbaBytes": 4685824,
+      "exportRevision": "P07-HF1-QUANTIZED-1e-6-FINAL"
+    }
+  ],
+  "memory": {
+    "rgba8PerAtlasBytes": 4685824,
+    "totalFourUncompressedBytes": 18743296,
+    "totalCompressedPngBytes": 2447303,
+    "actualGPUMeasured": false
+  },
+  "compatibility": {
+    "preservesP03Identity": true,
+    "strictPixelIdentityToP03Browser": false,
+    "keepsP06AssetsUntouched": true,
+    "keepsP05FsmUntouched": true,
+    "coreBindings": "read-only/integrator",
+    "t08Montage": "NOT_RUN",
+    "coreGameplayModified": false
+  },
+  "approval": {
+    "sourceGenerated": true,
+    "binPngInGit": true,
+    "byteSHA256FromExport": true,
+    "realChromiumQA": false,
+    "physicalDeviceQA": false,
+    "artistApproved": false,
+    "strictNode22PassAfterHF1": false,
+    "shaRGBAFromV8": true,
+    "V8NumericPerturbationPass": true,
+    "integratedT08MountingPass": false
+  }
+}
