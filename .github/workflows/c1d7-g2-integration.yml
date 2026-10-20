@@ -1,0 +1,52 @@
+name: C1-D7 G2 combined T09 + P08-HF1 real Phaser M01 QA
+on:
+  push:
+    branches: [integration/c1d7-g2-t09-p08]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integrated-real-game:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original visual source locked; Node QA real T09/P08/P07/gameplay
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node --check public/official/src/c1d7-g2-playable/scene.mjs
+          node --check tools/qa-c1d7-g2-browser.mjs
+          node docs/art/towers/qa-t09.mjs
+          node public/official/src/actors-visual/p08/qa-p08.mjs
+          node public/official/src/actors-visual/qa-p07.mjs
+          node tools/qa-c1d7-menu.mjs
+          node tools/qa-c1d7-actor-visual.mjs
+          node tools/qa-c1d5-navigation.mjs
+          node tools/qa-c1d5-results.mjs
+      - name: Real Phaser 4.2.1 WebGL2 production build
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Full G2 scene browser integration desktop + landscape touch
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d7-g2-browser.mjs 2>&1 | tee qa-c1d7-g2-browser.log
+      - name: Capture browser screenshots and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_TD_C1D7_G2_T09_P08_PRIMERA_INTEGRACION
+          path: |
+            artifacts/c1d7-g2-browser/
+            qa-c1d7-g2-browser.log
+          if-no-files-found: warn

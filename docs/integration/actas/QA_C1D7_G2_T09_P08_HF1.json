@@ -1,0 +1,103 @@
+{
+  "schema": "SEMANTROPIC_C1D7_G2_T09_P08_HF1_QA",
+  "date": "2026-10-20",
+  "pr": 40,
+  "branch": "integration/c1d7-g2-t09-p08",
+  "codeTestedSha": "606cfdb236e42a45d9699457218d91ffac019357",
+  "ci": {
+    "run": 39505983652,
+    "conclusion": "SUCCESS",
+    "artifactId": 12303820859
+  },
+  "teams": {
+    "T09_HF0": {
+      "pr": 38,
+      "head": "e95f6e67d1eea5deeb86ee92d54d3252ed36737c"
+    },
+    "P08_B1_HF1": {
+      "pr": 39,
+      "head": "d124049df3df4a20d188fcc70fcb97105e3a314d"
+    }
+  },
+  "gameplay": {
+    "M01": {
+      "waves": 5,
+      "spawns": 63,
+      "waypoints": 133,
+      "sockets": 8
+    },
+    "win": {
+      "kills": 63,
+      "leaks": 0,
+      "lives": 100,
+      "stars": 3,
+      "coreTicks": 8174,
+      "melee": 24,
+      "recordAfterReload": true
+    },
+    "loss": {
+      "leaks": 50,
+      "lives": 0,
+      "stars": 0,
+      "coreTicks": 11067,
+      "recordCreated": false
+    }
+  },
+  "tests": [
+    {
+      "name": "C1C source lock and Node core T09 P08 P07 economy",
+      "status": "PASS"
+    },
+    {
+      "name": "Phaser 4.2.1 build",
+      "status": "PASS"
+    },
+    {
+      "name": "Browser PC 1280x768 radial actual buys/upgrades two veteran textures",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "Browser mobile landscape 844x390 touch and real core attack frame 2",
+      "status": "PASS_CHROMIUM_EMULATED"
+    },
+    {
+      "name": "Browser mobile landscape 932x430 touch and real core attack frame 2",
+      "status": "PASS_CHROMIUM_EMULATED"
+    },
+    {
+      "name": "Actual real core 5waves victory three stars and persistent record",
+      "status": "PASS_CHROMIUM_SCRIPTED"
+    },
+    {
+      "name": "Actual natural core 50-leak defeat no saved score",
+      "status": "PASS_CHROMIUM_SCRIPTED"
+    },
+    {
+      "name": "P08 gallery veteran title gap 15px cards gap 20px after HF1 3 viewports",
+      "status": "PASS_CHROMIUM_WEBGL2"
+    },
+    {
+      "name": "Physical Android/iPhone FPS touch and GPU",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "Human complete five wave playtest",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "User visual approval T09/P08",
+      "status": "PENDING"
+    },
+    {
+      "name": "Promotion to permanent URL / Render",
+      "status": "NOT_RUN"
+    }
+  ],
+  "release": {
+    "productionBranch": "production/semantropic-td-live",
+    "liveURL": "https://semantropic-td-jugar.onrender.com/",
+    "liveChanged": false,
+    "sourceSha": "edf84939dfd9aa9e754247b384e5b47fe854b411",
+    "stage": "DRAFT_APPROVAL_PENDING"
+  }
+}
