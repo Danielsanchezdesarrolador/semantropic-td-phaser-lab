@@ -1,0 +1,56 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#123e3e">
+<title>SEMANTROPIC TD · Equipo M · M04 Praderas ilustradas</title>
+<style>
+:root{--t:env(safe-area-inset-top,0px);--b:env(safe-area-inset-bottom,0px);--l:env(safe-area-inset-left,0px);--r:env(safe-area-inset-right,0px);color-scheme:dark}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;overscroll-behavior:none;touch-action:none}
+body{font:12px/1.3 system-ui,sans-serif;color:#f6ead0;background:#164343}
+main{position:relative;width:100vw;height:100dvh;overflow:hidden;background:#659878}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;touch-action:none}
+#stage canvas{display:block;max-width:100%;max-height:100%;touch-action:none}
+header{position:absolute;z-index:20;left:calc(var(--l) + 10px);right:calc(var(--r) + 10px);top:calc(var(--t) + 8px);display:flex;justify-content:space-between;gap:6px;align-items:start;pointer-events:none}
+.head{background:linear-gradient(#164949ec,#092b39e9);border:1px solid #edcf92;border-radius:10px;padding:8px 12px;box-shadow:0 4px 19px #0a343b8e}
+.head b{color:#ffe9b1;font-size:16px}.head small{display:block;color:#c9e5d3}.head em{display:block;color:#9be3cd;font-size:11px;font-style:normal}
+nav,.actions{display:flex;gap:4px;pointer-events:auto;flex-wrap:wrap}
+button{border:1px solid #e9d19d;border-radius:7px;background:linear-gradient(#38675d,#163843);color:#ffefd1;font:800 11px system-ui;white-space:nowrap;min-height:44px;padding:6px 10px;cursor:pointer;touch-action:manipulation}
+button.on{background:linear-gradient(#f0c47f,#a47c44);border:2px solid #ffe9ae;color:#123840}
+button:focus-visible{outline:3px solid #ffdf7c;outline-offset:2px}
+footer{position:absolute;z-index:20;left:calc(var(--l) + 10px);right:calc(var(--r) + 10px);bottom:calc(var(--b) + 7px);display:flex;gap:7px;align-items:end;justify-content:space-between;pointer-events:none}
+.metrics{border:1px solid #abc1a9;background:#0d343ad9;border-radius:9px;padding:8px;color:#d3e8d6;font-size:10px;min-width:210px}.metrics b{color:#fce3ab}
+#status{position:absolute;z-index:15;bottom:calc(var(--b) + 73px);left:calc(var(--l) + 10px);max-width:50vw;font-size:10px;background:#102e3ad3;padding:6px 9px;border-radius:6px;color:#e8eee2;pointer-events:none}
+#info{position:absolute;z-index:24;left:calc(var(--l) + 10px);bottom:calc(var(--b) + 76px);width:min(350px,55vw);background:#0e3840f2;border:2px solid #e5c289;border-radius:10px;padding:12px}
+#info[hidden],#blocker[hidden]{display:none}
+#info strong{font-size:12px;color:#ffe3ac}#info p{font-size:11px}
+#blocker{position:absolute;z-index:99;inset:0;background:#163b42f4;display:grid;place-items:center;text-align:center;padding:30px;font-size:17px}
+#portrait{display:none;position:absolute;z-index:97;inset:0;background:#12333be9;align-items:center;justify-content:center;color:#ffdbac;font-size:22px;text-align:center}
+@media(max-width:960px) and (orientation:landscape){
+ header{top:calc(var(--t) + 4px);left:calc(var(--l) + 4px);right:calc(var(--r) + 4px);gap:3px}
+ .head{padding:4px 6px;border-radius:5px}.head b{font-size:9px}.head small,.head em{font-size:8px}
+ nav,.actions{gap:2px}button{min-height:35px;padding:3px 5px;font-size:9px;border-radius:5px}
+ footer{left:calc(var(--l) + 4px);right:calc(var(--r) + 4px);bottom:calc(var(--b) + 3px)}
+ .metrics,#status{display:none}
+ #info{left:calc(var(--l) + 4px);bottom:calc(var(--b) + 44px);width:48vw;max-height:110px;overflow:auto;padding:6px}
+ #info strong{font-size:10px}#info p{font-size:9px;margin:3px 0}
+}
+@media(orientation:portrait) and (max-width:960px){#portrait{display:flex}}
+</style></head><body><main>
+ <div id="stage" aria-label="Comparador real de escena ilustrada M03 y M04 (Phaser)"></div>
+ <header><div class="head"><b>SEMANTROPIC TD · M-04</b><small>Praderas del Amanecer · 1280 × 768 · arte de mapas</small><em id="versionLabel">Preparando visual…</em></div>
+  <nav aria-label="Comparar M03 y M04 en idéntica cámara">
+   <button data-variant="m03">A · M03</button><button data-variant="equilibrada" class="on">B · M04</button>
+   <button data-variant="viva">Viva</button><button data-variant="atmosferica">Atmósfera</button>
+  </nav>
+ </header>
+ <div id="info" hidden><strong>Socket oficial — inspección de arte</strong><p id="socketMeta"></p><button id="close">Cerrar ×</button></div>
+ <div id="status">Cargando arte y geometría oficial. Sin gameplay.</div>
+ <footer>
+  <div class="actions"><button id="occupied">Alternar libres</button><button id="path">Ruta</button><button id="sockets">Sockets</button><button id="occlusion">Oclusión</button></div>
+  <div class="actions"><button data-zoom=".84">84%</button><button data-zoom=".92">92%</button><button data-zoom="1" class="on">100%</button><button id="reload">↻</button></div>
+  <div class="metrics"><b id="terrainLabel">M04</b><div id="engine">Verificación WebGL2 pendiente</div><div><span id="density">—</span> props · <span id="socketCount">8</span> sockets · <span id="zoomLabel">100%</span></div></div>
+ </footer>
+ <div id="blocker">Cargando biblioteca ilustrada original M-04…</div>
+ <div id="portrait">↻ Gira el teléfono a horizontal</div>
+</main>
+<script src="../../../../../dependencias/phaser.min.js"></script>
+<script type="module" src="../../../../src/maps-visual/m01/m04/showcase-v4.mjs"></script>
+</body></html>

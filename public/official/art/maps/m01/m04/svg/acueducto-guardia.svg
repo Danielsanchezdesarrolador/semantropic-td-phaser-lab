@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="270" viewBox="0 0 300 270"><defs><linearGradient id="stone" x1=".06" y1=".05" x2=".9" y2="1"><stop stop-color="#f2e7ce"/><stop offset=".4" stop-color="#adbfaf"/><stop offset="1" stop-color="#496b74"/></linearGradient><linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe5ac"/><stop offset=".5" stop-color="#bea177"/><stop offset="1" stop-color="#566f75"/></linearGradient><linearGradient id="timber" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9bb83"/><stop offset=".5" stop-color="#aa7951"/><stop offset="1" stop-color="#5e4d45"/></linearGradient><linearGradient id="crystal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ebffdf"/><stop offset=".45" stop-color="#91ddd2"/><stop offset="1" stop-color="#3d8aa4"/></linearGradient><radialGradient id="aura"><stop stop-color="#b4ffed" stop-opacity=".8"/><stop offset=".6" stop-color="#b3f8de" stop-opacity=".18"/><stop offset="1" stop-color="#9ffff1" stop-opacity="0"/></radialGradient></defs><ellipse cx="155" cy="226" rx="126" ry="17" fill="#1d5250" opacity=".27"/>
+<!-- cut masonry with three-quarter arch and detached worn approach -->
+<path d="M24 197 43 129 80 99l45 7 15 84-19 36-79 2Z" fill="url(#stone)" stroke="#3a606a" stroke-width="6"/>
+<path d="M177 203 198 116 242 92l38 36 13 82-35 21-68-9Z" fill="url(#stone)" stroke="#496774" stroke-width="6"/>
+<path d="m44 130 32-26 30 4-12 38-53 13Zm156-10 42-22 27 35-12 26-62-10Z" fill="#e9e3c4" opacity=".62"/>
+<path d="M101 184q4-65 50-76 47 4 62 77l-26-5q-8-42-38-43-28 2-31 45Z" fill="url(#stone)" stroke="#4c6871" stroke-width="5"/>
+<path d="m25 130 40-46 159-10 53 35-19 27-192-17Z" fill="url(#bronze)" stroke="#49666a" stroke-width="5"/>
+<path d="m57 94 177-8 30 20-193 9Z" fill="#efe5c6" stroke="#647c7b" stroke-width="3"/>
+<path d="m56 132 8 86m30-91-11 80m146-70-10 82m38-71-9 58" stroke="#54747c" stroke-width="4"/>
+<path d="m42 165 49-9m117 10 43-7M50 197l34 2m159-3 27-5" stroke="#e7d6af" stroke-width="3" opacity=".83"/>
+<!-- ruined alarm technology built into bridge parapet -->
+<path d="m141 77 0-27 19-13 18 9-1 27" fill="url(#timber)" stroke="#536263" stroke-width="4"/>
+<circle cx="158" cy="40" r="25" fill="url(#aura)"/>
+<path d="m158 15 15 26-15 26-14-26Z" fill="url(#crystal)" stroke="#e2ffeb" stroke-width="3"/>
+<path d="m157 26 7 16-5 13" stroke="#408ca2" stroke-width="3"/>
+<!-- ropes, ivy and geological wear -->
+<path d="m37 211 19-20 7 16m210 1-14-19-12 14" fill="none" stroke="#619476" stroke-width="9" stroke-linecap="round"/>
+<path d="M43 230 63 218m192-3 30 14" stroke="#a6c092" stroke-width="8"/>
+<g stroke="#405f62" stroke-width="3"><path d="m72 140 12 15-6 29m158-38-13 18 8 19"/></g></svg>

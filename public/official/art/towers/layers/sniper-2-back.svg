@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-label="T07 Torre 2 back full legacy incl. rifle (T)"><title>T07 Torre 2 back full legacy incl. rifle (T) — Semantropic TD T07</title><defs>
+<linearGradient id="mStone" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fff2cb"/><stop offset=".22" stop-color="#d4c9a6"/><stop offset=".64" stop-color="#899b93"/><stop offset="1" stop-color="#526d74"/></linearGradient>
+<linearGradient id="sideStone" x1="0" y1="0" x2=".92" y2="1"><stop stop-color="#9fa89d"/><stop offset=".55" stop-color="#627c7f"/><stop offset="1" stop-color="#284d60"/></linearGradient>
+<linearGradient id="iron" x1=".2" y1="0" x2=".9" y2="1"><stop stop-color="#e8e8d1"/><stop offset=".22" stop-color="#8babae"/><stop offset=".57" stop-color="#4b7888"/><stop offset=".89" stop-color="#294861"/><stop offset="1" stop-color="#172f4e"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f0c892"/><stop offset=".4" stop-color="#ae7b50"/><stop offset=".78" stop-color="#785441"/><stop offset="1" stop-color="#493c38"/></linearGradient>
+<linearGradient id="woodShade" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#bd8050"/><stop offset=".6" stop-color="#654b3d"/><stop offset="1" stop-color="#39353a"/></linearGradient>
+<linearGradient id="roof" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#aec3b8"/><stop offset=".2" stop-color="#698d9d"/><stop offset=".47" stop-color="#416f88"/><stop offset=".84" stop-color="#244760"/><stop offset="1" stop-color="#152f52"/></linearGradient>
+<linearGradient id="canvas" x1=".2" y1="0" x2="1" y2="1"><stop stop-color="#e6d8b6"/><stop offset=".38" stop-color="#8da99d"/><stop offset=".86" stop-color="#3d7183"/><stop offset="1" stop-color="#2c4b65"/></linearGradient>
+<linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2bd"/><stop offset=".36" stop-color="#e0bc7d"/><stop offset=".77" stop-color="#9e7649"/><stop offset="1" stop-color="#664c41"/></linearGradient>
+<radialGradient id="optic"><stop stop-color="#f5ffff"/><stop offset=".3" stop-color="#a6fff1"/><stop offset=".58" stop-color="#60b8bb"/><stop offset="1" stop-color="#285d79"/></radialGradient>
+<radialGradient id="light"><stop stop-color="#ffeabb" stop-opacity=".85"/><stop offset=".5" stop-color="#e1ac55" stop-opacity=".28"/><stop offset="1" stop-color="#b48e50" stop-opacity="0"/></radialGradient>
+<pattern id="grain" width="20" height="16" patternUnits="userSpaceOnUse"><path d="M1 5q7-3 14-2M-2 14q9-2 15-1" fill="none" stroke="#ffe1af" stroke-width="1.1" opacity=".21"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+</defs><defs><linearGradient id="t06Flag" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9f2d6"/><stop offset=".45" stop-color="#3c8c95"/><stop offset="1" stop-color="#205170"/></linearGradient><linearGradient id="t06Arm" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#f6e6ba"/><stop offset=".23" stop-color="#b4d2c9"/><stop offset=".6" stop-color="#4e8799"/><stop offset="1" stop-color="#24465c"/></linearGradient><radialGradient id="t06Glow"><stop stop-color="#ffffff"/><stop offset=".25" stop-color="#b8fff0"/><stop offset=".6" stop-color="#4da9a9" stop-opacity=".8"/><stop offset="1" stop-color="#266e84" stop-opacity="0"/></radialGradient><pattern id="t06Stone" width="33" height="28" patternUnits="userSpaceOnUse"><path d="M0 0H33M0 28H33M15 0V28" fill="none" stroke="#395463" stroke-width="2.3" opacity=".36"/><path d="M2 5l9-2M19 19l9-1" fill="none" stroke="#fff2cd" stroke-width="2.8" opacity=".17"/></pattern></defs><g id="t06-sniper-backstructure" data-owned="T" data-operator-slot="P">
+ 
+<g id="t06-heavy-tripod">
+ <!-- Three independent stabilizers, far more distinctive than I's wooden trestle -->
+ <path d="M110 217 145 223 133 348 100 331Z" fill="url(#mStone)" stroke="#2b4a5a" stroke-width="7"/>
+ <path d="M145 223 179 234 185 361 132 346Z" fill="url(#iron)" stroke="#2d5368" stroke-width="6"/>
+ <path d="M220 214 262 198 279 326 235 349Z" fill="url(#iron)" stroke="#29495b" stroke-width="7"/>
+ <path d="M166 246 191 250 204 361 176 365Z" fill="url(#woodShade)" stroke="#314956" stroke-width="6"/>
+ <path d="M113 334 235 237M262 327 132 232M170 357 259 269M111 292 268 283" stroke="#31536a" stroke-width="17" fill="none"/>
+ <path d="M113 334 235 237M262 327 132 232M170 357 259 269M111 292 268 283" stroke="#d4b88b" stroke-width="5" opacity=".82" fill="none"/>
+ <path d="M100 334 142 357 164 349 117 320ZM239 352 279 332 299 346 253 369Z" fill="url(#brass)" stroke="#355466" stroke-width="4"/>
+ <path d="M149 284l29 6M198 300l29-6" stroke="#bce2d2" stroke-width="3.5"/>
+</g>
+<g id="t06-veteran-observatory">
+ <!-- Higher asymmetric antenna and stabilized tri-lens assembly; operator platform kept empty -->
+ <path d="M230 153 243 80 267 58 295 72 292 177Z" fill="url(#t06Arm)" stroke="#315164" stroke-width="7"/>
+ <path d="M240 87 268 67 289 79 259 100Z" fill="url(#mStone)" stroke="#d6b584" stroke-width="4"/>
+ <path d="M254 102 267 93 283 105 285 145 257 157Z" fill="url(#sideStone)" stroke="#2a4d62" stroke-width="4"/>
+ <ellipse cx="269" cy="122" rx="23" ry="23" fill="url(#optic)" stroke="url(#brass)" stroke-width="8"/>
+ <ellipse cx="264" cy="116" rx="9" ry="10" fill="#f0ffff" opacity=".6"/>
+ <path d="M264 81V45M275 73l14-29" stroke="#a7c8c6" stroke-width="5"/>
+ <path d="M249 67 262 42 280 49" fill="none" stroke="#e0c799" stroke-width="4"/>
+ <path d="M97 165V115l22-17 32 11v69" fill="url(#iron)" stroke="#2f5567" stroke-width="6"/>
+ <path d="M97 117 121 101 152 112 127 128Z" fill="url(#roof)" stroke="#e1c897" stroke-width="4"/>
+ <path d="M121 128V178" stroke="#d1b886" stroke-width="5"/>
+ <path d="M124 96V69" stroke="#5d7175" stroke-width="6"/>
+ <path d="M122 71 150 81l-27 17Z" fill="url(#t06Flag)" stroke="#edd19c" stroke-width="3"/>
+ <path d="M126 115l37 15" stroke="#d0e9dc" stroke-width="3"/>
+ <circle cx="250" cy="170" r="5" fill="#243a47"/><circle cx="249" cy="169" r="2.7" fill="url(#brass)"/><circle cx="287" cy="180" r="5" fill="#243a47"/><circle cx="286" cy="179" r="2.7" fill="url(#brass)"/>
+</g>
+<g id="t06-deck-l2">
+ <path d="M47 177 175 113 309 173 186 244Z" fill="url(#iron)" stroke="#2d4d60" stroke-width="9"/>
+ <path d="M47 178 186 244 309 174V211L188 277 47 215Z" fill="url(#woodShade)" stroke="#314958" stroke-width="7"/>
+ <path d="M62 176 174 128 297 175 185 230Z" fill="url(#mStone)" stroke="#e2ca99" stroke-width="4"/>
+ <path d="M59 200 185 263 298 202" fill="none" stroke="url(#brass)" stroke-width="7"/>
+ <path d="M80 180 187 227M141 145l109 52" stroke="#dce2c4" stroke-width="2.5" opacity=".5"/>
+ <!-- lighter shoulder sunshade at REAR only -->
+ <path d="M91 129 152 67 202 100 158 153Z" fill="url(#roof)" stroke="#2d5269" stroke-width="8"/>
+ <path d="M101 125 154 83 189 105 155 145Z" fill="url(#canvas)" opacity=".64"/>
+ <path d="M91 129 151 153 202 100" fill="none" stroke="url(#brass)" stroke-width="6"/>
+ <path d="M95 130V183M203 102V146" stroke="url(#wood)" stroke-width="9"/>
+</g>
+<g id="t06-precision-rig-l2">
+ <path d="M198 180 251 152 288 157 323 175 294 193 250 194Z" fill="url(#t06Arm)" stroke="#2c5065" stroke-width="6"/>
+ <path d="M293 171l35-12 16 10-20 18-32-3Z" fill="url(#brass)" stroke="#315266" stroke-width="5"/>
+ <ellipse cx="258" cy="154" rx="12" ry="8" fill="url(#optic)" stroke="#d9d8b9" stroke-width="5"/>
+ <path d="M245 193 235 222" stroke="url(#iron)" stroke-width="9"/>
+ <path d="M214 180l20-7M276 180l13-3" stroke="#e5e8d4" stroke-width="3"/>
+ <path d="M324 160l12-4 8 7-6 6" fill="none" stroke="#aacdd4" stroke-width="4"/>
+ <ellipse cx="328" cy="169" rx="8" ry="5" fill="url(#t06Glow)" opacity=".53"/>
+</g>
+ 
+<g id="t07-architectural-silhouette-II">
+ <path d="M80 233 95 285 73 319 107 337 139 239Z" fill="url(#mStone)" stroke="#35546a" stroke-width="6"/>
+ <path d="M243 230 276 317 304 325 275 214Z" fill="url(#iron)" stroke="#244b5f" stroke-width="7"/>
+ <path d="M98 290 272 271" stroke="#e0cba0" stroke-width="7" opacity=".63"/>
+ <path d="M87 180 85 107 109 92 137 103 137 181Z" fill="url(#roof)" stroke="#29495b" stroke-width="6"/>
+ <path d="M91 114 111 98 132 108" stroke="#e6d8aa" stroke-width="4" fill="none"/>
+ <path d="M139 154 173 59 211 95 208 166Z" fill="url(#sideStone)" stroke="#2a4b60" stroke-width="6"/>
+ <path d="M173 62 191 52 211 90 188 97Z" fill="url(#roof)" stroke="#c3b38f" stroke-width="4"/>
+ <path d="M180 67V42" stroke="#5d858d" stroke-width="6"/>
+ <circle cx="180" cy="38" r="8" fill="url(#optic)" stroke="url(#brass)" stroke-width="3"/>
+ <path d="M209 146 240 117 257 131 240 165Z" fill="url(#iron)" stroke="#d1b985" stroke-width="4"/>
+ <path d="M227 118 236 99" stroke="#729f9f" stroke-width="4"/>
+</g>
+<g id="t07-materials-volume">
+ <path d="M98 318l14 4m15 11 20-7M236 306l16-12" stroke="#f2ddac" stroke-width="4" opacity=".48"/>
+ <path d="M131 248l18 8M206 286l22-11" stroke="#183d4c" stroke-width="5" opacity=".30"/>
+ <path d="M97 195 114 200M151 155l12 5M256 210l17-3" stroke="#f4dbae" stroke-width="3" opacity=".8"/>
+ <path d="M109 335l25 9M245 339l23-10" stroke="#263d48" stroke-width="4" opacity=".42"/>
+</g><g id="t06-rail-rear">
+  <path d="M76 191V149l28-16 10 63 69 35v19L75 216Z" fill="url(#wood)" stroke="#2d4c59" stroke-width="5"/>
+  <path d="M106 137 183 176V229" stroke="url(#brass)" stroke-width="4.5" fill="none"/>
+  <path d="M111 153l58 27" stroke="#f3d5a6" stroke-width="3.5"/>
+ </g>
+ <g id="t06-guided-stairs"><path d="M121 245 90 346M145 255 126 361" stroke="url(#wood)" stroke-width="11"/>
+  <path d="M117 261l25 9" stroke="#e8c08b" stroke-width="7"/><path d="M111 281l25 9" stroke="#bf936a" stroke-width="7"/><path d="M105 301l25 9" stroke="#e8c08b" stroke-width="7"/><path d="M99 321l25 9" stroke="#bf936a" stroke-width="7"/><path d="M93 341l25 9" stroke="#e8c08b" stroke-width="7"/>
+  <path d="M113 245l-34 99M142 256l-24 111" stroke="#314d57" stroke-width="2.2" opacity=".65"/>
+ </g>
+ <g transform="translate(188 236) scale(0.65)"><path d="M0-17 20-10 18 13 0 25-18 13-20-10Z" fill="#285d72" stroke="url(#brass)" stroke-width="4"/><path d="M0-10 5 0 13 4 5 8 0 18-5 8-13 4-5 0Z" fill="#e5dfa8"/><circle cx="0" cy="4" r="3" fill="#91eee5"/></g><g transform="translate(93 247)"><ellipse rx="19" ry="20" fill="url(#light)" opacity=".68"/><path d="M-7-12 7-12 10 10-10 10Z" fill="url(#brass)" stroke="#37485a" stroke-width="3"/><path d="M-4-8H4V7H-4Z" fill="#fef2b1"/><path d="M-10-14 0-20 10-14M-10 12H10" stroke="#4b5660" stroke-width="3" fill="none"/></g>
+ <g id="t06-wear-material"><path d="M78 190l7 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M127 221l8 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M176 252l9 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M225 283l10 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M274 314l11 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M106 202l12 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M155 233l13 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M204 264l7 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M253 295l8 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M85 326l9 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M134 214l10 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M183 245l11 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M232 276l12 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M281 307l13 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M113 195l7 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M162 226l8 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M211 257l9 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M260 288l10 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M92 319l11 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M141 207l12 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M190 238l13 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M239 269l7 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M288 300l8 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M120 331l9 -3" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M169 219l10 -1" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M218 250l11 -2" stroke="#2d4d5f" stroke-width="2" opacity="0.25"/><path d="M267 281l12 -3" stroke="#f4e5c4" stroke-width="1" opacity="0.31"/><path d="M99 312l13 -1" stroke="#2d4d5f" stroke-width="2" opacity="0.37"/><path d="M148 200l7 -2" stroke="#f4e5c4" stroke-width="1" opacity="0.19"/><path d="M113 310l23 5M228 315l26-8" stroke="#d9bf92" stroke-width="3" opacity=".6"/></g>
+ <circle cx="119" cy="233" r="5" fill="#243a47"/><circle cx="118" cy="232" r="2.7" fill="url(#brass)"/><circle cx="262" cy="240" r="5" fill="#243a47"/><circle cx="261" cy="239" r="2.7" fill="url(#brass)"/><circle cx="182" cy="254" r="5" fill="#243a47"/><circle cx="181" cy="253" r="2.7" fill="url(#brass)"/>
+</g></svg>

@@ -1,0 +1,241 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "manifestRevision": "T07-rifle-unique-v2",
+  "branch": "feature/art-t07-sniper-single-rifle",
+  "baseSha": "6788b5931fc6161bbfbca6cb25a1c2a83a7e1eb3",
+  "headShaSnapshot": "22a5397c0a135096de73fd6b125e5abf50a4335e",
+  "prStatus": "draft-to-T06-pending",
+  "status": "prototype-pending-real-visual-qa",
+  "gameplayImplemented": false,
+  "renderer": "Phaser 4.2.1/WebGL2 required; T07 not browser verified",
+  "vfx": {
+    "file": "public/official/src/towers-visual/sniper-vfx.mjs",
+    "adapter": "public/official/src/towers-visual/t07-core-visual-adapter.mjs",
+    "realCoreAdapterInstalled": false,
+    "hitVisualOnlyOn": "hit_applied correlated to bulletId",
+    "modes": [
+      "A-precise-tracer",
+      "B-short-energy-orb"
+    ],
+    "maxConcurrent": 16,
+    "estimatedNotMeasured": true
+  },
+  "assetCount": 2,
+  "assets": [
+    {
+      "assetId": "towers/sniper/level-1",
+      "versionedId": "towers/sniper/level-1/t07",
+      "status": "prototype",
+      "family": "sniper",
+      "level": 1,
+      "owner": "T",
+      "master": "public/official/art/towers/sniper/level-1.svg",
+      "baselineT06": "public/official/art/towers/t06-snapshot/sniper-1.svg",
+      "alternativeB": "public/official/art/towers/concepts/sniper-T07-B-level-1.svg",
+      "files": {
+        "shadowFoot": "public/official/art/towers/layers/sniper-1-shadow.svg",
+        "backStructure": "public/official/art/towers/layers/sniper-1-back.svg",
+        "frontRail": "public/official/art/towers/layers/sniper-1-front.svg",
+        "structureNoRifle": "public/official/art/towers/layers/sniper-1-structure.svg",
+        "rifleMounted": "public/official/art/towers/layers/sniper-1-rifle.svg"
+      },
+      "sourceSizePx": {
+        "width": 360,
+        "height": 420
+      },
+      "sourceFormat": "image/svg+xml",
+      "sourceEditable": true,
+      "frameCount": 1,
+      "sha256": null,
+      "shaStatus": "not-computed-source-SVG; final binary hashes pending",
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 185,
+          "y": 204,
+          "units": "source-px"
+        },
+        "stockGrip": {
+          "x": 205,
+          "y": 184,
+          "units": "source-px"
+        },
+        "opticalFocus": {
+          "x": 248,
+          "y": 162,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 321,
+          "y": 174,
+          "units": "source-px"
+        },
+        "fireEffectOrigin": {
+          "x": 321,
+          "y": 174,
+          "units": "source-px"
+        },
+        "recoilPivot": {
+          "x": 235,
+          "y": 199,
+          "units": "source-px"
+        },
+        "frontRailBounds": {
+          "x0": 87,
+          "y0": 219,
+          "x1": 284,
+          "y1": 281,
+          "units": "source-px"
+        },
+        "platformDepth": {
+          "backY": 161,
+          "operatorFootY": 204,
+          "railFrontY": 219,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.318,
+        "worldArtHeight": 133.56,
+        "worldArtWidth": 114.48,
+        "collisionRadiusUnchanged": true,
+        "approved": false
+      },
+      "ownership": {
+        "rifleOwner": "T",
+        "operatorOwner": "P06",
+        "operatorAssetId": "sniper_operator_unarmed",
+        "renderRailOwner": "T",
+        "shotAuthority": "core"
+      },
+      "source": {
+        "origin": "original Semantropic TD T07 vector artwork",
+        "author": "Equipo T",
+        "license": "project-owned, commercial approval pending",
+        "editableFile": "public/official/art/towers/sniper/level-1.svg"
+      }
+    },
+    {
+      "assetId": "towers/sniper/level-2",
+      "versionedId": "towers/sniper/level-2/t07",
+      "status": "prototype",
+      "family": "sniper",
+      "level": 2,
+      "owner": "T",
+      "master": "public/official/art/towers/sniper/level-2.svg",
+      "baselineT06": "public/official/art/towers/t06-snapshot/sniper-2.svg",
+      "alternativeB": "public/official/art/towers/concepts/sniper-T07-B-level-2.svg",
+      "files": {
+        "shadowFoot": "public/official/art/towers/layers/sniper-2-shadow.svg",
+        "backStructure": "public/official/art/towers/layers/sniper-2-back.svg",
+        "frontRail": "public/official/art/towers/layers/sniper-2-front.svg",
+        "structureNoRifle": "public/official/art/towers/layers/sniper-2-structure.svg",
+        "rifleMounted": "public/official/art/towers/layers/sniper-2-rifle.svg"
+      },
+      "sourceSizePx": {
+        "width": 360,
+        "height": 420
+      },
+      "sourceFormat": "image/svg+xml",
+      "sourceEditable": true,
+      "frameCount": 1,
+      "sha256": null,
+      "shaStatus": "not-computed-source-SVG; final binary hashes pending",
+      "anchors": {
+        "foot": {
+          "x": 0.5,
+          "y": 0.93
+        },
+        "operator": {
+          "x": 185,
+          "y": 206,
+          "units": "source-px"
+        },
+        "stockGrip": {
+          "x": 209,
+          "y": 182,
+          "units": "source-px"
+        },
+        "opticalFocus": {
+          "x": 258,
+          "y": 154,
+          "units": "source-px"
+        },
+        "muzzle": {
+          "x": 330,
+          "y": 171,
+          "units": "source-px"
+        },
+        "fireEffectOrigin": {
+          "x": 330,
+          "y": 171,
+          "units": "source-px"
+        },
+        "recoilPivot": {
+          "x": 245,
+          "y": 191,
+          "units": "source-px"
+        },
+        "frontRailBounds": {
+          "x0": 72,
+          "y0": 213,
+          "x1": 299,
+          "y1": 290,
+          "units": "source-px"
+        },
+        "platformDepth": {
+          "backY": 150,
+          "operatorFootY": 206,
+          "railFrontY": 213,
+          "units": "source-px"
+        }
+      },
+      "scale": {
+        "worldScaleProposal": 0.328,
+        "worldArtHeight": 137.76,
+        "worldArtWidth": 118.08,
+        "collisionRadiusUnchanged": true,
+        "approved": false
+      },
+      "ownership": {
+        "rifleOwner": "T",
+        "operatorOwner": "P06",
+        "operatorAssetId": "sniper_operator_unarmed",
+        "renderRailOwner": "T",
+        "shotAuthority": "core"
+      },
+      "source": {
+        "origin": "original Semantropic TD T07 vector artwork",
+        "author": "Equipo T",
+        "license": "project-owned, commercial approval pending",
+        "editableFile": "public/official/art/towers/sniper/level-2.svg"
+      }
+    }
+  ],
+  "reference": {
+    "padWidthM03World": 110.24,
+    "world": [
+      1280,
+      768
+    ],
+    "m01Sockets": 8,
+    "m01PathWaypoints": 133,
+    "viewportTargets": [
+      "1280x768",
+      "844x390",
+      "932x430"
+    ]
+  },
+  "licensing": "Original SVG source; no copied commercial game assets; approval pending",
+  "estimatedTextureMemory": {
+    "RGBA360x420Bytes": 604800,
+    "independentSVGFilesPreloadedGallery": 14,
+    "estimatedBytesNoMips": 8467200,
+    "actualGPUBytes": null
+  },
+  "screenshots": [],
+  "notes": "source-only prototype, no final PNG/atlas and no P06 sprite mounted"
+}

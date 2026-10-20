@@ -1,0 +1,22 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Semantropic TD · M06 revisión misma cámara</title><style>
+body{margin:0;background:#193b3e;color:#f8e6c4;font:14px system-ui;padding:15px}
+h1{font-size:24px;margin:0 0 8px}p{margin:5px 0 16px;color:#c6dfd4;max-width:1100px}
+.controls{display:flex;gap:6px;flex-wrap:wrap;margin:11px 0 15px}
+button{border:1px solid #f0dbaf;background:#24555e;color:#fff1d3;padding:8px 12px;border-radius:7px;cursor:pointer;min-height:44px;font-weight:700}
+section{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+article{border:1px solid #c5b08a;background:#0e2d37;border-radius:12px;overflow:hidden}
+article b{display:block;padding:9px 12px;background:#193f46;color:#ffdfac}
+iframe{width:100%;aspect-ratio:1280/768;display:block;border:0}
+small{display:block;margin-top:15px;color:#bdcfc4;font-size:12px}
+a{color:#e8c591}@media(max-width:900px){section{grid-template-columns:1fr}}
+</style></head><body><h1>SEMANTROPIC TD · M-06 | Revisión pictórica del M01</h1>
+<p>Comparador auténtico cuando la rama se sirve por HTTP en un navegador con WebGL2: mismos 133 puntos, ocho sockets, 1280×768 de mundo y paleta equilibrada. Este archivo no contiene screenshots ni sustituye gameplay.</p>
+<div class="controls"><button onclick="comparison('m05a','atmosfera')">Antes M05 A / Nuevo M06 A</button>
+<button onclick="comparison('m05b','relieve')">Antes M05 B / Nuevo M06 B</button>
+<button onclick="comparison('atmosfera','relieve')">M06 A / M06 B</button>
+<button onclick="comparison('m04','atmosfera')">M04 / M06 A</button></div>
+<section><article><b id="leftLabel">ANTES · M05 A</b><iframe id="left" src="index.html?mode=m05a&palette=equilibrada" title="Antes M05"></iframe></article>
+<article><b id="rightLabel">DESPUÉS · M06 A</b><iframe id="right" src="index.html?mode=atmosfera&palette=equilibrada" title="Después M06"></iframe></article></section>
+<small>La opción “marcadores ficticios” permite estrés visual sintético, NO P05/T06 ni spawns del núcleo. Dos instancias Phaser abiertas simultáneamente consumen recursos extra; usar galería sólo en PC de QA. Para control de GPU móvil ejecutar <a href="index.html?mode=atmosfera">una sola escena</a>.</small>
+<script>const labels={m04:"M04",m05a:"M05 A",m05b:"M05 B",atmosfera:"M06 A · Atmosférica",relieve:"M06 B · Estructural"};function comparison(a,b){for(const [id,name] of [["left",a],["right",b]]){document.getElementById(id).src="index.html?mode="+name+"&palette=equilibrada";document.getElementById(id+"Label").textContent=(id==="left"?"ANTES / ":"DESPUÉS / ")+labels[name]}}</script></body></html>

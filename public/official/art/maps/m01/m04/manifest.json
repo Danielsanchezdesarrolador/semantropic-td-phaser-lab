@@ -1,0 +1,454 @@
+{
+  "manifestVersion": "semantropic-assets-v1",
+  "milestone": "M04/C1D",
+  "branch": "feature/art-m04-illustrated-terrain",
+  "baseSha": "dd7274369996b592de9a827e3c7d399e086bca65",
+  "owner": "M",
+  "canonicalMapId": 1,
+  "artVersion": "maps/m01/illustrated-m04/1.0.0",
+  "world": {
+    "width": 1280,
+    "height": 768,
+    "routeVertices": 133,
+    "sockets": 8,
+    "roadWidth": 110,
+    "hitRadiusWorld": 54
+  },
+  "currentRole": "visual-only independent renderer",
+  "status": "not-final-art",
+  "mapsSourceGitBlobSha1": "1da0e20145e1312f3d75443debabea17e3db507c",
+  "editableSource": "public/official/src/maps-visual/m01/m04/renderer-v4.mjs",
+  "gallery": "public/official/art/maps/m01/m04/gallery.html",
+  "originalAssets": [
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/grama-punta",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/grama-punta.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "e3ed4b91e9e9a4d476c04191063350fb80e3b01f",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/grama-pluma",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/grama-pluma.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "ed6f8296526a171645f03c592671da90da373685",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/helecho-abanico",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/helecho-abanico.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "1e431095425261a5d567c79eb5b43adfc67a8740",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/arbusto-tres-masas",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/arbusto-tres-masas.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "4f2751cc124a351298896dbcdd5fd77b83ddc48d",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/flor-miel",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/flor-miel.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "4ceeb182cf4f622f2a98c4a00e2582b55a01f991",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/flor-celeste",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/flor-celeste.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "d8cf328048b17e32d306e0b0341c1ff502c7e114",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/piedra-estrato",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/piedra-estrato.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "c1f9d6b712225355499dab535b1750df5b785106",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/piedra-cuarzo",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/piedra-cuarzo.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "5339eb83eef8df6434cce3fefba6b463dedc6ad1",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/tronco-caido",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/tronco-caido.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "e84844e7bdbbc034043231c010c7adefce8f5df7",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/caja-guardia",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/caja-guardia.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "d101a4966f51ec9ccd7a821d8b1de8f10c853725",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/placa-alarma",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/placa-alarma.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "4b80b9ef2d62f3deb97fcc6cd06b1bd4ee3121e4",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/helecho-rizo",
+      "category": "environment-prop",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/helecho-rizo.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "44c6a5f68eafacb0de034141d1918a787ab4be31",
+        "sha256": null,
+        "widthPx": 200,
+        "heightPx": 170
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/acueducto-guardia",
+      "category": "narrative-landmark",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/acueducto-guardia.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "a7467ba25c2b66111de3ac77796a2a05f9de60ce",
+        "sha256": null,
+        "widthPx": 300,
+        "heightPx": 270
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/santuario-refugio",
+      "category": "narrative-landmark",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/santuario-refugio.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "da45b2aaaedd70ad4e5f453e378f3bc1df0cded1",
+        "sha256": null,
+        "widthPx": 300,
+        "heightPx": 270
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    },
+    {
+      "assetId": "maps/m01/illustrated-m04/svg/puesto-alba",
+      "category": "narrative-landmark",
+      "canonicalMap": 1,
+      "owner": "M",
+      "source": {
+        "path": "public/official/art/maps/m01/m04/svg/puesto-alba.svg",
+        "type": "image/svg+xml",
+        "gitBlobSha1": "0e978d3fcfdf9dd4f7a372069fa43f8e2b50d959",
+        "sha256": null,
+        "widthPx": 300,
+        "heightPx": 270
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "alpha": true,
+      "sourceEditable": true,
+      "status": "art-prototype",
+      "licenseStatus": "original-created-with-AI-assistance_pending-director-commercial-review"
+    }
+  ],
+  "assetSheet": {
+    "path": "public/official/art/maps/m01/m04/M04_PLANCHA_12_PROPS.svg",
+    "layout": "4x3",
+    "cells": 12,
+    "sourceEditable": true,
+    "note": "Source contact sheet, not automatically a packed runtime atlas"
+  },
+  "reusableLegacySvg": {
+    "M02": 7,
+    "M03": 2,
+    "ownership": "Read-only library cache, loaded for M03 baseline comparison"
+  },
+  "generatedPhaserTextures": {
+    "namespace": "maps/m01/illustrated-m04/{palette}/",
+    "perPalette": 11,
+    "palettes": [
+      "equilibrada",
+      "viva",
+      "atmosferica"
+    ],
+    "descriptors": [
+      {
+        "name": "ground",
+        "physicalPixels": [
+          1920,
+          1152
+        ],
+        "logicalWorldSize": [
+          1280,
+          768
+        ],
+        "dpr": 1.5,
+        "alpha": false
+      },
+      {
+        "name": "road",
+        "physicalPixels": [
+          2560,
+          1536
+        ],
+        "logicalWorldSize": [
+          1280,
+          768
+        ],
+        "dpr": 2,
+        "alpha": true
+      },
+      {
+        "name": "pad/*/*",
+        "states": [
+          "empty",
+          "occupied",
+          "ruins"
+        ],
+        "kinds": [
+          "tempo",
+          "power",
+          "focus"
+        ],
+        "count": 9,
+        "physicalPixels": [
+          424,
+          304
+        ],
+        "worldScale": 0.26,
+        "alpha": true
+      }
+    ]
+  },
+  "memory": {
+    "perPaletteUncompressedRgbaMiB": 27.86,
+    "actualGpuMiB": null,
+    "extra": "Shared SVG memory, temporary uploads, driver overhead and textures outside M04 excluded."
+  },
+  "lifecycle": {
+    "cachePolicy": "only active palette receives generated textures; destroy removes exactly textures owned by this view; preloaded shared SVG remains",
+    "perFrameTextureGeneration": false
+  },
+  "storytelling": {
+    "entrance": "guardland, open meadow + guarded aqueduct",
+    "middle": "shelter + alarm refuge",
+    "exit": "fortified verge + original watch post and supplies"
+  },
+  "ownershipRestrictions": [
+    "Do not change data/maps.v5.json",
+    "Do not change T04/P03 sprites or anchors",
+    "Do not change global Phaser.Scale.FIT",
+    "No Render deploy or production merge"
+  ],
+  "provenance": {
+    "assets": "Original SVG geometry authored for Semantropic TD with generative assistance; no asset from referenced IP copied",
+    "license": "Original project assets; director commercial review still pending"
+  },
+  "qa": {
+    "mockExecuted": true,
+    "nodeExecuted": false,
+    "browserExecuted": false,
+    "physicalPhoneExecuted": false,
+    "visualApproval": false
+  }
+}

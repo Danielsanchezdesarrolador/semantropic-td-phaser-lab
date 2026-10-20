@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="770" viewBox="0 0 1600 770">
+ <rect width="1600" height="770" fill="#142f3e"/><text x="34" y="43" font-family="system-ui" font-size="34" font-weight="bold" fill="#f8e6bc">SEMANTROPIC TD · T05 · CUARTELES · GUARDIA DEL AMANECER</text>
+ <text x="36" y="79" font-family="system-ui" font-size="19" fill="#aed7cc">DOS ARQUITECTURAS ESTRUCTURALES A/B · SILUETA/VOLUMEN 3/4 · FUENTE EDITABLE · NO GAMEPLAY</text>
+ <g font-family="system-ui"><g transform="translate(20 123)"><rect width="368" height="610" rx="18" fill="#364c50" stroke="#91afa6" stroke-width="2"/>
+ <text x="23" y="40" font-size="24" font-weight="bold" fill="#f7dfad">DIRECCIÓN A · NIVEL I</text>
+ <rect x="30" y="68" width="308" height="375" rx="14" fill="#9dbc99" opacity=".9"/>
+ <g transform="translate(22 113) scale(1.00)"><ellipse cx="166" cy="291" rx="150" ry="20" fill="#263f46" opacity=".42"/><path d="M7 274 154 222 313 270 166 329Z" fill="#b4b3a0" stroke="#5e6665" stroke-width="8"/><path d="M22 206 66 128 166 81 267 132 288 218 255 266 65 269Z" fill="#d8caaa" stroke="#304b58" stroke-width="7"/><path d="M22 206 166 81 172 191 63 264Z" fill="#6c939d" stroke="#203e54" stroke-width="6"/><path d="M172 191 267 132 288 218 255 266 170 280Z" fill="#526f7a" stroke="#304b58" stroke-width="6"/><path d="M116 272v-76q24-26 47 5v74" fill="#253d48" stroke="#eac993" stroke-width="9"/></g>
+ <text x="20" y="493" font-size="19" fill="#f7e6c9">CUARTEL / TALLER</text>
+ <text x="20" y="526" font-size="16" fill="#b9d7ce">Lectura táctica y acceso claro</text>
+ <text x="20" y="550" font-size="16" fill="#b9d7ce">Función básica reconocible</text>
+ <text x="20" y="590" font-size="13" fill="#e9d29e">CONCEPTO · NO CAPTURA PHASER</text>
+ </g>
+<g transform="translate(408 123)"><rect width="368" height="610" rx="18" fill="#364c50" stroke="#91afa6" stroke-width="2"/>
+ <text x="23" y="40" font-size="24" font-weight="bold" fill="#f7dfad">DIRECCIÓN A · NIVEL II</text>
+ <rect x="30" y="68" width="308" height="375" rx="14" fill="#9dbc99" opacity=".9"/>
+ <g transform="translate(22 113) scale(1.00)"><ellipse cx="166" cy="291" rx="150" ry="20" fill="#263f46" opacity=".42"/><path d="M7 274 154 222 313 270 166 329Z" fill="#b4b3a0" stroke="#5e6665" stroke-width="8"/><path d="M22 206 66 128 166 81 267 132 288 218 255 266 65 269Z" fill="#d8caaa" stroke="#304b58" stroke-width="7"/><path d="M22 206 166 81 172 191 63 264Z" fill="#6c939d" stroke="#203e54" stroke-width="6"/><path d="M172 191 267 132 288 218 255 266 170 280Z" fill="#526f7a" stroke="#304b58" stroke-width="6"/><path d="M116 272v-76q24-26 47 5v74" fill="#253d48" stroke="#eac993" stroke-width="9"/><path d="M203 136l23-94 36 14-6 116" fill="#315b75" stroke="#deb775" stroke-width="7"/></g>
+ <text x="20" y="493" font-size="19" fill="#f7e6c9">CUARTEL / TALLER</text>
+ <text x="20" y="526" font-size="16" fill="#b9d7ce">Lectura táctica y acceso claro</text>
+ <text x="20" y="550" font-size="16" fill="#b9d7ce">Refuerzo visible nivel II</text>
+ <text x="20" y="590" font-size="13" fill="#e9d29e">CONCEPTO · NO CAPTURA PHASER</text>
+ </g>
+<g transform="translate(796 123)"><rect width="368" height="610" rx="18" fill="#25434b" stroke="#91afa6" stroke-width="2"/>
+ <text x="23" y="40" font-size="24" font-weight="bold" fill="#f7dfad">DIRECCIÓN B · NIVEL I</text>
+ <rect x="30" y="68" width="308" height="375" rx="14" fill="#9dbc99" opacity=".9"/>
+ <g transform="translate(22 113) scale(1.00)"><ellipse cx="166" cy="291" rx="150" ry="20" fill="#263f46" opacity=".42"/><path d="M7 274 154 222 313 270 166 329Z" fill="#b4b3a0" stroke="#5e6665" stroke-width="8"/><path d="M16 238Q28 99 148 79Q271 92 307 231L272 273 149 290 42 266Z" fill="#607c88" stroke="#294354" stroke-width="8"/><path d="M25 229Q62 116 151 105Q242 123 283 224" stroke="#d6c89f" stroke-width="27" fill="none"/><path d="M108 270V190Q145 166 188 192V278" fill="#254555" stroke="#e2ca98" stroke-width="9"/></g>
+ <text x="20" y="493" font-size="19" fill="#f7e6c9">HANGAR BLINDADO</text>
+ <text x="20" y="526" font-size="16" fill="#b9d7ce">Volumen curvo, defensa tech</text>
+ <text x="20" y="550" font-size="16" fill="#b9d7ce">Función básica reconocible</text>
+ <text x="20" y="590" font-size="13" fill="#e9d29e">CONCEPTO · NO CAPTURA PHASER</text>
+ </g>
+<g transform="translate(1184 123)"><rect width="368" height="610" rx="18" fill="#25434b" stroke="#91afa6" stroke-width="2"/>
+ <text x="23" y="40" font-size="24" font-weight="bold" fill="#f7dfad">DIRECCIÓN B · NIVEL II</text>
+ <rect x="30" y="68" width="308" height="375" rx="14" fill="#9dbc99" opacity=".9"/>
+ <g transform="translate(22 113) scale(1.00)"><ellipse cx="166" cy="291" rx="150" ry="20" fill="#263f46" opacity=".42"/><path d="M7 274 154 222 313 270 166 329Z" fill="#b4b3a0" stroke="#5e6665" stroke-width="8"/><path d="M16 238Q28 99 148 79Q271 92 307 231L272 273 149 290 42 266Z" fill="#607c88" stroke="#294354" stroke-width="8"/><path d="M25 229Q62 116 151 105Q242 123 283 224" stroke="#d6c89f" stroke-width="27" fill="none"/><path d="M108 270V190Q145 166 188 192V278" fill="#254555" stroke="#e2ca98" stroke-width="9"/><path d="M203 136l23-94 36 14-6 116" fill="#315b75" stroke="#deb775" stroke-width="7"/></g>
+ <text x="20" y="493" font-size="19" fill="#f7e6c9">HANGAR BLINDADO</text>
+ <text x="20" y="526" font-size="16" fill="#b9d7ce">Volumen curvo, defensa tech</text>
+ <text x="20" y="550" font-size="16" fill="#b9d7ce">Refuerzo visible nivel II</text>
+ <text x="20" y="590" font-size="13" fill="#e9d29e">CONCEPTO · NO CAPTURA PHASER</text>
+ </g></g></svg>

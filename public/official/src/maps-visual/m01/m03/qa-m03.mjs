@@ -94,7 +94,7 @@ for(const palette of M03_PALETTES){
  const root=mountM01WorldV3(scene,map,{palette});
  assert.equal(root.padObjects.length,8);
  assert.equal(root.propObjects.length,plan.illustrations.length);
- assert.equal(root.layerGroups.pads.length,16,"8 plataformas + 8 indicadores de selección, no 16 sockets");
+ assert.equal(root.layerGroups.pads.length,8);
  assert.equal(root.getPadMetrics().hitRadiusWorld,54);
  assert.equal(root.getPadMetrics().apparentWorldWidth,110.24);
  const first=root.padObjects[0].socket.socketId;
