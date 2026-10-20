@@ -1,3 +1,41 @@
+# SEMANTROPIC TD · EQUIPO T — T07 / RIFLE ÚNICO / 20-10-2026
+
+**Entrega actual:** T07 Francotirador I/II, single mechanical rifle property T, P06 actor unarmed; **rama:** `feature/art-t07-sniper-single-rifle` creada desde HEAD T06 `6788b5931fc6161bbfbca6cb25a1c2a83a7e1eb3`. **PR [#24 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/24)** hacia `feature/art-t06-sniper-vfx`. **HEAD documental pre-index:** `9cdabeffdc7e2bb152a418c9bb75b4fdf48ea0ce`, HEAD final en PR para evitar SHA autorreferencial.
+
+## Artefactos y documentación T07
+
+- [ACTA oficial T07](./ACTA_T07_2026-10-20.md) — objetivo, inventario, QA, comparativa A/B, riesgos.
+
+- [QA T07 JSON](./QA_T07.json) — comandos/checks PASS de fuentes/mock y NOT_RUN runtime.
+
+- [Manifest T07](../ASSET_MANIFEST_T07.json) — masters, rifle ownership, layers y trazabilidad.
+
+- [QA Node T07](../qa-t07.mjs) — script reproducible, aún no ejecutado sobre clon real.
+
+- [RFC P06 / Core C1-D2](./RFC_T07_P06_CORE_SINGLE_RIFLE.md) — contrato rifle único y adapter.
+
+- [Evidencia técnica T07](../evidencias/T07/VALIDACION_ESTATICA.md) — fuente y mock, NO captura real.
+
+- [Showroom Phaser T07 (código)](../../../../public/official/src/towers-visual/t07-index.html) — T05/T06/T07 A/B, solo simulación visual, requiere build real.
+
+- [Catálogo y metadata](../../../../public/official/src/towers-visual/catalog.mjs) / [SniperShotPresenter](../../../../public/official/src/towers-visual/sniper-vfx.mjs) / [adapter read-only](../../../../public/official/src/towers-visual/t07-core-visual-adapter.mjs).
+
+## Estado verificable
+
+- [CONFIRMADO EN CÓDIGO] 16 SVG fuente verificadas, un rifle por composición y cero en structureNoRifle; catálogo, adaptador y scripts publicados.
+
+- [EJECUTADO CON JS V8 Y PHASER MOCK] 13 PASS, sin impacto automático de fire, `hit_applied` único asociado a bulletId, teardown y lookup externo de muzzleWorld.
+
+- [NO EJECUTADO] npm build, Node QA completo, Chromium 1280×768 / 844×390 / 932×430, screenshots auténticos, P06 real, core bridge instalado, FPS/hardware.
+
+- [BLOQUEANTE] aceptación artística real y pruebas de P06 `sniper_operator_unarmed` montado sin duplicación.
+
+- `screenshotIndex=[]` y no existen capturas Phaser T07 verificadas. No confundir showroom con combate del PR #22.
+
+---
+
+## Historial T06 y versiones anteriores, conservado
+
 # SEMANTROPIC TD · EQUIPO T — ÍNDICE ACTUAL C1-D2 / T06
 
 **Candidato vigente: Francotirador T06**, rama `feature/art-t06-sniper-vfx`. **Base autorizada exacta:** `ffc06ccf0328e12c3af26a869167673e14d5b2e4`; snapshot HEAD antes de este índice `fd72fce3ac03506aa846a2614e96948861aa0965`. **PR [#19 DRAFT](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/19) → `feature/art-t05-premium-towers`**. Sin merge ni despliegue.

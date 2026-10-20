@@ -224,7 +224,7 @@ export const TOWER_ART_V2=Object.freeze([
     "status": "prototype",
     "textureKey": "towers/sniper/level-1",
     "fixtureId": "fixture-T03-3",
-    "artVersion": "T06-C1D2",
+    "artVersion": "T07-RIFLE-UNICO",
     "worldScaleBaselineT03": 0.303,
     "foundationVisibleWidthSourcePx": 296,
     "buildFoundationLocal": {
@@ -241,7 +241,7 @@ export const TOWER_ART_V2=Object.freeze([
       "hud": "UI-above-all-vfx"
     },
     "operatorNote": "EMPTY visual source-pixel foot placement. P-owned actor; requires central depth policy",
-    "artApproval": "prototype-awaiting-direction",
+    "artApproval": "prototype",
     "worldScaleBaselineT04": 0.312,
     "visibleGeometryTopSourcePx": 72,
     "t04SnapshotUrl": "../../art/towers/t04-snapshot/sniper-1.svg",
@@ -249,7 +249,9 @@ export const TOWER_ART_V2=Object.freeze([
     "layerAssets": {
       "shadowFoot": "../../art/towers/layers/sniper-1-shadow.svg",
       "backStructure": "../../art/towers/layers/sniper-1-back.svg",
-      "frontRail": "../../art/towers/layers/sniper-1-front.svg"
+      "frontRail": "../../art/towers/layers/sniper-1-front.svg",
+      "structureNoRifle": "../../art/towers/layers/sniper-1-structure.svg",
+      "rifleMounted": "../../art/towers/layers/sniper-1-rifle.svg"
     },
     "artNotes": "Open observation deck; operator P feet at source y207; front rail separate. Rifle permanently mounted as tower mechanism.",
     "worldScaleBaselineT05": 0.31,
@@ -271,7 +273,52 @@ export const TOWER_ART_V2=Object.freeze([
       "B"
     ],
     "artStatus": "prototype",
-    "fxContractStatus": "candidate-event-adapter"
+    "fxContractStatus": "candidate-event-adapter",
+    "rifleOwner": "T",
+    "operatorOwner": "P06",
+    "operatorAssetId": "sniper_operator_unarmed",
+    "renderRailOwner": "T",
+    "shotAuthority": "core",
+    "t06SnapshotUrl": "../../art/towers/t06-snapshot/sniper-1.svg",
+    "t07ArchitecturalBUrl": "../../art/towers/concepts/sniper-T07-B-level-1.svg",
+    "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P06",
+    "opticalFocusLocal": {
+      "x": 248,
+      "y": 162,
+      "units": "source-px"
+    },
+    "stockGripLocal": {
+      "x": 205,
+      "y": 184,
+      "units": "source-px"
+    },
+    "recoilPivotLocal": {
+      "x": 235,
+      "y": 199,
+      "units": "source-px"
+    },
+    "platformDepthLocal": {
+      "backY": 161,
+      "operatorFootY": 204,
+      "railFrontY": 219,
+      "units": "source-px"
+    },
+    "rifleActionWeights": {
+      "building": 0,
+      "scopeSweep": 0.18,
+      "rifleRecoilPx": 3,
+      "operator": 0,
+      "frontRail": 0
+    },
+    "t07Variants": [
+      "A-observatorio-abierto",
+      "B-bastidor-contrapeso"
+    ],
+    "vfxImpactAuthority": "hit_applied-correlated-bulletId-only",
+    "fxStyles": [
+      "A-precision-trace",
+      "B-energy-orb"
+    ]
   },
   {
     "assetId": "towers/sniper/level-2",
@@ -325,7 +372,7 @@ export const TOWER_ART_V2=Object.freeze([
     "status": "prototype",
     "textureKey": "towers/sniper/level-2",
     "fixtureId": "fixture-T03-4",
-    "artVersion": "T06-C1D2",
+    "artVersion": "T07-RIFLE-UNICO",
     "worldScaleBaselineT03": 0.317,
     "foundationVisibleWidthSourcePx": 296,
     "buildFoundationLocal": {
@@ -342,7 +389,7 @@ export const TOWER_ART_V2=Object.freeze([
       "hud": "UI-above-all-vfx"
     },
     "operatorNote": "EMPTY visual source-pixel foot placement. P-owned actor; requires central depth policy",
-    "artApproval": "prototype-awaiting-direction",
+    "artApproval": "prototype",
     "worldScaleBaselineT04": 0.319,
     "visibleGeometryTopSourcePx": 68,
     "t04SnapshotUrl": "../../art/towers/t04-snapshot/sniper-2.svg",
@@ -350,7 +397,9 @@ export const TOWER_ART_V2=Object.freeze([
     "layerAssets": {
       "shadowFoot": "../../art/towers/layers/sniper-2-shadow.svg",
       "backStructure": "../../art/towers/layers/sniper-2-back.svg",
-      "frontRail": "../../art/towers/layers/sniper-2-front.svg"
+      "frontRail": "../../art/towers/layers/sniper-2-front.svg",
+      "structureNoRifle": "../../art/towers/layers/sniper-2-structure.svg",
+      "rifleMounted": "../../art/towers/layers/sniper-2-rifle.svg"
     },
     "artNotes": "Open observation deck; operator P feet at source y207; front rail separate. Rifle permanently mounted as tower mechanism.",
     "worldScaleBaselineT05": 0.322,
@@ -372,7 +421,52 @@ export const TOWER_ART_V2=Object.freeze([
       "B"
     ],
     "artStatus": "prototype",
-    "fxContractStatus": "candidate-event-adapter"
+    "fxContractStatus": "candidate-event-adapter",
+    "rifleOwner": "T",
+    "operatorOwner": "P06",
+    "operatorAssetId": "sniper_operator_unarmed",
+    "renderRailOwner": "T",
+    "shotAuthority": "core",
+    "t06SnapshotUrl": "../../art/towers/t06-snapshot/sniper-2.svg",
+    "t07ArchitecturalBUrl": "../../art/towers/concepts/sniper-T07-B-level-2.svg",
+    "weaponCompositionRule": "legacy backStructure INCLUDES rifle; new structureNoRifle EXCLUDES rifle, load rifleMounted ONCE after operator P06",
+    "opticalFocusLocal": {
+      "x": 258,
+      "y": 154,
+      "units": "source-px"
+    },
+    "stockGripLocal": {
+      "x": 209,
+      "y": 182,
+      "units": "source-px"
+    },
+    "recoilPivotLocal": {
+      "x": 245,
+      "y": 191,
+      "units": "source-px"
+    },
+    "platformDepthLocal": {
+      "backY": 150,
+      "operatorFootY": 206,
+      "railFrontY": 213,
+      "units": "source-px"
+    },
+    "rifleActionWeights": {
+      "building": 0,
+      "scopeSweep": 0.18,
+      "rifleRecoilPx": 2,
+      "operator": 0,
+      "frontRail": 0
+    },
+    "t07Variants": [
+      "A-observatorio-abierto",
+      "B-bastidor-contrapeso"
+    ],
+    "vfxImpactAuthority": "hit_applied-correlated-bulletId-only",
+    "fxStyles": [
+      "A-precision-trace",
+      "B-energy-orb"
+    ]
   }
 ]);
 export const TOWER_ART=TOWER_ART_V2;
@@ -387,7 +481,7 @@ export function validateTowerArtV2(list=TOWER_ART_V2){
   if(m.sourceSize.widthPx!==WIDTH||m.sourceSize.heightPx!==HEIGHT)throw Error('T05 source dimensions');
   if(m.footAnchor.x!==.5||m.footAnchor.y!==.93)throw Error('Foot drift');
   if(m.worldScaleProposal<.26||m.worldScaleProposal>.34)throw Error('Unratified scale out of safe proposal band');
-  for(const key of ['shadowFootAnchor','buildFoundationLocal','operatorAnchorLocal','spawnExitLocal','muzzleLocal','fireEffectOriginLocal']){
+  for(const key of ['shadowFootAnchor','buildFoundationLocal','operatorAnchorLocal','spawnExitLocal','muzzleLocal','fireEffectOriginLocal','opticalFocusLocal','stockGripLocal','recoilPivotLocal']){
    const p=m[key];if(p===null||p===undefined)continue;
    if(!p||p.units!=='source-px'||p.x<0||p.x>WIDTH||p.y<0||p.y>HEIGHT)throw Error('Invalid source px anchor '+key);
   }
@@ -419,6 +513,9 @@ export function towerFootprintPresentation(meta,padWidthWorld=110.24){
 export function getTowerVisualLayers(meta,variant='A'){
  if(variant==='B')return {composite:meta.t05AlternativeBUrl,split:false,operatorSlot:meta.operatorAnchorLocal,footAnchor:meta.footAnchor};
  if(variant==='T04')return {composite:meta.t04SnapshotUrl,split:false,operatorSlot:meta.operatorAnchorLocal,footAnchor:meta.footAnchor};
+ if(variant==='T07B'&&meta.family==='sniper')return {composite:meta.t07ArchitecturalBUrl,split:false,operatorSlot:meta.operatorAnchorLocal,footAnchor:meta.footAnchor};
+ if(variant==='T06'&&meta.family==='sniper')return {composite:meta.t06SnapshotUrl,split:false,operatorSlot:meta.operatorAnchorLocal,footAnchor:meta.footAnchor};
+ if(variant==='T07'&&meta.family==='sniper')return getSniperSingleRifleLayers(meta);
  return {composite:meta.url,split:true,shadowFoot:meta.layerAssets.shadowFoot,backStructure:meta.layerAssets.backStructure,
   frontRail:meta.layerAssets.frontRail,operatorSlot:meta.operatorAnchorLocal,footAnchor:meta.footAnchor};
 }
@@ -427,4 +524,25 @@ export function getTowerVisualLayers(meta,variant='A'){
 export function getSniperFireVisualAnchor(sprite,meta){
  if(meta.family!=='sniper')return null;
  return projectSourceAnchor(sprite,meta,'fireEffectOriginLocal') ?? projectSourceAnchor(sprite,meta,'muzzleLocal');
+}
+
+/**
+ * T07 explicit one-rifle composition. Existing C1-E 'A' remains backwards-compatible:
+ * shadowFoot → backStructure(includes ONE rifle) → operator P → frontRail.
+ * NEW T07 mode: shadowFoot → structureNoRifle → P06 unarmed → rifleMounted(ONE) → frontRail.
+ * This is metadata only; layering / depth / actor creation belongs to Integrator.
+ */
+export function getSniperSingleRifleLayers(meta){
+ if(meta?.family!=='sniper'||meta.rifleOwner!=='T')throw Error('T07 rifle ownership limited to Sniper');
+ const a=meta.layerAssets;
+ if(!a.structureNoRifle||!a.rifleMounted)throw Error('Missing dedicated weapon layer');
+ return {split:true,composite:meta.url,shadowFoot:a.shadowFoot,backStructure:a.structureNoRifle,
+  operatorSlot:meta.operatorAnchorLocal,rifleMounted:a.rifleMounted,frontRail:a.frontRail,
+  rifleOwner:'T',operatorOwner:'P06',operatorAssetId:'sniper_operator_unarmed',
+  footAnchor:meta.footAnchor,singleRifle:true};
+}
+export function getSniperRifleVisualPoints(sprite,meta){
+ if(meta?.family!=='sniper')return null;
+ return Object.fromEntries(['operatorAnchorLocal','stockGripLocal','opticalFocusLocal','recoilPivotLocal','fireEffectOriginLocal']
+  .map(k=>[k,projectSourceAnchor(sprite,meta,k)]));
 }
