@@ -108,5 +108,6 @@
     "Do not claim rendered Android screenshots from source pose sheets.",
     "Level II atlas drawn once but used by two distinct core entities.",
     "Weapon/attack pose is entirely visual; confirmed damage is core event only."
-  ]
+  ],
+  "prUrl": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/39"
 }
