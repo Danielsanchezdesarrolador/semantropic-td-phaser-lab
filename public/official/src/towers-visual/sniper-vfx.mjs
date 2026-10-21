@@ -8,9 +8,9 @@ const PT=p=>p&&Number.isFinite(p.x)&&Number.isFinite(p.y);
 const ALLOWED=new Set(['attack_windup','attack_fire','hit_applied','tower_sold','tower_upgraded','entity_die','entity_escape','despawn','scene_reset']);
 const copy=p=>({x:p.x,y:p.y});
 export class SniperShotPresenter {
- constructor(scene,{variant='A',depth=510,onVisualState=null,maxActive=16,maxSeen=512}={}){
+ constructor(scene,{variant='A',depth=510,onVisualState=null,maxActive=16,maxSeen=512,premium=false}={}){
   if(!scene?.time?.delayedCall||!scene?.tweens?.add||!scene?.add)throw Error('Sniper T06 requires Phaser.Scene');
-  this.scene=scene;this.variant=variant==='B'?'B':'A';this.depth=depth;
+  this.scene=scene;this.variant=variant==='B'?'B':'A';this.depth=depth;this.premium=!!premium;
   this.onVisualState=onVisualState;
   this.maxActive=Math.max(1,Math.min(24,Number(maxActive)||16));
   this.maxSeen=Math.max(32,Math.min(2048,Number(maxSeen)||512));
@@ -68,6 +68,7 @@ export class SniperShotPresenter {
   this._later(job,1500,()=>{this._state(job,'idle');this.cancel(job.id);});
  }
  _fire(job,from,to,variant){
+  if(this.premium)return this._firePremium(job,from,to,variant);
   const mode=variant==='B'?'B':'A',color=mode==='A'?0xcafbf1:0xe5b6ff;
   this.fireCount++;
   this._state(job,'fire');
@@ -94,6 +95,58 @@ export class SniperShotPresenter {
    }
   });
   this._later(job,1000,()=>this.cancel(job.id));
+ }
+ /** Premium path is opt-in; all effects derive from the ONE core-authorized muzzle. */
+ _firePremium(job,from,to,variant){
+  const vx=to.x-from.x,vy=to.y-from.y,length=Math.max(.001,Math.hypot(vx,vy));
+  const ux=vx/length,uy=vy/length,nx=-uy,ny=ux;
+  const color=variant==='B'?0xe4c6f6:0xc6eee2;
+  this.fireCount++;job.premiumSource=copy(from);job.premiumFirstFrame=copy(from);
+  this._state(job,'fire');
+  const flash=this._obj(job,this.scene.add.graphics());
+  // Fixed-world root at the exact same from point as projectile, not operator/tower center.
+  flash.lineStyle(3,0xfafff5,.91).beginPath().moveTo(from.x,from.y)
+   .lineTo(from.x+ux*14,from.y+uy*14).strokePath();
+  flash.lineStyle(1.8,0xf0dcae,.75).beginPath().moveTo(from.x,from.y)
+   .lineTo(from.x+ux*8+nx*5,from.y+uy*8+ny*5)
+   .moveTo(from.x,from.y).lineTo(from.x+ux*8-nx*5,from.y+uy*8-ny*5).strokePath();
+  this._tween(job,flash,{alpha:0,duration:75,onComplete:()=>this._free(job,flash)});
+  const pulse=this._obj(job,this.scene.add.circle(from.x,from.y,7,0xf5e1af,.33));
+  this._tween(job,pulse,{alpha:0,scale:1.6,duration:95,onComplete:()=>this._free(job,pulse)});
+  const glow=this._obj(job,this.scene.add.circle(from.x,from.y,7,color,.2));
+  const orb=this._obj(job,this.scene.add.circle(from.x,from.y,3.5,0xfafff6,.99)
+   .setStrokeStyle(1.2,color,.92));
+  const trail=this._obj(job,this.scene.add.graphics());
+  job.premiumProjectile=orb;job.premiumGlow=glow;
+  const duration=Math.max(115,Math.min(310,length*1.24));
+  this._state(job,'recoil');this._later(job,65,()=>this._state(job,'recover'));
+  this._tween(job,orb,{x:to.x,y:to.y,ease:'Cubic.In',duration,onUpdate:()=>{
+   glow.setPosition(orb.x,orb.y);
+   const traveled=Math.hypot(orb.x-from.x,orb.y-from.y),tail=Math.min(24,traveled);
+   trail.clear();if(tail<.75)return;
+   trail.lineStyle(4.2,color,.16).beginPath()
+    .moveTo(orb.x-ux*tail,orb.y-uy*tail).lineTo(orb.x,orb.y).strokePath();
+   trail.lineStyle(1.6,0xf7fff3,.72).beginPath()
+    .moveTo(orb.x-ux*tail*.76,orb.y-uy*tail*.76).lineTo(orb.x,orb.y).strokePath();
+  },onComplete:()=>{
+   this._free(job,orb);this._free(job,glow);this._free(job,trail);
+   this._state(job,'recover'); // NO artificial hit on tracer arrival
+  }});
+  this._later(job,1000,()=>this.cancel(job.id));
+ }
+ _hitPremium(job,p){
+  // Only reached through real correlated hit_applied event.
+  const color=job.visualColor??0xc6eee2;
+  this._ring(job,p,color,11,155);
+  const pop=this._obj(job,this.scene.add.circle(p.x,p.y,4.2,0xfdf4d6,.76));
+  this._tween(job,pop,{alpha:0,scale:1.4,duration:100,onComplete:()=>this._free(job,pop)});
+  const star=this._obj(job,this.scene.add.graphics());
+  for(const angle of [0,2.094,4.188]){
+   const ux=Math.cos(angle),uy=Math.sin(angle);
+   star.lineStyle(1.8,color,.72).beginPath().moveTo(p.x+ux*3,p.y+uy*3)
+    .lineTo(p.x+ux*10,p.y+uy*10).strokePath();
+  }
+  this._tween(job,star,{alpha:0,duration:140,onComplete:()=>this._free(job,star)});
  }
  /**
   * accept({eventId, type, tick, entityId, targetId, worldPosition, payload})
@@ -123,7 +176,8 @@ export class SniperShotPresenter {
    if(e.towerId!==undefined&&e.towerId!==null&&String(fireJob.entityId)!==String(e.towerId))return false;
    fireJob.hitShown=true;this.hitVisualCount++;
    this._seen(e.eventId);this.fireByBullet.delete(key);
-   this._hit(fireJob,e.worldPosition,fireJob.visualColor??0xcafbf1);
+   if(this.premium)this._hitPremium(fireJob,e.worldPosition);
+    else this._hit(fireJob,e.worldPosition,fireJob.visualColor??0xcafbf1);
    this._later(fireJob,200,()=>this.cancel(fireJob.id));
    return true;
   }
@@ -176,5 +230,5 @@ export class SniperShotPresenter {
   this.scene.events?.off?.('shutdown',this.shutdown);
   this.scene.events?.off?.('destroy',this.shutdown);
  }
- diagnostics(){return {active:this.jobs.size,seen:this.seen.size,visualFireCount:this.fireCount,visualHitCount:this.hitVisualCount,correlatedBullets:this.fireByBullet.size,variant:this.variant,destroyed:this.destroyed};}
+ diagnostics(){return {active:this.jobs.size,seen:this.seen.size,visualFireCount:this.fireCount,visualHitCount:this.hitVisualCount,correlatedBullets:this.fireByBullet.size,variant:this.variant,premium:this.premium,destroyed:this.destroyed};}
 }
