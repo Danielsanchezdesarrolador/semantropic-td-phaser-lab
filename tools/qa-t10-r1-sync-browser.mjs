@@ -66,6 +66,9 @@ try{
      }
     }
     if(!fire)throw Error('R1 did not produce a real core attack_fire '+type);
+    // Explicit core pause between Playwright screenshots. Scene.run/World.tick
+    // may otherwise advance asynchronously while browser capture is awaited.
+    world.paused=true;
     const job=s.shots.jobs.get(fire.eventId),diag=s.t10FireOrigins.at(-1);
     if(!job?.premiumProjectile||!diag)throw Error('R1 missing presented shot');
     const direction={x:fire.payload.targetWorld.x-diag.source.x,
@@ -82,6 +85,7 @@ try{
    await page.screenshot({path:dir+'/'+name+'-L'+level+'-'+type+'-01-FIRE.png',fullPage:true});
    const hit=await page.evaluate(({fire})=>{
     const g=window.__SEMANTROPIC_C1D7,s=g.scene,world=g.world;
+    world.paused=false; // deterministic manual core stepping inside this evaluate
     let applied=fire.alreadyHit,died=fire.alreadyDied,observed=[];
     for(let i=0;i<14000&&!applied&&world.active&&!world.ended;i++){
      const events=world.tick(1/60);s.reactEvents(events);
@@ -89,6 +93,7 @@ try{
      const e=events.find(x=>x.type==='hit_applied'&&String(x.bulletId)===String(fire.bulletId));
      if(e){applied=e;died=events.some(x=>x.type==='entity_die'&&x.entityId===e.entityId)}
     }
+    world.paused=true; // lock logical world for subsequent screenshot and ghost test
     if(!applied||!died||applied.hp!==0)throw Error('R1 core lethal hit missing '+JSON.stringify({
       applied,died,observed,active:world.active,ended:world.ended,
       enemy:[...world.enemies.values()].map(x=>({id:x.id,life:x.life,dead:x.dead,progress:x.progress})),
