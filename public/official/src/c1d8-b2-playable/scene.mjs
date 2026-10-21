@@ -29,7 +29,7 @@ let contextIndex=null,contextKey="",menuBusy=false,lastIntentMs=0;
 let t09Presenter=null,t09Revision=0;
 function feedback(s){$("feedback").textContent=s;}
 class CombatScene extends Phaser.Scene{
- constructor(){super("C1D7Nodal");this.towerViews=[];this.towerMounts=new Map();this.enemyViews=new Map();this.soldierViews=new Map();this.accumulator=0;this.fxFires=0;this.p03Actors=new Map();this.p08Animator=new P08AnimationController();this.combatMotion=new C1D8CombatMotion();this.contactFx=0;this.lastRally=null;this.t10FireOrigins=[];}
+ constructor(){super("C1D7Nodal");this.towerViews=[];this.towerMounts=new Map();this.enemyViews=new Map();this.soldierViews=new Map();this.accumulator=0;this.fxFires=0;this.p03Actors=new Map();this.p08Animator=new P08AnimationController();this.combatMotion=new C1D8CombatMotion();this.contactFx=0;this.lastRally=null;this.t10FireOrigins=[];this.t10GhostDeaths=new Map();this.t10HeldKills=0;}
  preload(){
   this.load.on("loaderror",file=>feedback("Recurso visual M07/T08/P07 ausente: "+file.key));
   preloadM07Illustrations(this);
@@ -102,10 +102,12 @@ class CombatScene extends Phaser.Scene{
      p08Entities:this.p08Animator.entities.size,t09Nodes:t09Presenter?.current?.nodes?.length??0,
      b3:this.combatMotion.diagnostics(),confirmedVisualContacts:this.contactFx,
      t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,
+      t10Ghosts:this.t10GhostDeaths.size,t10HeldKills:this.t10HeldKills,
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
   this.events.once("shutdown",()=>{
    stopRallySelection();closeMenu();t09Presenter?.destroy();this.p08Animator.destroy();this.combatMotion.reset();
-   this.shots.destroy();this.mapView.destroy();
+   for(const g of this.t10GhostDeaths.values())g.timer?.remove?.(false);
+    this.t10GhostDeaths.clear();this.shots.destroy();this.mapView.destroy();
   });
   SCENE=this;
   if(USE_T09_NODES)t09Presenter=mountT09Presenter($("app"),{onIntent:intent=>{
@@ -193,6 +195,8 @@ class CombatScene extends Phaser.Scene{
    v.hp.setScale(Math.max(0,e.life/e.maxLife),1);
   }
   for(const [id,v] of this.enemyViews)if(!ids.has(id)){
+   // Only a recent core-confirmed fatal SNIPER impact may retain a visual ghost.
+   if(this.t10GhostDeaths.has(id))continue;
    v.view.destroy();this.enemyViews.delete(id);this.p08Animator.entities.delete(id);this.combatMotion.forget(id);
   }
  }
@@ -268,8 +272,28 @@ class CombatScene extends Phaser.Scene{
    });
    const visual=this.adaptHistoricShot(ev);
    if(visual&&this.shots.accept(visual)&&ev.type==="attack_fire")this.fxFires++;
-   if(ev.type==="hit_applied"&&this.enemyViews.has(ev.entityId))
-    this.enemyViews.get(ev.entityId).hitUntil=WORLD.seconds+.23;
+   if(ev.type==="hit_applied"&&this.enemyViews.has(ev.entityId)){
+    const victim=this.enemyViews.get(ev.entityId);
+    victim.hitUntil=WORLD.seconds+.23;
+    // Core has already applied HP/kill/reward. Hold ONLY its presentation
+    // 125ms after the verified sniper hit to show the premium pop before fade.
+    const isLethalSniper=ev.hp===0
+     &&this.towerMounts.get(ev.towerId)?.meta?.family==="sniper";
+    if(isLethalSniper&&!this.t10GhostDeaths.has(ev.entityId)){
+     const id=ev.entityId,ms=125;
+     const timer=this.time.delayedCall(ms,()=>{
+      const v=this.enemyViews.get(id);
+      if(v&&!WORLD.enemies.has(id)){
+       v.view.destroy();this.enemyViews.delete(id);
+       this.p08Animator.entities.delete(id);this.combatMotion.forget(id);
+      }
+      this.t10GhostDeaths.delete(id);
+     });
+     this.t10GhostDeaths.set(id,{timer,confirmed:true,lifetime:ms});
+     this.t10HeldKills++;
+     this.tweens.add({targets:victim.view,alpha:0,duration:ms,ease:"Cubic.In"});
+    }
+   }
    if(["attack_fire","attack_windup"].includes(ev.type)){
     const mount=this.towerMounts.get(ev.entityId);
     if(mount?.operator){
