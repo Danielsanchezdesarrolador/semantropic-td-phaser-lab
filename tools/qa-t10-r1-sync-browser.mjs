@@ -50,7 +50,7 @@ try{
     // Targeted QA-only fixture: one canonical enemy type with core-generated
     // stats, route, armor, collision and bullet; 1 HP forces lethal-case coverage.
     world.spawnQueue=[{id:world.nextEnemyId++,type,at:0,group:0}];
-    let fire=null,actorId=null;
+    let fire=null,actorId=null,alreadyHit=null,alreadyDied=false;
     for(let i=0;i<28000&&!fire&&world.active&&!world.ended;i++){
      const ev=world.tick(1/60);
      if(actorId===null&&world.enemies.size){
@@ -60,6 +60,10 @@ try{
      }
      s.reactEvents(ev);
      fire=ev.find(e=>e.type==='attack_fire'&&String(e.entityId)===String(t.id));
+     if(fire){
+      alreadyHit=ev.find(e=>e.type==='hit_applied'&&String(e.bulletId)===String(fire.payload.bulletId))??null;
+      alreadyDied=!!alreadyHit&&ev.some(e=>e.type==='entity_die'&&e.entityId===alreadyHit.entityId);
+     }
     }
     if(!fire)throw Error('R1 did not produce a real core attack_fire '+type);
     const job=s.shots.jobs.get(fire.eventId),diag=s.t10FireOrigins.at(-1);
@@ -73,18 +77,24 @@ try{
     if(delta>1e-5)throw Error('R1 initial core bullet not tucked into barrel '+delta);
     return {actorId,fireId:fire.eventId,bulletId:fire.payload.bulletId,
       shooter:t.id,level,type,root,mouth:diag.source,travelMs:job.premiumTravelDuration,
-      shotCount:s.shots.fireCount};
+      shotCount:s.shots.fireCount,alreadyHit,alreadyDied};
    },{level,type,socket});
    await page.screenshot({path:dir+'/'+name+'-L'+level+'-'+type+'-01-FIRE.png',fullPage:true});
    const hit=await page.evaluate(({fire})=>{
     const g=window.__SEMANTROPIC_C1D7,s=g.scene,world=g.world;
-    let applied=null,died=false;
+    let applied=fire.alreadyHit,died=fire.alreadyDied,observed=[];
     for(let i=0;i<14000&&!applied&&world.active&&!world.ended;i++){
      const events=world.tick(1/60);s.reactEvents(events);
+     if(events.length&&observed.length<15)observed.push(...events.map(e=>({type:e.type,bulletId:e.bulletId,entityId:e.entityId})));
      const e=events.find(x=>x.type==='hit_applied'&&String(x.bulletId)===String(fire.bulletId));
      if(e){applied=e;died=events.some(x=>x.type==='entity_die'&&x.entityId===e.entityId)}
     }
-    if(!applied||!died||applied.hp!==0)throw Error('R1 core lethal hit missing');
+    if(!applied||!died||applied.hp!==0)throw Error('R1 core lethal hit missing '+JSON.stringify({
+      applied,died,observed,active:world.active,ended:world.ended,
+      enemy:[...world.enemies.values()].map(x=>({id:x.id,life:x.life,dead:x.dead,progress:x.progress})),
+      bullets:world.bullets.map(x=>({id:x.id,targetId:x.targetId,x:x.x,y:x.y})),
+      events:world.events?.slice(-6).map(x=>x.type),snapshot:world.snapshot
+     }).slice(0,1800));
     s.drawEnemies();
     const job=s.shots.jobs.get(fire.fireId);
     if(!job||!job.hitShown||job.premiumProjectile?.active||job.premiumGlow?.active)
