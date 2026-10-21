@@ -53,6 +53,12 @@ try{
       const newest=records.at(-1);
       const j=[...scene.shots.jobs.values()].find(j=>j.id===fire.eventId&&j.type==="attack_fire");
       if(!j||!newest)throw Error("core fire did not create presentation job");
+      if(scene.shots.premium!==true||!j.premiumProjectile||!j.premiumGlow)
+       throw Error("T10 Premium missing active glow/projectile on core attack_fire");
+      const same=(p,q)=>p&&q&&Math.hypot(p.x-q.x,p.y-q.y)<1e-7;
+      if(!same(j.premiumSource,newest.source)||!same(j.premiumFirstFrame,newest.source)
+       ||!same(j.premiumProjectile,newest.source)||!same(j.premiumGlow,newest.source))
+       throw Error("T10 Premium flash, glow and bullet do NOT share same mounted muzzle source");
       const circles=[...j.objects].filter(o=>o.type==="Arc"&&
         (Number.isFinite(o.radius)?o.radius<=6:(o.geom?.radius??20)<=6));
       const orb=circles.at(-1);
@@ -60,7 +66,8 @@ try{
       const canvas=scene.game.canvas.getBoundingClientRect();
       const cssDiff=Math.hypot((orb.x-newest.source.x)*canvas.width/1280,
        (orb.y-newest.source.y)*canvas.height/768);
-      matched={level,socket,source:newest.source,old:newest.legacy,worldDelta:newest.worldDelta,
+      matched={level,socket,source:newest.source,old:newest.legacy,worldDelta:newest.worldDelta,runtime:newest.runtime,
+       premium:true,oneOrigin:true,flashShared:true,
        orb:{x:orb.x,y:orb.y},cssDiff,canvas:{left:canvas.left,top:canvas.top,
         width:canvas.width,height:canvas.height},eventId:fire.eventId,tick:fire.tick,
        shotOriginOnly:true,coreFires,sourceSprite:{x:mount.sprite.x,y:mount.sprite.y,
@@ -77,7 +84,7 @@ try{
     return {shot:matched,art:g.art,health:w.lives,coreGold:eco.gold,
       ledger:eco.ledger.length,sniper:mount.meta.title,oneRifle:mount.addedRifleLayers===0};
    },{level,socket});
-   if(!shot.oneRifle||shot.shot.cssDiff>6||shot.shot.worldDelta>3.1||
+   if(!shot.oneRifle||!shot.shot.premium||!shot.shot.oneOrigin||shot.shot.cssDiff>6||shot.shot.worldDelta>3.1||
       !Number.isFinite(shot.shot.orb.x)||shot.shot.coreFires!==1)
     throw Error("Muzzle first-fire actual render misaligned "+name+" "+JSON.stringify(shot));
    await page.screenshot({path:dir+"/"+name+"-sniper-L"+level+"-pad"+socket+"-FIRE.png",fullPage:true});
@@ -88,6 +95,6 @@ try{
  }
  console.log(JSON.stringify({status:"PASS_C1D8_B2_T10_REAL_SNIPER_MUZZLE_CHROMIUM_WEBGL2",
   levels:[1,2],sockets:[0,2],all,visualChangeOnly:true,
-  note:"Green dot source actual SVG barrel; purple historical catalog point. Actual first-frame projectile origin measured."},null,2));
+  note:"T10 premium first-frame source/glow/core measured vs mounted SVG face; green dot is calculated mouth marker, purple historical. Human inspection of rendered rifle lip STILL REQUIRED; not pixel-classified."},null,2));
 }catch(e){console.error("FAIL_C1D8_B2_CHROMIUM",e.stack||String(e));process.exitCode=1}
 finally{await browser?.close();await new Promise(resolve=>server.close(resolve))}
