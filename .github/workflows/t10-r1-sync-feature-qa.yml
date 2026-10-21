@@ -1,0 +1,69 @@
+name: T10 Premium R1 perceptual origin and core hit visual synchronization
+on:
+  push:
+    branches:
+      - feature/t10-premium-r1-sync-20261021
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  t10-r1-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit protected T04 and core, VFX and gameplay tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node docs/art/towers/qa-t10-b2.mjs
+          node docs/art/towers/qa-t10-premium.mjs
+          node tools/qa-c1d8-b1-rally-core.mjs
+          node tools/qa-c1d8-b3-motion.mjs
+          node tools/qa-c1d7-menu.mjs
+          node --check public/official/src/c1d8-b2-playable/scene.mjs
+          node --check public/official/src/towers-visual/sniper-vfx.mjs
+          node --check tools/qa-c1d8-b2-sniper-browser.mjs
+          node --check tools/qa-t10-r1-sync-browser.mjs
+      - name: Build untouched canonical M01 with Phaser 4.2.1
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Chromium first-frame muzzle 3 sizes by 2 levels
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b2-sniper-browser.mjs 2>&1 | tee qa-t10-r1-muzzle.log
+      - name: Chromium real core hit death and 125ms ghost 3 sizes by 4 scenarios
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-t10-r1-sync-browser.mjs 2>&1 | tee qa-t10-r1-synchronization.log
+      - name: Real M01 victory loss rally and touchscreen regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b1-browser.mjs 2>&1 | tee qa-t10-r1-m01.log
+      - name: Store unretouched screenshots and QA logs, never deploy
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_T10_R1_MUZZLE_HIT_SYNC_QA
+          path: |
+            artifacts/t10-r1-sync-browser/
+            artifacts/c1d8-b2-browser/
+            artifacts/c1d8-b1-browser/
+            qa-t10-r1-muzzle.log
+            qa-t10-r1-synchronization.log
+            qa-t10-r1-m01.log
+          if-no-files-found: warn
