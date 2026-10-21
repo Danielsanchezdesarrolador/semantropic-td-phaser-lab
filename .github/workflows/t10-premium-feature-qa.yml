@@ -1,0 +1,64 @@
+name: T10 PREMIUM muzzle optical/VFX QA (feature only)
+on:
+  push:
+    branches:
+      - feature/t10-premium-muzzle-vfx-20261021
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  premium-sniper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Lock exact T04, verify premium VFX and gameplay core regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node docs/art/towers/qa-t10-b2.mjs
+          node docs/art/towers/qa-t10-premium.mjs
+          node tools/qa-c1d8-b1-rally-core.mjs
+          node tools/qa-c1d8-b3-motion.mjs
+          node tools/qa-c1d7-menu.mjs
+          node --check public/official/src/c1d8-b2-playable/scene.mjs
+          node --check public/official/src/towers-visual/sniper-vfx.mjs
+          node --check public/official/src/towers-visual/t10/premium-runtime-muzzle.mjs
+          node --check tools/qa-c1d8-b2-sniper-browser.mjs
+      - name: Build real Phaser 4.2.1
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium WebGL2 for real render
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Real 6-view first-frame muzzle + glow + projectile screenshots
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/c1d8-b2-playable/
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b2-sniper-browser.mjs 2>&1 | tee qa-t10-premium-browser.log
+      - name: Real rally regression on unchanged B1 playable
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b1-browser.mjs 2>&1 | tee qa-t10-premium-rally.log
+      - name: Preserve QA screenshots and test logs (NO deployment)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_T10_PREMIUM_DRAFT_REAL_QA
+          path: |
+            artifacts/c1d8-b2-browser/
+            artifacts/c1d8-b1-browser/
+            qa-t10-premium-browser.log
+            qa-t10-premium-rally.log
+          if-no-files-found: warn
