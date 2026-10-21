@@ -6,7 +6,8 @@ import {validateM01} from "../maps-visual/m01/renderer.mjs";
 import {preloadM07Illustrations,mountM01WorldV7} from "../maps-visual/m01/m07/renderer-v7.mjs";
 import {TOWER_ART_V2,validateTowerArtV2,projectSourceAnchor} from "../towers-visual/catalog.mjs";
 import {SniperShotPresenter} from "../towers-visual/sniper-vfx.mjs";
-import {projectT10MuzzleWorld,diagnoseT10Muzzle} from "../towers-visual/t10/sniper-muzzle-contract.mjs";
+import {diagnoseT10Muzzle} from "../towers-visual/t10/sniper-muzzle-contract.mjs";
+import {projectMountedT10Muzzle,diagnoseMountedT10Muzzle} from "../towers-visual/t10/premium-runtime-muzzle.mjs";
 import {CAST,ANIMATIONS} from "../../art/actors/atlas-source.mjs";
 import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
@@ -48,7 +49,7 @@ class CombatScene extends Phaser.Scene{
     (atlas.actor.heightWorld??info.heightWorld)/(info.kind==="hound"?114:171)*.70)});
   }
   this.mapView=mountM01WorldV7(this,MAP,{palette:"viva",treatment:"fiel"});
-  this.shots=new SniperShotPresenter(this,{variant:"A",depth:35000});
+  this.shots=new SniperShotPresenter(this,{variant:"A",depth:35000,premium:true});
   assert(this.mapView.plan.sockets.length===8,"socket count");
   this.selection=this.add.circle(0,0,51,0,0).setStrokeStyle(4,0xf5d484).setDepth(45000);
   this.selection.setVisible(false);
@@ -100,7 +101,7 @@ class CombatScene extends Phaser.Scene{
    diagnostics:()=>({towers:this.towerMounts.size,enemies:this.enemyViews.size,
      p08Entities:this.p08Animator.entities.size,t09Nodes:t09Presenter?.current?.nodes?.length??0,
      b3:this.combatMotion.diagnostics(),confirmedVisualContacts:this.contactFx,
-     t10Fires:this.t10FireOrigins.length,
+     t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
   this.events.once("shutdown",()=>{
    stopRallySelection();closeMenu();t09Presenter?.destroy();this.p08Animator.destroy();this.combatMotion.reset();
@@ -236,11 +237,13 @@ class CombatScene extends Phaser.Scene{
   if(!mount||mount.meta.family!=="sniper")return null;
   // T10/B2: verified original T04 rifle barrel face (levels I/II).
   // Changes VFX origin ONLY; no alteration of core bullets, damage or targeting.
-  const muzzle=projectT10MuzzleWorld(mount.sprite,mount.meta);
+  // Runtime-mount authoritative optical origin: ACTUAL sprite frame/displayOrigin/matrix.
+  const muzzle=projectMountedT10Muzzle(mount.sprite,mount.meta);
   if(ev.type==="attack_fire"&&this.t10FireOrigins.length<48){
    const diagnosis=diagnoseT10Muzzle(mount.sprite,mount.meta);
    this.t10FireOrigins.push({eventId:ev.eventId,tick:ev.tick,level:mount.meta.level,
-    towerId:ev.entityId,source:muzzle,legacy:diagnosis.legacy,worldDelta:diagnosis.worldDelta});
+    towerId:ev.entityId,source:muzzle,legacy:diagnosis.legacy,worldDelta:diagnosis.worldDelta,
+     runtime:diagnoseMountedT10Muzzle(mount.sprite,mount.meta)});
   }
   const target=WORLD.enemies.get(ev.targetId);
   const targetWorld=ev.payload?.targetWorld??(target?{x:target.x,y:target.y}:null);
