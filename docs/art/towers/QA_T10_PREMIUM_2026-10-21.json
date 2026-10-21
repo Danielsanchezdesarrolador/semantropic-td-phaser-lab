@@ -1,0 +1,114 @@
+{
+  "schema": "semantropic-qa-v1",
+  "team": "DG+TORRES",
+  "block": "T10-PREMIUM",
+  "date": "2026-10-21",
+  "pr": 47,
+  "baseSha": "86ffbe828be7aaafcccf5a8903cf85d92ee1f0de",
+  "testedTechnicalSha": "44f41b9d793c62ce424d1fe02f298c1432f2525a",
+  "sourceBranch": "feature/t10-premium-muzzle-vfx-20261021",
+  "status": "TECH_QA_PASS__HUMAN_MOBILE_SIGNOFF_PENDING",
+  "run": {
+    "id": 39687530681,
+    "conclusion": "success",
+    "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39687530681",
+    "job": 119525281349,
+    "node": "22",
+    "engine": "Phaser 4.2.1",
+    "runner": "ubuntu-latest"
+  },
+  "checks": [
+    {
+      "name": "T04-original-SVG-integrity",
+      "status": "PASS",
+      "evidence": "exact Git blob hashes sniper I/II"
+    },
+    {
+      "name": "Node-T10-premium-first-frame-core-event",
+      "status": "PASS",
+      "evidence": "Node22 source + Phaser MOCK + cleanup"
+    },
+    {
+      "name": "M01-rally/menu/core-regression",
+      "status": "PASS",
+      "evidence": "Node + Chromium"
+    },
+    {
+      "name": "npm-install-build",
+      "status": "PASS",
+      "evidence": "Phaser 4.2.1 actual build"
+    },
+    {
+      "name": "real-Chromium-WebGL2-levels",
+      "status": "PASS",
+      "evidence": "6/6 cases: two levels × 1280x768/844x390/932x430"
+    },
+    {
+      "name": "projected-first-frame-origin",
+      "status": "PASS",
+      "evidence": "cssDiff=0 in all 6 cases; shares projectile/glow/flash base"
+    },
+    {
+      "name": "real-C1D8-B1-win-defeat",
+      "status": "PASS",
+      "evidence": "victory 5 waves 63 kills 0 escapes 100 lives 3 stars; defeat 0 lives 50 escapes"
+    },
+    {
+      "name": "real-P08-gallery-3-viewports",
+      "status": "PASS",
+      "evidence": "gallery title/card gaps valid"
+    },
+    {
+      "name": "independent-barrel-raster-edge-detection",
+      "status": "NOT_RUN",
+      "evidence": "QA green source dot does not independently detect rendered lip"
+    },
+    {
+      "name": "before-after-premium-art-side-by-side",
+      "status": "NOT_RUN",
+      "evidence": "single AFTER candidate screenshots stored, comparative art review pending"
+    },
+    {
+      "name": "physical-Android-FPS-p50-p95",
+      "status": "NOT_RUN",
+      "evidence": "Chromium virtual viewport only"
+    },
+    {
+      "name": "real-hit-visual-warrior-hound-screenshots",
+      "status": "NOT_RUN",
+      "evidence": "presenter causal Mock PASS but no dedicated actor-specific real screenshots"
+    },
+    {
+      "name": "director-visual-signoff",
+      "status": "PENDING",
+      "evidence": "Director approves qualitative premium/readability"
+    }
+  ],
+  "screenshots": {
+    "status": "CAPTURED_RUN_ARTIFACT",
+    "artifactId": 12387281758,
+    "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39687530681/artifacts/12387281758",
+    "sizeBytes": 7287148,
+    "firstShotCases": 6
+  },
+  "metric": {
+    "firstFrameCssDiff": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "worldMatrixDiscrepancyApprox": 0.0000016,
+    "fps": null,
+    "physicalDevice": false
+  },
+  "restrictions": {
+    "liveUnmodified": true,
+    "gameplayUnmodified": true,
+    "t04MastersUnmodified": true,
+    "mergePerformed": false,
+    "deployPerformed": false
+  }
+}
