@@ -12,7 +12,7 @@ const server=createServer(async(req,res)=>{try{
  res.end(await readFile(file));
 }catch(e){res.writeHead(404);res.end(String(e));}});
 await new Promise(resolve=>server.listen(0,"127.0.0.1",resolve));
-const URL="http://127.0.0.1:"+server.address().port+
+const TEST_URL="http://127.0.0.1:"+server.address().port+
  (process.env.SEMANTROPIC_PLAYTEST_PATH||"/official/src/c1d8-b2-playable/");
 const dir="artifacts/c1d8-b2-browser";
 await mkdir(dir,{recursive:true});
@@ -24,7 +24,7 @@ try{
   for(const [level,socket] of [[1,0],[2,2]]){
    const page=await browser.newPage({viewport:{width:w,height:h},hasTouch:w<1000,isMobile:w<1000});
    const errs=[];page.on("pageerror",e=>errs.push(e.message));
-   const result=await page.goto(URL,{waitUntil:"load",timeout:30000});
+   const result=await page.goto(TEST_URL,{waitUntil:"load",timeout:30000});
    if(result?.status()!==200)throw Error(name+" "+level+" HTTP "+result?.status());
    await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7?.scene,null,{timeout:45000});
    const shot=await page.evaluate(({level,socket})=>{
