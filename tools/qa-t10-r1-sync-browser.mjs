@@ -36,6 +36,9 @@ try{
    await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7?.scene,null,{timeout:45000});
    const fire=await page.evaluate(({level,type,socket})=>{
     const g=window.__SEMANTROPIC_C1D7,s=g.scene,world=g.world,eco=world.economy;
+    // Freeze ONLY automatic core advancement during deterministic QA stepping.
+    // Phaser renderer, tweens and timers keep running for real screenshots.
+    s.update=()=>{};
     if(!s.game.renderer.gl||!(s.game.renderer.gl instanceof WebGL2RenderingContext))
      throw Error('R1 Chromium WebGL2 unavailable');
     if(!eco.build(socket,'sniper').ok)throw Error('build sniper failed');
