@@ -1,0 +1,51 @@
+name: C1-D8 B2 T10 rifle muzzle real Chromium QA
+on:
+  push:
+    branches: [feature/integrator-c1d8-b2-sniper-muzzle]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sniper-muzzle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Protect original T04, verify exact SVG and source transforms
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d4r-source-lock.mjs
+          node docs/art/towers/qa-t10-b2.mjs
+          node tools/qa-c1d8-b1-rally-core.mjs
+          node tools/qa-c1d8-b3-motion.mjs
+          node tools/qa-c1d7-menu.mjs
+          node --check public/official/src/c1d8-b2-playable/scene.mjs
+          node --check tools/qa-c1d8-b2-sniper-browser.mjs
+      - name: Build original Phaser 4.2.1 game
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install actual Chromium/WebGL2
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Measure real bullet first-frame at actual SVG barrel in desktop/landscape
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b2-sniper-browser.mjs 2>&1 | tee qa-b2-t10-sniper.log
+      - name: Keep first-fire source screenshots and diagnostic JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEMANTROPIC_C1D8_B2_T10_SNIPER_REAL_MUZZLE
+          path: |
+            artifacts/c1d8-b2-browser/
+            qa-b2-t10-sniper.log
+          if-no-files-found: warn

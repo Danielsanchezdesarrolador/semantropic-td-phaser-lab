@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA release permanente C1-D8 B3 (misma URL)
+name: SEMANTROPIC TD — QA release permanente C1-D8 B2 (misma URL)
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -8,7 +8,7 @@ permissions:
 jobs:
   permanent-playable-release:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 42
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -23,13 +23,16 @@ jobs:
           node tools/qa-c1d5-results.mjs
           node tools/qa-c1d8-b1-rally-core.mjs
           node tools/qa-c1d8-b3-motion.mjs
+          node docs/art/towers/qa-t10-b2.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
           node public/official/src/actors-visual/p08/qa-p08.mjs
           node public/official/src/actors-visual/qa-p07.mjs
           node --check tools/qa-c1d8-b3-browser.mjs
-          node --check public/official/src/c1d8-b3-playable/scene.mjs
+          node --check tools/qa-c1d8-b2-sniper-browser.mjs
+          node --check public/official/src/c1d8-b2-playable/scene.mjs
+          node --check public/official/src/towers-visual/t10/sniper-muzzle-contract.mjs
           node --check public/official/src/core-c1d/m01-infantry-combat-a3.mjs
           node --check public/official/src/c1d8-b3-combat/motion.mjs
       - name: Compilar juego real Phaser 4.2.1
@@ -50,32 +53,42 @@ jobs:
           const live=readFileSync("dist/official/src/live/index.html","utf8");
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
-          assert(live.includes("../c1d8-b3-playable/scene.mjs"),"Live scene must point to vetted C1D8 B3");
+          assert(live.includes("../c1d8-b2-playable/scene.mjs"),"Live scene must point to vetted C1D8 B2");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
-          for(const p of ["dist/official/src/c1d8-b3-playable/scene.mjs",
+          for(const p of ["dist/official/src/c1d8-b2-playable/scene.mjs",
             "dist/official/src/towers-visual/t09/menu.css",
+            "dist/official/src/towers-visual/t10/sniper-muzzle-contract.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
-          console.log("PASS_C1D8_B3_LIVE_CANONICAL_ENTRY");
+          console.log("PASS_C1D8_B2_LIVE_CANONICAL_ENTRY");
           '
       - name: Instalar Chromium WebGL2
         run: |
           npm install --no-save playwright@1.57.0
           npx playwright install --with-deps chromium
-      - name: Jugar URL permanente en Chromium 3 tamaños + victoria/derrota real
+      - name: Juego completo B3 sobre LIVE 3 resoluciones + victoria/derrota real
         shell: bash
         env:
           SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
         run: |
           set -euo pipefail
           node tools/qa-c1d8-b3-browser.mjs 2>&1 | tee qa-c1d8-b3-live-url.log
+      - name: Validar bala real nivel I/II desde rifle T10 en LIVE
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
+        run: |
+          set -euo pipefail
+          node tools/qa-c1d8-b2-sniper-browser.mjs 2>&1 | tee qa-c1d8-b2-live-url.log
       - name: Conservar screenshots y logs de release
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: SEMANTROPIC_TD_C1D8_B1_GOLPES_URL_OFICIAL_QA_REAL
+          name: SEMANTROPIC_TD_C1D8_B2_FRANCOTIRADOR_URL_OFICIAL_QA_REAL
           path: |
             artifacts/c1d8-b3-browser/
+            artifacts/c1d8-b2-browser/
             qa-c1d8-b3-live-url.log
+            qa-c1d8-b2-live-url.log
           if-no-files-found: warn

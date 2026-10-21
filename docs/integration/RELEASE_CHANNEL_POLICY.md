@@ -39,3 +39,10 @@ Publicar desde ahora cada **bloque funcional verificado** directamente en el **m
 - Presentación pura: antelación en cuerpo, impulso frame 2 del impacto y retroceso; efectos efímeros sólo al consumir `soldier_attack_hit` y `soldier_hit` del core. No modificación de daño, HP, cadencia, monedas o atlas P08.
 - Se conserva Rally B1 y la identidad visual M07/T08/T04/P08. Rollback: `b70a28d93e42375af19f69514b1171486849e396` LIVE anterior.
 - Bloque separado TORRES T10/B2 (nacimiento de bala en cañón) aún EN PROCESO y NO incluido en este release.
+
+## Bloque C1-D8/B2 — boca del rifle T04 (20-oct-2026)
+- Se importó TORRES T10-B2 PR #43, SHA `620146f441cad79a5034e2faef95d367ba2312f1`, tres blobs exactos.
+- Se activa `projectT10MuzzleWorld` únicamente para el proyectil/flash visual del Francotirador nivel I/II. No se altera el origen físico/combate, daño, HP, frecuencia, rango, oro ni arte original T04.
+- QA previo obligatorio: [Actions #39528788481](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39528788481) SUCCESS, 6 casos reales: nivel I y II, sockets 0 y 2, desktop 1280×768 y móvil 844×390/932×430; primera aparición de orb visual alineada 0 px con proyección SVG fuente. Diferencias históricas 1.125 y 2.932 unidades mundo; esto comprueba coherencia técnica, pero legibilidad visual final requiere revisión del usuario en móvil físico.
+- QA código B2: `69aabe513baabdfb8557efcb6d751b6785d53a51`; rollback: C1-D8 B3 producción `d6cc742b4fb68af1b98ca722f7def95923701195`. B1 rally y B3 ataques permanecen activos.
+- Canal oficial: https://semantropic-td-jugar.onrender.com/official/src/live/. Publicación de bloques continuos autorizada sin repetir confirmaciones.
