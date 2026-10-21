@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA release permanente C1-D8 B2 (misma URL)
+name: SEMANTROPIC TD — QA release permanente C1-D8 B4 T10 PREMIUM
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -24,6 +24,7 @@ jobs:
           node tools/qa-c1d8-b1-rally-core.mjs
           node tools/qa-c1d8-b3-motion.mjs
           node docs/art/towers/qa-t10-b2.mjs
+          node docs/art/towers/qa-t10-premium.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
@@ -33,6 +34,7 @@ jobs:
           node --check tools/qa-c1d8-b2-sniper-browser.mjs
           node --check public/official/src/c1d8-b2-playable/scene.mjs
           node --check public/official/src/towers-visual/t10/sniper-muzzle-contract.mjs
+          node --check public/official/src/towers-visual/t10/premium-runtime-muzzle.mjs
           node --check public/official/src/core-c1d/m01-infantry-combat-a3.mjs
           node --check public/official/src/c1d8-b3-combat/motion.mjs
       - name: Compilar juego real Phaser 4.2.1
@@ -53,11 +55,13 @@ jobs:
           const live=readFileSync("dist/official/src/live/index.html","utf8");
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
-          assert(live.includes("../c1d8-b2-playable/scene.mjs"),"Live scene must point to vetted C1D8 B2");
+          assert(live.includes("../c1d8-b2-playable/scene.mjs?release=c1d8-b4-t10-premium"),"Live must point to new T10 premium scene release");
+          assert(live.includes("C1-D8 B4 T10 PREMIUM"),"Live must display the new release identifier");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
           for(const p of ["dist/official/src/c1d8-b2-playable/scene.mjs",
             "dist/official/src/towers-visual/t09/menu.css",
             "dist/official/src/towers-visual/t10/sniper-muzzle-contract.mjs",
+            "dist/official/src/towers-visual/t10/premium-runtime-muzzle.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
