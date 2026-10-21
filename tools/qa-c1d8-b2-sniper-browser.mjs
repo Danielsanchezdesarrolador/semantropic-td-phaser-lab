@@ -56,9 +56,13 @@ try{
       if(scene.shots.premium!==true||!j.premiumProjectile||!j.premiumGlow)
        throw Error("T10 Premium missing active glow/projectile on core attack_fire");
       const same=(p,q)=>p&&q&&Math.hypot(p.x-q.x,p.y-q.y)<1e-7;
-      if(!same(j.premiumSource,newest.source)||!same(j.premiumFirstFrame,newest.source)
-       ||!same(j.premiumProjectile,newest.source)||!same(j.premiumGlow,newest.source))
-       throw Error("T10 Premium flash, glow and bullet do NOT share same mounted muzzle source");
+      const target=fire.payload.targetWorld;
+       const d=Math.max(.001,Math.hypot(target.x-newest.source.x,target.y-newest.source.y));
+       const root={x:newest.source.x-(target.x-newest.source.x)/d*3.25,
+        y:newest.source.y-(target.y-newest.source.y)/d*3.25};
+       if(!same(j.premiumSource,newest.source)||!same(j.premiumFirstFrame,root)
+        ||!same(j.premiumProjectile,root)||!same(j.premiumGlow,root))
+        throw Error("T10 R1 shot does not start slightly INSIDE mounted rifle mouth");
       const circles=[...j.objects].filter(o=>o.type==="Arc"&&
         (Number.isFinite(o.radius)?o.radius<=6:(o.geom?.radius??20)<=6));
       const orb=circles.at(-1);
@@ -67,7 +71,8 @@ try{
       const cssDiff=Math.hypot((orb.x-newest.source.x)*canvas.width/1280,
        (orb.y-newest.source.y)*canvas.height/768);
       matched={level,socket,source:newest.source,old:newest.legacy,worldDelta:newest.worldDelta,runtime:newest.runtime,
-       premium:true,oneOrigin:true,flashShared:true,
+       premium:true,oneOrigin:true,flashShared:true,visualRoot:root,
+       travelMs:j.premiumTravelDuration,
        orb:{x:orb.x,y:orb.y},cssDiff,canvas:{left:canvas.left,top:canvas.top,
         width:canvas.width,height:canvas.height},eventId:fire.eventId,tick:fire.tick,
        shotOriginOnly:true,coreFires,sourceSprite:{x:mount.sprite.x,y:mount.sprite.y,
@@ -95,6 +100,6 @@ try{
  }
  console.log(JSON.stringify({status:"PASS_C1D8_B2_T10_REAL_SNIPER_MUZZLE_CHROMIUM_WEBGL2",
   levels:[1,2],sockets:[0,2],all,visualChangeOnly:true,
-  note:"T10 premium first-frame source/glow/core measured vs mounted SVG face; green dot is calculated mouth marker, purple historical. Human inspection of rendered rifle lip STILL REQUIRED; not pixel-classified."},null,2));
+  note:"T10 R1 root is 3.25wu INSIDE mounted barrel face; visual 6 CSS px gate is non-independent geometry only. Human inspection of rifle lip STILL REQUIRED."},null,2));
 }catch(e){console.error("FAIL_C1D8_B2_CHROMIUM",e.stack||String(e));process.exitCode=1}
 finally{await browser?.close();await new Promise(resolve=>server.close(resolve))}
