@@ -5,7 +5,8 @@
  * READ-ONLY source: official/data/maps.v5.json + campaign140.v5.json.
  * Source 1280×768 geometry; 2x (2560×1536) HQ drawing possible.
  */
-export const M02_ART_VERSION='r3-a-m02-farmland-authored-v1';
+import {paintPremiumM02,R6_MAP02_ART} from './premium-golden-valley-r6.mjs';
+export const M02_ART_VERSION='r6-m02-golden-valley-v1';
 export const M02_ART_PALETTE=Object.freeze({
  pasture:'#8eba79',pastureLight:'#c1d895',pastureDark:'#659b76',
  ridge:'#477c67',roadOutline:'#a28563',road:'#dfbe8d',roadLight:'#eddaa9',
@@ -114,41 +115,15 @@ function drawPad(ctx,pad){
  ctx.strokeStyle=pal.tech;ctx.lineWidth=1.6;ctx.beginPath();ctx.moveTo(-8,-3);ctx.lineTo(0,-9);ctx.lineTo(8,-3);ctx.lineTo(0,3);ctx.closePath();ctx.stroke();
  ctx.restore();
 }
+// R6: immersive replacement of the former flat illustrative map. All positions
+// remain derived from V5 protected map and returned plan. Painter is authoring-only.
 export function paintM02Artwork(ctx,plan,{density=2}={}){
- if(!ctx||!plan||plan.version!==M02_ART_VERSION||![1,2].includes(density))throw Error('Invalid R3-A M02 canvas/plan');
- const p=M02_ART_PALETTE;
- ctx.save();ctx.setTransform(density,0,0,density,0,0);
- const background=ctx.createLinearGradient(0,0,1280,768);
- background.addColorStop(0,p.pastureLight);background.addColorStop(.48,p.pasture);background.addColorStop(1,p.pastureDark);
- ctx.fillStyle=background;ctx.fillRect(0,0,1280,768);
- const r=rng(20261022);
- for(let i=0;i<360;i++){
-  const x=r()*1280,y=r()*768;
-  if(dPath(x,y,plan.path)<78||plan.pads.some(z=>Math.hypot(x-z.x,y-z.y)<61))continue;
-  ctx.fillStyle=i%4?'#dce6a633':'#446f5833';ctx.beginPath();
-  ctx.ellipse(x,y,2+r()*7,1+r()*3,r()-.5,0,Math.PI*2);ctx.fill();
- }
- for(const q of plan.fields)cropRows(ctx,q.rect,q.id);
- for(const l of plan.landmarks){
-  if(l.kind==='mill')mill(ctx,l.x,l.y);
-  if(l.kind==='farm')farm(ctx,l.x,l.y);
-  if(l.kind==='supplies')supplies(ctx,l.x,l.y);
- }
- pathStroke(ctx,plan.path,116,p.ridge);
- pathStroke(ctx,plan.path,108,p.roadOutline);
- pathStroke(ctx,plan.path,97,p.road);
- pathStroke(ctx,plan.path,83,p.roadLight);
- pathStroke(ctx,plan.path,66,p.road);
- // Brush wear on both road edges; no change to canonical centerline.
- ctx.setLineDash([11,17]);pathStroke(ctx,plan.path,2,'#f2dba478');ctx.setLineDash([]);
- for(const pad of plan.pads)drawPad(ctx,pad);
- ctx.restore();
- return Object.freeze({density,width:1280*density,height:768*density,
-  padsRendered:plan.pads.length,routeVertices:plan.path.length});
+ if(!ctx||!plan||plan.version!==M02_ART_VERSION)throw Error('Invalid R6 M02 art plan');
+ return paintPremiumM02(ctx,plan,{density});
 }
 export function makeM02ArtCanvas(map,{density=2}={}){
  const plan=makeM02ArtPlan(map);
- if(typeof document==='undefined')throw Error('R3-A requires browser Canvas for rasterization');
+ if(typeof document==='undefined')throw Error('R6 requires browser Canvas for rasterization');
  const canvas=document.createElement('canvas');canvas.width=1280*density;canvas.height=768*density;
  const ctx=canvas.getContext('2d',{alpha:false});
  if(!ctx)throw Error('Canvas2D missing');

@@ -149,3 +149,13 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - Node R5 asegura texturas de terreno y nueva capa, QA Chromium prueba 6 viewports, muestras pixel lado izquierdo y derecho cuando corresponde, fullscreen, selector M01/M02 y regreso. QA física Android de la nueva versión pendiente.
 - **Limitación del navegador**: al activar fullscreen puede aparecer temporalmente un aviso de salida que pertenece a Chrome/Android; el juego no puede ocultarlo.
 - Rollback por commit normal a `803d0df524123188d7451a4e51c1bb6fd82944ee`. Una sola rama production y una sola URL LIVE.
+
+
+## 19. R6 — M02 «CAMPOS DEL MOLINO» REWORK ARTÍSTICO PREMIUM (22-oct-2026)
+- Director compartió mockup campiña/trigales/cascadas/molino/puentes premium y autorizó ejecutar integralmente el PROMPT MAESTRO previo. El documento maestro firmado es `docs/direccion-general/ACTA_R6_MAPA02_PREMIUM_2026-10-22.md`.
+- Pintura procedural **original** de valle rural con alto detalle, separada en nuevo módulo `public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs`. `farmland-art.mjs` redirige el pintado a R6 manteniendo API existente, anclajes del molino/casa, 163 nodos y 8 pads, fuente 2560×1536 a 2×. R5 panorama sin bordes y renderer M02 siguen funcionando.
+- Paisajismo nuevo: montañas y villa distantes, río con cascadas, trigo con surcos, bosques ilustrados, puentes (principal + 2 secundarios), molino y vivienda detallados, carros/pacas, cercos y plataformas piedra. No usar/elaborar imagen descargada/derivada copiada del mockup.
+- M01, clases/core de M02, oleadas, economía, armamento y todas las texturas de personajes protegidas, sin cambios. Rework 5 torres aprobado como destino, solo 2 jugables todavía; arte M02 no habilita automáticamente Guardiana/Bombardera/Control.
+- QA de geometría, assets y WebGL2 realizado mediante Node y Chromium con capturas (desktop y Android emulado). En GitHub Actions se evita `--with-deps` cuando es posible para evitar timeout del espejo de apt de Ubuntu visto en CI anterior; si falla por librerías, reportar infraestructura separadamente.
+- **No declarar arte 1:1 con mockup**. Pendiente evaluación estética en móvil físico; antes de más gameplay, revisar ese arte y ajustar detalles visibles.
+- Rollback conocido `06d3ed136ce1934f3f7538aee45761f1e503492a`.

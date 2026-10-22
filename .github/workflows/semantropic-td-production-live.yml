@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente R5 FULL BLEED TERRAIN MÓVIL / PC
+name: SEMANTROPIC TD — QA producción permanente R6 CAMPOS DEL MOLINO REWORK PREMIUM
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -38,6 +38,7 @@ jobs:
           node docs/direccion-general/qa-r3b-m02-core.mjs
           node docs/direccion-general/qa-r3c-m02-scene.mjs
           node docs/direccion-general/qa-r4-viewport.mjs
+          node docs/direccion-general/qa-r6-m02-visual.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
@@ -58,6 +59,8 @@ jobs:
           node --check tools/qa-u07-hd-gallery-browser.mjs
           node --check tools/qa-r3a-m02-art-browser.mjs
           node --check public/official/src/maps-visual/m02/farmland-art.mjs
+          node --check public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs
+          node --check tools/qa-r6-m02-premium-browser.mjs
           node --check public/official/src/maps-visual/m02/rework-contract.mjs
           node --check public/official/src/core-c1d/m02-construction-economy.mjs
           node --check public/official/src/core-c1d/m02-infantry-nav.mjs
@@ -100,7 +103,7 @@ jobs:
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
           assert(live.includes("../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1"),"Live must point to new T10 premium scene release");
-          assert(live.includes("R5 pantalla completa sin bordes"),"Live must display R5 immersive edition");
+          assert(live.includes("R6 Campos del Molino premium"),"Live must display R6 official map rework");
           assert(live.includes("scene-m02.mjs?release=r3c-m02-real-seven-wave-v1"),"Live missing M02 runtime");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
           for(const p of ["dist/official/src/c1d8-b2-playable/scene.mjs",
@@ -114,6 +117,7 @@ jobs:
             "dist/official/src/towers-visual/u06/legacy-hd.mjs",
             "dist/official/src/towers-visual/u06/hd-gallery-ui.mjs",
             "dist/official/src/maps-visual/m02/farmland-art.mjs",
+            "dist/official/src/maps-visual/m02/premium-golden-valley-r6.mjs",
             "dist/official/src/maps-visual/m02/rework-contract.mjs",
             "dist/official/src/core-c1d/m02-construction-economy.mjs",
             "dist/official/src/core-c1d/m02-infantry-nav.mjs",
@@ -131,7 +135,7 @@ jobs:
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
-          console.log("PASS_R5_M01_M02_FULL_BLEED_LIVE_CANONICAL_ENTRY");
+          console.log("PASS_R6_M02_PREMIUM_WITH_R5_FULL_BLEED_CANONICAL_ENTRY");
           '
       - name: Instalar Chromium WebGL2
         timeout-minutes: 8
@@ -139,7 +143,7 @@ jobs:
           set -euo pipefail
           npm install --no-save --no-audit --no-fund playwright@1.57.0
           # Browser automation uses Chromium headless only; full Chrome is unnecessary.
-          npx playwright install --with-deps --only-shell chromium
+          npx playwright install --only-shell chromium
       - name: R3-A Mapa 02 163 nodos, 8 pads, nueva identidad y rework 5 torres (sin habilitar gameplay)
         shell: bash
         env:
@@ -147,6 +151,13 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-r3a-m02-art-browser.mjs 2>&1 | tee qa-r3a-m02-farmland.log
+      - name: R6 Mapa 02 premium, 8 pads, 7 oleadas, original V5, desktop + Android WebGL2
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
+        run: |
+          set -euo pipefail
+          node tools/qa-r6-m02-premium-browser.mjs 2>&1 | tee qa-r6-m02-premium.log
       - name: R5 paisaje sin barras oscuras, FIT M01/M02 y pantalla completa (6 resoluciones Chromium)
         shell: bash
         env:
@@ -244,6 +255,7 @@ jobs:
             artifacts/u06-global-hd-browser/
             artifacts/u07-hd-gallery-browser/
             artifacts/r3a-m02-farmland-browser/
+            artifacts/r6-m02-premium-browser/
             artifacts/r3c-m02-browser/
             artifacts/r4-responsive-viewport-browser/
             qa-c1d8-b3-live-url.log
@@ -257,6 +269,7 @@ jobs:
             qa-u06-hd-live.log
             qa-u07-hd-gallery-live.log
             qa-r3a-m02-farmland.log
+            qa-r6-m02-premium.log
             qa-r3c-m02-live.log
             qa-r4-responsive-live.log
           if-no-files-found: warn
