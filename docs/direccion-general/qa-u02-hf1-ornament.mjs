@@ -1,0 +1,16 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+const asset=readFileSync("public/official/art/towers/layers/sniper-1-structure.svg","utf8");
+const master=readFileSync("public/official/art/towers/sniper/level-1.svg","utf8");
+const clean="U02-HF1: remove small luminous facade medallion";
+const ornament='transform="translate(191 236) scale(0.48)"';
+assert(asset.includes(clean),"operator-deck cleanup missing");
+assert(!asset.includes(ornament),"goggles-like badge still rendered on sniper I platform");
+assert(master.includes(ornament),"protected T04 original art modified unexpectedly");
+assert(asset.includes("plataforma superior"),"physical deck geometry altered");
+assert(asset.includes('viewBox="0 0 360 420"'),"source SVG contract changed");
+const scene=readFileSync("public/official/src/c1d8-b2-playable/scene.mjs","utf8");
+assert(scene.includes("level===1?'?u02ab=hf1':''"),"cache-busting for sniper I missing");
+assert(scene.includes("orientSniperOperator(mount,WORLD"),"approved tracking missing");
+assert(scene.includes("u02-sniper-front-"),"approved front-rail composition missing");
+console.log("PASS_U02_HF1_REMOVE_OPTICAL_GOGGLES_KEEP_T04_MASTER");

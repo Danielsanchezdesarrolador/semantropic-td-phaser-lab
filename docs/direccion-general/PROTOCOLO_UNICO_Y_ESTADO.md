@@ -47,3 +47,11 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - Presentación B: sprite P03 arriba de estructura sin rifle T08/T04; línea de baranda frontal T08 en capa superior y sombra de contacto. Masters intactos.
 - QA Node y Chromium 2 niveles x 3 resoluciones x direcciones izquierda/derecha en fixture visual; M01 completo y disparos verificados por regresiones originales.
 - Commit rollback pre-U02: 5a3b59823f3560935ef7a58fa60d01457804ebca. Publicar en misma URL, sin ramas. Android humano y Fase C pendientes.
+
+
+## 8. U02 A+B HF1 — Corrección menor del adorno junto a las botas (22 oct 2026)
+- El Director aprueba explícitamente las fases A+B en Android real; reporta detalle que parece un par de gafas a los pies del operador nivel I.
+- Diagnóstico visual/source: el ornamento brillante del frente de la estructura T08 sin rifle (SVG local `translate(191 236) scale(0.48)`) coincide con el área aparente bajo las botas P03. Se elimina SOLO en `layers/sniper-1-structure.svg`; el master protegido `sniper/level-1.svg` y rig P03 intactos.
+- Sin modificaciones al core, orientación, profundidad, cadencia, rifle o VFX. Se fuerza cache nueva SVG/JS en el LIVE. Nivel II no posee la misma insignia y no fue editado.
+- QA Node confirma ausencia en estructura visible y presencia intacta en master, además de las regresiones M01/U02 en Chromium.
+- Rollback pre-HF1 `276ec13086a8aceb7431dc3b726dbe4e1f0f400a`. Fase C premium VFX aún no autorizada.

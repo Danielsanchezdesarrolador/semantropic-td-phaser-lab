@@ -42,7 +42,7 @@ class CombatScene extends Phaser.Scene{
    // Only used for candidate P03 operator-primary option; original T04 stays unchanged.
    for(const level of [1,2]){
     this.load.svg('t10-hf2-sniper-structure-'+level,
-     new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href,{width:360,height:420});
+     new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href+(level===1?'?u02ab=hf1':''),{width:360,height:420});
     this.load.svg('u02-sniper-front-'+level,
      new URL('../../art/towers/layers/sniper-'+level+'-front.svg',import.meta.url).href,{width:360,height:420});
    }
