@@ -22,6 +22,7 @@ jobs:
           node tools/qa-c1d4r-source-lock.mjs
           node docs/art/towers/qa-t10-b2.mjs
           node docs/art/towers/qa-t10-premium.mjs
+          node docs/art/towers/qa-t10-r1-hf2.mjs
           node tools/qa-c1d8-b1-rally-core.mjs
           node tools/qa-c1d8-b3-motion.mjs
           node tools/qa-c1d7-menu.mjs
@@ -29,6 +30,7 @@ jobs:
           node --check public/official/src/towers-visual/sniper-vfx.mjs
           node --check tools/qa-c1d8-b2-sniper-browser.mjs
           node --check tools/qa-t10-r1-sync-browser.mjs
+          node --check tools/qa-t10-r1-hf2-rifle-abc-browser.mjs
       - name: Build untouched canonical M01 with Phaser 4.2.1
         shell: bash
         run: |
@@ -49,6 +51,11 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-t10-r1-sync-browser.mjs 2>&1 | tee qa-t10-r1-synchronization.log
+      - name: Real P03 versus T04 rifle A-B-C visible source screenshots (idle, windup, fire)
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-t10-r1-hf2-rifle-abc-browser.mjs 2>&1 | tee qa-t10-hf2-rifle-abc.log
       - name: Real M01 victory loss rally and touchscreen regression
         shell: bash
         run: |
@@ -61,9 +68,11 @@ jobs:
           name: SEMANTROPIC_T10_R1_MUZZLE_HIT_SYNC_QA
           path: |
             artifacts/t10-r1-sync-browser/
+            artifacts/t10-r1-hf2-rifle-abc/
             artifacts/c1d8-b2-browser/
             artifacts/c1d8-b1-browser/
             qa-t10-r1-muzzle.log
             qa-t10-r1-synchronization.log
             qa-t10-r1-m01.log
+            qa-t10-hf2-rifle-abc.log
           if-no-files-found: warn
