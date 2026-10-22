@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SEMANTROPIC TD — Jugar Mapa 01 | U07 GALERÍA HD</title>
+<title>SEMANTROPIC TD — Campaña | R3-C M01/M02</title>
 <style>
 :root{color-scheme:dark;--cream:#f4e6c7;--gold:#e7cc8f;--ocean:#163b46}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;
@@ -112,17 +112,30 @@ object-fit:contain;image-rendering:auto}
 @media(max-width:660px){
 .tower-hd-grid{grid-template-columns:1fr}
 .tower-hd-frame{min-height:100px}
-}</style><link rel="stylesheet" href="../towers-visual/t09/menu.css"></head>
+}
+/* R3-C same-URL campaign selector */
+#mapPicker[hidden]{display:none!important}
+#mapPicker{position:absolute;z-index:60;inset:0;background:#0a252ce8;display:grid;place-items:center;padding:12px;touch-action:pan-y}
+#mapPicker article{background:linear-gradient(155deg,#1a4651,#102d36);border:2px solid #e7cc8f;border-radius:15px;padding:16px;max-width:min(510px,96vw);width:100%;box-shadow:0 15px 50px #071922c9}
+#mapPicker h2{margin:0 0 10px;font-size:20px;color:#f8dda0}
+#mapPicker p{font-size:12px;line-height:1.4;color:#dfebe1}
+#mapPicker .map-options{display:flex;gap:10px;flex-wrap:wrap}
+#mapPicker .map-options button{flex:1;min-width:145px;min-height:55px;text-align:left;line-height:1.4}
+#mapPicker .map-options button[aria-current=true]{border-color:#70e8d2;box-shadow:inset 0 0 0 1px #70e8d2}
+#mapPicker .map-options small{display:block;font-weight:400;color:#d4e3e0}
+#mapPickerClose{float:right}
+@media(max-width:900px) and (orientation:landscape){#mapPicker article{max-height:95dvh;overflow:auto;padding:10px}#mapPicker h2{font-size:16px}#mapPicker p{font-size:11px;margin:6px 0}#mapPicker .map-options button{min-height:45px;font-size:11px}#hudControls button{padding:4px 5px;font-size:10px}}
+</style><link rel="stylesheet" href="../towers-visual/t09/menu.css"></head>
 <body><main id="app">
 <div id="stage"></div>
 <header id="hud"><div id="overview">
-<h1>SEMANTROPIC TD · U07 GALERÍA HD</h1>
+<h1 id="mapReleaseLabel">SEMANTROPIC TD · MAPA 01 PRADERAS DEL AMANECER</h1>
 <p>Oro <b id="coins">365</b> · Vidas <b id="lives">100</b> · Onda <b id="wave">0/5</b></p>
 <p>Bajas <b id="kills">0</b> · Fugas <b id="leaks">0</b> · <b id="state">PREPARACIÓN</b></p>
 <p id="record">Récord: sin completar</p><span id="render" hidden>WebGL2…</span>
 </div></header>
 <div id="hudControls"><button id="waveStart">Iniciar oleada</button><button id="pause">Pausar</button>
-<button id="restart" aria-label="Reiniciar partida">↻</button><button type="button" id="towerHDGalleryButton" aria-haspopup="dialog" aria-controls="towerHDGallery" aria-label="Ver galería HD de torres">Torres HD</button></div>
+<button id="restart" aria-label="Reiniciar partida">↻</button><button type="button" id="mapPickerButton" aria-haspopup="dialog" aria-controls="mapPicker">Mapa 01 ▾</button><button type="button" id="towerHDGalleryButton" aria-haspopup="dialog" aria-controls="towerHDGallery" aria-label="Ver galería HD de torres">Torres HD</button></div>
 <div id="feedback" role="status">Cargando Mapa 01…</div>
 <nav id="contextMenu" hidden aria-label="Acciones de torre o plataforma">
 <div class="heading"><span id="menuTitle">Plataforma</span>
@@ -145,10 +158,29 @@ object-fit:contain;image-rendering:auto}
   <div class="tower-hd-grid"></div>
   <p id="towerHDGalleryStatus" role="status" aria-live="polite">Las imágenes HD se preparan al abrir la galería.</p>
 </div></section>
+
+<section id="mapPicker" hidden role="dialog" aria-modal="true" aria-label="Seleccionar mapa de campaña">
+<article><button id="mapPickerClose" type="button" aria-label="Cerrar selector de mapa">✕</button>
+<h2>CAMPAÑA · SELECCIONAR MAPA</h2>
+<p>Mismo juego, controles y arte aprobado. Los récords se guardan por mapa.</p>
+<div class="map-options">
+<button type="button" data-map-target="1">01 · Praderas del Amanecer<small>5 oleadas · 63 enemigos · 365 oro</small></button>
+<button type="button" data-map-target="2">02 · Campos del Molino<small>7 oleadas · 80 enemigos · 395 oro</small></button>
+</div>
+<p>Los enemigos del M02 tienen accesorios visuales provisionales; pendiente aprobación artística final.</p>
+</article></section>
 <div id="portrait">Gira el teléfono a horizontal para jugar.</div>
 </main>
 <script src="../../../dependencias/phaser.min.js"></script>
-<script type="module" src="../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1"></script>
+<script type="module">
+import {mountR3CMapPicker} from '../maps-visual/m02/map-picker.mjs';
+const selection=mountR3CMapPicker();
+if(selection.selectedMap===2){
+ await import('../c1d8-b2-playable/scene-m02.mjs?release=r3c-m02-real-seven-wave-v1');
+}else{
+ await import('../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1');
+}
+</script>
 <script type="module">
 import {mountU07HDGallery} from '../towers-visual/u06/hd-gallery-ui.mjs';
 window.__SEMANTROPIC_HD_GALLERY=mountU07HDGallery();
