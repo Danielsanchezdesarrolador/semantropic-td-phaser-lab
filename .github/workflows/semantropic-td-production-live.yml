@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente R3-A M02 FUENTE Y ARTE
+name: SEMANTROPIC TD — QA producción permanente R3-B1 M02 COMBATE AUTORITATIVO
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -35,6 +35,7 @@ jobs:
           node docs/direccion-general/qa-u07-hd-gallery.mjs
           node tools/qa-r3-m02-canonical.mjs
           node docs/direccion-general/qa-r3a-m02-rework.mjs
+          node docs/direccion-general/qa-r3b-m02-core.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
@@ -56,6 +57,11 @@ jobs:
           node --check tools/qa-r3a-m02-art-browser.mjs
           node --check public/official/src/maps-visual/m02/farmland-art.mjs
           node --check public/official/src/maps-visual/m02/rework-contract.mjs
+          node --check public/official/src/core-c1d/m02-construction-economy.mjs
+          node --check public/official/src/core-c1d/m02-infantry-nav.mjs
+          node --check public/official/src/core-c1d/m02-combat-world.mjs
+          node --check public/official/src/core-c1d/m02-infantry-combat-a2.mjs
+          node --check public/official/src/core-c1d/m02-infantry-combat-a3.mjs
           node --check public/official/src/towers-visual/u06/hd-gallery-ui.mjs
           node --check public/official/src/towers-visual/u06/legacy-hd.mjs
           node --check tools/qa-u03-c-premium-browser.mjs
@@ -97,6 +103,11 @@ jobs:
             "dist/official/src/towers-visual/u06/hd-gallery-ui.mjs",
             "dist/official/src/maps-visual/m02/farmland-art.mjs",
             "dist/official/src/maps-visual/m02/rework-contract.mjs",
+            "dist/official/src/core-c1d/m02-construction-economy.mjs",
+            "dist/official/src/core-c1d/m02-infantry-nav.mjs",
+            "dist/official/src/core-c1d/m02-combat-world.mjs",
+            "dist/official/src/core-c1d/m02-infantry-combat-a2.mjs",
+            "dist/official/src/core-c1d/m02-infantry-combat-a3.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);

@@ -107,3 +107,12 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - Los recursos de M02 NO se montan aún en LIVE jugador: falta CORE M02, soporte archer/shieldbearer, economía, resultados, UI para mapa 02 y QA real 7 oleadas. NO ofrecer ni insinuar que M02 es jugable. Las capturas se producen solo mediante QA fixture efímero sobre el sitio existente.
 - Prohibido reemplazar torres T04/P03 U06 por PNG antiguos. Guardiana/Bombardera/Control del legado visual U07 son consulta, no assets nuevos de producción. R3-B siguiente bloque: core autoritativo M02 con nuevas amenazas y torres aprobadas sin perturbar M01.
 - Conservar contrato de Map01 LIVE probado SHA `f0c5de8575384bdb7d31e8a14ecaeb27eafd6328`; rollback mediante commit normal a esa base si es preciso. QA físico Android M02 no aplica hasta que sea jugable.
+
+
+## 15. R3-B1 — CORE M02 SEPARADO / 7 OLEADAS (22-oct-2026)
+- El Director autorizó expresamente «Perfecto comienza entonces» tras el bloque R3-A. Este paso implementa el primer corte de COMBATE real de M02 fuera de LIVE UI, conservando los archivos de M01 y las cinco torres del rework como objetivos.
+- Núcleo propio en `public/official/src/core-c1d/m02-*`: `M02BuildEconomy` 395 monedas, ocho pads, dos primeras torres T04/P03 I/II con costos reales; `M02CombatWorld` 163 nodos, 7 oleadas [7,9,7,11,15,11,20], 80 spawns, derrota/victoria y ledger. `M02CombatWithInfantryA3` usa nav Dijkstra, bloqueo, rally, soldados, francotirador y ataque real a distancia del arquero, escudo HP×1,15 para portaescudos.
+- Fuente estat E1 originales Canvas protegida, no inventar costes/recompensas/tipo. Adaptación inicial de bonos/Normal queda pendiente de paridad fina y ajuste humano. El core emite eventos de disparo pero sin efectos de flecha aún.
+- `docs/direccion-general/qa-r3b-m02-core.mjs` audita economía, una flecha de daño real, escudo absorbente, 7 oleadas/80 entidades y no-duplicación; la victoria simulada se fuerza con llamadas legítimas de `hit()`: NO valida balance de jugador.
+- M01 LIVE y el HTML de entrada permanecen sin modificación; M02 NO está publicado como mapa seleccionable, pues no existen sprites finales premium de archer/shieldbearer, UI/ruta visual y selector ni guardados M02. Continuar R3-B2 y R3-C antes de declararlo jugable. Sin ramas ni otra URL.
+- Rollback anterior `6a1e5c812f5713dfb2f3690473a511e4de5c5f68` (R3-A, CI #39831468918 SUCCESS).
