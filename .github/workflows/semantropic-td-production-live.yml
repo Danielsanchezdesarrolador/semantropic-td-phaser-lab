@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente U07 GALERÍA HD LIVE
+name: SEMANTROPIC TD — QA producción permanente R3-A M02 FUENTE Y ARTE
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -33,6 +33,8 @@ jobs:
           node docs/direccion-general/qa-u05-f3a-infantry-hd.mjs
           node docs/direccion-general/qa-u06-global-hd.mjs
           node docs/direccion-general/qa-u07-hd-gallery.mjs
+          node tools/qa-r3-m02-canonical.mjs
+          node docs/direccion-general/qa-r3a-m02-rework.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
@@ -51,6 +53,9 @@ jobs:
           node --check tools/qa-u05-infantry-hd-browser.mjs
           node --check tools/qa-u06-global-hd-browser.mjs
           node --check tools/qa-u07-hd-gallery-browser.mjs
+          node --check tools/qa-r3a-m02-art-browser.mjs
+          node --check public/official/src/maps-visual/m02/farmland-art.mjs
+          node --check public/official/src/maps-visual/m02/rework-contract.mjs
           node --check public/official/src/towers-visual/u06/hd-gallery-ui.mjs
           node --check public/official/src/towers-visual/u06/legacy-hd.mjs
           node --check tools/qa-u03-c-premium-browser.mjs
@@ -90,6 +95,8 @@ jobs:
             "dist/official/src/actors-visual/u04-ally-hd.mjs",
             "dist/official/src/towers-visual/u06/legacy-hd.mjs",
             "dist/official/src/towers-visual/u06/hd-gallery-ui.mjs",
+            "dist/official/src/maps-visual/m02/farmland-art.mjs",
+            "dist/official/src/maps-visual/m02/rework-contract.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
@@ -99,6 +106,13 @@ jobs:
         run: |
           npm install --no-save playwright@1.57.0
           npx playwright install --with-deps chromium
+      - name: R3-A Mapa 02 163 nodos, 8 pads, nueva identidad y rework 5 torres (sin habilitar gameplay)
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
+        run: |
+          set -euo pipefail
+          node tools/qa-r3a-m02-art-browser.mjs 2>&1 | tee qa-r3a-m02-farmland.log
       - name: Validar atlas P03 aislado y proyectiles Premium C en WebGL2
         shell: bash
         env:
@@ -181,6 +195,7 @@ jobs:
             artifacts/u05-infantry-hd-browser/
             artifacts/u06-global-hd-browser/
             artifacts/u07-hd-gallery-browser/
+            artifacts/r3a-m02-farmland-browser/
             qa-c1d8-b3-live-url.log
             qa-c1d8-b2-live-url.log
             qa-t10-r1-sync-live.log
@@ -191,4 +206,5 @@ jobs:
             qa-u05-infantry-hd-live.log
             qa-u06-hd-live.log
             qa-u07-hd-gallery-live.log
+            qa-r3a-m02-farmland.log
           if-no-files-found: warn

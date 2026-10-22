@@ -97,3 +97,13 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - No tocar artes originales `public/assets/torre_{guardiana,bombardera,control}.png`; no modificar P03, SVGs, daño, economía, mapa, ni rutas. Incorporación visual de U07 es ligera y se computa únicamente al abrir galería (on-demand).
 - QA Node de estructura/conservación y Chromium real 3 resoluciones: abrir galería, comprobar las tres parejas ORIGINAL/HD con factor, zoom, accesibilidad, cerrar y preservar el estado del mundo; QA regresión U06 y M01 completa.
 - Rollback anterior `2e5dd154217c712b9cee82efcbed0205215956a3`. Aprobación visual Android físico del Director pendiente; CI/Render siempre validar SHA antes de declarar PASS.
+
+
+## 14. R3-A M02 CAMPOS DEL MOLINO — NUEVO MAPA + CATÁLOGO REWORK (22-oct-2026)
+- AUTORIZACIÓN del Director: pasar a Mapa 02, misma línea artística de M01, torres nuevas del rework. Ver `docs/direccion-general/ACTA_R3A_M02_CAMPOS_DEL_MOLINO_2026-10-22.md`.
+- Fuente protegida Canvas V5: M02 163 waypoints, 8 pads, 1 ruta/entrada, oro nominal fuente 395, 7 oleadas [7,9,7,11,15,11,20] = 80 enemigos warrior/hound/archer/shieldbearer.
+- Rework correcto recuperado de `SPECS.infantry/sniper/guardian/bomber/control`; ignorar «pulse/cannon/prism/frost» (recommend legacy en mapas V5). Objetivo 5 familias y 4 etapas, rama IV como fuente, sin afirmar port completo a Phaser.
+- R3-A ejecutado DIRECTO en `production/semantropic-td-live` y misma URL, sin rama. Arte propio farmland 2× procedural de molinos/cultivos/herradura, pads y ruta fuente: `public/official/src/maps-visual/m02/farmland-art.mjs`. Contrato visual/canónico `public/official/src/maps-visual/m02/rework-contract.mjs`.
+- Los recursos de M02 NO se montan aún en LIVE jugador: falta CORE M02, soporte archer/shieldbearer, economía, resultados, UI para mapa 02 y QA real 7 oleadas. NO ofrecer ni insinuar que M02 es jugable. Las capturas se producen solo mediante QA fixture efímero sobre el sitio existente.
+- Prohibido reemplazar torres T04/P03 U06 por PNG antiguos. Guardiana/Bombardera/Control del legado visual U07 son consulta, no assets nuevos de producción. R3-B siguiente bloque: core autoritativo M02 con nuevas amenazas y torres aprobadas sin perturbar M01.
+- Conservar contrato de Map01 LIVE probado SHA `f0c5de8575384bdb7d31e8a14ecaeb27eafd6328`; rollback mediante commit normal a esa base si es preciso. QA físico Android M02 no aplica hasta que sea jugable.
