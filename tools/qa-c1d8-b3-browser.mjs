@@ -58,7 +58,7 @@ try{
    g.scene.drawSoldiers();
    return [...g.scene.soldierViews.values()].map(x=>({tex:x.sprite.texture.key,artist:x.artist}));
   });
-  if(first.length!==1||first[0].tex!=="actors/allies/infantry-recruit/v1/p08")
+  if(first.length!==1||first[0].tex!=="actors/allies/infantry-recruit/v1/p08/u04hd2")
    throw Error(name+" recruit not rendered "+JSON.stringify(first));
   await page.waitForTimeout(300);
   await page.locator('[data-t09-id="upgrade"]').click();
@@ -68,7 +68,7 @@ try{
     roster:[...g.scene.soldierViews.values()].map(x=>({tex:x.sprite.texture.key,artist:x.artist}))};
   });
   if(veterans.level!==2||veterans.gold!==135||veterans.roster.length!==2||
-   !veterans.roster.every(x=>x.tex==="actors/allies/infantry-veteran/v1/p08"))
+   !veterans.roster.every(x=>x.tex==="actors/allies/infantry-veteran/v1/p08/u04hd2"))
    throw Error(name+" upgraded veterans not rendered "+JSON.stringify(veterans));
   await page.screenshot({path:dir+"/"+name+"-T09-2-veterans.png",fullPage:true});
   // B1 actual end-to-end T09 rally on touchscreen / mouse. Invalid target MUST keep mode.
