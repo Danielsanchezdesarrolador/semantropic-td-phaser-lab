@@ -394,7 +394,7 @@ function flowers(ctx,plan){
  const r=seed(10936);
  for(let i=0;i<480;i++){
   const x=r()*W,y=120+r()*610;
-  if(!clear(x,y,14))continue;
+  if(!clear(x,y,plan,14))continue;
   if(y>650&&x>210&&x<1250)continue; // unobstructed waterway
   if(i%11===0){floweringBush(ctx,x,y,.3+r()*.35,true);continue}
   const blade=1+r()*2;
@@ -413,7 +413,7 @@ function foregroundProps(ctx,plan){
   [448,194,'barrel'],[666,177,'barrel'],[1044,174,'barrel']
  ];
  for(const [x,y,kind] of props){
-  if(!clear(x,y,16))continue;
+  if(!clear(x,y,plan,16))continue;
   ctx.save();ctx.translate(x,y);
   if(kind==='barrel'){
    ellipse(ctx,0,9,14,5,'#415b4b55');
@@ -446,14 +446,14 @@ function distributeWoodland(ctx,plan){
  for(const [xx,yy,count] of groves){
   for(let j=0;j<count;j++){
    const x=xx+(r()-.5)*95,y=yy+(r()-.5)*68;
-   if(!clear(x,y,28))continue;
+   if(!clear(x,y,plan,28))continue;
    if(j%4===1){cypress(ctx,x,y,.50+r()*.27);continue}
    tree(ctx,x,y,.34+r()*.34,j%9===0);
   }
  }
  for(let i=0;i<130;i++){
   const x=r()*W,y=200+r()*550;
-  if(!clear(x,y,15)||y>660)continue;
+  if(!clear(x,y,plan,15)||y>660)continue;
   if(r()<.64)rock(ctx,x,y,.28+r()*.45);
   else floweringBush(ctx,x,y,.28+r()*.36);
  }
