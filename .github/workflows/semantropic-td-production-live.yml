@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente R3-C M01/M02 CAMPAÑA JUGABLE
+name: SEMANTROPIC TD — QA producción permanente R4 MOBILE / PC / PANTALLA COMPLETA
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -37,6 +37,7 @@ jobs:
           node docs/direccion-general/qa-r3a-m02-rework.mjs
           node docs/direccion-general/qa-r3b-m02-core.mjs
           node docs/direccion-general/qa-r3c-m02-scene.mjs
+          node docs/direccion-general/qa-r4-viewport.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
@@ -69,6 +70,8 @@ jobs:
           node --check public/official/src/actors-visual/m02-enemy-gear.mjs
           node --check public/official/src/c1d8-b2-playable/scene-m02.mjs
           node --check tools/qa-r3c-m02-browser.mjs
+          node --check tools/qa-r4-responsive-browser.mjs
+          node --check public/official/src/mobile/viewport-r4.mjs
           node --check public/official/src/towers-visual/u06/hd-gallery-ui.mjs
           node --check public/official/src/towers-visual/u06/legacy-hd.mjs
           node --check tools/qa-u03-c-premium-browser.mjs
@@ -96,7 +99,7 @@ jobs:
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
           assert(live.includes("../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1"),"Live must point to new T10 premium scene release");
-          assert(live.includes("Campaña | R3-C M01/M02"),"Live must display R3-C campaign");
+          assert(live.includes("R4 móvil, PC y pantalla completa"),"Live must display R4 campaign");
           assert(live.includes("scene-m02.mjs?release=r3c-m02-real-seven-wave-v1"),"Live missing M02 runtime");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
           for(const p of ["dist/official/src/c1d8-b2-playable/scene.mjs",
@@ -121,6 +124,8 @@ jobs:
             "dist/official/src/maps-visual/m02/map-picker.mjs",
             "dist/official/src/actors-visual/m02-enemy-gear.mjs",
             "dist/official/src/c1d8-b2-playable/scene-m02.mjs",
+            "dist/official/src/mobile/viewport-r4.css",
+            "dist/official/src/mobile/viewport-r4.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
@@ -137,6 +142,13 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-r3a-m02-art-browser.mjs 2>&1 | tee qa-r3a-m02-farmland.log
+      - name: R4 pantalla completa, FIT M01/M02, HUD móvil y PC (6 resoluciones Chromium)
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
+        run: |
+          set -euo pipefail
+          node tools/qa-r4-responsive-browser.mjs 2>&1 | tee qa-r4-responsive-live.log
       - name: R3-C selector M01-M02 LIVE Phaser, 7 olas 80 enemigos, récord aislado (3 resoluciones)
         shell: bash
         env:
@@ -228,6 +240,7 @@ jobs:
             artifacts/u07-hd-gallery-browser/
             artifacts/r3a-m02-farmland-browser/
             artifacts/r3c-m02-browser/
+            artifacts/r4-responsive-viewport-browser/
             qa-c1d8-b3-live-url.log
             qa-c1d8-b2-live-url.log
             qa-t10-r1-sync-live.log
@@ -240,4 +253,5 @@ jobs:
             qa-u07-hd-gallery-live.log
             qa-r3a-m02-farmland.log
             qa-r3c-m02-live.log
+            qa-r4-responsive-live.log
           if-no-files-found: warn

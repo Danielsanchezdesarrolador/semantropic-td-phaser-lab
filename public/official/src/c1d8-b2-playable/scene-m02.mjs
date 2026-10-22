@@ -100,7 +100,10 @@ class CombatScene extends Phaser.Scene{
    }
    const nearest=this.mapView.plan.sockets.map((socket,index)=>({
     index,d:Math.hypot(x-socket.world.x,y-socket.world.y)})).sort((a,b)=>a.d-b.d)[0];
-   if(nearest&&nearest.d<=55)openMenu(nearest.index);
+   // R4: 80-world-unit coarse-pointer target ~= 40 CSS px in mobile landscape FIT.
+   // Nearest socket wins; never changes game collision, routing or tower economy.
+   const hitRadius=window.matchMedia?.('(pointer:coarse)').matches?80:55;
+   if(nearest&&nearest.d<=hitRadius)openMenu(nearest.index);
    else closeMenu();
   });
   this.drawTowers();this.updateHud();
@@ -621,8 +624,7 @@ async function start(){
   assert(gl&&gl instanceof WebGL2RenderingContext,"WebGL2 requerido");
   new Phaser.Game({type:Phaser.WEBGL,canvas,context:gl,parent:"stage",width:1280,height:768,
     backgroundColor:"#183b37",antialias:true,audio:{noAudio:true},
-    scale:{mode:(window.innerWidth<1000&&window.innerWidth>window.innerHeight)
-      ?Phaser.Scale.ENVELOP:Phaser.Scale.FIT,
+    scale:{mode:Phaser.Scale.FIT, // R4: never crop canonical paths on mobile
       autoCenter:Phaser.Scale.CENTER_BOTH,width:1280,height:768},
     scene:[CombatScene]});
  }catch(error){console.error(error);feedback("BLOQUEANTE R3-C M02: "+error.message);}

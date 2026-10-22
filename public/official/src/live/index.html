@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SEMANTROPIC TD — Campaña | R3-C M01/M02</title>
+<meta name="theme-color" content="#173941">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>SEMANTROPIC TD — Campaña | R4 móvil, PC y pantalla completa</title>
 <style>
 :root{color-scheme:dark;--cream:#f4e6c7;--gold:#e7cc8f;--ocean:#163b46}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;
@@ -125,7 +129,8 @@ object-fit:contain;image-rendering:auto}
 #mapPicker .map-options small{display:block;font-weight:400;color:#d4e3e0}
 #mapPickerClose{float:right}
 @media(max-width:900px) and (orientation:landscape){#mapPicker article{max-height:95dvh;overflow:auto;padding:10px}#mapPicker h2{font-size:16px}#mapPicker p{font-size:11px;margin:6px 0}#mapPicker .map-options button{min-height:45px;font-size:11px}#hudControls button{padding:4px 5px;font-size:10px}}
-</style><link rel="stylesheet" href="../towers-visual/t09/menu.css"></head>
+</style><link rel="stylesheet" href="../towers-visual/t09/menu.css">
+<link rel="stylesheet" href="../mobile/viewport-r4.css"></head>
 <body><main id="app">
 <div id="stage"></div>
 <header id="hud"><div id="overview">
@@ -135,7 +140,10 @@ object-fit:contain;image-rendering:auto}
 <p id="record">Récord: sin completar</p><span id="render" hidden>WebGL2…</span>
 </div></header>
 <div id="hudControls"><button id="waveStart">Iniciar oleada</button><button id="pause">Pausar</button>
-<button id="restart" aria-label="Reiniciar partida">↻</button><button type="button" id="mapPickerButton" aria-haspopup="dialog" aria-controls="mapPicker">Mapa 01 ▾</button><button type="button" id="towerHDGalleryButton" aria-haspopup="dialog" aria-controls="towerHDGallery" aria-label="Ver galería HD de torres">Torres HD</button></div>
+<button id="restart" aria-label="Reiniciar partida">↻</button><button type="button" id="mapPickerButton" aria-haspopup="dialog" aria-controls="mapPicker">Mapa 01 ▾</button><button type="button" id="towerHDGalleryButton" aria-haspopup="dialog" aria-controls="towerHDGallery" aria-label="Ver galería HD de torres">Torres HD</button>
+<button type="button" id="fullscreenButton" aria-label="Activar pantalla completa" aria-pressed="false" title="Pantalla completa">
+<span class="fullscreen-glyph" aria-hidden="true">⛶</span> <span class="fullscreen-text">Pantalla completa</span>
+</button></div>
 <div id="feedback" role="status">Cargando Mapa 01…</div>
 <nav id="contextMenu" hidden aria-label="Acciones de torre o plataforma">
 <div class="heading"><span id="menuTitle">Plataforma</span>
@@ -169,9 +177,19 @@ object-fit:contain;image-rendering:auto}
 </div>
 <p>Los enemigos del M02 tienen accesorios visuales provisionales; pendiente aprobación artística final.</p>
 </article></section>
-<div id="portrait">Gira el teléfono a horizontal para jugar.</div>
+<div id="portrait" role="note">
+  <span class="portrait-icon" aria-hidden="true">↻</span>
+  <strong>Gira tu teléfono a horizontal</strong>
+  <p>La campaña está diseñada para verse completa en modo apaisado. Puedes activar pantalla completa para aprovechar mejor el espacio.</p>
+  <button type="button" id="portraitFullscreen" aria-label="Activar pantalla completa desde orientación vertical">⛶ Pantalla completa</button>
+</div>
+<div id="viewportStatus" hidden role="status" aria-live="polite"></div>
 </main>
 <script src="../../../dependencias/phaser.min.js"></script>
+<script type="module">
+import {mountR4Viewport} from '../mobile/viewport-r4.mjs';
+window.__SEMANTROPIC_VIEWPORT=mountR4Viewport();
+</script>
 <script type="module">
 import {mountR3CMapPicker} from '../maps-visual/m02/map-picker.mjs';
 const selection=mountR3CMapPicker();

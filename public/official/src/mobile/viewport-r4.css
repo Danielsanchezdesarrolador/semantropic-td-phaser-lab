@@ -1,0 +1,61 @@
+/* SEMANTROPIC TD R4 · Responsive mobile/desktop shell.
+ * Presentation-only. Phaser handles the canonical 1280x768 world with FIT.
+ * Do not rescale enemies/towers/gameplay or modify stage logical coordinates.
+ */
+html,body{height:100%;min-height:100%;overscroll-behavior:none}
+#app{width:100%;height:100dvh;min-height:0;max-width:100vw;isolation:isolate}
+#app:fullscreen{width:100vw;height:100dvh;background:#142f37}
+#app:-webkit-full-screen{width:100%;height:100%;background:#142f37}
+#stage{inset:0;background:#183b37;overflow:hidden}
+#stage canvas{display:block;touch-action:manipulation}
+#hud{min-width:0;max-width:min(47vw,560px)}
+#overview{min-width:0;overflow:hidden;text-overflow:ellipsis}
+#overview h1{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#hudControls{min-width:0;max-width:52vw;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start}
+#hudControls button{flex:0 0 auto;white-space:nowrap;min-width:42px}
+#fullscreenButton{font-size:13px}
+#fullscreenButton[aria-pressed="true"]{border-color:#76dbc5;background:#205864}
+#feedback{overflow-wrap:anywhere}
+#contextMenu{max-width:min(250px,calc(100vw - 20px));touch-action:pan-y}
+#portrait{flex-direction:column;gap:15px;overflow:auto}
+#portrait[hidden]{display:none!important}
+#portrait .portrait-icon{font-size:38px;color:#e7cc8f;line-height:1}
+#portrait p{margin:0;max-width:32rem;font-size:14px;line-height:1.5}
+#portrait button{font-size:14px;padding:9px 16px;min-height:48px}
+#viewportStatus{position:absolute;z-index:65;left:50%;bottom:max(8px,env(safe-area-inset-bottom));
+ transform:translateX(-50%);width:max-content;max-width:90vw;padding:7px 11px;
+ background:#12343bee;border:1px solid #dabd80;border-radius:9px;color:#f4e6c7;
+ font:600 12px/1.35 system-ui;pointer-events:none;text-align:center}
+#viewportStatus[hidden]{display:none!important}
+@media(max-width:1050px) and (orientation:landscape){
+ #hud{left:max(5px,env(safe-area-inset-left));top:max(3px,env(safe-area-inset-top));
+  max-width:44vw}
+ #overview{padding:4px 6px}
+ #overview h1{font-size:10px}
+ #overview p{font-size:10px;line-height:1.2}
+ #hudControls{top:max(3px,env(safe-area-inset-top));right:max(5px,env(safe-area-inset-right));
+  max-width:53vw;gap:4px}
+ #hudControls button{font-size:11px;min-height:42px;padding:4px 7px}
+ #fullscreenButton .fullscreen-text{display:none}
+ #fullscreenButton{min-width:42px}
+ #feedback{max-width:53vw;font-size:10px;padding:4px 7px;
+  bottom:max(4px,env(safe-area-inset-bottom))}
+ #contextMenu{max-height:calc(100dvh - 16px);overscroll-behavior:contain}
+ #rallyHint{max-width:77vw;top:45%;font-size:10px}
+}
+@media(max-width:740px) and (orientation:landscape){
+ #hud{max-width:39vw}
+ #hudControls{max-width:58vw;gap:3px}
+ #hudControls button{font-size:10px;padding:3px 5px;min-height:40px}
+ #overview p{font-size:9px}
+ #feedback{max-width:60vw}
+}
+@media(max-width:950px) and (orientation:portrait){
+ #portrait{display:flex;padding:max(20px,env(safe-area-inset-top))
+ max(15px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom))
+ max(15px,env(safe-area-inset-left))}
+}
+@media(min-width:1051px){
+ #hudControls{max-width:64vw}
+ #hudControls button{min-height:44px}
+}
