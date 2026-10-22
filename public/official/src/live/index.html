@@ -130,7 +130,7 @@ object-fit:contain;image-rendering:auto}
 #mapPickerClose{float:right}
 @media(max-width:900px) and (orientation:landscape){#mapPicker article{max-height:95dvh;overflow:auto;padding:10px}#mapPicker h2{font-size:16px}#mapPicker p{font-size:11px;margin:6px 0}#mapPicker .map-options button{min-height:45px;font-size:11px}#hudControls button{padding:4px 5px;font-size:10px}}
 </style><link rel="stylesheet" href="../towers-visual/t09/menu.css">
-<link rel="stylesheet" href="../mobile/viewport-r4.css"></head>
+<link rel="stylesheet" href="../mobile/viewport-r4.css?r5=seamless-landscape-1"></head>
 <body><main id="app">
 <div id="stage"></div>
 <header id="hud"><div id="overview">
@@ -187,16 +187,16 @@ object-fit:contain;image-rendering:auto}
 </main>
 <script src="../../../dependencias/phaser.min.js"></script>
 <script type="module">
-import {mountR4Viewport} from '../mobile/viewport-r4.mjs';
+import {mountR4Viewport} from '../mobile/viewport-r4.mjs?r5=seamless-landscape-1';
 window.__SEMANTROPIC_VIEWPORT=mountR4Viewport();
 </script>
 <script type="module">
 import {mountR3CMapPicker} from '../maps-visual/m02/map-picker.mjs';
 const selection=mountR3CMapPicker();
 if(selection.selectedMap===2){
- await import('../c1d8-b2-playable/scene-m02.mjs?release=r3c-m02-real-seven-wave-v1');
+ await import('../c1d8-b2-playable/scene-m02.mjs?release=r3c-m02-real-seven-wave-v1&r5=seamless-landscape-1');
 }else{
- await import('../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1');
+ await import('../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1&r5=seamless-landscape-1');
 }
 </script>
 <script type="module">
