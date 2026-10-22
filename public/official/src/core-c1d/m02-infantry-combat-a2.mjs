@@ -5,7 +5,7 @@
  * Art team P displays soldiers; no visual frame may apply damage.
  */
 import {M02CombatWorld,M02_ENEMY_SPECS} from "./m02-combat-world.mjs";
-import {positionOnPath} from "../m02-model.mjs";
+import {positionOnPath} from "../m01-model.mjs";
 import {makeM02InfantryNav,nearestM02Nav,shortestM02Nav,m02NavFormation} from "./m02-infantry-nav.mjs";
 export const INFANTRY_LVLS=Object.freeze({
  1:Object.freeze({hp:110,damage:8,interval:1.2,radius:130,respawn:10,count:1,speed:82,reach:20}),
