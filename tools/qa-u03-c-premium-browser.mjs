@@ -36,13 +36,21 @@ try{
     const frames=["idle-0","idle-3","walk-0","walk-7","attackWindup-0","attack-0","attack-4","blocked-2"];
     sample.width=176;sample.height=208;
     const scratch=sample.getContext("2d");
+    // Compare like with like: Canvas2D paint -> drawImage copy -> packed atlas.
+    // Raw paint bytes differ significantly from post-drawImage pixels due to
+    // browser premultiplied-alpha compositing, especially sniper's translucent visor.
+    const expected=document.createElement("canvas");
+    expected.width=176;expected.height=208;
+    const expectedBrush=expected.getContext("2d");
     let compared=0;
     for(const name of frames){
      const k=name.lastIndexOf("-"),state=name.slice(0,k),frame=Number(name.slice(k+1));
      const f=clean.frames[state]?.[frame];
      if(!f)throw Error("missing P03 frame "+name);
      scratch.clearRect(0,0,176,208);paintP03Frame(scratch,"sniper_operator",state,frame);
-     const a=scratch.getImageData(0,0,176,208).data;
+     expectedBrush.clearRect(0,0,176,208);
+     expectedBrush.drawImage(sample,0,0);
+     const a=expectedBrush.getImageData(0,0,176,208).data;
      const b=ctx.getImageData(f.x,f.y,176,208).data;
      // Canvas drawImage round-trips semi-transparent pixels through the browser's
      // premultiplied-alpha pipeline. Compare visible premultiplied colour and
