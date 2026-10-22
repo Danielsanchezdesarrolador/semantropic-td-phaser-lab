@@ -14,7 +14,7 @@ const original={
  'public/official/data/maps.v5.json':'1da0e20145e1312f3d75443debabea17e3db507c',
  'public/official/data/campaign140.v5.json':'794cf43f9b172a39dd88f02e2a89ea11455064c3',
  'public/official/src/m01-model.mjs':'0792c46bbb3d82baa4edd9aa9203b2021b3d69eb',
- 'public/official/src/c1d8-b2-playable/scene.mjs':'7ab7c08bcc9244a302f4c0c4bfdd704c3df4239f'
+ 'public/official/src/c1d8-b2-playable/scene.mjs':'2c38341e12e100c3c9260d2984e3408e7accc031'
 };
 for(const [file,sha] of Object.entries(original)){
  const actual=execFileSync('git',['hash-object',file],{encoding:'utf8'}).trim();

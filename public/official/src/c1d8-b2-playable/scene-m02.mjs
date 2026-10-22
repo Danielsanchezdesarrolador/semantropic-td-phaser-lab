@@ -70,6 +70,7 @@ class CombatScene extends Phaser.Scene{
     (atlas.actor.heightWorld??info.heightWorld)/(info.kind==="hound"?114:171)*.70)/(atlas.u04Density??1)});
   }
   this.mapView=mountM02World(this,MAP);
+  window.__SEMANTROPIC_VIEWPORT?.bindScene?.(this,2);
   this.shots=new SniperShotPresenter(this,{variant:"A",depth:35000,premium:true});
   assert(this.mapView.plan.sockets.length===8,"socket count");
   this.selection=this.add.circle(0,0,51,0,0).setStrokeStyle(4,0xf5d484).setDepth(45000);

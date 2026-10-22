@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente R4 MOBILE / PC / PANTALLA COMPLETA
+name: SEMANTROPIC TD — QA producción permanente R5 FULL BLEED TERRAIN MÓVIL / PC
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -72,6 +72,7 @@ jobs:
           node --check tools/qa-r3c-m02-browser.mjs
           node --check tools/qa-r4-responsive-browser.mjs
           node --check public/official/src/mobile/viewport-r4.mjs
+          node --check public/official/src/mobile/viewport-panorama-r5.mjs
           node --check public/official/src/towers-visual/u06/hd-gallery-ui.mjs
           node --check public/official/src/towers-visual/u06/legacy-hd.mjs
           node --check tools/qa-u03-c-premium-browser.mjs
@@ -99,7 +100,7 @@ jobs:
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
           assert(live.includes("../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1"),"Live must point to new T10 premium scene release");
-          assert(live.includes("R4 móvil, PC y pantalla completa"),"Live must display R4 campaign");
+          assert(live.includes("R5 pantalla completa sin bordes"),"Live must display R5 immersive edition");
           assert(live.includes("scene-m02.mjs?release=r3c-m02-real-seven-wave-v1"),"Live missing M02 runtime");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
           for(const p of ["dist/official/src/c1d8-b2-playable/scene.mjs",
@@ -126,10 +127,11 @@ jobs:
             "dist/official/src/c1d8-b2-playable/scene-m02.mjs",
             "dist/official/src/mobile/viewport-r4.css",
             "dist/official/src/mobile/viewport-r4.mjs",
+            "dist/official/src/mobile/viewport-panorama-r5.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
-          console.log("PASS_R3C_M01_M02_SAME_LIVE_CANONICAL_ENTRY");
+          console.log("PASS_R5_M01_M02_FULL_BLEED_LIVE_CANONICAL_ENTRY");
           '
       - name: Instalar Chromium WebGL2
         run: |
@@ -142,7 +144,7 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-r3a-m02-art-browser.mjs 2>&1 | tee qa-r3a-m02-farmland.log
-      - name: R4 pantalla completa, FIT M01/M02, HUD móvil y PC (6 resoluciones Chromium)
+      - name: R5 paisaje sin barras oscuras, FIT M01/M02 y pantalla completa (6 resoluciones Chromium)
         shell: bash
         env:
           SEMANTROPIC_PLAYTEST_PATH: /official/src/live/

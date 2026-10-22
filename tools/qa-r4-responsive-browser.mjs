@@ -36,15 +36,36 @@ try{
   if(response?.status()!==200)throw Error(profile+' LIVE not HTTP 200');
   await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7?.scene
    &&!!window.__SEMANTROPIC_VIEWPORT,null,{timeout:50000});
+  await page.waitForFunction(()=>document.getElementById('viewportBackdrop')?.dataset?.ready==='true',null,{timeout:20000});
   const snap=await page.evaluate(()=>{
    const g=window.__SEMANTROPIC_C1D7,app=document.getElementById('app'),
     canvas=g.scene.game.canvas,stage=document.getElementById('stage'),
     header=document.getElementById('hud'),
-    actions=document.getElementById('hudControls');
+    actions=document.getElementById('hudControls'),
+    backdrop=document.getElementById('viewportBackdrop');
    const size=e=>{const r=e.getBoundingClientRect();return {left:r.left,right:r.right,
     top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
    if(!(g.scene.game.renderer.gl instanceof WebGL2RenderingContext))throw Error('no WebGL2');
-   const a=size(app),s=size(stage),c=size(canvas),h=size(header),buttons=size(actions);
+   const a=size(app),s=size(stage),c=size(canvas),h=size(header),buttons=size(actions),
+    bg=size(backdrop),painted=window.__SEMANTROPIC_VIEWPORT.panorama;
+   if(!painted?.painted||painted.mapId!==g.world.map.id)
+    throw Error('R5 real original map edge rendering unavailable');
+   if(Math.abs(bg.width-s.width)>2||Math.abs(bg.height-s.height)>2)
+    throw Error('R5 edge backdrop does not fill full viewport');
+   // The stage's two dark gutters must be painted with source art even while
+   // the central Phaser FIT viewport remains uncut.
+   const ctx=backdrop.getContext('2d'),factorX=backdrop.width/bg.width,
+    factorY=backdrop.height/bg.height;
+   for(const [side,gap,sampleX] of [
+    ['left',c.left-s.left,(c.left-s.left)*.5],
+    ['right',s.right-c.right,s.width-(s.right-c.right)*.5]]){
+    if(gap<12)continue;
+    const pix=ctx.getImageData(Math.max(0,Math.min(backdrop.width-1,Math.floor(sampleX*factorX))),
+     Math.floor(backdrop.height/2),1,1).data;
+    const stageDark=[0x18,0x3b,0x37];
+    if(pix.every((v,i)=>i===3||Math.abs(v-stageDark[i])<2))
+     throw Error('Unpainted '+side+' pillarbox '+JSON.stringify([...pix]));
+   }
    if(c.left<s.left-2||c.right>s.right+2||c.top<s.top-2||c.bottom>s.bottom+2)
     throw Error('Game clipped outside stage despite Phaser FIT '+JSON.stringify({c,s}));
    if(Math.abs(c.width/c.height-1280/768)>.035)
@@ -56,6 +77,7 @@ try{
     throw Error('HUD and controls overlap '+JSON.stringify({h,buttons}));
    return {app:a,stage:s,canvas:c,header:h,controls:buttons,
     mapId:g.world.map.id,wave:g.world.wave,pads:g.scene.mapView.plan.sockets.length,
+    panorama:painted,
     fullscreenSupported:window.__SEMANTROPIC_VIEWPORT.supported,
     portraitVisible:getComputedStyle(document.getElementById('portrait')).display!=='none'};
   });
@@ -88,6 +110,9 @@ try{
    await page.locator('#mapPicker [data-map-target="2"]').click();
    await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.world?.map?.id===2,
     null,{timeout:50000});
+   await page.waitForFunction(()=>window.__SEMANTROPIC_VIEWPORT.panorama?.mapId===2
+    &&document.getElementById('viewportBackdrop')?.dataset?.map==='2',
+    null,{timeout:20000});
    const map02=await page.evaluate(()=>{
     const g=window.__SEMANTROPIC_C1D7;
     if(g.world.route.points.length!==163||g.economy.gold!==395)
@@ -97,6 +122,8 @@ try{
     if(canvas.left<stage.left-2||canvas.right>stage.right+2
      ||canvas.top<stage.top-2||canvas.bottom>stage.bottom+2)
      throw Error('M02 clips from viewport');
+    if(window.__SEMANTROPIC_VIEWPORT.panorama?.sourceCount!==1)
+     throw Error('M02 original farmland panorama texture missing');
     return {mapId:g.world.map.id,route:g.world.route.points.length,
      gold:g.economy.gold,canvasW:canvas.width,canvasH:canvas.height};
    });
@@ -112,7 +139,7 @@ try{
   cases.push({profile,width,height,...snap});
   await page.close();
  }
- console.log(JSON.stringify({status:'PASS_R4_FULLSCREEN_FIT_MOBILE_PC_TWO_MAPS',cases,
+ console.log(JSON.stringify({status:'PASS_R5_FULL_BLEED_BACKGROUND_FIT_MOBILE_PC_TWO_MAPS',cases,
   physicalAndroid:'NOT_RUN',physicalIOS:'NOT_RUN',
   userFullScreenAvailability:'browser-dependent'},null,2));
 }catch(error){console.error('FAIL_R4_VIEWPORT_BROWSER',error.stack||String(error));process.exitCode=1}

@@ -59,3 +59,10 @@ html,body{height:100%;min-height:100%;overscroll-behavior:none}
  #hudControls{max-width:64vw}
  #hudControls button{min-height:44px}
 }
+
+/* R5 · The side space shows original terrain/road reflected from protected art
+ * instead of a black/dark pillarbox. Phaser FIT canvas stays unmodified. */
+#stage{isolation:isolate}
+#viewportBackdrop{position:absolute;inset:0;width:100%;height:100%;
+ display:block;pointer-events:none;z-index:0;touch-action:none}
+#stage>canvas:not(#viewportBackdrop){position:relative;z-index:1}

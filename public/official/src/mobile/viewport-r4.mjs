@@ -1,13 +1,15 @@
 /** SEMANTROPIC TD R4: fullscreen, orientation assistance, safe-area viewport
  * and Phaser scale manager refresh. The 1280x768 gameplay geometry never changes.
  */
-export const R4_VIEWPORT_VERSION='r4-mobile-pc-fullscreen-fit-v1';
+import {attachR5Panorama} from './viewport-panorama-r5.mjs';
+export const R4_VIEWPORT_VERSION='r5-immersive-landscape-panorama-v1';
 export function mountR4Viewport({host=document.getElementById('app')}={}){
  if(!host)throw Error('R4: app root missing');
  const get=id=>document.getElementById(id);
  const trigger=get('fullscreenButton'),portraitTrigger=get('portraitFullscreen'),
   status=get('viewportStatus');
  if(!trigger||!portraitTrigger||!status)throw Error('R4: controls missing');
+ const panorama=attachR5Panorama({stage:get('stage')});
  let statusTimeout=null,frame=0;
  const isFull=()=>document.fullscreenElement===host||document.webkitFullscreenElement===host;
  function message(value){
@@ -32,6 +34,7 @@ export function mountR4Viewport({host=document.getElementById('app')}={}){
    // Scene managers may not exist until after async module loading.
    const scale=window.__SEMANTROPIC_C1D7?.scene?.game?.scale;
    scale?.refresh?.();
+   panorama.refresh();
   });
  }
  async function toggle(){
@@ -68,5 +71,7 @@ export function mountR4Viewport({host=document.getElementById('app')}={}){
  observer?.observe(host);
  sync();
  return Object.freeze({version:R4_VIEWPORT_VERSION,toggle,refresh:scheduleResize,
+  bindScene:(scene,mapId)=>panorama.bind(scene,mapId),
+  get panorama(){return panorama.report},
   get fullscreen(){return isFull()},get supported(){return !!(host.requestFullscreen||host.webkitRequestFullscreen)}});
 }

@@ -11,8 +11,9 @@ const m02='public/official/src/c1d8-b2-playable/scene-m02.mjs';
 const a=read(m01),b=read(m02),page=read('public/official/src/live/index.html');
 const script=read('public/official/src/mobile/viewport-r4.mjs');
 const css=read('public/official/src/mobile/viewport-r4.css');
-assert.equal(h(m01),'7ab7c08bcc9244a302f4c0c4bfdd704c3df4239f','Unexpected M01 gameplay changes');
-assert.equal(h(m02),'0489edf223a7b772a083df690515b7eb3749fa86','Unexpected M02 gameplay changes');
+const pano=read('public/official/src/mobile/viewport-panorama-r5.mjs');
+assert.equal(h(m01),'2c38341e12e100c3c9260d2984e3408e7accc031','Unexpected M01 gameplay changes');
+assert.equal(h(m02),'e8aa7c6cb8dc56211669f71219d47591a4ac01a8','Unexpected M02 gameplay changes');
 for(const [id,scene] of [['M01',a],['M02',b]]){
  assert(scene.includes('scale:{mode:Phaser.Scale.FIT,'),id+' canonical geometry cropped');
  assert(!scene.includes('Phaser.Scale.ENVELOP'),id+' may crop map landscape');
@@ -35,6 +36,16 @@ assert(script.includes('fullscreenchange')&&script.includes("scale?.refresh?.()"
  'Fullscreen exit/resize not handled');
 assert(script.includes("if(!enter){")&&script.includes('Añadir a pantalla de inicio'),
  'Unsupported browser fallback absent');
+assert(pano.includes('maps/m01/aurora-v3/viva/ground')&&
+ pano.includes('maps/m01/aurora-v3/viva/road')&&
+ pano.includes('maps/m02/farmland/r3-b2'),
+ 'R5 must extend the actual approved terrain for both maps');
+assert(a.includes('bindScene?.(this,1)')&&b.includes('bindScene?.(this,2)'),
+ 'R5 rendering not mounted for both maps');
+assert(script.includes('attachR5Panorama')&&script.includes('panorama.refresh()'),
+ 'R5 not refreshing edge art at fullscreen/resize');
+assert(css.includes('#viewportBackdrop')&&css.includes('pointer-events:none'),
+ 'R5 background must remain non-interactive');
 assert(css.includes('env(safe-area-inset')&&css.includes('orientation:portrait'),
  'Notch safe-area or portrait guidance missing');
-console.log('PASS_R4_M01_M02_FIT_FULLSCREEN_SAFE_AREA_TOUCH_VIEWPORT_ONLY');
+console.log('PASS_R5_FULL_BLEED_REFLECTED_ORIGINAL_TERRAIN_NO_GAMEPLAY_CROP');
