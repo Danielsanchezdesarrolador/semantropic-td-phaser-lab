@@ -90,8 +90,6 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-c1d8-b2-sniper-browser.mjs 2>&1 | tee qa-c1d8-b2-live-url.log
-            qa-t10-r1-hf2-live.log
-            qa-t10-r1-sync-live.log
       - name: Validar sincronización R1 e impacto real en 12 casos
         shell: bash
         run: |
@@ -114,4 +112,6 @@ jobs:
             artifacts/t10-r1-hf2-rifle-abc-browser/
             qa-c1d8-b3-live-url.log
             qa-c1d8-b2-live-url.log
+            qa-t10-r1-sync-live.log
+            qa-t10-r1-hf2-live.log
           if-no-files-found: warn
