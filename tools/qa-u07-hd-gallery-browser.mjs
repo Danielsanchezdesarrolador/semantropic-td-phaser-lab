@@ -56,8 +56,11 @@ try{
    const sizes=rows.map(r=>r.hd);
    return {rows,sizes,paused:true,notBuildable:true};
   });
-  await page.locator('#towerHDZoom').fill('200');
-  await page.locator('#towerHDZoom').dispatchEvent('input');
+  // Range inputs cannot be filled like text boxes in all Playwright versions.
+  // Set the real slider value and dispatch the native input event explicitly.
+  await page.locator('#towerHDZoom').evaluate(el=>{
+   el.value='200';el.dispatchEvent(new Event('input',{bubbles:true}));
+  });
   await page.waitForFunction(()=>document.getElementById('towerHDZoomValue').textContent==='200%');
   await page.screenshot({path:out+'/'+name+'-U07-torres-HD.png',fullPage:true});
   await page.locator('#towerHDGalleryClose').click();
