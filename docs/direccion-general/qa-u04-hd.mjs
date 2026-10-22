@@ -1,0 +1,23 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {execFileSync} from "node:child_process";
+const root="public/official/";
+const src=p=>readFileSync(root+p,"utf8");
+assert.equal(execFileSync("git",["hash-object",root+"art/actors/p03-rig.mjs"],{encoding:"utf8"}).trim(),
+ "1a4282e1652ff559b92e18f42db465d6bfb8e729","P03 historic master MUST NOT change");
+const scene=src("src/c1d8-b2-playable/scene.mjs");
+const atlas=src("src/towers-visual/t10/p03-atlas-isolation.mjs");
+const gun=src("src/towers-visual/t10/p03-operator-rifle-muzzle.mjs");
+const allies=src("src/actors-visual/u04-ally-hd.mjs");
+assert(scene.includes("{width:720,height:840}"),"sniper structural SVG raster must be 2x");
+assert(scene.includes("meta.worldScaleProposal/svgDensity"),"tower display must remain unchanged");
+assert(scene.includes("scaleX:sprite.scaleX*svgDensity"),"operator anchor must use original SVG coordinates");
+assert(scene.includes("isolateP03Atlas(rawAtlas,info.actorId,{density:2})"),"P03 gun not 2x");
+assert(atlas.includes("brush.setTransform(density,0,0,density,0,0)"),"P03 vector drawing not denser");
+assert(gun.includes("const local={x:native.x*density,y:native.y*density}"),"P03 live gun muzzle projection not density corrected");
+assert(scene.includes("this.u04AllyHD=registerU04AllyHD(this,P08_IMAGES)"),"infantry alias not registered");
+assert(scene.includes("v.baseScale=art.worldHeight/171/(hdKey===art.atlasKey?1:2)"),"veteran runtime scale not compensated");
+assert(allies.includes("copy[k]+.28*(copy[k]-mean)"),"ally crispness preprocessing missing");
+assert(scene.includes("orientSniperOperator(mount,WORLD"),"approved target facing missing");
+assert(scene.includes("visualLevel:mount.meta.level"),"approved U03 premium VFX missing");
+console.log("PASS_U04_F1_F2_HD_ANCHORS_CORE_LOCK_P03_IMMUTABLE");

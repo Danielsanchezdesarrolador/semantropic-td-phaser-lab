@@ -9,8 +9,8 @@ const atlas=readFileSync(root+"src/towers-visual/t10/p03-atlas-isolation.mjs","u
 const scene=readFileSync(root+"src/c1d8-b2-playable/scene.mjs","utf8");
 const vfx=readFileSync(root+"src/towers-visual/sniper-vfx.mjs","utf8");
 assert(atlas.includes("paintP03Frame(brush,actorId,state,frame)"),"isolated source frame redraw missing");
-assert(atlas.includes("ctx.drawImage(cell,spec.x,spec.y)"),"per-cell atlas repack missing");
-assert(scene.includes('isolateP03Atlas(rawAtlas,info.actorId)'),"P03 visual isolation not mounted");
+assert(atlas.includes("ctx.drawImage(cell,spec.x*density,spec.y*density)"),"per-cell atlas repack missing");
+assert(scene.includes('isolateP03Atlas(rawAtlas,info.actorId,{density:2})'),"P03 visual isolation not mounted");
 assert(scene.includes('visualLevel:mount.meta.level'),"level-specific premium visuals not connected");
 assert(scene.includes("projectP03RifleMuzzle(mount.operator"),"verified shooter muzzle lost");
 assert(scene.includes("orientSniperOperator(mount,WORLD"),"approved target facing lost");

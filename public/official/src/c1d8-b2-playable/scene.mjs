@@ -14,7 +14,8 @@ import {CAST,ANIMATIONS} from "../../art/actors/atlas-source.mjs";
 import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
 import {isolateP03Atlas} from "../towers-visual/t10/p03-atlas-isolation.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
-import {preloadP08,registerP08,p08VisualForSoldierLevel,p08VisualForEnemy,P08AnimationController} from "../actors-visual/p08/p08-loader.mjs";
+import {preloadP08,registerP08,p08VisualForSoldierLevel,p08VisualForEnemy,P08AnimationController,P08_IMAGES} from "../actors-visual/p08/p08-loader.mjs";
+import {registerU04AllyHD} from "../actors-visual/u04-ally-hd.mjs";
 import {getContextMenuVisualSpec} from "../towers-visual/t09/spec.mjs";
 import {mountT09Presenter} from "../towers-visual/t09/presenter.mjs";
 import {C1D8CombatMotion,applyC1D8Pose,spawnC1D8Impact} from "../c1d8-b3-combat/motion.mjs";
@@ -43,9 +44,9 @@ class CombatScene extends Phaser.Scene{
    // Only used for candidate P03 operator-primary option; original T04 stays unchanged.
    for(const level of [1,2]){
     this.load.svg('t10-hf2-sniper-structure-'+level,
-     new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href+(level===1?'?u02ab=hf1':''),{width:360,height:420});
+     new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href+(level===1?'?u02ab=hf1':''),{width:720,height:840});
     this.load.svg('u02-sniper-front-'+level,
-     new URL('../../art/towers/layers/sniper-'+level+'-front.svg',import.meta.url).href,{width:360,height:420});
+     new URL('../../art/towers/layers/sniper-'+level+'-front.svg',import.meta.url).href,{width:720,height:840});
    }
  }
  create(){
@@ -53,13 +54,15 @@ class CombatScene extends Phaser.Scene{
   // and used for warrior/hound/infantry; P07 sniper operator is opt-in ONLY.
   registerP07(this);
   registerP08(this);
+  this.u04AllyHD=registerU04AllyHD(this,P08_IMAGES);
   for(const info of CAST){
    const rawAtlas=createP03Atlas(info.actorId);
    // U03: correct P03 sprite-sheet cross-frame visor bleed without editing locked P03 art.
-   const atlas=info.actorId==="sniper_operator"?isolateP03Atlas(rawAtlas,info.actorId):rawAtlas;
+   const atlas=info.actorId==="sniper_operator"?
+    isolateP03Atlas(rawAtlas,info.actorId,{density:2}):rawAtlas;
    registerP03Atlas(this,atlas);
    this.p03Actors.set(info.actorId,{info,atlas,scale:Math.min(.83,
-    (atlas.actor.heightWorld??info.heightWorld)/(info.kind==="hound"?114:171)*.70)});
+    (atlas.actor.heightWorld??info.heightWorld)/(info.kind==="hound"?114:171)*.70)/(atlas.u04Density??1)});
   }
   this.mapView=mountM01WorldV7(this,MAP,{palette:"viva",treatment:"fiel"});
   this.shots=new SniperShotPresenter(this,{variant:"A",depth:35000,premium:true});
@@ -109,7 +112,7 @@ class CombatScene extends Phaser.Scene{
      actors:USE_P08_ACTORS?"P08_B1_HF1_CANDIDATE":"P03_APPROVED_ROLLBACK",
      nodes:USE_T09_NODES?"T09_HF0":"G1_ROLLBACK",
     source:"C1C_APPROVED",realCombat:true,realPng:true,
-    activeOperator:USE_EXPERIMENTAL_OPERATOR?"P07_EXPERIMENTAL":"P03_APPROVED",
+    activeOperator:USE_EXPERIMENTAL_OPERATOR?"P07_EXPERIMENTAL":"P03_APPROVED_U04_HD2",
     treatment:"fiel",noVisualRework:true},
    diagnostics:()=>({towers:this.towerMounts.size,enemies:this.enemyViews.size,
      p08Entities:this.p08Animator.entities.size,t09Nodes:t09Presenter?.current?.nodes?.length??0,
@@ -147,15 +150,19 @@ class CombatScene extends Phaser.Scene{
    const operatorPrimary=tower.family==="sniper"&&!USE_EXPERIMENTAL_OPERATOR
      &&REVIEW.get("t10hf2")!=="legacy";
     const renderAsset=operatorPrimary?'t10-hf2-sniper-structure-'+tower.level:meta.assetId;
+    const svgDensity=operatorPrimary?2:1;
     const sprite=this.add.image(socket.world.x,socket.world.y,renderAsset)
-    .setOrigin(meta.footAnchor.x,meta.footAnchor.y).setScale(meta.worldScaleProposal).setDepth(socket.world.y-2);
+    .setOrigin(meta.footAnchor.x,meta.footAnchor.y)
+    .setScale(meta.worldScaleProposal/svgDensity).setDepth(socket.world.y-2);
    this.towerViews.push(sprite);
    const mount={id:tower.id,meta,sprite,source:operatorPrimary?"T08_T04_STRUCTURE_NO_EMBEDDED_RIFLE":"T08_T04_APPROVED",
      operator:null,muzzleLocal:meta.muzzleLocal,operatorPrimary,renderAsset};
    if(tower.family==="sniper"){
     // Exactly C1-C: original P03 operator rig over the unchanged T04 composite.
     // NO extra T07 rifleMounted (the user's screenshot already defines the gun's appearance).
-    const point=projectSourceAnchor(sprite,meta,"operatorAnchorLocal");
+    const proxy=svgDensity===1?sprite:{x:sprite.x,y:sprite.y,flipX:sprite.flipX,
+     flipY:sprite.flipY,scaleX:sprite.scaleX*svgDensity,scaleY:sprite.scaleY*svgDensity};
+    const point=projectSourceAnchor(proxy,meta,"operatorAnchorLocal");
     const historic=this.p03Actors.get("sniper_operator"),candidate=p07ItemFor("sniper_operator");
     // The operator was behind the WHOLE tower because depth was point.y.
     // Overlay body above the deck, and only the frontal rail above its boots.
@@ -170,7 +177,7 @@ class CombatScene extends Phaser.Scene{
     this.towerViews.push(operator);
     const frontRail=operatorPrimary?this.add.image(socket.world.x,socket.world.y,
       'u02-sniper-front-'+tower.level).setOrigin(meta.footAnchor.x,meta.footAnchor.y)
-      .setScale(meta.worldScaleProposal).setDepth(layers.frontRail):null;
+      .setScale(meta.worldScaleProposal/svgDensity).setDepth(layers.frontRail):null;
     if(frontRail)this.towerViews.push(frontRail);
     mount.operator=operator;mount.frontRail=frontRail;mount.operatorShadow=shadow;
     mount.operatorTargetId=null;mount.operatorFacing="right";
@@ -199,14 +206,17 @@ class CombatScene extends Phaser.Scene{
   const h=legacy.info.heightWorld;
   const scale=USE_P08_ACTORS&&p08?p08.worldHeight/(kind==="hound"?114:171):
    USE_P03_ACTORS?legacy.scale:Math.min(.83,candidate.worldHeight/(kind==="hound"?114:171)*.70);
-  const atlasKey=USE_P08_ACTORS&&p08?p08.atlasKey:USE_P03_ACTORS?legacy.atlas.atlasKey:candidate.atlasKey;
+  const sourceKey=USE_P08_ACTORS&&p08?p08.atlasKey:USE_P03_ACTORS?legacy.atlas.atlasKey:candidate.atlasKey;
+  const hdAlly=USE_P08_ACTORS&&kind==="infantry_recruit";
+  const atlasKey=hdAlly?(this.u04AllyHD.get(sourceKey)??sourceKey):sourceKey;
+  const renderScale=hdAlly&&atlasKey!==sourceKey?scale/2:scale;
   const origin=USE_P08_ACTORS&&p08?p08.footAnchor:legacy.info.footAnchor;
-  const sprite=this.add.image(0,0,atlasKey,"idle-0").setOrigin(origin.x,origin.y).setScale(scale);
+  const sprite=this.add.image(0,0,atlasKey,"idle-0").setOrigin(origin.x,origin.y).setScale(renderScale);
   const shadow=this.add.ellipse(0,1,legacy.info.kind==="hound"?38:33,9,0x183b3b,.38);
   const back=this.add.rectangle(0,-h-6,35,5,0x261d27);
   const hp=this.add.rectangle(-17.5,-h-6,35,5,0x7ce4a9).setOrigin(0,.5);
   const view=this.add.container(x,y,[shadow,sprite,back,hp]).setDepth(y+6);
-  return {view,sprite,hp,hitUntil:0,artist:USE_P08_ACTORS?"P08_B1_HF1_PNG":"P03_ORIGINAL",actorId:kind,baseScale:scale};
+  return {view,sprite,hp,hitUntil:0,artist:hdAlly?"P08_U04_HD":"P08_B1_HF1_PNG",actorId:kind,baseScale:renderScale};
  }
  drawEnemies(){
   const ids=new Set();
@@ -242,9 +252,10 @@ class CombatScene extends Phaser.Scene{
    if(!v){v=this.makeActor("infantry_recruit",u.x,u.y);this.soldierViews.set(u.id,v);}
    if(USE_P08_ACTORS){
     const art=p08VisualForSoldierLevel(u.level);
-    if(v.sprite.texture.key!==art.atlasKey){
-     v.baseScale=art.worldHeight/171;
-     v.sprite.setTexture(art.atlasKey,"idle-0")
+    const hdKey=this.u04AllyHD.get(art.atlasKey)??art.atlasKey;
+    if(v.sprite.texture.key!==hdKey){
+     v.baseScale=art.worldHeight/171/(hdKey===art.atlasKey?1:2);
+     v.sprite.setTexture(hdKey,"idle-0")
       .setOrigin(art.footAnchor.x,art.footAnchor.y).setScale(v.baseScale);
      v.actorId=art.actorId;
     }

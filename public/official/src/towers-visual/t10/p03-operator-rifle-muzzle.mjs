@@ -29,11 +29,14 @@ export function projectP03RifleMuzzle(operator,{state,frame}){
  if(!operator||!finite(operator)||!operator.frame?.name)throw Error('P03 operator sprite/frame missing');
  const frameName=String(operator.frame?.name??operator.texture.frame?.name??'');
  if(frameName!==state+'-'+frame)throw Error('Operator displayed frame mismatch: '+frameName+' != '+state+'-'+frame);
- const local=getP03RifleMuzzleFramePoint(state,frame);
+ const native=getP03RifleMuzzleFramePoint(state,frame);
  const width=operator.width,height=operator.height;
  if(!Number.isFinite(width)||!Number.isFinite(height)||width<=0||height<=0)throw Error('P03 operator texture dimensions unavailable');
- if(Math.abs(width-FRAME_WIDTH)>1e-7||Math.abs(height-FRAME_HEIGHT)>1e-7)
-  throw Error('P03 source frame dimensions changed; inspect rig before projection');
+ const density=width/FRAME_WIDTH;
+ if(![1,2].some(d=>Math.abs(density-d)<1e-7)||Math.abs(height-FRAME_HEIGHT*density)>1e-7)
+  throw Error('P03 operator texture dimensions changed unexpectedly; inspect rig before projection');
+ // U04: source rig coords are unchanged, only the approved atlas texture raster is denser.
+ const local={x:native.x*density,y:native.y*density};
  const originX=operator.displayOriginX,originY=operator.displayOriginY;
  if(!Number.isFinite(originX)||!Number.isFinite(originY))throw Error('Operator display origin unavailable');
  const x=(operator.flipX?width-local.x:local.x)-originX;

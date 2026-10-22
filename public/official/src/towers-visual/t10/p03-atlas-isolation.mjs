@@ -11,27 +11,33 @@
 import {FRAME_WIDTH,FRAME_HEIGHT} from '../../../art/actors/atlas-source.mjs';
 import {paintP03Frame} from '../../../art/actors/p03-rig.mjs';
 export const U03_P03_ATLAS_ISOLATION='u03-isolate-sniper-frames-v1';
-export function isolateP03Atlas(atlas,actorId='sniper_operator'){
+export function isolateP03Atlas(atlas,actorId='sniper_operator',{density=1}={}){
  if(actorId!=='sniper_operator')throw Error('U03 must only re-pack approved sniper frames');
+ if(![1,2].includes(density))throw Error('U04 accepts only 1x/2x sniper source density');
  if(!atlas?.canvas||!atlas?.frames||!atlas?.atlasKey)throw Error('Missing original P03 atlas');
  if(typeof document==='undefined'||!document.createElement)throw Error('U03 requires browser Canvas2D');
  const sheet=document.createElement('canvas');
- sheet.width=atlas.canvas.width;sheet.height=atlas.canvas.height;
+ sheet.width=atlas.canvas.width*density;sheet.height=atlas.canvas.height*density;
  const ctx=sheet.getContext('2d',{alpha:true});
  const cell=document.createElement('canvas');
- cell.width=FRAME_WIDTH;cell.height=FRAME_HEIGHT;
+ cell.width=FRAME_WIDTH*density;cell.height=FRAME_HEIGHT*density;
  const brush=cell.getContext('2d',{alpha:true});
  if(!ctx||!brush)throw Error('U03 Canvas2D unavailable');
- let painted=0;
- for(const [state,frames] of Object.entries(atlas.frames)){
-  for(let frame=0;frame<frames.length;frame++){
-   const spec=frames[frame];
+ let painted=0;const frames={};
+ for(const [state,sourceFrames] of Object.entries(atlas.frames)){
+  frames[state]=[];
+  for(let frame=0;frame<sourceFrames.length;frame++){
+   const spec=sourceFrames[frame];
    if(spec.w!==FRAME_WIDTH||spec.h!==FRAME_HEIGHT)throw Error('U03 frame geometry mismatch');
-   brush.clearRect(0,0,FRAME_WIDTH,FRAME_HEIGHT);
+   brush.setTransform(1,0,0,1,0,0);
+   brush.clearRect(0,0,cell.width,cell.height);
+   brush.setTransform(density,0,0,density,0,0);
    paintP03Frame(brush,actorId,state,frame);
-   ctx.drawImage(cell,spec.x,spec.y);
+   ctx.drawImage(cell,spec.x*density,spec.y*density);
+   frames[state].push({...spec,x:spec.x*density,y:spec.y*density,w:spec.w*density,h:spec.h*density});
    painted++;
   }
  }
- return {...atlas,canvas:sheet,isolatedFrameCount:painted,isolationVersion:U03_P03_ATLAS_ISOLATION};
+ return {...atlas,canvas:sheet,frames,frameWidth:FRAME_WIDTH*density,frameHeight:FRAME_HEIGHT*density,
+  u04Density:density,isolatedFrameCount:painted,isolationVersion:U03_P03_ATLAS_ISOLATION};
 }
