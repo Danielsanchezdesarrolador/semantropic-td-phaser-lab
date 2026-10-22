@@ -134,9 +134,12 @@ jobs:
           console.log("PASS_R5_M01_M02_FULL_BLEED_LIVE_CANONICAL_ENTRY");
           '
       - name: Instalar Chromium WebGL2
+        timeout-minutes: 8
         run: |
-          npm install --no-save playwright@1.57.0
-          npx playwright install --with-deps chromium
+          set -euo pipefail
+          npm install --no-save --no-audit --no-fund playwright@1.57.0
+          # Browser automation uses Chromium headless only; full Chrome is unnecessary.
+          npx playwright install --with-deps --only-shell chromium
       - name: R3-A Mapa 02 163 nodos, 8 pads, nueva identidad y rework 5 torres (sin habilitar gameplay)
         shell: bash
         env:
