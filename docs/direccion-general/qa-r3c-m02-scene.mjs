@@ -33,7 +33,7 @@ assert(scene.includes('mountM02EnemyGear(this,kind,view,h)'),'Enemy shields/bows
 assert(scene.includes('presentM02Arrow(this,ev)'),'Real enemy archer VFX missing');
 assert(scene.includes('s.wave+"/7"'),'Seven-wave HUD missing');
 assert(renderer.includes('makeM02ArtCanvas(map,{density:2})'),'M02 2x canonical terrain missing');
-assert(actor.includes("kind==='shieldbearer'")&&actor.includes("kind==='archer'")===false ? actor.includes("kind==='shieldbearer'"):true);
+assert(actor.includes('shieldbearer')&&actor.includes('archer')&&actor.includes('mountM02EnemyGear'),'Missing M02 actor accessories');
 const result=m02Result({ended:true,won:true,lives:100,escaped:0,kills:80,wave:7,gold:395,totalSpawns:80});
 assert(result&&result.map===2&&result.stars===3&&result.completedWaves===7);
 const cache=new Map(),storage={getItem:k=>cache.get(k)||null,setItem:(k,v)=>cache.set(k,v)};

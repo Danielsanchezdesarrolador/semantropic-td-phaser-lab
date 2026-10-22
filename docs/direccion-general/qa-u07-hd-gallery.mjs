@@ -15,7 +15,7 @@ const page=src('public/official/src/live/index.html');
 const module=src('public/official/src/towers-visual/u06/hd-gallery-ui.mjs');
 const core=src('public/official/src/core-c1d/construction-economy.mjs');
 const renderer=src('public/official/src/towers-visual/u06/legacy-hd.mjs');
-assert(page.includes('U07 GALERÍA HD'),'Version absent from single LIVE');
+assert(page.includes('id="towerHDGallery"')&&page.includes('GALERÍA HD'),'U07 preserved within single LIVE campaign');
 assert(page.includes('id="towerHDGalleryButton"'),'Art button absent from LIVE');
 assert(page.includes('id="towerHDGallery" hidden role="dialog"'),'Accessible gallery absent');
 assert(page.includes("mountU07HDGallery()"),'HD renderer not wired');
