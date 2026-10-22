@@ -9,6 +9,7 @@ import {SniperShotPresenter} from "../towers-visual/sniper-vfx.mjs";
 import {diagnoseT10Muzzle} from "../towers-visual/t10/sniper-muzzle-contract.mjs";
 import {projectMountedT10Muzzle,diagnoseMountedT10Muzzle} from "../towers-visual/t10/premium-runtime-muzzle.mjs";
 import {projectP03RifleMuzzle,diagnoseP03VersusT04Muzzles} from "../towers-visual/t10/p03-operator-rifle-muzzle.mjs";
+import {sniperOperatorLayers,orientSniperOperator} from "../towers-visual/t10/sniper-operator-tracking.mjs";
 import {CAST,ANIMATIONS} from "../../art/actors/atlas-source.mjs";
 import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
@@ -39,9 +40,12 @@ class CombatScene extends Phaser.Scene{
   for(const meta of TOWER_ART_V2)this.load.svg(meta.assetId,meta.url,{width:360,height:420});
    // Existing original T08 structural master, T04 architecture WITHOUT its second rifle.
    // Only used for candidate P03 operator-primary option; original T04 stays unchanged.
-   for(const level of [1,2])this.load.svg('t10-hf2-sniper-structure-'+level,
-    new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href,
-    {width:360,height:420});
+   for(const level of [1,2]){
+    this.load.svg('t10-hf2-sniper-structure-'+level,
+     new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href,{width:360,height:420});
+    this.load.svg('u02-sniper-front-'+level,
+     new URL('../../art/towers/layers/sniper-'+level+'-front.svg',import.meta.url).href,{width:360,height:420});
+   }
  }
  create(){
   // Keep original P03 as user-approved exact fallback. P07 PNG atlases are loaded
@@ -110,6 +114,7 @@ class CombatScene extends Phaser.Scene{
      t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,t10RifleAuthority:REVIEW.get("t10hf2")==="legacy"?"T04_LEGACY_COMPARISON":"P03_OPERATOR",
       t10BuildingRifleSuppressed:[...this.towerMounts.values()].filter(m=>m.operatorPrimary).length,
       t10Ghosts:this.t10GhostDeaths.size,t10HeldKills:this.t10HeldKills,
+      u02Facing:[...this.towerMounts.values()].filter(m=>m.operatorPrimary).map(m=>({towerId:m.id,facing:m.operatorFacing??"right",targetId:m.operatorTargetId??null,operatorDepth:m.operator?.depth,structureDepth:m.sprite?.depth,frontRailDepth:m.frontRail?.depth})),
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
   this.events.once("shutdown",()=>{
    stopRallySelection();closeMenu();t09Presenter?.destroy();this.p08Animator.destroy();this.combatMotion.reset();
@@ -123,7 +128,7 @@ class CombatScene extends Phaser.Scene{
    if(intent.action==="inspect"){feedback("Consulta de alcance, sin afectar combate.");return;}
    runMenuIntent(intent.action==="set_rally"?"rally":intent.action);
   }});
-  wireControls();feedback("C1-D8 B3: ataques con anticipación y reacción visibles. Rally B1 conservado.");
+  wireControls();feedback("U02 A/B: el francotirador sigue objetivos desde la plataforma.");
  }
 
 
@@ -149,12 +154,24 @@ class CombatScene extends Phaser.Scene{
     // NO extra T07 rifleMounted (the user's screenshot already defines the gun's appearance).
     const point=projectSourceAnchor(sprite,meta,"operatorAnchorLocal");
     const historic=this.p03Actors.get("sniper_operator"),candidate=p07ItemFor("sniper_operator");
+    // The operator was behind the WHOLE tower because depth was point.y.
+    // Overlay body above the deck, and only the frontal rail above its boots.
+    const layers=sniperOperatorLayers(sprite.depth);
+    const shadow=operatorPrimary?this.add.ellipse(point.x,point.y+1,23,7,0x213e3d,.28)
+     .setDepth(layers.shadow):null;
     const operator=this.add.image(point.x,point.y,
      USE_EXPERIMENTAL_OPERATOR?candidate.atlasKey:historic.atlas.atlasKey,"idle-0")
      .setOrigin(historic.info.footAnchor.x,historic.info.footAnchor.y).setScale(historic.scale)
-     .setDepth(point.y+3);
+     .setDepth(operatorPrimary?layers.operator:point.y+3);
+    if(shadow)this.towerViews.push(shadow);
     this.towerViews.push(operator);
-    mount.operator=operator;mount.operatorState="idle";mount.operatorUntil=0;
+    const frontRail=operatorPrimary?this.add.image(socket.world.x,socket.world.y,
+      'u02-sniper-front-'+tower.level).setOrigin(meta.footAnchor.x,meta.footAnchor.y)
+      .setScale(meta.worldScaleProposal).setDepth(layers.frontRail):null;
+    if(frontRail)this.towerViews.push(frontRail);
+    mount.operator=operator;mount.frontRail=frontRail;mount.operatorShadow=shadow;
+    mount.operatorTargetId=null;mount.operatorFacing="right";
+    mount.operatorState="idle";mount.operatorUntil=0;
     mount.operatorAtlas=USE_EXPERIMENTAL_OPERATOR?"P07_UNAPPROVED":"P03_APPROVED";
     mount.addedRifleLayers=0;
    }
@@ -162,6 +179,10 @@ class CombatScene extends Phaser.Scene{
   }
   this.selection.setPosition(this.mapView.plan.sockets[chosenSocket].world.x,
    this.mapView.plan.sockets[chosenSocket].world.y);
+ }
+ sniperOperatorFrame(state){
+  const a=ANIMATIONS[state]??ANIMATIONS.idle;
+  return state+"-"+(Math.floor(WORLD.seconds*a.fps)%a.frames);
  }
  frame(state){
   if(USE_P03_ACTORS)return state+"-"+(Math.floor(WORLD.seconds*(ANIMATIONS[state]?.fps??5))%(ANIMATIONS[state]?.frames??ANIMATIONS.idle.frames));
@@ -241,8 +262,12 @@ class CombatScene extends Phaser.Scene{
   for(const [id,v] of this.soldierViews)if(!ids.has(id)){
    v.view.destroy();this.soldierViews.delete(id);this.p08Animator.entities.delete(id);this.combatMotion.forget(id);
   }
-  for(const mount of this.towerMounts.values())if(mount.operator)
-   mount.operator.setFrame(this.frame(WORLD.seconds<mount.operatorUntil?mount.operatorState:"idle"));
+  for(const mount of this.towerMounts.values())if(mount.operator){
+   orientSniperOperator(mount,WORLD);
+   const state=WORLD.seconds<mount.operatorUntil?mount.operatorState:"idle";
+   mount.operator.setFrame(mount.operatorAtlas==="P03_APPROVED"?
+     this.sniperOperatorFrame(state):this.frame(state));
+  }
  }
  adaptHistoricShot(ev){
   // Presentation-only translation. Gameplay bullet origin remains unchanged.
@@ -257,8 +282,11 @@ class CombatScene extends Phaser.Scene{
   // Move to the frame actually displayed on the render after this core event.
   const t04Muzzle=projectMountedT10Muzzle(mount.sprite,mount.meta);
   const p03Ready=mount.operator&&mount.operatorAtlas==="P03_APPROVED";
+  // First face the authenticated target, THEN project the mouth of that same P03 rifle.
+  const trackingTarget=WORLD.enemies.get(ev.targetId)??ev.payload?.targetWorld??null;
+  if(mount.operator)orientSniperOperator(mount,WORLD,trackingTarget);
   const phase=ev.type==="attack_fire"?"attack":"attackWindup";
-  const frameName=p03Ready?this.frame(phase):null;
+  const frameName=p03Ready?this.sniperOperatorFrame(phase):null;
   if(p03Ready)mount.operator.setFrame(frameName);
   const frameIndex=frameName?Number(frameName.slice(frameName.lastIndexOf("-")+1)):null;
   // Opt-in baseline comparison only in feature QA, NOT the production default.

@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente T10 R1-HF2
+name: SEMANTROPIC TD — QA producción permanente U02 A+B operador Francotirador
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -26,6 +26,7 @@ jobs:
           node docs/art/towers/qa-t10-b2.mjs
           node docs/art/towers/qa-t10-premium.mjs
           node docs/art/towers/qa-t10-r1-hf2.mjs
+          node docs/direccion-general/qa-u02-ab.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
@@ -37,6 +38,8 @@ jobs:
           node --check public/official/src/towers-visual/t10/sniper-muzzle-contract.mjs
           node --check public/official/src/towers-visual/t10/premium-runtime-muzzle.mjs
           node --check public/official/src/towers-visual/t10/p03-operator-rifle-muzzle.mjs
+          node --check public/official/src/towers-visual/t10/sniper-operator-tracking.mjs
+          node --check tools/qa-u02-ab-browser.mjs
           node --check tools/qa-t10-r1-sync-browser.mjs
           node --check tools/qa-t10-r1-hf2-rifle-abc-browser.mjs
           node --check public/official/src/core-c1d/m01-infantry-combat-a3.mjs
@@ -59,18 +62,19 @@ jobs:
           const live=readFileSync("dist/official/src/live/index.html","utf8");
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
-          assert(live.includes("../c1d8-b2-playable/scene.mjs?release=t10-r1-hf2"),"Live must point to new T10 premium scene release");
-          assert(live.includes("T10 R1-HF2"),"Live must display the new release identifier");
+          assert(live.includes("../c1d8-b2-playable/scene.mjs?release=u02-ab-sniper-facing-deck"),"Live must point to new T10 premium scene release");
+          assert(live.includes("U02 A+B"),"Live must display the new release identifier");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
           for(const p of ["dist/official/src/c1d8-b2-playable/scene.mjs",
             "dist/official/src/towers-visual/t09/menu.css",
             "dist/official/src/towers-visual/t10/sniper-muzzle-contract.mjs",
             "dist/official/src/towers-visual/t10/premium-runtime-muzzle.mjs",
             "dist/official/src/towers-visual/t10/p03-operator-rifle-muzzle.mjs",
+            "dist/official/src/towers-visual/t10/sniper-operator-tracking.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
-          console.log("PASS_T10_R1_HF2_LIVE_CANONICAL_ENTRY");
+          console.log("PASS_U02_AB_LIVE_CANONICAL_ENTRY");
           '
       - name: Instalar Chromium WebGL2
         run: |
@@ -100,6 +104,13 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-t10-r1-hf2-rifle-abc-browser.mjs 2>&1 | tee qa-t10-r1-hf2-live.log
+      - name: Validar orientación y plataforma U02 A+B en Chromium real
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
+        run: |
+          set -euo pipefail
+          node tools/qa-u02-ab-browser.mjs 2>&1 | tee qa-u02-ab-live.log
       - name: Conservar screenshots y logs de release
         if: always()
         uses: actions/upload-artifact@v4
@@ -110,8 +121,10 @@ jobs:
             artifacts/c1d8-b2-browser/
             artifacts/t10-r1-sync-browser/
             artifacts/t10-r1-hf2-rifle-abc-browser/
+            artifacts/u02-ab-browser/
             qa-c1d8-b3-live-url.log
             qa-c1d8-b2-live-url.log
             qa-t10-r1-sync-live.log
             qa-t10-r1-hf2-live.log
+            qa-u02-ab-live.log
           if-no-files-found: warn
