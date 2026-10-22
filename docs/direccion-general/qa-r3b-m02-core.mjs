@@ -5,10 +5,10 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
-import {M02BuildEconomy} from '../public/official/src/core-c1d/m02-construction-economy.mjs';
-import {M02CombatWorld,M02_ENEMY_SPECS,calculateM02Enemy} from '../public/official/src/core-c1d/m02-combat-world.mjs';
-import {M02CombatWithInfantryA3} from '../public/official/src/core-c1d/m02-infantry-combat-a3.mjs';
-import {makeM02InfantryNav} from '../public/official/src/core-c1d/m02-infantry-nav.mjs';
+import {M02BuildEconomy} from '../../public/official/src/core-c1d/m02-construction-economy.mjs';
+import {M02CombatWorld,M02_ENEMY_SPECS,calculateM02Enemy} from '../../public/official/src/core-c1d/m02-combat-world.mjs';
+import {M02CombatWithInfantryA3} from '../../public/official/src/core-c1d/m02-infantry-combat-a3.mjs';
+import {makeM02InfantryNav} from '../../public/official/src/core-c1d/m02-infantry-nav.mjs';
 const maps=JSON.parse(readFileSync('public/official/data/maps.v5.json','utf8'));
 const campaigns=JSON.parse(readFileSync('public/official/data/campaign140.v5.json','utf8'));
 const m=maps.find(z=>z.id===2),c=campaigns.maps.find(z=>z.mapId===2);
