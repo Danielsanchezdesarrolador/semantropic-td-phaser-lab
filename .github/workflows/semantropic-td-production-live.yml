@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente U05 F3A CUARTEL HD
+name: SEMANTROPIC TD — QA producción permanente U06 A+B+C+D HD GLOBAL
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -31,6 +31,7 @@ jobs:
           node docs/direccion-general/qa-u03-c.mjs
           node docs/direccion-general/qa-u04-hd.mjs
           node docs/direccion-general/qa-u05-f3a-infantry-hd.mjs
+          node docs/direccion-general/qa-u06-global-hd.mjs
           node tools/qa-c1d7-menu.mjs
           node tools/qa-c1d7-actor-visual.mjs
           node docs/art/towers/qa-t09.mjs
@@ -47,6 +48,8 @@ jobs:
           node --check public/official/src/actors-visual/u04-ally-hd.mjs
           node --check tools/qa-u04-hd-browser.mjs
           node --check tools/qa-u05-infantry-hd-browser.mjs
+          node --check tools/qa-u06-global-hd-browser.mjs
+          node --check public/official/src/towers-visual/u06/legacy-hd.mjs
           node --check tools/qa-u03-c-premium-browser.mjs
           node --check tools/qa-u02-ab-browser.mjs
           node --check tools/qa-t10-r1-sync-browser.mjs
@@ -71,8 +74,8 @@ jobs:
           const live=readFileSync("dist/official/src/live/index.html","utf8");
           assert(root.includes("official/src/live/"),"Root must open canonical live path");
           assert(shortcut.includes("official/src/live/"),"Shortcut must open canonical path");
-          assert(live.includes("../c1d8-b2-playable/scene.mjs?release=u05-hd-infantry-barracks-v1"),"Live must point to new T10 premium scene release");
-          assert(live.includes("U05 HD CUARTEL"),"Live must display the new release identifier");
+          assert(live.includes("../c1d8-b2-playable/scene.mjs?release=u06-hd-global-sniper3x-v1"),"Live must point to new T10 premium scene release");
+          assert(live.includes("U06 HD GLOBAL"),"Live must display the new release identifier");
           assert(live.includes("../towers-visual/t09/menu.css"),"T09 radial stylesheet absent");
           for(const p of ["dist/official/src/c1d8-b2-playable/scene.mjs",
             "dist/official/src/towers-visual/t09/menu.css",
@@ -82,10 +85,11 @@ jobs:
             "dist/official/src/towers-visual/t10/sniper-operator-tracking.mjs",
             "dist/official/src/towers-visual/t10/p03-atlas-isolation.mjs",
             "dist/official/src/actors-visual/u04-ally-hd.mjs",
+            "dist/official/src/towers-visual/u06/legacy-hd.mjs",
             "dist/official/src/actors-visual/p08/p08-loader.mjs",
             "dist/official/data/maps.v5.json","dist/official/data/campaign140.v5.json",
             "dist/dependencias/phaser.min.js"])assert(existsSync(p),"Missing release asset "+p);
-          console.log("PASS_U05_F3A_HD_INFANTRY_LIVE_CANONICAL_ENTRY");
+          console.log("PASS_U06_HD_GLOBAL_LIVE_CANONICAL_ENTRY");
           '
       - name: Instalar Chromium WebGL2
         run: |
@@ -112,6 +116,13 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-u05-infantry-hd-browser.mjs 2>&1 | tee qa-u05-infantry-hd-live.log
+      - name: U06 Sniper 3x + Guardiana Bombardera Control HD previews en URL canónica
+        shell: bash
+        env:
+          SEMANTROPIC_PLAYTEST_PATH: /official/src/live/
+        run: |
+          set -euo pipefail
+          node tools/qa-u06-global-hd-browser.mjs 2>&1 | tee qa-u06-hd-live.log
       - name: Juego completo B3 sobre LIVE 3 resoluciones + victoria/derrota real
         shell: bash
         env:
@@ -157,6 +168,7 @@ jobs:
             artifacts/u03-c-premium-browser/
             artifacts/u04-hd-browser/
             artifacts/u05-infantry-hd-browser/
+            artifacts/u06-global-hd-browser/
             qa-c1d8-b3-live-url.log
             qa-c1d8-b2-live-url.log
             qa-t10-r1-sync-live.log
@@ -165,4 +177,5 @@ jobs:
             qa-u03-c-live.log
             qa-u04-hd-live.log
             qa-u05-infantry-hd-live.log
+            qa-u06-hd-live.log
           if-no-files-found: warn

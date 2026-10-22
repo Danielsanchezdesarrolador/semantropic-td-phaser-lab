@@ -44,8 +44,8 @@ try{
     const mount=[...s.towerMounts.values()].find(m=>m.operatorPrimary);
     if(!mount)throw Error("No approved sniper");
     const m=mount.meta;
-    if(mount.sprite.width!==720||mount.sprite.height!==840)throw Error("Sniper structure not 2x");
-    if(mount.frontRail.width!==720)throw Error("Front rail not 2x");
+    if(mount.sprite.width!==1080||mount.sprite.height!==1260)throw Error("Sniper structure not 2x");
+    if(mount.frontRail.width!==1080)throw Error("Front rail not 3x");
     if(Math.abs(mount.sprite.displayWidth-m.sourceSize.widthPx*m.worldScaleProposal)>.05)
       throw Error("Tower art geometry changed");
     if(mount.operator.width!==352||mount.operator.height!==416)throw Error("P03 not 2x");

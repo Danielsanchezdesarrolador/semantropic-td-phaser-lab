@@ -48,9 +48,9 @@ class CombatScene extends Phaser.Scene{
    // Only used for candidate P03 operator-primary option; original T04 stays unchanged.
    for(const level of [1,2]){
     this.load.svg('t10-hf2-sniper-structure-'+level,
-     new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href+(level===1?'?u02ab=hf1':''),{width:720,height:840});
+     new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href+(level===1?'?u02ab=hf1':''),{width:1080,height:1260});
     this.load.svg('u02-sniper-front-'+level,
-     new URL('../../art/towers/layers/sniper-'+level+'-front.svg',import.meta.url).href,{width:720,height:840});
+     new URL('../../art/towers/layers/sniper-'+level+'-front.svg',import.meta.url).href,{width:1080,height:1260});
    }
  }
  create(){
@@ -155,7 +155,7 @@ class CombatScene extends Phaser.Scene{
      &&REVIEW.get("t10hf2")!=="legacy";
     const renderAsset=operatorPrimary?'t10-hf2-sniper-structure-'+tower.level:meta.assetId;
     // Same footprint: raster 720x840 at one-half world scale.
-    const svgDensity=operatorPrimary||tower.family==="infantry"?2:1;
+    const svgDensity=operatorPrimary?3:tower.family==="infantry"?2:1;
     const sprite=this.add.image(socket.world.x,socket.world.y,renderAsset)
     .setOrigin(meta.footAnchor.x,meta.footAnchor.y)
     .setScale(meta.worldScaleProposal/svgDensity).setDepth(socket.world.y-2);

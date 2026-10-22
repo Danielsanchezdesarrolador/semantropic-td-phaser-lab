@@ -9,7 +9,7 @@ const scene=src("src/c1d8-b2-playable/scene.mjs");
 const atlas=src("src/towers-visual/t10/p03-atlas-isolation.mjs");
 const gun=src("src/towers-visual/t10/p03-operator-rifle-muzzle.mjs");
 const allies=src("src/actors-visual/u04-ally-hd.mjs");
-assert(scene.includes("{width:720,height:840}"),"sniper structural SVG raster must be 2x");
+assert(scene.includes("{width:1080,height:1260}"),"sniper structural SVG raster must be 3x");
 assert(scene.includes("meta.worldScaleProposal/svgDensity"),"tower display must remain unchanged");
 assert(scene.includes("scaleX:sprite.scaleX*svgDensity"),"operator anchor must use original SVG coordinates");
 assert(scene.includes("isolateP03Atlas(rawAtlas,info.actorId,{density:2})"),"P03 gun not 2x");

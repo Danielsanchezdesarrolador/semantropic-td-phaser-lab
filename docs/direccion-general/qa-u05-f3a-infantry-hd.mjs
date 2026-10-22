@@ -13,7 +13,7 @@ for(const [path,hash] of Object.entries({
 const scene=readFileSync('public/official/src/c1d8-b2-playable/scene.mjs','utf8');
 assert(scene.includes('meta.family==="infantry"?2:1'),'Only infantry may change raster density');
 assert(scene.includes('width:360*rasterDensity,height:420*rasterDensity'),'2x SVG not loaded');
-assert(scene.includes('operatorPrimary||tower.family==="infantry"?2:1'),'2x tower display scale missing');
+assert(scene.includes('operatorPrimary?3:tower.family==="infantry"?2:1'),'density-specific tower display scale missing');
 assert(scene.includes('meta.worldScaleProposal/svgDensity'),'footprint compensation lost');
 assert(scene.includes('registerU04AllyHD(this,P08_IMAGES)'),'U04 soldiers changed');
 assert(scene.includes('orientSniperOperator(mount,WORLD'),'U02 sniper tracking lost');
