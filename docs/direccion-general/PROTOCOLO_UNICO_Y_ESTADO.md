@@ -72,3 +72,10 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - Se corrige sobre la marcha QA U03 previo: comparación byte-a-byte entre dos Canvas2D genera falsos fallos por premultiplicación de alfa en píxeles semitransparentes. Nuevo comparador tolera diferencias cromáticas pequeñas de raster pero exige concordancia visual real.
 - Nuevos QA Node y Chromium WebGL2 2 torres por 3 resoluciones comprueban origen del rifle/operador, geometría de edificio, texturas HD, atlas aliados originales y regresiones M01/U03. Reportar FPS Android sólo si medido, no suponer.
 - Sin ramas, sin URL alternativa, un solo commit directo y bitácora actualizada. Rollback pre-U04 `6ee146df2f626c66fc1826869d0e48629a5792e5`. Art approval Android físico pendiente.
+
+## 11. U05 · Fase 3A Cuartel Infantería HD I/II · 2026-10-22
+- Director inicia U05 F3A directamente en producción, sin rama ni URL alternativas. Scope: SOLO cuartel I y II; Guardiana/Bombardera/Control serán bloques siguientes, no afirmar que existen jugables en Phaser M01.
+- Maestros vectoriales T04 de Infantería I/II: `public/official/art/towers/infantry/level-{1,2}.svg`, 360×420, 89/94 formas, sin bitmaps. Se mantienen hashes, dimensiones lógicas y siluetas originales. Render Phaser aumenta densidad raster a 720×840 y compensa escala a 50% manteniendo pie, pad, depth, mundo, hitbox.
+- No modifica infantería aliada P08 (ya pulida U04), sniper, enemigos, balance, campaña, economía o navegación. Uso memoria: +2 atlas raster 720×840; seguimiento rendimiento real móvil pendiente.
+- QA Node bloquea SVG masters, Chromium WebGL2 en 1280×768, 844×390, 932×430 prueba construir/mejorar I/II, textura 2x, misma medida mostrada, oro, soldados y screenshots. Se conserva CI de M01 completo y U04.
+- Baseline y rollback `cf9a50630cf7317dd8484c41d464bd60e5209b5c` (CI U04 #39783480481 SUCCESS). Aprobación cualitativa del Director en Android pendiente.

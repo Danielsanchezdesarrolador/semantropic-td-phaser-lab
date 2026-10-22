@@ -39,7 +39,11 @@ class CombatScene extends Phaser.Scene{
   preloadM07Illustrations(this);
   preloadP07(this);
   preloadP08(this);
-  for(const meta of TOWER_ART_V2)this.load.svg(meta.assetId,meta.url,{width:360,height:420});
+  // U05: Rasterize original vector Infantry I/II at 2x without changing art or gameplay.
+  for(const meta of TOWER_ART_V2){
+   const rasterDensity=meta.family==="infantry"?2:1;
+   this.load.svg(meta.assetId,meta.url,{width:360*rasterDensity,height:420*rasterDensity});
+  }
    // Existing original T08 structural master, T04 architecture WITHOUT its second rifle.
    // Only used for candidate P03 operator-primary option; original T04 stays unchanged.
    for(const level of [1,2]){
@@ -150,7 +154,8 @@ class CombatScene extends Phaser.Scene{
    const operatorPrimary=tower.family==="sniper"&&!USE_EXPERIMENTAL_OPERATOR
      &&REVIEW.get("t10hf2")!=="legacy";
     const renderAsset=operatorPrimary?'t10-hf2-sniper-structure-'+tower.level:meta.assetId;
-    const svgDensity=operatorPrimary?2:1;
+    // Same footprint: raster 720x840 at one-half world scale.
+    const svgDensity=operatorPrimary||tower.family==="infantry"?2:1;
     const sprite=this.add.image(socket.world.x,socket.world.y,renderAsset)
     .setOrigin(meta.footAnchor.x,meta.footAnchor.y)
     .setScale(meta.worldScaleProposal/svgDensity).setDepth(socket.world.y-2);
