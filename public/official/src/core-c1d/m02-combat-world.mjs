@@ -53,7 +53,7 @@ export class M02CombatWorld{
   ensure(mode==="normal","only Normal is audited");
   this.map=map;this.campaign=campaign;this.economy=economy||new M02BuildEconomy(map);
   ensure(this.economy.mapId===2&&this.economy.gold===395&&this.economy.towers.size===0,"fresh C1-D1 economy needed");
-  this.route=pathSegments(map.path);this.lives=MAP01_INITIAL.lives;
+  this.route=pathSegments(map.path);this.lives=M02_INITIAL.lives;
   this.wave=0;this.active=false;this.ended=false;this.won=false;this.paused=false;
   this.seconds=0;this.waveSeconds=0;this.nextEnemyId=1;this.nextBulletId=1;this.nextEventId=1;this.tickNumber=0;
   this.enemies=new Map();this.bullets=[];this.towers=new Map();this.spawnQueue=[];this.events=[];
@@ -116,8 +116,8 @@ export class M02CombatWorld{
  escape(e){
   if(e.dead||e.escaped||this.escapeKeys.has(e.id)||this.ended)return false;
   this.escapeKeys.add(e.id);e.escaped=true;this.enemies.delete(e.id);this.escapedCount++;
-  this.lives=Math.max(0,this.lives-MAP01_INITIAL.leakDamage);
-  this.emit("entity_escape",{entityId:e.id,enemyType:e.type,lives:this.lives,loss:MAP01_INITIAL.leakDamage});
+  this.lives=Math.max(0,this.lives-M02_INITIAL.leakDamage);
+  this.emit("entity_escape",{entityId:e.id,enemyType:e.type,lives:this.lives,loss:M02_INITIAL.leakDamage});
   if(this.lives<=0){this.ended=true;this.active=false;this.economy.locked=true;
    this.emit("defeat",{wave:this.wave,lives:0});}
   return true;
