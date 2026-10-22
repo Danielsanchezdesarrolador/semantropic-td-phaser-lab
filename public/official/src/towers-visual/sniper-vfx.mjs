@@ -103,21 +103,29 @@ export class SniperShotPresenter {
   // Visual root slightly INSIDE the physical rifle. This prevents an orb/flash
   // whose silhouette appears to float in front of the muzzle in Android.
   const root={x:from.x-3.25*ux,y:from.y-3.25*uy};
-  const color=variant==='B'?0xe3cef1:0xc4e9d5;
+  const advanced=job.visualLevel===2;
+  const color=advanced?0xaddfe9:variant==='B'?0xe3cef1:0xc4e9d5;
   this.fireCount++;job.premiumSource=copy(from);
   job.premiumFirstFrame=copy(root);job.premiumVisualRoot=copy(root);
   this._state(job,'fire');
   const flash=this._obj(job,this.scene.add.graphics());
-  flash.lineStyle(2.5,0xfff6d3,.9).beginPath().moveTo(root.x,root.y)
-   .lineTo(root.x+ux*8,root.y+uy*8).strokePath();
-  flash.lineStyle(1.5,0xf7d29a,.65).beginPath()
-   .moveTo(root.x,root.y).lineTo(root.x+ux*4+nx*2.5,root.y+uy*4+ny*2.5)
-   .moveTo(root.x,root.y).lineTo(root.x+ux*4-nx*2.5,root.y+uy*4-ny*2.5).strokePath();
-  this._tween(job,flash,{alpha:0,duration:55,onComplete:()=>this._free(job,flash)});
-  const pulse=this._obj(job,this.scene.add.circle(root.x,root.y,4.1,0xffe4ae,.37));
-  this._tween(job,pulse,{alpha:0,scale:1.15,duration:70,onComplete:()=>this._free(job,pulse)});
-  const glow=this._obj(job,this.scene.add.circle(root.x,root.y,4.3,color,.24));
-  const orb=this._obj(job,this.scene.add.circle(root.x,root.y,2.4,0xffffed,.99).setStrokeStyle(1.05,color,.84));
+  // U03-C: layered, tapered muzzle star rooted INSIDE P03's actual barrel.
+  // No second weapon, no fake projectile. Art direction: crisp tactical
+  // animation readability, original shapes and palette (no copied artwork).
+  const reach=advanced?15:12,side=advanced?4.8:3.6;
+  flash.fillStyle?.(0xfff8df,.88);
+  flash.fillTriangle?.(root.x,root.y,root.x+ux*reach+nx*side*.5,root.y+uy*reach+ny*side*.5,
+    root.x+ux*reach-nx*side*.5,root.y+uy*reach-ny*side*.5);
+  flash.lineStyle(2.6,0xffffff,.94).beginPath().moveTo(root.x,root.y)
+   .lineTo(root.x+ux*(reach+2),root.y+uy*(reach+2)).strokePath();
+  flash.lineStyle(1.8,0xffdba0,.81).beginPath()
+   .moveTo(root.x-nx*side,root.y-ny*side).lineTo(root.x+ux*5+nx*side*.35,root.y+uy*5+ny*side*.35)
+   .moveTo(root.x+nx*side,root.y+ny*side).lineTo(root.x+ux*5-nx*side*.35,root.y+uy*5-ny*side*.35).strokePath();
+  this._tween(job,flash,{alpha:0,duration:advanced?92:79,onComplete:()=>this._free(job,flash)});
+  const pulse=this._obj(job,this.scene.add.circle(root.x,root.y,advanced?4.8:3.8,0xffe4ae,.46));
+  this._tween(job,pulse,{alpha:0,scale:1.32,duration:advanced?91:83,onComplete:()=>this._free(job,pulse)});
+  const glow=this._obj(job,this.scene.add.circle(root.x,root.y,advanced?5.3:4.4,color,.32));
+  const orb=this._obj(job,this.scene.add.circle(root.x,root.y,advanced?2.9:2.5,0xffffed,.99).setStrokeStyle(advanced?1.35:1.12,color,.94));
   const trail=this._obj(job,this.scene.add.graphics());
   job.premiumProjectile=orb;job.premiumGlow=glow;job.premiumTrail=trail;
   // Core projectile speed is 840 world units/second. A shorter visual travel
@@ -128,12 +136,16 @@ export class SniperShotPresenter {
   job.premiumTravelTween=this._tween(job,orb,{x:to.x,y:to.y,ease:'Linear',duration,onUpdate:()=>{
    if(!job.alive||job.hitShown)return;
    glow.setPosition(orb.x,orb.y);
-   const traveled=Math.hypot(orb.x-root.x,orb.y-root.y),tail=Math.min(15,traveled);
+   const traveled=Math.hypot(orb.x-root.x,orb.y-root.y);
+   const tail=Math.min(advanced?22:16,traveled);
    trail.clear();if(tail<.75)return;
-   trail.lineStyle(3.3,color,.17).beginPath()
+   // Three-weight silhouette: transparent bloom -> warm spine -> pinpoint tip.
+   trail.lineStyle(advanced?5.3:4.2,color,.12).beginPath()
     .moveTo(orb.x-ux*tail,orb.y-uy*tail).lineTo(orb.x,orb.y).strokePath();
-   trail.lineStyle(1.35,0xfff6de,.78).beginPath()
-    .moveTo(orb.x-ux*tail*.8,orb.y-uy*tail*.8).lineTo(orb.x,orb.y).strokePath();
+   trail.lineStyle(advanced?2.2:1.7,0xffe6ae,.68).beginPath()
+    .moveTo(orb.x-ux*tail*.83,orb.y-uy*tail*.83).lineTo(orb.x,orb.y).strokePath();
+   trail.lineStyle(1.1,0xffffff,.96).beginPath()
+    .moveTo(orb.x-ux*tail*.5,orb.y-uy*tail*.5).lineTo(orb.x,orb.y).strokePath();
   },onComplete:()=>{
    job.premiumTravelTween=null;
    for(const o of [orb,glow,trail])this._free(job,o);
@@ -154,20 +166,34 @@ export class SniperShotPresenter {
   job.premiumContactWorld=copy(p);this._state(job,'confirmed_contact');
  }
  _hitPremium(job,p){
-  const color=job.visualColor??0xe8d1a6;
-  this._ring(job,p,color,12,135);
-  const pop=this._obj(job,this.scene.add.circle(p.x,p.y,6.2,0xfff3d5,.93));
-  this._tween(job,pop,{alpha:0,scale:1.55,duration:115,onComplete:()=>this._free(job,pop)});
-  const outer=this._obj(job,this.scene.add.circle(p.x,p.y,10.5,0xf4d5a0,.13)
-   .setStrokeStyle(2.3,0xffe8b2,.9));
-  this._tween(job,outer,{alpha:0,scale:1.45,duration:150,onComplete:()=>this._free(job,outer)});
+  const advanced=job.visualLevel===2;
+  const color=advanced?0xb1ebff:0xf2d89e;
+  this._ring(job,p,color,advanced?14:12,advanced?154:140);
+  // U03-C impact is drawn ONLY on authenticated core hit_applied.
+  // Face the spark against incoming trajectory (not a generic radial orb).
+  const source=job.premiumSource??p,ang=Math.atan2(p.y-source.y,p.x-source.x);
+  const ux=Math.cos(ang),uy=Math.sin(ang),nx=-uy,ny=ux;
+  const slash=this._obj(job,this.scene.add.graphics());
+  slash.lineStyle(advanced?3.2:2.7,0xfff7d8,.9).beginPath()
+   .moveTo(p.x+nx*7-ux*4,p.y+ny*7-uy*4)
+   .lineTo(p.x-nx*7+ux*3,p.y-ny*7+uy*3).strokePath();
+  slash.lineStyle(advanced?2.1:1.8,advanced?0x8ae8f2:0xfcc47f,.87).beginPath()
+   .moveTo(p.x-ux*9,p.y-uy*9).lineTo(p.x+ux*7,p.y+uy*7).strokePath();
+  this._tween(job,slash,{alpha:0,scale:1.2,duration:140,onComplete:()=>this._free(job,slash)});
+  const pop=this._obj(job,this.scene.add.circle(p.x,p.y,advanced?7.3:6.3,0xfff9df,.93));
+  this._tween(job,pop,{alpha:0,scale:1.55,duration:118,onComplete:()=>this._free(job,pop)});
+  const outer=this._obj(job,this.scene.add.circle(p.x,p.y,advanced?12:10.5,color,.1)
+   .setStrokeStyle(advanced?2.5:2.1,color,.79));
+  this._tween(job,outer,{alpha:0,scale:1.4,duration:152,onComplete:()=>this._free(job,outer)});
   const sparkle=this._obj(job,this.scene.add.graphics());
-  for(const a of [0,1.57,3.14,4.71]){
-   const vx=Math.cos(a),vy=Math.sin(a);
-   sparkle.lineStyle(2.15,0xffebbd,.9).beginPath()
-    .moveTo(p.x+vx*3,p.y+vy*3).lineTo(p.x+vx*13,p.y+vy*13).strokePath();
+  const count=advanced?6:4;
+  for(let i=0;i<count;i++){
+   const a=ang+Math.PI*.72+(i-(count-1)/2)*(Math.PI*.8/Math.max(1,count-1));
+   const vx=Math.cos(a),vy=Math.sin(a),len=advanced?15:12;
+   sparkle.lineStyle(i%2?1.5:2.2,i%2?color:0xfff7d4,.89).beginPath()
+    .moveTo(p.x+vx*3,p.y+vy*3).lineTo(p.x+vx*len,p.y+vy*len).strokePath();
   }
-  this._tween(job,sparkle,{alpha:0,duration:145,onComplete:()=>this._free(job,sparkle)});
+  this._tween(job,sparkle,{alpha:0,duration:advanced?168:148,onComplete:()=>this._free(job,sparkle)});
  }
  /**
   * accept({eventId, type, tick, entityId, targetId, worldPosition, payload})
@@ -218,6 +244,7 @@ export class SniperShotPresenter {
   }
   const job=this._job(e.eventId,{entityId:e.entityId,targetId:e.targetId??null,type:e.type});
   if(bulletKey){job.bulletKey=bulletKey;this.fireByBullet.set(bulletKey,job.id);}
+  job.visualLevel=e.payload?.visualLevel===2?2:1;
   job.visualColor=(e.payload?.visualVariant??this.variant)==='B'?0xe5b6ff:0xcafbf1;
   this._seen(e.eventId);
   if(e.type==='attack_windup')this._windup(job,copy(from),PT(to)?copy(to):null);

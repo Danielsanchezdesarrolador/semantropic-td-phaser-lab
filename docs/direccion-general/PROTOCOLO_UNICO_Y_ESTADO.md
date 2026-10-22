@@ -55,3 +55,11 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - Sin modificaciones al core, orientación, profundidad, cadencia, rifle o VFX. Se fuerza cache nueva SVG/JS en el LIVE. Nivel II no posee la misma insignia y no fue editado.
 - QA Node confirma ausencia en estructura visible y presencia intacta en master, además de las regresiones M01/U02 en Chromium.
 - Rollback pre-HF1 `276ec13086a8aceb7431dc3b726dbe4e1f0f400a`. Fase C premium VFX aún no autorizada.
+
+
+## 9. U03 FASE C PREMIUM + ELIMINACIÓN REAL DE "GAFAS" DE ATLAS (22 oct 2026)
+- Director confirma U02 A/B aprobadas, pero reporta que tras HF1 la figura celeste semejante a gafas aún aparece junto a los pies. Autoriza corregirla junto con la fase C premium.
+- Causa técnica localizada: `createP03Atlas` del archivo protegido `p03-rig.mjs` no recorta cada celda antes de pintar, y el dibujo de visor del fotograma puede desbordarse hacia una fila adyacente. **No se toca P03 fuente**. Nuevo helper `p03-atlas-isolation.mjs` recompone SOLO el atlas sniper_operator mediante fotogramas en lienzo independiente; conserva atlasKey, dimensiones, frames y arte originales. Control de origen por SHA P03 `1a4282e1652ff559b92e18f42db465d6bfb8e729`.
+- Fase C: `sniper-vfx.mjs` ahora utiliza flash de boca direccional más nítido, estela luminosa por capas, impact slash orientado y chispas de trayectoria; la señal visual de sniper II es ligeramente más refinada que I mediante `visualLevel` sin modificar estadísticas. Cada hit se produce EXCLUSIVAMENTE con `hit_applied` autenticado por `bulletId`; travel/kill/fade se mantienen.
+- Nuevos tests: Node fuente original/reglas y Chromium WebGL2 aislación píxel-a-píxel de ocho frames P03 y disparo core auténtico I/II × 3 viewports, junto con las regresiones M01/impacto/R1/U02.
+- Rollback previo `8606d8cacfdc33e445578ff98f3910bb4efa1bbd`. No crear ramas ni versiones alternas. Mantener una sola URL. Aprobación visual Android física pendiente.

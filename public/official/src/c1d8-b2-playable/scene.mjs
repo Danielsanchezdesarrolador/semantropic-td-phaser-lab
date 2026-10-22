@@ -12,6 +12,7 @@ import {projectP03RifleMuzzle,diagnoseP03VersusT04Muzzles} from "../towers-visua
 import {sniperOperatorLayers,orientSniperOperator} from "../towers-visual/t10/sniper-operator-tracking.mjs";
 import {CAST,ANIMATIONS} from "../../art/actors/atlas-source.mjs";
 import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
+import {isolateP03Atlas} from "../towers-visual/t10/p03-atlas-isolation.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
 import {preloadP08,registerP08,p08VisualForSoldierLevel,p08VisualForEnemy,P08AnimationController} from "../actors-visual/p08/p08-loader.mjs";
 import {getContextMenuVisualSpec} from "../towers-visual/t09/spec.mjs";
@@ -53,7 +54,9 @@ class CombatScene extends Phaser.Scene{
   registerP07(this);
   registerP08(this);
   for(const info of CAST){
-   const atlas=createP03Atlas(info.actorId);
+   const rawAtlas=createP03Atlas(info.actorId);
+   // U03: correct P03 sprite-sheet cross-frame visor bleed without editing locked P03 art.
+   const atlas=info.actorId==="sniper_operator"?isolateP03Atlas(rawAtlas,info.actorId):rawAtlas;
    registerP03Atlas(this,atlas);
    this.p03Actors.set(info.actorId,{info,atlas,scale:Math.min(.83,
     (atlas.actor.heightWorld??info.heightWorld)/(info.kind==="hound"?114:171)*.70)});
@@ -304,7 +307,7 @@ class CombatScene extends Phaser.Scene{
   }
   const target=WORLD.enemies.get(ev.targetId);
   const targetWorld=ev.payload?.targetWorld??(target?{x:target.x,y:target.y}:null);
-  return {...ev,payload:{...(ev.payload??{}),muzzleWorld:muzzle,targetWorld}};
+  return {...ev,payload:{...(ev.payload??{}),muzzleWorld:muzzle,targetWorld,visualLevel:mount.meta.level}};
  }
  acceptVisualEvents(events){
   const lookup=id=>{
