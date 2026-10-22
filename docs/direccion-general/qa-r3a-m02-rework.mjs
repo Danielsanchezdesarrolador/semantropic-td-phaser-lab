@@ -4,8 +4,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
-import {makeM02ArtPlan,M02_ART_PALETTE} from '../public/official/src/maps-visual/m02/farmland-art.mjs';
-import {M02_REWORK_FAMILIES,validatedReworkForM02,OBSOLETE_CANVAS_RECOMMENDATIONS} from '../public/official/src/maps-visual/m02/rework-contract.mjs';
+import {makeM02ArtPlan,M02_ART_PALETTE} from '../../public/official/src/maps-visual/m02/farmland-art.mjs';
+import {M02_REWORK_FAMILIES,validatedReworkForM02,OBSOLETE_CANVAS_RECOMMENDATIONS} from '../../public/official/src/maps-visual/m02/rework-contract.mjs';
 const data=JSON.parse(readFileSync('public/official/data/maps.v5.json','utf8'));
 const waves=JSON.parse(readFileSync('public/official/data/campaign140.v5.json','utf8'));
 const map=data.find(x=>x.id===2),campaign=waves.maps.find(x=>x.mapId===2);
