@@ -8,6 +8,7 @@ import {TOWER_ART_V2,validateTowerArtV2,projectSourceAnchor} from "../towers-vis
 import {SniperShotPresenter} from "../towers-visual/sniper-vfx.mjs";
 import {diagnoseT10Muzzle} from "../towers-visual/t10/sniper-muzzle-contract.mjs";
 import {projectMountedT10Muzzle,diagnoseMountedT10Muzzle} from "../towers-visual/t10/premium-runtime-muzzle.mjs";
+import {projectP03RifleMuzzle,diagnoseP03VersusT04Muzzles} from "../towers-visual/t10/p03-operator-rifle-muzzle.mjs";
 import {CAST,ANIMATIONS} from "../../art/actors/atlas-source.mjs";
 import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
@@ -29,13 +30,18 @@ let contextIndex=null,contextKey="",menuBusy=false,lastIntentMs=0;
 let t09Presenter=null,t09Revision=0;
 function feedback(s){$("feedback").textContent=s;}
 class CombatScene extends Phaser.Scene{
- constructor(){super("C1D7Nodal");this.towerViews=[];this.towerMounts=new Map();this.enemyViews=new Map();this.soldierViews=new Map();this.accumulator=0;this.fxFires=0;this.p03Actors=new Map();this.p08Animator=new P08AnimationController();this.combatMotion=new C1D8CombatMotion();this.contactFx=0;this.lastRally=null;this.t10FireOrigins=[];}
+ constructor(){super("C1D7Nodal");this.towerViews=[];this.towerMounts=new Map();this.enemyViews=new Map();this.soldierViews=new Map();this.accumulator=0;this.fxFires=0;this.p03Actors=new Map();this.p08Animator=new P08AnimationController();this.combatMotion=new C1D8CombatMotion();this.contactFx=0;this.lastRally=null;this.t10FireOrigins=[];this.t10GhostDeaths=new Map();this.t10HeldKills=0;}
  preload(){
   this.load.on("loaderror",file=>feedback("Recurso visual M07/T08/P07 ausente: "+file.key));
   preloadM07Illustrations(this);
   preloadP07(this);
   preloadP08(this);
   for(const meta of TOWER_ART_V2)this.load.svg(meta.assetId,meta.url,{width:360,height:420});
+   // Existing original T08 structural master, T04 architecture WITHOUT its second rifle.
+   // Only used for candidate P03 operator-primary option; original T04 stays unchanged.
+   for(const level of [1,2])this.load.svg('t10-hf2-sniper-structure-'+level,
+    new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href,
+    {width:360,height:420});
  }
  create(){
   // Keep original P03 as user-approved exact fallback. P07 PNG atlases are loaded
@@ -101,11 +107,14 @@ class CombatScene extends Phaser.Scene{
    diagnostics:()=>({towers:this.towerMounts.size,enemies:this.enemyViews.size,
      p08Entities:this.p08Animator.entities.size,t09Nodes:t09Presenter?.current?.nodes?.length??0,
      b3:this.combatMotion.diagnostics(),confirmedVisualContacts:this.contactFx,
-     t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,
+     t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,t10RifleAuthority:REVIEW.get("t10hf2")==="legacy"?"T04_LEGACY_COMPARISON":"P03_OPERATOR",
+      t10BuildingRifleSuppressed:[...this.towerMounts.values()].filter(m=>m.operatorPrimary).length,
+      t10Ghosts:this.t10GhostDeaths.size,t10HeldKills:this.t10HeldKills,
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
   this.events.once("shutdown",()=>{
    stopRallySelection();closeMenu();t09Presenter?.destroy();this.p08Animator.destroy();this.combatMotion.reset();
-   this.shots.destroy();this.mapView.destroy();
+   for(const g of this.t10GhostDeaths.values())g.timer?.remove?.(false);
+    this.t10GhostDeaths.clear();this.shots.destroy();this.mapView.destroy();
   });
   SCENE=this;
   if(USE_T09_NODES)t09Presenter=mountT09Presenter($("app"),{onIntent:intent=>{
@@ -127,10 +136,14 @@ class CombatScene extends Phaser.Scene{
    if(!tower)continue;
    const meta=TOWER_ART_V2.find(m=>m.family===tower.family&&m.level===tower.level);
    if(!meta)throw Error("C1-D7R protected T04 tower not found for "+tower.family+"/"+tower.level);
-   const sprite=this.add.image(socket.world.x,socket.world.y,meta.assetId)
+   const operatorPrimary=tower.family==="sniper"&&!USE_EXPERIMENTAL_OPERATOR
+     &&REVIEW.get("t10hf2")!=="legacy";
+    const renderAsset=operatorPrimary?'t10-hf2-sniper-structure-'+tower.level:meta.assetId;
+    const sprite=this.add.image(socket.world.x,socket.world.y,renderAsset)
     .setOrigin(meta.footAnchor.x,meta.footAnchor.y).setScale(meta.worldScaleProposal).setDepth(socket.world.y-2);
    this.towerViews.push(sprite);
-   const mount={id:tower.id,meta,sprite,source:"T08_T04_APPROVED",operator:null,muzzleLocal:meta.muzzleLocal};
+   const mount={id:tower.id,meta,sprite,source:operatorPrimary?"T08_T04_STRUCTURE_NO_EMBEDDED_RIFLE":"T08_T04_APPROVED",
+     operator:null,muzzleLocal:meta.muzzleLocal,operatorPrimary,renderAsset};
    if(tower.family==="sniper"){
     // Exactly C1-C: original P03 operator rig over the unchanged T04 composite.
     // NO extra T07 rifleMounted (the user's screenshot already defines the gun's appearance).
@@ -193,6 +206,8 @@ class CombatScene extends Phaser.Scene{
    v.hp.setScale(Math.max(0,e.life/e.maxLife),1);
   }
   for(const [id,v] of this.enemyViews)if(!ids.has(id)){
+   // Only a recent core-confirmed fatal SNIPER impact may retain a visual ghost.
+   if(this.t10GhostDeaths.has(id))continue;
    v.view.destroy();this.enemyViews.delete(id);this.p08Animator.entities.delete(id);this.combatMotion.forget(id);
   }
  }
@@ -237,13 +252,27 @@ class CombatScene extends Phaser.Scene{
   if(!mount||mount.meta.family!=="sniper")return null;
   // T10/B2: verified original T04 rifle barrel face (levels I/II).
   // Changes VFX origin ONLY; no alteration of core bullets, damage or targeting.
-  // Runtime-mount authoritative optical origin: ACTUAL sprite frame/displayOrigin/matrix.
-  const muzzle=projectMountedT10Muzzle(mount.sprite,mount.meta);
+  // R1-HF2: P03 operator atlas has its OWN rendered rifle. Project that
+  // visible upper barrel rather than the embedded T04 building mechanism.
+  // Move to the frame actually displayed on the render after this core event.
+  const t04Muzzle=projectMountedT10Muzzle(mount.sprite,mount.meta);
+  const p03Ready=mount.operator&&mount.operatorAtlas==="P03_APPROVED";
+  const phase=ev.type==="attack_fire"?"attack":"attackWindup";
+  const frameName=p03Ready?this.frame(phase):null;
+  if(p03Ready)mount.operator.setFrame(frameName);
+  const frameIndex=frameName?Number(frameName.slice(frameName.lastIndexOf("-")+1)):null;
+  // Opt-in baseline comparison only in feature QA, NOT the production default.
+  const useP03=p03Ready&&REVIEW.get("t10hf2")!=="legacy";
+  const muzzle=useP03?projectP03RifleMuzzle(mount.operator,{state:phase,frame:frameIndex}):t04Muzzle;
   if(ev.type==="attack_fire"&&this.t10FireOrigins.length<48){
    const diagnosis=diagnoseT10Muzzle(mount.sprite,mount.meta);
+   const arms=p03Ready?diagnoseP03VersusT04Muzzles({
+    operator:mount.operator,t04Muzzle,root:muzzle,state:phase,frame:frameIndex}):null;
    this.t10FireOrigins.push({eventId:ev.eventId,tick:ev.tick,level:mount.meta.level,
-    towerId:ev.entityId,source:muzzle,legacy:diagnosis.legacy,worldDelta:diagnosis.worldDelta,
-     runtime:diagnoseMountedT10Muzzle(mount.sprite,mount.meta)});
+    towerId:ev.entityId,source:muzzle,t04Source:t04Muzzle,operatorSource:arms?.p03??null,
+    operatorFrame:frameName,sourceAuthority:useP03?"P03_OPERATOR_RIFLE":"T04_LEGACY",
+    arms,legacy:diagnosis.legacy,worldDelta:diagnosis.worldDelta,
+    runtime:diagnoseMountedT10Muzzle(mount.sprite,mount.meta)});
   }
   const target=WORLD.enemies.get(ev.targetId);
   const targetWorld=ev.payload?.targetWorld??(target?{x:target.x,y:target.y}:null);
@@ -268,8 +297,28 @@ class CombatScene extends Phaser.Scene{
    });
    const visual=this.adaptHistoricShot(ev);
    if(visual&&this.shots.accept(visual)&&ev.type==="attack_fire")this.fxFires++;
-   if(ev.type==="hit_applied"&&this.enemyViews.has(ev.entityId))
-    this.enemyViews.get(ev.entityId).hitUntil=WORLD.seconds+.23;
+   if(ev.type==="hit_applied"&&this.enemyViews.has(ev.entityId)){
+    const victim=this.enemyViews.get(ev.entityId);
+    victim.hitUntil=WORLD.seconds+.23;
+    // Core has already applied HP/kill/reward. Hold ONLY its presentation
+    // 125ms after the verified sniper hit to show the premium pop before fade.
+    const isLethalSniper=ev.hp===0
+     &&this.towerMounts.get(ev.towerId)?.meta?.family==="sniper";
+    if(isLethalSniper&&!this.t10GhostDeaths.has(ev.entityId)){
+     const id=ev.entityId,ms=125;
+     const timer=this.time.delayedCall(ms,()=>{
+      const v=this.enemyViews.get(id);
+      if(v&&!WORLD.enemies.has(id)){
+       v.view.destroy();this.enemyViews.delete(id);
+       this.p08Animator.entities.delete(id);this.combatMotion.forget(id);
+      }
+      this.t10GhostDeaths.delete(id);
+     });
+     this.t10GhostDeaths.set(id,{timer,confirmed:true,lifetime:ms});
+     this.t10HeldKills++;
+     this.tweens.add({targets:victim.view,alpha:0,duration:ms,ease:"Cubic.In"});
+    }
+   }
    if(["attack_fire","attack_windup"].includes(ev.type)){
     const mount=this.towerMounts.get(ev.entityId);
     if(mount?.operator){

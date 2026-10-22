@@ -98,55 +98,76 @@ export class SniperShotPresenter {
  }
  /** Premium path is opt-in; all effects derive from the ONE core-authorized muzzle. */
  _firePremium(job,from,to,variant){
-  const vx=to.x-from.x,vy=to.y-from.y,length=Math.max(.001,Math.hypot(vx,vy));
-  const ux=vx/length,uy=vy/length,nx=-uy,ny=ux;
-  const color=variant==='B'?0xe4c6f6:0xc6eee2;
-  this.fireCount++;job.premiumSource=copy(from);job.premiumFirstFrame=copy(from);
+  const dx=to.x-from.x,dy=to.y-from.y,d=Math.max(.001,Math.hypot(dx,dy));
+  const ux=dx/d,uy=dy/d,nx=-uy,ny=ux;
+  // Visual root slightly INSIDE the physical rifle. This prevents an orb/flash
+  // whose silhouette appears to float in front of the muzzle in Android.
+  const root={x:from.x-3.25*ux,y:from.y-3.25*uy};
+  const color=variant==='B'?0xe3cef1:0xc4e9d5;
+  this.fireCount++;job.premiumSource=copy(from);
+  job.premiumFirstFrame=copy(root);job.premiumVisualRoot=copy(root);
   this._state(job,'fire');
   const flash=this._obj(job,this.scene.add.graphics());
-  // Fixed-world root at the exact same from point as projectile, not operator/tower center.
-  flash.lineStyle(3,0xfafff5,.91).beginPath().moveTo(from.x,from.y)
-   .lineTo(from.x+ux*14,from.y+uy*14).strokePath();
-  flash.lineStyle(1.8,0xf0dcae,.75).beginPath().moveTo(from.x,from.y)
-   .lineTo(from.x+ux*8+nx*5,from.y+uy*8+ny*5)
-   .moveTo(from.x,from.y).lineTo(from.x+ux*8-nx*5,from.y+uy*8-ny*5).strokePath();
-  this._tween(job,flash,{alpha:0,duration:75,onComplete:()=>this._free(job,flash)});
-  const pulse=this._obj(job,this.scene.add.circle(from.x,from.y,7,0xf5e1af,.33));
-  this._tween(job,pulse,{alpha:0,scale:1.6,duration:95,onComplete:()=>this._free(job,pulse)});
-  const glow=this._obj(job,this.scene.add.circle(from.x,from.y,7,color,.2));
-  const orb=this._obj(job,this.scene.add.circle(from.x,from.y,3.5,0xfafff6,.99)
-   .setStrokeStyle(1.2,color,.92));
+  flash.lineStyle(2.5,0xfff6d3,.9).beginPath().moveTo(root.x,root.y)
+   .lineTo(root.x+ux*8,root.y+uy*8).strokePath();
+  flash.lineStyle(1.5,0xf7d29a,.65).beginPath()
+   .moveTo(root.x,root.y).lineTo(root.x+ux*4+nx*2.5,root.y+uy*4+ny*2.5)
+   .moveTo(root.x,root.y).lineTo(root.x+ux*4-nx*2.5,root.y+uy*4-ny*2.5).strokePath();
+  this._tween(job,flash,{alpha:0,duration:55,onComplete:()=>this._free(job,flash)});
+  const pulse=this._obj(job,this.scene.add.circle(root.x,root.y,4.1,0xffe4ae,.37));
+  this._tween(job,pulse,{alpha:0,scale:1.15,duration:70,onComplete:()=>this._free(job,pulse)});
+  const glow=this._obj(job,this.scene.add.circle(root.x,root.y,4.3,color,.24));
+  const orb=this._obj(job,this.scene.add.circle(root.x,root.y,2.4,0xffffed,.99).setStrokeStyle(1.05,color,.84));
   const trail=this._obj(job,this.scene.add.graphics());
-  job.premiumProjectile=orb;job.premiumGlow=glow;
-  const duration=Math.max(115,Math.min(310,length*1.24));
-  this._state(job,'recoil');this._later(job,65,()=>this._state(job,'recover'));
-  this._tween(job,orb,{x:to.x,y:to.y,ease:'Cubic.In',duration,onUpdate:()=>{
+  job.premiumProjectile=orb;job.premiumGlow=glow;job.premiumTrail=trail;
+  // Core projectile speed is 840 world units/second. A shorter visual travel
+  // prevents the legacy 115..310ms cosmetic projectile lagging behind hit_applied.
+  const duration=Math.max(32,Math.min(245,d/840*760));
+  job.premiumTravelDuration=duration;this._state(job,'recoil');
+  this._later(job,65,()=>this._state(job,'recover'));
+  job.premiumTravelTween=this._tween(job,orb,{x:to.x,y:to.y,ease:'Linear',duration,onUpdate:()=>{
+   if(!job.alive||job.hitShown)return;
    glow.setPosition(orb.x,orb.y);
-   const traveled=Math.hypot(orb.x-from.x,orb.y-from.y),tail=Math.min(24,traveled);
+   const traveled=Math.hypot(orb.x-root.x,orb.y-root.y),tail=Math.min(15,traveled);
    trail.clear();if(tail<.75)return;
-   trail.lineStyle(4.2,color,.16).beginPath()
+   trail.lineStyle(3.3,color,.17).beginPath()
     .moveTo(orb.x-ux*tail,orb.y-uy*tail).lineTo(orb.x,orb.y).strokePath();
-   trail.lineStyle(1.6,0xf7fff3,.72).beginPath()
-    .moveTo(orb.x-ux*tail*.76,orb.y-uy*tail*.76).lineTo(orb.x,orb.y).strokePath();
+   trail.lineStyle(1.35,0xfff6de,.78).beginPath()
+    .moveTo(orb.x-ux*tail*.8,orb.y-uy*tail*.8).lineTo(orb.x,orb.y).strokePath();
   },onComplete:()=>{
-   this._free(job,orb);this._free(job,glow);this._free(job,trail);
-   this._state(job,'recover'); // NO artificial hit on tracer arrival
+   job.premiumTravelTween=null;
+   for(const o of [orb,glow,trail])this._free(job,o);
+   this._state(job,'recover');
   }});
-  this._later(job,1000,()=>this.cancel(job.id));
+  this._later(job,850,()=>this.cancel(job.id));
+ }
+ _settlePremiumShot(job,p){
+  // Never leave the tracer travelling once core confirms impact/death.
+  if(job.premiumTravelTween){
+   job.premiumTravelTween.stop();
+   job.tweens.delete(job.premiumTravelTween);
+   job.premiumTravelTween=null;
+  }
+  if(job.premiumProjectile?.active)job.premiumProjectile.setPosition(p.x,p.y);
+  for(const o of [job.premiumProjectile,job.premiumGlow,job.premiumTrail])
+   if(o)this._free(job,o);
+  job.premiumContactWorld=copy(p);this._state(job,'confirmed_contact');
  }
  _hitPremium(job,p){
-  // Only reached through real correlated hit_applied event.
-  const color=job.visualColor??0xc6eee2;
-  this._ring(job,p,color,11,155);
-  const pop=this._obj(job,this.scene.add.circle(p.x,p.y,4.2,0xfdf4d6,.76));
-  this._tween(job,pop,{alpha:0,scale:1.4,duration:100,onComplete:()=>this._free(job,pop)});
-  const star=this._obj(job,this.scene.add.graphics());
-  for(const angle of [0,2.094,4.188]){
-   const ux=Math.cos(angle),uy=Math.sin(angle);
-   star.lineStyle(1.8,color,.72).beginPath().moveTo(p.x+ux*3,p.y+uy*3)
-    .lineTo(p.x+ux*10,p.y+uy*10).strokePath();
+  const color=job.visualColor??0xe8d1a6;
+  this._ring(job,p,color,12,135);
+  const pop=this._obj(job,this.scene.add.circle(p.x,p.y,6.2,0xfff3d5,.93));
+  this._tween(job,pop,{alpha:0,scale:1.55,duration:115,onComplete:()=>this._free(job,pop)});
+  const outer=this._obj(job,this.scene.add.circle(p.x,p.y,10.5,0xf4d5a0,.13)
+   .setStrokeStyle(2.3,0xffe8b2,.9));
+  this._tween(job,outer,{alpha:0,scale:1.45,duration:150,onComplete:()=>this._free(job,outer)});
+  const sparkle=this._obj(job,this.scene.add.graphics());
+  for(const a of [0,1.57,3.14,4.71]){
+   const vx=Math.cos(a),vy=Math.sin(a);
+   sparkle.lineStyle(2.15,0xffebbd,.9).beginPath()
+    .moveTo(p.x+vx*3,p.y+vy*3).lineTo(p.x+vx*13,p.y+vy*13).strokePath();
   }
-  this._tween(job,star,{alpha:0,duration:140,onComplete:()=>this._free(job,star)});
+  this._tween(job,sparkle,{alpha:0,duration:145,onComplete:()=>this._free(job,sparkle)});
  }
  /**
   * accept({eventId, type, tick, entityId, targetId, worldPosition, payload})
@@ -176,7 +197,7 @@ export class SniperShotPresenter {
    if(e.towerId!==undefined&&e.towerId!==null&&String(fireJob.entityId)!==String(e.towerId))return false;
    fireJob.hitShown=true;this.hitVisualCount++;
    this._seen(e.eventId);this.fireByBullet.delete(key);
-   if(this.premium)this._hitPremium(fireJob,e.worldPosition);
+   if(this.premium){this._settlePremiumShot(fireJob,e.worldPosition);this._hitPremium(fireJob,e.worldPosition);}
     else this._hit(fireJob,e.worldPosition,fireJob.visualColor??0xcafbf1);
    this._later(fireJob,200,()=>this.cancel(fireJob.id));
    return true;

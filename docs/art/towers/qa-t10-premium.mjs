@@ -41,15 +41,26 @@ const fire={type:'attack_fire',eventId:'fire-A',entityId:'sniper-1',targetId:'ho
 assert.equal(fx.accept(fire),true);
 const j=fx.jobs.get('fire-A');
 assert.ok(j?.premiumProjectile&&j?.premiumGlow);
-assert.deepEqual(j.premiumFirstFrame,fire.payload.muzzleWorld);
-assert.deepEqual({x:j.premiumProjectile.x,y:j.premiumProjectile.y},fire.payload.muzzleWorld);
-assert.deepEqual({x:j.premiumGlow.x,y:j.premiumGlow.y},fire.payload.muzzleWorld);
+// R1 optical root 3.25 world units INSIDE the real rifle mouth:
+const muzzle=fire.payload.muzzleWorld,target=fire.payload.targetWorld;
+const length=Math.hypot(target.x-muzzle.x,target.y-muzzle.y);
+const ux=(target.x-muzzle.x)/length,uy=(target.y-muzzle.y)/length;
+const visualRoot={x:muzzle.x-ux*3.25,y:muzzle.y-uy*3.25};
+assert.ok(Math.hypot(j.premiumFirstFrame.x-visualRoot.x,j.premiumFirstFrame.y-visualRoot.y)<1e-7);
+assert.deepEqual({x:j.premiumProjectile.x,y:j.premiumProjectile.y},visualRoot);
+assert.deepEqual({x:j.premiumGlow.x,y:j.premiumGlow.y},visualRoot);
+assert.ok(j.premiumTravelDuration<Math.max(115,Math.min(310,length*1.24)));
+assert.equal(j.premiumSource.x,muzzle.x,'physical barrel source protected');
 assert.equal(fx.diagnostics().visualHitCount,0);
 assert.equal(fx.accept(fire),false);
 const wrong={type:'hit_applied',eventId:'bad',towerId:'sniper-1',targetId:'hound-1',
  bulletId:999,worldPosition:{x:500,y:450}};
 assert.equal(fx.accept(wrong),false);
 assert.equal(fx.accept({...wrong,eventId:'real',bulletId:51}),true);
+assert.deepEqual(j.premiumContactWorld,{x:500,y:450},'core contact is the visual arrival');
+assert.equal(j.premiumProjectile.active,false,'no tracer flies after confirmed hit');
+assert.equal(j.premiumGlow.active,false,'no ghost bullet glow after confirmed hit');
+assert.equal(j.premiumTravelTween,null,'flight canceled on authenticated hit');
 assert.equal(fx.accept({...wrong,eventId:'real',bulletId:51}),false);
 assert.equal(fx.diagnostics().visualHitCount,1);
 fx.clear();

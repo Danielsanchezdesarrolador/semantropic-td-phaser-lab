@@ -1,0 +1,117 @@
+{
+  "block": "T10-PREMIUM-R1",
+  "date": "2026-10-21",
+  "team": "DG+TORRES",
+  "pr": 49,
+  "branch": "feature/t10-premium-r1-sync-20261021",
+  "base": "66b3c58436fdf7a349b2c13c93f4fb390cbd352d",
+  "testedSha": "6f5c0ef8615bc46aae4dc48276a18843ffc17234",
+  "state": "TECHNICAL_QA_PASS__DIRECTOR_ANDROID_ART_SIGNOFF_PENDING",
+  "run": {
+    "id": 39695198098,
+    "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39695198098",
+    "status": "completed",
+    "conclusion": "success",
+    "engine": "Phaser 4.2.1",
+    "node": "22"
+  },
+  "artifacts": [
+    {
+      "name": "T10 R1 screenshots and logs",
+      "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39695198098/artifacts/12390821009",
+      "id": 12390821009,
+      "bytes": 17923351
+    },
+    {
+      "name": "previous B4 original evidence",
+      "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39687530681/artifacts/12387281758",
+      "id": 12387281758
+    }
+  ],
+  "checks": [
+    {
+      "name": "T04 protected source",
+      "result": "PASS",
+      "kind": "Node real"
+    },
+    {
+      "name": "M01 combat economy navigation",
+      "result": "PASS",
+      "kind": "Node and Chromium"
+    },
+    {
+      "name": "npm install/build",
+      "result": "PASS",
+      "kind": "Phaser 4.2.1"
+    },
+    {
+      "name": "muzzle first-frame 6 real Chromium",
+      "result": "PASS",
+      "kind": "2 levels x 3 viewports",
+      "muzzleCssDistanceApprox": [
+        3.25,
+        3.25,
+        2.14,
+        2.14,
+        2.37,
+        2.37
+      ]
+    },
+    {
+      "name": "sniper lethal sync 12 real Chromium",
+      "result": "PASS",
+      "kind": "2 levels x 2 enemy types x 3 viewports; core enemies with 1HP fixture"
+    },
+    {
+      "name": "flash/tracer cancel on real hit",
+      "result": "PASS",
+      "kind": "Chromium 12 cases and Node mock"
+    },
+    {
+      "name": "victim visual fades 125ms and gets destroyed",
+      "result": "PASS",
+      "kind": "Chromium 12 cases, sprite retained without core actor"
+    },
+    {
+      "name": "unmodified M01 5 waves win and loss",
+      "result": "PASS",
+      "kind": "Chromium real gameplay"
+    },
+    {
+      "name": "physical Android premium visual judgement",
+      "result": "PENDING",
+      "kind": "Human approval"
+    },
+    {
+      "name": "physical Android FPS p50/p95",
+      "result": "NOT_RUN",
+      "kind": "Physical performance"
+    },
+    {
+      "name": "raster-edge independent barrel contact measurement",
+      "result": "NOT_RUN",
+      "kind": "Pixel inspection"
+    },
+    {
+      "name": "pixel-aligned B4 vs R1 capture comparison",
+      "result": "NOT_RUN",
+      "kind": "Two artifacts are not a controlled pair"
+    }
+  ],
+  "historicalRuns": [
+    {
+      "id": 39694646513,
+      "conclusion": "failure",
+      "reason": "QA lost lifecycle events at screenshot boundary"
+    },
+    {
+      "id": 39694952723,
+      "conclusion": "failure",
+      "reason": "Confirmed kills=1 but QA did not retain event across screenshots"
+    }
+  ],
+  "userApproved": false,
+  "mergePerformed": false,
+  "deployPerformed": false,
+  "liveStillProtected": true
+}
