@@ -37,6 +37,11 @@ class CombatScene extends Phaser.Scene{
   preloadP07(this);
   preloadP08(this);
   for(const meta of TOWER_ART_V2)this.load.svg(meta.assetId,meta.url,{width:360,height:420});
+   // Existing original T08 structural master, T04 architecture WITHOUT its second rifle.
+   // Only used for candidate P03 operator-primary option; original T04 stays unchanged.
+   for(const level of [1,2])this.load.svg('t10-hf2-sniper-structure-'+level,
+    new URL('../../art/towers/layers/sniper-'+level+'-structure.svg',import.meta.url).href,
+    {width:360,height:420});
  }
  create(){
   // Keep original P03 as user-approved exact fallback. P07 PNG atlases are loaded
@@ -103,6 +108,7 @@ class CombatScene extends Phaser.Scene{
      p08Entities:this.p08Animator.entities.size,t09Nodes:t09Presenter?.current?.nodes?.length??0,
      b3:this.combatMotion.diagnostics(),confirmedVisualContacts:this.contactFx,
      t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,t10RifleAuthority:REVIEW.get("t10hf2")==="legacy"?"T04_LEGACY_COMPARISON":"P03_OPERATOR",
+      t10BuildingRifleSuppressed:[...this.towerMounts.values()].filter(m=>m.operatorPrimary).length,
       t10Ghosts:this.t10GhostDeaths.size,t10HeldKills:this.t10HeldKills,
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
   this.events.once("shutdown",()=>{
@@ -130,10 +136,14 @@ class CombatScene extends Phaser.Scene{
    if(!tower)continue;
    const meta=TOWER_ART_V2.find(m=>m.family===tower.family&&m.level===tower.level);
    if(!meta)throw Error("C1-D7R protected T04 tower not found for "+tower.family+"/"+tower.level);
-   const sprite=this.add.image(socket.world.x,socket.world.y,meta.assetId)
+   const operatorPrimary=tower.family==="sniper"&&!USE_EXPERIMENTAL_OPERATOR
+     &&REVIEW.get("t10hf2")!=="legacy";
+    const renderAsset=operatorPrimary?'t10-hf2-sniper-structure-'+tower.level:meta.assetId;
+    const sprite=this.add.image(socket.world.x,socket.world.y,renderAsset)
     .setOrigin(meta.footAnchor.x,meta.footAnchor.y).setScale(meta.worldScaleProposal).setDepth(socket.world.y-2);
    this.towerViews.push(sprite);
-   const mount={id:tower.id,meta,sprite,source:"T08_T04_APPROVED",operator:null,muzzleLocal:meta.muzzleLocal};
+   const mount={id:tower.id,meta,sprite,source:operatorPrimary?"T08_T04_STRUCTURE_NO_EMBEDDED_RIFLE":"T08_T04_APPROVED",
+     operator:null,muzzleLocal:meta.muzzleLocal,operatorPrimary,renderAsset};
    if(tower.family==="sniper"){
     // Exactly C1-C: original P03 operator rig over the unchanged T04 composite.
     // NO extra T07 rifleMounted (the user's screenshot already defines the gun's appearance).
