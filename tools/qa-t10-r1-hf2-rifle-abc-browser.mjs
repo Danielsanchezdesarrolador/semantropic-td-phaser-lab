@@ -136,11 +136,43 @@ try{
      return {fire:result};
     },{towerId:session.tower});
     await take(page,baseName+'-FIRE',report.fire);
+    // Three ACTUAL successive attack_fire events, never synthetic animation.
+    // First was already captured; advance genuine M01 tick until two more.
+    const repeated=await page.evaluate(({towerId,firstEvent,mode})=>{
+     const g=window.__SEMANTROPIC_C1D7,s=g.scene,w=g.world,h=s.__T10HF2;
+     const samples=[{eventId:firstEvent}];w.paused=false;
+     for(let n=0;n<39000&&samples.length<3&&!w.ended;n++){
+      if(!w.active){
+       if(w.wave>=5||w.enemies.size||w.bullets.length)break;
+       if(!w.startWave())break;
+      }
+      const events=w.tick(1/60);s.reactEvents(events);s.drawSoldiers();
+      for(const e of events){
+       if(e.type!=='attack_fire'||String(e.entityId)!==String(towerId))continue;
+       const record=s.t10FireOrigins.at(-1),job=s.shots.jobs.get(e.eventId);
+       if(!record||!job?.premiumFirstFrame)throw Error('real repeated fire without R1 visual');
+       const p=record.operatorSource,b=job.premiumFirstFrame;
+       const css=s.game.canvas.getBoundingClientRect();
+       const distance=Math.hypot(p.x-b.x,p.y-b.y)*Math.min(css.width/1280,css.height/768);
+       samples.push({eventId:e.eventId,authority:record.sourceAuthority,
+        P03toR1Css:distance,targetRelativeX:Math.sign(e.payload.targetWorld.x-p.x)});
+       if(samples.length===3){
+        h.mark(record.t04Source,p,b);
+        h.last={t04:record.t04Source,p03:p,root:b};
+       }
+      }
+     }
+     w.paused=true;
+     if(samples.length!==3)throw Error('R1 HF2 fewer than 3 consecutive true sniper fires');
+     if(mode==='operator'&&samples.slice(1).some(x=>x.P03toR1Css>5))throw Error('Repeated P03 muzzle drift');
+     return {samples,last:h.last??null};
+    },{towerId:session.tower,firstEvent:report.fire.source?report.fire.bulletId:0,mode:variant});
+    if(repeated.last)await take(page,baseName+'-THIRD-FIRE',repeated.last);
     if(variant==='operator'&&report.fire.BC>5)throw Error('P03 barrel-to-tracer gap '+report.fire.BC+' CSS px');
     if(variant==='legacy'&&report.fire.BC<5)throw Error('Legacy T04 erroneously looks aligned '+report.fire.BC);
     if(report.fire.AB<7)throw Error('P03/T04 gap not independently distinguished');
     if(errs.length)throw Error('JS errors '+errs.join(' | '));
-    observations.push({viewport:viewport+' '+width+'x'+height,level,variant,...session,...first,...report,
+    observations.push({viewport:viewport+' '+width+'x'+height,level,variant,...session,...first,...report,threeShots:repeated.samples,
       visualHumanApproval:'PENDING'});
     await page.close();
    }
