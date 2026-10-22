@@ -1,0 +1,129 @@
+{
+  "schema": "semantropic-qa-v1",
+  "milestone": "TORRES_T10_R1_HF2",
+  "date": "2026-10-21",
+  "branch": "feature/t10-premium-r1-sync-20261021",
+  "pr": 49,
+  "baseProductionSha": "66b3c58436fdf7a349b2c13c93f4fb390cbd352d",
+  "testedTechnicalSha": "70239f640315cbfaf06a898d17c128076fc71ac6",
+  "state": "QA_NODE_BUILD_CHROMIUM_PASS__DIRECTOR_ANDROID_ART_SIGNOFF_PENDING",
+  "workflows": [
+    {
+      "runId": 39711087400,
+      "conclusion": "success",
+      "url": "https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/39711087400",
+      "artifactId": 12396929890,
+      "bytes": 33053679
+    },
+    {
+      "runId": 39710710967,
+      "conclusion": "success",
+      "role": "pre-rifleless source comparison"
+    }
+  ],
+  "sourceOfTruth": {
+    "mainGun": "P03 original animated operator",
+    "building": "existing T08 rifleless T04 architecture",
+    "sourceRig": "public/official/art/actors/p03-rig.mjs",
+    "primaryContract": "t10/p03-operator-rifle-muzzle.mjs",
+    "alternativeQuery": "?t10hf2=legacy",
+    "originalT04Edited": false,
+    "p03RigEdited": false
+  },
+  "distanceCSS": {
+    "desktopLevelI": {
+      "legacyBtoC": 41.010474863176405,
+      "p03BtoC": 3.25
+    },
+    "desktopLevelII": {
+      "legacyBtoC": 34.81550750299223,
+      "p03BtoC": 3.25
+    },
+    "mobile844LevelI": {
+      "legacyBtoC": 27.04078124675871,
+      "p03BtoC": 2.14292907714844
+    },
+    "mobile844LevelII": {
+      "legacyBtoC": 22.95605026579743,
+      "p03BtoC": 2.14292907714844
+    },
+    "mobile932ApproxHF2": 2.36635335286455,
+    "note": "Measured independent SVG/P03 source lip projections in rendered Phaser transforms; not automatic raster-edge segmentation."
+  },
+  "checks": [
+    {
+      "test": "P03 rig source+24 frame pose/flip projections",
+      "status": "PASS",
+      "environment": "Node22"
+    },
+    {
+      "test": "T04 originals byte identical",
+      "status": "PASS",
+      "environment": "Git SHA"
+    },
+    {
+      "test": "Phaser 4.2.1 install and build",
+      "status": "PASS",
+      "environment": "GitHub Ubuntu runner"
+    },
+    {
+      "test": "6 actual muzzle tests",
+      "status": "PASS",
+      "environment": "Chromium WebGL2 2 levels x 3 sizes"
+    },
+    {
+      "test": "12 core authenticated hit/fade",
+      "status": "PASS",
+      "environment": "Chromium WebGL2 2 levels x 2 enemies x 3 sizes; 1HP QA fixture"
+    },
+    {
+      "test": "12 actual A/B/C composition screenshot comparisons",
+      "status": "PASS",
+      "environment": "Chromium WebGL2 idle/windup/fire x levels/sizes/modes"
+    },
+    {
+      "test": "three consecutive real shots per composition",
+      "status": "PASS",
+      "environment": "Chromium in core-driven M01"
+    },
+    {
+      "test": "M01 true full game win/loss",
+      "status": "PASS",
+      "environment": "Chromium, no 1HP fixture"
+    },
+    {
+      "test": "P08 gallery/rally/menu regressions",
+      "status": "PASS",
+      "environment": "Node + Chromium"
+    },
+    {
+      "test": "actual visual upper-rifle attachment",
+      "status": "OBSERVED_IN_SCREENSHOT",
+      "environment": "Inspected Chromium real crops L1/L2"
+    },
+    {
+      "test": "Android physical user acceptance",
+      "status": "PENDING",
+      "environment": "Director"
+    },
+    {
+      "test": "Android FPS percentile",
+      "status": "NOT_RUN",
+      "environment": "Physical device"
+    },
+    {
+      "test": "targets to right in A/B/C three-shot sample",
+      "status": "NOT_RUN",
+      "environment": "Sample recorded 24 left, 0 right"
+    },
+    {
+      "test": "raster edge pixel segmentation",
+      "status": "NOT_RUN",
+      "environment": "No independently calibrated image edge algorithm"
+    }
+  ],
+  "coreUnchanged": true,
+  "characterSourcesUnchanged": true,
+  "liveNotDeployed": true,
+  "mergePerformed": false
+}
