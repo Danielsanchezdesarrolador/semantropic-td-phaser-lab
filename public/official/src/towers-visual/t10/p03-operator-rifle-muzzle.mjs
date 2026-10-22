@@ -26,7 +26,7 @@ export function getP03RifleMuzzleFramePoint(state,frame){
  return Object.freeze({x:FRAME_WIDTH*.5+p.x,y:FRAME_HEIGHT*.92+p.y});
 }
 export function projectP03RifleMuzzle(operator,{state,frame}){
- if(!operator||!finite(operator)||!operator.texture?.frame)throw Error('P03 operator sprite missing');
+ if(!operator||!finite(operator)||!operator.frame?.name)throw Error('P03 operator sprite/frame missing');
  const frameName=String(operator.frame?.name??operator.texture.frame?.name??'');
  if(frameName!==state+'-'+frame)throw Error('Operator displayed frame mismatch: '+frameName+' != '+state+'-'+frame);
  const local=getP03RifleMuzzleFramePoint(state,frame);

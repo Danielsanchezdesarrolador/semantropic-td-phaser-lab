@@ -8,6 +8,7 @@ import {TOWER_ART_V2,validateTowerArtV2,projectSourceAnchor} from "../towers-vis
 import {SniperShotPresenter} from "../towers-visual/sniper-vfx.mjs";
 import {diagnoseT10Muzzle} from "../towers-visual/t10/sniper-muzzle-contract.mjs";
 import {projectMountedT10Muzzle,diagnoseMountedT10Muzzle} from "../towers-visual/t10/premium-runtime-muzzle.mjs";
+import {projectP03RifleMuzzle,diagnoseP03VersusT04Muzzles} from "../towers-visual/t10/p03-operator-rifle-muzzle.mjs";
 import {CAST,ANIMATIONS} from "../../art/actors/atlas-source.mjs";
 import {createP03Atlas,registerP03Atlas} from "../../art/actors/p03-rig.mjs";
 import {preloadP07,registerP07,p07ItemFor,P07_STATES} from "../actors-visual/p07-atlas-loader.mjs";
@@ -101,7 +102,7 @@ class CombatScene extends Phaser.Scene{
    diagnostics:()=>({towers:this.towerMounts.size,enemies:this.enemyViews.size,
      p08Entities:this.p08Animator.entities.size,t09Nodes:t09Presenter?.current?.nodes?.length??0,
      b3:this.combatMotion.diagnostics(),confirmedVisualContacts:this.contactFx,
-     t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,
+     t10Fires:this.t10FireOrigins.length,t10PremiumOpticalMuzzle:true,t10RifleAuthority:REVIEW.get("t10hf2")==="legacy"?"T04_LEGACY_COMPARISON":"P03_OPERATOR",
       t10Ghosts:this.t10GhostDeaths.size,t10HeldKills:this.t10HeldKills,
     soldiers:this.soldierViews.size,fxFires:this.fxFires,shots:this.shots.diagnostics()})};
   this.events.once("shutdown",()=>{
@@ -241,13 +242,27 @@ class CombatScene extends Phaser.Scene{
   if(!mount||mount.meta.family!=="sniper")return null;
   // T10/B2: verified original T04 rifle barrel face (levels I/II).
   // Changes VFX origin ONLY; no alteration of core bullets, damage or targeting.
-  // Runtime-mount authoritative optical origin: ACTUAL sprite frame/displayOrigin/matrix.
-  const muzzle=projectMountedT10Muzzle(mount.sprite,mount.meta);
+  // R1-HF2: P03 operator atlas has its OWN rendered rifle. Project that
+  // visible upper barrel rather than the embedded T04 building mechanism.
+  // Move to the frame actually displayed on the render after this core event.
+  const t04Muzzle=projectMountedT10Muzzle(mount.sprite,mount.meta);
+  const p03Ready=mount.operator&&mount.operatorAtlas==="P03_APPROVED";
+  const phase=ev.type==="attack_fire"?"attack":"attackWindup";
+  const frameName=p03Ready?this.frame(phase):null;
+  if(p03Ready)mount.operator.setFrame(frameName);
+  const frameIndex=frameName?Number(frameName.slice(frameName.lastIndexOf("-")+1)):null;
+  // Opt-in baseline comparison only in feature QA, NOT the production default.
+  const useP03=p03Ready&&REVIEW.get("t10hf2")!=="legacy";
+  const muzzle=useP03?projectP03RifleMuzzle(mount.operator,{state:phase,frame:frameIndex}):t04Muzzle;
   if(ev.type==="attack_fire"&&this.t10FireOrigins.length<48){
    const diagnosis=diagnoseT10Muzzle(mount.sprite,mount.meta);
+   const arms=p03Ready?diagnoseP03VersusT04Muzzles({
+    operator:mount.operator,t04Muzzle,root:muzzle,state:phase,frame:frameIndex}):null;
    this.t10FireOrigins.push({eventId:ev.eventId,tick:ev.tick,level:mount.meta.level,
-    towerId:ev.entityId,source:muzzle,legacy:diagnosis.legacy,worldDelta:diagnosis.worldDelta,
-     runtime:diagnoseMountedT10Muzzle(mount.sprite,mount.meta)});
+    towerId:ev.entityId,source:muzzle,t04Source:t04Muzzle,operatorSource:arms?.p03??null,
+    operatorFrame:frameName,sourceAuthority:useP03?"P03_OPERATOR_RIFLE":"T04_LEGACY",
+    arms,legacy:diagnosis.legacy,worldDelta:diagnosis.worldDelta,
+    runtime:diagnoseMountedT10Muzzle(mount.sprite,mount.meta)});
   }
   const target=WORLD.enemies.get(ev.targetId);
   const targetWorld=ev.payload?.targetWorld??(target?{x:target.x,y:target.y}:null);
