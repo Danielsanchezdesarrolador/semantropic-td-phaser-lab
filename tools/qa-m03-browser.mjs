@@ -30,6 +30,16 @@ try{
    if(!plan.props.some(p=>p.kind==='oak'))throw Error('Hero oak missing');
    return {snapshot:w.snapshot,props:plan.props.length,rejected:plan.rejected.length,ambient:s.mapView.snapshot,texture:[s.textures.get('maps/m03/whispering-forest/v1').getSourceImage().width,s.textures.get('maps/m03/whispering-forest/v1').getSourceImage().height],renderer:s.game.renderer.type};
   });
+  if(width<1000)await page.evaluate(()=>{
+   const g=window.__SEMANTROPIC_C1D7,path=g.world.map.path,back=document.getElementById('viewportBackdrop'),br=back.getBoundingClientRect(),r=g.scene.game.canvas.getBoundingClientRect(),rx=back.width/br.width,ry=back.height/br.height;
+   const left=(r.left-br.left)*rx,top=(r.top-br.top)*ry,mw=r.width*rx,mh=r.height*ry;
+   for(const edge of [0,1280]){
+    const i=path.findIndex((p,i)=>i<path.length-1&&p[0]<=edge&&path[i+1][0]>=edge),a=path[i],b=path[i+1],slope=(b[1]-a[1])/(b[0]-a[0]),y=a[1]+(edge-a[0])*slope;
+    const px=edge===0?left/2:left+mw+(back.width-left-mw)/2,worldX=(px-left)/mw*1280,py=top+(y+(worldX-edge)*slope)/768*mh;
+    const color=back.getContext('2d').getImageData(Math.floor(px),Math.floor(py),1,1).data;
+    if(color[0]<180||color[1]<150||color[2]<80||color[2]>180)throw Error('M03 gutter road is cut or mirrored against its tangent '+edge+' '+[...color]);
+   }
+  });
   await page.screenshot({path:out+'/'+profile+'-forest-empty.png'});
   // Every real pad must select its own index through mouse/touch coordinates.
   for(let i=0;i<8;i++){
