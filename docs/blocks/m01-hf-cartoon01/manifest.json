@@ -1,0 +1,22 @@
+{
+  "block": "M01-HF-CARTOON-01",
+  "base": "0cb89bd43ff6ae447332a523b7c5f40dc71c663c",
+  "version": "m01-hf-cartoon-01-polished-v2",
+  "asset": "public/official/art/maps/m01/style01/details-atlas-original.png",
+  "sha256": "acd1b0c0d7652dd4c6963f10363a54c8163e23eda77a67f4935c9208d16ef846",
+  "original": "/workspace/generated_images/exec-23484199-47d6-416b-b0a9-160ea2420282.png",
+  "source": "Original image generation, six separate transparent motifs; not sampled from the reference map",
+  "acceptedProps": 45,
+  "previousProps": 29,
+  "displayObjects": 101,
+  "newMotifs": [
+    "youngOak",
+    "shrub",
+    "pillar",
+    "timber",
+    "wheat",
+    "ivyRock"
+  ],
+  "canonicalGeometry": "133 waypoints / 8 sockets unchanged",
+  "bridge": "No new bridge: route crosses no stream. Existing shrine/gate silhouettes preserved; actor/tower art outside scope."
+}
