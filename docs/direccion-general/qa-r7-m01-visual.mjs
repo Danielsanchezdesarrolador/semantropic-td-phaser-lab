@@ -49,7 +49,7 @@ assert(scene.includes('window.__SEMANTROPIC_VIEWPORT?.bindScene?.(this,1)'),'R5 
 const pano=read('public/official/src/mobile/viewport-panorama-r5.mjs');
 assert(pano.includes("const premium=texture(PREMIUM_M01)"),'R5 side panels not using premium terrain');
 const live=read('public/official/src/live/index.html');
-assert(live.includes('r7=dawn-plateau-v1'),'Missing R7 cache invalidation');
+assert(live.includes('r7=dawn-plateau-hf2'),'Missing current R7 HF2 cache invalidation');
 assert(live.includes('scene-m02.mjs?release='),'Map 02 removed');
 
 import {R7_HF1_DECORATION_SITES as correctedDecor} from '../../public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs';
