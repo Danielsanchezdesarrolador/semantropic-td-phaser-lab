@@ -1,6 +1,6 @@
 # Evidencia auténtica M03
 
-Fecha: 23-oct-2026. Base de producción: `0e85c3a393c5d3e5223520f7dc863b2abc7203cc`. Código final probado: `97d16cbb4d06cc8123fbb5b04318005a110db420` (core, arte, panorámica y tests). Los commits posteriores de evidencia no cambian el runtime.
+Fecha: 23-oct-2026. Base de producción: `0e85c3a393c5d3e5223520f7dc863b2abc7203cc`. Código final probado: `97d16cbb4d06cc8123fbb5b04318005a110db420` (core, arte, panorámica y tests). Los commits posteriores añaden evidencia y eliminan un espacio en una línea vacía; no cambian el comportamiento del runtime.
 
 - **ANTES_SELECTOR_OFICIAL.png**: Chromium real, URL pública oficial antes de publicar M03, 1280×768. Solo aparecen M01/M02. Transporte HTTPS mediante `route.fetch` con verificación TLS; sin desactivar certificados ni sustituir respuestas.
 - **PLANO_CANONICO.png**: plano técnico de los 188 puntos/ocho pads, no una captura de un M03 jugable anterior.

@@ -224,7 +224,7 @@ export function withCampaignInfantry(Base){return class CampaignCombatWithInfant
   }
   this.emit("soldier_die",{entityId:u.id,towerId:u.parentId,respawnAfter:lv.respawn,worldPosition:{x:u.x,y:u.y}});
  }
- 
+
  /** Real E1 archer attack against infantry; no frontend graphics or direct Visual HP. */
  tryArcherRanged(e,dt){
   const def=this.rules.enemySpecs[e.type];
