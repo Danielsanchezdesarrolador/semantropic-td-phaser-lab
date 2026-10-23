@@ -17,19 +17,24 @@ try{
  for(const [profile,width,height] of [['desktop',1280,768],['touch844',844,390],['touch932',932,430]]){
   step=profile+' load';console.log('STYLE01 '+profile);
   const page=await browser.newPage({viewport:{width,height},isMobile:width<1000,hasTouch:width<1000});const errors=[];lastPage=page;page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base);await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-hf-cartoon-01-polished-v2'&&window.__SEMANTROPIC_VIEWPORT?.panorama?.mapId===1,null,{timeout:60000});
+  await page.goto(base);await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-fidelity-cartoon01-layered-mesas-v1'&&window.__SEMANTROPIC_VIEWPORT?.panorama?.mapId===1,null,{timeout:60000});
   const initial=await page.evaluate(async()=>{
    const g=window.__SEMANTROPIC_C1D7,w=g.world,s=g.scene,v=s.mapView;
    if(!(s.game.renderer.gl instanceof WebGL2RenderingContext))throw Error('WebGL2 required');
    if(w.route.points.length!==133||w.economy.gold!==365||w.lives!==100||w.campaign.waves.length!==5||w.campaign.waves.reduce((n,w)=>n+w.groups.reduce((s,g)=>s+g.count,0),0)!==63||v.plan.sockets.length!==8)throw Error('M01 canonical data changed');
    const mod=await import('/official/src/maps-visual/m01/style01/cartoon-world.mjs');
    if(v.premiumArt.composition!=='separate-Phaser-components'||v.styleObjects.filter(o=>o.texture?.key==='maps/m01/style01/pad').length!==8||v.landscapePlan.props.length<20)throw Error('Not a modular component scene');
-   for(const kind of ['youngOak','shrub','pillar','timber','wheat','ivyRock'])if(!v.landscapePlan.props.some(p=>p.kind===kind))throw Error('Missing HF variety '+kind);
+   const terrain=await import('/official/src/maps-visual/m01/style01/fidelity-terrain.mjs');
+   if(v.premiumArt.waterLayer!=='independent-canvas-texture'||v.landscapePlan.formations.length!==7)throw Error('Missing layered terrain');
+   for(const p of v.landscapePlan.props)if(!terrain.supportsFoot(p.x+p.w/2,p.y+p.h))throw Error('Prop floats on cliff/water '+p.kind);
+   const faces=s.textures.get('maps/m01/style01/cliff-faces').getSourceImage().getContext('2d');
+   let clearFaceSamples=0;for(let i=1;i<w.map.path.length;i++){const a=w.map.path[i-1],b=w.map.path[i],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy);for(let k=0;k<=len;k+=5)for(const offset of [-35,0,35]){const x=Math.round(a[0]+dx*k/len-dy/len*offset),y=Math.round(a[1]+dy*k/len+dx/len*offset);if(x<0||x>=1280||y<0||y>=768)continue;if(faces.getImageData(x*2,y*2,1,1).data[3]>24)throw Error('Cliff reaches road '+JSON.stringify({x,y,offset}));clearFaceSamples++;}}
+   v.__fidelityFaceSamples=clearFaceSamples;
    for(const p of v.landscapePlan.props)if(p.x<4||p.x+p.w>1276||!mod.propClears(p,v.landscapePlan))throw Error('Prop covers route/pad '+p.kind);
    if(JSON.stringify(v.landscapePlan.path)!==JSON.stringify(w.map.path))throw Error('Route moved');
    const road=s.textures.get('maps/m01/style01/route').getSourceImage().getContext('2d');if(road.getImageData(20,20,1,1).data[3]!==0)throw Error('Route texture includes flattened background');
    let samples=0;for(let i=1;i<w.map.path.length;i++){const a=w.map.path[i-1],b=w.map.path[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/8);for(let k=0;k<=n;k++){const x=Math.round(a[0]+(b[0]-a[0])*k/n),y=Math.round(a[1]+(b[1]-a[1])*k/n);if(x<0||x>=1280||y<0||y>=768)continue;const p=road.getImageData(x*2,y*2,1,1).data;if(p[3]!==255||p[0]<180||p[1]<130||p[2]>200)throw Error('Route not dry/clear');samples++;}}
-   return {snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,displayObjects:v.styleObjects.length};
+   return {snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,clearFaceSamples:v.__fidelityFaceSamples,formations:v.landscapePlan.formations,displayObjects:v.styleObjects.length};
   });
   if(profile==='desktop'){
    await page.setViewportSize({width:1917,height:990});
@@ -49,14 +54,30 @@ try{
    await page.setViewportSize({width,height});await page.waitForFunction(()=>window.__SEMANTROPIC_VIEWPORT?.panorama?.width===1280);
   }
   await page.screenshot({path:out+'/'+profile+'-after.png'});
+  await page.evaluate(()=>{for(const id of ['hud','hudControls','feedback'])document.getElementById(id).style.visibility='hidden';});
+  await page.screenshot({path:out+'/'+profile+'-art-no-hud.png'});
+  await page.evaluate(()=>{for(const id of ['hud','hudControls','feedback'])document.getElementById(id).style.visibility='';});
+  if(profile==='desktop'){
+   step='real fullscreen';await page.locator('#fullscreenButton').click();await page.waitForFunction(()=>Boolean(document.fullscreenElement));
+   await page.screenshot({path:out+'/desktop-fullscreen.png'});await page.locator('#fullscreenButton').click();await page.waitForFunction(()=>!document.fullscreenElement);
+   await page.waitForFunction(()=>window.__SEMANTROPIC_VIEWPORT?.panorama?.width===1280);initial.fullscreen='PASS_REQUEST_AND_EXIT';
+  }
+
   for(let i=0;i<8;i++){step=profile+' pad '+i;
    const p=await page.evaluate(i=>{const g=window.__SEMANTROPIC_C1D7,r=g.scene.game.canvas.getBoundingClientRect(),p=g.economy.getSocket(i);return{x:r.left+p.x/1280*r.width,y:r.top+p.y/768*r.height};},i);
    if(width<1000)await page.touchscreen.tap(p.x,p.y);else await page.mouse.click(p.x,p.y);
-   await page.waitForFunction(i=>window.__SEMANTROPIC_C1D7.menu.get().index===i,i,{timeout:5000});await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.close());
+   await page.waitForFunction(i=>window.__SEMANTROPIC_C1D7.menu.get().index===i,i,{timeout:5000});{
+    await page.waitForTimeout(280); // Respect the existing 250 ms intent debounce.
+    await page.locator('[data-t09-id="infantry"]').click();await page.waitForFunction(i=>window.__SEMANTROPIC_C1D7.economy.getTower(i)?.family==='infantry'&&window.__SEMANTROPIC_C1D7.scene.towerMounts.size===1,i);
+    await page.evaluate(i=>window.__SEMANTROPIC_C1D7.menu.open(i),i);await page.waitForTimeout(280);await page.locator('[data-t09-id="sell"]').click();await page.waitForFunction(i=>!window.__SEMANTROPIC_C1D7.economy.getTower(i)&&window.__SEMANTROPIC_C1D7.scene.towerMounts.size===0,i);
+   }await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.close());
   }
+  assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.economy.gold),93);
+  await page.locator('#restart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-fidelity-cartoon01-layered-mesas-v1'&&window.__SEMANTROPIC_C1D7.economy.gold===365,null,{timeout:60000});
   step=profile+' buy infantry';await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(0));await page.locator('[data-t09-id="infantry"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(0)?.family==='infantry');
-  step=profile+' buy sniper';await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(1));await page.locator('[data-t09-id="sniper"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(1)?.family==='sniper');
+  step=profile+' buy sniper';await page.waitForTimeout(280);await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(1));await page.locator('[data-t09-id="sniper"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(1)?.family==='sniper');
   assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.economy.gold),130);
+  initial.buildsOnAllEight='PASS_REAL_UI_BUILD_SELL_ALL_8_THEN_NORMAL_RESTART';
   step=profile+' first real attack';await page.locator('#waveStart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.scene.fxFires>0&&window.__SEMANTROPIC_C1D7.world.kills>0,null,{timeout:70000});await page.locator('#pause').click();
   const combat=await page.evaluate(()=>{const g=window.__SEMANTROPIC_C1D7;return {snapshot:g.world.snapshot,diagnostics:g.diagnostics()};});assert(combat.diagnostics.towers===2);assert(combat.snapshot.totalSpawns>0);
   await page.screenshot({path:out+'/'+profile+'-combat.png'});const seconds=await page.evaluate(()=>window.__SEMANTROPIC_C1D7.world.seconds);await page.waitForTimeout(200);assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.world.seconds),seconds);
@@ -71,6 +92,7 @@ try{
  await writeFile(out+'/report.json',JSON.stringify({status:'PASS_MAP_STYLE01_MODULAR_CARTOON_SMOKE',results,physicalMobile:'NOT_RUN',artApproval:'PENDING_DIRECTOR',fullCampaign:'NOT_RUN_ART_ONLY_BLOCK'},null,2));console.log('PASS_MAP_STYLE01_MODULAR_CARTOON_SMOKE');
 }catch(error){
  let state;try{state=await lastPage?.evaluate(()=>({ready:Boolean(window.__SEMANTROPIC_C1D7),snapshot:window.__SEMANTROPIC_C1D7?.world.snapshot,menu:window.__SEMANTROPIC_C1D7?.menu.get(),fires:window.__SEMANTROPIC_C1D7?.scene.fxFires,feedback:document.getElementById('feedback')?.textContent}));}catch{}
+ try{await lastPage?.screenshot({path:out+'/failure.png'});}catch{}
  const report={step,error:String(error.stack||error),state};await writeFile(out+'/failure.json',JSON.stringify(report,null,2));
  console.error('::error title=MAP_STYLE01_BROWSER::'+JSON.stringify(report).replaceAll('%','%25').replaceAll('\n','%0A').replaceAll('\r','%0D'));throw error;
 }finally{await browser?.close();server.close();}
