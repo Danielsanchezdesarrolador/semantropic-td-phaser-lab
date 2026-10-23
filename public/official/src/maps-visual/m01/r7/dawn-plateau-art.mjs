@@ -83,9 +83,11 @@ function cliffsAndWater(c,plan){
     [shape[1][0]-24,shape[1][1]+83]],'#4b666c',7);
  }
  const r=rng(245);
- for(const [cx,cy,width,height] of [[68,644,44,103],[291,653,59,92],
-   [588,675,43,102],[931,652,65,110],[1224,644,57,111]]){
-  // Decorative falls never replace the playable world road.
+ for(const [cx,cy,width,height] of R7_HF1_DECORATION_SITES.waterfalls){
+  // Two intentional falls only, each fed from a rocky cliff lip into the river.
+  // No source touches the playable road, towers or build pads.
+  poly(c,[[cx-width*.62,cy-5],[cx+width*.62,cy-5],
+   [cx+width*.5,cy+3],[cx-width*.5,cy+3]],'#8da69c','#4c7777',1.6);
   const water=c.createLinearGradient(cx,cy,cx+13,cy+height);
   water.addColorStop(0,'#c9f7f2');water.addColorStop(.53,'#7fc5d9');water.addColorStop(1,'#2587aa');
   poly(c,[[cx-width*.46,cy],[cx+width*.44,cy],
@@ -156,6 +158,37 @@ function fence(c,a,b){
   stroke(c,[[x-1,-19],[x-1,-3]],'#c39a5a',2);
  }c.restore();
 }
+/**
+ * R7 HF1: director-approved environment clearance. Coordinates are WORLD
+ * positions, not screenshot pixels. Two cliff-fed waterfalls, four carefully
+ * spaced fence fragments on grass; never rasterize the concept mockup as art.
+ */
+export const R7_HF1_DECORATION_SITES=Object.freeze({
+ waterfalls:Object.freeze([[130,635,45,105],[940,633,56,109]]
+  .map(site=>Object.freeze(site))),
+ fences:Object.freeze([
+  [[148,217],[240,231]],  // upper-left meadow away from entrance
+  [[272,242],[360,251]],  // western plateau, clear of the road
+  [[1190,209],[1255,216]],// shrine perimeter, off the roadway
+  [[800,604],[871,613]]   // lower central grass, above the rock bank
+ ].map(([a,b])=>Object.freeze([Object.freeze(a),Object.freeze(b)])))
+});
+function fenceClearsRoad(a,b,plan){
+ const dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy);
+ if(len<24||len>125)return false;
+ const nx=-dy/len,ny=dx/len,steps=Math.ceil(len/8);
+ // Check rails AND the full 24px picket extension, not just endpoints.
+ for(let i=0;i<=steps;i++){
+  const t=i/steps,x=a[0]+dx*t,y=a[1]+dy*t;
+  for(const offset of [-24,0,8]){
+   const xx=x+nx*offset,yy=y+ny*offset;
+   if(xx<12||xx>W-12||yy<125||yy>645||!safe(xx,yy,plan,40))
+    return false;
+  }
+ }
+ return true;
+}
+
 function meadow(c,plan){
  const f=rng(71936);
  const patches=[[135,154,100,42],[382,137,130,68],[760,123,170,65],
@@ -169,6 +202,12 @@ function meadow(c,plan){
    if(i%9===0)flower(c,xx,yy,i);
    else{stroke(c,[[xx,yy+2],[xx+f()*3-1,yy-3-f()*3]],i%3?'#559d5f':'#e4d78c',.8);}
   }
+ }
+ // Render fences before vegetation: leaves may naturally occlude rails.
+ // Fail closed on changed canonical route/pad data instead of misplacing them.
+ for(const [a,b] of R7_HF1_DECORATION_SITES.fences){
+  if(!fenceClearsRoad(a,b,plan))throw Error('R7 HF1 fence violates clearance contract');
+  fence(c,a,b);
  }
  const planned=[[67,162,1.12],[222,172,.64],[353,151,.7],[532,169,.51],
   [778,166,.69],[932,137,.68],[1133,152,.68],
@@ -184,11 +223,7 @@ function meadow(c,plan){
    ellipse(c,x,y,7+f()*10,6+f()*7,i%2?'#63ae65':'#8cbd6a');
   }
  }
- for(const seg of [
-  [[25,249],[171,269]],[[252,163],[392,187]],[[673,170],[805,181]],
-  [[962,169],[1107,186]],[[36,633],[181,649]],
-  [[430,636],[572,653]],[[832,645],[939,670]],[[1063,658],[1221,667]]
- ])fence(c,...seg);
+ 
  for(let i=0;i<380;i++){
   const x=f()*W,y=142+f()*581;
   if(!safe(x,y,plan,9)||y>700)continue;

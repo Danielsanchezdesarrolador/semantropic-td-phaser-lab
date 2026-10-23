@@ -4,7 +4,7 @@
  * Game rules, route, targeting and soldiers remain unchanged.
  */
 import {mountM01WorldV7} from '../m07/renderer-v7.mjs';
-import {makeR7MapCanvas,R7_MAP01_ART_VERSION} from './dawn-plateau-art.mjs';
+import {makeR7MapCanvas,R7_MAP01_ART_VERSION} from './dawn-plateau-art.mjs?layout=hf1';
 export const R7_M01_TEXTURE='maps/m01/r7/dawn-plateau/v1';
 export function mountM01WorldR7(scene,map,options={}){
  const base=mountM01WorldV7(scene,map,options);

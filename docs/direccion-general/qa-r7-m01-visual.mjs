@@ -51,4 +51,38 @@ assert(pano.includes("const premium=texture(PREMIUM_M01)"),'R5 side panels not u
 const live=read('public/official/src/live/index.html');
 assert(live.includes('r7=dawn-plateau-v1'),'Missing R7 cache invalidation');
 assert(live.includes('scene-m02.mjs?release='),'Map 02 removed');
-console.log('PASS_R7_MAP01_PREMIUM_133_PATH_8_PADS_5_WAVES_M07_R6_PROTECTED');
+
+import {R7_HF1_DECORATION_SITES as correctedDecor} from '../../public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs';
+assert.equal(correctedDecor.waterfalls.length,2,'R7 HF1 must have exactly two cliff falls');
+assert.equal(correctedDecor.fences.length,4,'R7 HF1 fence plan must be minimal');
+const routeDist=(x,y)=>{
+ let best=Infinity;
+ for(let i=1;i<plan.path.length;i++){
+  const a=plan.path[i-1],b=plan.path[i],dx=b[0]-a[0],dy=b[1]-a[1],len=dx*dx+dy*dy;
+  const t=len?Math.max(0,Math.min(1,((x-a[0])*dx+(y-a[1])*dy)/len)):0;
+  best=Math.min(best,Math.hypot(x-a[0]-dx*t,y-a[1]-dy*t));
+ }
+ return best;
+};
+for(const [cx,cy,w,h] of correctedDecor.waterfalls){
+ assert(cy>=625&&cy<=655&&cy+h>=735&&cy+h<=768,'Waterfall must descend from cliff to river');
+ assert(routeDist(cx,cy)>120+w/2,'Waterfall must be clear of playable road');
+ for(const p of plan.pads)assert(Math.hypot(cx-p.x,cy-p.y)>95+w/2,'Waterfall too close to pad');
+}
+for(const [a,b] of correctedDecor.fences){
+ const dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy),nx=-dy/len,ny=dx/len;
+ assert(len>=24&&len<=125,'Fence fragment too long or short');
+ for(let i=0,n=Math.ceil(len/8);i<=n;i++){
+  const x=a[0]+dx*i/n,y=a[1]+dy*i/n;
+  for(const offset of [-24,0,8]){
+   const xx=x+nx*offset,yy=y+ny*offset;
+   assert(xx>=12&&xx<=1268&&yy>=125&&yy<=645,'Fence out of playable meadow bounds');
+   assert(routeDist(xx,yy)>112,'Fence rail or post intersects road buffer');
+   for(const p of plan.pads)
+    assert(Math.hypot(xx-p.x,yy-p.y)>100,'Fence rail or post intersects build pad buffer');
+  }
+ }
+}
+assert(read('public/official/src/live/index.html').includes('r7=dawn-plateau-hf1'),
+ 'Browser cache invalidation missing for R7 HF1');
+console.log('PASS_R7_MAP01_HF1_TWO_FALLS_CLEAR_ROAD_FENCES_133_PATH_8_PADS_M02_R6_PROTECTED');
