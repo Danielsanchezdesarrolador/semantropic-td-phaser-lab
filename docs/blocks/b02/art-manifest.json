@@ -1,0 +1,25 @@
+{
+  "block": "B02 MAP-ART-02",
+  "version": "b02-m02-pictoric-golden-farmland-v1",
+  "origin": "Recursos originales generados con OpenAI image_gen para este bloque. Fuentes PNG íntegras conservadas; referencia del Director usada como guía estética, sin copiar su trazado ni usarla como fondo.",
+  "assets": [
+    {
+      "path": "public/official/art/maps/m02/b02/farmland-props-original.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 3169146,
+      "sha256": "6cf8050f14efcef00aa28efef4eeb5fb5ca3807bcb7f706ce63fcf1b734ba283"
+    },
+    {
+      "path": "public/official/art/maps/m02/b02/farmland-terrain-original.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 3940209,
+      "sha256": "f53767d2f4be569250f2f1aae7b2290c3a32bc1153d527b78a67f485701bf840"
+    }
+  ]
+}
