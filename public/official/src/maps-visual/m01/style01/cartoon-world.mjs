@@ -1,4 +1,4 @@
-import {prepareProp,DEFINITION_VERSION} from './texture-definition.mjs';
+import {preparePropAtlas,DEFINITION_VERSION} from './texture-definition.mjs';
 /** MAP-STYLE-01: original component scene; no full-map raster or gameplay writes. */
 import {mountM01WorldV7} from '../m07/renderer-v7.mjs';
 import {makeFidelitySubstrate,makeFidelityRelief,supportsFoot} from './fidelity-terrain.mjs';
@@ -70,7 +70,7 @@ function registerAtlas(scene){
  return cachedAtlas;
 }
 export function mountStyle01World(scene,map,options={}){
- const base=mountM01WorldV7(scene,map,options),p=makeR7MapPlan(map),plan={...p,props:[],rejected:[]},objects=[],atlas=registerAtlas(scene),definedKeys=new Set();
+ const base=mountM01WorldV7(scene,map,options),p=makeR7MapPlan(map),plan={...p,props:[],rejected:[]},objects=[],atlas=registerAtlas(scene),definedKeys=new Set(),pendingProps=[];
  const {ground:terrain,water}=makeFidelitySubstrate(sources[0]),relief=makeFidelityRelief(atlas,sources[0]);
  plan.formations=relief.formations;
  scene.textures.addCanvas(TERRAIN_KEY,terrain);
@@ -91,8 +91,8 @@ export function mountStyle01World(scene,map,options={}){
  for(const o of base.padObjects){o.sprite.setVisible(false);o.shadow.setVisible(false);}
  const prop=(kind,x,y,w,flip=false)=>{const key='maps/m01/style01/'+kind,im=atlas[key],h=w*im.height/im.width,r={kind,x,y,w,h,flip,footY:y+h};if(x<4||x+w>1276||!supportsFoot(x+w/2,y+h)||!propClears(r,plan)){plan.rejected.push(r);return false;}
   const shadow=scene.add.ellipse(x+w*.5,y+h-3,w*.66,Math.max(5,w*.12),0x244c32,.23).setDepth(-300);
-  const definedKey=key+'/defined/'+Math.ceil(w*2);if(!scene.textures.exists(definedKey))scene.textures.addCanvas(definedKey,prepareProp(im,w));definedKeys.add(definedKey);
-  const v=scene.add.image(x+w/2,y+h,definedKey).setOrigin(.5,1).setDisplaySize(w,h).setFlipX(flip).setDepth(y+h-8);objects.push(shadow,v);plan.props.push(r);return true;};
+  const frameName=kind+'/defined/'+Math.ceil(w*2);
+  const v=scene.add.image(x+w/2,y+h,'__WHITE').setOrigin(.5,1).setDisplaySize(w,h).setFlipX(flip).setDepth(y+h-8);objects.push(shadow,v);pendingProps.push({name:frameName,source:im,widthWorld:w,sprite:v,heightWorld:h});plan.props.push(r);return true;};
  // Deliberate landscape pockets, with room around every tactical surface.
  for(const [x,y,w,f] of [[10,85,132,false],[150,90,125,true],[290,65,112,false],[430,90,100,true],[15,530,105,false],[185,520,65,true],[800,560,95,false],[1138,90,112,true]])prop('oak',x,y,w,f);
  prop('arch',395,220,125);prop('shrine',1080,83,135);prop('cypress',525,105,38);prop('cypress',1235,525,36);
@@ -110,6 +110,9 @@ export function mountStyle01World(scene,map,options={}){
   ['youngOak',845,540,72,true],['cypress',825,520,31],['flowers',895,580,46],['shrub',370,615,43],['shrub',500,390,48],
   ['shrub',15,290,48],['shrub',570,320,48],['shrub',1130,360,48],['shrub',720,375,50],
  ])prop(kind,x,y,w,flip);
+ const packed=preparePropAtlas(pendingProps),packedKey='maps/m01/style01/defined-atlas',packedTexture=scene.textures.addCanvas(packedKey,packed.canvas);definedKeys.add(packedKey);
+ for(const f of packed.frames)packedTexture.add(f.name,0,f.x,f.y,f.width,f.height);
+ for(const p of pendingProps)p.sprite.setTexture(packedKey,p.name).setDisplaySize(p.widthWorld,p.heightWorld);
  function preserve(){for(const [i,p] of base.padObjects.entries()){pads[i].setVisible(p.visualState!=='ruins');p.sprite.setVisible(p.visualState==='ruins');p.shadow.setVisible(p.visualState==='ruins');}}
  const setSocketVisualState=(...args)=>{const ok=base.setSocketVisualState(...args);preserve();return ok;};
  const applyVisualSnapshot=s=>{const ok=base.applyVisualSnapshot(s);preserve();return ok;};
@@ -117,7 +120,7 @@ export function mountStyle01World(scene,map,options={}){
  const resetVisuals=()=>{const ok=base.resetVisuals();preserve();return ok;};
  let disposed=false;
  return {...base,artVersion:STYLE01_VERSION,landscapePlan:plan,objects:[...base.objects,...objects],styleObjects:objects,
-  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture',textureDefinition:DEFINITION_VERSION,propTexelsPerWorldUnit:2},
+  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture',textureDefinition:DEFINITION_VERSION,propTexelsPerWorldUnit:2,propAtlasCount:1},
   paintPanoramaGutters(ctx,r){const sx=r.width/1280,sy=r.height/768;for(const [side,extent] of [['left',r.left/sx],['right',(r.canvasWidth-r.left-r.width)/sx]]){if(extent<=0)continue;ctx.save();ctx.beginPath();side==='left'?ctx.rect(0,r.top,r.left,r.height):ctx.rect(r.left+r.width,r.top,r.canvasWidth-r.left-r.width,r.height);ctx.clip();ctx.translate(r.left,r.top);ctx.scale(sx,sy);paintStyle01Road(ctx,map.path);ctx.restore();}},
   setSocketVisualState,applyVisualSnapshot,projectEvent,resetVisuals,
   destroy(){if(disposed)return;disposed=true;objects.forEach(o=>o.destroy());base.destroy();for(const key of [TERRAIN_KEY,SCENIC_KEY,'maps/m01/style01/route','maps/m01/style01/pad','maps/m01/style01/mesa-tops','maps/m01/style01/cliff-faces','maps/m01/style01/water',...definedKeys,...Object.keys(atlas)])if(scene.textures.exists(key))scene.textures.remove(key);},

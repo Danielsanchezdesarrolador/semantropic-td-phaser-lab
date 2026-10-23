@@ -24,7 +24,7 @@ try{
    if(!(s.game.renderer.gl instanceof WebGL2RenderingContext))throw Error('WebGL2 required');
    if(w.route.points.length!==133||w.economy.gold!==365||w.lives!==100||w.campaign.waves.length!==5||w.campaign.waves.reduce((n,w)=>n+w.groups.reduce((s,g)=>s+g.count,0),0)!==63||v.plan.sockets.length!==8)throw Error('M01 canonical data changed');
    if(JSON.stringify(v.landscapePlan.props)!==JSON.stringify(baseline.props)||JSON.stringify(v.landscapePlan.formations)!==JSON.stringify(baseline.formations))throw Error('Definition block changed scene layout');
-   if(v.premiumArt.textureDefinition!=='m01-texture-definition-v1')throw Error('Missing texture definition');
+   if(v.premiumArt.propAtlasCount!==1||v.premiumArt.textureDefinition!=='m01-texture-definition-v1')throw Error('Missing texture definition');
    const mod=await import('/official/src/maps-visual/m01/style01/cartoon-world.mjs');
    if(v.premiumArt.composition!=='separate-Phaser-components'||v.styleObjects.filter(o=>o.texture?.key==='maps/m01/style01/pad').length!==8||v.landscapePlan.props.length<20)throw Error('Not a modular component scene');
    const terrain=await import('/official/src/maps-visual/m01/style01/fidelity-terrain.mjs');
@@ -37,7 +37,7 @@ try{
    if(JSON.stringify(v.landscapePlan.path)!==JSON.stringify(w.map.path))throw Error('Route moved');
    const road=s.textures.get('maps/m01/style01/route').getSourceImage().getContext('2d');if(road.getImageData(20,20,1,1).data[3]!==0)throw Error('Route texture includes flattened background');
    let samples=0;for(let i=1;i<w.map.path.length;i++){const a=w.map.path[i-1],b=w.map.path[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/8);for(let k=0;k<=n;k++){const x=Math.round(a[0]+(b[0]-a[0])*k/n),y=Math.round(a[1]+(b[1]-a[1])*k/n);if(x<0||x>=1280||y<0||y>=768)continue;const p=road.getImageData(x*2,y*2,1,1).data;if(p[3]!==255||p[0]<180||p[1]<130||p[2]>200)throw Error('Route not dry/clear');samples++;}}
-   return {snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,clearFaceSamples:v.__fidelityFaceSamples,formations:v.landscapePlan.formations,displayObjects:v.styleObjects.length,definition:v.premiumArt.textureDefinition,canvasAudit:{backingWidth:s.game.canvas.width,backingHeight:s.game.canvas.height,cssWidth:s.game.canvas.getBoundingClientRect().width,cssHeight:s.game.canvas.getBoundingClientRect().height,dpr:devicePixelRatio},propSampling:v.landscapePlan.props.map(p=>{const o=v.styleObjects.find(o=>o.texture?.key?.includes('/'+p.kind+'/defined/'+Math.ceil(p.w*2)));const image=o?.texture.getSourceImage();if(!image||image.width<Math.ceil(p.w*2))throw Error('Undersized prop '+p.kind);return{kind:p.kind,worldWidth:p.w,textureWidth:image.width,textureHeight:image.height};})};
+   return {snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,clearFaceSamples:v.__fidelityFaceSamples,formations:v.landscapePlan.formations,displayObjects:v.styleObjects.length,definition:v.premiumArt.textureDefinition,canvasAudit:{backingWidth:s.game.canvas.width,backingHeight:s.game.canvas.height,cssWidth:s.game.canvas.getBoundingClientRect().width,cssHeight:s.game.canvas.getBoundingClientRect().height,dpr:devicePixelRatio},propSampling:v.landscapePlan.props.map(p=>{const o=v.styleObjects.find(o=>o.frame?.name===p.kind+'/defined/'+Math.ceil(p.w*2)&&o.x===p.x+p.w/2&&o.y===p.footY);const image=o?.frame;if(!image||image.width<Math.ceil(p.w*2)||Math.abs(o.displayWidth-p.w)>.001||Math.abs(o.displayHeight-p.h)>.001)throw Error('Undersized prop '+p.kind);return{kind:p.kind,worldWidth:p.w,textureWidth:image.width,textureHeight:image.height};})};
   },baselineLayout);
   if(profile==='desktop'){
    await page.setViewportSize({width:1917,height:990});
@@ -81,7 +81,7 @@ try{
   step=profile+' buy sniper';await page.waitForTimeout(280);await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(1));await page.locator('[data-t09-id="sniper"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(1)?.family==='sniper');
   assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.economy.gold),130);
   initial.buildsOnAllEight='PASS_REAL_UI_BUILD_SELL_ALL_8_THEN_NORMAL_RESTART';
-  step=profile+' first real attack';await page.locator('#waveStart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.scene.fxFires>0&&window.__SEMANTROPIC_C1D7.world.kills>0,null,{timeout:70000});await page.locator('#pause').click();
+  step=profile+' first real attack';await page.locator('#waveStart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.scene.fxFires>0&&window.__SEMANTROPIC_C1D7.world.kills>0,null,{timeout:120000});await page.locator('#pause').click();
   const combat=await page.evaluate(()=>{const g=window.__SEMANTROPIC_C1D7;return {snapshot:g.world.snapshot,diagnostics:g.diagnostics()};});assert(combat.diagnostics.towers===2);assert(combat.snapshot.totalSpawns>0);
   await page.screenshot({path:out+'/'+profile+'-combat.png'});const seconds=await page.evaluate(()=>window.__SEMANTROPIC_C1D7.world.seconds);await page.waitForTimeout(200);assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.world.seconds),seconds);
   if(profile==='desktop'){
@@ -94,7 +94,7 @@ try{
  }
  await writeFile(out+'/report.json',JSON.stringify({status:'PASS_MAP_STYLE01_MODULAR_CARTOON_SMOKE',results,physicalMobile:'NOT_RUN',artApproval:'PENDING_DIRECTOR',fullCampaign:'NOT_RUN_ART_ONLY_BLOCK'},null,2));console.log('PASS_MAP_STYLE01_MODULAR_CARTOON_SMOKE');
 }catch(error){
- let state;try{state=await lastPage?.evaluate(()=>({ready:Boolean(window.__SEMANTROPIC_C1D7),snapshot:window.__SEMANTROPIC_C1D7?.world.snapshot,menu:window.__SEMANTROPIC_C1D7?.menu.get(),fires:window.__SEMANTROPIC_C1D7?.scene.fxFires,feedback:document.getElementById('feedback')?.textContent}));}catch{}
+ let state;try{state=await lastPage?.evaluate(()=>({ready:Boolean(window.__SEMANTROPIC_C1D7),gameSeconds:window.__SEMANTROPIC_C1D7?.world.seconds,snapshot:window.__SEMANTROPIC_C1D7?.world.snapshot,menu:window.__SEMANTROPIC_C1D7?.menu.get(),fires:window.__SEMANTROPIC_C1D7?.scene.fxFires,feedback:document.getElementById('feedback')?.textContent}));}catch{}
  try{await lastPage?.screenshot({path:out+'/failure.png'});}catch{}
  const report={step,error:String(error.stack||error),state};await writeFile(out+'/failure.json',JSON.stringify(report,null,2));
  console.error('::error title=MAP_STYLE01_BROWSER::'+JSON.stringify(report).replaceAll('%','%25').replaceAll('\n','%0A').replaceAll('\r','%0D'));throw error;

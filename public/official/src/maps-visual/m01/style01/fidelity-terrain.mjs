@@ -45,7 +45,7 @@ export function supportsFoot(x,y){
  return true;
 }
 export function makeFidelityRelief(atlas,source){
- const top=canvas(),face=canvas(),tc=top.getContext('2d'),fc=crispContext(face);tc.scale(S,S);fc.scale(S,S);
+ const top=canvas(),face=canvas(),tc=top.getContext('2d'),fc=face.getContext('2d');tc.scale(S,S);fc.scale(S,S);
  const ground=grassField(source),formations=[];
  for(const m of MESAS){
   const edge=[...m.edge].sort((a,b)=>a[0]-b[0]);

@@ -40,3 +40,9 @@ Dispositivos físicos/FPS/VRAM/batería y campaña completa: **NOT_RUN**, smoke 
 Rollback: revert normal del merge del bloque sobre producción, conservando la misma URL oficial y el M01 anterior.
 
 **PASS local**: tres perfiles desktop/844×390/932×430 aDPR1 con smoke completo de arte, ocho construcciones/ventas y combate. El CI añade comparación estricta del layout anterior, auditoría de densidad y perfil932×430 aDPR2. La comparación focalizada antes/después y los tamaños reales del framebuffer se incorporan al informe de entrega.
+
+## Ajuste de preparación y QA final
+
+La primera ejecución de CI alcanzó el límite de70s reales antes del primer tiro en el renderer por software (enemigos avanzando, core de melee activo, cero fugas; no fallo de contrato). Las variantes se agrupan ahora en **un único atlas GPU** con marcos por tamaño en lugar de una textura por variante, manteniendo la densidad2x. La espera de smoke permite hasta120s en software; sigue exigiendo tiro y baja reales, sin acelerar reloj, saltar validaciones o inventar eventos. El CI final valida este HEAD. No se atribuye FPS de dispositivo físico.
+
+El muestreo de la cara rocosa conserva el antialias original y se refuerza RGB después de componer. La comparación focalizada exige mismo SHA256 de alfa antes/después, además de igualdad exacta de37props/sieteformaciones. La preparación no expande siluetas. Los tamaños CSS/backing se registran aDPR1 yDPR2.

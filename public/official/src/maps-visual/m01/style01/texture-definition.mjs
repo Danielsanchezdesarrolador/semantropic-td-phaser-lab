@@ -29,3 +29,13 @@ export function prepareProp(source,widthWorld){
  crispContext(v).drawImage(source,0,0,width,height);
  return defineSurface(v,{contrast:1.07,sharpness:.42});
 }
+/** Pack prepared variants into one GPU texture; preserve each frame's density. */
+export function preparePropAtlas(entries){
+ const unique=new Map();for(const e of entries)if(!unique.has(e.name))unique.set(e.name,{...e,image:prepareProp(e.source,e.widthWorld)});
+ const cells=[...unique.values()].sort((a,b)=>b.image.height-a.image.height),width=1024,padding=4;
+ let x=padding,y=padding,row=0;
+ for(const e of cells){if(x+e.image.width+padding>width){x=padding;y+=row+padding;row=0;}e.x=x;e.y=y;x+=e.image.width+padding;row=Math.max(row,e.image.height);}
+ const height=Math.ceil((y+row+padding)/64)*64,v=Object.assign(document.createElement('canvas'),{width,height}),c=crispContext(v);
+ for(const e of cells)c.drawImage(e.image,e.x,e.y);
+ return {canvas:v,frames:cells.map(e=>({name:e.name,x:e.x,y:e.y,width:e.image.width,height:e.image.height}))};
+}
