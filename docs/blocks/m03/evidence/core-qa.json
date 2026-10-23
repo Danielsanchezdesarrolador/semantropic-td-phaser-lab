@@ -1,0 +1,131 @@
+{
+  "status": "PASS_M03_CANONICAL_NINE_WAVES",
+  "counts": [
+    8,
+    8,
+    10,
+    8,
+    8,
+    9,
+    15,
+    14,
+    21
+  ],
+  "types": [
+    "foreststalker",
+    "warrior",
+    "hunter",
+    "hound",
+    "archer",
+    "bat",
+    "shieldbearer"
+  ],
+  "victory": {
+    "contract": "m03-nine-wave-canonical-v1",
+    "mapId": 3,
+    "mode": "normal",
+    "wave": 9,
+    "active": false,
+    "ended": true,
+    "won": true,
+    "paused": false,
+    "lives": 84,
+    "gold": 481,
+    "kills": 93,
+    "escaped": 8,
+    "totalSpawns": 101,
+    "spawnsRemaining": 0,
+    "enemies": 0,
+    "bullets": 0,
+    "onlySniperCombat": false,
+    "infantryCombatImplemented": true,
+    "corePersistsRecords": false,
+    "soldiers": 0,
+    "soldiersRespawning": 0,
+    "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+    "navNodes": 188,
+    "navRepaths": 0
+  },
+  "defeat": {
+    "contract": "m03-nine-wave-canonical-v1",
+    "mapId": 3,
+    "mode": "normal",
+    "wave": 6,
+    "active": false,
+    "ended": true,
+    "won": false,
+    "paused": false,
+    "lives": 0,
+    "gold": 842,
+    "kills": 0,
+    "escaped": 50,
+    "totalSpawns": 51,
+    "spawnsRemaining": 0,
+    "enemies": 1,
+    "bullets": 0,
+    "onlySniperCombat": false,
+    "infantryCombatImplemented": true,
+    "corePersistsRecords": false,
+    "soldiers": 0,
+    "soldiersRespawning": 0,
+    "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+    "navNodes": 188,
+    "navRepaths": 0
+  },
+  "perWave": [
+    {
+      "wave": 1,
+      "kills": 8,
+      "escaped": 0,
+      "gold": 322
+    },
+    {
+      "wave": 2,
+      "kills": 16,
+      "escaped": 0,
+      "gold": 251
+    },
+    {
+      "wave": 3,
+      "kills": 26,
+      "escaped": 0,
+      "gold": 357
+    },
+    {
+      "wave": 4,
+      "kills": 34,
+      "escaped": 0,
+      "gold": 337
+    },
+    {
+      "wave": 5,
+      "kills": 42,
+      "escaped": 0,
+      "gold": 276
+    },
+    {
+      "wave": 6,
+      "kills": 51,
+      "escaped": 0,
+      "gold": 421
+    },
+    {
+      "wave": 7,
+      "kills": 66,
+      "escaped": 0,
+      "gold": 495
+    },
+    {
+      "wave": 8,
+      "kills": 79,
+      "escaped": 1,
+      "gold": 563
+    },
+    {
+      "wave": 9,
+      "kills": 93,
+      "escaped": 8,
+      "gold": 481
+    }
+  ]
+}

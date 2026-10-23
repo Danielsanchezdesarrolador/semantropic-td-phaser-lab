@@ -20,6 +20,10 @@ import {registerU04AllyHD} from "../actors-visual/u04-ally-hd.mjs";
 import {getContextMenuVisualSpec} from "../towers-visual/t09/spec.mjs";
 import {mountT09Presenter} from "../towers-visual/t09/presenter.mjs";
 import {C1D8CombatMotion,applyC1D8Pose,spawnC1D8Impact} from "../c1d8-b3-combat/motion.mjs";
+/** Shared campaign scene; M02 defaults remain unchanged. M03 supplies narrow adapters. */
+export async function startCampaignScene(config={}){
+const mapId=config.mapId??2,waveCount=config.waveCount??7,mapName=config.name??'Campos del Molino';
+const readRecord=config.readRecord??m02ReadRecord,saveVictory=config.saveVictory??m02SaveVictory,makeResult=config.makeResult??m02Result;
 const REVIEW=new URLSearchParams(location.search);
 const USE_P08_ACTORS=REVIEW.get("actors")!=="p03";
 const USE_P03_ACTORS=!USE_P08_ACTORS;
@@ -38,6 +42,7 @@ class CombatScene extends Phaser.Scene{
  preload(){
   this.load.on("loaderror",file=>feedback("Recurso visual M07/T08/P07 ausente: "+file.key));
   // M02 farmland generated from canonical source at startup.
+  config.preload?.(this);
   preloadP07(this);
   preloadP08(this);
   // U05: Rasterize original vector Infantry I/II at 2x without changing art or gameplay.
@@ -69,8 +74,9 @@ class CombatScene extends Phaser.Scene{
    this.p03Actors.set(info.actorId,{info,atlas,scale:Math.min(.83,
     (atlas.actor.heightWorld??info.heightWorld)/(info.kind==="hound"?114:171)*.70)/(atlas.u04Density??1)});
   }
-  this.mapView=mountM02World(this,MAP);
-  window.__SEMANTROPIC_VIEWPORT?.bindScene?.(this,2);
+  this.customActors=config.registerActors?.(this);
+  this.mapView=(config.mountWorld??mountM02World)(this,MAP);
+  window.__SEMANTROPIC_VIEWPORT?.bindScene?.(this,mapId);
   this.shots=new SniperShotPresenter(this,{variant:"A",depth:35000,premium:true});
   assert(this.mapView.plan.sockets.length===8,"socket count");
   this.selection=this.add.circle(0,0,51,0,0).setStrokeStyle(4,0xf5d484).setDepth(45000);
@@ -115,10 +121,10 @@ class CombatScene extends Phaser.Scene{
     get:()=>({open:contextIndex!==null,index:contextIndex,busy:menuBusy})},
    rally:{get:()=>({active:rallyMode,spotIndex:rallySocket,attempts:rallyAttempts,successes:rallySuccesses,
     destination:this.lastRally,rangeVisible:this.rallyRadius.visible})},
-   stage:"R3_C_playable_M02_Normal",nav:"V5_163_nodes_Dijkstra",
+   stage:config.stage??"R3_C_playable_M02_Normal",nav:`V5_${MAP.path.length}_nodes_Dijkstra`,
    records:"isolated_Phaser_localStorage",
-   art:{maps:"M02_FARMLAND_R3",towers:"T08-HF1-T04",
-     actors:USE_P08_ACTORS?"P08_B1_HF1_CANDIDATE":"P03_APPROVED_ROLLBACK",
+   art:{maps:config.artVersion??"M02_FARMLAND_R3",towers:"T08-HF1-T04",
+     actors:config.actorsVersion??(USE_P08_ACTORS?"P08_B1_HF1_CANDIDATE":"P03_APPROVED_ROLLBACK"),
      nodes:USE_T09_NODES?"T09_HF0":"G1_ROLLBACK",
     source:"C1C_APPROVED",realCombat:true,realPng:true,
     activeOperator:USE_EXPERIMENTAL_OPERATOR?"P07_EXPERIMENTAL":"P03_APPROVED_U04_HD2",
@@ -134,7 +140,7 @@ class CombatScene extends Phaser.Scene{
   this.events.once("shutdown",()=>{
    stopRallySelection();closeMenu();t09Presenter?.destroy();this.p08Animator.destroy();this.combatMotion.reset();
    for(const g of this.t10GhostDeaths.values())g.timer?.remove?.(false);
-    this.t10GhostDeaths.clear();this.shots.destroy();this.mapView.destroy();
+    this.t10GhostDeaths.clear();this.shots.destroy();this.mapView.destroy();this.customActors?.destroy();
   });
   SCENE=this;
   if(USE_T09_NODES)t09Presenter=mountT09Presenter($("app"),{onIntent:intent=>{
@@ -143,7 +149,7 @@ class CombatScene extends Phaser.Scene{
    if(intent.action==="inspect"){feedback("Consulta de alcance, sin afectar combate.");return;}
    runMenuIntent(intent.action==="set_rally"?"rally":intent.action);
   }});
-  wireControls();feedback("Mapa 02 · Campos del Molino · prepara tu defensa.");
+  wireControls();feedback(`Mapa ${String(mapId).padStart(2,"0")} · ${mapName} · prepara tu defensa.`);
  }
 
 
@@ -210,6 +216,7 @@ class CombatScene extends Phaser.Scene{
   return state+"-"+(Math.floor(WORLD.seconds*(state==="walk"?9:state==="attack"?12:5))%count);
  }
  makeActor(kind,x,y){
+  const custom=this.customActors?.make(kind,x,y);if(custom)return custom;
   const visualKind=m02VisualBase(kind);
   const legacy=this.p03Actors.get(visualKind),candidate=p07ItemFor(visualKind);
   const p08=kind==="infantry_recruit"?p08VisualForSoldierLevel(1):p08VisualForEnemy(visualKind);
@@ -241,7 +248,8 @@ class CombatScene extends Phaser.Scene{
    let v=this.enemyViews.get(e.id);
    if(!v){v=this.makeActor(e.type,e.x,e.y);this.enemyViews.set(e.id,v);}
    v.view.setPosition(e.x,e.y).setDepth(e.y+6);
-   if(USE_P08_ACTORS){
+   if(v.custom){this.customActors.present(v,e,WORLD.seconds);}
+   else if(USE_P08_ACTORS){
     this.p08Animator.presentEntity(e.id,{kind:m02VisualBase(e.type),level:1,moving:!e.blockedBy});
     const phase=this.p08Animator.snapshot(e.id);
     v.sprite.setFrame(phase?.frameName??"walk-0");
@@ -260,6 +268,11 @@ class CombatScene extends Phaser.Scene{
   for(const [id,v] of this.enemyViews)if(!ids.has(id)){
    // Only a recent core-confirmed fatal SNIPER impact may retain a visual ghost.
    if(this.t10GhostDeaths.has(id))continue;
+   if(v.custom&&v.lastEntity&&this.customActors.isDead(id)){
+    if(v.deathAt===undefined)v.deathAt=WORLD.seconds;
+    if(WORLD.seconds-v.deathAt<.3){this.customActors.present(v,v.lastEntity,WORLD.seconds,{dead:true});continue;}
+    this.customActors.forget(id);
+   }
    v.view.destroy();this.enemyViews.delete(id);this.p08Animator.entities.delete(id);this.combatMotion.forget(id);
   }
  }
@@ -346,6 +359,7 @@ class CombatScene extends Phaser.Scene{
    return enemy?{x:enemy.x,y:enemy.y}:null;
   };
   for(const ev of events){
+   this.customActors?.event(ev,WORLD.seconds);
    if(ev.type==="enemy_attack_fire"&&presentM02Arrow(this,ev))this.contactFx++;
    // Only CORE-approved contacts produce VFX. Sprite frames never generate damage.
    const impact=USE_P08_ACTORS?this.combatMotion.observe(ev,lookup):null;
@@ -354,7 +368,7 @@ class CombatScene extends Phaser.Scene{
     const u=WORLD.soldiers.find(x=>String(x.id)===String(id));
     if(u)return {kind:u.level===2?"infantry_veteran":"infantry_recruit",level:u.level};
     const e=WORLD.actors.find(x=>String(x.id)===String(id));
-    return e?{kind:m02VisualBase(e.type),level:1}:null;
+    return e&&!this.customActors?.owns(e.type)?{kind:m02VisualBase(e.type),level:1}:null;
    });
    const visual=this.adaptHistoricShot(ev);
    if(visual&&this.shots.accept(visual)&&ev.type==="attack_fire")this.fxFires++;
@@ -363,7 +377,7 @@ class CombatScene extends Phaser.Scene{
     victim.hitUntil=WORLD.seconds+.23;
     // Core has already applied HP/kill/reward. Hold ONLY its presentation
     // 125ms after the verified sniper hit to show the premium pop before fade.
-    const isLethalSniper=ev.hp===0
+    const isLethalSniper=!victim.custom&&ev.hp===0
      &&this.towerMounts.get(ev.towerId)?.meta?.family==="sniper";
     if(isLethalSniper&&!this.t10GhostDeaths.has(ev.entityId)){
      const id=ev.entityId,ms=125;
@@ -392,10 +406,10 @@ class CombatScene extends Phaser.Scene{
  updateHud(){
   const s=WORLD.snapshot;
   $("coins").textContent=String(s.gold);$("lives").textContent=String(s.lives);
-  $("wave").textContent=s.wave+"/7";$("kills").textContent=String(s.kills);
+  $("wave").textContent=s.wave+"/"+waveCount;$("kills").textContent=String(s.kills);
   $("leaks").textContent=String(s.escaped);
   $("state").textContent=s.ended?(s.won?"VICTORIA":"DERROTA"):s.paused?"PAUSA":s.active?"OLEADA EN CURSO":"PREPARACIÓN";
-  $("waveStart").disabled=s.active||s.paused||s.ended||s.wave>=7;
+  $("waveStart").disabled=s.active||s.paused||s.ended||s.wave>=waveCount;
   $("pause").disabled=s.ended;$("pause").textContent=s.paused?"Reanudar":"Pausar";
  }
  reactEvents(events){
@@ -404,10 +418,10 @@ class CombatScene extends Phaser.Scene{
    if(e.type==="hit_applied"&&e.worldPosition&&String(e.bulletId??"").startsWith("melee:")){
     const flash=this.add.circle(e.worldPosition.x,e.worldPosition.y,10,0xffd274,.7).setDepth(32000);
     this.tweens.add({targets:flash,alpha:0,scale:2.2,duration:160,onComplete:()=>flash.destroy()});
-   }else if(e.type==="entity_die")feedback("Orco/Perro eliminado · recompensa única +"+e.bounty+" oro");
+   }else if(e.type==="entity_die")feedback("Enemigo eliminado · recompensa única +"+e.bounty+" oro");
    else if(e.type==="entity_escape")feedback("Fuga: −2 vidas.");
    else if(e.type==="wave_clear")feedback("Oleada "+e.wave+" superada. Prepara la siguiente.");
-   else if(e.type==="campaign_map_win")feedback("Victoria de prueba: las cinco oleadas terminadas.");
+   else if(e.type==="campaign_map_win")feedback(`Victoria: las ${waveCount} oleadas terminadas.`);
    else if(e.type==="defeat")feedback("Derrota: el núcleo quedó sin vidas.");
    else if(e.type==="soldier_attack_hit")feedback("Infantería: golpe cuerpo a cuerpo aplicado en el core.");
    else if(e.type==="soldier_die")feedback("Soldado caído temporalmente; respawn programado.");
@@ -427,6 +441,7 @@ class CombatScene extends Phaser.Scene{
    this.reactEvents(events);this.accumulator-=step;steps++;
   }
   if(steps>=9)this.accumulator=0;
+  this.mapView.update?.(WORLD.seconds);
   this.drawEnemies();this.drawSoldiers();this.updateHud();
   if(WORLD.ended)showEndResult();
   if(WORLD.tickNumber%12===0&&contextIndex!==null)updatePanel();
@@ -559,21 +574,21 @@ function runMenuIntent(intent){
  }finally{menuBusy=false;}
 }
 function showBestScore(){
- let best=null;try{best=m02ReadRecord(window.localStorage);}catch{}
+ let best=null;try{best=readRecord(window.localStorage);}catch{}
  const el=$("record");if(el)el.textContent=best?"Récord: "+("★".repeat(best.stars))+" · "+best.escapes+" fugas":"Récord: sin completar";
 }
 function showEndResult(){
  if(resultShown||!WORLD?.ended)return;
  resultShown=true;
- const result=m02Result(WORLD.snapshot);
+ const result=makeResult(WORLD.snapshot);
  let storage=null;try{storage=window.localStorage;}catch{}
- const saved=result.outcome==="victory"?m02SaveVictory(storage,result):
-  {written:false,best:m02ReadRecord(storage)};
- $("resultTitle").textContent=result.outcome==="victory"?"¡Mapa 02 completado!":"Defensa derrotada";
+ const saved=result.outcome==="victory"?saveVictory(storage,result):
+  {written:false,best:readRecord(storage)};
+ $("resultTitle").textContent=result.outcome==="victory"?`¡Mapa ${String(mapId).padStart(2,"0")} completado!`:"Defensa derrotada";
  $("resultStars").textContent=result.outcome==="victory"?"★".repeat(result.stars)+"☆".repeat(3-result.stars):"Sin estrellas";
  $("resultDetail").textContent=result.outcome==="victory"?
-  "Superaste las 7 oleadas · "+result.kills+" bajas · "+result.escapes+" fugas · "+result.lives+"/100 vidas.":
-  "Oleada "+result.completedWaves+"/7 · "+result.kills+" bajas · "+result.escapes+" fugas.";
+  `Superaste las ${waveCount} oleadas · `+result.kills+" bajas · "+result.escapes+" fugas · "+result.lives+"/100 vidas.":
+  "Oleada "+result.completedWaves+"/"+waveCount+" · "+result.kills+" bajas · "+result.escapes+" fugas.";
  $("resultSaved").textContent=result.outcome==="victory"?
   (saved.written?"Récord guardado únicamente para esta versión Phaser.":"Victoria válida. Almacenamiento local no disponible.")+
     " Regla: 3★ hasta 5 fugas; 2★ hasta 25 (provisional V5).":
@@ -619,8 +634,8 @@ async function start(){
   const [m,c]=await Promise.all(["../../data/maps.v5.json","../../data/campaign140.v5.json"].map(async u=>{
    const res=await fetch(u,{cache:"no-store"});assert(res.ok,"Missing "+u);return res.json();
   }));
-  MAP=m.find(x=>x.id===2);makeM02ArtPlan(MAP);
-  CAMPAIGN=c.maps.find(x=>x.mapId===2);WORLD=new M01CombatWithInfantry(MAP,CAMPAIGN);
+  MAP=m.find(x=>x.id===mapId);(config.makeArtPlan??makeM02ArtPlan)(MAP);
+  CAMPAIGN=c.maps.find(x=>x.mapId===mapId);WORLD=new (config.World??M01CombatWithInfantry)(MAP,CAMPAIGN);
   const canvas=document.createElement("canvas"),gl=canvas.getContext("webgl2",{alpha:false,antialias:true});
   assert(gl&&gl instanceof WebGL2RenderingContext,"WebGL2 requerido");
   new Phaser.Game({type:Phaser.WEBGL,canvas,context:gl,parent:"stage",width:1280,height:768,
@@ -628,6 +643,8 @@ async function start(){
     scale:{mode:Phaser.Scale.FIT, // R4: never crop canonical paths on mobile
       autoCenter:Phaser.Scale.CENTER_BOTH,width:1280,height:768},
     scene:[CombatScene]});
- }catch(error){console.error(error);feedback("BLOQUEANTE R3-C M02: "+error.message);}
+ }catch(error){console.error(error);feedback("BLOQUEANTE M"+String(mapId).padStart(2,"0")+": "+error.message);}
 }
-start();
+await start();
+}
+if(new URLSearchParams(location.search).get("map")!=="3")await startCampaignScene();

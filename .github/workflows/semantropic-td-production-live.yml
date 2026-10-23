@@ -1,4 +1,4 @@
-name: SEMANTROPIC TD — QA producción permanente R7 PRADERAS DEL AMANECER REWORK PREMIUM
+name: SEMANTROPIC TD — QA producción permanente M03 Bosque de los Susurros
 on:
   push:
     branches: [production/semantropic-td-live]
@@ -33,6 +33,7 @@ jobs:
           node docs/direccion-general/qa-u05-f3a-infantry-hd.mjs
           node docs/direccion-general/qa-u06-global-hd.mjs
           node docs/direccion-general/qa-u07-hd-gallery.mjs
+          node tools/qa-m03-campaign.mjs
           node tools/qa-r3-m02-canonical.mjs
           node docs/direccion-general/qa-r3a-m02-rework.mjs
           node docs/direccion-general/qa-r3b-m02-core.mjs
@@ -185,6 +186,11 @@ jobs:
         run: |
           set -euo pipefail
           node tools/qa-r3c-m02-browser.mjs 2>&1 | tee qa-r3c-m02-live.log
+      - name: M03 nueve oleadas y bosque real en desktop y móvil emulado
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/qa-m03-browser.mjs 2>&1 | tee qa-m03-live.log
       - name: Validar atlas P03 aislado y proyectiles Premium C en WebGL2
         shell: bash
         env:
@@ -270,6 +276,7 @@ jobs:
             artifacts/r3a-m02-farmland-browser/
             artifacts/r6-m02-premium-browser/
             artifacts/r7-m01-premium-browser/
+            artifacts/m03-browser/
             artifacts/r3c-m02-browser/
             artifacts/r4-responsive-viewport-browser/
             qa-c1d8-b3-live-url.log
@@ -285,6 +292,7 @@ jobs:
             qa-r3a-m02-farmland.log
             qa-r6-m02-premium.log
             qa-r7-m01-premium.log
+            qa-m03-live.log
             qa-r3c-m02-live.log
             qa-r4-responsive-live.log
           if-no-files-found: warn

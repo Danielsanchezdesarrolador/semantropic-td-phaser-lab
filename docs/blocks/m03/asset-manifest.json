@@ -1,0 +1,23 @@
+{
+  "mapId": 3,
+  "referenceImageDistributed": false,
+  "sourceFilesUnmodified": true,
+  "assets": [
+    {
+      "path": "public/official/art/maps/m03/forest-props-original.png",
+      "bytes": 2822598,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "f5cdca46b331606f35a62a6647a635337d757ea1ed1fb75dfe3090df3cedb37b",
+      "origin": "Original OpenAI image generation for SEMANTROPIC TD, 2026-10-23"
+    },
+    {
+      "path": "public/official/art/maps/m03/forest-terrain-original.png",
+      "bytes": 3487883,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "86616d4bded7004d16fe5f57db8e253bfbfd957258db33ed196860627b55d09a",
+      "origin": "Original OpenAI image generation for SEMANTROPIC TD, 2026-10-23"
+    }
+  ]
+}

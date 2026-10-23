@@ -40,6 +40,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
    const art=texture(TERRAIN_M02);
    return art?[art]:[];
   }
+  if(mapId===3){const art=texture('maps/m03/whispering-forest/scenic/v1');return art?[art]:[];}
   return [];
  }
  function paintTexture(ctx,img,where,dest){
@@ -110,6 +111,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
       {left:mx,top:my+mh,width:mw,height:bottom},'y');
     }
    }
+   scene?.mapView?.paintPanoramaGutters?.(ctx,{left:mx,top:my,width:mw,height:mh,canvasWidth:w,canvasHeight:h});
    drawCount++;
    lastReport=Object.freeze({mapId,width:w,height:h,world:WORLD,
     gutterLeft:Math.round(left),gutterRight:Math.round(right),
@@ -125,7 +127,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
   scheduled=requestAnimationFrame(()=>{scheduled=0;draw();});
  }
  function bind(nextScene,id){
-  if(id!==1&&id!==2)throw Error('R5 unknown map');
+  if(id!==1&&id!==2&&id!==3)throw Error('R5 unknown map');
   scene=nextScene;mapId=id;
   refresh();
   return true;

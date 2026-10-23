@@ -154,7 +154,8 @@ object-fit:contain;image-rendering:auto}
 <section id="results" role="dialog" aria-modal="true" aria-labelledby="resultTitle" hidden>
 <article><h2 id="resultTitle">Resultado</h2><div id="resultStars"></div>
 <p id="resultDetail"></p><small id="resultSaved"></small>
-<button id="resultRestart">Volver a jugar Mapa 01</button></article></section>
+<button id="resultRestart">Volver a jugar Mapa 01</button>
+<button id="resultMapPicker" type="button">Seleccionar mapa</button></article></section>
 <section id="towerHDGallery" hidden role="dialog" aria-modal="true" aria-label="Galería HD de torres">
 <div class="tower-hd-panel">
   <div class="tower-hd-panel__top"><h2>TORRES · GALERÍA HD</h2><button id="towerHDGalleryClose" type="button" aria-label="Cerrar galería HD">✕ Cerrar</button></div>
@@ -174,6 +175,7 @@ object-fit:contain;image-rendering:auto}
 <div class="map-options">
 <button type="button" data-map-target="1">01 · Praderas del Amanecer<small>5 oleadas · 63 enemigos · 365 oro</small></button>
 <button type="button" data-map-target="2">02 · Campos del Molino<small>7 oleadas · 80 enemigos · 395 oro</small></button>
+<button type="button" data-map-target="3">03 · Bosque de los Susurros<small>9 oleadas · 101 enemigos · 410 oro</small></button>
 </div>
 <p>Los enemigos del M02 tienen accesorios visuales provisionales; pendiente aprobación artística final.</p>
 </article></section>
@@ -193,7 +195,9 @@ window.__SEMANTROPIC_VIEWPORT=mountR4Viewport();
 <script type="module">
 import {mountR3CMapPicker} from '../maps-visual/m02/map-picker.mjs';
 const selection=mountR3CMapPicker();
-if(selection.selectedMap===2){
+if(selection.selectedMap===3){
+ await import('../c1d8-b2-playable/scene-m03.mjs?release=m03-forest-premium-v1');
+}else if(selection.selectedMap===2){
  await import('../c1d8-b2-playable/scene-m02.mjs?release=r3c-m02-real-seven-wave-v1&r5=seamless-landscape-1&r6=golden-valley-art-v1');
 }else{
  await import('../c1d8-b2-playable/scene.mjs?release=u07-hd-gallery-live-v1&r5=seamless-landscape-1&r7=dawn-plateau-hf3');

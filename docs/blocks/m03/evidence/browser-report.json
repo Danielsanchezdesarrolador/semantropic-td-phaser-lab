@@ -1,0 +1,469 @@
+{
+  "status": "PASS_M03_WEBGL2_THREE_VIEWPORTS",
+  "results": [
+    {
+      "profile": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 768
+      },
+      "initial": {
+        "snapshot": {
+          "contract": "m03-nine-wave-canonical-v1",
+          "mapId": 3,
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 410,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 188,
+          "navRepaths": 0
+        },
+        "props": 25,
+        "rejected": 4,
+        "ambient": {
+          "mapId": 3,
+          "states": [
+            [
+              "m03-pad-01",
+              "empty"
+            ],
+            [
+              "m03-pad-02",
+              "empty"
+            ],
+            [
+              "m03-pad-03",
+              "empty"
+            ],
+            [
+              "m03-pad-04",
+              "empty"
+            ],
+            [
+              "m03-pad-05",
+              "empty"
+            ],
+            [
+              "m03-pad-06",
+              "empty"
+            ],
+            [
+              "m03-pad-07",
+              "empty"
+            ],
+            [
+              "m03-pad-08",
+              "empty"
+            ]
+          ],
+          "ambientObjects": 17,
+          "ambientSeconds": 0.016666666666666666,
+          "reducedMotion": false
+        },
+        "texture": [
+          2560,
+          1536
+        ],
+        "renderer": 2
+      },
+      "completed": {
+        "snapshot": {
+          "contract": "m03-nine-wave-canonical-v1",
+          "mapId": 3,
+          "mode": "normal",
+          "wave": 9,
+          "active": false,
+          "ended": true,
+          "won": true,
+          "paused": false,
+          "lives": 84,
+          "gold": 481,
+          "kills": 93,
+          "escaped": 8,
+          "totalSpawns": 101,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 188,
+          "navRepaths": 0
+        },
+        "counts": [
+          8,
+          8,
+          10,
+          8,
+          8,
+          9,
+          15,
+          14,
+          21
+        ],
+        "types": [
+          "foreststalker",
+          "warrior",
+          "hunter",
+          "hound",
+          "archer",
+          "bat",
+          "shieldbearer"
+        ],
+        "events": {
+          "wave_start": 9,
+          "spawn": 101,
+          "target_acquired": 354,
+          "attack_windup": 354,
+          "attack_fire": 324,
+          "hit_applied": 302,
+          "hp_changed": 302,
+          "entity_die": 93,
+          "wave_clear": 9,
+          "wave_bonus": 8,
+          "game_paused": 2,
+          "game_resumed": 2,
+          "entity_escape": 8,
+          "campaign_map_win": 1
+        },
+        "ledger": 117
+      },
+      "diagnostics": {
+        "softwareDesktopFps": 47.25,
+        "jsHeapBytes": 144400641,
+        "drawCalls": "NOT_INSTRUMENTED",
+        "displayObjects": 29
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch844",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "initial": {
+        "snapshot": {
+          "contract": "m03-nine-wave-canonical-v1",
+          "mapId": 3,
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 410,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 188,
+          "navRepaths": 0
+        },
+        "props": 25,
+        "rejected": 4,
+        "ambient": {
+          "mapId": 3,
+          "states": [
+            [
+              "m03-pad-01",
+              "empty"
+            ],
+            [
+              "m03-pad-02",
+              "empty"
+            ],
+            [
+              "m03-pad-03",
+              "empty"
+            ],
+            [
+              "m03-pad-04",
+              "empty"
+            ],
+            [
+              "m03-pad-05",
+              "empty"
+            ],
+            [
+              "m03-pad-06",
+              "empty"
+            ],
+            [
+              "m03-pad-07",
+              "empty"
+            ],
+            [
+              "m03-pad-08",
+              "empty"
+            ]
+          ],
+          "ambientObjects": 17,
+          "ambientSeconds": 0.016666666666666666,
+          "reducedMotion": false
+        },
+        "texture": [
+          2560,
+          1536
+        ],
+        "renderer": 2
+      },
+      "completed": {
+        "snapshot": {
+          "contract": "m03-nine-wave-canonical-v1",
+          "mapId": 3,
+          "mode": "normal",
+          "wave": 9,
+          "active": false,
+          "ended": true,
+          "won": true,
+          "paused": false,
+          "lives": 84,
+          "gold": 481,
+          "kills": 93,
+          "escaped": 8,
+          "totalSpawns": 101,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 188,
+          "navRepaths": 0
+        },
+        "counts": [
+          8,
+          8,
+          10,
+          8,
+          8,
+          9,
+          15,
+          14,
+          21
+        ],
+        "types": [
+          "foreststalker",
+          "warrior",
+          "hunter",
+          "hound",
+          "archer",
+          "bat",
+          "shieldbearer"
+        ],
+        "events": {
+          "wave_start": 9,
+          "spawn": 101,
+          "target_acquired": 354,
+          "attack_windup": 354,
+          "attack_fire": 324,
+          "hit_applied": 302,
+          "hp_changed": 302,
+          "entity_die": 93,
+          "wave_clear": 9,
+          "wave_bonus": 8,
+          "game_paused": 2,
+          "game_resumed": 2,
+          "entity_escape": 8,
+          "campaign_map_win": 1
+        },
+        "ledger": 117
+      },
+      "diagnostics": {
+        "softwareDesktopFps": 46.75,
+        "jsHeapBytes": 288948931,
+        "drawCalls": "NOT_INSTRUMENTED",
+        "displayObjects": 29
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch932",
+      "viewport": {
+        "width": 932,
+        "height": 430
+      },
+      "initial": {
+        "snapshot": {
+          "contract": "m03-nine-wave-canonical-v1",
+          "mapId": 3,
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 410,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 188,
+          "navRepaths": 0
+        },
+        "props": 25,
+        "rejected": 4,
+        "ambient": {
+          "mapId": 3,
+          "states": [
+            [
+              "m03-pad-01",
+              "empty"
+            ],
+            [
+              "m03-pad-02",
+              "empty"
+            ],
+            [
+              "m03-pad-03",
+              "empty"
+            ],
+            [
+              "m03-pad-04",
+              "empty"
+            ],
+            [
+              "m03-pad-05",
+              "empty"
+            ],
+            [
+              "m03-pad-06",
+              "empty"
+            ],
+            [
+              "m03-pad-07",
+              "empty"
+            ],
+            [
+              "m03-pad-08",
+              "empty"
+            ]
+          ],
+          "ambientObjects": 17,
+          "ambientSeconds": 0.016666666666666666,
+          "reducedMotion": false
+        },
+        "texture": [
+          2560,
+          1536
+        ],
+        "renderer": 2
+      },
+      "completed": {
+        "snapshot": {
+          "contract": "m03-nine-wave-canonical-v1",
+          "mapId": 3,
+          "mode": "normal",
+          "wave": 9,
+          "active": false,
+          "ended": true,
+          "won": true,
+          "paused": false,
+          "lives": 84,
+          "gold": 481,
+          "kills": 93,
+          "escaped": 8,
+          "totalSpawns": 101,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 188,
+          "navRepaths": 0
+        },
+        "counts": [
+          8,
+          8,
+          10,
+          8,
+          8,
+          9,
+          15,
+          14,
+          21
+        ],
+        "types": [
+          "foreststalker",
+          "warrior",
+          "hunter",
+          "hound",
+          "archer",
+          "bat",
+          "shieldbearer"
+        ],
+        "events": {
+          "wave_start": 9,
+          "spawn": 101,
+          "target_acquired": 354,
+          "attack_windup": 354,
+          "attack_fire": 324,
+          "hit_applied": 302,
+          "hp_changed": 302,
+          "entity_die": 93,
+          "wave_clear": 9,
+          "wave_bonus": 8,
+          "game_paused": 2,
+          "game_resumed": 2,
+          "entity_escape": 8,
+          "campaign_map_win": 1
+        },
+        "ledger": 117
+      },
+      "diagnostics": {
+        "softwareDesktopFps": 47.5,
+        "jsHeapBytes": 125558767,
+        "drawCalls": "NOT_INSTRUMENTED",
+        "displayObjects": 29
+      },
+      "errors": []
+    }
+  ],
+  "physicalMobile": "NOT_RUN",
+  "artisticApproval": "PENDING"
+}
