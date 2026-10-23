@@ -50,6 +50,10 @@ export function makeM03ArtPlan(map){
 }
 function seedRandom(seed){return ()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
 function trace(ctx,path){ctx.beginPath();path.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));}
+export function paintM03Road(ctx,path){
+ ctx.lineCap='round';ctx.lineJoin='round';
+ for(const [width,color] of [[83,'#385741'],[77,'#8c8752'],[71,'#c6aa70'],[61,'#dfc18a'],[49,'#e8cb94']]){trace(ctx,path);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
+}
 function rectNearPoint(r,x,y,margin){return Math.hypot(Math.max(r.x-x,0,x-r.x-r.w),Math.max(r.y-y,0,y-r.y-r.h))<margin;}
 export function makeM03ArtCanvas(map,image,{density=2,scenic=false,terrainImage}={}){
  const plan=makeM03ArtPlan(map),props=extractForestProps(image),c=canvas(1280*density,768*density),ctx=c.getContext('2d');
@@ -75,10 +79,9 @@ export function makeM03ArtCanvas(map,image,{density=2,scenic=false,terrainImage}
   prop('waterfall',510,649,132);
   for(const [x,y,w] of [[197,355,85],[385,310,65],[760,271,75],[893,362,64],[531,548,65],[1098,574,64],[70,572,70],[800,606,57]])prop('undergrowth',x,y,w);
  }
- {
+ if(!scenic){
   // A continuous warm trail from exactly the authoritative path samples.
-  ctx.lineCap='round';ctx.lineJoin='round';
-  for(const [width,color] of [[83,'#385741'],[77,'#8c8752'],[71,'#c6aa70'],[61,'#dfc18a'],[49,'#e8cb94']]){trace(ctx,map.path);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
+  paintM03Road(ctx,map.path);
   for(let i=0;i<2000;i++){
    const idx=Math.floor(rand()*(map.path.length-1)),p=map.path[idx],q=map.path[idx+1],d=Math.hypot(q[0]-p[0],q[1]-p[1])||1,offset=(rand()-.5)*53;
    const x=p[0]-(q[1]-p[1])/d*offset,y=p[1]+(q[0]-p[0])/d*offset;
@@ -88,7 +91,7 @@ export function makeM03ArtCanvas(map,image,{density=2,scenic=false,terrainImage}
    for(const side of [-1,1]){const x=p[0]-dy/len*37*side,y=p[1]+dx/len*37*side;ctx.fillStyle=i%2?'#ded7a1':'#aaa77a';ctx.beginPath();ctx.ellipse(x,y,3+rand()*2,2.3,rand(),0,Math.PI*2);ctx.fill();}
    ctx.fillStyle='#b49a642e';ctx.fillRect(p[0]-5,p[1]+4,8,1.2);
   }
-  if(!scenic)for(const p of plan.sockets){const {x,y}=p.world;
+  for(const p of plan.sockets){const {x,y}=p.world;
    ctx.fillStyle='#163f4366';ctx.beginPath();ctx.ellipse(x,y+9,40,24,0,0,Math.PI*2);ctx.fill();
    ctx.fillStyle='#657b67';ctx.beginPath();ctx.ellipse(x,y+3,36,25,0,0,Math.PI*2);ctx.fill();
    ctx.fillStyle='#d9c99a';ctx.strokeStyle='#ece3b8';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(x,y-3,35,23,0,0,Math.PI*2);ctx.fill();ctx.stroke();

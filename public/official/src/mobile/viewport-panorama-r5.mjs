@@ -111,6 +111,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
       {left:mx,top:my+mh,width:mw,height:bottom},'y');
     }
    }
+   scene?.mapView?.paintPanoramaGutters?.(ctx,{left:mx,top:my,width:mw,height:mh,canvasWidth:w,canvasHeight:h});
    drawCount++;
    lastReport=Object.freeze({mapId,width:w,height:h,world:WORLD,
     gutterLeft:Math.round(left),gutterRight:Math.round(right),
