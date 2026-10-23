@@ -1,0 +1,72 @@
+{
+  "status": "PASS_REAL_TIME_M03_SNIPER_AND_INFANTRY",
+  "snapshot": {
+    "contract": "m03-nine-wave-canonical-v1",
+    "mapId": 3,
+    "mode": "normal",
+    "wave": 1,
+    "active": true,
+    "ended": false,
+    "won": false,
+    "paused": true,
+    "lives": 100,
+    "gold": 100,
+    "kills": 3,
+    "escaped": 0,
+    "totalSpawns": 6,
+    "spawnsRemaining": 2,
+    "enemies": 3,
+    "bullets": 0,
+    "onlySniperCombat": false,
+    "infantryCombatImplemented": true,
+    "corePersistsRecords": false,
+    "soldiers": 2,
+    "soldiersRespawning": 0,
+    "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+    "navNodes": 188,
+    "navRepaths": 112
+  },
+  "diagnostics": {
+    "towers": 2,
+    "enemies": 3,
+    "p08Entities": 5,
+    "t09Nodes": 0,
+    "b3": {
+      "tracked": 0,
+      "windups": 0,
+      "swordContacts": 0,
+      "enemyContacts": 0,
+      "gameplayWrites": 0
+    },
+    "confirmedVisualContacts": 0,
+    "t10Fires": 4,
+    "t10PremiumOpticalMuzzle": true,
+    "t10RifleAuthority": "P03_OPERATOR",
+    "t10BuildingRifleSuppressed": 1,
+    "t10Ghosts": 0,
+    "t10HeldKills": 0,
+    "u02Facing": [
+      {
+        "towerId": "map3-tower-2",
+        "facing": "right",
+        "targetId": 4,
+        "operatorDepth": 415,
+        "structureDepth": 414,
+        "frontRailDepth": 416
+      }
+    ],
+    "soldiers": 2,
+    "fxFires": 4,
+    "shots": {
+      "active": 1,
+      "seen": 12,
+      "visualFireCount": 4,
+      "visualHitCount": 4,
+      "correlatedBullets": 0,
+      "variant": "A",
+      "premium": true,
+      "destroyed": false
+    }
+  },
+  "errors": []
+}

@@ -17,3 +17,5 @@ Entorno: Node 24.19.0, Phaser 4.2.1, Chromium del sistema y SwiftShader; los run
 Rendimiento: `softwareDesktopFps` son muestras internas breves tras carga/navegación en escritorio con GPU por software, no medias de toda la partida. `jsHeapBytes` son snapshots de heap sin forzar GC, no VRAM ni pruebas de ausencia de fugas. `drawCalls=NOT_INSTRUMENTED`. No se certifica 60fps, consumo ni fluidez de teléfono físico.
 
 La aceptación artística/comercial permanece pendiente del Director. Ver estado definitivo de CI, merge y entrega LIVE en el [PR #52](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/52); este fichero no afirma una publicación anterior a su comprobación.
+
+Combate adicional a tiempo real en 844×390: **M03_REAL_SNIPER_COMBAT_844.png** y **real-sniper-report.json**: 4 disparos presentados, 3 bajas reales, Infantería II + Francotirador I, sin errores JS. Reproducción: `npm run build`, servir `dist` con `python -m http.server 8003 --directory dist`, después `node docs/blocks/m03/evidence/qa-real-time-sniper.cjs` (Playwright instalado; si se usa Chromium del sistema, `M03_CHROMIUM_EXECUTABLE=/usr/bin/chromium`).
