@@ -12,7 +12,7 @@ assert.equal(hash('public/official/src/maps-visual/m01/r7/renderer-r7-b01-archiv
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===1),plan=makeR7MapPlan(map);assert.deepEqual(plan.path,map.path);assert.equal(plan.pads.length,8);assert.equal(plan.path.length,133);assert.equal(map.gold,365);
 assert(!propClears({x:map.path[30][0]-2,y:map.path[30][1]-2,w:4,h:4},plan));for(const p of plan.pads)assert(!propClears({x:p.x-2,y:p.y-2,w:4,h:4},plan));
 assert.equal(MESAS.length,7);assert(!supportsFoot(750,415),'No support in a cliff face');assert(!supportsFoot(300,760),'No support on river');for(const pad of plan.pads)assert(supportsFoot(pad.x,pad.y),'Canonical pad must rest on terrain');
-assert.equal(STYLE01_VERSION,'m01-fidelity-cartoon01-layered-mesas-v1');
+assert.equal(STYLE01_VERSION,'m01-texture-definition-cartoon-v1');
 const source=readFileSync('public/official/src/maps-visual/m01/style01/cartoon-world.mjs','utf8');assert(source.includes('mountM01WorldV7(scene,map,options)'));assert(source.includes('separate-Phaser-components'));assert(!/\.gold\s*[+\-]?=|\.lives\s*=|startWave\(|\.hit\(/.test(source),'Art cannot mutate gameplay');
 const reliefSource=readFileSync('public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs','utf8');assert(!/core-c1d|\.gold\s*[+\-]?=|\.lives\s*=|startWave\(|\.hit\(/.test(reliefSource),'Relief must stay visual-only');
 // No public source or asset outside the M01 visual boundary can change.

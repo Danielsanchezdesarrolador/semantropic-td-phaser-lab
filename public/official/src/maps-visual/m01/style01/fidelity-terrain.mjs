@@ -1,3 +1,4 @@
+import {crispContext,defineSurface} from './texture-definition.mjs';
 /** M01-specific illustrated relief. Read-only geometry; rasterized once at mount. */
 const W=1280,H=768,S=2;
 const canvas=()=>Object.assign(document.createElement('canvas'),{width:W*S,height:H*S});
@@ -17,17 +18,17 @@ function grassField(source){
  const v=canvas(),c=v.getContext('2d');c.scale(S,S);const band=source.height/3;
  c.fillStyle='#9fc83e';c.fillRect(0,0,W,H);
  // Uniform material scale. Feather overlaps avoid a seam between material repeats.
- const tile=document.createElement('canvas');tile.width=1280;tile.height=284;
- const t=tile.getContext('2d');t.drawImage(source,0,band,source.width,band,0,0,1280,284);
+ const tile=document.createElement('canvas');tile.width=2560;tile.height=568;
+ const t=crispContext(tile);t.scale(S,S);t.filter='contrast(1.07)';t.drawImage(source,0,band,source.width,band,0,0,1280,284);t.filter='none';
  t.globalCompositeOperation='destination-in';const fade=t.createLinearGradient(0,0,0,284);fade.addColorStop(0,'#0000');fade.addColorStop(.08,'#000');fade.addColorStop(.92,'#000');fade.addColorStop(1,'#0000');t.fillStyle=fade;t.fillRect(0,0,1280,284);
- for(let y=-40;y<H;y+=248)c.drawImage(tile,0,y);
+ for(let y=-40;y<H;y+=248)c.drawImage(tile,0,y,1280,284);
  return v;
 }
 function waterField(source){
  const v=canvas(),c=v.getContext('2d');c.scale(S,S);c.fillStyle='#06b8e5';c.fillRect(0,0,W,H);const band=source.height/3;
- const tile=document.createElement('canvas');tile.width=640;tile.height=142;const t=tile.getContext('2d');t.drawImage(source,0,band*2,source.width,band,0,0,640,142);
+ const tile=document.createElement('canvas');tile.width=1280;tile.height=284;const t=crispContext(tile);t.scale(S,S);t.filter='contrast(1.04)';t.drawImage(source,0,band*2,source.width,band,0,0,640,142);t.filter='none';
  for(const axis of ['x','y']){t.globalCompositeOperation='destination-in';const length=axis==='x'?640:142,fade=t.createLinearGradient(0,0,axis==='x'?length:0,axis==='y'?length:0);fade.addColorStop(0,'#0000');fade.addColorStop(.07,'#000');fade.addColorStop(.93,'#000');fade.addColorStop(1,'#0000');t.fillStyle=fade;t.fillRect(0,0,640,142);}
- for(let y=490;y<H;y+=120)for(let x=-70;x<W;x+=592)c.drawImage(tile,x,y);
+ for(let y=490;y<H;y+=120)for(let x=-70;x<W;x+=592)c.drawImage(tile,x,y,640,142);
  return v;
 }
 export function makeFidelitySubstrate(source){
@@ -67,5 +68,6 @@ export function makeFidelityRelief(atlas,source){
   fc.beginPath();edge.forEach(([x,y],i)=>i?fc.lineTo(x,y+m.height*taper(x)-8):fc.moveTo(x,y+m.height*taper(x)-8));fc.strokeStyle='#234e5344';fc.lineWidth=4;fc.stroke();
   formations.push({id:m.id,height:m.height,edge,art:'original-cliff-atlas',uniformMotifScale:true});
  }
+ defineSurface(face,{contrast:1.09,sharpness:.34});
  return {top,face,formations};
 }
