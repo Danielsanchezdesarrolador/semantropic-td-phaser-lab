@@ -75,7 +75,7 @@ export function makeM03ArtCanvas(map,image,{density=2,scenic=false,terrainImage}
   prop('waterfall',510,649,132);
   for(const [x,y,w] of [[197,355,85],[385,310,65],[760,271,75],[893,362,64],[531,548,65],[1098,574,64],[70,572,70],[800,606,57]])prop('undergrowth',x,y,w);
  }
- if(!scenic){
+ {
   // A continuous warm trail from exactly the authoritative path samples.
   ctx.lineCap='round';ctx.lineJoin='round';
   for(const [width,color] of [[83,'#385741'],[77,'#8c8752'],[71,'#c6aa70'],[61,'#dfc18a'],[49,'#e8cb94']]){trace(ctx,map.path);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
@@ -88,7 +88,7 @@ export function makeM03ArtCanvas(map,image,{density=2,scenic=false,terrainImage}
    for(const side of [-1,1]){const x=p[0]-dy/len*37*side,y=p[1]+dx/len*37*side;ctx.fillStyle=i%2?'#ded7a1':'#aaa77a';ctx.beginPath();ctx.ellipse(x,y,3+rand()*2,2.3,rand(),0,Math.PI*2);ctx.fill();}
    ctx.fillStyle='#b49a642e';ctx.fillRect(p[0]-5,p[1]+4,8,1.2);
   }
-  for(const p of plan.sockets){const {x,y}=p.world;
+  if(!scenic)for(const p of plan.sockets){const {x,y}=p.world;
    ctx.fillStyle='#163f4366';ctx.beginPath();ctx.ellipse(x,y+9,40,24,0,0,Math.PI*2);ctx.fill();
    ctx.fillStyle='#657b67';ctx.beginPath();ctx.ellipse(x,y+3,36,25,0,0,Math.PI*2);ctx.fill();
    ctx.fillStyle='#d9c99a';ctx.strokeStyle='#ece3b8';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(x,y-3,35,23,0,0,Math.PI*2);ctx.fill();ctx.stroke();
