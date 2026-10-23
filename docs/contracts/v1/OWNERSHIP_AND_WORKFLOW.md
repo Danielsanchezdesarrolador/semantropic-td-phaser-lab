@@ -1,4 +1,8 @@
 # PM-03/C0 — Ownership de equipos, ramas, PRs y QA
+
+> **Vigencia organizativa:** la Dirección General reemplazó los tres equipos independientes por un equipo central integral de Codex. `AGENTS.md` y `docs/direccion-general/ROADMAP_CENTRAL.md` definen el flujo vigente. M/T/P se conservan como áreas modulares; las ramas reservadas, worktrees por equipo y fases C0 indicadas abajo son historia y no obligan a crear tres flujos. Los contratos técnicos de sockets, eventos, anclajes y autoridad del CORE no se modifican por este cambio organizativo. No eliminar ni fusionar ramas históricas indiscriminadamente.
+
+## Documento histórico de coordinación C0
 **Coordinación:** Dirección General + Integrador técnico (este frente de integración). **Rama:** integration/phaser.
 
 ## Decisiones de base

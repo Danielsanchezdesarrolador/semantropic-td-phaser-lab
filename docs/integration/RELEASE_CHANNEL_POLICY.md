@@ -1,5 +1,21 @@
 # SEMANTROPIC TD — Canal oficial único y desarrollo continuo (20-oct-2026)
 
+## Metodología vigente — equipo único
+La decisión más reciente del Director sustituye el esquema histórico de tres equipos independientes. Codex es el equipo central integral; la separación de mapas, torres/VFX, actores y CORE sigue siendo técnica. `AGENTS.md` y `docs/direccion-general/ROADMAP_CENTRAL.md` gobiernan el trabajo futuro. Los SHAs/escenas de las entregas antiguas que siguen abajo son antecedentes, no el estado perpetuo del juego.
+
+Un bloque autorizado → rama acotada/PR del equipo central → QA aplicable y regresiones → promoción atómica a `production/semantropic-td-live` → Render en la misma URL → comprobación de archivos/versión publicada y entrega con instrucciones de prueba. No pedir aprobaciones redundantes dentro del alcance ya autorizado. No fusionar ni eliminar ramas históricas indiscriminadamente.
+
+Antes de entregar un bloque jugable:
+1. Ejecutar las pruebas técnicas necesarias.
+2. Verificar regresiones de las funciones y mapas afectados.
+3. Comprobar la publicación efectiva en Render.
+4. Confirmar que la URL oficial carga el contenido nuevo, registrando la evidencia disponible; no afirmar metadatos internos de deploy no expuestos.
+5. Entregar `https://semantropic-td-jugar.onrender.com/official/src/live/` y señalar exactamente qué debe revisar el Director.
+
+Una versión no publicada o no verificada debe reportarse como tal. No presentar el sitio anterior como si contuviera cambios nuevos. Los bloques solo documentales identifican el juego vigente y aclaran que no añaden novedades jugables.
+
+## Antecedentes del canal y entregas previas
+
 ## Decisión confirmada por el usuario
 Publicar desde ahora cada **bloque funcional verificado** directamente en el **mismo juego**, sin necesitar consentimiento nuevo en cada actualización ordinaria ni producir URLs de pruebas sucesivas. El usuario confirmó expresamente autorización de actualizar el sitio existente C1-D7 y el flujo continuo. No adelantar bloques sin QA ni interrumpir servicios existentes.
 
@@ -13,8 +29,8 @@ Publicar desde ahora cada **bloque funcional verificado** directamente en el **m
 - M01 conserva cinco oleadas (63 enemigos), ocho plataformas, 133 waypoints, Infantería niveles I/II, Francotirador I/II, resultados y récord local.
 
 ## Metodología de publicación sin nuevas esperas
-1. Los equipos crean **bloques pequeños** y commits recuperables en ramas de ownership, sin alterar Canvas V5/campaña/arte aprobado.
-2. Integrador valida cada bloque (mínimo Node, build y Chromium real incluyendo controles táctiles y fuente visual). Nuevas mecánicas con efecto en la partida requieren QA específico del ciclo afectado; no simular resultados.
+1. El equipo central crea **bloques pequeños** y commits recuperables en una rama acotada/PR por bloque, sin alterar Canvas V5/campaña/arte aprobado.
+2. El equipo central valida cada bloque (mínimo Node, build y Chromium real incluyendo controles táctiles y fuente visual). Nuevas mecánicas con efecto en la partida requieren QA específico del ciclo afectado; no simular resultados.
 3. Tras **QA aprobado** se promueve por commit atómico a la rama de producción, que Render autodespliega **en la URL anterior**, conservando sitio, rutas y guardados compatibles.
 4. Verificar Render LIVE, CI de ruta canónica y funcionamiento; ante falla, **rollback en la misma rama y misma URL** sin crear sitios alternativos.
 5. Para cambios artísticos grandes o de diseño no solicitados, consultar y mostrar capturas; para correcciones y funciones ya autorizadas, **no repetir solicitudes de permiso**.

@@ -1,25 +1,25 @@
 # SEMANTROPIC TD — PROTOCOLO ÚNICO DE DIRECCIÓN Y BITÁCORA
 **Fecha de adopción:** 21 octubre 2026. **Actualización de entrega:** T10 R1-HF2.
-**ESTADO**: documento canónico permanente; siempre corroborar SHA de producción y CI actual en GitHub/Render al comenzar cada chat.
+**ESTADO**: bitácora histórica y estado verificable. La metodología vigente está en `AGENTS.md` y el orden operativo único en `ROADMAP_CENTRAL.md`. La nueva decisión de equipo único sustituye toda instrucción histórica de tres equipos; las entradas anteriores se conservan como antecedentes. Siempre corroborar SHA de producción y CI actual en GitHub/Render al comenzar cada chat.
 
 ## 1. IDENTIDAD Y AUTORIDAD
 Juego SEMANTROPIC TD (NO Semantropic Trivia/Unity), Tower Defense Phaser 4.2.1/WebGL2, cartoon militar futurista 2D 3/4 con estética original. Una sola Dirección General y un solo chat principal. El Director humano aprueba el resultado artístico. El asistente planifica, implementa mediante herramientas conectadas, revisa GitHub y Render, registra QA, despliega y lleva la bitácora. No generar prompts para otros chats o dividir los desarrollos entre MAPAS / TORRES / PERSONAJES. Los anteriores equipos quedan históricos. El último trabajo TORRES termina con PR #49, consumido selectivamente por release directo.
 
 ## 2. PRODUCCIÓN: UNA URL Y UN FLUJO
 - Repo: `Danielsanchezdesarrolador/semantropic-td-phaser-lab`.
-- Rama única de trabajo y producción: `production/semantropic-td-live`. No abrir ramas experimentales ni versiones paralelas para probar.
+- Rama única de publicación: `production/semantropic-td-live`. El equipo central trabaja un bloque a la vez en rama acotada/PR y lo promueve tras QA; no mantiene tres flujos M/T/P simultáneos ni crea sitios públicos alternativos.
 - URL pública PERMANENTE: https://semantropic-td-jugar.onrender.com/official/src/live/
 - Render service ID: `srv-dbbqpl7avr4c73duc8lg`, workspace `tea-daum20gjo6nc73dndfqg`.
-- Un objetivo en ejecución, un bloque a la vez; actualizar directamente la rama de producción con un commit atómico después de inspección del código, salvaguardas y pruebas disponibles. El auto-deploy de Render ejecuta el cambio. Verificar commit->Render LIVE y CI de GitHub.
+- Un objetivo en ejecución, un bloque a la vez; promover atómicamente el PR del equipo central a producción después de inspección del código, salvaguardas y QA aplicable. El auto-deploy de Render ejecuta el cambio. Verificar commit->Render LIVE y CI de GitHub.
 - Mantener rollback por commit anterior; no inventar PASS, no forzar escrituras concurrentes ni modificar archivos protegidos sin autorización. No usar otra URL pública.
 - **No confundir commit/push con QA PASS ni con aceptación Android**. Puede haber resultados visuales insatisfactorios aun con CI verde; repararlos sobre la misma URL.
 
 ## 3. ESTADO DEL JUEGO
 - Una campaña histórica Canvas V5 de 10 mapas y 140 oleadas sirve como fuente PROTEGIDA; todavía no es campaña Phaser jugable.
-- Phaser LIVE: M01 `Praderas del Amanecer` con 5 oleadas, 63 enemigos, 100 vidas, oro, menú, rally, Infantería I/II, Francotirador I/II, victoria/derrota/estrellas. No afirmar M02+ jugable.
+- Phaser LIVE: M01 `Praderas del Amanecer` con 5 oleadas, 63 enemigos, 100 vidas, oro, menú, rally, Infantería I/II, Francotirador I/II, victoria/derrota/estrellas. M02 también está integrado: siete oleadas/80 enemigos, 163 nodos y ocho pads; M03–M10 continúan pendientes de port Phaser.
 - Identidad protegida C1-C M03/T04/P03; hashes e inventarios del repositorio prevalecen.
 - Fuentes protegidas: `public/JUEGO_V5_CANVAS.html`, `public/official/data/maps.v5.json`, `public/official/data/campaign140.v5.json`, `public/official/src/m01-model.mjs`.
-- Próximo objetivo luego de aprobación del Francotirador: cierre M01, después M02 `Campos del Molino`, ruta 1 entrada, 8 pads, 7 olas y 80 enemigos según acta DG PR #45. Requiere core de enemigos archer/shieldbearer, no es solo decorado.
+- Siguiente alcance: consultar `ROADMAP_CENTRAL.md` y la orden vigente del Director. M01 HF3 espera validación artística final; M02 ya incluye core/escena con archer y shieldbearer. No reconstruir esas funciones a partir de objetivos históricos.
 
 ## 4. HISTORIAL ÚLTIMOS BLOQUES
 - C1-D8/B2: origen T04 por proyección del muzzle; Android Director detectó que la bala nacía lejos del rifle visible.
@@ -31,7 +31,7 @@ Juego SEMANTROPIC TD (NO Semantropic Trivia/Unity), Tower Defense Phaser 4.2.1/W
 ## 5. PROCEDIMIENTO DE CADA BLOQUE
 1) Inspeccionar este documento y el último SHA/CI/Render reales; mirar capturas y reclamos del Director.
 2) Especificar un único resultado observable y restricciones de regresión.
-3) Revisar archivos reales; implementar de forma atómica directo en `production/semantropic-td-live` sin ramas de prueba; conservar commit anterior de rollback.
+3) Revisar archivos reales; implementar el bloque del equipo único en una rama acotada/PR, validarlo y promoverlo atómicamente a `production/semantropic-td-live`; conservar commit anterior de rollback.
 4) CI Node 22/build Phaser; Chromium WebGL2 1280x768, 844x390, 932x430 cuando corresponda, M01 completo, y comprobación de identidad.
 5) Render LIVE mismo link, sha debe coincidir. Comunicar estado honestamente.
 6) Director evalúa Android físico; cerrar bloque solo si aprueba; si detecta fallo aplicar microcorrectivo sobre misma versión.
@@ -175,3 +175,11 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - M02 R6 aprobado, M07, escenas, campaña, core, torres/actores y FIT/fullscreen sin cambios. Caché HTML HF3 y pintor `layout=hf3`.
 - Local: build + 70 controles Node/sintaxis PASS; R7 Chromium tres resoluciones PASS con 1.217 muestras de calzada por perfil; B3 M01 construcción, tropas, cinco oleadas/63 enemigos, victoria/derrota PASS. CI remoto y publicación requieren consultar el SHA de este commit, sin atribuir resultados de un run anterior. QA técnica no sustituye aprobación artística ni hardware Android.
 - Acta: `ACTA_R7_HF3_CAMINO_DESPEJADO_2026-10-22.md`. Rollback por commit compensatorio a `1b04ef9a76a946ee2028a87a92c4136daf9aae8a`. Una sola rama/URL de producción.
+
+
+## 22. Metodología oficial — equipo central único
+- Decisión expresa del Director: Codex concentra mapas, torres/VFX, actores, gameplay/economía/progresión, UX móvil, optimización, integración y QA. M/T/P quedan como separación modular, no equipos ni flujos paralelos.
+- Un roadmap operativo: `ROADMAP_CENTRAL.md`. Mantener todos los contratos técnicos y decisiones aprobadas. No reiniciar sistemas ni recuperar propuestas históricas por inercia.
+- Las 60 ramas remotas observadas se inventariaron por SHA/base/divergencia/rutas; 35 no son ancestros de HF3. Se compararon blobs representativos y se observaron fuentes artísticas idénticas ya presentes en producción pese a historia divergente. No se eliminó ni fusionó ninguna rama histórica. Ver `AUDITORIA_RAMAS_HISTORICAS.json`.
+- Cada bloque jugable autorizado requiere QA, regresión y comprobación de publicación/contenido en Render antes de entregar la URL oficial, con instrucciones concretas de prueba. Si no está publicado o no se verificó, decirlo sin presentar el enlace previo como versión nueva.
+- Este bloque es documental: no cambia código, mapas, assets, datos, guardados ni gameplay; el último contenido jugable sigue siendo HF3 `5388a49`, CI 39890530324 SUCCESS. La aceptación artística de M01 y las pruebas físicas siguen pendientes.
