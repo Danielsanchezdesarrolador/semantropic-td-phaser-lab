@@ -1,0 +1,97 @@
+{
+  "status": "PASS_M04_HF1_INTEGRATED_WEBGL2",
+  "cases": [
+    {
+      "profile": "desktop",
+      "width": 1280,
+      "height": 768,
+      "version": "m04-hf1-structural-integrated-v1",
+      "route": 262,
+      "paintedPads": 9,
+      "bridges": [
+        {
+          "center": [
+            402.64,
+            382.54
+          ]
+        },
+        {
+          "center": [
+            923.53,
+            367.27
+          ]
+        }
+      ],
+      "routeSamples": 1690,
+      "waterHits": 0,
+      "greenCenters": 0,
+      "minimumAreaRatio": 0.27177935661063635,
+      "registrationTriangles": 1820,
+      "webgl2": true,
+      "artOnly": true
+    },
+    {
+      "profile": "touch844",
+      "width": 844,
+      "height": 390,
+      "version": "m04-hf1-structural-integrated-v1",
+      "route": 262,
+      "paintedPads": 9,
+      "bridges": [
+        {
+          "center": [
+            402.64,
+            382.54
+          ]
+        },
+        {
+          "center": [
+            923.53,
+            367.27
+          ]
+        }
+      ],
+      "routeSamples": 1690,
+      "waterHits": 0,
+      "greenCenters": 0,
+      "minimumAreaRatio": 0.27177935661063635,
+      "registrationTriangles": 1820,
+      "webgl2": true,
+      "artOnly": true
+    },
+    {
+      "profile": "touch932",
+      "width": 932,
+      "height": 430,
+      "version": "m04-hf1-structural-integrated-v1",
+      "route": 262,
+      "paintedPads": 9,
+      "bridges": [
+        {
+          "center": [
+            402.64,
+            382.54
+          ]
+        },
+        {
+          "center": [
+            923.53,
+            367.27
+          ]
+        }
+      ],
+      "routeSamples": 1690,
+      "waterHits": 0,
+      "greenCenters": 0,
+      "minimumAreaRatio": 0.27177935661063635,
+      "registrationTriangles": 1820,
+      "webgl2": true,
+      "artOnly": true
+    }
+  ],
+  "officialM01Smoke": "PASS",
+  "m04Gameplay": "NOT_IMPLEMENTED_NOT_TESTED",
+  "physicalMobile": "NOT_RUN",
+  "artApproval": "PENDING",
+  "before": "Published B04 preview at4f460f9; authentic comparison in HF1 documentation"
+}
