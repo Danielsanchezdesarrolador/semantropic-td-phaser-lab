@@ -77,8 +77,10 @@ try{
   }
   assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.economy.gold),93);
   await page.locator('#restart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-texture-definition-cartoon-v1'&&window.__SEMANTROPIC_C1D7.economy.gold===365,null,{timeout:60000});
-  step=profile+' buy infantry';await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(0));await page.locator('[data-t09-id="infantry"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(0)?.family==='infantry');
-  step=profile+' buy sniper';await page.waitForTimeout(280);await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(1));await page.locator('[data-t09-id="sniper"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(1)?.family==='sniper');
+  // Put the sniper near the entrance: this smoke checks a real shot/kill, not
+  // software-renderer wall time spent waiting for enemies to reach distant pad 1.
+  step=profile+' buy sniper';await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(0));await page.locator('[data-t09-id="sniper"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(0)?.family==='sniper');
+  step=profile+' buy infantry';await page.waitForTimeout(280);await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(1));await page.locator('[data-t09-id="infantry"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(1)?.family==='infantry');
   assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.economy.gold),130);
   initial.buildsOnAllEight='PASS_REAL_UI_BUILD_SELL_ALL_8_THEN_NORMAL_RESTART';
   step=profile+' first real attack';await page.locator('#waveStart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.scene.fxFires>0&&window.__SEMANTROPIC_C1D7.world.kills>0,null,{timeout:120000});await page.locator('#pause').click();

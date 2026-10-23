@@ -43,6 +43,18 @@ Rollback: revert normal del merge del bloque sobre producción, conservando la m
 
 ## Ajuste de preparación y QA final
 
-La primera ejecución de CI alcanzó el límite de70s reales antes del primer tiro en el renderer por software (enemigos avanzando, core de melee activo, cero fugas; no fallo de contrato). Las variantes se agrupan ahora en **un único atlas GPU** con marcos por tamaño en lugar de una textura por variante, manteniendo la densidad2x. La espera de smoke permite hasta120s en software; sigue exigiendo tiro y baja reales, sin acelerar reloj, saltar validaciones o inventar eventos. El CI final valida este HEAD. No se atribuye FPS de dispositivo físico.
+La primera ejecución de CI alcanzó el límite de70s reales antes del primer tiro en el renderer por software (enemigos avanzando, core de melee activo, cero fugas; no fallo de contrato). Las variantes se agrupan ahora en **un único atlas GPU** con marcos por tamaño en lugar de una textura por variante, manteniendo la densidad2x. La espera de smoke permite hasta120s en software; sigue exigiendo tiro y baja reales, sin acelerar reloj, saltar validaciones o inventar eventos. Ese CI también falló por tiempo; no se considera aprobado. Véase el diagnóstico de reanudación más abajo. No se atribuye FPS de dispositivo físico.
 
 El muestreo de la cara rocosa conserva el antialias original y se refuerza RGB después de componer. La comparación focalizada exige mismo SHA256 de alfa antes/después, además de igualdad exacta de37props/sieteformaciones. La preparación no expande siluetas. Los tamaños CSS/backing se registran aDPR1 yDPR2.
+
+## Reanudación PR64 — diagnóstico del timeout
+
+CI `40024038476`, HEAD `fd61eef`: **FAIL** esperando tiro+baja; tras120s reales el core había avanzado9,483s, siete spawns y un soldado en respawn. La construcción estaba activa (dos torres, oro130); no estaba detenido el core. No hubo fallo de contrato/build.
+
+Comparación local controlada Chromium/SwiftShader, mismo encuadre1280×768, una muestra de30s por versión: baseline `0fe4258` avanzó7,80s de juego/152updates; candidato `fd61eef`7,967s/153updates. Ambos tuvieron cero tiros/bajas con el fixture antiguo y cero errores JS. Carga hasta escena lista:23,025s baseline y13,997s candidato; esto incluye carga y montaje, **no es perfil aislado de CPU ni benchmark de rendimiento**. No se observa una ralentización exclusiva del procesamiento nuevo. Phaser `TimeStep.smoothDelta` sustituye intervalos largos por muestras anteriores; bajo software el reloj simulado queda muy por debajo del real. No se modifica ese comportamiento global.
+
+El smoke colocaba Infantería en pad0 y Francotirador en pad1, lejos de la entrada; necesitaba esperar tránsito de enemigos además del combate. Se intercambian únicamente las familias del fixture: Francotirador0 e Infantería1. Se mantienen compra UI real, costes normales/oro130, ocho construcciones/ventas previas, tiro real y baja real obligatorios, pausa, layout y regresiones. No se aumenta otra vez el timeout ni se acelera/invoca el core desde QA. El producto conserva exactamente los tres módulos visuales anteriores; la reanudación cambia QA/documentación exclusivamente.
+
+Evidencias: `timing-baseline.json`, `qa-layout-alpha-density.json`. Este último demuestra alfa de caras rocosas idéntico (SHA256 `34c53354d6b9a86063da05dba2644628da4e088efd697af9c02baaedec03e0f8`),37props/siete formaciones idénticos y auditoría de backing/CSS/DPR1–2. El `qa-local.json` previo corresponde a la primera iteración; no se presenta como aprobación del CI final.
+
+Fixture cercano, mismos30s reales: baseline3tiros/3bajas (oro178), candidato6tiros/6bajas (oro226),100vidas/cero fugas/cero erroresJS en ambos. Prueba focalizada **PASS**, sin atribuir equivalencia de velocidad ni rendimiento móvil. CI final **PENDIENTE** al registrar este diagnóstico.
