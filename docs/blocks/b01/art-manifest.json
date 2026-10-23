@@ -1,0 +1,25 @@
+{
+  "block": "B01 MAP-ART-01",
+  "version": "b01-m01-pictoric-dawn-meadow-v1",
+  "origin": "Generación original con OpenAI image_gen para este bloque; archivos fuente conservados íntegros. Referencia del Director utilizada para dirección estética, sin copiar su layout ni usarla como fondo.",
+  "assets": [
+    {
+      "path": "public/official/art/maps/m01/b01/meadow-props-original.png",
+      "sha256": "a52d6e1cb907c0d6d8664c2bbe0be7eaa5bb5bd5362417a7444a6f6272bc0212",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 3119920
+    },
+    {
+      "path": "public/official/art/maps/m01/b01/meadow-terrain-original.png",
+      "sha256": "87eb711f1a51286548b6a36826b31e36245e523c9710cca1f7460480ac36135b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 3535870
+    }
+  ]
+}

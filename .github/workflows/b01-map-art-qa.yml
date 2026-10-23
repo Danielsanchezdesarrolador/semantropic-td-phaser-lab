@@ -1,0 +1,44 @@
+name: B01 MAP-ART-01 — QA proporcional
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths:
+      - 'public/official/src/maps-visual/m01/**'
+      - 'public/official/art/maps/m01/b01/**'
+      - 'tools/qa-b01-map-art.mjs'
+      - 'tools/qa-r7-m01-premium-browser.mjs'
+      - 'docs/blocks/b01/**'
+      - '.github/workflows/b01-map-art-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  art-contract-build-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Contrato de alcance, geometría y runtime protegido
+        run: |
+          node --check public/official/src/maps-visual/m01/b01/pictoric-meadow.mjs
+          node --check public/official/src/maps-visual/m01/r7/renderer-r7.mjs
+          node tools/qa-b01-map-art.mjs
+          node docs/direccion-general/qa-r7-m01-visual.mjs
+      - name: Build Phaser y Chromium
+        run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - name: Render PC y móvil, ocho pads, combate y smoke M02/M03
+        run: node tools/qa-r7-m01-premium-browser.mjs
+      - name: Capturas y resultados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: B01-M01-PICTORICO-PC-MOVIL
+          path: artifacts/r7-m01-premium-browser/
+          retention-days: 14

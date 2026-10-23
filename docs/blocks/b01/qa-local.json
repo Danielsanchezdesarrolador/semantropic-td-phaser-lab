@@ -1,0 +1,509 @@
+{
+  "status": "PASS_B01_PICTORIC_MEADOW_WEBGL2",
+  "results": [
+    {
+      "profile": "desktop",
+      "width": 1280,
+      "height": 768,
+      "mapId": 1,
+      "route": 133,
+      "sockets": 8,
+      "waves": 5,
+      "art": [
+        2560,
+        1536
+      ],
+      "colorSamples": 10,
+      "roadSamples": 1217,
+      "gold": 365,
+      "premiumFullscreenBackdrop": true,
+      "artVersion": "b01-m01-pictoric-dawn-meadow-v1",
+      "props": [
+        {
+          "kind": "oak",
+          "x": -15,
+          "y": 15,
+          "w": 155,
+          "h": 133.93456375838926,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 75,
+          "y": 82,
+          "w": 178,
+          "h": 153.80872483221478,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 275,
+          "y": 34,
+          "w": 145,
+          "h": 125.29362416107382,
+          "flip": true
+        },
+        {
+          "kind": "oak",
+          "x": 468,
+          "y": 112,
+          "w": 108,
+          "h": 93.32214765100672,
+          "flip": false
+        },
+        {
+          "kind": "cypress",
+          "x": 0,
+          "y": 541,
+          "w": 42,
+          "h": 89.31225296442688,
+          "flip": false
+        },
+        {
+          "kind": "cypress",
+          "x": 437,
+          "y": 126,
+          "w": 39,
+          "h": 82.93280632411067,
+          "flip": false
+        },
+        {
+          "kind": "arch",
+          "x": 365,
+          "y": 245,
+          "w": 145,
+          "h": 131.64107485604606,
+          "flip": false
+        },
+        {
+          "kind": "shrine",
+          "x": 1070,
+          "y": 75,
+          "w": 150,
+          "h": 134.4311377245509,
+          "flip": false
+        },
+        {
+          "kind": "waterfall",
+          "x": 40,
+          "y": 663,
+          "w": 95,
+          "h": 89.83903420523139,
+          "flip": false
+        },
+        {
+          "kind": "waterfall",
+          "x": 780,
+          "y": 662,
+          "w": 100,
+          "h": 94.56740442655935,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 330,
+          "y": 220,
+          "w": 60,
+          "h": 36.858846918489064,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 753,
+          "y": 455,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 850,
+          "y": 570,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 1218,
+          "y": 570,
+          "w": 55,
+          "h": 33.78727634194831,
+          "flip": false
+        }
+      ],
+      "rejected": [
+        {
+          "kind": "flowers",
+          "x": 180,
+          "y": 280,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 492,
+          "y": 306,
+          "w": 60,
+          "h": 36.858846918489064,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 210,
+          "y": 615,
+          "w": 75,
+          "h": 46.07355864811133,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 485,
+          "y": 630,
+          "w": 65,
+          "h": 39.93041749502982,
+          "flip": false
+        }
+      ],
+      "map02StillPlayable": true
+    },
+    {
+      "profile": "android844",
+      "width": 844,
+      "height": 390,
+      "mapId": 1,
+      "route": 133,
+      "sockets": 8,
+      "waves": 5,
+      "art": [
+        2560,
+        1536
+      ],
+      "colorSamples": 10,
+      "roadSamples": 1217,
+      "gold": 365,
+      "premiumFullscreenBackdrop": true,
+      "artVersion": "b01-m01-pictoric-dawn-meadow-v1",
+      "props": [
+        {
+          "kind": "oak",
+          "x": -15,
+          "y": 15,
+          "w": 155,
+          "h": 133.93456375838926,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 75,
+          "y": 82,
+          "w": 178,
+          "h": 153.80872483221478,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 275,
+          "y": 34,
+          "w": 145,
+          "h": 125.29362416107382,
+          "flip": true
+        },
+        {
+          "kind": "oak",
+          "x": 468,
+          "y": 112,
+          "w": 108,
+          "h": 93.32214765100672,
+          "flip": false
+        },
+        {
+          "kind": "cypress",
+          "x": 0,
+          "y": 541,
+          "w": 42,
+          "h": 89.31225296442688,
+          "flip": false
+        },
+        {
+          "kind": "cypress",
+          "x": 437,
+          "y": 126,
+          "w": 39,
+          "h": 82.93280632411067,
+          "flip": false
+        },
+        {
+          "kind": "arch",
+          "x": 365,
+          "y": 245,
+          "w": 145,
+          "h": 131.64107485604606,
+          "flip": false
+        },
+        {
+          "kind": "shrine",
+          "x": 1070,
+          "y": 75,
+          "w": 150,
+          "h": 134.4311377245509,
+          "flip": false
+        },
+        {
+          "kind": "waterfall",
+          "x": 40,
+          "y": 663,
+          "w": 95,
+          "h": 89.83903420523139,
+          "flip": false
+        },
+        {
+          "kind": "waterfall",
+          "x": 780,
+          "y": 662,
+          "w": 100,
+          "h": 94.56740442655935,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 330,
+          "y": 220,
+          "w": 60,
+          "h": 36.858846918489064,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 753,
+          "y": 455,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 850,
+          "y": 570,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 1218,
+          "y": 570,
+          "w": 55,
+          "h": 33.78727634194831,
+          "flip": false
+        }
+      ],
+      "rejected": [
+        {
+          "kind": "flowers",
+          "x": 180,
+          "y": 280,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 492,
+          "y": 306,
+          "w": 60,
+          "h": 36.858846918489064,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 210,
+          "y": 615,
+          "w": 75,
+          "h": 46.07355864811133,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 485,
+          "y": 630,
+          "w": 65,
+          "h": 39.93041749502982,
+          "flip": false
+        }
+      ],
+      "map02StillPlayable": true
+    },
+    {
+      "profile": "android932",
+      "width": 932,
+      "height": 430,
+      "mapId": 1,
+      "route": 133,
+      "sockets": 8,
+      "waves": 5,
+      "art": [
+        2560,
+        1536
+      ],
+      "colorSamples": 10,
+      "roadSamples": 1217,
+      "gold": 365,
+      "premiumFullscreenBackdrop": true,
+      "artVersion": "b01-m01-pictoric-dawn-meadow-v1",
+      "props": [
+        {
+          "kind": "oak",
+          "x": -15,
+          "y": 15,
+          "w": 155,
+          "h": 133.93456375838926,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 75,
+          "y": 82,
+          "w": 178,
+          "h": 153.80872483221478,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 275,
+          "y": 34,
+          "w": 145,
+          "h": 125.29362416107382,
+          "flip": true
+        },
+        {
+          "kind": "oak",
+          "x": 468,
+          "y": 112,
+          "w": 108,
+          "h": 93.32214765100672,
+          "flip": false
+        },
+        {
+          "kind": "cypress",
+          "x": 0,
+          "y": 541,
+          "w": 42,
+          "h": 89.31225296442688,
+          "flip": false
+        },
+        {
+          "kind": "cypress",
+          "x": 437,
+          "y": 126,
+          "w": 39,
+          "h": 82.93280632411067,
+          "flip": false
+        },
+        {
+          "kind": "arch",
+          "x": 365,
+          "y": 245,
+          "w": 145,
+          "h": 131.64107485604606,
+          "flip": false
+        },
+        {
+          "kind": "shrine",
+          "x": 1070,
+          "y": 75,
+          "w": 150,
+          "h": 134.4311377245509,
+          "flip": false
+        },
+        {
+          "kind": "waterfall",
+          "x": 40,
+          "y": 663,
+          "w": 95,
+          "h": 89.83903420523139,
+          "flip": false
+        },
+        {
+          "kind": "waterfall",
+          "x": 780,
+          "y": 662,
+          "w": 100,
+          "h": 94.56740442655935,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 330,
+          "y": 220,
+          "w": 60,
+          "h": 36.858846918489064,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 753,
+          "y": 455,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 850,
+          "y": 570,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 1218,
+          "y": 570,
+          "w": 55,
+          "h": 33.78727634194831,
+          "flip": false
+        }
+      ],
+      "rejected": [
+        {
+          "kind": "flowers",
+          "x": 180,
+          "y": 280,
+          "w": 70,
+          "h": 43.00198807157058,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 492,
+          "y": 306,
+          "w": 60,
+          "h": 36.858846918489064,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 210,
+          "y": 615,
+          "w": 75,
+          "h": 46.07355864811133,
+          "flip": false
+        },
+        {
+          "kind": "flowers",
+          "x": 485,
+          "y": 630,
+          "w": 65,
+          "h": 39.93041749502982,
+          "flip": false
+        }
+      ],
+      "map02StillPlayable": true
+    }
+  ],
+  "physicalAndroid": "PENDING",
+  "artApproval": "PENDING",
+  "balanceUnchanged": true
+}

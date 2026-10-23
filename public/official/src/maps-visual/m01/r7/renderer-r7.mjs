@@ -4,20 +4,20 @@
  * Game rules, route, targeting and soldiers remain unchanged.
  */
 import {mountM01WorldV7} from '../m07/renderer-v7.mjs';
-import {makeR7MapCanvas,makeR7ScenicPanoramaCanvas,R7_MAP01_ART_VERSION} from './dawn-plateau-art.mjs?layout=hf3';
+import {makeB01MapCanvas,makeB01ScenicPanoramaCanvas,B01_ART_VERSION,paintB01PanoramaGutters} from '../b01/pictoric-meadow.mjs';
 export const R7_M01_TEXTURE='maps/m01/r7/dawn-plateau/v1';
 export const R7_M01_SCENIC_TEXTURE='maps/m01/r7/dawn-plateau/scenic-gutters/hf2';
 export function mountM01WorldR7(scene,map,options={}){
  const base=mountM01WorldV7(scene,map,options);
  let canvas=null,image=null,disposed=false;
  try{
-  const art=makeR7MapCanvas(map,{density:2});
+  const art=makeB01MapCanvas(map,{density:2});
   if(!scene.textures.exists(R7_M01_TEXTURE))
    scene.textures.addCanvas(R7_M01_TEXTURE,art.canvas);
   canvas=art.canvas;
   // One-time 1x scenic plate for non-playable FIT lateral gutters.
   if(!scene.textures.exists(R7_M01_SCENIC_TEXTURE))
-   scene.textures.addCanvas(R7_M01_SCENIC_TEXTURE,makeR7ScenicPanoramaCanvas(map));
+   scene.textures.addCanvas(R7_M01_SCENIC_TEXTURE,makeB01ScenicPanoramaCanvas(map));
   image=scene.add.image(0,0,R7_M01_TEXTURE)
    .setOrigin(0,0).setDisplaySize(1280,768).setDepth(-3600);
   // Replaced ART layers are archived in M07; no deletion of original source,
@@ -67,15 +67,16 @@ export function mountM01WorldR7(scene,map,options={}){
     scene.textures.remove(R7_M01_SCENIC_TEXTURE);
   }
   return Object.freeze({...base,
-   artVersion:R7_MAP01_ART_VERSION,contractVersion:'map-visual-r7-m01-premium-v1',
-   premiumArt:Object.freeze({version:R7_MAP01_ART_VERSION,
+   landscapePlan:art.plan,paintPanoramaGutters:(ctx,r)=>paintB01PanoramaGutters(ctx,r,map),
+   artVersion:B01_ART_VERSION,contractVersion:'map-visual-r7-m01-premium-v1',
+   premiumArt:Object.freeze({version:B01_ART_VERSION,
     width:canvas.width,height:canvas.height,
     geometricalPads:art.plan.pads.length,pathVertices:art.plan.path.length}),
    objects,paintObject:image,
    setSocketVisualState,applyVisualSnapshot,projectEvent,resetVisuals,destroy,
    getMapPerformanceInfo:()=>{
     const old=base.getMapPerformanceInfo();
-    return {...old,premiumArtVersion:R7_MAP01_ART_VERSION,extraPixels:canvas.width*canvas.height,
+    return {...old,premiumArtVersion:B01_ART_VERSION,extraPixels:canvas.width*canvas.height,
      originalM07SourcesRetained:true,premiumBuildPadCount:art.plan.pads.length};
    }});
  }catch(err){

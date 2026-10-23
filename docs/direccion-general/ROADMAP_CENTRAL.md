@@ -75,7 +75,7 @@ Si el bloque no se publicó o no se verificó, decirlo y no presentar el enlace 
 - Separar lo aprobado, entregado y jugable; registrar SHA actual para evitar auditorías repetidas.
 
 **ETAPA 1 — ALINEACIÓN ARTÍSTICA DE LOS TRES PRIMEROS MAPAS (PRIORIDAD INMEDIATA).**
-- B01: MAP-ART-01, Praderas del Amanecer. Paisaje natural premium al estándar M03: praderas con profundidad, sendero ilustrado, rocas y árboles expresivos, horizonte, sombras/luz. Conservar 133 nodos, 8 pads, 5 olas/63 enemigos, 365 oro y core estable. No copiar el bosque M03 ni añadir sistemas.
+- B01: MAP-ART-01, Praderas del Amanecer. [IMPLEMENTADO / QA LOCAL PASS] paisaje B01 en rama `feature/b01-m01-pictoric-meadow`; CI, publicación y aceptación artística se trazan en el PR. Acta: `docs/blocks/b01/ENTREGA.md`. Paisaje natural premium al estándar M03: praderas con profundidad, sendero ilustrado, rocas y árboles expresivos, horizonte, sombras/luz. Conservar 133 nodos, 8 pads, 5 olas/63 enemigos, 365 oro y core estable. No copiar el bosque M03 ni añadir sistemas.
 - B02: MAP-ART-02, Campos del Molino. Paisaje rural premium: campos de cultivo volumétricos ilustrados, molino, granjas, acequias/puentes justificados, camino táctico, luz de pradera; conservar 163 nodos, 8 pads, 7 olas/80 enemigos, 395 oro. NO gameplay.
 - B03: Auditoría corta de M03 (ya funcional con 9 olas/101 enemigos según acta), referencias/defectos visuales pendientes y protección. No rework M03 por rutina.
 - Cada MAP-ART se cierra con captures antes/después mismo zoom, QA render PC/móvil, rutas intactas, aprobación del Director y enlace LIVE tras promoción válida.
