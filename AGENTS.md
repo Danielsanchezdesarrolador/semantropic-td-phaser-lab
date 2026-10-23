@@ -3,11 +3,12 @@
 **Fecha de adopción:** 22 de octubre de 2026.
 **Decisión vigente de Dirección General:** equipo único de desarrollo integral; sustituye el esquema histórico de tres equipos independientes.
 **Roadmap operativo único:** `docs/direccion-general/ROADMAP_CENTRAL.md`.
+**ESTILO VISUAL OFICIAL APROBADO:** **CARTOON 2D PREMIUM V1** — leer **docs/direccion-general/ESTILO_VISUAL_CANON_CARTOON_2D_PREMIUM_V1.md** antes de CUALQUIER tarea de diseño/arte, animación, torre, aliado, enemigo, VFX o UI. Prevalece sobre M03 pictórico.
 **Alcance:** repositorio completo. Si existen AGENTS.md más específicos en subcarpetas, respetarlos siempre que no contradigan la visión aprobada ni este marco. Los pedidos expresos más recientes del director prevalecen sobre decisiones históricas.
 **Idioma de reportes y coordinación:** español.
 
 
-> **DIRECTIVA OFICIAL 23/10/2026 — REWORK VISUAL M03 + MICROBLOQUES.** El Director autoriza un rework ARTÍSTICO, NO de gameplay, para elevar M01/M02 y todos los futuros mapas al estándar pictórico premium del M03 (captura 23/10/2026), conservando la identidad de cada bioma. Una orden de mapa equivale SOLO a arte de mapa, sin implementar simultáneamente pads, olas, enemigos, economía o combate. Codex es el único equipo que implementa; los antiguos equipos T/P solo aportarán mockups visuales externos para integrar después. La nueva política de ahorro de uso y límites de alcance está en la sección 13 y en ROADMAP_CENTRAL.md. Esta decisión posterior prevalece sobre la aprobación visual antigua de M01/M02 únicamente en el alcance autorizado.
+> **DIRECTIVA VIGENTE DE DIRECCIÓN 23/10/2026 — CARTOON 2D PREMIUM V1 (posterior a M03 pictórico).** El Director aprobó como CANON GENERAL el ÚLTIMO mockup M01 más cartoon: líneas oscuras limpias, sombreado gráfico por masas, verdes brillantes, profundidad por terrazas/acantilados, camino integrado, pads asentados y composición de videojuego, no imagen pictórica estática. **Se aplica sin excepción a mapas, cinco familias de torres, soldados/operadores/aliados, enemigos/jefes, VFX/animación, HUD/iconos y material futuro**, cada uno en su propio bloque. La fuente detallada es el documento de estilo referido arriba. El M03 pictórico deja de ser el objetivo final y pasa a histórico; preservar funcionalidades del runtime. Una orden de mapa SOLO autoriza su arte; Codex sigue siendo único programador y el equipo artístico externo suministra mockups.
 
 > LEER ANTES DE CUALQUIER CAMBIO. Este archivo establece dirección y controles; su mera lectura NO autoriza modificaciones, commits, merges ni despliegues. Verificar siempre el código y el commit actual. No tratar documentos históricos como prueba de implementación.
 
@@ -51,7 +52,7 @@ Auditar las rutas y los nombres reales antes de referenciarlos en cambios. Canva
 ### Identidad visual interna obligatoria
 - Respetar baseline artístico aprobado **C1-C / M03 + T04 + P03**, restaurado tras regresiones de reworks visuales no aceptados. Consultar imágenes originales y evidencias verificables ANTES de cambiar arte.
 - La pradera M01, camino cálido serpenteante, Infantería pizarra/gris-azulada, Francotirador original de madera con **un solo rifle**, orcos verdes, sabuesos pardos y proporciones/siluetas aprobadas son identidad protegida.
-- Proteger la FUNCIONALIDAD de R7 M01/HF3, R6 M02 y viewport R5. Nueva aprobación 23/10/2026: rework del ARTE PAISAJÍSTICO antiguo M01/M02 para alcanzar el estándar M03. No rehacer su gameplay, geometría, torres, enemigos, estadísticas, economía ni progresión. El bioma y la identidad de cada mapa siguen siendo propios.
+- Proteger la FUNCIONALIDAD R7 M01/HF3, R6 M02 y viewport R5. Aprobación artística vigente posterior: estilo Cartoon 2D Premium V1 como canon de todos los mapas, desplazando estándar M03 pictórico. Especificaciones del juego y geometría no se rediseñan por este cambio; cada bioma sigue siendo único.
 - No transformar el arte original aprobado en un simple estilo genérico, vectorial plano, pixel art o clon de otra IP.
 
 ## 5. Campaña objetivo, sin atribuirla falsamente al runtime
@@ -98,7 +99,7 @@ M01–M05: una entrada; M06–M07: dos; M08–M10: tres (verificar geometrías r
 - Cascadas solo donde la topografía/curso de agua las justifique; animaciones ambientales con moderación (agua, viento, hojas, niebla, chispas) y bajo costo GPU. Evitar cascadas duplicadas, decorados flotando, capas superpuestas u objetos que parecen bloquear rutas.
 - Cada corrección de solapes requiere capturas ANTES/DESPUÉS, evidencia de cero colisiones visuales nocivas, rutas/pads iguales y regresión en los otros mapas.
 - Efectos de ataque de torres, personajes y enemigos deben corresponder a eventos del core. No duplicar rifles, flashes, impactos o barras de vida.
-- Rework pictórico M01/M02 y de biomas futuros está aprobado desde 23/10/2026, pero no cambiar geometría jugable, sockets, niveles, mecánicas, HUD ni reglas fuera de bloques exclusivos. Se permite enriquecer la paleta visual sin borrar la identidad propia del mapa.
+- Rework CARTOON 2D PREMIUM de mapas y packs visuales está aprobado el 23/10/2026 como DIRECTION, pero NO autoriza un megarework ni cambios a geometría jugable, sockets, niveles, mecánicas, HUD o reglas fuera de bloques exclusivos. Cada bioma y arquetipo mantiene su identidad propia.
 
 ## 9. Secuencia obligatoria por bloque para Codex
 0. Al entrar: leer este AGENTS.md y buscar AGENTS.md aplicables en subárbol.
@@ -139,13 +140,15 @@ Confirmar internamente:
 - El último bloque jugable verificado al adoptar esta metodología es M01 R7 HF3, commit `5388a490f808bac4cfd47e02ae6739f923caa5cc`, CI 39890530324 SUCCESS; M02 R6 permanece aprobado. Comprobar HEAD de nuevo antes de cada tarea: esta referencia no es perpetua.
 - No reiniciar el proyecto ni abrir implementaciones nuevas sin un bloque autorizado. Respetar decisiones artísticas, mecánicas y técnicas ya aprobadas; separar QA técnico, publicación y aprobación estética humana.
 
-## 13. DECISIÓN DE DIRECCIÓN 23/10/2026 — ESTÁNDAR M03 Y PRODUCCIÓN ECONÓMICA POR MICROBLOQUES
+## 13. DECISIÓN VIGENTE — CANON CARTOON 2D PREMIUM V1 Y MICROBLOQUES
 
-### 13.1 Línea artística vigente (supersede apariencia plana de M01/M02)
-- La captura real del M03 Bosque de los Susurros del 23/10/2026 es REFERENCIA INTERNA DE CALIDAD de todos los mapas: texturas orgánicas, vegetación y relieve con volumen ilustrado 2D 3/4, luces/sombras ambientales, riqueza compositiva, materialidad y detalles jerarquizados. Los pads y rutas deben seguir claros a escala móvil.
-- M01/M02 conservan mecánicas y rutas; sus paisajes antiguos están AUTORIZADOS a rediseño pictórico. M03 no es perfecto ni obliga a clonar literalmente su bosque. Bosques, praderas, campos agrícolas, ríos, pantanos, desfiladeros, hielo, ruinas, volcanes y fortalezas mantienen IDENTIDAD PROPIA.
-- No reutilizar un mismo fondo de bosque con recolor. No copiar referencias de otras franquicias. Mantener lenguaje visual cohesionado y rendimiento móvil medible.
-- Si las capturas de referencia no están en el checkout, solicitarlas como insumo de diseño; jamás afirmar que se han inspeccionado sin evidencia.
+### 13.1 Canon visual actual — TODO el juego, no solo escenarios
+- **APROBADO POR DIRECCIÓN (última decisión visual del 23/10/2026): Cartoon 2D Premium V1**. Modelo artístico: último mockup M01 explícitamente aprobado como más cartoon. Fuente permanente de especificaciones: docs/direccion-general/ESTILO_VISUAL_CANON_CARTOON_2D_PREMIUM_V1.md.
+- Esta aprobación **SUSTITUYE** M03 pictórico/hiperdetallado como estilo final. El M03 conserva valor histórico y su gameplay/código, pero ya NO define el acabado gráfico. No reaplicar las instrucciones antiguas de «homogeneizar hacia M03 pictórico».
+- ADN obligatorio EN MAPAS, TORRES, SOLDADOS, ALIADOS, ENEMIGOS, JEFES, ANIMACIONES, VFX, HUD e ICONOS: siluetas 2D originales reconocibles, contorno nítido, cel shading por masas de color, perspectiva 3/4 consistente, relieves escalonados, sombra de contacto, detalles gráficos controlados y lectura táctil a escala móvil.
+- La referencia es un **mockup de estilo** y está en la conversación del Director, no publicada automáticamente como asset GitHub. Si la imagen no está accesible en el checkout, solicitar adjunto para comparación; NO inventar URL ni afirmar fidelidad medida. Prohibido insertar la captura como mapa monolítico/fondo final.
+- Cada bioma, torre, unidad, arma, facción y VFX mantiene función e identidad propias dentro del mismo estilo. Kingdom Rush es referencia de claridad del género, NUNCA fuente para calcar su propiedad intelectual.
+- La calidad y homogeneidad futuras requieren mockups aprobados por pack, QA de imagen real y aceptación humana; esta directiva general NO habilita implementarlos todos en el bloque actual.
 
 ### 13.2 UNA ORDEN = UN SUBSISTEMA
 Interpretación predeterminada de "hacer el mapa" = **MAPA-ARTE**, no construir el nivel completo.
@@ -158,15 +161,14 @@ Interpretación predeterminada de "hacer el mapa" = **MAPA-ARTE**, no construir 
 - **TORRES-ARTE, ACTORES-ARTE y VFX-COMBATE:** solo tras recepción y aprobación de MOCKUPS EXTERNOS preparados por los colaboradores artísticos; integrar paquetes por bloque aislado, sin trabajo paralelo de código de equipos M/T/P.
 - **HUD-UX, AUDIO, BALANCE, RELEASE**: bloques dedicados. No añadirlos a una tarea de paisaje.
 
-### 13.3 Orden del nuevo roadmap
-1. Auditoría focalizada y congelación del baseline M01/M02/M03 y capturas, sin cambiar código.
-2. Rework MAPA-ARTE de M01 para elevarlo al estándar M03, preservando código y geometría. Aprobar visualmente.
-3. Rework MAPA-ARTE de M02 con estética agrícola/molinera premium. Aprobar visualmente.
-4. M03 queda REFERENTE; corregirlo solo mediante órdenes específicas, no reiniciar el port.
-5. M04–M10: crear cada escenario mediante bloque exclusivo MAPA-ARTE; PADs, AMBIENTE, OLEADAS, enemigos y gameplay se completan después mediante bloques individuales y sus propias pruebas.
-6. Recepción de mockups/spritesheets externos de TORRES, ENEMIGOS/ALIADOS y VFX; después integración Codex de cada arte aprobado por separado.
-7. UI/HUD final, música/SFX, opciones, accesibilidad, optimización final y release comercial en etapas propias, siempre con QA mínimo en cada bloque y regresiones al integrar.
-- Los colaboradores externos solo entregan DISEÑOS/MOCKUPS; no crean ramas ni tocan el core. Codex sigue siendo implementador único de código. No confundir diseño visual de otros chats con desarrollo simultáneo de Git.
+### 13.3 Secuencia general de producción — ver ROADMAP_CENTRAL.md
+1. Oficializar la referencia Cartoon 2D Premium V1 para todos los subsistemas; registrar mockup M01 aprobado y auditar estilos heredados contra el canon SIN cambiar código en bloque documental.
+2. M01 es el **piloto visual**: fidelidad gráfica del escenario (sin mover sus 133 nodos/8 pads ni alterar 5 olas, oro, torres, enemigos y combate). Capturas runtime y aprobación humana obligatorias. Los cambios ya ejecutados quedan como historial.
+3. Llevar M02–M10 al mismo IDIOMA cartoon por MAPA-ARTE-[NN] individual, manteniendo cada bioma, arte original, datos canónicos y funcionalidad existente; los mapas pictóricos ya aprobados conservan código/función hasta sus reworks autorizados.
+4. Los colaboradores artísticos externos preparan mockups/sheets ORIGINALMENTE cartoon para cinco familias de TORRES, aliados/operadores, enemigos y jefes; Codex los integra uno por pack DESPUÉS de aprobación. Animaciones y VFX de combate por bloques aparte.
+5. HUD, iconos, tutorial, SFX/música y accesibilidad se alinean al canon en etapas exclusivas, sin mezclarse con paisaje, enemigos o daño.
+6. QA/render comparativo y publicación del mismo LIVE con rollback y gates; no crear nuevas ramas de equipos paralelos ni URL pública diferente.
+- Aprobación visual de estilo no equivale a reproducción píxel a píxel de la composición ni a autorización de rehacer sistemas; respetar archivos funcionales existentes y la política de producción.
 
 ### 13.4 Disciplina de ahorro de uso Codex (Sol Medium cuando el usuario lo seleccione)
 - Evitar que una tarea de mapa se transforme en "arte + 9 oleadas + siete enemigos + combate + resultados". Alcance EXPLÍCITO y FUERA DE ALCANCE obligatorio en cada prompt.
@@ -178,7 +180,7 @@ Interpretación predeterminada de "hacer el mapa" = **MAPA-ARTE**, no construir 
 
 ### 13.5 Criterios obligatorios de cierre
 1. Un subsistema, un bloque, un diff coherente.
-2. Calidad artística M03 visible sin copiar bosque en otros biomas.
+2. Fidelidad al **Canon Cartoon 2D Premium V1** en el subsistema visual tocado, sin copiar ni el bosque M03 ni el layout del mockup M01 en otros biomas.
 3. Ningún camino o pad oculto; sin rejas/cascadas/props cruzando geometría transitable ni arte flotante.
 4. MAPA-ARTE no modifica nunca olas, economía, IA enemiga, construcción de torres o daño sin autorización adicional.
 5. QA y capturas auténticas; no confundir Chromium emulado con móvil físico.
