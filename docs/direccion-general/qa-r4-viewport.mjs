@@ -5,6 +5,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 const read=p=>readFileSync(p,'utf8');
+const authorized=JSON.parse(read('docs/blocks/m04-game01/authorized-runtime-blobs.json'));
+const expected=(p,h)=>authorized[p]?.before===h?authorized[p].after:h;
 const h=p=>execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim();
 const m01='public/official/src/c1d8-b2-playable/scene.mjs';
 const m02='public/official/src/c1d8-b2-playable/scene-m02.mjs';
@@ -13,7 +15,7 @@ const script=read('public/official/src/mobile/viewport-r4.mjs');
 const css=read('public/official/src/mobile/viewport-r4.css');
 const pano=read('public/official/src/mobile/viewport-panorama-r5.mjs');
 assert.equal(h(m01),'950c7ce85796932a40b23be421d1e4e9126087c5','Unexpected M01 gameplay changes');
-assert.equal(h(m02),'78a04b045563c5f8ffa70c63bc12cf2be7efbb5a','Unexpected M02 gameplay changes');
+assert.equal(h(m02),expected(m02,'78a04b045563c5f8ffa70c63bc12cf2be7efbb5a'),'Unexpected M02 gameplay changes');
 for(const [id,scene] of [['M01',a],['M02',b]]){
  assert(scene.includes('scale:{mode:Phaser.Scale.FIT,'),id+' canonical geometry cropped');
  assert(!scene.includes('Phaser.Scale.ENVELOP'),id+' may crop map landscape');

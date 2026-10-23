@@ -103,11 +103,11 @@ export class CampaignBuildEconomy{
  assertEconomy(){
   const total=this.ledger.reduce((sum,t)=>sum+(t.type==="credit"?t.amount:-t.amount),this.initialGold);
   if(total!==this.gold||this.gold<0||!integer(this.gold))throw Error("C1-D1 economic ledger inconsistency");
-  if(this.towers.size>8)throw Error("C1-D1 exceeded canonical sockets");
+  if(this.towers.size>this.map.spots.length)throw Error("C1-D1 exceeded canonical sockets");
   return true;
  }
  getTower(index){return this.towers.has(index)?copy(this.towers.get(index)):null}
  get snapshot(){
-  return copy({version:CAMPAIGN_ECONOMY_VERSION,scope:"REAL_BUILD_UPGRADE_SELL_ONLY_NOT_COMBAT",mapId:this.mapId,mode:"normal",initialGold:this.initialGold,gold:this.gold,towers:[...this.towers.values()],ledger:this.ledger,events:this.events.map(e=>({...e})),sockets:8,tech:{infantry:2,sniper:2},combatImplemented:false});
+  return copy({version:CAMPAIGN_ECONOMY_VERSION,scope:"REAL_BUILD_UPGRADE_SELL_ONLY_NOT_COMBAT",mapId:this.mapId,mode:"normal",initialGold:this.initialGold,gold:this.gold,towers:[...this.towers.values()],ledger:this.ledger,events:this.events.map(e=>({...e})),sockets:this.map.spots.length,tech:{infantry:2,sniper:2},combatImplemented:false});
  }
 }

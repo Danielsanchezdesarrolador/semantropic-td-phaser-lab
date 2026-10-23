@@ -1,0 +1,28 @@
+{
+  "block": "M04-GAME-01",
+  "newRuntimeFiles": [
+    "public/official/src/core-c1d/m04-campaign.mjs",
+    "public/official/src/core-c1d/m04-results-phaser.mjs",
+    "public/official/src/c1d8-b2-playable/scene-m04.mjs",
+    "public/official/src/maps-visual/m04/phaser-world.mjs",
+    "public/official/src/actors-visual/m04/provisional-enemies.mjs"
+  ],
+  "sharedChanges": "authorized-runtime-blobs.json",
+  "frozenSources": "protected-blobs.json",
+  "artApproval": "Director 2026-10-23; HF1 unchanged",
+  "newArtAssets": [],
+  "provisionalEnemyPresentation": {
+    "brute": "original warrior P08/P03, scale 1.22; CORE type brute",
+    "shaman": "original warrior P08/P03, scale .92 and tint; CORE type shaman"
+  },
+  "canonicalSources": [
+    "Canvas E1_ENEMIES/spawnE1Enemy/e2SupportBrain/QA17 M04 Normal/E5",
+    "maps.v5.json M04",
+    "campaign140.v5.json M04"
+  ],
+  "screenshots": {
+    "movil-combate.png": "1091bea47816f23664ede512f9dfc6d2a77e4e3a533c53a7930b50615513e649",
+    "desktop-victoria.png": "53645bc08c4c1c0057fe18636163e6464e20a84c91a6c9abff470a237f9c359d",
+    "desktop-combate.png": "2c6ef49b419169855208328cf3e3b4909215b3c2820622c1c2d8102c29b7cf50"
+  }
+}

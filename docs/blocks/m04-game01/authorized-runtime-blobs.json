@@ -1,0 +1,34 @@
+{
+  "public/official/src/c1d8-b2-playable/scene-m02.mjs": {
+    "before": "78a04b045563c5f8ffa70c63bc12cf2be7efbb5a",
+    "after": "03f751527d47c0faca46dff56002fdec4a90df2a"
+  },
+  "public/official/src/live/index.html": {
+    "before": "125b0eaca1ec2a4f9df9c3345a7df05367fb3f17",
+    "after": "8c56fa1d988f446d6e7fa8c186e619f0f2dbba8c"
+  },
+  "public/official/src/mobile/viewport-panorama-r5.mjs": {
+    "before": "58b085269d01b65817c6c2b875b92c4740213eb6",
+    "after": "19bd775c29f3a94d570b42771a9d7e5352fa1772"
+  },
+  "public/official/src/maps-visual/m02/map-picker.mjs": {
+    "before": "20f0f220e8ea1c09d22b437385607847398a8097",
+    "after": "f19f5a5ff92b319fbefb6e5a65169f3d272573db"
+  },
+  "public/official/src/core-c1d/campaign-combat-world.mjs": {
+    "before": "0d8c7e891769db54989b0a6316a84b1a629e776b",
+    "after": "6e334d7a3b9efecbed11e94c61b942873c9d2955"
+  },
+  "public/official/src/core-c1d/campaign-construction-economy.mjs": {
+    "before": "542623bbf8378a7eb18fb68c07f0696a962f5ca8",
+    "after": "3380e862ad4b59e89cd03e79d1babca8ccf9b0e8"
+  },
+  "public/official/src/core-c1d/campaign-infantry-combat.mjs": {
+    "before": "61d1b2f7a7f1e946562ea5964886a00d449b0ee9",
+    "after": "940dccf6e5e4ee663778f9021aed90263dce8a87"
+  },
+  "public/official/src/towers-visual/t09/spec.mjs": {
+    "before": "2f1adaaad1329cfb7e8b7f82d77cec815f264c6e",
+    "after": "8a626ba28f0a0b5cb81bd345e1723cf92b856786"
+  }
+}

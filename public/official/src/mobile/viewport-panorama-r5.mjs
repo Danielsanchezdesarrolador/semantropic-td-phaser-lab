@@ -41,6 +41,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
    return art?[art]:[];
   }
   if(mapId===3){const art=texture('maps/m03/whispering-forest/scenic/v1');return art?[art]:[];}
+  if(mapId===4){const art=texture('maps/m04/ancient-river/art-v1');return art?[art]:[];}
   return [];
  }
  function paintTexture(ctx,img,where,dest){
@@ -82,30 +83,32 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
    const mh=clamp(actual.height*ratioY,0,h-my);
    if(mw<2||mh<2)return;
    const left=mx,right=w-(mx+mw),top=my,bottom=h-(my+mh);
-   ctx.fillStyle=mapId===1?'#80b77c':'#9cbe83';
+   ctx.fillStyle=mapId===4?'#193f45':mapId===1?'#80b77c':'#9cbe83';
    ctx.fillRect(0,0,w,h);
    ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+   // Frozen unified M04 includes pads/landmarks: never mirror false build sites.
+   // Preserve its approved full FIT view with neutral, non-interactive margins.
    for(const source of src){
     const width=source.width,height=source.height;
     // Center and edge strips use equal vertical projection -> continuous seam.
     paintTexture(ctx,source,{left:0,top:0,width,height},
       {left:mx,top:my,width:mw,height:mh});
-    if(left>1){
+    if(mapId!==4&&left>1){
      const sample=clamp(left/mw*width,2,width*.6);
      paintMirror(ctx,source,{left:0,top:0,width:sample,height},
       {left:0,top:my,width:left,height:mh},'x');
     }
-    if(right>1){
+    if(mapId!==4&&right>1){
      const sample=clamp(right/mw*width,2,width*.6);
      paintMirror(ctx,source,{left:width-sample,top:0,width:sample,height},
       {left:mx+mw,top:my,width:right,height:mh},'x');
     }
-    if(top>1){
+    if(mapId!==4&&top>1){
      const sample=clamp(top/mh*height,2,height*.6);
      paintMirror(ctx,source,{left:0,top:0,width,height:sample},
       {left:mx,top:0,width:mw,height:top},'y');
     }
-    if(bottom>1){
+    if(mapId!==4&&bottom>1){
      const sample=clamp(bottom/mh*height,2,height*.6);
      paintMirror(ctx,source,{left:0,top:height-sample,width,height:sample},
       {left:mx,top:my+mh,width:mw,height:bottom},'y');
@@ -127,7 +130,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
   scheduled=requestAnimationFrame(()=>{scheduled=0;draw();});
  }
  function bind(nextScene,id){
-  if(id!==1&&id!==2&&id!==3)throw Error('R5 unknown map');
+  if(id!==1&&id!==2&&id!==3&&id!==4)throw Error('R5 unknown map');
   scene=nextScene;mapId=id;
   refresh();
   return true;

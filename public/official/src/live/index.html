@@ -176,6 +176,7 @@ object-fit:contain;image-rendering:auto}
 <button type="button" data-map-target="1">01 · Praderas del Amanecer<small>5 oleadas · 63 enemigos · 365 oro</small></button>
 <button type="button" data-map-target="2">02 · Campos del Molino<small>7 oleadas · 80 enemigos · 395 oro</small></button>
 <button type="button" data-map-target="3">03 · Bosque de los Susurros<small>9 oleadas · 101 enemigos · 410 oro</small></button>
+<button type="button" data-map-target="4">04 · Río de los Antiguos<small>11 oleadas · 94 enemigos · 395 oro</small></button>
 </div>
 <p>Los enemigos del M02 tienen accesorios visuales provisionales; pendiente aprobación artística final.</p>
 </article></section>
@@ -195,7 +196,9 @@ window.__SEMANTROPIC_VIEWPORT=mountR4Viewport();
 <script type="module">
 import {mountR3CMapPicker} from '../maps-visual/m02/map-picker.mjs';
 const selection=mountR3CMapPicker();
-if(selection.selectedMap===3){
+if(selection.selectedMap===4){
+ await import('../c1d8-b2-playable/scene-m04.mjs?release=m04-game01-v1');
+}else if(selection.selectedMap===3){
  await import('../c1d8-b2-playable/scene-m03.mjs?release=m03-forest-premium-v1');
 }else if(selection.selectedMap===2){
  await import('../c1d8-b2-playable/scene-m02.mjs?release=r3c-m02-real-seven-wave-v1&r5=seamless-landscape-1&r6=golden-valley-art-v1');
