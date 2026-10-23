@@ -1,0 +1,42 @@
+name: B04 MAP-ART-04 — QA artística sin gameplay
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths:
+      - 'public/official/src/maps-visual/m04/**'
+      - 'public/official/art/maps/m04/**'
+      - 'tools/qa-b04-*'
+      - 'docs/blocks/b04/**'
+      - '.github/workflows/b04-map-art-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  art-contract-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Geometría, agua, puentes y runtime protegido
+        run: |
+          node --check public/official/src/maps-visual/m04/river-art.mjs
+          node --check public/official/src/maps-visual/m04/preview/preview.mjs
+          node tools/qa-b04-map-art.mjs
+      - name: Build y Chromium
+        run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - name: Phaser WebGL2 PC/móvil, arte sin oclusión y selector vigente
+        run: node tools/qa-b04-art-browser.mjs
+      - name: Capturas de arte y esquema canónico
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: B04-M04-ARTE-SIN-GAMEPLAY
+          path: artifacts/b04-map-art/
+          retention-days: 14

@@ -1,0 +1,385 @@
+{
+  "status": "PASS_B04_ART_REVIEW_WEBGL2",
+  "cases": [
+    {
+      "profile": "desktop",
+      "width": 1280,
+      "height": 768,
+      "version": "b04-m04-ancient-river-pictoric-v1",
+      "route": 262,
+      "paintedPads": 9,
+      "bridges": [
+        {
+          "center": [
+            402.64,
+            382.54
+          ],
+          "angle": 1.3001942683608894,
+          "length": 182,
+          "width": 116,
+          "clearCenter": 60
+        },
+        {
+          "center": [
+            923.53,
+            367.27
+          ],
+          "angle": 1.9687040042171795,
+          "length": 182,
+          "width": 116,
+          "clearCenter": 60
+        }
+      ],
+      "props": [
+        {
+          "kind": "arch",
+          "x": 40,
+          "y": 5,
+          "w": 100,
+          "h": 89.31159420289855,
+          "flip": false
+        },
+        {
+          "kind": "statue",
+          "x": 1180,
+          "y": 420,
+          "w": 90,
+          "h": 113.4,
+          "flip": false
+        },
+        {
+          "kind": "shrine",
+          "x": 620,
+          "y": 105,
+          "w": 140,
+          "h": 153.80733944954127,
+          "flip": false
+        },
+        {
+          "kind": "columns",
+          "x": 40,
+          "y": 500,
+          "w": 110,
+          "h": 106.5979381443299,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 8,
+          "y": 430,
+          "w": 130,
+          "h": 116.97674418604652,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 490,
+          "y": 80,
+          "w": 115,
+          "h": 103.479427549195,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 730,
+          "y": 80,
+          "w": 120,
+          "h": 107.97853309481216,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 30,
+          "y": 580,
+          "w": 115,
+          "h": 103.479427549195,
+          "flip": false
+        },
+        {
+          "kind": "cascade",
+          "x": 80,
+          "y": 665,
+          "w": 95,
+          "h": 73.07692307692308,
+          "flip": false
+        },
+        {
+          "kind": "cascade",
+          "x": 975,
+          "y": 665,
+          "w": 100,
+          "h": 76.92307692307692,
+          "flip": false
+        }
+      ],
+      "rejected": [
+        {
+          "kind": "oak",
+          "x": 1120,
+          "y": 540,
+          "w": 135,
+          "h": 121.47584973166369,
+          "flip": false
+        }
+      ],
+      "routeSamples": 1691,
+      "webgl2": true,
+      "artOnly": true
+    },
+    {
+      "profile": "touch844",
+      "width": 844,
+      "height": 390,
+      "version": "b04-m04-ancient-river-pictoric-v1",
+      "route": 262,
+      "paintedPads": 9,
+      "bridges": [
+        {
+          "center": [
+            402.64,
+            382.54
+          ],
+          "angle": 1.3001942683608894,
+          "length": 182,
+          "width": 116,
+          "clearCenter": 60
+        },
+        {
+          "center": [
+            923.53,
+            367.27
+          ],
+          "angle": 1.9687040042171795,
+          "length": 182,
+          "width": 116,
+          "clearCenter": 60
+        }
+      ],
+      "props": [
+        {
+          "kind": "arch",
+          "x": 40,
+          "y": 5,
+          "w": 100,
+          "h": 89.31159420289855,
+          "flip": false
+        },
+        {
+          "kind": "statue",
+          "x": 1180,
+          "y": 420,
+          "w": 90,
+          "h": 113.4,
+          "flip": false
+        },
+        {
+          "kind": "shrine",
+          "x": 620,
+          "y": 105,
+          "w": 140,
+          "h": 153.80733944954127,
+          "flip": false
+        },
+        {
+          "kind": "columns",
+          "x": 40,
+          "y": 500,
+          "w": 110,
+          "h": 106.5979381443299,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 8,
+          "y": 430,
+          "w": 130,
+          "h": 116.97674418604652,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 490,
+          "y": 80,
+          "w": 115,
+          "h": 103.479427549195,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 730,
+          "y": 80,
+          "w": 120,
+          "h": 107.97853309481216,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 30,
+          "y": 580,
+          "w": 115,
+          "h": 103.479427549195,
+          "flip": false
+        },
+        {
+          "kind": "cascade",
+          "x": 80,
+          "y": 665,
+          "w": 95,
+          "h": 73.07692307692308,
+          "flip": false
+        },
+        {
+          "kind": "cascade",
+          "x": 975,
+          "y": 665,
+          "w": 100,
+          "h": 76.92307692307692,
+          "flip": false
+        }
+      ],
+      "rejected": [
+        {
+          "kind": "oak",
+          "x": 1120,
+          "y": 540,
+          "w": 135,
+          "h": 121.47584973166369,
+          "flip": false
+        }
+      ],
+      "routeSamples": 1691,
+      "webgl2": true,
+      "artOnly": true
+    },
+    {
+      "profile": "touch932",
+      "width": 932,
+      "height": 430,
+      "version": "b04-m04-ancient-river-pictoric-v1",
+      "route": 262,
+      "paintedPads": 9,
+      "bridges": [
+        {
+          "center": [
+            402.64,
+            382.54
+          ],
+          "angle": 1.3001942683608894,
+          "length": 182,
+          "width": 116,
+          "clearCenter": 60
+        },
+        {
+          "center": [
+            923.53,
+            367.27
+          ],
+          "angle": 1.9687040042171795,
+          "length": 182,
+          "width": 116,
+          "clearCenter": 60
+        }
+      ],
+      "props": [
+        {
+          "kind": "arch",
+          "x": 40,
+          "y": 5,
+          "w": 100,
+          "h": 89.31159420289855,
+          "flip": false
+        },
+        {
+          "kind": "statue",
+          "x": 1180,
+          "y": 420,
+          "w": 90,
+          "h": 113.4,
+          "flip": false
+        },
+        {
+          "kind": "shrine",
+          "x": 620,
+          "y": 105,
+          "w": 140,
+          "h": 153.80733944954127,
+          "flip": false
+        },
+        {
+          "kind": "columns",
+          "x": 40,
+          "y": 500,
+          "w": 110,
+          "h": 106.5979381443299,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 8,
+          "y": 430,
+          "w": 130,
+          "h": 116.97674418604652,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 490,
+          "y": 80,
+          "w": 115,
+          "h": 103.479427549195,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 730,
+          "y": 80,
+          "w": 120,
+          "h": 107.97853309481216,
+          "flip": false
+        },
+        {
+          "kind": "oak",
+          "x": 30,
+          "y": 580,
+          "w": 115,
+          "h": 103.479427549195,
+          "flip": false
+        },
+        {
+          "kind": "cascade",
+          "x": 80,
+          "y": 665,
+          "w": 95,
+          "h": 73.07692307692308,
+          "flip": false
+        },
+        {
+          "kind": "cascade",
+          "x": 975,
+          "y": 665,
+          "w": 100,
+          "h": 76.92307692307692,
+          "flip": false
+        }
+      ],
+      "rejected": [
+        {
+          "kind": "oak",
+          "x": 1120,
+          "y": 540,
+          "w": 135,
+          "h": 121.47584973166369,
+          "flip": false
+        }
+      ],
+      "routeSamples": 1691,
+      "webgl2": true,
+      "artOnly": true
+    }
+  ],
+  "officialM01Smoke": "PASS",
+  "m04Gameplay": "NOT_IMPLEMENTED_NOT_TESTED",
+  "physicalMobile": "NOT_RUN",
+  "artApproval": "PENDING",
+  "before": "Canonical diagram only; no prior M04 Phaser art existed"
+}
