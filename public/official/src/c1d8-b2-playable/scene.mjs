@@ -3,7 +3,8 @@ import {M01CombatWithInfantryA3 as M01CombatWithInfantry,INFANTRY_LVLS} from "..
 import {c1d7MenuDTO,c1d7ApplyIntent,c1d7WorldToClient,c1d7NodePlacement} from "../core-c1d/c1d7-contextual-intents.mjs";
 import {m01ReadRecord,m01SaveVictory,m01Result} from "../core-c1d/m01-results-phaser.mjs";
 import {validateM01} from "../maps-visual/m01/renderer.mjs";
-import {preloadM07Illustrations,mountM01WorldV7} from "../maps-visual/m01/m07/renderer-v7.mjs";
+import {preloadM07Illustrations} from "../maps-visual/m01/m07/renderer-v7.mjs";
+import {mountM01WorldR7} from "../maps-visual/m01/r7/renderer-r7.mjs";
 import {TOWER_ART_V2,validateTowerArtV2,projectSourceAnchor} from "../towers-visual/catalog.mjs";
 import {SniperShotPresenter} from "../towers-visual/sniper-vfx.mjs";
 import {diagnoseT10Muzzle} from "../towers-visual/t10/sniper-muzzle-contract.mjs";
@@ -68,7 +69,7 @@ class CombatScene extends Phaser.Scene{
    this.p03Actors.set(info.actorId,{info,atlas,scale:Math.min(.83,
     (atlas.actor.heightWorld??info.heightWorld)/(info.kind==="hound"?114:171)*.70)/(atlas.u04Density??1)});
   }
-  this.mapView=mountM01WorldV7(this,MAP,{palette:"viva",treatment:"fiel"});
+  this.mapView=mountM01WorldR7(this,MAP,{palette:"viva",treatment:"fiel"});
   window.__SEMANTROPIC_VIEWPORT?.bindScene?.(this,1);
   this.shots=new SniperShotPresenter(this,{variant:"A",depth:35000,premium:true});
   assert(this.mapView.plan.sockets.length===8,"socket count");

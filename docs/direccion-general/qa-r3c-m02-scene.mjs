@@ -5,7 +5,7 @@ import {execFileSync} from 'node:child_process';
 import {m02Result,m02SaveVictory,m02ReadRecord} from '../../public/official/src/core-c1d/m02-results-phaser.mjs';
 const read=p=>readFileSync(p,'utf8');
 const protectedFiles={
- 'public/official/src/c1d8-b2-playable/scene.mjs':'2c38341e12e100c3c9260d2984e3408e7accc031',
+ 'public/official/src/c1d8-b2-playable/scene.mjs':'950c7ce85796932a40b23be421d1e4e9126087c5',
  'public/official/src/core-c1d/m01-combat-world.mjs':'68300432ca2f78446d804ce047adfcded84addb3',
  'public/official/src/core-c1d/m01-infantry-combat-a2.mjs':'c7c812414cf500476fd2e514c15324459da4e491',
  'public/official/src/core-c1d/m01-infantry-combat-a3.mjs':'20d3217b49a2c6901af00b40d5a04922c0a086ba',

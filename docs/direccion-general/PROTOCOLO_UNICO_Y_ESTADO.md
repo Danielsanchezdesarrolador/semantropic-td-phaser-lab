@@ -159,3 +159,11 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - QA de geometría, assets y WebGL2 realizado mediante Node y Chromium con capturas (desktop y Android emulado). En GitHub Actions se evita `--with-deps` cuando es posible para evitar timeout del espejo de apt de Ubuntu visto en CI anterior; si falla por librerías, reportar infraestructura separadamente.
 - **No declarar arte 1:1 con mockup**. Pendiente evaluación estética en móvil físico; antes de más gameplay, revisar ese arte y ajustar detalles visibles.
 - Rollback conocido `06d3ed136ce1934f3f7538aee45761f1e503492a`.
+
+
+## 20. R7 — MAPA 01 PRADERAS DEL AMANECER, REWORK PREMIUM (22-oct-2026)
+- Rework autorizado mediante referencia proporcionada por el Director, ejecución directa en Phaser como M02. Generar imágenes sin implementar fue un error de interpretación; la entrega oficial es código LIVE real, no mockup.
+- Nuevo paisaje pintado con funciones Canvas originales `maps-visual/m01/r7/dawn-plateau-art.mjs`, resolución 2560×1536, y adaptador `renderer-r7.mjs` que preserva y reutiliza M07 histórico sin modificar el archivo o SVG originales. Cañón/cascadas, valle/castillo, portal de entrada fortificado, arco central, santuario de cristal y puente final; siete familias de vegetación, rocas, flores, pradera cálida. Camino protegido 133 waypoints, 8 pads exactamente, cinco oleadas/63 enemigos sin alteraciones.
+- R5 actualiza el wallpaper panorámico con R7 premium; sigue FIT y módulo sin franjas. Cambio solo en import/mount de `scene.mjs`, R5 y query de HTML. M02 R6 permanece protegido.
+- Documento de detalle `docs/direccion-general/ACTA_R7_MAPA01_PREMIUM_2026-10-22.md`. QA Node+Chromium+regresión general con evidencia real. Control visual Android físico pendiente.
+- Rollback seguro: `90bf7433f969fafcfa72eb1e002d55b5b6b52e29`.

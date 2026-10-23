@@ -8,6 +8,7 @@
  */
 export const R5_PANORAMA_VERSION='r5-edge-extension-original-map-textures-v1';
 const WORLD=Object.freeze({width:1280,height:768});
+const PREMIUM_M01='maps/m01/r7/dawn-plateau/v1';
 const GROUND_M01='maps/m01/aurora-v3/viva/ground';
 const ROAD_M01='maps/m01/aurora-v3/viva/road';
 const TERRAIN_M02='maps/m02/farmland/r3-b2';
@@ -26,6 +27,8 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
  }
  function panelTexture(){
   if(mapId===1){
+   const premium=texture(PREMIUM_M01);
+   if(premium)return [premium];
    const ground=texture(GROUND_M01),road=texture(ROAD_M01);
    return ground?[ground,...(road?[road]:[])]:[];
   }

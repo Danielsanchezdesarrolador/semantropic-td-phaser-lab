@@ -10,7 +10,7 @@ const fs=p=>readFileSync(p,'utf8');
 for(const [p,sha] of Object.entries({
  'public/official/data/maps.v5.json':'1da0e20145e1312f3d75443debabea17e3db507c',
  'public/official/data/campaign140.v5.json':'794cf43f9b172a39dd88f02e2a89ea11455064c3',
- 'public/official/src/c1d8-b2-playable/scene.mjs':'2c38341e12e100c3c9260d2984e3408e7accc031',
+ 'public/official/src/c1d8-b2-playable/scene.mjs':'950c7ce85796932a40b23be421d1e4e9126087c5',
  'public/official/src/c1d8-b2-playable/scene-m02.mjs':'e8aa7c6cb8dc56211669f71219d47591a4ac01a8',
  'public/official/src/core-c1d/m02-combat-world.mjs':'63741749125e7ac455787caae3bd5b3fb7d3b8a0',
  'public/official/src/maps-visual/m02/phaser-world.mjs':'929902d5a0286ec9165524bf3156ac4d67a46db6'

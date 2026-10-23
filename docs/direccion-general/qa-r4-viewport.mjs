@@ -12,7 +12,7 @@ const a=read(m01),b=read(m02),page=read('public/official/src/live/index.html');
 const script=read('public/official/src/mobile/viewport-r4.mjs');
 const css=read('public/official/src/mobile/viewport-r4.css');
 const pano=read('public/official/src/mobile/viewport-panorama-r5.mjs');
-assert.equal(h(m01),'2c38341e12e100c3c9260d2984e3408e7accc031','Unexpected M01 gameplay changes');
+assert.equal(h(m01),'950c7ce85796932a40b23be421d1e4e9126087c5','Unexpected M01 gameplay changes');
 assert.equal(h(m02),'e8aa7c6cb8dc56211669f71219d47591a4ac01a8','Unexpected M02 gameplay changes');
 for(const [id,scene] of [['M01',a],['M02',b]]){
  assert(scene.includes('scale:{mode:Phaser.Scale.FIT,'),id+' canonical geometry cropped');
