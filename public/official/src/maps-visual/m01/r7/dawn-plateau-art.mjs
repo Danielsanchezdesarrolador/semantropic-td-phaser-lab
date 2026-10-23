@@ -164,7 +164,7 @@ function fence(c,a,b){
  * spaced fence fragments on grass; never rasterize the concept mockup as art.
  */
 export const R7_HF1_DECORATION_SITES=Object.freeze({
- waterfalls:Object.freeze([[130,635,45,105],[940,633,56,109]]
+ waterfalls:Object.freeze([[130,635,45,105],[912,645,56,104]]
   .map(site=>Object.freeze(site))),
  fences:Object.freeze([
   [[148,217],[240,231]],  // upper-left meadow away from entrance
