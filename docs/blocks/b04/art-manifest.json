@@ -1,0 +1,44 @@
+{
+  "block": "B04 MAP-ART-04",
+  "version": "b04-m04-ancient-river-pictoric-v1",
+  "origin": "Recursos originales OpenAI image_gen de este bloque. Terreno final editado con image_gen sobre una generación propia para corregir su proporción; atlas, agua y puente generados originalmente. PNG finales íntegros conservados. Referencia del Director como guía estética, sin copiar su composición ni usarla como asset.",
+  "initialTerrainSourceSha256": "92998176eacf9859f46d9983a78793518dbd79fc142b4b460bfdd1712611ff1f",
+  "assets": [
+    {
+      "path": "public/official/art/maps/m04/ancient-river-props-original.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 3221431,
+      "sha256": "276d8261a9071b61efcb0d3a64d54de5979c5e06afa8f8a6f8639110dff07e23"
+    },
+    {
+      "path": "public/official/art/maps/m04/river-terrain-original.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 4195433,
+      "sha256": "d8bc7cea21a880c572f43eb923e07a86351d8ee6faa87e5e1185a54c2d916661"
+    },
+    {
+      "path": "public/official/art/maps/m04/river-water-original.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 2907253,
+      "sha256": "0b6189608fd3d64c0a5140d761bf8e598052833e3a3136b58b6496923759a383"
+    },
+    {
+      "path": "public/official/art/maps/m04/stone-bridge-original.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 2560550,
+      "sha256": "13b92b648bf06d643c565e152b2812cad729a4fdf1f21930d8e6b65df9badff2"
+    }
+  ]
+}

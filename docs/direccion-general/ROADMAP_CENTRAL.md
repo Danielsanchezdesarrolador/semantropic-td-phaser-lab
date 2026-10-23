@@ -22,7 +22,8 @@ URL jugable única: https://semantropic-td-jugar.onrender.com/official/src/live/
 | Cinco familias de torres | [PENDIENTE] completar Guardiana/Bombardera/Control y niveles III/IV, especializaciones y habilidades; solo dos familias I/II construibles hoy | Subbloques autorizados con arte, mecánicas, eventos y QA reales; no implementar todo el catálogo de una vez |
 | Enemigos y jefes | [CONFIRMADO EN CÓDIGO] warrior/hound en M01; M02 añade archer/shieldbearer; M03 añade foreststalker/hunter/bat según campaña. [PENDIENTE] paridad progresiva y jefes | IA, telegraphs, animaciones, estados y combate verificables por cada incorporación |
 | M03 Bosque de los Susurros | [CONFIRMADO EN CÓDIGO] port Normal: 188 nodos, 8 pads, 9 oleadas/101 enemigos, siete tipos; roble, bosque y ambiente originales. Acta: `docs/blocks/m03/IMPLEMENTACION.md` | QA local navegador y regresiones PASS; CI y entrega LIVE trazadas en [PR #52](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/52). M03 DESIGNADO COMO REFERENTE DE CALIDAD PICTÓRICA 23/10; evaluación de jugabilidad/QA físico sigue pendiente |
-| Campaña M04–M05 | [HISTÓRICO CANVAS / DATOS] diseños y 11/13 oleadas; slot jefe M05/W13 | Port por mapa solo tras orden específica, con rutas/pads canónicos, progresión, QA y aprobación visual |
+| M04 Río de los Antiguos | [ARTE B04 IMPLEMENTADO] 262 nodos, nueve posiciones pintadas y dos puentes; vista artística sin gameplay. Acta `docs/blocks/b04/ACTA.md`; CI/publicación en PR del bloque | [PENDIENTE] aprobación estética y bloques jugables separados. Once olas/94 enemigos solo en datos; selector M04 cerrado |
+| Campaña M05 | [HISTÓRICO CANVAS / DATOS] diseño y 13 oleadas; slot jefe M05/W13 | Port solo tras orden específica, con geometría, progresión, QA y aprobación visual |
 | Campaña M06–M10 | [HISTÓRICO CANVAS / DATOS] 15/17/19/21/23 oleadas, entradas dobles/triples, slots M08/W19 y M10/W23 | Integración y QA de rutas múltiples y jefes, por bloques |
 | Tutorial y metaprogresión | [PENDIENTE] port/adaptación de T-00, desbloqueos, dificultades y saves versionados | Validación de progreso real y compatibilidad de guardados |
 | Audio, UX, accesibilidad y ambiente vivo | [PENDIENTE] cierre audiovisual y ambiental coherente con identidad | Feedback sincronizado, controles móviles, reducción de efectos y presupuesto de rendimiento comprobados |
@@ -81,7 +82,7 @@ Si el bloque no se publicó o no se verificó, decirlo y no presentar el enlace 
 - Cada MAP-ART se cierra con captures antes/después mismo zoom, QA render PC/móvil, rutas intactas, aprobación del Director y enlace LIVE tras promoción válida.
 
 **ETAPA 2 — PAISAJES M04–M10 EN MICROBLOQUES VISUALES.**
-- MAP-ART-04 Río de los Antiguos: agua fluvial, orillas, rocas, vegetación ribereña y puente solo donde los datos lo permitan.
+- MAP-ART-04 Río de los Antiguos: B04 implementa arte fluvial, ruinas, nueve posiciones pintadas y dos puentes canónicos. Vista de arte independiente del selector; sin gameplay. QA/publicación en PR y `docs/blocks/b04/ACTA.md`.
 - MAP-ART-05 Pantano de la Niebla: manglar/bruma, terreno húmedo, charcos, ruinas originales.
 - MAP-ART-06 Desfiladero de Hierro: cañones y acantilados militares, doble acceso visual existente.
 - MAP-ART-07 Paso de la Escarcha: nieve, hielo, frío, relieve y doble acceso visual.
