@@ -7,6 +7,9 @@ import {execFileSync} from 'node:child_process';
 import {makeM02ArtPlan,M02_ART_VERSION} from '../../public/official/src/maps-visual/m02/farmland-art.mjs';
 import {R6_MAP02_ART} from '../../public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs';
 const fs=p=>readFileSync(p,'utf8');
+const authorized=JSON.parse(fs('docs/blocks/m04-game01/authorized-runtime-blobs.json'));
+// M04 functional approval supersedes only explicitly pinned shared runtime changes.
+const expected=(p,h)=>authorized[p]?.before===h?authorized[p].after:h;
 for(const [p,sha] of Object.entries({
  'public/official/data/maps.v5.json':'1da0e20145e1312f3d75443debabea17e3db507c',
  'public/official/data/campaign140.v5.json':'794cf43f9b172a39dd88f02e2a89ea11455064c3',
@@ -15,7 +18,7 @@ for(const [p,sha] of Object.entries({
  'public/official/src/core-c1d/m02-combat-world.mjs':'63741749125e7ac455787caae3bd5b3fb7d3b8a0',
  'public/official/src/maps-visual/m02/phaser-world.mjs':'e03ab5b0c4e0ec963eeca71e32d224ca4daeb16a'
 })){
- assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),sha,
+ assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),expected(p,sha),
    'R6 must NEVER change protected gameplay/map file '+p);
 }
 const raw=JSON.parse(fs('public/official/data/maps.v5.json')).find(m=>m.id===2);

@@ -21,7 +21,7 @@ Rama: `feature/m04-game01-playable`. PR/commit final y publicación: ver el PR d
 2. Escena común: aserción, denominador de plataforma y DTO T09 usan cantidad canónica; importar el adaptador M04 no autoarranca M02.
 3. T09: acepta `socket.count` explícito y validado; por defecto mantiene ocho para consumidores anteriores. La novena plataforma necesita su menú real.
 4. CORE base inicializa armadura desde ficha (M03 sigue 0); extensión de Infantería ofrece hook de apoyo solo implementado por M04.
-5. Selector y viewport aceptan M04; misma ruta LIVE y panorama FIT existente, sin mover coordenadas. No hay rediseño de HUD.
+5. Selector y viewport aceptan M04; misma ruta LIVE y FIT existente, sin mover coordenadas. M04 conserva márgenes neutros como su preview aprobado: no reflejar su pintura unificada en las bandas laterales, lo que duplicaría falsos pads y monumentos. M01–M03 mantienen su panorama habitual. No hay rediseño de HUD.
 6. Guards de los bloques artísticos anteriores: sus freezes de runtime están superados exclusivamente por esta orden funcional; `authorized-runtime-blobs.json` enumera antes/después de cada archivo compartido autorizado. Los locks del arte y datos originales permanecen. Las actas históricas no se reescriben.
 
 Fuera de alcance: rediseño de escenario, nuevas familias/niveles, otras dificultades, audio, balance global, IA no requerida por M04 y M05–M10. M01/M02 conservan sus cores; M03 usa defaults equivalentes. Geometría, campaña y Canvas protegidos por hashes en `protected-blobs.json`.

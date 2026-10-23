@@ -24,7 +24,13 @@ try{
    if(!(s.game.renderer.gl instanceof WebGL2RenderingContext))throw Error('WebGL2 unavailable');
    if(w.lives!==100||w.economy.gold!==395||w.route.points.length!==262||w.campaign.waves.length!==11||plan.sockets.length!==9)throw Error('M04 canonical data');
    if(g.art.maps!=='m04-hf1-structural-integrated-v1')throw Error('HF1 artwork mismatch');
-   return {snapshot:w.snapshot,art:s.mapView.qa,ambient:s.mapView.snapshot,renderer:s.game.renderer.type};
+   const backdrop=document.getElementById('viewportBackdrop'),panorama=window.__SEMANTROPIC_VIEWPORT.panorama;
+   if(panorama.gutterLeft>5){const pixel=[...backdrop.getContext('2d').getImageData(2,Math.floor(backdrop.height/2),1,1).data];if(pixel.join(',')!=='25,63,69,255')throw Error('Mirrored false M04 pads');}
+   const c=s.textures.get('maps/m04/ancient-river/art-v1').getSourceImage().getContext('2d');let routeSamples=0,waterHits=0;
+   for(let i=1;i<w.map.path.length;i++){const a=w.map.path[i-1],b=w.map.path[i],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy);if(!len)continue;const n=Math.ceil(len/8);
+    for(let k=0;k<=n;k++)for(const offset of [-10,0,10]){const x=Math.round(a[0]+dx*k/n-dy/len*offset),y=Math.round(a[1]+dy*k/n+dx/len*offset);if(x<0||x>=1280||y<0||y>=768)continue;const v=c.getImageData(x*2,y*2,1,1).data;if(v[1]>v[0]*1.12&&v[2]>v[0]*1.04&&v[1]>90)waterHits++;routeSamples++;}}
+   if(waterHits||routeSamples<1000)throw Error('M04 route/bridge crosses water');
+   return {snapshot:w.snapshot,art:s.mapView.qa,ambient:s.mapView.snapshot,routeSamples,waterHits,renderer:s.game.renderer.type};
   });
   await page.screenshot({path:out+'/'+profile+'-river-empty.png'});
   // Every real pad must select its own index through mouse/touch coordinates.
