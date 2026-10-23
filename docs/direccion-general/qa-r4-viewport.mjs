@@ -13,7 +13,7 @@ const script=read('public/official/src/mobile/viewport-r4.mjs');
 const css=read('public/official/src/mobile/viewport-r4.css');
 const pano=read('public/official/src/mobile/viewport-panorama-r5.mjs');
 assert.equal(h(m01),'950c7ce85796932a40b23be421d1e4e9126087c5','Unexpected M01 gameplay changes');
-assert.equal(h(m02),'e8aa7c6cb8dc56211669f71219d47591a4ac01a8','Unexpected M02 gameplay changes');
+assert.equal(h(m02),'78a04b045563c5f8ffa70c63bc12cf2be7efbb5a','Unexpected M02 gameplay changes');
 for(const [id,scene] of [['M01',a],['M02',b]]){
  assert(scene.includes('scale:{mode:Phaser.Scale.FIT,'),id+' canonical geometry cropped');
  assert(!scene.includes('Phaser.Scale.ENVELOP'),id+' may crop map landscape');
@@ -40,7 +40,7 @@ assert(pano.includes('maps/m01/aurora-v3/viva/ground')&&
  pano.includes('maps/m01/aurora-v3/viva/road')&&
  pano.includes('maps/m02/farmland/r3-b2'),
  'R5 must extend the actual approved terrain for both maps');
-assert(a.includes('bindScene?.(this,1)')&&b.includes('bindScene?.(this,2)'),
+assert(a.includes('bindScene?.(this,1)')&&b.includes('bindScene?.(this,mapId)')&&b.includes('mapId=config.mapId??2'),
  'R5 rendering not mounted for both maps');
 assert(script.includes('attachR5Panorama')&&script.includes('panorama.refresh()'),
  'R5 not refreshing edge art at fullscreen/resize');

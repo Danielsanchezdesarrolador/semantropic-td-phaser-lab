@@ -14,7 +14,7 @@ for(const [p,sha] of Object.entries({
  'public/official/data/maps.v5.json':'1da0e20145e1312f3d75443debabea17e3db507c',
  'public/official/data/campaign140.v5.json':'794cf43f9b172a39dd88f02e2a89ea11455064c3',
  'public/official/src/maps-visual/m01/m07/renderer-v7.mjs':'ca77f7b27886d373815789087df1044f1a6a2cdf',
- 'public/official/src/c1d8-b2-playable/scene-m02.mjs':'e8aa7c6cb8dc56211669f71219d47591a4ac01a8',
+ 'public/official/src/c1d8-b2-playable/scene-m02.mjs':'78a04b045563c5f8ffa70c63bc12cf2be7efbb5a',
  'public/official/src/core-c1d/m01-combat-world.mjs':'68300432ca2f78446d804ce047adfcded84addb3',
  'public/official/src/core-c1d/m02-combat-world.mjs':'63741749125e7ac455787caae3bd5b3fb7d3b8a0'
 })){
