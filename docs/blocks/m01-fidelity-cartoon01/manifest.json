@@ -1,0 +1,54 @@
+{
+  "block": "M01-FIDELIDAD-CARTOON-01",
+  "base": "28a861fd92f7c21b8b4d2da3c992bb310544a8db",
+  "version": "m01-fidelity-cartoon01-layered-mesas-v1",
+  "source": "Original generation of independent materials and transparent atlases; reference image not sampled or flattened",
+  "assets": [
+    {
+      "path": "public/official/art/maps/m01/fidelity01/materials-original.png",
+      "sha256": "78b426e142e73f8819fe8a6076c2a39f1135485142f663c9f5179d9949b88dcd",
+      "bytes": 1668475,
+      "original": "/workspace/generated_images/exec-9278d073-279a-4cf4-8106-f9baf77fcf8f.png"
+    },
+    {
+      "path": "public/official/art/maps/m01/fidelity01/cliffs-atlas-original.png",
+      "sha256": "7862eca7d8d6fd2ef1dd9febbc01953177a381b95b104801b740db2b04655cff",
+      "bytes": 1290094,
+      "original": "/workspace/generated_images/exec-2fe2c30f-6b6f-4ee3-93d7-de4e283a85f0.png"
+    },
+    {
+      "path": "public/official/art/maps/m01/fidelity01/nature-atlas-original.png",
+      "sha256": "e43108f935c9c96d5d3f87cbedbe76a1b9e43d8c957ff89bc3c99c5687d98f89",
+      "bytes": 2366088,
+      "original": "/workspace/generated_images/exec-75bfe424-fe5a-44ed-8812-9a098c34eec2.png"
+    },
+    {
+      "path": "public/official/art/maps/m01/fidelity01/structures-atlas-original.png",
+      "sha256": "7da019b4063abb7a1020337d5389c371767af1bbdf41db42b630ca8bf2ebdef9",
+      "bytes": 2293043,
+      "original": "/workspace/generated_images/exec-105d4e49-a56c-45f9-905c-5d88a82b2664.png"
+    }
+  ],
+  "layers": [
+    "panorama",
+    "ground",
+    "water independent",
+    "mesa tops",
+    "cliff faces",
+    "canonical road",
+    "8 canonical pads",
+    "ground shadows",
+    "props depth by foot",
+    "unchanged real actors and towers"
+  ],
+  "geometry": "133 waypoints, eight centers and IDs unchanged",
+  "newTerrainFormations": 7,
+  "assetScales": "Uniform per sprite; materials projected as environment surfaces; no route scaling",
+  "protection": "Existing map-style01 protected-blobs + authorized-visual-blobs remain enforced",
+  "physicalMobile": "NOT_RUN",
+  "humanArtApproval": "PENDING_DIRECTOR",
+  "productSourceSha256": {
+    "public/official/src/maps-visual/m01/style01/cartoon-world.mjs": "46334a5c49e72b5dbb4189abe5c45b4c13d12aed64b428f2b78f8519bc1d747d",
+    "public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs": "425a6b8eb87da4da3f7dd48c8a32495898ad8b6c5b47f523d980ca7f260159b9"
+  }
+}
