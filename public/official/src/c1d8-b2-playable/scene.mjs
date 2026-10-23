@@ -4,7 +4,7 @@ import {c1d7MenuDTO,c1d7ApplyIntent,c1d7WorldToClient,c1d7NodePlacement} from ".
 import {m01ReadRecord,m01SaveVictory,m01Result} from "../core-c1d/m01-results-phaser.mjs";
 import {validateM01} from "../maps-visual/m01/renderer.mjs";
 import {preloadM07Illustrations} from "../maps-visual/m01/m07/renderer-v7.mjs";
-import {mountM01WorldR7} from "../maps-visual/m01/r7/renderer-r7.mjs?layout=hf1";
+import {mountM01WorldR7} from "../maps-visual/m01/r7/renderer-r7.mjs";
 import {TOWER_ART_V2,validateTowerArtV2,projectSourceAnchor} from "../towers-visual/catalog.mjs";
 import {SniperShotPresenter} from "../towers-visual/sniper-vfx.mjs";
 import {diagnoseT10Muzzle} from "../towers-visual/t10/sniper-muzzle-contract.mjs";
