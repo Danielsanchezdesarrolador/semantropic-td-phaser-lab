@@ -6,6 +6,9 @@
 **Alcance:** repositorio completo. Si existen AGENTS.md más específicos en subcarpetas, respetarlos siempre que no contradigan la visión aprobada ni este marco. Los pedidos expresos más recientes del director prevalecen sobre decisiones históricas.
 **Idioma de reportes y coordinación:** español.
 
+
+> **DIRECTIVA OFICIAL 23/10/2026 — REWORK VISUAL M03 + MICROBLOQUES.** El Director autoriza un rework ARTÍSTICO, NO de gameplay, para elevar M01/M02 y todos los futuros mapas al estándar pictórico premium del M03 (captura 23/10/2026), conservando la identidad de cada bioma. Una orden de mapa equivale SOLO a arte de mapa, sin implementar simultáneamente pads, olas, enemigos, economía o combate. Codex es el único equipo que implementa; los antiguos equipos T/P solo aportarán mockups visuales externos para integrar después. La nueva política de ahorro de uso y límites de alcance está en la sección 13 y en ROADMAP_CENTRAL.md. Esta decisión posterior prevalece sobre la aprobación visual antigua de M01/M02 únicamente en el alcance autorizado.
+
 > LEER ANTES DE CUALQUIER CAMBIO. Este archivo establece dirección y controles; su mera lectura NO autoriza modificaciones, commits, merges ni despliegues. Verificar siempre el código y el commit actual. No tratar documentos históricos como prueba de implementación.
 
 ## 1. Identidad y misión: no negociables
@@ -48,7 +51,7 @@ Auditar las rutas y los nombres reales antes de referenciarlos en cambios. Canva
 ### Identidad visual interna obligatoria
 - Respetar baseline artístico aprobado **C1-C / M03 + T04 + P03**, restaurado tras regresiones de reworks visuales no aceptados. Consultar imágenes originales y evidencias verificables ANTES de cambiar arte.
 - La pradera M01, camino cálido serpenteante, Infantería pizarra/gris-azulada, Francotirador original de madera con **un solo rifle**, orcos verdes, sabuesos pardos y proporciones/siluetas aprobadas son identidad protegida.
-- Mantener continuidad con R7 M01/HF3 integrado y probado (aprobación artística final pendiente), R6 M02 aprobado por el Director, mejoras de viewport R5 y las actas/imágenes más recientes verificadas. La revisión reciente puede ampliar la referencia; NUNCA suponer que permite rediseñar toda la dirección artística.
+- Proteger la FUNCIONALIDAD de R7 M01/HF3, R6 M02 y viewport R5. Nueva aprobación 23/10/2026: rework del ARTE PAISAJÍSTICO antiguo M01/M02 para alcanzar el estándar M03. No rehacer su gameplay, geometría, torres, enemigos, estadísticas, economía ni progresión. El bioma y la identidad de cada mapa siguen siendo propios.
 - No transformar el arte original aprobado en un simple estilo genérico, vectorial plano, pixel art o clon de otra IP.
 
 ## 5. Campaña objetivo, sin atribuirla falsamente al runtime
@@ -95,7 +98,7 @@ M01–M05: una entrada; M06–M07: dos; M08–M10: tres (verificar geometrías r
 - Cascadas solo donde la topografía/curso de agua las justifique; animaciones ambientales con moderación (agua, viento, hojas, niebla, chispas) y bajo costo GPU. Evitar cascadas duplicadas, decorados flotando, capas superpuestas u objetos que parecen bloquear rutas.
 - Cada corrección de solapes requiere capturas ANTES/DESPUÉS, evidencia de cero colisiones visuales nocivas, rutas/pads iguales y regresión en los otros mapas.
 - Efectos de ataque de torres, personajes y enemigos deben corresponder a eventos del core. No duplicar rifles, flashes, impactos o barras de vida.
-- Mejorar pulido NO autoriza cambiar geometría, paleta, identidad, niveles o reglas sin aprobación.
+- Rework pictórico M01/M02 y de biomas futuros está aprobado desde 23/10/2026, pero no cambiar geometría jugable, sockets, niveles, mecánicas, HUD ni reglas fuera de bloques exclusivos. Se permite enriquecer la paleta visual sin borrar la identidad propia del mapa.
 
 ## 9. Secuencia obligatoria por bloque para Codex
 0. Al entrar: leer este AGENTS.md y buscar AGENTS.md aplicables en subárbol.
@@ -135,3 +138,49 @@ Confirmar internamente:
 - La decisión expresa del Director de adoptar equipo único prevalece sobre cualquier instrucción histórica que obligue a mantener tres equipos, tres worktrees o tres flujos independientes. Conservar esa documentación como historia, no como orden operativa vigente.
 - El último bloque jugable verificado al adoptar esta metodología es M01 R7 HF3, commit `5388a490f808bac4cfd47e02ae6739f923caa5cc`, CI 39890530324 SUCCESS; M02 R6 permanece aprobado. Comprobar HEAD de nuevo antes de cada tarea: esta referencia no es perpetua.
 - No reiniciar el proyecto ni abrir implementaciones nuevas sin un bloque autorizado. Respetar decisiones artísticas, mecánicas y técnicas ya aprobadas; separar QA técnico, publicación y aprobación estética humana.
+
+## 13. DECISIÓN DE DIRECCIÓN 23/10/2026 — ESTÁNDAR M03 Y PRODUCCIÓN ECONÓMICA POR MICROBLOQUES
+
+### 13.1 Línea artística vigente (supersede apariencia plana de M01/M02)
+- La captura real del M03 Bosque de los Susurros del 23/10/2026 es REFERENCIA INTERNA DE CALIDAD de todos los mapas: texturas orgánicas, vegetación y relieve con volumen ilustrado 2D 3/4, luces/sombras ambientales, riqueza compositiva, materialidad y detalles jerarquizados. Los pads y rutas deben seguir claros a escala móvil.
+- M01/M02 conservan mecánicas y rutas; sus paisajes antiguos están AUTORIZADOS a rediseño pictórico. M03 no es perfecto ni obliga a clonar literalmente su bosque. Bosques, praderas, campos agrícolas, ríos, pantanos, desfiladeros, hielo, ruinas, volcanes y fortalezas mantienen IDENTIDAD PROPIA.
+- No reutilizar un mismo fondo de bosque con recolor. No copiar referencias de otras franquicias. Mantener lenguaje visual cohesionado y rendimiento móvil medible.
+- Si las capturas de referencia no están en el checkout, solicitarlas como insumo de diseño; jamás afirmar que se han inspeccionado sin evidencia.
+
+### 13.2 UNA ORDEN = UN SUBSISTEMA
+Interpretación predeterminada de "hacer el mapa" = **MAPA-ARTE**, no construir el nivel completo.
+- **MAPA-ARTE:** fondos, superficie, relieve, materiales, vegetación, agua, ruinas, composición y pintura de camino apoyada en la geometría canónica; NO cambiar puntos de ruta, sockets, enemigos, spawns, oleadas, economía, combate, UI global ni guardados.
+- **MAPA-PADS:** exclusivamente arte/legibilidad de plataformas. Conservar sus IDs, centros, cantidades y lógica; cualquier reubicación real requiere aprobación distinta.
+- **MAPA-AMBIENTE:** agua animada, viento, hojas, niebla, brillo ambiental, sombras dinámicas, con presupuestos GPU y opción de reducción. Sin nuevas mecánicas.
+- **CAMPAÑA-OLAS:** diseño de grupos/ritmo, spawns, datos de oleadas y QA de navegación; no rediseñar fondos.
+- **ENEMIGOS-COMPORTAMIENTO:** un arquetipo/habilidad por bloque, sin recolorear o reconstruir todo el mapa.
+- **CORE-COMBATE:** solo reglas/daño/HP/cooldowns/recompensas cuando se autorice.
+- **TORRES-ARTE, ACTORES-ARTE y VFX-COMBATE:** solo tras recepción y aprobación de MOCKUPS EXTERNOS preparados por los colaboradores artísticos; integrar paquetes por bloque aislado, sin trabajo paralelo de código de equipos M/T/P.
+- **HUD-UX, AUDIO, BALANCE, RELEASE**: bloques dedicados. No añadirlos a una tarea de paisaje.
+
+### 13.3 Orden del nuevo roadmap
+1. Auditoría focalizada y congelación del baseline M01/M02/M03 y capturas, sin cambiar código.
+2. Rework MAPA-ARTE de M01 para elevarlo al estándar M03, preservando código y geometría. Aprobar visualmente.
+3. Rework MAPA-ARTE de M02 con estética agrícola/molinera premium. Aprobar visualmente.
+4. M03 queda REFERENTE; corregirlo solo mediante órdenes específicas, no reiniciar el port.
+5. M04–M10: crear cada escenario mediante bloque exclusivo MAPA-ARTE; PADs, AMBIENTE, OLEADAS, enemigos y gameplay se completan después mediante bloques individuales y sus propias pruebas.
+6. Recepción de mockups/spritesheets externos de TORRES, ENEMIGOS/ALIADOS y VFX; después integración Codex de cada arte aprobado por separado.
+7. UI/HUD final, música/SFX, opciones, accesibilidad, optimización final y release comercial en etapas propias, siempre con QA mínimo en cada bloque y regresiones al integrar.
+- Los colaboradores externos solo entregan DISEÑOS/MOCKUPS; no crean ramas ni tocan el core. Codex sigue siendo implementador único de código. No confundir diseño visual de otros chats con desarrollo simultáneo de Git.
+
+### 13.4 Disciplina de ahorro de uso Codex (Sol Medium cuando el usuario lo seleccione)
+- Evitar que una tarea de mapa se transforme en "arte + 9 oleadas + siete enemigos + combate + resultados". Alcance EXPLÍCITO y FUERA DE ALCANCE obligatorio en cada prompt.
+- Comprobar HEAD, diff y módulos del bloque. No auditar de cero todo GitHub/campaña/ramas/pruebas si ya existe inventario con SHA válido. Reutilizar reportes, cache de arte y APIs.
+- Cambios mínimos y reversibles; no duplicar motores, assets ni componentes. Evitar reescrituras monolíticas, redibujar fondos completos por un ajuste o generar decenas de capturas redundantes.
+- QA proporcional sin falsificar ni omitir pruebas críticas: validación de arte, build, Chromium real con imágenes desktop/móvil para cambios visuales; smoke y regresión para integraciones jugables. Solo QA global al cierre de integración/campaña o cuando un riesgo real lo justifique.
+- Justificar antes cualquier dependencia fuera del objetivo. Si surge bug crítico separado, registrarlo y abrir hotfix independiente; no absorberlo silenciosamente.
+- Reportar de forma compacta: rama/SHA, archivos, alcance, QA PASS/FAIL/NOT_RUN, comparación antes/después, enlace LIVE solo tras comprobar despliegue y 1 siguiente bloque propuesto. No asegurar porcentaje de ahorro de cuota.
+
+### 13.5 Criterios obligatorios de cierre
+1. Un subsistema, un bloque, un diff coherente.
+2. Calidad artística M03 visible sin copiar bosque en otros biomas.
+3. Ningún camino o pad oculto; sin rejas/cascadas/props cruzando geometría transitable ni arte flotante.
+4. MAPA-ARTE no modifica nunca olas, economía, IA enemiga, construcción de torres o daño sin autorización adicional.
+5. QA y capturas auténticas; no confundir Chromium emulado con móvil físico.
+6. CI, versión publicada y URL oficial verificadas antes de anunciar un bloque LIVE; si está DRAFT informar el estado sin inventar publicación.
+7. Nueva prioridad explícita del Director prevalece solo para cambios artísticos aquí autorizados.
