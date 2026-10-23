@@ -36,7 +36,7 @@ const campaign=JSON.parse(read('public/official/data/campaign140.v5.json')).maps
 assert.equal(campaign.waves.length,5);
 const painter=read('public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs');
 for(const feature of ['distantWorld(c)','cliffsAndWater(c,plan)','meadow(c,plan)',
- 'road(c,plan.path)','entrance(c)','archRuins(c)','shrine(c)','exitBridge(c)','pads(c,plan)']){
+ 'road(c,plan.path)','archRuins(c)','shrine(c)','pads(c,plan)']){
  assert(painter.includes(feature),'R7 director feature missing: '+feature);
 }
 const adapter=read('public/official/src/maps-visual/m01/r7/renderer-r7.mjs');
@@ -49,7 +49,7 @@ assert(scene.includes('window.__SEMANTROPIC_VIEWPORT?.bindScene?.(this,1)'),'R5 
 const pano=read('public/official/src/mobile/viewport-panorama-r5.mjs');
 assert(pano.includes("const premium=texture(PREMIUM_M01)"),'R5 side panels not using premium terrain');
 const live=read('public/official/src/live/index.html');
-assert(live.includes('r7=dawn-plateau-hf2'),'Missing current R7 HF2 cache invalidation');
+assert(live.includes('r7=dawn-plateau-hf3'),'Missing current R7 HF3 cache invalidation');
 assert(live.includes('scene-m02.mjs?release='),'Map 02 removed');
 
 import {R7_HF1_DECORATION_SITES as correctedDecor} from '../../public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs';
@@ -83,16 +83,18 @@ for(const [a,b] of correctedDecor.fences){
   }
  }
 }
-assert(read('public/official/src/live/index.html').includes('r7=dawn-plateau-hf2'),
- 'Browser cache invalidation missing for R7 HF2');
+assert(read('public/official/src/live/index.html').includes('r7=dawn-plateau-hf3'),
+ 'Browser cache invalidation missing for R7 HF3');
 
 import {makeR7ScenicPanoramaCanvas} from '../../public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs';
 import {R7_M01_SCENIC_TEXTURE} from '../../public/official/src/maps-visual/m01/r7/renderer-r7.mjs';
 assert.equal(typeof makeR7ScenicPanoramaCanvas,'function','HF2 scenic painter export missing');
 assert.equal(R7_M01_SCENIC_TEXTURE,'maps/m01/r7/dawn-plateau/scenic-gutters/hf2');
-assert(painter.includes('c.translate(106,382)'),'Entry must fit inside M01');
+assert(!painter.includes('function entrance(')&&!painter.includes('function exitBridge('),
+ 'HF3 must remove gate and bridge from the playable road');
+assert(painter.includes('c.translate(1116,196)'), 'HF3 shrine must fit below upper edge');
 const panoHF2=read('public/official/src/mobile/viewport-panorama-r5.mjs');
 assert(panoHF2.includes('const scenic=texture(PREMIUM_M01_SCENIC)')&&
  panoHF2.includes('if(scenic)return [scenic]'),'HF2 panorama must avoid duplicated monuments');
-assert(live.includes('r7=dawn-plateau-hf2'),'HF2 cache invalidation missing');
-console.log('PASS_R7_MAP01_HF2_SINGLE_GATE_SHRINE_SCENIC_GUTTERS_133_PATH_8_PADS_M02_R6_PROTECTED');
+assert(live.includes('r7=dawn-plateau-hf3'),'HF3 cache invalidation missing');
+console.log('PASS_R7_MAP01_HF3_CLEAR_ROAD_SHRINE_SCENIC_GUTTERS_133_PATH_8_PADS_M02_R6_PROTECTED');

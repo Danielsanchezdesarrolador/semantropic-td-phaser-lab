@@ -167,3 +167,11 @@ Nuevo chat NO inicia otro trabajo por su cuenta ni asume que una tarea históric
 - R5 actualiza el wallpaper panorámico con R7 premium; sigue FIT y módulo sin franjas. Cambio solo en import/mount de `scene.mjs`, R5 y query de HTML. M02 R6 permanece protegido.
 - Documento de detalle `docs/direccion-general/ACTA_R7_MAPA01_PREMIUM_2026-10-22.md`. QA Node+Chromium+regresión general con evidencia real. Control visual Android físico pendiente.
 - Rollback seguro: `90bf7433f969fafcfa72eb1e002d55b5b6b52e29`.
+
+
+## 21. R7 HF3 — Calzada libre y pulido M01 (22-oct-2026)
+- El Director autoriza corregir elementos superpuestos al camino y pulir visualmente a partir de `51052.jpg`. Se retiran el arco de entrada y el puente decorativo de salida; no se alteran los 133 nodos ni los ocho pads. La carretera se pinta después del entorno.
+- Gradientes de luz en follaje/roca, estratos de riscos y franjas del camino más suaves. Santuario dentro del encuadre, cristal completo; panorama HF2 solo de terreno preservado. Todo se pinta una vez, sin trabajo nuevo por frame ni dependencias.
+- M02 R6 aprobado, M07, escenas, campaña, core, torres/actores y FIT/fullscreen sin cambios. Caché HTML HF3 y pintor `layout=hf3`.
+- Local: build + 70 controles Node/sintaxis PASS; R7 Chromium tres resoluciones PASS con 1.217 muestras de calzada por perfil; B3 M01 construcción, tropas, cinco oleadas/63 enemigos, victoria/derrota PASS. CI remoto y publicación requieren consultar el SHA de este commit, sin atribuir resultados de un run anterior. QA técnica no sustituye aprobación artística ni hardware Android.
+- Acta: `ACTA_R7_HF3_CAMINO_DESPEJADO_2026-10-22.md`. Rollback por commit compensatorio a `1b04ef9a76a946ee2028a87a92c4136daf9aae8a`. Una sola rama/URL de producción.

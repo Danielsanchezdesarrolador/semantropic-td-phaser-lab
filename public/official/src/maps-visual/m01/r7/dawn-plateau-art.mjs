@@ -4,7 +4,7 @@
  * All gameplay geometry is sourced exclusively from protected M01 JSON:
  * 133 route vertices, 8 authorized build pads and world 1280x768.
  * Original premium fantasy meadow, waterfalls, ruin, blue crystal, stone
- * gate/exit. Inspired by director's mockup, not copied or used as a texture.
+ * clear entry/exit. Original scenery, never a copied reference texture.
  * Renders only once into 2560x1536 Phaser CanvasTexture, no per-frame work.
  */
 export const R7_MAP01_ART_VERSION='r7-m01-dawn-plateau-premium-v1';
@@ -76,7 +76,13 @@ function cliffsAndWater(c,plan){
   [[1188,640],[1246,621],[1280,657],[1280,768],[1135,768]]
  ];
  for(const [i,shape] of rockRows.entries()){
-  poly(c,shape,'#667c75','#bac6a7',3);
+  const cliff=c.createLinearGradient(shape[1][0]-35,shape[1][1],shape[1][0]+40,768);
+  cliff.addColorStop(0,'#abb99a');cliff.addColorStop(.38,'#7b9584');cliff.addColorStop(1,'#405e62');
+  poly(c,shape,cliff,'#bac6a7',2);
+  c.save();c.beginPath();c.moveTo(...shape[0]);for(const v of shape.slice(1))c.lineTo(...v);c.closePath();c.clip();
+  for(let band=0;band<5;band++)
+   stroke(c,[[shape[1][0]-90,shape[1][1]+35+band*24],[shape[1][0]+110,shape[1][1]+10+band*29]],band%2?'#d7d3b52b':'#294e5738',2+band%2);
+  c.restore();
   poly(c,[shape[0],shape[1],[shape[1][0]+10,shape[1][1]+24],
     [shape[0][0]+15,shape[0][1]+37]],'#a8b3a0');
   if(i%2===0)stroke(c,[[shape[1][0]-15,shape[1][1]+30],
@@ -113,9 +119,14 @@ function cliffsAndWater(c,plan){
 }
 function rock(c,x,y,s=1){
  c.save();c.translate(x,y);c.scale(s,s);
- poly(c,[[-19,4],[-22,-9],[-7,-25],[12,-21],[24,-7],[18,13],[-7,14]],'#7d9286','#536d65',2);
+ const stone=c.createLinearGradient(-18,-24,21,15);
+ stone.addColorStop(0,'#c6cbb0');stone.addColorStop(.45,'#91a18c');stone.addColorStop(1,'#536d68');
+ ellipse(c,5,15,24,7,'#274d4938');
+ poly(c,[[-19,4],[-22,-9],[-7,-25],[12,-21],[24,-7],[18,13],[-7,14]],stone,'#536d65',1.4);
  poly(c,[[-22,-9],[-7,-25],[12,-21],[2,-8]],'#d2d1b0');
- poly(c,[[2,-8],[12,-21],[24,-7],[18,13]],'#a2b3a3');c.restore();
+ poly(c,[[2,-8],[12,-21],[24,-7],[18,13]],'#a2b3a38c');
+ stroke(c,[[-15,-4],[-5,-9],[4,-7]],'#e5e2c366',1);
+ stroke(c,[[3,1],[12,-2],[17,0]],'#405f605c',1);c.restore();
 }
 function flower(c,x,y,kind=0){
  const palette=['#fff2d9','#eca8cf','#a9d8ec','#e7d895'];const color=palette[kind%4];
@@ -133,8 +144,16 @@ function tree(c,x,y,s=1){
  const r=rng(Math.abs((x*59+y*113)|0));
  for(const [px,py,rad] of parts){
   ellipse(c,px+2,py+7,rad+2,rad*.73,'#28634a');
-  ellipse(c,px,py,rad,rad*.72,r()>.4?'#458d57':'#3e8061');
-  ellipse(c,px-7,py-9,rad*.73,rad*.4,r()>.35?'#94c46c':'#70b66b');
+  const foliage=c.createRadialGradient(px-rad*.3,py-rad*.3,2,px,py,rad);
+  foliage.addColorStop(0,r()>.4?'#b3d680':'#9ecb78');
+  foliage.addColorStop(.42,'#72ac61');foliage.addColorStop(.76,'#438759');
+  foliage.addColorStop(1,'#2c654e');
+  ellipse(c,px,py,rad,rad*.72,foliage);
+  // Small uneven leaf clusters catch upper-left light without extra textures.
+  for(let j=0;j<7;j++){
+   const lx=px+(r()-.6)*rad,ly=py-rad*.15+(r()-.6)*rad*.6;
+   ellipse(c,lx,ly,3+r()*6,2+r()*3,'#c6df8c42');
+  }
   for(let i=0;i<12;i++){
    ellipse(c,px+(r()-.5)*rad*1.1,py-8+(r()-.5)*rad*.7,
     1+r()*3,1+r()*2,'#c1e58c6b');
@@ -233,8 +252,10 @@ function meadow(c,plan){
  }
 }
 function road(c,path){
+ const earth=c.createLinearGradient(0,150,180,650);
+ earth.addColorStop(0,'#f1d6a3');earth.addColorStop(.5,'#e9c38e');earth.addColorStop(1,'#dcb07b');
  for(const [width,col] of [[120,'#476c51'],[114,'#788466'],[109,'#aa8564'],
-   [103,'#d9ab77'],[96,'#f5d59a'],[79,'#edbf82'],[49,'#f6d9a4a0']]){
+   [103,'#d9ab77'],[96,earth],[78,'#f6dbad38'],[56,'#fff0cd18']]){
   stroke(c,path,col,width);
  }
  const r=rng(704);
@@ -274,30 +295,6 @@ function pads(c,plan){
   ellipse(c,x,y-5,3.2,2.2,'#83c4c6');
  }
 }
-function entrance(c){
- c.save();c.translate(106,382);
- ellipse(c,-1,39,73,24,'#3b544b66');
- // Stone gate flanks the canonical left entry; all textures stay behind enemies.
- for(const sign of [-1,1]){
-  const x=sign*49;
-  poly(c,[[x-17,7],[x-15,-75],[x-7,-99],[x+12,-96],[x+20,-75],[x+22,10]],
-   '#b0bbac','#596e68',3);
-  poly(c,[[x-17,-75],[x-7,-99],[x+12,-96],[x+4,-73]],'#e8e0bc');
-  poly(c,[[x-26,-88],[x-22,-103],[x+25,-104],[x+27,-90]],'#84918b','#506960',2);
-  c.fillStyle='#34566e';c.fillRect(x-8,-53,17,37);
-  poly(c,[[x-8,-16],[x,-8],[x+9,-16]],'#34566e');
-  stroke(c,[[x,-50],[x,-13]],'#ecc86f',2);
- }
- // Overhead stone arch and blue flag: original fantasy emblem identity.
- stroke(c,[[-39,-63],[-39,-102],[-13,-126],[16,-124],[46,-103],[46,-66]],'#677b73',24);
- stroke(c,[[-39,-64],[-39,-99],[-13,-122],[15,-120],[45,-100],[45,-65]],'#dadac0',17);
- for(const x of [-53,53]){
-  poly(c,[[x-12,-110],[x+12,-110],[x+14,-121],[x-14,-121]],'#c9bb99','#6e7970');
-  ellipse(c,x,-124,7,5,'#ffbe65');
-  ellipse(c,x,-131,3,9,'#ffd37d');
- }
- c.restore();
-}
 function archRuins(c){
  c.save();c.translate(458,300);
  ellipse(c,3,16,78,18,'#3b614e5f');
@@ -319,7 +316,7 @@ function archRuins(c){
  c.restore();
 }
 function shrine(c){
- c.save();c.translate(1116,113);
+ c.save();c.translate(1116,196);
  ellipse(c,2,27,87,28,'#3d5c537c');
  for(let i=0;i<5;i++){
   poly(c,[[-64+i*4,22-i*8],[65-i*4,22-i*8],
@@ -347,26 +344,6 @@ function shrine(c){
  }
  c.restore();
 }
-function exitBridge(c){
- c.save();c.translate(1255,410);
- // Directly on canonical road exit. No route coordinates modified.
- poly(c,[[-90,-55],[40,-41],[45,47],[-91,55]],'#bdb9a8','#6f827f',2);
- for(let i=-74;i<50;i+=13)
-  stroke(c,[[i,-48],[i+1,47]],i%2?'#e9ddba':'#a7a69b',2);
- for(const y of [-64,61]){
-  stroke(c,[[-94,y],[47,y+4]],'#718b82',8);
-  stroke(c,[[-94,y-2],[47,y+2]],'#ded6b6',4);
-  for(let x=-87;x<50;x+=31){
-   poly(c,[[x-4,y-11],[x+5,y-11],[x+7,y+5],[x-6,y+5]],
-    '#bbc9b9','#647e76',2);
-  }
- }
- for(const x of [-88,31]){
-  ellipse(c,x,-76,8,5,'#f7b960');ellipse(c,x,-84,4,11,'#ffdb7c');
-  c.fillStyle='#355c7d';c.fillRect(x-5,-48,12,27);
- }
- c.restore();
-}
 export function makeR7MapPlan(map){
  if(map?.id!==1||map.path?.length!==133||map.spots?.length!==8||
    map.gold!==365||map.branches?.length!==0)
@@ -388,13 +365,15 @@ export function makeR7MapCanvas(map,{density=2}={}){
  if(!c)throw Error('R7 Canvas 2D unavailable');
  c.setTransform(density,0,0,density,0,0);
  distantWorld(c);cliffsAndWater(c,plan);meadow(c,plan);
- road(c,plan.path);entrance(c);archRuins(c);shrine(c);exitBridge(c);pads(c,plan);
+ archRuins(c);shrine(c);
+ // HF3: paint the canonical road after scenery, with no gate or bridge over it.
+ road(c,plan.path);pads(c,plan);
  return Object.freeze({canvas,plan,qa:Object.freeze({
   version:R7_MAP01_ART_VERSION,mapId:1,routeVertices:plan.path.length,
   padsRendered:plan.pads.length,pixels:[canvas.width,canvas.height],
-  features:Object.freeze(['fortified-entry','sandy-canonical-S-road','stone-arch',
+  features:Object.freeze(['unobstructed-entry','sandy-canonical-S-road','stone-arch',
    'blue-crystal-shrine','castle-vista','cliffs','river','waterfalls',
-   'fortified-exit-bridge','meadow-flowers','forest','eight-build-pads'])
+   'unobstructed-exit','meadow-flowers','forest','eight-build-pads'])
  })});
 }
 

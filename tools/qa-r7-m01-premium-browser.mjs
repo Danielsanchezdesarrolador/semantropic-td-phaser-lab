@@ -51,8 +51,30 @@ try{
     const a=fullCtx.getImageData(x*2,y*2,1,1).data,b=scenicCtx.getImageData(x,y,1,1).data;
     return Math.abs(a[0]-b[0])+Math.abs(a[1]-b[1])+Math.abs(a[2]-b[2]);
    };
-   if(delta(57,345)<45||delta(1116,55)<45)
-    throw Error('HF2 landmark present in terrain-only panorama');
+   if(delta(1116,140)<45)
+    throw Error('HF3 shrine missing from main art or duplicated in panorama');
+   const maps=await (await fetch('/official/data/maps.v5.json')).json();
+   const map=maps.find(m=>m.id===1);
+   const clear=painter.makeR7MapCanvas(map,{density:1}).canvas.getContext('2d');
+   let roadSamples=0;
+   for(let i=1;i<map.path.length;i++){
+    const a=map.path[i-1],b=map.path[i],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy);
+    if(!len)continue;
+    for(let step=0;step<=Math.ceil(len/8);step++){
+     const t=step/Math.ceil(len/8);
+     for(const offset of [-20,0,20]){
+      const x=Math.round(a[0]+dx*t-dy/len*offset),y=Math.round(a[1]+dy*t+dx/len*offset);
+      if(x<0||x>=1280||y<0||y>=768)continue;
+      const actual=clear.getImageData(x,y,1,1).data,expected=scenicCtx.getImageData(x,y,1,1).data;
+      if(actual.some((v,k)=>v!==expected[k]))
+       throw Error('HF3 scenery obstructs canonical road at '+x+','+y);
+      roadSamples++;
+     }
+    }
+   }
+   if(roadSamples<800)throw Error('HF3 road coverage insufficient');
+   for(const [x,y] of [[57,345],[1240,400]])
+    if(delta(x,y)>25)throw Error('HF3 old gate/bridge remains on live road');
    if(delta(325,405)>30)
     throw Error('HF2 mismatch in seamless clear meadow');
    const ctx=art.getContext('2d'),points=[[50,70],[230,165],[450,235],[725,175],
@@ -77,7 +99,7 @@ try{
    if(w.economy.gold!==270)throw Error('M01 economy modified');
    return {mapId:w.map.id,route:w.route.points.length,
     sockets:scene.mapView.plan.sockets.length,waves:w.campaign.waves.length,
-    art:[art.width,art.height],colorSamples:colors.size,gold:w.economy.gold,
+    art:[art.width,art.height],colorSamples:colors.size,roadSamples,gold:w.economy.gold,
     premiumFullscreenBackdrop:pan.sourceCount===1};
   });
   await page.screenshot({path:out+'/'+profile+'-Praderas-del-Amanecer-R7.png',fullPage:true});
@@ -94,7 +116,7 @@ try{
   results.push({profile,width,height,...result,map02StillPlayable:true});
   await page.close();
  }
- console.log(JSON.stringify({status:'PASS_R7_M01_PREMIUM_IN_GAME_WEBGL2',results,
+ console.log(JSON.stringify({status:'PASS_R7_HF3_CLEAR_ROAD_PREMIUM_WEBGL2',results,
   physicalAndroid:'PENDING',artApproval:'PENDING',balanceUnchanged:true},null,2));
 }catch(e){console.error('FAIL_R7_M01_BROWSER',e.stack||String(e));process.exitCode=1}
 finally{await browser?.close();await new Promise(ok=>server.close(ok))}
