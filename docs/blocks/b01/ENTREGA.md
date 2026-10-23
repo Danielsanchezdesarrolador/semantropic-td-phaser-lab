@@ -1,6 +1,6 @@
 # B01 · MAP-ART-01 · Praderas del Amanecer
 
-[APROBADO POR DIRECCIÓN] alcance confirmado: rework del paisaje M01, estándar pictórico M03 e identidad de pradera propia. Base: `6dc99a8a53404a653de0a6f77ea59fbda091d78c`, rama `feature/b01-m01-pictoric-meadow`. Publicación y CI finales se trazan en el PR del bloque; este documento registra QA local previo a integrar.
+[APROBADO POR DIRECCIÓN] alcance confirmado: rework del paisaje M01, estándar pictórico M03 e identidad de pradera propia. Base: `6dc99a8a53404a653de0a6f77ea59fbda091d78c`, rama `feature/b01-m01-pictoric-meadow`. Publicación y CI finales se trazan en el [PR #54](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/pull/54); este documento registra QA local previo a integrar.
 
 ## Resultado y alcance
 
