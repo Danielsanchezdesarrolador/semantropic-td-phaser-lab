@@ -85,4 +85,14 @@ for(const [a,b] of correctedDecor.fences){
 }
 assert(read('public/official/src/live/index.html').includes('r7=dawn-plateau-hf1'),
  'Browser cache invalidation missing for R7 HF1');
-console.log('PASS_R7_MAP01_HF1_TWO_FALLS_CLEAR_ROAD_FENCES_133_PATH_8_PADS_M02_R6_PROTECTED');
+
+import {makeR7ScenicPanoramaCanvas} from '../../public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs';
+import {R7_M01_SCENIC_TEXTURE} from '../../public/official/src/maps-visual/m01/r7/renderer-r7.mjs';
+assert.equal(typeof makeR7ScenicPanoramaCanvas,'function','HF2 scenic painter export missing');
+assert.equal(R7_M01_SCENIC_TEXTURE,'maps/m01/r7/dawn-plateau/scenic-gutters/hf2');
+assert(painter.includes('c.translate(106,382)'),'Entry must fit inside M01');
+const panoHF2=read('public/official/src/mobile/viewport-panorama-r5.mjs');
+assert(panoHF2.includes('const scenic=texture(PREMIUM_M01_SCENIC)')&&
+ panoHF2.includes('if(scenic)return [scenic]'),'HF2 panorama must avoid duplicated monuments');
+assert(live.includes('r7=dawn-plateau-hf2'),'HF2 cache invalidation missing');
+console.log('PASS_R7_MAP01_HF2_SINGLE_GATE_SHRINE_SCENIC_GUTTERS_133_PATH_8_PADS_M02_R6_PROTECTED');

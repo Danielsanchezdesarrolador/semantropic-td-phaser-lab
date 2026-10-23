@@ -43,6 +43,18 @@ try{
    if(!art||art.width!==2560||art.height!==1536)throw Error('R7 source texture not 2x');
    const painter=await import('/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs');
    if(painter.R7_MAP01_ART_VERSION!=='r7-m01-dawn-plateau-premium-v1')throw Error('Old R7 source');
+   const scenic=scene.textures.get('maps/m01/r7/dawn-plateau/scenic-gutters/hf2')?.getSourceImage();
+   if(!scenic||scenic.width!==1280||scenic.height!==768)
+    throw Error('HF2 1280x768 scenic plate missing');
+   const fullCtx=art.getContext('2d'),scenicCtx=scenic.getContext('2d');
+   const delta=(x,y)=>{
+    const a=fullCtx.getImageData(x*2,y*2,1,1).data,b=scenicCtx.getImageData(x,y,1,1).data;
+    return Math.abs(a[0]-b[0])+Math.abs(a[1]-b[1])+Math.abs(a[2]-b[2]);
+   };
+   if(delta(57,345)<45||delta(1116,55)<45)
+    throw Error('HF2 landmark present in terrain-only panorama');
+   if(delta(325,405)>30)
+    throw Error('HF2 mismatch in seamless clear meadow');
    const ctx=art.getContext('2d'),points=[[50,70],[230,165],[450,235],[725,175],
     [1090,95],[150,610],[760,705],[1140,610],[1200,300],[620,490]];
    const colors=new Set();
@@ -58,8 +70,8 @@ try{
       game.top<stage.top-2||game.bottom>stage.bottom+2)
     throw Error('R7 clipped at '+window.innerWidth);
    const pan=window.__SEMANTROPIC_VIEWPORT.panorama;
-   if(pan.sourceCount!==1||pan.mapId!==1||!pan.painted)
-    throw Error('Premium R7 fullscreen gutters incorrectly using old art');
+   if(pan.sourceCount!==1||pan.mapId!==1||!pan.painted||pan.scenicOnlyGutters!==true)
+    throw Error('HF2 panorama is mirroring duplicated landmarks');
    if(!w.economy.build(0,'infantry').ok)throw Error('M01 build broken');
    w.syncTowers();scene.drawTowers();scene.drawSoldiers();
    if(w.economy.gold!==270)throw Error('M01 economy modified');

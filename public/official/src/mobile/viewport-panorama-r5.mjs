@@ -9,6 +9,7 @@
 export const R5_PANORAMA_VERSION='r5-edge-extension-original-map-textures-v1';
 const WORLD=Object.freeze({width:1280,height:768});
 const PREMIUM_M01='maps/m01/r7/dawn-plateau/v1';
+const PREMIUM_M01_SCENIC='maps/m01/r7/dawn-plateau/scenic-gutters/hf2';
 const GROUND_M01='maps/m01/aurora-v3/viva/ground';
 const ROAD_M01='maps/m01/aurora-v3/viva/road';
 const TERRAIN_M02='maps/m02/farmland/r3-b2';
@@ -27,6 +28,9 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
  }
  function panelTexture(){
   if(mapId===1){
+   // Use scenic plate (without gate/shrine/bridge/pads), never reflection of landmarks.
+   const scenic=texture(PREMIUM_M01_SCENIC);
+   if(scenic)return [scenic];
    const premium=texture(PREMIUM_M01);
    if(premium)return [premium];
    const ground=texture(GROUND_M01),road=texture(ROAD_M01);
@@ -110,7 +114,8 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
    lastReport=Object.freeze({mapId,width:w,height:h,world:WORLD,
     gutterLeft:Math.round(left),gutterRight:Math.round(right),
     gutterTop:Math.round(top),gutterBottom:Math.round(bottom),
-    painted:true,sourceCount:src.length,drawCount});
+    painted:true,sourceCount:src.length,drawCount,
+    scenicOnlyGutters:mapId===1?src[0]===texture(PREMIUM_M01_SCENIC):null});
    node.dataset.ready='true';
    node.dataset.map=String(mapId);
   }finally{drawing=false;}

@@ -275,7 +275,7 @@ function pads(c,plan){
  }
 }
 function entrance(c){
- c.save();c.translate(39,337);
+ c.save();c.translate(106,382);
  ellipse(c,-1,39,73,24,'#3b544b66');
  // Stone gate flanks the canonical left entry; all textures stay behind enemies.
  for(const sign of [-1,1]){
@@ -396,4 +396,19 @@ export function makeR7MapCanvas(map,{density=2}={}){
    'blue-crystal-shrine','castle-vista','cliffs','river','waterfalls',
    'fortified-exit-bridge','meadow-flowers','forest','eight-build-pads'])
  })});
+}
+
+/**
+ * R7 HF2: one-shot 1280x768 terrain-only plate for FIT side extensions.
+ * Avoid mirroring gate, shrine, pads, bridge into the outer panorama.
+ * World road/vegetation/river align perfectly to main game plate.
+ */
+export function makeR7ScenicPanoramaCanvas(map){
+ if(typeof document==='undefined')throw Error('R7 HF2 browser Canvas required');
+ const plan=makeR7MapPlan(map);
+ const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;
+ const c=canvas.getContext('2d',{alpha:false});
+ if(!c)throw Error('R7 HF2 context unavailable');
+ distantWorld(c);cliffsAndWater(c,plan);meadow(c,plan);road(c,plan.path);
+ return canvas;
 }
