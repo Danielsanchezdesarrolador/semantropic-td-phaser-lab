@@ -1,8 +1,9 @@
+import {prepareProp,DEFINITION_VERSION} from './texture-definition.mjs';
 /** MAP-STYLE-01: original component scene; no full-map raster or gameplay writes. */
 import {mountM01WorldV7} from '../m07/renderer-v7.mjs';
 import {makeFidelitySubstrate,makeFidelityRelief,supportsFoot} from './fidelity-terrain.mjs';
 import {makeR7MapPlan} from '../r7/dawn-plateau-art.mjs';
-export const STYLE01_VERSION='m01-fidelity-cartoon01-layered-mesas-v1';
+export const STYLE01_VERSION='m01-texture-definition-cartoon-v1';
 export const TERRAIN_KEY='maps/m01/r7/dawn-plateau/v1';
 export const SCENIC_KEY='maps/m01/r7/dawn-plateau/scenic-gutters/hf2';
 export const ASSETS=Object.freeze({terrain:new URL('../../../../art/maps/m01/fidelity01/materials-original.png',import.meta.url).href,nature:new URL('../../../../art/maps/m01/fidelity01/nature-atlas-original.png',import.meta.url).href,details:new URL('../../../../art/maps/m01/style01/details-atlas-original.png',import.meta.url).href,cliffs:new URL('../../../../art/maps/m01/fidelity01/cliffs-atlas-original.png',import.meta.url).href,structures:new URL('../../../../art/maps/m01/fidelity01/structures-atlas-original.png',import.meta.url).href});
@@ -25,11 +26,11 @@ export function paintStyle01Road(c,path){
  // Midpoint quadratic joins remove the scalloped offset polygon. The authoritative
  // waypoints are untouched; the visual center differs by less than a route sample.
  const stroke=(color,width)=>{c.beginPath();c.moveTo(...pts[0]);for(let i=1;i<pts.length-1;i++)c.quadraticCurveTo(...pts[i],(pts[i][0]+pts[i+1][0])/2,(pts[i][1]+pts[i+1][1])/2);c.lineTo(...pts.at(-1));c.lineJoin='round';c.lineCap='round';c.strokeStyle=color;c.lineWidth=width;c.stroke();};
- stroke('#715838',79);stroke('#d79c54',76);stroke('#f2c57c',72);
+ stroke('#604c34',79);stroke('#d79c54',76);stroke('#f2c57c',72);
  const r=rng(101);
  for(let i=1;i<path.length-1;i++){
   const p=path[i],a=path[i-1],b=path[i+1],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1;
-  if(i%2===0){const d=(r()-.5)*44,x=p[0]-dy/len*d,y=p[1]+dx/len*d;poly(c,[[x-7,y-2],[x+1,y-4],[x+7,y-1],[x+9,y+2],[x+2,y+4],[x-6,y+2]],i%4?'#d89b5085':'#ffdb9377');}
+  if(i%2===0){const d=(r()-.5)*44,x=p[0]-dy/len*d,y=p[1]+dx/len*d;poly(c,[[x-7,y-2],[x+1,y-4],[x+7,y-1],[x+9,y+2],[x+2,y+4],[x-6,y+2]],i%4?'#d89b5065':'#ffdb9355');}
   if(i%2===0)for(const side of [-1,1]){const d=side*40,x=p[0]-dy/len*d,y=p[1]+dx/len*d;poly(c,[[x-2,y+1],[x-1,y-2-r()*2],[x+1,y],[x+3,y-2],[x+3,y+1]],'#8dad38');}
   for(let k=0;k<2;k++){const d=(r()-.5)*56,x=p[0]-dy/len*d+(r()-.5)*7,y=p[1]+dx/len*d;ellipse(c,x,y,.5+r()*.7,.35,'#bd995d26');}
  }
@@ -37,9 +38,9 @@ export function paintStyle01Road(c,path){
 }
 function makePad(){const v=canvas(192,192),c=v.getContext('2d');c.scale(2,2);c.translate(48,60);
  // Recessed warm masonry, contact earth and short rock base, not a cyan puck.
- ellipse(c,1,3,44,20,'#38532955');ellipse(c,0,0,43,19,'#8b7950','#586139',1.3);
- ellipse(c,0,-2,40,19,'#a89b78','#575e49',1.8);ellipse(c,0,-8,40,18,'#e9ce93','#65543a',1.8);
- ellipse(c,0,-9,33,14,'#f3da9e','#b99c67',1);
+ ellipse(c,1,3,44,20,'#30432778');ellipse(c,0,0,43,19,'#8b7950','#586139',1.3);
+ ellipse(c,0,-2,40,19,'#a89b78','#575e49',1.8);ellipse(c,0,-8,40,18,'#e9ce93','#51432f',1.8);
+ ellipse(c,0,-9,33,14,'#f3da9e','#9c8055',1);
  for(let i=0;i<9;i++){const a=i/9*TAU;c.beginPath();c.moveTo(Math.cos(a)*34,-8+Math.sin(a)*14);c.lineTo(Math.cos(a)*40,-8+Math.sin(a)*18);c.strokeStyle='#99865e';c.lineWidth=1.2;c.stroke();}
  poly(c,[[0,-16],[10,-10],[0,-3],[-10,-10]],'#bb8549','#79572f',1.3);poly(c,[[0,-13],[5,-10],[0,-7],[-5,-10]],'#f9e7b6');
  for(const [x,y] of [[-38,1],[33,7],[-26,12]]){poly(c,[[x-4,y],[x-1,y-4],[x+4,y-3],[x+5,y+1],[x,y+3]],'#b8ba96','#657457',.8);}
@@ -69,7 +70,7 @@ function registerAtlas(scene){
  return cachedAtlas;
 }
 export function mountStyle01World(scene,map,options={}){
- const base=mountM01WorldV7(scene,map,options),p=makeR7MapPlan(map),plan={...p,props:[],rejected:[]},objects=[],atlas=registerAtlas(scene);
+ const base=mountM01WorldV7(scene,map,options),p=makeR7MapPlan(map),plan={...p,props:[],rejected:[]},objects=[],atlas=registerAtlas(scene),definedKeys=new Set();
  const {ground:terrain,water}=makeFidelitySubstrate(sources[0]),relief=makeFidelityRelief(atlas,sources[0]);
  plan.formations=relief.formations;
  scene.textures.addCanvas(TERRAIN_KEY,terrain);
@@ -90,7 +91,8 @@ export function mountStyle01World(scene,map,options={}){
  for(const o of base.padObjects){o.sprite.setVisible(false);o.shadow.setVisible(false);}
  const prop=(kind,x,y,w,flip=false)=>{const key='maps/m01/style01/'+kind,im=atlas[key],h=w*im.height/im.width,r={kind,x,y,w,h,flip,footY:y+h};if(x<4||x+w>1276||!supportsFoot(x+w/2,y+h)||!propClears(r,plan)){plan.rejected.push(r);return false;}
   const shadow=scene.add.ellipse(x+w*.5,y+h-3,w*.66,Math.max(5,w*.12),0x244c32,.23).setDepth(-300);
-  const v=scene.add.image(x+w/2,y+h,key).setOrigin(.5,1).setDisplaySize(w,h).setFlipX(flip).setDepth(y+h-8);objects.push(shadow,v);plan.props.push(r);return true;};
+  const definedKey=key+'/defined/'+Math.ceil(w*2);if(!scene.textures.exists(definedKey))scene.textures.addCanvas(definedKey,prepareProp(im,w));definedKeys.add(definedKey);
+  const v=scene.add.image(x+w/2,y+h,definedKey).setOrigin(.5,1).setDisplaySize(w,h).setFlipX(flip).setDepth(y+h-8);objects.push(shadow,v);plan.props.push(r);return true;};
  // Deliberate landscape pockets, with room around every tactical surface.
  for(const [x,y,w,f] of [[10,85,132,false],[150,90,125,true],[290,65,112,false],[430,90,100,true],[15,530,105,false],[185,520,65,true],[800,560,95,false],[1138,90,112,true]])prop('oak',x,y,w,f);
  prop('arch',395,220,125);prop('shrine',1080,83,135);prop('cypress',525,105,38);prop('cypress',1235,525,36);
@@ -115,9 +117,9 @@ export function mountStyle01World(scene,map,options={}){
  const resetVisuals=()=>{const ok=base.resetVisuals();preserve();return ok;};
  let disposed=false;
  return {...base,artVersion:STYLE01_VERSION,landscapePlan:plan,objects:[...base.objects,...objects],styleObjects:objects,
-  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture'},
+  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture',textureDefinition:DEFINITION_VERSION,propTexelsPerWorldUnit:2},
   paintPanoramaGutters(ctx,r){const sx=r.width/1280,sy=r.height/768;for(const [side,extent] of [['left',r.left/sx],['right',(r.canvasWidth-r.left-r.width)/sx]]){if(extent<=0)continue;ctx.save();ctx.beginPath();side==='left'?ctx.rect(0,r.top,r.left,r.height):ctx.rect(r.left+r.width,r.top,r.canvasWidth-r.left-r.width,r.height);ctx.clip();ctx.translate(r.left,r.top);ctx.scale(sx,sy);paintStyle01Road(ctx,map.path);ctx.restore();}},
   setSocketVisualState,applyVisualSnapshot,projectEvent,resetVisuals,
-  destroy(){if(disposed)return;disposed=true;objects.forEach(o=>o.destroy());base.destroy();for(const key of [TERRAIN_KEY,SCENIC_KEY,'maps/m01/style01/route','maps/m01/style01/pad','maps/m01/style01/mesa-tops','maps/m01/style01/cliff-faces','maps/m01/style01/water',...Object.keys(atlas)])if(scene.textures.exists(key))scene.textures.remove(key);},
+  destroy(){if(disposed)return;disposed=true;objects.forEach(o=>o.destroy());base.destroy();for(const key of [TERRAIN_KEY,SCENIC_KEY,'maps/m01/style01/route','maps/m01/style01/pad','maps/m01/style01/mesa-tops','maps/m01/style01/cliff-faces','maps/m01/style01/water',...definedKeys,...Object.keys(atlas)])if(scene.textures.exists(key))scene.textures.remove(key);},
   getMapPerformanceInfo:()=>({...base.getMapPerformanceInfo(),styleVersion:STYLE01_VERSION,foregroundSprites:plan.props.length,extraDisplayObjects:objects.length,physicalDeviceFPS:'NOT_MEASURED'})};
 }

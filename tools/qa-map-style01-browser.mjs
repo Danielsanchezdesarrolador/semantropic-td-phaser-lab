@@ -5,6 +5,7 @@ import {createServer} from 'node:http';
 import {readFile,stat,mkdir,writeFile} from 'node:fs/promises';
 import {resolve,join,extname,sep} from 'node:path';
 import {chromium} from 'playwright';
+const baselineLayout=JSON.parse(await readFile('docs/blocks/m01-fidelity-cartoon01/qa-local.json','utf8')).results[0].initial;
 const root=resolve('dist'),out=process.env.STYLE01_QA_OUT||'artifacts/map-style01';await mkdir(out,{recursive:true});
 const mime={'.html':'text/html','.mjs':'text/javascript','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.css':'text/css'};
 const server=createServer(async(req,res)=>{try{const p=resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(p!==root&&!p.startsWith(root+sep))throw Error('invalid path');const f=(await stat(p)).isDirectory()?join(p,'index.html'):p;res.writeHead(200,{'Content-Type':mime[extname(f)]||'application/octet-stream'});res.end(await readFile(f));}catch{res.writeHead(404);res.end();}});
@@ -16,12 +17,14 @@ try{
 
  for(const [profile,width,height] of [['desktop',1280,768],['touch844',844,390],['touch932',932,430]]){
   step=profile+' load';console.log('STYLE01 '+profile);
-  const page=await browser.newPage({viewport:{width,height},isMobile:width<1000,hasTouch:width<1000});const errors=[];lastPage=page;page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base);await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-fidelity-cartoon01-layered-mesas-v1'&&window.__SEMANTROPIC_VIEWPORT?.panorama?.mapId===1,null,{timeout:60000});
-  const initial=await page.evaluate(async()=>{
+  const page=await browser.newPage({viewport:{width,height},isMobile:width<1000,hasTouch:width<1000,deviceScaleFactor:profile==='touch932'?2:1});const errors=[];lastPage=page;page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(base);await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-texture-definition-cartoon-v1'&&window.__SEMANTROPIC_VIEWPORT?.panorama?.mapId===1,null,{timeout:60000});
+  const initial=await page.evaluate(async baseline=>{
    const g=window.__SEMANTROPIC_C1D7,w=g.world,s=g.scene,v=s.mapView;
    if(!(s.game.renderer.gl instanceof WebGL2RenderingContext))throw Error('WebGL2 required');
    if(w.route.points.length!==133||w.economy.gold!==365||w.lives!==100||w.campaign.waves.length!==5||w.campaign.waves.reduce((n,w)=>n+w.groups.reduce((s,g)=>s+g.count,0),0)!==63||v.plan.sockets.length!==8)throw Error('M01 canonical data changed');
+   if(JSON.stringify(v.landscapePlan.props)!==JSON.stringify(baseline.props)||JSON.stringify(v.landscapePlan.formations)!==JSON.stringify(baseline.formations))throw Error('Definition block changed scene layout');
+   if(v.premiumArt.textureDefinition!=='m01-texture-definition-v1')throw Error('Missing texture definition');
    const mod=await import('/official/src/maps-visual/m01/style01/cartoon-world.mjs');
    if(v.premiumArt.composition!=='separate-Phaser-components'||v.styleObjects.filter(o=>o.texture?.key==='maps/m01/style01/pad').length!==8||v.landscapePlan.props.length<20)throw Error('Not a modular component scene');
    const terrain=await import('/official/src/maps-visual/m01/style01/fidelity-terrain.mjs');
@@ -34,8 +37,8 @@ try{
    if(JSON.stringify(v.landscapePlan.path)!==JSON.stringify(w.map.path))throw Error('Route moved');
    const road=s.textures.get('maps/m01/style01/route').getSourceImage().getContext('2d');if(road.getImageData(20,20,1,1).data[3]!==0)throw Error('Route texture includes flattened background');
    let samples=0;for(let i=1;i<w.map.path.length;i++){const a=w.map.path[i-1],b=w.map.path[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/8);for(let k=0;k<=n;k++){const x=Math.round(a[0]+(b[0]-a[0])*k/n),y=Math.round(a[1]+(b[1]-a[1])*k/n);if(x<0||x>=1280||y<0||y>=768)continue;const p=road.getImageData(x*2,y*2,1,1).data;if(p[3]!==255||p[0]<180||p[1]<130||p[2]>200)throw Error('Route not dry/clear');samples++;}}
-   return {snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,clearFaceSamples:v.__fidelityFaceSamples,formations:v.landscapePlan.formations,displayObjects:v.styleObjects.length};
-  });
+   return {snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,clearFaceSamples:v.__fidelityFaceSamples,formations:v.landscapePlan.formations,displayObjects:v.styleObjects.length,definition:v.premiumArt.textureDefinition,canvasAudit:{backingWidth:s.game.canvas.width,backingHeight:s.game.canvas.height,cssWidth:s.game.canvas.getBoundingClientRect().width,cssHeight:s.game.canvas.getBoundingClientRect().height,dpr:devicePixelRatio},propSampling:v.landscapePlan.props.map(p=>{const o=v.styleObjects.find(o=>o.texture?.key?.includes('/'+p.kind+'/defined/'+Math.ceil(p.w*2)));const image=o?.texture.getSourceImage();if(!image||image.width<Math.ceil(p.w*2))throw Error('Undersized prop '+p.kind);return{kind:p.kind,worldWidth:p.w,textureWidth:image.width,textureHeight:image.height};})};
+  },baselineLayout);
   if(profile==='desktop'){
    await page.setViewportSize({width:1917,height:990});
    await page.waitForFunction(()=>window.__SEMANTROPIC_VIEWPORT?.panorama?.width===1917);
@@ -73,7 +76,7 @@ try{
    }await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.close());
   }
   assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.economy.gold),93);
-  await page.locator('#restart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-fidelity-cartoon01-layered-mesas-v1'&&window.__SEMANTROPIC_C1D7.economy.gold===365,null,{timeout:60000});
+  await page.locator('#restart').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-texture-definition-cartoon-v1'&&window.__SEMANTROPIC_C1D7.economy.gold===365,null,{timeout:60000});
   step=profile+' buy infantry';await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(0));await page.locator('[data-t09-id="infantry"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(0)?.family==='infantry');
   step=profile+' buy sniper';await page.waitForTimeout(280);await page.evaluate(()=>window.__SEMANTROPIC_C1D7.menu.open(1));await page.locator('[data-t09-id="sniper"]').click();await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7.economy.getTower(1)?.family==='sniper');
   assert.equal(await page.evaluate(()=>window.__SEMANTROPIC_C1D7.economy.gold),130);

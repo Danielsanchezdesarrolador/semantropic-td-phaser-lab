@@ -1,0 +1,34 @@
+{
+  "version": "m01-texture-definition-cartoon-v1",
+  "base": "0fe425839565d00c6b2f6b7ec8f7e4c1fa638765",
+  "pngSources": [
+    {
+      "path": "public/official/art/maps/m01/fidelity01/cliffs-atlas-original.png",
+      "gitBlob": "81de1ba37256422072dd36358b69622f5cd931ab",
+      "unchanged": true
+    },
+    {
+      "path": "public/official/art/maps/m01/fidelity01/nature-atlas-original.png",
+      "gitBlob": "0a77f3deb88429d0246c28ed556461d2a95c905f",
+      "unchanged": true
+    },
+    {
+      "path": "public/official/art/maps/m01/fidelity01/structures-atlas-original.png",
+      "gitBlob": "1eb60bd298a55f3eaef958bbc6ec23d0776c4650",
+      "unchanged": true
+    },
+    {
+      "path": "public/official/art/maps/m01/fidelity01/materials-original.png",
+      "gitBlob": "ddac141076fcf646af21f600cfc96ae5a9d269e4",
+      "unchanged": true
+    },
+    {
+      "path": "public/official/art/maps/m01/style01/details-atlas-original.png",
+      "gitBlob": "e44a2fc4115a3b33d242ebcf38d7817825c4be48",
+      "unchanged": true
+    }
+  ],
+  "changedAssets": [],
+  "scope": "render preparation only; exact layout locked against previous actual QA snapshot",
+  "physicalMobile": "NOT_RUN"
+}

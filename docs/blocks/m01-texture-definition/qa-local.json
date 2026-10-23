@@ -1,0 +1,2899 @@
+{
+  "status": "PASS_MAP_STYLE01_MODULAR_CARTOON_SMOKE",
+  "results": [
+    {
+      "profile": "desktop",
+      "width": 1280,
+      "height": 768,
+      "initial": {
+        "snapshot": {
+          "contract": "c1d2-m01-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 365,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M01 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 133,
+          "navRepaths": 0
+        },
+        "composition": {
+          "version": "m01-texture-definition-cartoon-v1",
+          "width": 2560,
+          "height": 1536,
+          "geometricalPads": 8,
+          "pathVertices": 133,
+          "composition": "separate-Phaser-components",
+          "foregroundSprites": 37,
+          "reliefFormations": 7,
+          "relief": "separate-illustrated-cliff-faces-and-tops",
+          "waterLayer": "independent-canvas-texture",
+          "textureDefinition": "m01-texture-definition-v1",
+          "propTexelsPerWorldUnit": 2
+        },
+        "props": [
+          {
+            "kind": "oak",
+            "x": 10,
+            "y": 85,
+            "w": 132,
+            "h": 123.52702702702703,
+            "flip": false,
+            "footY": 208.52702702702703
+          },
+          {
+            "kind": "oak",
+            "x": 150,
+            "y": 90,
+            "w": 125,
+            "h": 116.97635135135135,
+            "flip": true,
+            "footY": 206.97635135135135
+          },
+          {
+            "kind": "oak",
+            "x": 290,
+            "y": 65,
+            "w": 112,
+            "h": 104.8108108108108,
+            "flip": false,
+            "footY": 169.8108108108108
+          },
+          {
+            "kind": "oak",
+            "x": 430,
+            "y": 90,
+            "w": 100,
+            "h": 93.58108108108108,
+            "flip": true,
+            "footY": 183.5810810810811
+          },
+          {
+            "kind": "oak",
+            "x": 800,
+            "y": 560,
+            "w": 95,
+            "h": 88.90202702702703,
+            "flip": false,
+            "footY": 648.9020270270271
+          },
+          {
+            "kind": "oak",
+            "x": 1138,
+            "y": 90,
+            "w": 112,
+            "h": 104.8108108108108,
+            "flip": true,
+            "footY": 194.8108108108108
+          },
+          {
+            "kind": "arch",
+            "x": 395,
+            "y": 220,
+            "w": 125,
+            "h": 111.26373626373626,
+            "flip": false,
+            "footY": 331.2637362637363
+          },
+          {
+            "kind": "shrine",
+            "x": 1080,
+            "y": 83,
+            "w": 135,
+            "h": 128.58471074380165,
+            "flip": false,
+            "footY": 211.58471074380165
+          },
+          {
+            "kind": "cypress",
+            "x": 525,
+            "y": 105,
+            "w": 38,
+            "h": 85.98305084745763,
+            "flip": false,
+            "footY": 190.98305084745763
+          },
+          {
+            "kind": "cypress",
+            "x": 1235,
+            "y": 525,
+            "w": 36,
+            "h": 81.45762711864407,
+            "flip": false,
+            "footY": 606.457627118644
+          },
+          {
+            "kind": "supply",
+            "x": 242,
+            "y": 245,
+            "w": 95,
+            "h": 57.7424023154848,
+            "flip": false,
+            "footY": 302.7424023154848
+          },
+          {
+            "kind": "fence",
+            "x": 300,
+            "y": 215,
+            "w": 90,
+            "h": 50.029411764705884,
+            "flip": false,
+            "footY": 265.02941176470586
+          },
+          {
+            "kind": "gate",
+            "x": 65,
+            "y": 150,
+            "w": 105,
+            "h": 75.04279600570614,
+            "flip": false,
+            "footY": 225.04279600570612
+          },
+          {
+            "kind": "rocks",
+            "x": 305,
+            "y": 300,
+            "w": 55,
+            "h": 40.35569105691057,
+            "flip": false,
+            "footY": 340.3556910569106
+          },
+          {
+            "kind": "rocks",
+            "x": 520,
+            "y": 245,
+            "w": 50,
+            "h": 36.6869918699187,
+            "flip": false,
+            "footY": 281.6869918699187
+          },
+          {
+            "kind": "rocks",
+            "x": 860,
+            "y": 410,
+            "w": 60,
+            "h": 44.02439024390244,
+            "flip": false,
+            "footY": 454.0243902439024
+          },
+          {
+            "kind": "rocks",
+            "x": 755,
+            "y": 600,
+            "w": 58,
+            "h": 42.55691056910569,
+            "flip": false,
+            "footY": 642.5569105691056
+          },
+          {
+            "kind": "flowers",
+            "x": 330,
+            "y": 230,
+            "w": 43,
+            "h": 33.792494481236204,
+            "flip": false,
+            "footY": 263.7924944812362
+          },
+          {
+            "kind": "flowers",
+            "x": 630,
+            "y": 150,
+            "w": 40,
+            "h": 31.43487858719647,
+            "flip": false,
+            "footY": 181.43487858719647
+          },
+          {
+            "kind": "flowers",
+            "x": 830,
+            "y": 385,
+            "w": 44,
+            "h": 34.57836644591612,
+            "flip": false,
+            "footY": 419.5783664459161
+          },
+          {
+            "kind": "flowers",
+            "x": 1190,
+            "y": 560,
+            "w": 37,
+            "h": 29.077262693156733,
+            "flip": false,
+            "footY": 589.0772626931567
+          },
+          {
+            "kind": "youngOak",
+            "x": 25,
+            "y": 130,
+            "w": 82,
+            "h": 82.33469387755102,
+            "flip": false,
+            "footY": 212.33469387755102
+          },
+          {
+            "kind": "youngOak",
+            "x": 1130,
+            "y": 170,
+            "w": 90,
+            "h": 90.36734693877551,
+            "flip": false,
+            "footY": 260.36734693877554
+          },
+          {
+            "kind": "shrub",
+            "x": 165,
+            "y": 235,
+            "w": 62,
+            "h": 46.63025210084034,
+            "flip": false,
+            "footY": 281.6302521008403
+          },
+          {
+            "kind": "shrub",
+            "x": 350,
+            "y": 200,
+            "w": 64,
+            "h": 48.134453781512605,
+            "flip": false,
+            "footY": 248.1344537815126
+          },
+          {
+            "kind": "pillar",
+            "x": 365,
+            "y": 290,
+            "w": 46,
+            "h": 47,
+            "flip": false,
+            "footY": 337
+          },
+          {
+            "kind": "pillar",
+            "x": 715,
+            "y": 595,
+            "w": 45,
+            "h": 45.97826086956522,
+            "flip": false,
+            "footY": 640.9782608695652
+          },
+          {
+            "kind": "timber",
+            "x": 285,
+            "y": 235,
+            "w": 52,
+            "h": 36.69980119284294,
+            "flip": false,
+            "footY": 271.6998011928429
+          },
+          {
+            "kind": "wheat",
+            "x": 230,
+            "y": 190,
+            "w": 82,
+            "h": 74.59354838709677,
+            "flip": false,
+            "footY": 264.5935483870968
+          },
+          {
+            "kind": "wheat",
+            "x": 320,
+            "y": 160,
+            "w": 90,
+            "h": 81.87096774193549,
+            "flip": false,
+            "footY": 241.8709677419355
+          },
+          {
+            "kind": "wheat",
+            "x": 550,
+            "y": 165,
+            "w": 70,
+            "h": 63.67741935483871,
+            "flip": false,
+            "footY": 228.67741935483872
+          },
+          {
+            "kind": "ivyRock",
+            "x": 470,
+            "y": 235,
+            "w": 64,
+            "h": 47.06262626262626,
+            "flip": false,
+            "footY": 282.0626262626263
+          },
+          {
+            "kind": "ivyRock",
+            "x": 1050,
+            "y": 145,
+            "w": 65,
+            "h": 47.7979797979798,
+            "flip": false,
+            "footY": 192.7979797979798
+          },
+          {
+            "kind": "youngOak",
+            "x": 845,
+            "y": 540,
+            "w": 72,
+            "h": 72.29387755102042,
+            "flip": true,
+            "footY": 612.2938775510204
+          },
+          {
+            "kind": "cypress",
+            "x": 825,
+            "y": 520,
+            "w": 31,
+            "h": 70.14406779661017,
+            "flip": false,
+            "footY": 590.1440677966102
+          },
+          {
+            "kind": "flowers",
+            "x": 895,
+            "y": 580,
+            "w": 46,
+            "h": 36.150110375275936,
+            "flip": false,
+            "footY": 616.150110375276
+          },
+          {
+            "kind": "shrub",
+            "x": 500,
+            "y": 390,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 426.10084033613447
+          }
+        ],
+        "rejected": [
+          {
+            "kind": "oak",
+            "x": 15,
+            "y": 530,
+            "w": 105,
+            "h": 98.26013513513513,
+            "flip": false,
+            "footY": 628.2601351351351
+          },
+          {
+            "kind": "oak",
+            "x": 185,
+            "y": 520,
+            "w": 65,
+            "h": 60.8277027027027,
+            "flip": true,
+            "footY": 580.8277027027027
+          },
+          {
+            "kind": "fence",
+            "x": 835,
+            "y": 145,
+            "w": 93,
+            "h": 51.69705882352941,
+            "flip": false,
+            "footY": 196.6970588235294
+          },
+          {
+            "kind": "rocks",
+            "x": 20,
+            "y": 235,
+            "w": 65,
+            "h": 47.69308943089431,
+            "flip": false,
+            "footY": 282.6930894308943
+          },
+          {
+            "kind": "rocks",
+            "x": 1090,
+            "y": 275,
+            "w": 52,
+            "h": 38.15447154471545,
+            "flip": false,
+            "footY": 313.1544715447154
+          },
+          {
+            "kind": "rocks",
+            "x": 1110,
+            "y": 650,
+            "w": 65,
+            "h": 47.69308943089431,
+            "flip": false,
+            "footY": 697.6930894308944
+          },
+          {
+            "kind": "flowers",
+            "x": 185,
+            "y": 270,
+            "w": 47,
+            "h": 36.93598233995585,
+            "flip": false,
+            "footY": 306.93598233995584
+          },
+          {
+            "kind": "flowers",
+            "x": 465,
+            "y": 390,
+            "w": 35,
+            "h": 27.50551876379691,
+            "flip": false,
+            "footY": 417.5055187637969
+          },
+          {
+            "kind": "flowers",
+            "x": 965,
+            "y": 615,
+            "w": 39,
+            "h": 30.649006622516556,
+            "flip": false,
+            "footY": 645.6490066225166
+          },
+          {
+            "kind": "flowers",
+            "x": 270,
+            "y": 610,
+            "w": 44,
+            "h": 34.57836644591612,
+            "flip": false,
+            "footY": 644.5783664459161
+          },
+          {
+            "kind": "flowers",
+            "x": 60,
+            "y": 575,
+            "w": 43,
+            "h": 33.792494481236204,
+            "flip": false,
+            "footY": 608.7924944812362
+          },
+          {
+            "kind": "youngOak",
+            "x": 590,
+            "y": 120,
+            "w": 85,
+            "h": 85.34693877551021,
+            "flip": true,
+            "footY": 205.3469387755102
+          },
+          {
+            "kind": "youngOak",
+            "x": 515,
+            "y": 595,
+            "w": 83,
+            "h": 83.33877551020409,
+            "flip": false,
+            "footY": 678.3387755102041
+          },
+          {
+            "kind": "shrub",
+            "x": 755,
+            "y": 375,
+            "w": 57,
+            "h": 42.86974789915966,
+            "flip": false,
+            "footY": 417.8697478991597
+          },
+          {
+            "kind": "shrub",
+            "x": 930,
+            "y": 605,
+            "w": 65,
+            "h": 48.88655462184874,
+            "flip": false,
+            "footY": 653.8865546218487
+          },
+          {
+            "kind": "shrub",
+            "x": 1150,
+            "y": 650,
+            "w": 65,
+            "h": 48.88655462184874,
+            "flip": false,
+            "footY": 698.8865546218487
+          },
+          {
+            "kind": "shrub",
+            "x": 100,
+            "y": 625,
+            "w": 61,
+            "h": 45.878151260504204,
+            "flip": false,
+            "footY": 670.8781512605042
+          },
+          {
+            "kind": "pillar",
+            "x": 1155,
+            "y": 260,
+            "w": 48,
+            "h": 49.04347826086956,
+            "flip": false,
+            "footY": 309.04347826086956
+          },
+          {
+            "kind": "timber",
+            "x": 900,
+            "y": 385,
+            "w": 48,
+            "h": 33.87673956262425,
+            "flip": false,
+            "footY": 418.87673956262427
+          },
+          {
+            "kind": "timber",
+            "x": 205,
+            "y": 625,
+            "w": 48,
+            "h": 33.87673956262425,
+            "flip": false,
+            "footY": 658.8767395626243
+          },
+          {
+            "kind": "ivyRock",
+            "x": 40,
+            "y": 610,
+            "w": 66,
+            "h": 48.53333333333333,
+            "flip": false,
+            "footY": 658.5333333333333
+          },
+          {
+            "kind": "ivyRock",
+            "x": 1170,
+            "y": 615,
+            "w": 65,
+            "h": 47.7979797979798,
+            "flip": false,
+            "footY": 662.7979797979798
+          },
+          {
+            "kind": "shrub",
+            "x": 370,
+            "y": 615,
+            "w": 43,
+            "h": 32.34033613445378,
+            "flip": false,
+            "footY": 647.3403361344538
+          },
+          {
+            "kind": "shrub",
+            "x": 15,
+            "y": 290,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 326.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 570,
+            "y": 320,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 356.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 1130,
+            "y": 360,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 396.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 720,
+            "y": 375,
+            "w": 50,
+            "h": 37.60504201680672,
+            "flip": false,
+            "footY": 412.6050420168067
+          }
+        ],
+        "routeSamples": 407,
+        "clearFaceSamples": 1209,
+        "formations": [
+          {
+            "id": "left-archaeology",
+            "height": 57,
+            "edge": [
+              [
+                -10,
+                230
+              ],
+              [
+                70,
+                255
+              ],
+              [
+                160,
+                285
+              ],
+              [
+                240,
+                325
+              ],
+              [
+                320,
+                354
+              ],
+              [
+                405,
+                367
+              ],
+              [
+                480,
+                363
+              ],
+              [
+                530,
+                340
+              ],
+              [
+                555,
+                300
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "central-socket",
+            "height": 55,
+            "edge": [
+              [
+                692,
+                369
+              ],
+              [
+                715,
+                385
+              ],
+              [
+                751,
+                392
+              ],
+              [
+                797,
+                383
+              ],
+              [
+                817,
+                365
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "portal-terrace",
+            "height": 55,
+            "edge": [
+              [
+                963,
+                234
+              ],
+              [
+                1005,
+                248
+              ],
+              [
+                1060,
+                255
+              ],
+              [
+                1135,
+                278
+              ],
+              [
+                1215,
+                295
+              ],
+              [
+                1288,
+                270
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "right-socket",
+            "height": 25,
+            "edge": [
+              [
+                1118,
+                361
+              ],
+              [
+                1125,
+                380
+              ],
+              [
+                1170,
+                390
+              ],
+              [
+                1215,
+                365
+              ],
+              [
+                1230,
+                335
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "left-lower-socket",
+            "height": 43,
+            "edge": [
+              [
+                32,
+                485
+              ],
+              [
+                43,
+                504
+              ],
+              [
+                90,
+                515
+              ],
+              [
+                140,
+                510
+              ],
+              [
+                159,
+                495
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "lower-central-socket",
+            "height": 55,
+            "edge": [
+              [
+                600,
+                563
+              ],
+              [
+                620,
+                586
+              ],
+              [
+                670,
+                599
+              ],
+              [
+                719,
+                590
+              ],
+              [
+                742,
+                568
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "front-river-bank",
+            "height": 83,
+            "edge": [
+              [
+                -100,
+                575
+              ],
+              [
+                0,
+                575
+              ],
+              [
+                95,
+                590
+              ],
+              [
+                190,
+                600
+              ],
+              [
+                290,
+                645
+              ],
+              [
+                415,
+                660
+              ],
+              [
+                535,
+                660
+              ],
+              [
+                645,
+                665
+              ],
+              [
+                740,
+                680
+              ],
+              [
+                830,
+                665
+              ],
+              [
+                930,
+                630
+              ],
+              [
+                1040,
+                645
+              ],
+              [
+                1145,
+                680
+              ],
+              [
+                1280,
+                625
+              ],
+              [
+                1380,
+                625
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          }
+        ],
+        "displayObjects": 88,
+        "wideSeams": [
+          {
+            "worldX": 0,
+            "maxRGBDelta": 2
+          },
+          {
+            "worldX": 1280,
+            "maxRGBDelta": 2
+          }
+        ],
+        "fullscreen": "PASS_REQUEST_AND_EXIT",
+        "buildsOnAllEight": "PASS_REAL_UI_BUILD_SELL_ALL_8_THEN_NORMAL_RESTART"
+      },
+      "combat": {
+        "snapshot": {
+          "contract": "c1d2-m01-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 1,
+          "active": true,
+          "ended": false,
+          "won": false,
+          "paused": true,
+          "lives": 100,
+          "gold": 146,
+          "kills": 1,
+          "escaped": 0,
+          "totalSpawns": 8,
+          "spawnsRemaining": 0,
+          "enemies": 7,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 1,
+          "infantryPathfinding": "M01 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 133,
+          "navRepaths": 58
+        },
+        "diagnostics": {
+          "towers": 2,
+          "enemies": 7,
+          "p08Entities": 8,
+          "t09Nodes": 0,
+          "b3": {
+            "tracked": 4,
+            "windups": 16,
+            "swordContacts": 5,
+            "enemyContacts": 10,
+            "gameplayWrites": 0
+          },
+          "confirmedVisualContacts": 15,
+          "t10Fires": 1,
+          "t10PremiumOpticalMuzzle": true,
+          "t10RifleAuthority": "P03_OPERATOR",
+          "t10BuildingRifleSuppressed": 1,
+          "t10Ghosts": 0,
+          "t10HeldKills": 1,
+          "u02Facing": [
+            {
+              "towerId": "m01-tower-2",
+              "facing": "left",
+              "targetId": 3,
+              "operatorDepth": 479,
+              "structureDepth": 478,
+              "frontRailDepth": 480
+            }
+          ],
+          "soldiers": 1,
+          "fxFires": 1,
+          "shots": {
+            "active": 0,
+            "seen": 3,
+            "visualFireCount": 1,
+            "visualHitCount": 1,
+            "correlatedBullets": 0,
+            "variant": "A",
+            "premium": true,
+            "destroyed": false
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch844",
+      "width": 844,
+      "height": 390,
+      "initial": {
+        "snapshot": {
+          "contract": "c1d2-m01-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 365,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M01 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 133,
+          "navRepaths": 0
+        },
+        "composition": {
+          "version": "m01-texture-definition-cartoon-v1",
+          "width": 2560,
+          "height": 1536,
+          "geometricalPads": 8,
+          "pathVertices": 133,
+          "composition": "separate-Phaser-components",
+          "foregroundSprites": 37,
+          "reliefFormations": 7,
+          "relief": "separate-illustrated-cliff-faces-and-tops",
+          "waterLayer": "independent-canvas-texture",
+          "textureDefinition": "m01-texture-definition-v1",
+          "propTexelsPerWorldUnit": 2
+        },
+        "props": [
+          {
+            "kind": "oak",
+            "x": 10,
+            "y": 85,
+            "w": 132,
+            "h": 123.52702702702703,
+            "flip": false,
+            "footY": 208.52702702702703
+          },
+          {
+            "kind": "oak",
+            "x": 150,
+            "y": 90,
+            "w": 125,
+            "h": 116.97635135135135,
+            "flip": true,
+            "footY": 206.97635135135135
+          },
+          {
+            "kind": "oak",
+            "x": 290,
+            "y": 65,
+            "w": 112,
+            "h": 104.8108108108108,
+            "flip": false,
+            "footY": 169.8108108108108
+          },
+          {
+            "kind": "oak",
+            "x": 430,
+            "y": 90,
+            "w": 100,
+            "h": 93.58108108108108,
+            "flip": true,
+            "footY": 183.5810810810811
+          },
+          {
+            "kind": "oak",
+            "x": 800,
+            "y": 560,
+            "w": 95,
+            "h": 88.90202702702703,
+            "flip": false,
+            "footY": 648.9020270270271
+          },
+          {
+            "kind": "oak",
+            "x": 1138,
+            "y": 90,
+            "w": 112,
+            "h": 104.8108108108108,
+            "flip": true,
+            "footY": 194.8108108108108
+          },
+          {
+            "kind": "arch",
+            "x": 395,
+            "y": 220,
+            "w": 125,
+            "h": 111.26373626373626,
+            "flip": false,
+            "footY": 331.2637362637363
+          },
+          {
+            "kind": "shrine",
+            "x": 1080,
+            "y": 83,
+            "w": 135,
+            "h": 128.58471074380165,
+            "flip": false,
+            "footY": 211.58471074380165
+          },
+          {
+            "kind": "cypress",
+            "x": 525,
+            "y": 105,
+            "w": 38,
+            "h": 85.98305084745763,
+            "flip": false,
+            "footY": 190.98305084745763
+          },
+          {
+            "kind": "cypress",
+            "x": 1235,
+            "y": 525,
+            "w": 36,
+            "h": 81.45762711864407,
+            "flip": false,
+            "footY": 606.457627118644
+          },
+          {
+            "kind": "supply",
+            "x": 242,
+            "y": 245,
+            "w": 95,
+            "h": 57.7424023154848,
+            "flip": false,
+            "footY": 302.7424023154848
+          },
+          {
+            "kind": "fence",
+            "x": 300,
+            "y": 215,
+            "w": 90,
+            "h": 50.029411764705884,
+            "flip": false,
+            "footY": 265.02941176470586
+          },
+          {
+            "kind": "gate",
+            "x": 65,
+            "y": 150,
+            "w": 105,
+            "h": 75.04279600570614,
+            "flip": false,
+            "footY": 225.04279600570612
+          },
+          {
+            "kind": "rocks",
+            "x": 305,
+            "y": 300,
+            "w": 55,
+            "h": 40.35569105691057,
+            "flip": false,
+            "footY": 340.3556910569106
+          },
+          {
+            "kind": "rocks",
+            "x": 520,
+            "y": 245,
+            "w": 50,
+            "h": 36.6869918699187,
+            "flip": false,
+            "footY": 281.6869918699187
+          },
+          {
+            "kind": "rocks",
+            "x": 860,
+            "y": 410,
+            "w": 60,
+            "h": 44.02439024390244,
+            "flip": false,
+            "footY": 454.0243902439024
+          },
+          {
+            "kind": "rocks",
+            "x": 755,
+            "y": 600,
+            "w": 58,
+            "h": 42.55691056910569,
+            "flip": false,
+            "footY": 642.5569105691056
+          },
+          {
+            "kind": "flowers",
+            "x": 330,
+            "y": 230,
+            "w": 43,
+            "h": 33.792494481236204,
+            "flip": false,
+            "footY": 263.7924944812362
+          },
+          {
+            "kind": "flowers",
+            "x": 630,
+            "y": 150,
+            "w": 40,
+            "h": 31.43487858719647,
+            "flip": false,
+            "footY": 181.43487858719647
+          },
+          {
+            "kind": "flowers",
+            "x": 830,
+            "y": 385,
+            "w": 44,
+            "h": 34.57836644591612,
+            "flip": false,
+            "footY": 419.5783664459161
+          },
+          {
+            "kind": "flowers",
+            "x": 1190,
+            "y": 560,
+            "w": 37,
+            "h": 29.077262693156733,
+            "flip": false,
+            "footY": 589.0772626931567
+          },
+          {
+            "kind": "youngOak",
+            "x": 25,
+            "y": 130,
+            "w": 82,
+            "h": 82.33469387755102,
+            "flip": false,
+            "footY": 212.33469387755102
+          },
+          {
+            "kind": "youngOak",
+            "x": 1130,
+            "y": 170,
+            "w": 90,
+            "h": 90.36734693877551,
+            "flip": false,
+            "footY": 260.36734693877554
+          },
+          {
+            "kind": "shrub",
+            "x": 165,
+            "y": 235,
+            "w": 62,
+            "h": 46.63025210084034,
+            "flip": false,
+            "footY": 281.6302521008403
+          },
+          {
+            "kind": "shrub",
+            "x": 350,
+            "y": 200,
+            "w": 64,
+            "h": 48.134453781512605,
+            "flip": false,
+            "footY": 248.1344537815126
+          },
+          {
+            "kind": "pillar",
+            "x": 365,
+            "y": 290,
+            "w": 46,
+            "h": 47,
+            "flip": false,
+            "footY": 337
+          },
+          {
+            "kind": "pillar",
+            "x": 715,
+            "y": 595,
+            "w": 45,
+            "h": 45.97826086956522,
+            "flip": false,
+            "footY": 640.9782608695652
+          },
+          {
+            "kind": "timber",
+            "x": 285,
+            "y": 235,
+            "w": 52,
+            "h": 36.69980119284294,
+            "flip": false,
+            "footY": 271.6998011928429
+          },
+          {
+            "kind": "wheat",
+            "x": 230,
+            "y": 190,
+            "w": 82,
+            "h": 74.59354838709677,
+            "flip": false,
+            "footY": 264.5935483870968
+          },
+          {
+            "kind": "wheat",
+            "x": 320,
+            "y": 160,
+            "w": 90,
+            "h": 81.87096774193549,
+            "flip": false,
+            "footY": 241.8709677419355
+          },
+          {
+            "kind": "wheat",
+            "x": 550,
+            "y": 165,
+            "w": 70,
+            "h": 63.67741935483871,
+            "flip": false,
+            "footY": 228.67741935483872
+          },
+          {
+            "kind": "ivyRock",
+            "x": 470,
+            "y": 235,
+            "w": 64,
+            "h": 47.06262626262626,
+            "flip": false,
+            "footY": 282.0626262626263
+          },
+          {
+            "kind": "ivyRock",
+            "x": 1050,
+            "y": 145,
+            "w": 65,
+            "h": 47.7979797979798,
+            "flip": false,
+            "footY": 192.7979797979798
+          },
+          {
+            "kind": "youngOak",
+            "x": 845,
+            "y": 540,
+            "w": 72,
+            "h": 72.29387755102042,
+            "flip": true,
+            "footY": 612.2938775510204
+          },
+          {
+            "kind": "cypress",
+            "x": 825,
+            "y": 520,
+            "w": 31,
+            "h": 70.14406779661017,
+            "flip": false,
+            "footY": 590.1440677966102
+          },
+          {
+            "kind": "flowers",
+            "x": 895,
+            "y": 580,
+            "w": 46,
+            "h": 36.150110375275936,
+            "flip": false,
+            "footY": 616.150110375276
+          },
+          {
+            "kind": "shrub",
+            "x": 500,
+            "y": 390,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 426.10084033613447
+          }
+        ],
+        "rejected": [
+          {
+            "kind": "oak",
+            "x": 15,
+            "y": 530,
+            "w": 105,
+            "h": 98.26013513513513,
+            "flip": false,
+            "footY": 628.2601351351351
+          },
+          {
+            "kind": "oak",
+            "x": 185,
+            "y": 520,
+            "w": 65,
+            "h": 60.8277027027027,
+            "flip": true,
+            "footY": 580.8277027027027
+          },
+          {
+            "kind": "fence",
+            "x": 835,
+            "y": 145,
+            "w": 93,
+            "h": 51.69705882352941,
+            "flip": false,
+            "footY": 196.6970588235294
+          },
+          {
+            "kind": "rocks",
+            "x": 20,
+            "y": 235,
+            "w": 65,
+            "h": 47.69308943089431,
+            "flip": false,
+            "footY": 282.6930894308943
+          },
+          {
+            "kind": "rocks",
+            "x": 1090,
+            "y": 275,
+            "w": 52,
+            "h": 38.15447154471545,
+            "flip": false,
+            "footY": 313.1544715447154
+          },
+          {
+            "kind": "rocks",
+            "x": 1110,
+            "y": 650,
+            "w": 65,
+            "h": 47.69308943089431,
+            "flip": false,
+            "footY": 697.6930894308944
+          },
+          {
+            "kind": "flowers",
+            "x": 185,
+            "y": 270,
+            "w": 47,
+            "h": 36.93598233995585,
+            "flip": false,
+            "footY": 306.93598233995584
+          },
+          {
+            "kind": "flowers",
+            "x": 465,
+            "y": 390,
+            "w": 35,
+            "h": 27.50551876379691,
+            "flip": false,
+            "footY": 417.5055187637969
+          },
+          {
+            "kind": "flowers",
+            "x": 965,
+            "y": 615,
+            "w": 39,
+            "h": 30.649006622516556,
+            "flip": false,
+            "footY": 645.6490066225166
+          },
+          {
+            "kind": "flowers",
+            "x": 270,
+            "y": 610,
+            "w": 44,
+            "h": 34.57836644591612,
+            "flip": false,
+            "footY": 644.5783664459161
+          },
+          {
+            "kind": "flowers",
+            "x": 60,
+            "y": 575,
+            "w": 43,
+            "h": 33.792494481236204,
+            "flip": false,
+            "footY": 608.7924944812362
+          },
+          {
+            "kind": "youngOak",
+            "x": 590,
+            "y": 120,
+            "w": 85,
+            "h": 85.34693877551021,
+            "flip": true,
+            "footY": 205.3469387755102
+          },
+          {
+            "kind": "youngOak",
+            "x": 515,
+            "y": 595,
+            "w": 83,
+            "h": 83.33877551020409,
+            "flip": false,
+            "footY": 678.3387755102041
+          },
+          {
+            "kind": "shrub",
+            "x": 755,
+            "y": 375,
+            "w": 57,
+            "h": 42.86974789915966,
+            "flip": false,
+            "footY": 417.8697478991597
+          },
+          {
+            "kind": "shrub",
+            "x": 930,
+            "y": 605,
+            "w": 65,
+            "h": 48.88655462184874,
+            "flip": false,
+            "footY": 653.8865546218487
+          },
+          {
+            "kind": "shrub",
+            "x": 1150,
+            "y": 650,
+            "w": 65,
+            "h": 48.88655462184874,
+            "flip": false,
+            "footY": 698.8865546218487
+          },
+          {
+            "kind": "shrub",
+            "x": 100,
+            "y": 625,
+            "w": 61,
+            "h": 45.878151260504204,
+            "flip": false,
+            "footY": 670.8781512605042
+          },
+          {
+            "kind": "pillar",
+            "x": 1155,
+            "y": 260,
+            "w": 48,
+            "h": 49.04347826086956,
+            "flip": false,
+            "footY": 309.04347826086956
+          },
+          {
+            "kind": "timber",
+            "x": 900,
+            "y": 385,
+            "w": 48,
+            "h": 33.87673956262425,
+            "flip": false,
+            "footY": 418.87673956262427
+          },
+          {
+            "kind": "timber",
+            "x": 205,
+            "y": 625,
+            "w": 48,
+            "h": 33.87673956262425,
+            "flip": false,
+            "footY": 658.8767395626243
+          },
+          {
+            "kind": "ivyRock",
+            "x": 40,
+            "y": 610,
+            "w": 66,
+            "h": 48.53333333333333,
+            "flip": false,
+            "footY": 658.5333333333333
+          },
+          {
+            "kind": "ivyRock",
+            "x": 1170,
+            "y": 615,
+            "w": 65,
+            "h": 47.7979797979798,
+            "flip": false,
+            "footY": 662.7979797979798
+          },
+          {
+            "kind": "shrub",
+            "x": 370,
+            "y": 615,
+            "w": 43,
+            "h": 32.34033613445378,
+            "flip": false,
+            "footY": 647.3403361344538
+          },
+          {
+            "kind": "shrub",
+            "x": 15,
+            "y": 290,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 326.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 570,
+            "y": 320,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 356.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 1130,
+            "y": 360,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 396.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 720,
+            "y": 375,
+            "w": 50,
+            "h": 37.60504201680672,
+            "flip": false,
+            "footY": 412.6050420168067
+          }
+        ],
+        "routeSamples": 407,
+        "clearFaceSamples": 1209,
+        "formations": [
+          {
+            "id": "left-archaeology",
+            "height": 57,
+            "edge": [
+              [
+                -10,
+                230
+              ],
+              [
+                70,
+                255
+              ],
+              [
+                160,
+                285
+              ],
+              [
+                240,
+                325
+              ],
+              [
+                320,
+                354
+              ],
+              [
+                405,
+                367
+              ],
+              [
+                480,
+                363
+              ],
+              [
+                530,
+                340
+              ],
+              [
+                555,
+                300
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "central-socket",
+            "height": 55,
+            "edge": [
+              [
+                692,
+                369
+              ],
+              [
+                715,
+                385
+              ],
+              [
+                751,
+                392
+              ],
+              [
+                797,
+                383
+              ],
+              [
+                817,
+                365
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "portal-terrace",
+            "height": 55,
+            "edge": [
+              [
+                963,
+                234
+              ],
+              [
+                1005,
+                248
+              ],
+              [
+                1060,
+                255
+              ],
+              [
+                1135,
+                278
+              ],
+              [
+                1215,
+                295
+              ],
+              [
+                1288,
+                270
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "right-socket",
+            "height": 25,
+            "edge": [
+              [
+                1118,
+                361
+              ],
+              [
+                1125,
+                380
+              ],
+              [
+                1170,
+                390
+              ],
+              [
+                1215,
+                365
+              ],
+              [
+                1230,
+                335
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "left-lower-socket",
+            "height": 43,
+            "edge": [
+              [
+                32,
+                485
+              ],
+              [
+                43,
+                504
+              ],
+              [
+                90,
+                515
+              ],
+              [
+                140,
+                510
+              ],
+              [
+                159,
+                495
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "lower-central-socket",
+            "height": 55,
+            "edge": [
+              [
+                600,
+                563
+              ],
+              [
+                620,
+                586
+              ],
+              [
+                670,
+                599
+              ],
+              [
+                719,
+                590
+              ],
+              [
+                742,
+                568
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "front-river-bank",
+            "height": 83,
+            "edge": [
+              [
+                -100,
+                575
+              ],
+              [
+                0,
+                575
+              ],
+              [
+                95,
+                590
+              ],
+              [
+                190,
+                600
+              ],
+              [
+                290,
+                645
+              ],
+              [
+                415,
+                660
+              ],
+              [
+                535,
+                660
+              ],
+              [
+                645,
+                665
+              ],
+              [
+                740,
+                680
+              ],
+              [
+                830,
+                665
+              ],
+              [
+                930,
+                630
+              ],
+              [
+                1040,
+                645
+              ],
+              [
+                1145,
+                680
+              ],
+              [
+                1280,
+                625
+              ],
+              [
+                1380,
+                625
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          }
+        ],
+        "displayObjects": 88,
+        "buildsOnAllEight": "PASS_REAL_UI_BUILD_SELL_ALL_8_THEN_NORMAL_RESTART"
+      },
+      "combat": {
+        "snapshot": {
+          "contract": "c1d2-m01-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 1,
+          "active": true,
+          "ended": false,
+          "won": false,
+          "paused": true,
+          "lives": 100,
+          "gold": 146,
+          "kills": 1,
+          "escaped": 0,
+          "totalSpawns": 8,
+          "spawnsRemaining": 0,
+          "enemies": 7,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 1,
+          "infantryPathfinding": "M01 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 133,
+          "navRepaths": 58
+        },
+        "diagnostics": {
+          "towers": 2,
+          "enemies": 7,
+          "p08Entities": 8,
+          "t09Nodes": 0,
+          "b3": {
+            "tracked": 4,
+            "windups": 16,
+            "swordContacts": 5,
+            "enemyContacts": 10,
+            "gameplayWrites": 0
+          },
+          "confirmedVisualContacts": 15,
+          "t10Fires": 1,
+          "t10PremiumOpticalMuzzle": true,
+          "t10RifleAuthority": "P03_OPERATOR",
+          "t10BuildingRifleSuppressed": 1,
+          "t10Ghosts": 0,
+          "t10HeldKills": 1,
+          "u02Facing": [
+            {
+              "towerId": "m01-tower-2",
+              "facing": "left",
+              "targetId": 3,
+              "operatorDepth": 479,
+              "structureDepth": 478,
+              "frontRailDepth": 480
+            }
+          ],
+          "soldiers": 1,
+          "fxFires": 1,
+          "shots": {
+            "active": 0,
+            "seen": 3,
+            "visualFireCount": 1,
+            "visualHitCount": 1,
+            "correlatedBullets": 0,
+            "variant": "A",
+            "premium": true,
+            "destroyed": false
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch932",
+      "width": 932,
+      "height": 430,
+      "initial": {
+        "snapshot": {
+          "contract": "c1d2-m01-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 365,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M01 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 133,
+          "navRepaths": 0
+        },
+        "composition": {
+          "version": "m01-texture-definition-cartoon-v1",
+          "width": 2560,
+          "height": 1536,
+          "geometricalPads": 8,
+          "pathVertices": 133,
+          "composition": "separate-Phaser-components",
+          "foregroundSprites": 37,
+          "reliefFormations": 7,
+          "relief": "separate-illustrated-cliff-faces-and-tops",
+          "waterLayer": "independent-canvas-texture",
+          "textureDefinition": "m01-texture-definition-v1",
+          "propTexelsPerWorldUnit": 2
+        },
+        "props": [
+          {
+            "kind": "oak",
+            "x": 10,
+            "y": 85,
+            "w": 132,
+            "h": 123.52702702702703,
+            "flip": false,
+            "footY": 208.52702702702703
+          },
+          {
+            "kind": "oak",
+            "x": 150,
+            "y": 90,
+            "w": 125,
+            "h": 116.97635135135135,
+            "flip": true,
+            "footY": 206.97635135135135
+          },
+          {
+            "kind": "oak",
+            "x": 290,
+            "y": 65,
+            "w": 112,
+            "h": 104.8108108108108,
+            "flip": false,
+            "footY": 169.8108108108108
+          },
+          {
+            "kind": "oak",
+            "x": 430,
+            "y": 90,
+            "w": 100,
+            "h": 93.58108108108108,
+            "flip": true,
+            "footY": 183.5810810810811
+          },
+          {
+            "kind": "oak",
+            "x": 800,
+            "y": 560,
+            "w": 95,
+            "h": 88.90202702702703,
+            "flip": false,
+            "footY": 648.9020270270271
+          },
+          {
+            "kind": "oak",
+            "x": 1138,
+            "y": 90,
+            "w": 112,
+            "h": 104.8108108108108,
+            "flip": true,
+            "footY": 194.8108108108108
+          },
+          {
+            "kind": "arch",
+            "x": 395,
+            "y": 220,
+            "w": 125,
+            "h": 111.26373626373626,
+            "flip": false,
+            "footY": 331.2637362637363
+          },
+          {
+            "kind": "shrine",
+            "x": 1080,
+            "y": 83,
+            "w": 135,
+            "h": 128.58471074380165,
+            "flip": false,
+            "footY": 211.58471074380165
+          },
+          {
+            "kind": "cypress",
+            "x": 525,
+            "y": 105,
+            "w": 38,
+            "h": 85.98305084745763,
+            "flip": false,
+            "footY": 190.98305084745763
+          },
+          {
+            "kind": "cypress",
+            "x": 1235,
+            "y": 525,
+            "w": 36,
+            "h": 81.45762711864407,
+            "flip": false,
+            "footY": 606.457627118644
+          },
+          {
+            "kind": "supply",
+            "x": 242,
+            "y": 245,
+            "w": 95,
+            "h": 57.7424023154848,
+            "flip": false,
+            "footY": 302.7424023154848
+          },
+          {
+            "kind": "fence",
+            "x": 300,
+            "y": 215,
+            "w": 90,
+            "h": 50.029411764705884,
+            "flip": false,
+            "footY": 265.02941176470586
+          },
+          {
+            "kind": "gate",
+            "x": 65,
+            "y": 150,
+            "w": 105,
+            "h": 75.04279600570614,
+            "flip": false,
+            "footY": 225.04279600570612
+          },
+          {
+            "kind": "rocks",
+            "x": 305,
+            "y": 300,
+            "w": 55,
+            "h": 40.35569105691057,
+            "flip": false,
+            "footY": 340.3556910569106
+          },
+          {
+            "kind": "rocks",
+            "x": 520,
+            "y": 245,
+            "w": 50,
+            "h": 36.6869918699187,
+            "flip": false,
+            "footY": 281.6869918699187
+          },
+          {
+            "kind": "rocks",
+            "x": 860,
+            "y": 410,
+            "w": 60,
+            "h": 44.02439024390244,
+            "flip": false,
+            "footY": 454.0243902439024
+          },
+          {
+            "kind": "rocks",
+            "x": 755,
+            "y": 600,
+            "w": 58,
+            "h": 42.55691056910569,
+            "flip": false,
+            "footY": 642.5569105691056
+          },
+          {
+            "kind": "flowers",
+            "x": 330,
+            "y": 230,
+            "w": 43,
+            "h": 33.792494481236204,
+            "flip": false,
+            "footY": 263.7924944812362
+          },
+          {
+            "kind": "flowers",
+            "x": 630,
+            "y": 150,
+            "w": 40,
+            "h": 31.43487858719647,
+            "flip": false,
+            "footY": 181.43487858719647
+          },
+          {
+            "kind": "flowers",
+            "x": 830,
+            "y": 385,
+            "w": 44,
+            "h": 34.57836644591612,
+            "flip": false,
+            "footY": 419.5783664459161
+          },
+          {
+            "kind": "flowers",
+            "x": 1190,
+            "y": 560,
+            "w": 37,
+            "h": 29.077262693156733,
+            "flip": false,
+            "footY": 589.0772626931567
+          },
+          {
+            "kind": "youngOak",
+            "x": 25,
+            "y": 130,
+            "w": 82,
+            "h": 82.33469387755102,
+            "flip": false,
+            "footY": 212.33469387755102
+          },
+          {
+            "kind": "youngOak",
+            "x": 1130,
+            "y": 170,
+            "w": 90,
+            "h": 90.36734693877551,
+            "flip": false,
+            "footY": 260.36734693877554
+          },
+          {
+            "kind": "shrub",
+            "x": 165,
+            "y": 235,
+            "w": 62,
+            "h": 46.63025210084034,
+            "flip": false,
+            "footY": 281.6302521008403
+          },
+          {
+            "kind": "shrub",
+            "x": 350,
+            "y": 200,
+            "w": 64,
+            "h": 48.134453781512605,
+            "flip": false,
+            "footY": 248.1344537815126
+          },
+          {
+            "kind": "pillar",
+            "x": 365,
+            "y": 290,
+            "w": 46,
+            "h": 47,
+            "flip": false,
+            "footY": 337
+          },
+          {
+            "kind": "pillar",
+            "x": 715,
+            "y": 595,
+            "w": 45,
+            "h": 45.97826086956522,
+            "flip": false,
+            "footY": 640.9782608695652
+          },
+          {
+            "kind": "timber",
+            "x": 285,
+            "y": 235,
+            "w": 52,
+            "h": 36.69980119284294,
+            "flip": false,
+            "footY": 271.6998011928429
+          },
+          {
+            "kind": "wheat",
+            "x": 230,
+            "y": 190,
+            "w": 82,
+            "h": 74.59354838709677,
+            "flip": false,
+            "footY": 264.5935483870968
+          },
+          {
+            "kind": "wheat",
+            "x": 320,
+            "y": 160,
+            "w": 90,
+            "h": 81.87096774193549,
+            "flip": false,
+            "footY": 241.8709677419355
+          },
+          {
+            "kind": "wheat",
+            "x": 550,
+            "y": 165,
+            "w": 70,
+            "h": 63.67741935483871,
+            "flip": false,
+            "footY": 228.67741935483872
+          },
+          {
+            "kind": "ivyRock",
+            "x": 470,
+            "y": 235,
+            "w": 64,
+            "h": 47.06262626262626,
+            "flip": false,
+            "footY": 282.0626262626263
+          },
+          {
+            "kind": "ivyRock",
+            "x": 1050,
+            "y": 145,
+            "w": 65,
+            "h": 47.7979797979798,
+            "flip": false,
+            "footY": 192.7979797979798
+          },
+          {
+            "kind": "youngOak",
+            "x": 845,
+            "y": 540,
+            "w": 72,
+            "h": 72.29387755102042,
+            "flip": true,
+            "footY": 612.2938775510204
+          },
+          {
+            "kind": "cypress",
+            "x": 825,
+            "y": 520,
+            "w": 31,
+            "h": 70.14406779661017,
+            "flip": false,
+            "footY": 590.1440677966102
+          },
+          {
+            "kind": "flowers",
+            "x": 895,
+            "y": 580,
+            "w": 46,
+            "h": 36.150110375275936,
+            "flip": false,
+            "footY": 616.150110375276
+          },
+          {
+            "kind": "shrub",
+            "x": 500,
+            "y": 390,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 426.10084033613447
+          }
+        ],
+        "rejected": [
+          {
+            "kind": "oak",
+            "x": 15,
+            "y": 530,
+            "w": 105,
+            "h": 98.26013513513513,
+            "flip": false,
+            "footY": 628.2601351351351
+          },
+          {
+            "kind": "oak",
+            "x": 185,
+            "y": 520,
+            "w": 65,
+            "h": 60.8277027027027,
+            "flip": true,
+            "footY": 580.8277027027027
+          },
+          {
+            "kind": "fence",
+            "x": 835,
+            "y": 145,
+            "w": 93,
+            "h": 51.69705882352941,
+            "flip": false,
+            "footY": 196.6970588235294
+          },
+          {
+            "kind": "rocks",
+            "x": 20,
+            "y": 235,
+            "w": 65,
+            "h": 47.69308943089431,
+            "flip": false,
+            "footY": 282.6930894308943
+          },
+          {
+            "kind": "rocks",
+            "x": 1090,
+            "y": 275,
+            "w": 52,
+            "h": 38.15447154471545,
+            "flip": false,
+            "footY": 313.1544715447154
+          },
+          {
+            "kind": "rocks",
+            "x": 1110,
+            "y": 650,
+            "w": 65,
+            "h": 47.69308943089431,
+            "flip": false,
+            "footY": 697.6930894308944
+          },
+          {
+            "kind": "flowers",
+            "x": 185,
+            "y": 270,
+            "w": 47,
+            "h": 36.93598233995585,
+            "flip": false,
+            "footY": 306.93598233995584
+          },
+          {
+            "kind": "flowers",
+            "x": 465,
+            "y": 390,
+            "w": 35,
+            "h": 27.50551876379691,
+            "flip": false,
+            "footY": 417.5055187637969
+          },
+          {
+            "kind": "flowers",
+            "x": 965,
+            "y": 615,
+            "w": 39,
+            "h": 30.649006622516556,
+            "flip": false,
+            "footY": 645.6490066225166
+          },
+          {
+            "kind": "flowers",
+            "x": 270,
+            "y": 610,
+            "w": 44,
+            "h": 34.57836644591612,
+            "flip": false,
+            "footY": 644.5783664459161
+          },
+          {
+            "kind": "flowers",
+            "x": 60,
+            "y": 575,
+            "w": 43,
+            "h": 33.792494481236204,
+            "flip": false,
+            "footY": 608.7924944812362
+          },
+          {
+            "kind": "youngOak",
+            "x": 590,
+            "y": 120,
+            "w": 85,
+            "h": 85.34693877551021,
+            "flip": true,
+            "footY": 205.3469387755102
+          },
+          {
+            "kind": "youngOak",
+            "x": 515,
+            "y": 595,
+            "w": 83,
+            "h": 83.33877551020409,
+            "flip": false,
+            "footY": 678.3387755102041
+          },
+          {
+            "kind": "shrub",
+            "x": 755,
+            "y": 375,
+            "w": 57,
+            "h": 42.86974789915966,
+            "flip": false,
+            "footY": 417.8697478991597
+          },
+          {
+            "kind": "shrub",
+            "x": 930,
+            "y": 605,
+            "w": 65,
+            "h": 48.88655462184874,
+            "flip": false,
+            "footY": 653.8865546218487
+          },
+          {
+            "kind": "shrub",
+            "x": 1150,
+            "y": 650,
+            "w": 65,
+            "h": 48.88655462184874,
+            "flip": false,
+            "footY": 698.8865546218487
+          },
+          {
+            "kind": "shrub",
+            "x": 100,
+            "y": 625,
+            "w": 61,
+            "h": 45.878151260504204,
+            "flip": false,
+            "footY": 670.8781512605042
+          },
+          {
+            "kind": "pillar",
+            "x": 1155,
+            "y": 260,
+            "w": 48,
+            "h": 49.04347826086956,
+            "flip": false,
+            "footY": 309.04347826086956
+          },
+          {
+            "kind": "timber",
+            "x": 900,
+            "y": 385,
+            "w": 48,
+            "h": 33.87673956262425,
+            "flip": false,
+            "footY": 418.87673956262427
+          },
+          {
+            "kind": "timber",
+            "x": 205,
+            "y": 625,
+            "w": 48,
+            "h": 33.87673956262425,
+            "flip": false,
+            "footY": 658.8767395626243
+          },
+          {
+            "kind": "ivyRock",
+            "x": 40,
+            "y": 610,
+            "w": 66,
+            "h": 48.53333333333333,
+            "flip": false,
+            "footY": 658.5333333333333
+          },
+          {
+            "kind": "ivyRock",
+            "x": 1170,
+            "y": 615,
+            "w": 65,
+            "h": 47.7979797979798,
+            "flip": false,
+            "footY": 662.7979797979798
+          },
+          {
+            "kind": "shrub",
+            "x": 370,
+            "y": 615,
+            "w": 43,
+            "h": 32.34033613445378,
+            "flip": false,
+            "footY": 647.3403361344538
+          },
+          {
+            "kind": "shrub",
+            "x": 15,
+            "y": 290,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 326.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 570,
+            "y": 320,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 356.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 1130,
+            "y": 360,
+            "w": 48,
+            "h": 36.10084033613445,
+            "flip": false,
+            "footY": 396.10084033613447
+          },
+          {
+            "kind": "shrub",
+            "x": 720,
+            "y": 375,
+            "w": 50,
+            "h": 37.60504201680672,
+            "flip": false,
+            "footY": 412.6050420168067
+          }
+        ],
+        "routeSamples": 407,
+        "clearFaceSamples": 1209,
+        "formations": [
+          {
+            "id": "left-archaeology",
+            "height": 57,
+            "edge": [
+              [
+                -10,
+                230
+              ],
+              [
+                70,
+                255
+              ],
+              [
+                160,
+                285
+              ],
+              [
+                240,
+                325
+              ],
+              [
+                320,
+                354
+              ],
+              [
+                405,
+                367
+              ],
+              [
+                480,
+                363
+              ],
+              [
+                530,
+                340
+              ],
+              [
+                555,
+                300
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "central-socket",
+            "height": 55,
+            "edge": [
+              [
+                692,
+                369
+              ],
+              [
+                715,
+                385
+              ],
+              [
+                751,
+                392
+              ],
+              [
+                797,
+                383
+              ],
+              [
+                817,
+                365
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "portal-terrace",
+            "height": 55,
+            "edge": [
+              [
+                963,
+                234
+              ],
+              [
+                1005,
+                248
+              ],
+              [
+                1060,
+                255
+              ],
+              [
+                1135,
+                278
+              ],
+              [
+                1215,
+                295
+              ],
+              [
+                1288,
+                270
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "right-socket",
+            "height": 25,
+            "edge": [
+              [
+                1118,
+                361
+              ],
+              [
+                1125,
+                380
+              ],
+              [
+                1170,
+                390
+              ],
+              [
+                1215,
+                365
+              ],
+              [
+                1230,
+                335
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "left-lower-socket",
+            "height": 43,
+            "edge": [
+              [
+                32,
+                485
+              ],
+              [
+                43,
+                504
+              ],
+              [
+                90,
+                515
+              ],
+              [
+                140,
+                510
+              ],
+              [
+                159,
+                495
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "lower-central-socket",
+            "height": 55,
+            "edge": [
+              [
+                600,
+                563
+              ],
+              [
+                620,
+                586
+              ],
+              [
+                670,
+                599
+              ],
+              [
+                719,
+                590
+              ],
+              [
+                742,
+                568
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          },
+          {
+            "id": "front-river-bank",
+            "height": 83,
+            "edge": [
+              [
+                -100,
+                575
+              ],
+              [
+                0,
+                575
+              ],
+              [
+                95,
+                590
+              ],
+              [
+                190,
+                600
+              ],
+              [
+                290,
+                645
+              ],
+              [
+                415,
+                660
+              ],
+              [
+                535,
+                660
+              ],
+              [
+                645,
+                665
+              ],
+              [
+                740,
+                680
+              ],
+              [
+                830,
+                665
+              ],
+              [
+                930,
+                630
+              ],
+              [
+                1040,
+                645
+              ],
+              [
+                1145,
+                680
+              ],
+              [
+                1280,
+                625
+              ],
+              [
+                1380,
+                625
+              ]
+            ],
+            "art": "original-cliff-atlas",
+            "uniformMotifScale": true
+          }
+        ],
+        "displayObjects": 88,
+        "buildsOnAllEight": "PASS_REAL_UI_BUILD_SELL_ALL_8_THEN_NORMAL_RESTART"
+      },
+      "combat": {
+        "snapshot": {
+          "contract": "c1d2-m01-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 1,
+          "active": true,
+          "ended": false,
+          "won": false,
+          "paused": true,
+          "lives": 100,
+          "gold": 146,
+          "kills": 1,
+          "escaped": 0,
+          "totalSpawns": 8,
+          "spawnsRemaining": 0,
+          "enemies": 7,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 1,
+          "infantryPathfinding": "M01 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 133,
+          "navRepaths": 58
+        },
+        "diagnostics": {
+          "towers": 2,
+          "enemies": 7,
+          "p08Entities": 8,
+          "t09Nodes": 0,
+          "b3": {
+            "tracked": 4,
+            "windups": 16,
+            "swordContacts": 5,
+            "enemyContacts": 10,
+            "gameplayWrites": 0
+          },
+          "confirmedVisualContacts": 15,
+          "t10Fires": 1,
+          "t10PremiumOpticalMuzzle": true,
+          "t10RifleAuthority": "P03_OPERATOR",
+          "t10BuildingRifleSuppressed": 1,
+          "t10Ghosts": 0,
+          "t10HeldKills": 1,
+          "u02Facing": [
+            {
+              "towerId": "m01-tower-2",
+              "facing": "left",
+              "targetId": 3,
+              "operatorDepth": 479,
+              "structureDepth": 478,
+              "frontRailDepth": 480
+            }
+          ],
+          "soldiers": 1,
+          "fxFires": 1,
+          "shots": {
+            "active": 0,
+            "seen": 3,
+            "visualFireCount": 1,
+            "visualHitCount": 1,
+            "correlatedBullets": 0,
+            "variant": "A",
+            "premium": true,
+            "destroyed": false
+          }
+        }
+      },
+      "errors": []
+    }
+  ],
+  "physicalMobile": "NOT_RUN",
+  "artApproval": "PENDING_DIRECTOR",
+  "fullCampaign": "NOT_RUN_ART_ONLY_BLOCK"
+}
