@@ -1,5 +1,5 @@
 /** Visual inspection entry only; no gameplay, build input, waves or economy. */
-import {mountM04Artwork} from '../river-art.mjs';
+import {mountM04Artwork} from '../hf1/integrated-river.mjs';
 const maps=await(await fetch('../../../../data/maps.v5.json')).json();
 const map=maps.find(m=>m.id===4),baseline=new URL(location.href).searchParams.get('baseline')==='1';
 if(baseline)document.querySelector('aside').textContent='M04 · esquema canónico de referencia; no era un nivel Phaser';

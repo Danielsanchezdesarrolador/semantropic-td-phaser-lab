@@ -1,0 +1,14 @@
+{
+  "block": "M04-HF1",
+  "version": "m04-hf1-structural-integrated-v1",
+  "origin": "Pintura integrada original generada/editada con OpenAI image_gen sobre captura propia B04. Fuente final íntegra, sin copia del layout de la referencia externa. Se registra al dibujar mediante anclas canónicas; no se pega agua, puentes ni pads por separado.",
+  "asset": {
+    "path": "public/official/art/maps/m04/hf1/integrated-river-original.png",
+    "dimensions": [
+      1619,
+      971
+    ],
+    "bytes": 4205091,
+    "sha256": "79876aec79d5b5c095fb3e197dff946d6b31fdbedaa7f9df80aca7426d0adb7e"
+  }
+}
