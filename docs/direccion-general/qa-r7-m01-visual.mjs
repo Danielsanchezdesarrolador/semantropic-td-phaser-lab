@@ -83,8 +83,8 @@ for(const [a,b] of correctedDecor.fences){
   }
  }
 }
-assert(read('public/official/src/live/index.html').includes('r7=dawn-plateau-hf1'),
- 'Browser cache invalidation missing for R7 HF1');
+assert(read('public/official/src/live/index.html').includes('r7=dawn-plateau-hf2'),
+ 'Browser cache invalidation missing for R7 HF2');
 
 import {makeR7ScenicPanoramaCanvas} from '../../public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs';
 import {R7_M01_SCENIC_TEXTURE} from '../../public/official/src/maps-visual/m01/r7/renderer-r7.mjs';
