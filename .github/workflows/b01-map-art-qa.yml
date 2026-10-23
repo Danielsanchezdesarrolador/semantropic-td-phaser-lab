@@ -1,4 +1,4 @@
-name: B01 MAP-ART-01 — QA proporcional
+name: MAP-STYLE-01 M01 cartoon modular — QA proporcional
 on:
   pull_request:
     branches: [production/semantropic-td-live]
@@ -6,6 +6,8 @@ on:
       - 'public/official/src/maps-visual/m01/**'
       - 'public/official/art/maps/m01/b01/**'
       - 'tools/qa-b01-map-art.mjs'
+      - 'tools/qa-map-style01-*.mjs'
+      - 'docs/blocks/map-style01/**'
       - 'tools/qa-r7-m01-premium-browser.mjs'
       - 'docs/blocks/b01/**'
       - '.github/workflows/b01-map-art-qa.yml'
@@ -26,6 +28,7 @@ jobs:
           node --check public/official/src/maps-visual/m01/b01/pictoric-meadow.mjs
           node --check public/official/src/maps-visual/m01/r7/renderer-r7.mjs
           node tools/qa-b01-map-art.mjs
+          node tools/qa-map-style01-art.mjs
           node docs/direccion-general/qa-r7-m01-visual.mjs
       - name: Build Phaser y Chromium
         run: |
@@ -39,6 +42,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: B01-M01-PICTORICO-PC-MOVIL
-          path: artifacts/r7-m01-premium-browser/
+          name: MAP-STYLE01-M01-CARTOON-PC-MOVIL
+          path: artifacts/map-style01/
           retention-days: 14

@@ -1,0 +1,44 @@
+{
+  "block": "MAP-STYLE-01",
+  "base": "579f421b36d408dc0ddc6a5457615f05b949a9c0",
+  "style": "Original premium cartoon 2D, Director order 2026-10-23; human approval of implementation pending",
+  "inputs": {
+    "mockup": "User reference, upper scene only; not copied into runtime",
+    "duplicateTxtSha256": "e875e70ba9a251281313f47a6350f1f234240254c1cadfc6f4371c4e79ad9395"
+  },
+  "assets": [
+    {
+      "path": "public/official/art/maps/m01/style01/nature-atlas-original.png",
+      "origin": "Original image generation for this project; not extracted from reference",
+      "originalPreserved": "/workspace/generated_images/exec-5cd23c5b-34b9-490f-97d2-9cd1ed2d1275.png",
+      "bytes": 2665233,
+      "sha256": "c1a51ab4eea0faef29950f954579b332c61b9982c9e12db0705c75136cc1f9f9"
+    },
+    {
+      "path": "public/official/art/maps/m01/style01/structures-atlas-original.png",
+      "origin": "Original image generation for this project; not extracted from reference",
+      "originalPreserved": "/workspace/generated_images/exec-1bacfcd0-fe77-4095-bfd6-972d31ad04be.png",
+      "bytes": 2661088,
+      "sha256": "002057c59ff592a505b672542691ecda247b5748d847f5344e1930bd6c5d0cd8"
+    },
+    {
+      "path": "public/official/art/maps/m01/style01/empty-terrain-original.png",
+      "origin": "Original image generation for this project; not extracted from reference",
+      "originalPreserved": "/workspace/generated_images/exec-ec5ed3c0-83cd-4352-a3e8-e23fb90a29a0.png",
+      "bytes": 2298386,
+      "sha256": "fc5d77523fe3ea546a2f50f7d9548535a7c3923307ea985128d30a616ffb268f"
+    }
+  ],
+  "composition": {
+    "terrain": "original EMPTY substrate, split into distant and ground display layers; no embedded roads/pads/foreground sprites",
+    "road": "transparent CanvasTexture, 133 canonical waypoints, irregular contour and graphic soil marks",
+    "pads": "one reusable original stone texture, eight distinct Phaser images at canonical sockets",
+    "foreground": "29 independent placed sprites, generated original atlas frames, foot pivots and separate ground shadows",
+    "animations": "No new animation/effect system; existing runtime only"
+  },
+  "unusedFrames": [
+    "bridge: no new crossing invented to mimic mockup"
+  ],
+  "artApproval": "PENDING_DIRECTOR",
+  "physicalMobile": "NOT_RUN"
+}
