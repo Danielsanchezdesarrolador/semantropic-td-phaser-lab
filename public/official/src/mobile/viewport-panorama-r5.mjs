@@ -41,6 +41,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
    return art?[art]:[];
   }
   if(mapId===3){const art=texture('maps/m03/whispering-forest/scenic/v1');return art?[art]:[];}
+  if(mapId===4){const art=texture('maps/m04/ancient-river/art-v1');return art?[art]:[];}
   return [];
  }
  function paintTexture(ctx,img,where,dest){
@@ -127,7 +128,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
   scheduled=requestAnimationFrame(()=>{scheduled=0;draw();});
  }
  function bind(nextScene,id){
-  if(id!==1&&id!==2&&id!==3)throw Error('R5 unknown map');
+  if(id!==1&&id!==2&&id!==3&&id!==4)throw Error('R5 unknown map');
   scene=nextScene;mapId=id;
   refresh();
   return true;

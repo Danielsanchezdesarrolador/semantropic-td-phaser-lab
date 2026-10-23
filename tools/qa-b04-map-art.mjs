@@ -3,8 +3,11 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {makeM04ArtPlan,b04PropClearsGeometry} from '../public/official/src/maps-visual/m04/river-art.mjs';
+const authorized=JSON.parse(readFileSync('docs/blocks/m04-game01/authorized-runtime-blobs.json'));
+// Historical art-only runtime freeze superseded by explicit M04-GAME-01 approval.
+const expected=(p,h)=>authorized[p]?.before===h?authorized[p].after:h;
 const pinned=JSON.parse(readFileSync('docs/blocks/b04/protected-blobs.json'));
-for(const [p,hash] of Object.entries(pinned.blobs))assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),hash,'B04 changed protected source '+p);
+for(const [p,hash] of Object.entries(pinned.blobs))assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),expected(p,hash),'B04 changed protected source '+p);
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===4),plan=makeM04ArtPlan(map);
 assert.equal(plan.path.length,262);assert.deepEqual(plan.path,map.path);assert.equal(plan.pads.length,9);assert.deepEqual(plan.bridges,map.decor.bridge_centers);assert.deepEqual(plan.river,map.decor.river_path);
 plan.pads.forEach((p,i)=>{assert.equal(p.x,map.spots[i].cx*64+32);assert.equal(p.y,map.spots[i].cy*64+32);assert(!b04PropClearsGeometry({x:p.x-1,y:p.y-1,w:2,h:2},plan));});

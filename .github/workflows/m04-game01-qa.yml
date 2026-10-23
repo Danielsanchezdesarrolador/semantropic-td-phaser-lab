@@ -1,0 +1,53 @@
+name: M04 GAME-01 — integración jugable
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths:
+      - 'public/official/src/core-c1d/campaign-*.mjs'
+      - 'public/official/src/core-c1d/m04-*.mjs'
+      - 'public/official/src/c1d8-b2-playable/scene-m04.mjs'
+      - 'public/official/src/c1d8-b2-playable/scene-m02.mjs'
+      - 'public/official/src/maps-visual/m04/phaser-world.mjs'
+      - 'public/official/src/actors-visual/m04/**'
+      - 'public/official/src/live/index.html'
+      - 'tools/qa-m04-*.mjs'
+      - 'docs/blocks/m04-game01/**'
+      - '.github/workflows/m04-game01-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  canonical-combat-and-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: M04 once oleadas, arte congelado, regresión M03 y M01
+        run: |
+          node tools/qa-m04-campaign.mjs
+          node docs/direccion-general/qa-r3b-m02-core.mjs
+          node tools/qa-c1d2-five-waves.mjs
+          node docs/art/towers/qa-t09.mjs
+          node tools/qa-m03-campaign.mjs
+          node tools/qa-c1d8-b1-rally-core.mjs
+          node tools/qa-b02-map-art.mjs
+          node tools/qa-b04-map-art.mjs
+          node tools/qa-m04-hf1-art.mjs
+          node docs/direccion-general/qa-r3c-m02-scene.mjs
+      - name: Build y Chromium
+        run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - name: WebGL2, selección M01–M04, input, combate real, resultados y guardados
+        run: node tools/qa-m04-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: M04-GAME01-PC-MOVIL-COMBATE
+          path: artifacts/m04-browser/
+          retention-days: 14

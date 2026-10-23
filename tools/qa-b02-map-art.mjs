@@ -3,8 +3,11 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {makeB02ArtPlan,b02PropClearsGeometry} from '../public/official/src/maps-visual/m02/b02/pictoric-farmland.mjs';
+const authorized=JSON.parse(readFileSync('docs/blocks/m04-game01/authorized-runtime-blobs.json'));
+// Explicit functional integration supersedes the old art-only runtime freeze.
+const expected=(p,h)=>authorized[p]?.before===h?authorized[p].after:h;
 const pinned=JSON.parse(readFileSync('docs/blocks/b02/protected-blobs.json'));
-for(const [p,hash] of Object.entries(pinned.blobs))assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),hash,'B02 changed protected source '+p);
+for(const [p,hash] of Object.entries(pinned.blobs))assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),expected(p,hash),'B02 changed protected source '+p);
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===2),plan=makeB02ArtPlan(map);
 assert.equal(plan.path.length,163);assert.deepEqual(plan.path,map.path);assert.equal(plan.pads.length,8);assert.equal(map.gold,395);
 plan.pads.forEach((p,i)=>{assert.equal(p.x,map.spots[i].cx*64+32);assert.equal(p.y,map.spots[i].cy*64+32);assert(!b02PropClearsGeometry({x:p.x-2,y:p.y-2,w:4,h:4},plan));});

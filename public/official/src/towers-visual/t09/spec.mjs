@@ -15,13 +15,14 @@ function node({id,icon,title,action,socketIndex,towerId=null,family=null,quote=n
   hint,highlight:false,intent:action==='close'?{action:'close',socketIndex,revision}:{action,socketIndex,towerId,family,revision}};
 }
 /**
- * DTO input: {socket:{index,socketId?},tower:null|{id,family,level},
+ * DTO input: {socket:{index,socketId?,count?},tower:null|{id,family,level},
  * quotes:{buildInfantry,buildSniper,upgrade,sell},mode,permissions:{canRally?,canInspect?},
  * worldPoint:{x,y}|null,rangeWorld?:number,revision?:string|number}.
  * Quotes are RAW economy.quote/quoteUpgrade/quoteSell, including false cases.
  */
 export function getContextMenuVisualSpec({socket,tower=null,quotes={},mode='preparation',permissions={},worldPoint=null,rangeWorld=null,revision=null}={}){
- if(!socket||!Number.isInteger(socket.index)||socket.index<0||socket.index>=8)throw Error('T09 socket must be index 0..7');
+ const socketCount=socket?.count??8;
+ if(!Number.isInteger(socketCount)||socketCount<1||!socket||!Number.isInteger(socket.index)||socket.index<0||socket.index>=socketCount)throw Error('T09 socket outside canonical count');
  if(!T09_MODES.includes(mode))throw Error('T09 invalid mode');
  if(tower&&(!VALID.has(tower.family)||![1,2].includes(tower.level)||typeof tower.id!=='string'))throw Error('T09 invalid tower DTO');
  if(worldPoint!==null&&(!Number.isFinite(worldPoint.x)||!Number.isFinite(worldPoint.y)))throw Error('T09 non-finite world point');

@@ -270,6 +270,7 @@ export function withCampaignInfantry(Base){return class CampaignCombatWithInfant
   }
   for(const e of ordered){
     if(e.dead||e.escaped)continue;
+    if(this.tryEnemySupport?.(e,dt))continue;
     if(this.tryArcherRanged(e,dt))continue;
     const active=this.findSoldier(e.blockedBy);
    if(unitAlive(active)){

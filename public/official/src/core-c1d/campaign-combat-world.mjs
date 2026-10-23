@@ -79,7 +79,7 @@ export class CampaignCombatWorld{
    const item=this.spawnQueue.shift(),data=this.rules.calculateEnemy(this.wave,item.type,this.map),p=positionOnPath(this.route,0);
    const e={id:item.id,type:item.type,life:data.hp,maxLife:data.hp,hp:data.hp,maxHp:data.hp,
     speed:data.speed,r:data.r,reward:data.reward,progress:0,routeLength:(this.rules.enemySpecs[item.type].flying?this.airRoute:this.route).total,
-    x:p.x,y:p.y,heading:p.heading,dead:false,escaped:false,armor:0,shield:Math.max(0,Math.round(data.hp*(this.rules.enemySpecs[item.type].shieldFactor||0))),
+    x:p.x,y:p.y,heading:p.heading,dead:false,escaped:false,armor:this.rules.enemySpecs[item.type].armor||0,shield:Math.max(0,Math.round(data.hp*(this.rules.enemySpecs[item.type].shieldFactor||0))),
      shieldMax:Math.max(0,Math.round(data.hp*(this.rules.enemySpecs[item.type].shieldFactor||0))),
     resist:copy(this.rules.enemySpecs[item.type].resist||{}),flying:Boolean(this.rules.enemySpecs[item.type].flying),blockable:this.rules.enemySpecs[item.type].blockable!==false,rewardPaid:false,wave:this.wave};
    this.enemies.set(e.id,e);this.totalSpawns++;

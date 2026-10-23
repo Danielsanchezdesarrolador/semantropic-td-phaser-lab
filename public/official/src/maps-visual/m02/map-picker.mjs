@@ -1,7 +1,7 @@
 /** R3-C. Select M01/M02 on same official LIVE pathname, with safe full navigation. */
 export function mountR3CMapPicker(){
  const requested=Number(new URLSearchParams(location.search).get('map'));
- const selected=[2,3].includes(requested)?requested:1;
+ const selected=[2,3,4].includes(requested)?requested:1;
  const get=id=>document.getElementById(id);
  const trigger=get('mapPickerButton'),dialog=get('mapPicker'),close=get('mapPickerClose');
  if(!trigger||!dialog||!close)throw Error('Missing R3-C selector elements');
@@ -30,6 +30,13 @@ export function mountR3CMapPicker(){
    u.searchParams.delete('operator');u.searchParams.delete('t10hf2');
    location.assign(u.pathname+u.search);
   });
+ }
+ if(selected===4){
+  document.title="SEMANTROPIC TD — Mapa 04 | Río de los Antiguos";
+  get("mapReleaseLabel").textContent="SEMANTROPIC TD · MAPA 04 RÍO DE LOS ANTIGUOS";
+  get("coins").textContent="395";get("lives").textContent="100";get("wave").textContent="0/11";
+  get("feedback").textContent="Cargando Mapa 04 · Río de los Antiguos…";
+  get("resultRestart").textContent="Volver a jugar Mapa 04";
  }
  if(selected===3){
   document.title='SEMANTROPIC TD — Mapa 03 | Bosque de los Susurros';

@@ -50,7 +50,7 @@ try{
   }
   if(errors.length)throw Error(errors.join(' | '));cases.push({profile,width,height,...result});await page.close();
  }
- const page=await browser.newPage({viewport:{width:1280,height:768}});await page.goto(origin+'/official/src/live/');await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.world.map.id===1,null,{timeout:60000});if(await page.locator('[data-map-target="4"]').count())throw Error('Unfinished M04 in gameplay selector');await page.close();
- console.log(JSON.stringify({status:'PASS_M04_HF1_INTEGRATED_WEBGL2',cases,officialM01Smoke:'PASS',m04Gameplay:'NOT_IMPLEMENTED_NOT_TESTED',physicalMobile:'NOT_RUN',artApproval:'PENDING',before:'Published B04 preview at4f460f9; authentic comparison in HF1 documentation'},null,2));
+ const page=await browser.newPage({viewport:{width:1280,height:768}});await page.goto(origin+'/official/src/live/');await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.world.map.id===1,null,{timeout:60000});if(await page.locator('[data-map-target="4"]').count()!==1)throw Error('M04-GAME-01 selector missing');await page.close();
+ console.log(JSON.stringify({status:'PASS_M04_HF1_INTEGRATED_WEBGL2',cases,officialM01Smoke:'PASS',m04Gameplay:'SEPARATE_GAME01_QA_REQUIRED',physicalMobile:'NOT_RUN',artApproval:'PENDING',before:'Published B04 preview at4f460f9; authentic comparison in HF1 documentation'},null,2));
 }catch(e){console.error('FAIL_M04_HF1_ART_REVIEW',e.stack||String(e));process.exitCode=1}
 finally{await browser?.close();await new Promise(ok=>server.close(ok))}

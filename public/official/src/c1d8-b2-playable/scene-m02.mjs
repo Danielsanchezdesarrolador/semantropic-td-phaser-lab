@@ -78,7 +78,7 @@ class CombatScene extends Phaser.Scene{
   this.mapView=(config.mountWorld??mountM02World)(this,MAP);
   window.__SEMANTROPIC_VIEWPORT?.bindScene?.(this,mapId);
   this.shots=new SniperShotPresenter(this,{variant:"A",depth:35000,premium:true});
-  assert(this.mapView.plan.sockets.length===8,"socket count");
+  assert(this.mapView.plan.sockets.length===MAP.spots.length,"socket count");
   this.selection=this.add.circle(0,0,51,0,0).setStrokeStyle(4,0xf5d484).setDepth(45000);
   this.selection.setVisible(false);
   this.rallyRadius=this.add.circle(0,0,130,0x3dd5b1,.09)
@@ -509,7 +509,7 @@ function updatePanel(force=false){
    safe.left=8;safe.right=host.width-8;safe.top=8;safe.bottom=host.height-8;
   }
   const tower=raw?{id:String(raw.id),family:raw.family,level:raw.level}:null;
-  const spec=getContextMenuVisualSpec({socket:{index,socketId:sock?.socketId??null},
+  const spec=getContextMenuVisualSpec({socket:{index,count:MAP.spots.length,socketId:sock?.socketId??null},
    tower,quotes,mode,permissions:{canRally:raw?.family==="infantry",canInspect:false},
    worldPoint:world,revision:++t09Revision});
   t09Presenter.update(spec,{anchorScreen,viewportSafeRect:safe,
@@ -524,7 +524,7 @@ function updatePanel(force=false){
  const key=JSON.stringify([d.family,d.level,d.gold,d.paused,d.actions]);
  if(!force&&key===contextKey){placeMenu();return;}
  contextKey=key;
- $("menuTitle").textContent="Plataforma "+(contextIndex+1)+"/8";
+ $("menuTitle").textContent="Plataforma "+(contextIndex+1)+"/"+MAP.spots.length;
  $("menuInfo").textContent=d.hasTower?
   (d.family==="infantry"?"Cuartel de Infantería":"Francotirador")+" · nivel "+d.level:
   "Plataforma vacía · "+d.gold+" oro";
@@ -647,4 +647,4 @@ async function start(){
 }
 await start();
 }
-if(new URLSearchParams(location.search).get("map")!=="3")await startCampaignScene();
+if(!["3","4"].includes(new URLSearchParams(location.search).get("map")))await startCampaignScene();

@@ -1,0 +1,1962 @@
+{
+  "base": "73d7b774d8ba5e06e49b0a91a44c26bf18b907a0",
+  "node": {
+    "status": "PASS_M04_ELEVEN_CANONICAL_WAVES",
+    "counts": [
+      6,
+      5,
+      7,
+      5,
+      10,
+      10,
+      9,
+      6,
+      9,
+      12,
+      15
+    ],
+    "types": [
+      "warrior",
+      "brute",
+      "archer",
+      "hound",
+      "shaman",
+      "shieldbearer"
+    ],
+    "victory": {
+      "contract": "m04-game01-eleven-canonical-waves-v1",
+      "mapId": 4,
+      "mode": "normal",
+      "wave": 11,
+      "active": false,
+      "ended": true,
+      "won": true,
+      "paused": false,
+      "lives": 72,
+      "gold": 206,
+      "kills": 80,
+      "escaped": 14,
+      "totalSpawns": 94,
+      "spawnsRemaining": 0,
+      "enemies": 0,
+      "bullets": 0,
+      "onlySniperCombat": false,
+      "infantryCombatImplemented": true,
+      "corePersistsRecords": false,
+      "soldiers": 0,
+      "soldiersRespawning": 0,
+      "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+      "navNodes": 262,
+      "navRepaths": 0
+    },
+    "defeat": {
+      "contract": "m04-game01-eleven-canonical-waves-v1",
+      "mapId": 4,
+      "mode": "normal",
+      "wave": 7,
+      "active": false,
+      "ended": true,
+      "won": false,
+      "paused": false,
+      "lives": 0,
+      "gold": 818,
+      "kills": 0,
+      "escaped": 50,
+      "totalSpawns": 52,
+      "spawnsRemaining": 0,
+      "enemies": 2,
+      "bullets": 0,
+      "onlySniperCombat": false,
+      "infantryCombatImplemented": true,
+      "corePersistsRecords": false,
+      "soldiers": 0,
+      "soldiersRespawning": 0,
+      "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+      "navNodes": 262,
+      "navRepaths": 0
+    },
+    "heals": 12,
+    "crossedBridges": [
+      0,
+      1
+    ],
+    "perWave": [
+      {
+        "wave": 1,
+        "kills": 6,
+        "escaped": 0,
+        "gold": 261
+      },
+      {
+        "wave": 2,
+        "kills": 11,
+        "escaped": 0,
+        "gold": 278
+      },
+      {
+        "wave": 3,
+        "kills": 18,
+        "escaped": 0,
+        "gold": 320
+      },
+      {
+        "wave": 4,
+        "kills": 23,
+        "escaped": 0,
+        "gold": 228
+      },
+      {
+        "wave": 5,
+        "kills": 33,
+        "escaped": 0,
+        "gold": 344
+      },
+      {
+        "wave": 6,
+        "kills": 43,
+        "escaped": 0,
+        "gold": 331
+      },
+      {
+        "wave": 7,
+        "kills": 52,
+        "escaped": 0,
+        "gold": 414
+      },
+      {
+        "wave": 8,
+        "kills": 58,
+        "escaped": 0,
+        "gold": 293
+      },
+      {
+        "wave": 9,
+        "kills": 66,
+        "escaped": 1,
+        "gold": 387
+      },
+      {
+        "wave": 10,
+        "kills": 73,
+        "escaped": 6,
+        "gold": 278
+      },
+      {
+        "wave": 11,
+        "kills": 80,
+        "escaped": 14,
+        "gold": 206
+      }
+    ]
+  },
+  "browser": {
+    "status": "PASS_M04_WEBGL2_THREE_VIEWPORTS",
+    "results": [
+      {
+        "profile": "desktop",
+        "viewport": {
+          "width": 1280,
+          "height": 768
+        },
+        "initial": {
+          "snapshot": {
+            "contract": "m04-game01-eleven-canonical-waves-v1",
+            "mapId": 4,
+            "mode": "normal",
+            "wave": 0,
+            "active": false,
+            "ended": false,
+            "won": false,
+            "paused": false,
+            "lives": 100,
+            "gold": 395,
+            "kills": 0,
+            "escaped": 0,
+            "totalSpawns": 0,
+            "spawnsRemaining": 0,
+            "enemies": 0,
+            "bullets": 0,
+            "onlySniperCombat": false,
+            "infantryCombatImplemented": true,
+            "corePersistsRecords": false,
+            "soldiers": 0,
+            "soldiersRespawning": 0,
+            "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+            "navNodes": 262,
+            "navRepaths": 0
+          },
+          "art": {
+            "version": "m04-hf1-structural-integrated-v1",
+            "composition": "one-integrated-painting",
+            "separateScenicLayers": 0,
+            "routeVertices": 262,
+            "padsRendered": 9,
+            "bridges": [
+              {
+                "center": [
+                  402.64,
+                  382.54
+                ]
+              },
+              {
+                "center": [
+                  923.53,
+                  367.27
+                ]
+              }
+            ],
+            "registrationAnchors": [
+              {
+                "id": "entry",
+                "target": [
+                  0,
+                  210.263
+                ],
+                "source": [
+                  0,
+                  185.071
+                ]
+              },
+              {
+                "id": "route-18",
+                "target": [
+                  87.49,
+                  202.348
+                ],
+                "source": [
+                  87.55,
+                  175.973
+                ]
+              },
+              {
+                "id": "route-36",
+                "target": [
+                  209.585,
+                  173.558
+                ],
+                "source": [
+                  198.177,
+                  152.71
+                ]
+              },
+              {
+                "id": "route-54",
+                "target": [
+                  319.912,
+                  213.377
+                ],
+                "source": [
+                  326.334,
+                  210.256
+                ]
+              },
+              {
+                "id": "route-72",
+                "target": [
+                  388.056,
+                  329.971
+                ],
+                "source": [
+                  382.595,
+                  283.53
+                ]
+              },
+              {
+                "id": "bridge-0",
+                "target": [
+                  402.64,
+                  382.54
+                ],
+                "source": [
+                  402.84,
+                  352.101
+                ]
+              },
+              {
+                "id": "route-90",
+                "target": [
+                  419.152,
+                  434.761
+                ],
+                "source": [
+                  437.081,
+                  424.145
+                ]
+              },
+              {
+                "id": "route-108",
+                "target": [
+                  485.359,
+                  548.119
+                ],
+                "source": [
+                  503.995,
+                  520.061
+                ]
+              },
+              {
+                "id": "route-126",
+                "target": [
+                  621.651,
+                  630.163
+                ],
+                "source": [
+                  627.972,
+                  599.734
+                ]
+              },
+              {
+                "id": "route-144",
+                "target": [
+                  755.509,
+                  623.939
+                ],
+                "source": [
+                  751.365,
+                  614.933
+                ]
+              },
+              {
+                "id": "route-162",
+                "target": [
+                  875.876,
+                  567.696
+                ],
+                "source": [
+                  862.248,
+                  564.691
+                ]
+              },
+              {
+                "id": "route-180",
+                "target": [
+                  909.078,
+                  462.428
+                ],
+                "source": [
+                  894.919,
+                  473.868
+                ]
+              },
+              {
+                "id": "bridge-1",
+                "target": [
+                  923.53,
+                  367.27
+                ],
+                "source": [
+                  948.451,
+                  343.945
+                ]
+              },
+              {
+                "id": "route-216",
+                "target": [
+                  990.363,
+                  269.106
+                ],
+                "source": [
+                  992.852,
+                  258.198
+                ]
+              },
+              {
+                "id": "route-234",
+                "target": [
+                  1066.467,
+                  213.414
+                ],
+                "source": [
+                  1070.085,
+                  205.985
+                ]
+              },
+              {
+                "id": "route-252",
+                "target": [
+                  1220.618,
+                  234.794
+                ],
+                "source": [
+                  1214.016,
+                  199.704
+                ]
+              },
+              {
+                "id": "exit",
+                "target": [
+                  1280,
+                  237.158
+                ],
+                "source": [
+                  1280,
+                  206.034
+                ]
+              },
+              {
+                "id": "pad-0",
+                "target": [
+                  160,
+                  288
+                ],
+                "source": [
+                  165.238,
+                  279.201
+                ]
+              },
+              {
+                "id": "pad-1",
+                "target": [
+                  352,
+                  96
+                ],
+                "source": [
+                  358.938,
+                  94.912
+                ]
+              },
+              {
+                "id": "pad-2",
+                "target": [
+                  480,
+                  288
+                ],
+                "source": [
+                  498.876,
+                  279.992
+                ]
+              },
+              {
+                "id": "pad-3",
+                "target": [
+                  352,
+                  480
+                ],
+                "source": [
+                  374.75,
+                  460.325
+                ]
+              },
+              {
+                "id": "pad-4",
+                "target": [
+                  608,
+                  480
+                ],
+                "source": [
+                  630.908,
+                  457.162
+                ]
+              },
+              {
+                "id": "pad-5",
+                "target": [
+                  736,
+                  544
+                ],
+                "source": [
+                  736.059,
+                  523.6
+                ]
+              },
+              {
+                "id": "pad-6",
+                "target": [
+                  992,
+                  480
+                ],
+                "source": [
+                  985.893,
+                  460.325
+                ]
+              },
+              {
+                "id": "pad-7",
+                "target": [
+                  864,
+                  288
+                ],
+                "source": [
+                  854.651,
+                  279.992
+                ]
+              },
+              {
+                "id": "pad-8",
+                "target": [
+                  1120,
+                  96
+                ],
+                "source": [
+                  1121.878,
+                  94.912
+                ]
+              },
+              {
+                "id": "frame-0-0",
+                "target": [
+                  0,
+                  0
+                ],
+                "source": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "frame-320-0",
+                "target": [
+                  320,
+                  0
+                ],
+                "source": [
+                  320,
+                  0
+                ]
+              },
+              {
+                "id": "frame-640-0",
+                "target": [
+                  640,
+                  0
+                ],
+                "source": [
+                  640,
+                  0
+                ]
+              },
+              {
+                "id": "frame-960-0",
+                "target": [
+                  960,
+                  0
+                ],
+                "source": [
+                  960,
+                  0
+                ]
+              },
+              {
+                "id": "frame-1280-0",
+                "target": [
+                  1280,
+                  0
+                ],
+                "source": [
+                  1280,
+                  0
+                ]
+              },
+              {
+                "id": "frame-0-768",
+                "target": [
+                  0,
+                  768
+                ],
+                "source": [
+                  0,
+                  768
+                ]
+              },
+              {
+                "id": "frame-320-768",
+                "target": [
+                  320,
+                  768
+                ],
+                "source": [
+                  320,
+                  768
+                ]
+              },
+              {
+                "id": "frame-640-768",
+                "target": [
+                  640,
+                  768
+                ],
+                "source": [
+                  640,
+                  768
+                ]
+              },
+              {
+                "id": "frame-960-768",
+                "target": [
+                  960,
+                  768
+                ],
+                "source": [
+                  960,
+                  768
+                ]
+              },
+              {
+                "id": "frame-1280-768",
+                "target": [
+                  1280,
+                  768
+                ],
+                "source": [
+                  1280,
+                  768
+                ]
+              },
+              {
+                "id": "frame-0-480",
+                "target": [
+                  0,
+                  480
+                ],
+                "source": [
+                  0,
+                  480
+                ]
+              },
+              {
+                "id": "frame-1280-480",
+                "target": [
+                  1280,
+                  480
+                ],
+                "source": [
+                  1280,
+                  480
+                ]
+              }
+            ],
+            "registrationTriangles": 1820,
+            "minimumAreaRatio": 0.27177935661063635,
+            "gameplayImplemented": false
+          },
+          "ambient": {
+            "mapId": 4,
+            "states": [
+              [
+                "m04-pad-01",
+                "empty"
+              ],
+              [
+                "m04-pad-02",
+                "empty"
+              ],
+              [
+                "m04-pad-03",
+                "empty"
+              ],
+              [
+                "m04-pad-04",
+                "empty"
+              ],
+              [
+                "m04-pad-05",
+                "empty"
+              ],
+              [
+                "m04-pad-06",
+                "empty"
+              ],
+              [
+                "m04-pad-07",
+                "empty"
+              ],
+              [
+                "m04-pad-08",
+                "empty"
+              ],
+              [
+                "m04-pad-09",
+                "empty"
+              ]
+            ],
+            "ambientObjects": 0
+          },
+          "renderer": 2
+        },
+        "completed": {
+          "snapshot": {
+            "contract": "m04-game01-eleven-canonical-waves-v1",
+            "mapId": 4,
+            "mode": "normal",
+            "wave": 11,
+            "active": false,
+            "ended": true,
+            "won": true,
+            "paused": false,
+            "lives": 72,
+            "gold": 206,
+            "kills": 80,
+            "escaped": 14,
+            "totalSpawns": 94,
+            "spawnsRemaining": 0,
+            "enemies": 0,
+            "bullets": 0,
+            "onlySniperCombat": false,
+            "infantryCombatImplemented": true,
+            "corePersistsRecords": false,
+            "soldiers": 0,
+            "soldiersRespawning": 0,
+            "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+            "navNodes": 262,
+            "navRepaths": 0
+          },
+          "counts": [
+            6,
+            5,
+            7,
+            5,
+            10,
+            10,
+            9,
+            6,
+            9,
+            12,
+            15
+          ],
+          "types": [
+            "warrior",
+            "brute",
+            "archer",
+            "hound",
+            "shaman",
+            "shieldbearer"
+          ],
+          "events": {
+            "wave_start": 11,
+            "spawn": 94,
+            "target_acquired": 513,
+            "attack_windup": 513,
+            "attack_fire": 490,
+            "hit_applied": 476,
+            "hp_changed": 488,
+            "entity_die": 80,
+            "wave_clear": 11,
+            "wave_bonus": 10,
+            "game_paused": 2,
+            "game_resumed": 2,
+            "enemy_heal_windup": 24,
+            "enemy_heal": 12,
+            "entity_escape": 14,
+            "campaign_map_win": 1
+          },
+          "ledger": 106
+        },
+        "diagnostics": {
+          "softwareDesktopFps": 46.75,
+          "jsHeapBytes": 109787091,
+          "drawCalls": "NOT_INSTRUMENTED",
+          "displayObjects": 4
+        },
+        "errors": []
+      },
+      {
+        "profile": "touch844",
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "initial": {
+          "snapshot": {
+            "contract": "m04-game01-eleven-canonical-waves-v1",
+            "mapId": 4,
+            "mode": "normal",
+            "wave": 0,
+            "active": false,
+            "ended": false,
+            "won": false,
+            "paused": false,
+            "lives": 100,
+            "gold": 395,
+            "kills": 0,
+            "escaped": 0,
+            "totalSpawns": 0,
+            "spawnsRemaining": 0,
+            "enemies": 0,
+            "bullets": 0,
+            "onlySniperCombat": false,
+            "infantryCombatImplemented": true,
+            "corePersistsRecords": false,
+            "soldiers": 0,
+            "soldiersRespawning": 0,
+            "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+            "navNodes": 262,
+            "navRepaths": 0
+          },
+          "art": {
+            "version": "m04-hf1-structural-integrated-v1",
+            "composition": "one-integrated-painting",
+            "separateScenicLayers": 0,
+            "routeVertices": 262,
+            "padsRendered": 9,
+            "bridges": [
+              {
+                "center": [
+                  402.64,
+                  382.54
+                ]
+              },
+              {
+                "center": [
+                  923.53,
+                  367.27
+                ]
+              }
+            ],
+            "registrationAnchors": [
+              {
+                "id": "entry",
+                "target": [
+                  0,
+                  210.263
+                ],
+                "source": [
+                  0,
+                  185.071
+                ]
+              },
+              {
+                "id": "route-18",
+                "target": [
+                  87.49,
+                  202.348
+                ],
+                "source": [
+                  87.55,
+                  175.973
+                ]
+              },
+              {
+                "id": "route-36",
+                "target": [
+                  209.585,
+                  173.558
+                ],
+                "source": [
+                  198.177,
+                  152.71
+                ]
+              },
+              {
+                "id": "route-54",
+                "target": [
+                  319.912,
+                  213.377
+                ],
+                "source": [
+                  326.334,
+                  210.256
+                ]
+              },
+              {
+                "id": "route-72",
+                "target": [
+                  388.056,
+                  329.971
+                ],
+                "source": [
+                  382.595,
+                  283.53
+                ]
+              },
+              {
+                "id": "bridge-0",
+                "target": [
+                  402.64,
+                  382.54
+                ],
+                "source": [
+                  402.84,
+                  352.101
+                ]
+              },
+              {
+                "id": "route-90",
+                "target": [
+                  419.152,
+                  434.761
+                ],
+                "source": [
+                  437.081,
+                  424.145
+                ]
+              },
+              {
+                "id": "route-108",
+                "target": [
+                  485.359,
+                  548.119
+                ],
+                "source": [
+                  503.995,
+                  520.061
+                ]
+              },
+              {
+                "id": "route-126",
+                "target": [
+                  621.651,
+                  630.163
+                ],
+                "source": [
+                  627.972,
+                  599.734
+                ]
+              },
+              {
+                "id": "route-144",
+                "target": [
+                  755.509,
+                  623.939
+                ],
+                "source": [
+                  751.365,
+                  614.933
+                ]
+              },
+              {
+                "id": "route-162",
+                "target": [
+                  875.876,
+                  567.696
+                ],
+                "source": [
+                  862.248,
+                  564.691
+                ]
+              },
+              {
+                "id": "route-180",
+                "target": [
+                  909.078,
+                  462.428
+                ],
+                "source": [
+                  894.919,
+                  473.868
+                ]
+              },
+              {
+                "id": "bridge-1",
+                "target": [
+                  923.53,
+                  367.27
+                ],
+                "source": [
+                  948.451,
+                  343.945
+                ]
+              },
+              {
+                "id": "route-216",
+                "target": [
+                  990.363,
+                  269.106
+                ],
+                "source": [
+                  992.852,
+                  258.198
+                ]
+              },
+              {
+                "id": "route-234",
+                "target": [
+                  1066.467,
+                  213.414
+                ],
+                "source": [
+                  1070.085,
+                  205.985
+                ]
+              },
+              {
+                "id": "route-252",
+                "target": [
+                  1220.618,
+                  234.794
+                ],
+                "source": [
+                  1214.016,
+                  199.704
+                ]
+              },
+              {
+                "id": "exit",
+                "target": [
+                  1280,
+                  237.158
+                ],
+                "source": [
+                  1280,
+                  206.034
+                ]
+              },
+              {
+                "id": "pad-0",
+                "target": [
+                  160,
+                  288
+                ],
+                "source": [
+                  165.238,
+                  279.201
+                ]
+              },
+              {
+                "id": "pad-1",
+                "target": [
+                  352,
+                  96
+                ],
+                "source": [
+                  358.938,
+                  94.912
+                ]
+              },
+              {
+                "id": "pad-2",
+                "target": [
+                  480,
+                  288
+                ],
+                "source": [
+                  498.876,
+                  279.992
+                ]
+              },
+              {
+                "id": "pad-3",
+                "target": [
+                  352,
+                  480
+                ],
+                "source": [
+                  374.75,
+                  460.325
+                ]
+              },
+              {
+                "id": "pad-4",
+                "target": [
+                  608,
+                  480
+                ],
+                "source": [
+                  630.908,
+                  457.162
+                ]
+              },
+              {
+                "id": "pad-5",
+                "target": [
+                  736,
+                  544
+                ],
+                "source": [
+                  736.059,
+                  523.6
+                ]
+              },
+              {
+                "id": "pad-6",
+                "target": [
+                  992,
+                  480
+                ],
+                "source": [
+                  985.893,
+                  460.325
+                ]
+              },
+              {
+                "id": "pad-7",
+                "target": [
+                  864,
+                  288
+                ],
+                "source": [
+                  854.651,
+                  279.992
+                ]
+              },
+              {
+                "id": "pad-8",
+                "target": [
+                  1120,
+                  96
+                ],
+                "source": [
+                  1121.878,
+                  94.912
+                ]
+              },
+              {
+                "id": "frame-0-0",
+                "target": [
+                  0,
+                  0
+                ],
+                "source": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "frame-320-0",
+                "target": [
+                  320,
+                  0
+                ],
+                "source": [
+                  320,
+                  0
+                ]
+              },
+              {
+                "id": "frame-640-0",
+                "target": [
+                  640,
+                  0
+                ],
+                "source": [
+                  640,
+                  0
+                ]
+              },
+              {
+                "id": "frame-960-0",
+                "target": [
+                  960,
+                  0
+                ],
+                "source": [
+                  960,
+                  0
+                ]
+              },
+              {
+                "id": "frame-1280-0",
+                "target": [
+                  1280,
+                  0
+                ],
+                "source": [
+                  1280,
+                  0
+                ]
+              },
+              {
+                "id": "frame-0-768",
+                "target": [
+                  0,
+                  768
+                ],
+                "source": [
+                  0,
+                  768
+                ]
+              },
+              {
+                "id": "frame-320-768",
+                "target": [
+                  320,
+                  768
+                ],
+                "source": [
+                  320,
+                  768
+                ]
+              },
+              {
+                "id": "frame-640-768",
+                "target": [
+                  640,
+                  768
+                ],
+                "source": [
+                  640,
+                  768
+                ]
+              },
+              {
+                "id": "frame-960-768",
+                "target": [
+                  960,
+                  768
+                ],
+                "source": [
+                  960,
+                  768
+                ]
+              },
+              {
+                "id": "frame-1280-768",
+                "target": [
+                  1280,
+                  768
+                ],
+                "source": [
+                  1280,
+                  768
+                ]
+              },
+              {
+                "id": "frame-0-480",
+                "target": [
+                  0,
+                  480
+                ],
+                "source": [
+                  0,
+                  480
+                ]
+              },
+              {
+                "id": "frame-1280-480",
+                "target": [
+                  1280,
+                  480
+                ],
+                "source": [
+                  1280,
+                  480
+                ]
+              }
+            ],
+            "registrationTriangles": 1820,
+            "minimumAreaRatio": 0.27177935661063635,
+            "gameplayImplemented": false
+          },
+          "ambient": {
+            "mapId": 4,
+            "states": [
+              [
+                "m04-pad-01",
+                "empty"
+              ],
+              [
+                "m04-pad-02",
+                "empty"
+              ],
+              [
+                "m04-pad-03",
+                "empty"
+              ],
+              [
+                "m04-pad-04",
+                "empty"
+              ],
+              [
+                "m04-pad-05",
+                "empty"
+              ],
+              [
+                "m04-pad-06",
+                "empty"
+              ],
+              [
+                "m04-pad-07",
+                "empty"
+              ],
+              [
+                "m04-pad-08",
+                "empty"
+              ],
+              [
+                "m04-pad-09",
+                "empty"
+              ]
+            ],
+            "ambientObjects": 0
+          },
+          "renderer": 2
+        },
+        "completed": {
+          "snapshot": {
+            "contract": "m04-game01-eleven-canonical-waves-v1",
+            "mapId": 4,
+            "mode": "normal",
+            "wave": 11,
+            "active": false,
+            "ended": true,
+            "won": true,
+            "paused": false,
+            "lives": 72,
+            "gold": 206,
+            "kills": 80,
+            "escaped": 14,
+            "totalSpawns": 94,
+            "spawnsRemaining": 0,
+            "enemies": 0,
+            "bullets": 0,
+            "onlySniperCombat": false,
+            "infantryCombatImplemented": true,
+            "corePersistsRecords": false,
+            "soldiers": 0,
+            "soldiersRespawning": 0,
+            "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+            "navNodes": 262,
+            "navRepaths": 0
+          },
+          "counts": [
+            6,
+            5,
+            7,
+            5,
+            10,
+            10,
+            9,
+            6,
+            9,
+            12,
+            15
+          ],
+          "types": [
+            "warrior",
+            "brute",
+            "archer",
+            "hound",
+            "shaman",
+            "shieldbearer"
+          ],
+          "events": {
+            "wave_start": 11,
+            "spawn": 94,
+            "target_acquired": 513,
+            "attack_windup": 513,
+            "attack_fire": 490,
+            "hit_applied": 476,
+            "hp_changed": 488,
+            "entity_die": 80,
+            "wave_clear": 11,
+            "wave_bonus": 10,
+            "game_paused": 2,
+            "game_resumed": 2,
+            "enemy_heal_windup": 24,
+            "enemy_heal": 12,
+            "entity_escape": 14,
+            "campaign_map_win": 1
+          },
+          "ledger": 106
+        },
+        "diagnostics": {
+          "softwareDesktopFps": 47,
+          "jsHeapBytes": 253093212,
+          "drawCalls": "NOT_INSTRUMENTED",
+          "displayObjects": 4
+        },
+        "errors": []
+      },
+      {
+        "profile": "touch932",
+        "viewport": {
+          "width": 932,
+          "height": 430
+        },
+        "initial": {
+          "snapshot": {
+            "contract": "m04-game01-eleven-canonical-waves-v1",
+            "mapId": 4,
+            "mode": "normal",
+            "wave": 0,
+            "active": false,
+            "ended": false,
+            "won": false,
+            "paused": false,
+            "lives": 100,
+            "gold": 395,
+            "kills": 0,
+            "escaped": 0,
+            "totalSpawns": 0,
+            "spawnsRemaining": 0,
+            "enemies": 0,
+            "bullets": 0,
+            "onlySniperCombat": false,
+            "infantryCombatImplemented": true,
+            "corePersistsRecords": false,
+            "soldiers": 0,
+            "soldiersRespawning": 0,
+            "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+            "navNodes": 262,
+            "navRepaths": 0
+          },
+          "art": {
+            "version": "m04-hf1-structural-integrated-v1",
+            "composition": "one-integrated-painting",
+            "separateScenicLayers": 0,
+            "routeVertices": 262,
+            "padsRendered": 9,
+            "bridges": [
+              {
+                "center": [
+                  402.64,
+                  382.54
+                ]
+              },
+              {
+                "center": [
+                  923.53,
+                  367.27
+                ]
+              }
+            ],
+            "registrationAnchors": [
+              {
+                "id": "entry",
+                "target": [
+                  0,
+                  210.263
+                ],
+                "source": [
+                  0,
+                  185.071
+                ]
+              },
+              {
+                "id": "route-18",
+                "target": [
+                  87.49,
+                  202.348
+                ],
+                "source": [
+                  87.55,
+                  175.973
+                ]
+              },
+              {
+                "id": "route-36",
+                "target": [
+                  209.585,
+                  173.558
+                ],
+                "source": [
+                  198.177,
+                  152.71
+                ]
+              },
+              {
+                "id": "route-54",
+                "target": [
+                  319.912,
+                  213.377
+                ],
+                "source": [
+                  326.334,
+                  210.256
+                ]
+              },
+              {
+                "id": "route-72",
+                "target": [
+                  388.056,
+                  329.971
+                ],
+                "source": [
+                  382.595,
+                  283.53
+                ]
+              },
+              {
+                "id": "bridge-0",
+                "target": [
+                  402.64,
+                  382.54
+                ],
+                "source": [
+                  402.84,
+                  352.101
+                ]
+              },
+              {
+                "id": "route-90",
+                "target": [
+                  419.152,
+                  434.761
+                ],
+                "source": [
+                  437.081,
+                  424.145
+                ]
+              },
+              {
+                "id": "route-108",
+                "target": [
+                  485.359,
+                  548.119
+                ],
+                "source": [
+                  503.995,
+                  520.061
+                ]
+              },
+              {
+                "id": "route-126",
+                "target": [
+                  621.651,
+                  630.163
+                ],
+                "source": [
+                  627.972,
+                  599.734
+                ]
+              },
+              {
+                "id": "route-144",
+                "target": [
+                  755.509,
+                  623.939
+                ],
+                "source": [
+                  751.365,
+                  614.933
+                ]
+              },
+              {
+                "id": "route-162",
+                "target": [
+                  875.876,
+                  567.696
+                ],
+                "source": [
+                  862.248,
+                  564.691
+                ]
+              },
+              {
+                "id": "route-180",
+                "target": [
+                  909.078,
+                  462.428
+                ],
+                "source": [
+                  894.919,
+                  473.868
+                ]
+              },
+              {
+                "id": "bridge-1",
+                "target": [
+                  923.53,
+                  367.27
+                ],
+                "source": [
+                  948.451,
+                  343.945
+                ]
+              },
+              {
+                "id": "route-216",
+                "target": [
+                  990.363,
+                  269.106
+                ],
+                "source": [
+                  992.852,
+                  258.198
+                ]
+              },
+              {
+                "id": "route-234",
+                "target": [
+                  1066.467,
+                  213.414
+                ],
+                "source": [
+                  1070.085,
+                  205.985
+                ]
+              },
+              {
+                "id": "route-252",
+                "target": [
+                  1220.618,
+                  234.794
+                ],
+                "source": [
+                  1214.016,
+                  199.704
+                ]
+              },
+              {
+                "id": "exit",
+                "target": [
+                  1280,
+                  237.158
+                ],
+                "source": [
+                  1280,
+                  206.034
+                ]
+              },
+              {
+                "id": "pad-0",
+                "target": [
+                  160,
+                  288
+                ],
+                "source": [
+                  165.238,
+                  279.201
+                ]
+              },
+              {
+                "id": "pad-1",
+                "target": [
+                  352,
+                  96
+                ],
+                "source": [
+                  358.938,
+                  94.912
+                ]
+              },
+              {
+                "id": "pad-2",
+                "target": [
+                  480,
+                  288
+                ],
+                "source": [
+                  498.876,
+                  279.992
+                ]
+              },
+              {
+                "id": "pad-3",
+                "target": [
+                  352,
+                  480
+                ],
+                "source": [
+                  374.75,
+                  460.325
+                ]
+              },
+              {
+                "id": "pad-4",
+                "target": [
+                  608,
+                  480
+                ],
+                "source": [
+                  630.908,
+                  457.162
+                ]
+              },
+              {
+                "id": "pad-5",
+                "target": [
+                  736,
+                  544
+                ],
+                "source": [
+                  736.059,
+                  523.6
+                ]
+              },
+              {
+                "id": "pad-6",
+                "target": [
+                  992,
+                  480
+                ],
+                "source": [
+                  985.893,
+                  460.325
+                ]
+              },
+              {
+                "id": "pad-7",
+                "target": [
+                  864,
+                  288
+                ],
+                "source": [
+                  854.651,
+                  279.992
+                ]
+              },
+              {
+                "id": "pad-8",
+                "target": [
+                  1120,
+                  96
+                ],
+                "source": [
+                  1121.878,
+                  94.912
+                ]
+              },
+              {
+                "id": "frame-0-0",
+                "target": [
+                  0,
+                  0
+                ],
+                "source": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "frame-320-0",
+                "target": [
+                  320,
+                  0
+                ],
+                "source": [
+                  320,
+                  0
+                ]
+              },
+              {
+                "id": "frame-640-0",
+                "target": [
+                  640,
+                  0
+                ],
+                "source": [
+                  640,
+                  0
+                ]
+              },
+              {
+                "id": "frame-960-0",
+                "target": [
+                  960,
+                  0
+                ],
+                "source": [
+                  960,
+                  0
+                ]
+              },
+              {
+                "id": "frame-1280-0",
+                "target": [
+                  1280,
+                  0
+                ],
+                "source": [
+                  1280,
+                  0
+                ]
+              },
+              {
+                "id": "frame-0-768",
+                "target": [
+                  0,
+                  768
+                ],
+                "source": [
+                  0,
+                  768
+                ]
+              },
+              {
+                "id": "frame-320-768",
+                "target": [
+                  320,
+                  768
+                ],
+                "source": [
+                  320,
+                  768
+                ]
+              },
+              {
+                "id": "frame-640-768",
+                "target": [
+                  640,
+                  768
+                ],
+                "source": [
+                  640,
+                  768
+                ]
+              },
+              {
+                "id": "frame-960-768",
+                "target": [
+                  960,
+                  768
+                ],
+                "source": [
+                  960,
+                  768
+                ]
+              },
+              {
+                "id": "frame-1280-768",
+                "target": [
+                  1280,
+                  768
+                ],
+                "source": [
+                  1280,
+                  768
+                ]
+              },
+              {
+                "id": "frame-0-480",
+                "target": [
+                  0,
+                  480
+                ],
+                "source": [
+                  0,
+                  480
+                ]
+              },
+              {
+                "id": "frame-1280-480",
+                "target": [
+                  1280,
+                  480
+                ],
+                "source": [
+                  1280,
+                  480
+                ]
+              }
+            ],
+            "registrationTriangles": 1820,
+            "minimumAreaRatio": 0.27177935661063635,
+            "gameplayImplemented": false
+          },
+          "ambient": {
+            "mapId": 4,
+            "states": [
+              [
+                "m04-pad-01",
+                "empty"
+              ],
+              [
+                "m04-pad-02",
+                "empty"
+              ],
+              [
+                "m04-pad-03",
+                "empty"
+              ],
+              [
+                "m04-pad-04",
+                "empty"
+              ],
+              [
+                "m04-pad-05",
+                "empty"
+              ],
+              [
+                "m04-pad-06",
+                "empty"
+              ],
+              [
+                "m04-pad-07",
+                "empty"
+              ],
+              [
+                "m04-pad-08",
+                "empty"
+              ],
+              [
+                "m04-pad-09",
+                "empty"
+              ]
+            ],
+            "ambientObjects": 0
+          },
+          "renderer": 2
+        },
+        "completed": {
+          "snapshot": {
+            "contract": "m04-game01-eleven-canonical-waves-v1",
+            "mapId": 4,
+            "mode": "normal",
+            "wave": 11,
+            "active": false,
+            "ended": true,
+            "won": true,
+            "paused": false,
+            "lives": 72,
+            "gold": 206,
+            "kills": 80,
+            "escaped": 14,
+            "totalSpawns": 94,
+            "spawnsRemaining": 0,
+            "enemies": 0,
+            "bullets": 0,
+            "onlySniperCombat": false,
+            "infantryCombatImplemented": true,
+            "corePersistsRecords": false,
+            "soldiers": 0,
+            "soldiersRespawning": 0,
+            "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+            "navNodes": 262,
+            "navRepaths": 0
+          },
+          "counts": [
+            6,
+            5,
+            7,
+            5,
+            10,
+            10,
+            9,
+            6,
+            9,
+            12,
+            15
+          ],
+          "types": [
+            "warrior",
+            "brute",
+            "archer",
+            "hound",
+            "shaman",
+            "shieldbearer"
+          ],
+          "events": {
+            "wave_start": 11,
+            "spawn": 94,
+            "target_acquired": 513,
+            "attack_windup": 513,
+            "attack_fire": 490,
+            "hit_applied": 476,
+            "hp_changed": 488,
+            "entity_die": 80,
+            "wave_clear": 11,
+            "wave_bonus": 10,
+            "game_paused": 2,
+            "game_resumed": 2,
+            "enemy_heal_windup": 24,
+            "enemy_heal": 12,
+            "entity_escape": 14,
+            "campaign_map_win": 1
+          },
+          "ledger": 106
+        },
+        "diagnostics": {
+          "softwareDesktopFps": 46.75,
+          "jsHeapBytes": 256503048,
+          "drawCalls": "NOT_INSTRUMENTED",
+          "displayObjects": 4
+        },
+        "errors": []
+      }
+    ],
+    "physicalMobile": "NOT_RUN",
+    "artisticApproval": "APPROVED_BY_DIRECTOR_2026_10_23",
+    "humanGameplayBalance": "PENDING"
+  },
+  "regressions": {
+    "M01_five_waves": "PASS",
+    "M01_rally": "PASS",
+    "M02_seven_wave_core": "PASS",
+    "M03_nine_wave_real_budget": "PASS",
+    "T09_original_cases": "PASS",
+    "HF1_B04_B02_art_data_locks": "PASS"
+  },
+  "build": "PASS",
+  "ci": "SEE_PR",
+  "publication": "VERIFY_AFTER_MERGE"
+}
