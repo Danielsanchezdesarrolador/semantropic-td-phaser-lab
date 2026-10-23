@@ -26,11 +26,27 @@ try{
  for(const [name,width,height] of [['desktop',1280,768],['android844',844,390],['android932',932,430]]){
   const page=await browser.newPage({viewport:{width,height},
     hasTouch:width<1000,isMobile:width<1000});
-  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const errors=[],consoleErrors=[],requests=[];
+  page.on('pageerror',e=>errors.push(e.stack||e.message));
+  page.on('console',e=>{if(e.type()==='error')consoleErrors.push(e.text())});
+  page.on('requestfailed',r=>requests.push(r.url()+':'+r.failure()?.errorText));
   const origin='http://127.0.0.1:'+server.address().port;
   const response=await page.goto(origin+'/official/src/live/',{waitUntil:'load',timeout:30000});
   if(response?.status()!==200)throw Error('LIVE route broken');
-  await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7?.scene,null,{timeout:45000});
+  try{
+   await page.waitForFunction(()=>!!window.__SEMANTROPIC_C1D7?.scene,null,{timeout:16000});
+  }catch(e){
+   const state=await page.evaluate(()=>({
+    feedback:document.querySelector('#feedback')?.textContent,
+    render:document.querySelector('#render')?.textContent,
+    selectedMap:new URLSearchParams(location.search).get('map'),
+    gameState:!!window.__SEMANTROPIC_C1D7?.scene,
+    title:document.title
+   }));
+   throw Error('R7 STARTUP_DIAGNOSTIC '+JSON.stringify({viewport:name,state,
+    errors:errors.slice(-5),consoleErrors:consoleErrors.slice(-8),
+    requests:requests.slice(-10)})+'; '+e.message);
+  }
   const result=await page.evaluate(async()=>{
    const original=window.__SEMANTROPIC_C1D7,game=original.scene.game;
    if(!(game.renderer.gl instanceof WebGL2RenderingContext))throw Error('M01 WebGL2 missing');
