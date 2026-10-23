@@ -41,7 +41,8 @@ for(const feature of ['distantWorld(c)','cliffsAndWater(c,plan)','meadow(c,plan)
  'road(c,plan.path)','archRuins(c)','shrine(c)','pads(c,plan)']){
  assert(painter.includes(feature),'R7 director feature missing: '+feature);
 }
-const adapter=read('public/official/src/maps-visual/m01/r7/renderer-r7.mjs');
+// Historical B01 renderer is archived after the Director's MAP-STYLE-01 order.
+const adapter=read('public/official/src/maps-visual/m01/r7/renderer-r7-b01-archived.mjs');
 assert(adapter.includes("import {mountM01WorldV7}"),'M07 protected fallback lost');
 assert(adapter.includes('pad.selection')===false || adapter.includes('pad.selection.setVisible')===false);
 assert(adapter.includes('base.padObjects')&&adapter.includes('applyVisualSnapshot'),'R7 preserved socket state API');

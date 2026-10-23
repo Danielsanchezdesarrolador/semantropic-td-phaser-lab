@@ -5,7 +5,8 @@ import {execFileSync} from 'node:child_process';
 import {makeB02ArtPlan,b02PropClearsGeometry} from '../public/official/src/maps-visual/m02/b02/pictoric-farmland.mjs';
 const authorized=JSON.parse(readFileSync('docs/blocks/m04-game01/authorized-runtime-blobs.json'));
 // Explicit functional integration supersedes the old art-only runtime freeze.
-const expected=(p,h)=>authorized[p]?.before===h?authorized[p].after:h;
+const visual=JSON.parse(readFileSync('docs/blocks/map-style01/authorized-visual-blobs.json'));
+const expected=(p,h)=>visual[p]?.before===h?visual[p].after:authorized[p]?.before===h?authorized[p].after:h;
 const pinned=JSON.parse(readFileSync('docs/blocks/b02/protected-blobs.json'));
 for(const [p,hash] of Object.entries(pinned.blobs))assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),expected(p,hash),'B02 changed protected source '+p);
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===2),plan=makeB02ArtPlan(map);

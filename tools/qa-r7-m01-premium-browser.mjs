@@ -1,6 +1,8 @@
 /** SEMANTROPIC TD B01: actual Phaser WebGL2 / responsive MAP-ART-01 QA.
  * Updates the R7 LIVE visual expectations for the approved pictorial rework; protected R7 art remains archived.
  */
+import {existsSync,readFileSync} from 'node:fs';
+if(existsSync('public/official/src/maps-visual/m01/style01/cartoon-world.mjs')&&readFileSync('public/official/src/maps-visual/m01/r7/renderer-r7.mjs','utf8').includes("from '../style01/cartoon-world.mjs'")){await import('./qa-map-style01-browser.mjs');process.exit(0);}
 import {createServer} from 'node:http';
 import {readFile,stat,mkdir} from 'node:fs/promises';
 import {resolve,join,extname,sep} from 'node:path';

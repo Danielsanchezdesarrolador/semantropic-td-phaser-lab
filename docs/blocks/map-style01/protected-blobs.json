@@ -1,0 +1,18 @@
+{
+  "AGENTS.md": "f79f1bafc12a10c7e6a897ce8b5cfac1662ccbec",
+  "docs/direccion-general/ROADMAP_CENTRAL.md": "1ef33d340a1d3982e7ee8ee3bcdeafb6143fb80f",
+  "public/JUEGO_V5_CANVAS.html": "9b800007bd7a6b591b01a11c5e1344cbee2a7df2",
+  "public/official/data/maps.v5.json": "1da0e20145e1312f3d75443debabea17e3db507c",
+  "public/official/data/campaign140.v5.json": "794cf43f9b172a39dd88f02e2a89ea11455064c3",
+  "public/official/src/live/index.html": "8c56fa1d988f446d6e7fa8c186e619f0f2dbba8c",
+  "public/official/src/c1d8-b2-playable/scene.mjs": "950c7ce85796932a40b23be421d1e4e9126087c5",
+  "public/official/src/c1d8-b2-playable/scene-m02.mjs": "03f751527d47c0faca46dff56002fdec4a90df2a",
+  "public/official/src/c1d8-b2-playable/scene-m03.mjs": "b7278c38e9213461b1b74a3e85d12160a216aa44",
+  "public/official/src/c1d8-b2-playable/scene-m04.mjs": "8e8e446395b70a5f5ebe027a49d07baee667b69e",
+  "public/official/src/maps-visual/m02/map-picker.mjs": "f19f5a5ff92b319fbefb6e5a65169f3d272573db",
+  "public/official/src/maps-visual/m04/hf1/integrated-river.mjs": "559026464882986da43833a4b76a00fc1c22885c",
+  "public/official/src/core-c1d/m01-combat-world.mjs": "68300432ca2f78446d804ce047adfcded84addb3",
+  "public/official/src/core-c1d/m01-infantry-combat-a3.mjs": "20d3217b49a2c6901af00b40d5a04922c0a086ba",
+  "public/official/src/core-c1d/construction-economy.mjs": "e560ebe497f89a8976a9bd9ba738b654cc84b3cf",
+  "public/official/src/mobile/viewport-panorama-r5.mjs": "19bd775c29f3a94d570b42771a9d7e5352fa1772"
+}
