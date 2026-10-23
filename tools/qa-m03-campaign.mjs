@@ -10,11 +10,23 @@ const read=p=>JSON.parse(readFileSync(p));
 const map=read('public/official/data/maps.v5.json').find(x=>x.id===3),campaign=read('public/official/data/campaign140.v5.json').maps.find(x=>x.mapId===3);
 const fresh=()=>new M03CombatWorld(map,campaign);
 // Guard actual previously approved sources, not just the existence of a SHA.
-for(const path of ['public/JUEGO_V5_CANVAS.html','public/official/data/maps.v5.json','public/official/data/campaign140.v5.json','public/official/src/m01-model.mjs',
- 'public/official/src/core-c1d/m02-combat-world.mjs','public/official/src/core-c1d/m02-infantry-combat-a2.mjs','public/official/src/core-c1d/m02-infantry-combat-a3.mjs',
- 'public/official/src/core-c1d/m02-construction-economy.mjs','public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs','public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs']){
- assert.equal(execFileSync('git',['hash-object',path],{encoding:'utf8'}).trim(),execFileSync('git',['rev-parse','0e85c3a:'+path],{encoding:'utf8'}).trim(),path+' changed outside M03');
+// Pinned blobs from production 0e85c3a; works with shallow CI checkouts.
+const protectedBlobs={
+  "public/JUEGO_V5_CANVAS.html": "9b800007bd7a6b591b01a11c5e1344cbee2a7df2",
+  "public/official/data/maps.v5.json": "1da0e20145e1312f3d75443debabea17e3db507c",
+  "public/official/data/campaign140.v5.json": "794cf43f9b172a39dd88f02e2a89ea11455064c3",
+  "public/official/src/m01-model.mjs": "0792c46bbb3d82baa4edd9aa9203b2021b3d69eb",
+  "public/official/src/core-c1d/m02-combat-world.mjs": "63741749125e7ac455787caae3bd5b3fb7d3b8a0",
+  "public/official/src/core-c1d/m02-infantry-combat-a2.mjs": "8f76b7bb596c91437b1c024633d5b12f3bb74575",
+  "public/official/src/core-c1d/m02-infantry-combat-a3.mjs": "e9f5fb6107bbace782e2b939663bb2bbc7a1aeca",
+  "public/official/src/core-c1d/m02-construction-economy.mjs": "4cc07073b713d59fc747326d098cc210b06001e8",
+  "public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs": "1c05bdc2959c5b838dfe13eb75e68c94fe3261a1",
+  "public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs": "f8c4c3b21a98f5e9022ee0d33c7e94e0e4e7be6c"
+};
+for(const [path,blob] of Object.entries(protectedBlobs)){
+ assert.equal(execFileSync('git',['hash-object',path],{encoding:'utf8'}).trim(),blob,path+' changed outside M03');
 }
+
 const w=fresh();assert.equal(w.lives,100);assert.equal(w.economy.gold,410);assert.equal(w.route.points.length,188);assert.equal(w.airRoute.points.length,18);
 assert.deepEqual(w.route.points,map.path);assert.equal(w.infantryNav.nodes.length,188);
 assert.deepEqual(Object.keys(w.economy.catalog()),['infantry','sniper']);
