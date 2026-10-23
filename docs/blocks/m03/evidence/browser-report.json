@@ -34,7 +34,7 @@
           "navNodes": 188,
           "navRepaths": 0
         },
-        "props": 24,
+        "props": 25,
         "rejected": 4,
         "ambient": {
           "mapId": 3,
@@ -73,7 +73,7 @@
             ]
           ],
           "ambientObjects": 17,
-          "ambientSeconds": 0.03333333333333333,
+          "ambientSeconds": 0.016666666666666666,
           "reducedMotion": false
         },
         "texture": [
@@ -149,7 +149,7 @@
       },
       "diagnostics": {
         "softwareDesktopFps": 47.25,
-        "jsHeapBytes": 144695577,
+        "jsHeapBytes": 144400641,
         "drawCalls": "NOT_INSTRUMENTED",
         "displayObjects": 29
       },
@@ -188,7 +188,7 @@
           "navNodes": 188,
           "navRepaths": 0
         },
-        "props": 24,
+        "props": 25,
         "rejected": 4,
         "ambient": {
           "mapId": 3,
@@ -227,7 +227,7 @@
             ]
           ],
           "ambientObjects": 17,
-          "ambientSeconds": 0.03333333333333333,
+          "ambientSeconds": 0.016666666666666666,
           "reducedMotion": false
         },
         "texture": [
@@ -302,8 +302,8 @@
         "ledger": 117
       },
       "diagnostics": {
-        "softwareDesktopFps": 47,
-        "jsHeapBytes": 281155091,
+        "softwareDesktopFps": 46.75,
+        "jsHeapBytes": 288948931,
         "drawCalls": "NOT_INSTRUMENTED",
         "displayObjects": 29
       },
@@ -381,7 +381,7 @@
             ]
           ],
           "ambientObjects": 17,
-          "ambientSeconds": 0.05,
+          "ambientSeconds": 0.016666666666666666,
           "reducedMotion": false
         },
         "texture": [
@@ -457,7 +457,7 @@
       },
       "diagnostics": {
         "softwareDesktopFps": 47.5,
-        "jsHeapBytes": 148414788,
+        "jsHeapBytes": 125558767,
         "drawCalls": "NOT_INSTRUMENTED",
         "displayObjects": 29
       },
