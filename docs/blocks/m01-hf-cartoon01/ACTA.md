@@ -33,7 +33,7 @@ QA CI y publicación se registran en la PR y en el informe final de entrega con 
 
 ## Archivos y reversión
 
-Producto: `public/official/src/maps-visual/m01/style01/cartoon-world.mjs` y `public/official/art/maps/m01/style01/details-atlas-original.png`. QA: `tools/qa-map-style01-art.mjs`, `tools/qa-map-style01-browser.mjs`; acta, manifiesto, QA y capturas en esta carpeta. No hay dependencias nuevas.
+Producto: `public/official/src/maps-visual/m01/style01/cartoon-world.mjs` y `public/official/art/maps/m01/style01/details-atlas-original.png`. CI: `.github/workflows/b01-map-art-qa.yml` descarga historia completa para que los contratos comparen contra el SHA histórico incluso después de otros merges (el checkout superficial falló antes de ejecutar navegador). QA: `tools/qa-map-style01-art.mjs`, `tools/qa-map-style01-browser.mjs`; acta, manifiesto, QA y capturas en esta carpeta. No hay dependencias nuevas.
 
 Rollback: revertir el merge de este hotfix mediante PR normal sobre producción; conserva el bloque STYLE01 anterior y todos los sistemas. Riesgo: mayor número de sprites y una textura original adicional; extracción al montar, ningún procesamiento nuevo por frame. Rendimiento en hardware físico sin medir.
 
