@@ -17,19 +17,37 @@ try{
  for(const [profile,width,height] of [['desktop',1280,768],['touch844',844,390],['touch932',932,430]]){
   step=profile+' load';console.log('STYLE01 '+profile);
   const page=await browser.newPage({viewport:{width,height},isMobile:width<1000,hasTouch:width<1000});const errors=[];lastPage=page;page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base);await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-style01-modular-cartoon-v1'&&window.__SEMANTROPIC_VIEWPORT?.panorama?.mapId===1,null,{timeout:60000});
+  await page.goto(base);await page.waitForFunction(()=>window.__SEMANTROPIC_C1D7?.scene.mapView.artVersion==='m01-hf-cartoon-01-polished-v2'&&window.__SEMANTROPIC_VIEWPORT?.panorama?.mapId===1,null,{timeout:60000});
   const initial=await page.evaluate(async()=>{
    const g=window.__SEMANTROPIC_C1D7,w=g.world,s=g.scene,v=s.mapView;
    if(!(s.game.renderer.gl instanceof WebGL2RenderingContext))throw Error('WebGL2 required');
    if(w.route.points.length!==133||w.economy.gold!==365||w.lives!==100||w.campaign.waves.length!==5||w.campaign.waves.reduce((n,w)=>n+w.groups.reduce((s,g)=>s+g.count,0),0)!==63||v.plan.sockets.length!==8)throw Error('M01 canonical data changed');
    const mod=await import('/official/src/maps-visual/m01/style01/cartoon-world.mjs');
    if(v.premiumArt.composition!=='separate-Phaser-components'||v.styleObjects.filter(o=>o.texture?.key==='maps/m01/style01/pad').length!==8||v.landscapePlan.props.length<20)throw Error('Not a modular component scene');
-   for(const p of v.landscapePlan.props)if(!mod.propClears(p,v.landscapePlan))throw Error('Prop covers route/pad '+p.kind);
+   for(const kind of ['youngOak','shrub','pillar','timber','wheat','ivyRock'])if(!v.landscapePlan.props.some(p=>p.kind===kind))throw Error('Missing HF variety '+kind);
+   for(const p of v.landscapePlan.props)if(p.x<4||p.x+p.w>1276||!mod.propClears(p,v.landscapePlan))throw Error('Prop covers route/pad '+p.kind);
    if(JSON.stringify(v.landscapePlan.path)!==JSON.stringify(w.map.path))throw Error('Route moved');
    const road=s.textures.get('maps/m01/style01/route').getSourceImage().getContext('2d');if(road.getImageData(20,20,1,1).data[3]!==0)throw Error('Route texture includes flattened background');
    let samples=0;for(let i=1;i<w.map.path.length;i++){const a=w.map.path[i-1],b=w.map.path[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/8);for(let k=0;k<=n;k++){const x=Math.round(a[0]+(b[0]-a[0])*k/n),y=Math.round(a[1]+(b[1]-a[1])*k/n);if(x<0||x>=1280||y<0||y>=768)continue;const p=road.getImageData(x*2,y*2,1,1).data;if(p[3]!==255||p[0]<180||p[1]<130||p[2]>200)throw Error('Route not dry/clear');samples++;}}
    return {snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,displayObjects:v.styleObjects.length};
   });
+  if(profile==='desktop'){
+   await page.setViewportSize({width:1917,height:990});
+   await page.waitForFunction(()=>window.__SEMANTROPIC_VIEWPORT?.panorama?.width===1917);
+   await page.screenshot({path:out+'/wide-after.png'});
+   const png=(await page.screenshot()).toString('base64');
+   const seams=await page.evaluate(async png=>{
+    const image=new Image();image.src='data:image/png;base64,'+png;await image.decode();
+    const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const ctx=c.getContext('2d');ctx.drawImage(image,0,0);
+    const g=window.__SEMANTROPIC_C1D7,r=g.scene.game.canvas.getBoundingClientRect(),path=g.world.map.path,result=[];
+    for(const wx of [0,1280]){let wy;for(let i=1;i<path.length;i++){const a=path[i-1],b=path[i];if(a[0]<=wx&&b[0]>=wx)wy=a[1]+(b[1]-a[1])*(wx-a[0])/(b[0]-a[0]);}
+     const sx=r.left+wx/1280*r.width;let maxDelta=0;
+     for(const d of [-12,-6,0,6,12]){const y=Math.round(r.top+(wy+d)/768*r.height),a=ctx.getImageData(Math.round(sx)-2,y,1,1).data,b=ctx.getImageData(Math.round(sx)+2,y,1,1).data;for(let k=0;k<3;k++)maxDelta=Math.max(maxDelta,Math.abs(a[k]-b[k]));}
+     if(maxDelta>3)throw Error('Road/FIT seam at '+wx+': '+maxDelta);result.push({worldX:wx,maxRGBDelta:maxDelta});
+    }return result;
+   },png);initial.wideSeams=seams;
+   await page.setViewportSize({width,height});await page.waitForFunction(()=>window.__SEMANTROPIC_VIEWPORT?.panorama?.width===1280);
+  }
   await page.screenshot({path:out+'/'+profile+'-after.png'});
   for(let i=0;i<8;i++){step=profile+' pad '+i;
    const p=await page.evaluate(i=>{const g=window.__SEMANTROPIC_C1D7,r=g.scene.game.canvas.getBoundingClientRect(),p=g.economy.getSocket(i);return{x:r.left+p.x/1280*r.width,y:r.top+p.y/768*r.height};},i);

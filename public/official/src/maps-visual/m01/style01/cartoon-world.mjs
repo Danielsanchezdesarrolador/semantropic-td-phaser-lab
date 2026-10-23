@@ -1,10 +1,10 @@
 /** MAP-STYLE-01: original component scene; no full-map raster or gameplay writes. */
 import {mountM01WorldV7} from '../m07/renderer-v7.mjs';
 import {makeR7MapPlan} from '../r7/dawn-plateau-art.mjs';
-export const STYLE01_VERSION='m01-style01-modular-cartoon-v1';
+export const STYLE01_VERSION='m01-hf-cartoon-01-polished-v2';
 export const TERRAIN_KEY='maps/m01/r7/dawn-plateau/v1';
 export const SCENIC_KEY='maps/m01/r7/dawn-plateau/scenic-gutters/hf2';
-export const ASSETS=Object.freeze({terrain:new URL('../../../../art/maps/m01/style01/empty-terrain-original.png',import.meta.url).href,nature:new URL('../../../../art/maps/m01/style01/nature-atlas-original.png',import.meta.url).href,structures:new URL('../../../../art/maps/m01/style01/structures-atlas-original.png',import.meta.url).href});
+export const ASSETS=Object.freeze({terrain:new URL('../../../../art/maps/m01/style01/empty-terrain-original.png',import.meta.url).href,nature:new URL('../../../../art/maps/m01/style01/nature-atlas-original.png',import.meta.url).href,details:new URL('../../../../art/maps/m01/style01/details-atlas-original.png',import.meta.url).href,structures:new URL('../../../../art/maps/m01/style01/structures-atlas-original.png',import.meta.url).href});
 const canvas=(w,h)=>Object.assign(document.createElement('canvas'),{width:w,height:h});
 const load=u=>new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(Error('STYLE01 missing original asset '+u));i.src=u;});
 const sources=typeof document==='undefined'?null:await Promise.all(Object.values(ASSETS).map(load));
@@ -17,16 +17,21 @@ export function propClears(r,plan){
  for(let y=r.y;y<=r.y+r.h;y+=8)for(let x=r.x;x<=r.x+r.w;x+=8)if(routeDistance(x,y,plan.path)<54)return false;
  return plan.pads.every(p=>Math.hypot(Math.max(r.x-p.x,0,p.x-r.x-r.w),Math.max(r.y-p.y,0,p.y-r.y-r.h))>57);
 }
+/** Same world-space brush for the WebGL texture and FIT extension. */
 export function paintStyle01Road(c,path){
- const pts=path.map(p=>[...p]);for(const side of [-1,1]){const a=side<0?pts[0]:pts.at(-1),b=side<0?pts[1]:pts.at(-2),len=Math.hypot(a[0]-b[0],a[1]-b[1]);const p=[a[0]+(a[0]-b[0])/len*2000,a[1]+(a[1]-b[1])/len*2000];side<0?pts.unshift(p):pts.push(p);}
- const dense=[];for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/6);for(let k=0;k<n;k++)dense.push([a[0]+(b[0]-a[0])*k/n,a[1]+(b[1]-a[1])*k/n]);}dense.push(pts.at(-1));
- const line=(color,width)=>{const sides=[[],[]];for(let i=0;i<dense.length;i++){const p=dense[i],a=dense[Math.max(0,i-1)],b=dense[Math.min(dense.length-1,i+1)],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1;for(let side=0;side<2;side++){const d=(side?1:-1)*(width/2+1.3*Math.sin(p[0]*.073+p[1]*.051)+.7*Math.sin(p[0]*.17-p[1]*.13));sides[side].push([p[0]-dy/len*d,p[1]+dx/len*d]);}}poly(c,[...sides[0],...sides[1].reverse()],color);};
- line('#4b623b',91);line('#8b824b',87);line('#d9a863',82);line('#efd092',74);
- // Graphic material accents, seeded and tied to actual route. No repeated dotted lane.
- const r=rng(101);for(let i=1;i<path.length-1;i+=2){const p=path[i],a=path[i-1],b=path[i+1],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1;
-  for(const side of [-1,1]){const d=side*(35+r()*9),x=p[0]-dy/len*d,y=p[1]+dx/len*d;
-   if(r()<.55){ellipse(c,x+1,y+1,3+r()*3,1.8,'#876d45');ellipse(c,x,y,3+r()*3,1.5,'#d8c49b','#9d8c64',.6);}else{c.beginPath();c.moveTo(x-3,y+1);c.lineTo(x,y-3-r()*4);c.lineTo(x+3,y+1);c.fillStyle=side>0?'#7f9f4f':'#a5bb58';c.fill();}}
-  if(r()<.7){const d=(r()-.5)*46,x=p[0]-dy/len*d,y=p[1]+dx/len*d;poly(c,[[x-8,y],[x-4,y-2],[x+5,y-1],[x+9,y+1],[x+1,y+3]],i%3?'#e6c18a':'#f4dca4');}
+ const pts=path.map(p=>[...p]);
+ for(const side of [-1,1]){const a=side<0?pts[0]:pts.at(-1),b=side<0?pts[1]:pts.at(-2),len=Math.hypot(a[0]-b[0],a[1]-b[1]);const p=[a[0]+(a[0]-b[0])/len*2200,a[1]+(a[1]-b[1])/len*2200];side<0?pts.unshift(p):pts.push(p);}
+ // Midpoint quadratic joins remove the scalloped offset polygon. The authoritative
+ // waypoints are untouched; the visual center differs by less than a route sample.
+ const stroke=(color,width)=>{c.beginPath();c.moveTo(...pts[0]);for(let i=1;i<pts.length-1;i++)c.quadraticCurveTo(...pts[i],(pts[i][0]+pts[i+1][0])/2,(pts[i][1]+pts[i+1][1])/2);c.lineTo(...pts.at(-1));c.lineJoin='round';c.lineCap='round';c.strokeStyle=color;c.lineWidth=width;c.stroke();};
+ stroke('#637344',88);stroke('#a28b53',84);stroke('#d6ad70',80);stroke('#edcc8e',74);
+ // Low contrast grain, broad warm patches, deliberately sparse edge stones.
+ const r=rng(101);
+ for(let i=1;i<path.length-1;i++){
+  const p=path[i],a=path[i-1],b=path[i+1],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1;
+  if(i%3===0){const d=(r()-.5)*44,x=p[0]-dy/len*d,y=p[1]+dx/len*d;ellipse(c,x,y,4+r()*5,1.1+r(),i%2?'#e3bd7b65':'#f8dda265');}
+  if(i%4===0)for(const side of [-1,1]){const d=side*40,x=p[0]-dy/len*d,y=p[1]+dx/len*d;if(r()<.7){ellipse(c,x,y+1,2.9,1.8,'#8f7d54');ellipse(c,x,y,2.8,1.35,'#ddceaa','#9f906b',.5);}else{poly(c,[[x-3,y+1],[x-1,y-3],[x,y],[x+2,y-2],[x+3,y+1]],'#8ba34e');}}
+  for(let k=0;k<2;k++){const d=(r()-.5)*58,x=p[0]-dy/len*d+(r()-.5)*7,y=p[1]+dx/len*d;ellipse(c,x,y,.5+r()*.7,.35,'#bd995d35');}
  }
 }
 function makePad(){const v=canvas(192,192),c=v.getContext('2d');c.scale(2,2);c.translate(48,60);
@@ -41,13 +46,13 @@ let cachedAtlas;
 function registerAtlas(scene){
  if(cachedAtlas){for(const [key,v] of Object.entries(cachedAtlas))if(!scene.textures.exists(key))scene.textures.addCanvas(key,v);return cachedAtlas;}
  cachedAtlas={};
- for(const [slot,source] of [[0,sources[1]],[1,sources[2]]]){
+ for(const [slot,source] of [[0,sources[1]],[1,sources[3]],[2,sources[2]]]){
   const cv=canvas(source.width,source.height),c=cv.getContext('2d',{willReadFrequently:true});c.drawImage(source,0,0);const data=c.getImageData(0,0,cv.width,cv.height),w=cv.width,h=cv.height,labels=new Int32Array(w*h),queue=new Int32Array(w*h),groups=[];let label=0;
   for(let p=0;p<w*h;p++){if(labels[p]||data.data[p*4+3]<100)continue;label++;let start=0,end=1;queue[0]=p;labels[p]=label;let left=w,right=0,top=h,bottom=0;
    while(start<end){const q=queue[start++],x=q%w,y=Math.floor(q/w);left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);for(const n of [x?q-1:-1,x<w-1?q+1:-1,y?q-w:-1,y<h-1?q+w:-1])if(n>=0&&!labels[n]&&data.data[n*4+3]>=100){labels[n]=label;queue[end++]=n;}}
    if(end>7000)groups.push({label,left,right,top,bottom,pixels:end});
   }
-  const names=slot?['gate','bridge','supply','fence']:['oak','cypress','arch','rocks','shrine','flowers'],cols=slot?2:3;
+  const names=slot===2?['youngOak','shrub','pillar','timber','wheat','ivyRock']:slot===1?['gate','bridge','supply','fence']:['oak','cypress','arch','rocks','shrine','flowers'],cols=slot===1?2:3;
   // A floating crystal is intentionally detached from its pedestal; combine
   // connected components belonging to the same authored atlas cell.
   const cells=new Map();for(const g of groups){const row=(g.top+g.bottom)/2>h/2?1:0,col=Math.min(cols-1,Math.floor((g.left+g.right)/2/(w/cols))),id=row*cols+col,old=cells.get(id);if(old){old.left=Math.min(old.left,g.left);old.right=Math.max(old.right,g.right);old.top=Math.min(old.top,g.top);old.bottom=Math.max(old.bottom,g.bottom);}else cells.set(id,{...g});}
@@ -72,14 +77,25 @@ export function mountStyle01World(scene,map,options={}){
  for(const layer of ['terrain','path'])for(const o of base.layerGroups[layer]||[])o.setVisible(false);
  for(const o of base.propObjects||[]){o.sprite?.setVisible(false);o.shadow?.setVisible(false);}
  for(const o of base.padObjects){o.sprite.setVisible(false);o.shadow.setVisible(false);}
- const prop=(kind,x,y,w,flip=false)=>{const key='maps/m01/style01/'+kind,im=atlas[key],h=w*im.height/im.width,r={kind,x,y,w,h,flip,footY:y+h};if(!propClears(r,plan)){plan.rejected.push(r);return false;}
+ const prop=(kind,x,y,w,flip=false)=>{const key='maps/m01/style01/'+kind,im=atlas[key],h=w*im.height/im.width,r={kind,x,y,w,h,flip,footY:y+h};if(x<4||x+w>1276||!propClears(r,plan)){plan.rejected.push(r);return false;}
   const shadow=scene.add.ellipse(x+w*.5,y+h-3,w*.66,Math.max(5,w*.12),0x244c32,.23).setDepth(-300);
   const v=scene.add.image(x+w/2,y+h,key).setOrigin(.5,1).setDisplaySize(w,h).setFlipX(flip).setDepth(y+h-8);objects.push(shadow,v);plan.props.push(r);return true;};
- for(const [x,y,w,f] of [[-10,75,145,false],[115,68,150,true],[285,50,135,false],[430,75,112,true],[10,530,110,false],[185,566,95,true],[800,555,100,false],[1132,70,118,true]])prop('oak',x,y,w,f);
- prop('arch',395,250,125);prop('shrine',1080,83,135);prop('cypress',525,105,38);prop('cypress',1235,525,42);
- prop('supply',242,300,80);prop('fence',300,215,90);prop('fence',835,145,93);prop('gate',65,155,115);
+ // Deliberate landscape pockets, with room around every tactical surface.
+ for(const [x,y,w,f] of [[10,85,132,false],[150,90,125,true],[290,65,112,false],[430,90,100,true],[15,530,105,false],[185,570,90,true],[800,560,95,false],[1138,90,112,true]])prop('oak',x,y,w,f);
+ prop('arch',395,250,125);prop('shrine',1080,83,135);prop('cypress',525,105,38);prop('cypress',1235,525,36);
+ prop('supply',242,300,86);prop('fence',300,215,90);prop('fence',835,145,93);prop('gate',65,210,115);
  for(const [x,y,w] of [[20,235,65],[305,300,55],[520,245,50],[860,410,60],[755,600,58],[1090,275,52],[1110,650,65]])prop('rocks',x,y,w);
  for(const [x,y,w] of [[185,270,47],[330,230,43],[465,390,35],[630,150,40],[830,385,44],[965,615,39],[270,610,44],[60,575,43],[1190,560,37]])prop('flowers',x,y,w);
+ // Additional hand-drawn motifs; each complete silhouette is clearance checked.
+ for(const [kind,x,y,w,flip] of [
+  ['youngOak',25,130,82],['youngOak',590,120,85,true],['youngOak',1130,170,90],['youngOak',515,595,83],
+  ['shrub',165,235,62],['shrub',350,200,64],['shrub',755,375,57],['shrub',930,605,65],['shrub',1150,650,65],['shrub',100,625,61],
+  ['pillar',365,290,46],['pillar',1155,260,48],['pillar',715,595,45],
+  ['timber',285,235,52],['timber',900,385,48],['timber',205,625,48],
+  ['wheat',230,190,82],['wheat',320,160,90],['wheat',550,165,70],
+  ['ivyRock',470,235,64],['ivyRock',1050,145,65],['ivyRock',40,610,66],['ivyRock',1170,615,65],
+  ['shrub',15,290,48],['shrub',570,320,48],['shrub',1130,360,48],['shrub',720,375,50],
+ ])prop(kind,x,y,w,flip);
  function preserve(){for(const [i,p] of base.padObjects.entries()){pads[i].setVisible(p.visualState!=='ruins');p.sprite.setVisible(p.visualState==='ruins');p.shadow.setVisible(p.visualState==='ruins');}}
  const setSocketVisualState=(...args)=>{const ok=base.setSocketVisualState(...args);preserve();return ok;};
  const applyVisualSnapshot=s=>{const ok=base.applyVisualSnapshot(s);preserve();return ok;};
