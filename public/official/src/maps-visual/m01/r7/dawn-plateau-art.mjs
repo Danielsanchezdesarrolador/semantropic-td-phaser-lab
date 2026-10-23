@@ -176,7 +176,7 @@ function meadow(c,plan){
  for(const [x,y,s] of planned){if(safe(x,y,plan,35))tree(c,x,y,s);}
  for(let i=0;i<85;i++){
   const x=f()*W,y=145+f()*550;
-  if(!safe(x,y,21))continue;
+  if(!safe(x,y,plan,21))continue;
   if(i%5===0)cypress(c,x,y,.33+f()*.23);
   else if(i%3===0)rock(c,x,y,.36+f()*.5);
   else{
@@ -191,7 +191,7 @@ function meadow(c,plan){
  ])fence(c,...seg);
  for(let i=0;i<380;i++){
   const x=f()*W,y=142+f()*581;
-  if(!safe(x,y,9)||y>700)continue;
+  if(!safe(x,y,plan,9)||y>700)continue;
   if(i%6===0)flower(c,x,y,i);
   else ellipse(c,x,y,1.5+f()*3,.6+f()*1.4,
    i%3===0?'#f4efbb':'#518d678c');
