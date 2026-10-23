@@ -2,7 +2,7 @@
  * Protected R7 plan and pads remain authoritative; the reference layout is never used.
  */
 import {makeR7MapPlan} from '../r7/dawn-plateau-art.mjs';
-export const B01_ART_VERSION='b01-m01-pictoric-dawn-meadow-v1';
+export const B01_ART_VERSION='m01-path01-integrated-meadow-v1';
 export const B01_ASSETS=Object.freeze({
  terrain:new URL('../../../../art/maps/m01/b01/meadow-terrain-original.png',import.meta.url).href,
  props:new URL('../../../../art/maps/m01/b01/meadow-props-original.png',import.meta.url).href
@@ -12,7 +12,6 @@ const rng=n=>()=>((n=(Math.imul(n,1664525)+1013904223)>>>0)/4294967296);
 const TWO=Math.PI*2;
 const ellipse=(c,x,y,rx,ry,color)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,TWO);c.fillStyle=color;c.fill();};
 function poly(c,pts,color,edge=null,width=1){c.beginPath();c.moveTo(...pts[0]);for(const p of pts.slice(1))c.lineTo(...p);c.closePath();if(color){c.fillStyle=color;c.fill();}if(edge){c.lineWidth=width;c.strokeStyle=edge;c.stroke();}}
-function stroke(c,path,color,width){c.beginPath();c.lineCap='round';c.lineJoin='round';path.forEach((p,i)=>i?c.lineTo(...p):c.moveTo(...p));c.strokeStyle=color;c.lineWidth=width;c.stroke();}
 const loadImage=url=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(Error('B01 missing original art: '+url));image.src=url;});
 // Art-only loading barrier: no changes to combat scene/preloader/CORE are needed.
 const sources=typeof document==='undefined'?null:await Promise.all(Object.values(B01_ASSETS).map(loadImage));
@@ -55,18 +54,57 @@ export function b01PropClearsGeometry(r,plan){
  }
  return plan.pads.every(p=>Math.hypot(Math.max(r.x-p.x,0,p.x-r.x-r.w),Math.max(r.y-p.y,0,p.y-r.y-r.h))>=70);
 }
-export function paintB01Road(c,path){
- const earth=c.createLinearGradient(0,150,180,650);earth.addColorStop(0,'#f1d6a3');earth.addColorStop(.5,'#e9c38e');earth.addColorStop(1,'#dcb07b');
- for(const [width,color] of [[120,'#476c51'],[114,'#788466'],[109,'#aa8564'],[103,'#d9ab77'],[96,earth],[78,'#f6dbad38'],[56,'#fff0cd18']])stroke(c,path,color,width);
+// MAP-PATH-01: visual contour only. The canonical plan/navigation never changes.
+export const M01_PATH_FINISH=Object.freeze({previousWidth:120,nominalWidth:84,widthRange:[78,90],clearCenter:52});
+function roadContour(path){
+ const pts=path.map((p,i)=>i&&i<path.length-1?[(path[i-1][0]+p[0]*6+path[i+1][0])/8,(path[i-1][1]+p[1]*6+path[i+1][1])/8]:[...p]);
+ // Extend the same tangent into non-interactive gutters; identical world-space paint at each seam.
+ for(const side of [-1,1]){const a=side<0?pts[0]:pts.at(-1),b=side<0?pts[1]:pts.at(-2),len=Math.hypot(a[0]-b[0],a[1]-b[1]);
+  const end=[a[0]+(a[0]-b[0])/len*2400,a[1]+(a[1]-b[1])/len*2400];if(side<0)pts.unshift(end);else pts.push(end);}
+ const center=[];
+ for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/4);for(let k=0;k<n;k++)center.push([a[0]+(b[0]-a[0])*k/n,a[1]+(b[1]-a[1])*k/n]);}center.push(pts.at(-1));
+ const edges=[[],[]];
+ for(let i=0;i<center.length;i++){const p=center[i],a=center[Math.max(0,i-2)],b=center[Math.min(center.length-1,i+2)],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1;
+  for(let side=0;side<2;side++){const d=(side?1:-1)*(42+2*Math.sin(p[0]*.031+p[1]*.019+side*2)+Math.sin(p[0]*.11-p[1]*.07));edges[side].push([p[0]-dy/len*d,p[1]+dx/len*d]);}}
+ return [...edges[0],...edges[1].reverse()];
 }
-function paintRoadDetails(c,path){
- const r=rng(704);
- for(let i=1;i<path.length-1;i+=2){const p=path[i],q=path[i+1],dx=q[0]-p[0],dy=q[1]-p[1],len=Math.hypot(dx,dy)||1;
-  for(const side of [-1,1]){const d=53+r()*6,x=p[0]-dy/len*d*side,y=p[1]+dx/len*d*side;
-   c.save();c.translate(x,y);c.rotate(Math.atan2(dy,dx));c.fillStyle=i%4?'#d2c7a1':'#8d977c';c.strokeStyle='#65765a';c.lineWidth=.7;c.beginPath();c.roundRect(-3,-2,5+r()*4,3+r()*2,1.4);c.fill();c.stroke();c.restore();}
+let soilPattern;
+function soilTile(){
+ if(soilPattern)return soilPattern;const tile=canvas(256,256),c=tile.getContext('2d'),r=rng(1701);
+ // Multiscale, irregular grain: no dashed lane or regularly repeated kerbstones.
+ for(let i=0;i<420;i++){const x=r()*256,y=r()*256,rad=3+r()*19,g=c.createRadialGradient(x,y,0,x,y,rad);g.addColorStop(0,i%2?'#815c3310':'#fff0bd18');g.addColorStop(1,'#ba965f00');c.fillStyle=g;c.fillRect(x-rad,y-rad,rad*2,rad*2);}
+ for(let i=0;i<3800;i++)ellipse(c,r()*256,r()*256,.25+r()*1.25,.2+r()*.7,i%3?'#785c3b25':'#fff1c34a');
+ for(let i=0;i<95;i++){const x=r()*256,y=r()*256;ellipse(c,x,y+1,1+r()*2,.8,'#795e4339');ellipse(c,x,y,1+r()*2,.7,i%2?'#dcccaa99':'#a28c6870');}
+ soilPattern=tile;return tile;
+}
+export function paintB01Road(c,path){
+ const contour=roadContour(path),earth=c.createLinearGradient(0,160,80,650);earth.addColorStop(0,'#dfbe88');earth.addColorStop(.5,'#d2b07e');earth.addColorStop(1,'#d8b481');
+ c.save();c.shadowColor='#4c4d2e55';c.shadowBlur=5;c.shadowOffsetY=2;poly(c,contour,earth);c.restore();
+ c.save();poly(c,contour,null);c.clip();
+ if(sources){c.globalAlpha=.16;
+  for(const offset of [0,2560]){c.save();c.translate(offset,0);if(offset)c.scale(-1,1);c.drawImage(sources[0],0,0,1536,680,0,0,1280,650);c.restore();}
+  c.save();c.scale(-1,1);c.drawImage(sources[0],0,0,1536,680,0,0,1280,650);c.restore();c.globalAlpha=1;}
+
+ c.fillStyle=c.createPattern(soilTile(),'repeat');c.fillRect(-3000,-3000,7500,7500);c.restore();
+ // Broken low grass and embedded stones soften the edge, staying outside the clear center.
+ const r=rng(8001);
+ for(let i=0;i<contour.length;i+=3){const p=contour[i];if(p[0]<-500||p[0]>1780||p[1]<0||p[1]>768)continue;
+  if(r()<.55){const x=p[0]+(r()-.5)*4,y=p[1]+(r()-.5)*4;ellipse(c,x,y,2+r()*3,.5+r()*1.2,'#66744150');
+   for(let k=0;k<4;k++){const h=2+r()*5,bx=x+(r()-.5)*7;c.beginPath();c.moveTo(bx-1,y+1);c.quadraticCurveTo(bx-1,y-h/2,bx+(r()-.5)*6,y-h);c.quadraticCurveTo(bx+2,y-h/3,bx+1,y+1);c.fillStyle=k%2?'#a4ac63ae':'#687c4990';c.fill();}}
+  else if(r()<.3){ellipse(c,p[0],p[1]+1,2+r()*2,1.1,'#665f4240');ellipse(c,p[0],p[1],2+r()*3,1.2,'#c9be9dbb');}
  }
- for(let i=0;i<2100;i++){const k=Math.floor(r()*(path.length-1)),p=path[k],q=path[k+1],dx=q[0]-p[0],dy=q[1]-p[1],len=Math.hypot(dx,dy)||1,d=(r()-.5)*87;
-  ellipse(c,p[0]-dy/len*d,p[1]+dx/len*d,1+r()*4,.4+r(),i%3?'#a5814d27':'#fff1c73a');
+}
+function padGrounding(c,plan){
+ // Superficial contact only; the original R7 pad drawing/centres/IDs remain intact.
+ for(const p of plan.pads){
+  const g=c.createRadialGradient(p.x+3,p.y+7,18,p.x+3,p.y+7,52);g.addColorStop(0,'#78684355');g.addColorStop(.65,'#9d8b5540');g.addColorStop(1,'#9d8b5500');
+  c.save();c.beginPath();c.ellipse(p.x+3,p.y+7,52,30,0,0,TWO);c.clip();c.fillStyle=g;c.fillRect(p.x-52,p.y-25,110,64);c.restore();
+ }
+}
+function padGrass(c,plan){
+ for(const [i,p] of plan.pads.entries()){const r=rng(910+i);
+  for(const side of [-1,1])for(let k=0;k<6;k++){const x=p.x+side*(32+r()*11),y=p.y+12+r()*6,h=2+r()*4;
+   c.beginPath();c.moveTo(x-1,y);c.quadraticCurveTo(x-2,y-2,x+(r()-.5)*5,y-h);c.lineTo(x+1,y);c.fillStyle=k%2?'#84915cbb':'#63764bb0';c.fill();}
  }
 }
 // Retains the exact R7 pad drawing, including seeds, dimensions and local decoration.
@@ -110,16 +148,15 @@ export function makeB01MapCanvas(map,{density=2,scenic=false,terrainOnly=false}=
   prop('waterfall',40,663,95);prop('waterfall',780,662,100);
   for(const [x,y,w] of [[180,280,70],[330,220,60],[492,306,60],[753,455,70],[210,615,75],[485,630,65],[850,570,70],[1218,570,55]])prop('flowers',x,y,w);
  }
- if(!terrainOnly){paintB01Road(c,plan.path);paintRoadDetails(c,plan.path);if(!scenic)pads(c,plan);}
+ if(!terrainOnly){paintB01Road(c,plan.path);if(!scenic){padGrounding(c,plan);pads(c,plan);padGrass(c,plan);}}
  return {canvas:cvs,plan,qa:{version:B01_ART_VERSION,pathVertices:133,padsRendered:scenic||terrainOnly?0:8,ambientObjects:0,source:'original-terrain-plus-independent-props',props:plan.props}};
 }
 export function makeB01ScenicPanoramaCanvas(map){return makeB01MapCanvas(map,{density:1,terrainOnly:true}).canvas;}
 export function paintB01PanoramaGutters(ctx,r,map){
- const edge=x=>{const i=map.path.findIndex((p,i)=>i<map.path.length-1&&p[0]<=x&&map.path[i+1][0]>=x),a=map.path[i],b=map.path[i+1],slope=(b[1]-a[1])/(b[0]-a[0]);return {y:a[1]+(x-a[0])*slope,slope};};
  const sx=r.width/1280,sy=r.height/768;
- for(const [side,x,extent] of [['left',0,r.left/sx],['right',1280,(r.canvasWidth-r.left-r.width)/sx]]){
-  if(extent<=0)continue;const p=edge(x),end=x+(side==='left'?-extent:extent);
+ for(const [side,extent] of [['left',r.left/sx],['right',(r.canvasWidth-r.left-r.width)/sx]]){
+  if(extent<=0)continue;
   ctx.save();ctx.beginPath();if(side==='left')ctx.rect(0,r.top,r.left,r.height);else ctx.rect(r.left+r.width,r.top,r.canvasWidth-r.left-r.width,r.height);ctx.clip();ctx.translate(r.left,r.top);ctx.scale(sx,sy);
-  paintB01Road(ctx,[[x,p.y],[end,p.y+(end-x)*p.slope]]);ctx.restore();
+  paintB01Road(ctx,map.path);ctx.restore();
  }
 }

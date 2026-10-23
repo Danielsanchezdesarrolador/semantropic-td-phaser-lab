@@ -42,7 +42,7 @@ try{
    const art=scene.textures.get('maps/m01/r7/dawn-plateau/v1')?.getSourceImage();
    if(!art||art.width!==2560||art.height!==1536)throw Error('R7 source texture not 2x');
    const painter=await import('/official/src/maps-visual/m01/b01/pictoric-meadow.mjs');
-   if(painter.B01_ART_VERSION!=='b01-m01-pictoric-dawn-meadow-v1')throw Error('Old R7 source');
+   if(painter.B01_ART_VERSION!=='m01-path01-integrated-meadow-v1')throw Error('Old R7 source');
    const scenic=scene.textures.get('maps/m01/r7/dawn-plateau/scenic-gutters/hf2')?.getSourceImage();
    if(!scenic||scenic.width!==1280||scenic.height!==768)
     throw Error('HF2 1280x768 scenic plate missing');
@@ -120,7 +120,9 @@ try{
 
   if(profile==='desktop'){
    await page.evaluate(()=>{const g=window.__SEMANTROPIC_C1D7;if(!g.economy.build(0,'sniper').ok)throw Error('Sniper build');g.world.syncTowers();g.scene.drawTowers();});
-   await page.locator('#waveStart').click();await page.waitForTimeout(7500);await page.locator('#pause').click();
+   await page.locator('#waveStart').click();
+   await page.waitForFunction(()=>[...window.__SEMANTROPIC_C1D7.world.enemies.values()].some(e=>e.progress>25),null,{timeout:15000});
+   await page.waitForTimeout(7500);await page.locator('#pause').click();
    const frozen=await page.evaluate(()=>window.__SEMANTROPIC_C1D7.world.seconds);await page.waitForTimeout(250);
    if((await page.evaluate(()=>window.__SEMANTROPIC_C1D7.world.seconds))!==frozen)throw Error('Pause regression');
    const real=await page.evaluate(()=>{const g=window.__SEMANTROPIC_C1D7;return {fires:g.scene.fxFires,spawns:g.world.totalSpawns,gold:g.economy.gold};});
@@ -145,7 +147,7 @@ try{
   results.push({profile,width,height,...result,map02StillPlayable:true});
   await page.close();
  }
- console.log(JSON.stringify({status:'PASS_B01_PICTORIC_MEADOW_WEBGL2',results,
+ console.log(JSON.stringify({status:'PASS_MAP_PATH_01_WEBGL2',results,
   physicalAndroid:'PENDING',artApproval:'PENDING',balanceUnchanged:true},null,2));
 }catch(e){console.error('FAIL_B01_M01_BROWSER',e.stack||String(e));process.exitCode=1}
 finally{await browser?.close();await new Promise(ok=>server.close(ok))}
