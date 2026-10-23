@@ -2,7 +2,7 @@
  * authored farmland; world source geometry is immutable 1280×768 V5.
  * No M01 visual code changes; 2x background baked only once per Phaser scene.
  */
-import {makeM02ArtCanvas} from './farmland-art.mjs';
+import {makeB02ArtCanvas as makeM02ArtCanvas,B02_ART_VERSION,paintB02Gutters} from './b02/pictoric-farmland.mjs';
 export const R3_M02_SCENE_ART='r3b2-m02-farmland-gameplay-v1';
 export function mountM02World(scene,map){
  const art=makeM02ArtCanvas(map,{density:2});
@@ -38,7 +38,8 @@ export function mountM02World(scene,map){
   }
   return true;
  }
- return Object.freeze({version:R3_M02_SCENE_ART,plan:Object.freeze({sockets,route:art.plan.path,
+ return Object.freeze({version:R3_M02_SCENE_ART,artVersion:B02_ART_VERSION,landscapePlan:art.plan,
+  paintPanoramaGutters:(ctx,r)=>paintB02Gutters(ctx,r,map),plan:Object.freeze({sockets,route:art.plan.path,
   props:art.plan.landmarks,rejected:[],canvasSize:Object.freeze({width:2560,height:1536})}),
   setSocketVisualState,applyVisualSnapshot:()=>true,projectEvent:()=>false,
   get snapshot(){return {mapId:2,states:[...states.entries()]};},

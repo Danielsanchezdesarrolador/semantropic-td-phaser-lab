@@ -13,7 +13,7 @@ for(const [p,sha] of Object.entries({
  'public/official/src/c1d8-b2-playable/scene.mjs':'950c7ce85796932a40b23be421d1e4e9126087c5',
  'public/official/src/c1d8-b2-playable/scene-m02.mjs':'78a04b045563c5f8ffa70c63bc12cf2be7efbb5a',
  'public/official/src/core-c1d/m02-combat-world.mjs':'63741749125e7ac455787caae3bd5b3fb7d3b8a0',
- 'public/official/src/maps-visual/m02/phaser-world.mjs':'929902d5a0286ec9165524bf3156ac4d67a46db6'
+ 'public/official/src/maps-visual/m02/phaser-world.mjs':'e03ab5b0c4e0ec963eeca71e32d224ca4daeb16a'
 })){
  assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),sha,
    'R6 must NEVER change protected gameplay/map file '+p);
@@ -29,6 +29,8 @@ assert.equal(plan.landmarks.find(l=>l.kind==='mill')?.x,505);
 assert.equal(plan.landmarks.find(l=>l.kind==='farm')?.x,1180);
 assert.equal(M02_ART_VERSION,'r6-m02-golden-valley-v1');
 assert.equal(R6_MAP02_ART,'r6-m02-golden-valley-paint-v1');
+assert(fs('public/official/src/maps-visual/m02/phaser-world.mjs').includes("from './b02/pictoric-farmland.mjs'"),'B02 approved runtime landscape adapter absent');
+// R6 painter is retained as archived reference; B02 replaces runtime art only.
 const premium=fs('public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs');
 const art=fs('public/official/src/maps-visual/m02/farmland-art.mjs');
 const live=fs('public/official/src/live/index.html');
