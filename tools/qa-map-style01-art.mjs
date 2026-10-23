@@ -5,7 +5,8 @@ import {makeR7MapPlan} from '../public/official/src/maps-visual/m01/r7/dawn-plat
 import {MESAS,supportsFoot} from '../public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs';
 import {propClears,STYLE01_VERSION} from '../public/official/src/maps-visual/m01/style01/cartoon-world.mjs';
 const hash=p=>execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim();
-for(const [p,h] of Object.entries(JSON.parse(readFileSync('docs/blocks/map-style01/protected-blobs.json'))))assert.equal(hash(p),h,'Protected source changed '+p);
+const inheritedDocs=JSON.parse(readFileSync('docs/blocks/m01-fidelity-cartoon01/inherited-document-blobs.json'));
+for(const [p,h] of Object.entries(JSON.parse(readFileSync('docs/blocks/map-style01/protected-blobs.json'))))assert.equal(hash(p),inheritedDocs[p]?.before===h?inheritedDocs[p].after:h,'Protected source changed '+p);
 const visual=JSON.parse(readFileSync('docs/blocks/map-style01/authorized-visual-blobs.json'));for(const [p,h] of Object.entries(visual))assert.equal(hash(p),h.after);
 assert.equal(hash('public/official/src/maps-visual/m01/r7/renderer-r7-b01-archived.mjs'),visual['public/official/src/maps-visual/m01/r7/renderer-r7.mjs'].before,'Exact previous renderer must be preserved');
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===1),plan=makeR7MapPlan(map);assert.deepEqual(plan.path,map.path);assert.equal(plan.pads.length,8);assert.equal(plan.path.length,133);assert.equal(map.gold,365);

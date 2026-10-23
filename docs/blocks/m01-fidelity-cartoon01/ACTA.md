@@ -60,3 +60,9 @@ Producto: `public/official/src/maps-visual/m01/style01/cartoon-world.mjs`, nuevo
 Riesgos: atlas adicionales y texturas de relieve/agua aumentan memoria y carga inicial; se rasterizan únicamente al montar, sin procesamiento de paisaje por frame. No se certifica rendimiento móvil físico. Diferencias de composición expresadas en la matriz. Rollback mediante revert normal del merge del bloque, conservando `28a861f` como baseline anterior y la misma URL oficial.
 
 **QA local final: PASS** en los tres perfiles. Siete formaciones, ocho construcciones/ventas reales por perfil (365→93), reinicio normal y compra Infantería+Francotirador (365→130), avance/tiro/baja/recompensa y pausa. Cero errores JS. Fullscreen real y ambas uniones FIT pasan en desktop; ningún píxel de la cara de roca invade las muestras del carril. `qa-local.json` contiene los estados y recuentos reales.
+
+## Actualización documental concurrente de producción
+
+Durante QA se integró PR #62, merge `be702995379054d5cc1a08d7766787f379ec1b64`, exclusivamente documental: AGENTS.md, roadmap y nuevo canon `ESTILO_VISUAL_CANON_CARTOON_2D_PREMIUM_V1.md`. Se leyeron las nuevas directrices y el canon. Se incorporó producción mediante merge normal, conservando los tres archivos idénticos a PR62, sin edición de su contenido por este bloque. El canon confirma la línea recibida y no amplía el alcance de esta tarea a otros sistemas.
+
+El primer CI sobre la combinación de ramas falló porque la protección histórica de STYLE01 fijaba los hashes antiguos de AGENTS/roadmap. Se añade `inherited-document-blobs.json`, limitado a esas dos transiciones documentales exactas provenientes de PR62; todos los hashes funcionales siguen exigiéndose sin excepción. No se alteran pruebas de gameplay ni se desactiva protección del core. Se vuelve a ejecutar CI sobre el HEAD integrado.

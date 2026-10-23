@@ -1,0 +1,12 @@
+{
+  "AGENTS.md": {
+    "before": "f79f1bafc12a10c7e6a897ce8b5cfac1662ccbec",
+    "after": "a22eea9794d90ab06e17da5f88119c4a90153cfa",
+    "source": "PR #62, production merge be702995379054d5cc1a08d7766787f379ec1b64; inherited unchanged"
+  },
+  "docs/direccion-general/ROADMAP_CENTRAL.md": {
+    "before": "1ef33d340a1d3982e7ee8ee3bcdeafb6143fb80f",
+    "after": "6f813dfee7bd2322efc1226301559666b54f0766",
+    "source": "PR #62, production merge be702995379054d5cc1a08d7766787f379ec1b64; inherited unchanged"
+  }
+}
