@@ -1,0 +1,15 @@
+{
+  "status": "PASS_C2_WIDTH_CURVATURE_ROUTE_ALIGNMENT",
+  "segments": 261,
+  "samples": 13311,
+  "width": 62,
+  "previousDiagnosticWidth": 84,
+  "previousActivePaintingWidth": "NOT_UNIFORM_NOT_MEASURED",
+  "minRadius": 70.89176855096578,
+  "maxDeviation": 1.0221659548596334,
+  "canonicalPoints": 262,
+  "offsetSelfIntersections": 0,
+  "offsetSamplesPerSide": 522,
+  "maxCanonicalEnemyRadius": 23,
+  "minimumHalfLaneMargin": 6.977834045140367
+}

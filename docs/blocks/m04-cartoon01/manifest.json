@@ -1,0 +1,58 @@
+{
+  "block": "MAP-ART-04-CARTOON-V1",
+  "base": "ea34a3797dfceb647354d311a9f06fb82743890c",
+  "branch": "art/m04-cartoon01",
+  "version": "m04-cartoon01-ancient-river-v1",
+  "productFiles": [
+    "public/official/src/c1d8-b2-playable/scene-m04.mjs",
+    "public/official/src/maps-visual/m04/phaser-world.mjs",
+    "public/official/src/maps-visual/m04/cartoon01/road-geometry.mjs",
+    "public/official/src/maps-visual/m04/cartoon01/river-world.mjs",
+    "public/official/src/maps-visual/m04/cartoon01/surfaces.mjs",
+    "public/official/src/maps-visual/m04/cartoon01/assets.mjs",
+    "public/official/art/maps/m04/cartoon01/river-atlas-original.png"
+  ],
+  "protectedBlobs": {
+    "public/JUEGO_V5_CANVAS.html": "9b800007bd7a6b591b01a11c5e1344cbee2a7df2",
+    "public/official/data/maps.v5.json": "1da0e20145e1312f3d75443debabea17e3db507c",
+    "public/official/data/campaign140.v5.json": "794cf43f9b172a39dd88f02e2a89ea11455064c3",
+    "public/official/src/m01-model.mjs": "0792c46bbb3d82baa4edd9aa9203b2021b3d69eb",
+    "public/official/src/core-c1d/m04-campaign.mjs": "05107089d5364d54dc473d89d5bc22765db627d5",
+    "public/official/src/core-c1d/m04-results-phaser.mjs": "bd757820ff5d9551da9dd1439fc756ba70ee122e",
+    "public/official/src/c1d8-b2-playable/scene-m02.mjs": "03f751527d47c0faca46dff56002fdec4a90df2a",
+    "public/official/src/maps-visual/m04/hf1/integrated-river.mjs": "559026464882986da43833a4b76a00fc1c22885c",
+    "public/official/src/maps-visual/m04/hf1/registration.mjs": "dc3ce86423bf5c2343f0fcb00dc565bdb37bee87",
+    "public/official/art/maps/m04/hf1/integrated-river-original.png": "17c6b3ae99365619f3d6b7d37d8777d1ab7d50e9",
+    "public/official/src/maps-visual/m01/style01/cartoon-world.mjs": "7881579ca2fdf940ca22848fe63f5de5df1de346",
+    "public/official/src/maps-visual/m02/phaser-world.mjs": "246a1efdfe5d50421795c9019df9bc10cda9c47f",
+    "public/official/src/maps-visual/m03/phaser-world.mjs": "c07d04a92d887560226c82f86d7e575db75715f2"
+  },
+  "sharedReadOnlyOriginals": [
+    "M02 rural-atlas-original.png (only oak)",
+    "M02 materials-original.png (only generic turf/water)",
+    "M02 cliffs-original.png"
+  ],
+  "gameplay": {
+    "path": 262,
+    "pads": 9,
+    "gold": 395,
+    "lives": 100,
+    "waves": 11,
+    "enemies": 94,
+    "waveCounts": [
+      6,
+      5,
+      7,
+      5,
+      10,
+      10,
+      9,
+      6,
+      9,
+      12,
+      15
+    ]
+  },
+  "physicalMobile": "NOT_RUN",
+  "artApproval": "PENDING_DIRECTOR"
+}

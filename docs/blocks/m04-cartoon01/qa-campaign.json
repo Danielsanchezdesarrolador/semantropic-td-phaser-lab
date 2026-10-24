@@ -1,0 +1,149 @@
+{
+  "status": "PASS_M04_ELEVEN_CANONICAL_WAVES",
+  "counts": [
+    6,
+    5,
+    7,
+    5,
+    10,
+    10,
+    9,
+    6,
+    9,
+    12,
+    15
+  ],
+  "types": [
+    "warrior",
+    "brute",
+    "archer",
+    "hound",
+    "shaman",
+    "shieldbearer"
+  ],
+  "victory": {
+    "contract": "m04-game01-eleven-canonical-waves-v1",
+    "mapId": 4,
+    "mode": "normal",
+    "wave": 11,
+    "active": false,
+    "ended": true,
+    "won": true,
+    "paused": false,
+    "lives": 72,
+    "gold": 206,
+    "kills": 80,
+    "escaped": 14,
+    "totalSpawns": 94,
+    "spawnsRemaining": 0,
+    "enemies": 0,
+    "bullets": 0,
+    "onlySniperCombat": false,
+    "infantryCombatImplemented": true,
+    "corePersistsRecords": false,
+    "soldiers": 0,
+    "soldiersRespawning": 0,
+    "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+    "navNodes": 262,
+    "navRepaths": 0
+  },
+  "defeat": {
+    "contract": "m04-game01-eleven-canonical-waves-v1",
+    "mapId": 4,
+    "mode": "normal",
+    "wave": 7,
+    "active": false,
+    "ended": true,
+    "won": false,
+    "paused": false,
+    "lives": 0,
+    "gold": 818,
+    "kills": 0,
+    "escaped": 50,
+    "totalSpawns": 52,
+    "spawnsRemaining": 0,
+    "enemies": 2,
+    "bullets": 0,
+    "onlySniperCombat": false,
+    "infantryCombatImplemented": true,
+    "corePersistsRecords": false,
+    "soldiers": 0,
+    "soldiersRespawning": 0,
+    "infantryPathfinding": "campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+    "navNodes": 262,
+    "navRepaths": 0
+  },
+  "heals": 12,
+  "crossedBridges": [
+    0,
+    1
+  ],
+  "perWave": [
+    {
+      "wave": 1,
+      "kills": 6,
+      "escaped": 0,
+      "gold": 261
+    },
+    {
+      "wave": 2,
+      "kills": 11,
+      "escaped": 0,
+      "gold": 278
+    },
+    {
+      "wave": 3,
+      "kills": 18,
+      "escaped": 0,
+      "gold": 320
+    },
+    {
+      "wave": 4,
+      "kills": 23,
+      "escaped": 0,
+      "gold": 228
+    },
+    {
+      "wave": 5,
+      "kills": 33,
+      "escaped": 0,
+      "gold": 344
+    },
+    {
+      "wave": 6,
+      "kills": 43,
+      "escaped": 0,
+      "gold": 331
+    },
+    {
+      "wave": 7,
+      "kills": 52,
+      "escaped": 0,
+      "gold": 414
+    },
+    {
+      "wave": 8,
+      "kills": 58,
+      "escaped": 0,
+      "gold": 293
+    },
+    {
+      "wave": 9,
+      "kills": 66,
+      "escaped": 1,
+      "gold": 387
+    },
+    {
+      "wave": 10,
+      "kills": 73,
+      "escaped": 6,
+      "gold": 278
+    },
+    {
+      "wave": 11,
+      "kills": 80,
+      "escaped": 14,
+      "gold": 206
+    }
+  ]
+}

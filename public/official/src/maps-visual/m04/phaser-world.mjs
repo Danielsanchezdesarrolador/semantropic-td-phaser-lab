@@ -1,12 +1,11 @@
-/** Gameplay adapter of the frozen HF1 artwork; no repaint or new scenery. */
-import {mountM04Artwork,makeM04ArtPlan,HF1_ART_VERSION} from './hf1/integrated-river.mjs';
-import {projectMapSocket} from '../../core-c1d/map-sockets.mjs';
+/** Art-only M04 adapter. Historical HF1 remains available in its own module. */
+import{mountRiverArt,M04_ART_VERSION,makeM04ArtPlan,M04_SCENIC}from'./cartoon01/river-world.mjs';
+import{projectMapSocket}from'../../core-c1d/map-sockets.mjs';
+export{M04_ART_VERSION,makeM04ArtPlan};
 export function mountM04World(scene,map){
- const art=mountM04Artwork(scene,map),states=new Map();
- // Existing image is scenery: entities retain their usual world-Y depths above it.
- const image=scene.children.list.find(o=>o.texture?.key===art.textureKey);image.setDepth(-5000);
- return {version:HF1_ART_VERSION,textureKey:art.textureKey,qa:art.qa,
- plan:{...makeM04ArtPlan(map),sockets:map.spots.map((_,i)=>projectMapSocket(map,i)),route:map.path,canvasSize:{width:2560,height:1536}},
+ const art=mountRiverArt(scene,map),states=new Map();
+ return{version:M04_ART_VERSION,textureKey:M04_SCENIC,qa:art.metadata,metadata:art.metadata,
+ plan:{...art.plan,sockets:map.spots.map((_,i)=>projectMapSocket(map,i)),route:map.path,canvasSize:{width:2560,height:1536}},paintPanoramaGutters:art.paintGutters,
  setSocketVisualState(id,state){states.set(id,state);return true;},applyVisualSnapshot:()=>true,projectEvent:()=>false,
- update:()=>{},get snapshot(){return {mapId:4,states:[...states],ambientObjects:0};},destroy:()=>art.destroy()};
+ update:()=>{},get snapshot(){return{mapId:4,states:[...states],ambientObjects:0};},destroy:()=>art.destroy()};
 }
