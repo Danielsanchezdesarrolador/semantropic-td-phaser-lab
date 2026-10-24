@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import{readFileSync,mkdirSync,writeFileSync}from'node:fs';
+import{execFileSync}from'node:child_process';
+const base='58b3e79e19a1d7ab16282a39bded4e8a32756568';
+const changed=execFileSync('git',['diff','--name-only',base,'--','public'],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+for(const p of changed)assert(p==='public/official/src/maps-visual/m03/forest-art.mjs'||p==='public/official/src/maps-visual/m03/phaser-world.mjs'||p.startsWith('public/official/src/maps-visual/m03/cartoon01/')||p.startsWith('public/official/art/maps/m03/cartoon01/'),'Outside M03 art scope '+p);
+const before=execFileSync('git',['show',base+':public/official/src/maps-visual/m03/forest-art.mjs'],{encoding:'utf8'}),after=readFileSync('public/official/src/maps-visual/m03/forest-art.mjs','utf8');assert.equal(after,before.replace('m03-whispering-forest-premium-v1','m03-cartoon01-enchanted-forest-v1'),'Historical extractor/plan changed');
+const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===3);assert.equal(map.path.length,188);assert.equal(map.spots.length,8);assert.equal(map.gold,410);
+const forest=readFileSync('public/official/src/maps-visual/m03/cartoon01/forest-world.mjs','utf8');assert(!/\.tick\(|\.build\(|\.damage\(|\.gold\s*=/.test(forest),'Visual owns gameplay');
+mkdirSync('artifacts/m03-cartoon01',{recursive:true});writeFileSync('artifacts/m03-cartoon01/scope.json',JSON.stringify({status:'PASS_M03_ART_ONLY_PROTECTED_RUNTIME',base,changed},null,2));console.log('PASS_M03_ART_ONLY_SCOPE');

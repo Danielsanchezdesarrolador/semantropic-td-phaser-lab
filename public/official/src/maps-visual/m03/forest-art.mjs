@@ -3,7 +3,7 @@
  */
 import {projectMapSocket} from '../../core-c1d/map-sockets.mjs';
 import {validateM03Map} from '../../core-c1d/m03-campaign.mjs';
-export const M03_ART_VERSION='m03-whispering-forest-premium-v1';
+export const M03_ART_VERSION='m03-cartoon01-enchanted-forest-v1';
 export const M03_TERRAIN_URL=new URL('../../../art/maps/m03/forest-terrain-original.png',import.meta.url).href;
 export const M03_PROP_URL=new URL('../../../art/maps/m03/forest-props-original.png',import.meta.url).href;
 const canvas=(w,h)=>Object.assign(document.createElement('canvas'),{width:w,height:h});
