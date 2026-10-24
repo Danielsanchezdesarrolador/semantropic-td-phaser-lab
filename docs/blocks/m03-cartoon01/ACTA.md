@@ -27,10 +27,13 @@ QA dedicado en `tools/qa-m03-cartoon01-{art,geometry,browser}.mjs` y workflow `m
 
 ## Evidencias y estado
 
+- [Después desktop](after-desktop-art-no-hud.png), [después móvil](after-touch844-art-no-hud.png), [combate real](after-desktop-combat.png).
 - [Antes desktop](before-desktop.png), [antes móvil](before-mobile.png), [referencia M02 real](reference-desktop.png), [medición geométrica](road-geometry.json).
 - [CONFIRMADO EN CÓDIGO] 8 pads / 188 puntos / 9 oleadas / 101 enemigos, distribución `[8,8,10,8,8,9,15,14,21]`, 410 oro y 100 vidas de runtime. El HUD ilustrativo 385 / 1/8 del mockup NO se aplica.
 - [PASS] Node: campaña completa canónica, scope protegido, continuidad/curvatura/alineación y offsets; build Phaser.
-- [PENDIENTE AL REGISTRAR] QA final navegador, CI y publicación: resultados finales en PR e informe de entrega, sin presentar un sitio anterior como nuevo.
+- [PASS] Navegador final WebGL2: PC 1280×768, móvil 844×390 y 932×430 DPR2; ocho selecciones/construcciones/ventas por perfil, oro correcto, ataques y baja real, pausa, FIT ancho y regresión M01/M02/M04 sin errores JavaScript. Ancho raster en 343 secciones: **61,5–62,75wu** (62 nominal); continuidad FIT: delta RGB 0 en ambas uniones. Reporte [qa-local.json](qa-local.json).
+- [PASS] CI del producto `6dc0c2e9b90a56179703d1f4d30a3c3db826f845`: [40107580572](https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/40107580572), incluido navegador de tres perfiles. El commit posterior solo incorpora estas evidencias, sin cambios de producto.
+- [PENDIENTE AL REGISTRAR] Integración y publicación: comprobación de SHA público/bytes y smoke LIVE se registrarán en el PR e informe de entrega. No se anuncia LIVE antes de verificarlos.
 - [NO EJECUTADO] dispositivo móvil físico, FPS/VRAM de hardware, campaña completa de nueve oleadas en navegador en este bloque artístico. La campaña completa sí se prueba en Node; el navegador prueba entrada, ocho construcciones/ventas, compras normales, disparo/muerte, pausa, resize/FIT y navegación de regresión M01/M02/M04.
 - [PENDIENTE] aceptación estética del Director. QA técnico no la sustituye. Diferencias deliberadas con mockup: trazado, altura/posición de relieves, río y puente adaptados a layout real, ocho pads en sus centros reales.
 

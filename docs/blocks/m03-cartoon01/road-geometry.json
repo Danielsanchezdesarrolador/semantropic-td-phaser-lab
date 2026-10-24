@@ -6,5 +6,9 @@
   "previousWidth": 83,
   "minRadius": 61.186685538257734,
   "maxDeviation": 0.24327396524408276,
-  "canonicalPoints": 188
+  "canonicalPoints": 188,
+  "offsetSelfIntersections": 0,
+  "offsetSamplesPerSide": 374,
+  "maxCanonicalEnemyRadius": 17,
+  "minimumHalfLaneMargin": 13.756726034755918
 }
