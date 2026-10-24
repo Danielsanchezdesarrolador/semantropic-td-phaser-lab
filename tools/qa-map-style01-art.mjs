@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {makeR7MapPlan} from '../public/official/src/maps-visual/m01/r7/dawn-plateau-art.mjs';
-import {MESAS,supportsFoot} from '../public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs';
+import {MESAS,SHORE,supportsFoot} from '../public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs';
 import {propClears,STYLE01_VERSION} from '../public/official/src/maps-visual/m01/style01/cartoon-world.mjs';
 const hash=p=>execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim();
 const inheritedDocs=JSON.parse(readFileSync('docs/blocks/m01-fidelity-cartoon01/inherited-document-blobs.json'));
@@ -12,12 +12,17 @@ assert.equal(hash('public/official/src/maps-visual/m01/r7/renderer-r7-b01-archiv
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===1),plan=makeR7MapPlan(map);assert.deepEqual(plan.path,map.path);assert.equal(plan.pads.length,8);assert.equal(plan.path.length,133);assert.equal(map.gold,365);
 assert(!propClears({x:map.path[30][0]-2,y:map.path[30][1]-2,w:4,h:4},plan));for(const p of plan.pads)assert(!propClears({x:p.x-2,y:p.y-2,w:4,h:4},plan));
 assert.equal(MESAS.length,7);assert(!supportsFoot(750,415),'No support in a cliff face');assert(!supportsFoot(300,760),'No support on river');for(const pad of plan.pads)assert(supportsFoot(pad.x,pad.y),'Canonical pad must rest on terrain');
-assert.equal(STYLE01_VERSION,'m01-hf-geometry01-cartoon-v1');
+assert.equal(STYLE01_VERSION,'m01-align-m02-cartoon-v1');
 const source=readFileSync('public/official/src/maps-visual/m01/style01/cartoon-world.mjs','utf8');assert(source.includes('mountM01WorldV7(scene,map,options)'));assert(source.includes('separate-Phaser-components'));assert(!/\.gold\s*[+\-]?=|\.lives\s*=|startWave\(|\.hit\(/.test(source),'Art cannot mutate gameplay');
 const reliefSource=readFileSync('public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs','utf8');assert(!/core-c1d|\.gold\s*[+\-]?=|\.lives\s*=|startWave\(|\.hit\(/.test(reliefSource),'Relief must stay visual-only');
 // No public source or asset outside the M01 visual boundary can change.
-const changed=execFileSync('git',['diff','--name-only','579f421b36d408dc0ddc6a5457615f05b949a9c0','--','public/'],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+const changed=execFileSync('git',['diff','--name-only','90dce477ddc91fde2d300c2f8dc5e2a636aa1f7b','--','public/'],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
 for(const p of changed)assert(p.startsWith('public/official/src/maps-visual/m01/')||p.startsWith('public/official/art/maps/m01/'),'Out of scope public edit '+p);
-console.log('PASS_MAP_STYLE01_ART_ONLY_CANONICAL_GEOMETRY_COMPONENTS_AND_PROTECTED_SYSTEMS');
+
 
 await import('./qa-map-style01-road-geometry.mjs');
+
+const alignmentFrozen=JSON.parse(readFileSync('docs/blocks/m01-align-m02/frozen-blobs.json'));for(const[p,h]of Object.entries(alignmentFrozen))assert.equal(hash(p),h,'M01 alignment modified frozen source '+p);
+const reliefBaseline=JSON.parse(readFileSync('docs/blocks/m01-align-m02/relief-baseline.json'));assert.deepEqual({MESAS,SHORE},reliefBaseline,'Relief layout changed');
+
+console.log('PASS_M01_ALIGNMENT_LAYOUT_FROZEN_ROAD_ENTRY_AND_M02');

@@ -1,3 +1,4 @@
+import {ALIGNMENT_VERSION,REFERENCE_ASSETS,extractReferenceOak} from './m02-alignment.mjs';
 import {makeEntryTexture,ENTRY_BOUNDS,ENTRY_OCCLUSION} from './entry-access.mjs';
 import {paintGeometricRoad,ROAD_WIDTH} from './road-geometry.mjs';
 import {preparePropAtlas,DEFINITION_VERSION} from './texture-definition.mjs';
@@ -5,13 +6,13 @@ import {preparePropAtlas,DEFINITION_VERSION} from './texture-definition.mjs';
 import {mountM01WorldV7} from '../m07/renderer-v7.mjs';
 import {makeFidelitySubstrate,makeFidelityRelief,supportsFoot} from './fidelity-terrain.mjs';
 import {makeR7MapPlan} from '../r7/dawn-plateau-art.mjs';
-export const STYLE01_VERSION='m01-hf-geometry01-cartoon-v1';
+export const STYLE01_VERSION='m01-align-m02-cartoon-v1';
 export const TERRAIN_KEY='maps/m01/r7/dawn-plateau/v1';
 export const SCENIC_KEY='maps/m01/r7/dawn-plateau/scenic-gutters/hf2';
 export const ASSETS=Object.freeze({terrain:new URL('../../../../art/maps/m01/fidelity01/materials-original.png',import.meta.url).href,nature:new URL('../../../../art/maps/m01/fidelity01/nature-atlas-original.png',import.meta.url).href,details:new URL('../../../../art/maps/m01/style01/details-atlas-original.png',import.meta.url).href,cliffs:new URL('../../../../art/maps/m01/fidelity01/cliffs-atlas-original.png',import.meta.url).href,structures:new URL('../../../../art/maps/m01/fidelity01/structures-atlas-original.png',import.meta.url).href});
 const canvas=(w,h)=>Object.assign(document.createElement('canvas'),{width:w,height:h});
 const load=u=>new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(Error('STYLE01 missing original asset '+u));i.src=u;});
-const sources=typeof document==='undefined'?null:await Promise.all(Object.values(ASSETS).map(load));
+const sources=typeof document==='undefined'?null:await Promise.all([...Object.values(ASSETS),...Object.values(REFERENCE_ASSETS)].map(load));
 const rng=seed=>()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296),TAU=Math.PI*2;
 function ellipse(c,x,y,rx,ry,fill,stroke=null,width=1){c.beginPath();c.ellipse(x,y,rx,ry,0,0,TAU);c.fillStyle=fill;c.fill();if(stroke){c.strokeStyle=stroke;c.lineWidth=width;c.stroke();}}
 function poly(c,points,color,edge=null,width=1){c.beginPath();points.forEach((p,i)=>i?c.lineTo(...p):c.moveTo(...p));c.closePath();c.fillStyle=color;c.fill();if(edge){c.strokeStyle=edge;c.lineWidth=width;c.stroke();}}
@@ -55,11 +56,12 @@ function registerAtlas(scene){
    const left=Math.max(0,g.left-4),top=Math.max(0,g.top-4),pw=Math.min(w-left,g.right-left+5),ph=Math.min(h-top,g.bottom-top+5),v=canvas(pw,ph),ctx=v.getContext('2d');ctx.drawImage(source,left,top,pw,ph,0,0,pw,ph);cachedAtlas[key]=v;scene.textures.addCanvas(key,v);
   }
  }
+ const oak=extractReferenceOak(sources[6]),key='maps/m01/style01/roundedOak';cachedAtlas[key]=oak;scene.textures.addCanvas(key,oak);
  return cachedAtlas;
 }
 export function mountStyle01World(scene,map,options={}){
  const base=mountM01WorldV7(scene,map,options),p=makeR7MapPlan(map),plan={...p,props:[],rejected:[]},objects=[],atlas=registerAtlas(scene),definedKeys=new Set(),pendingProps=[];
- const {ground:terrain,water}=makeFidelitySubstrate(sources[0]),relief=makeFidelityRelief(atlas,sources[0]);
+ const {ground:terrain,water}=makeFidelitySubstrate(sources[0],sources[5]),relief=makeFidelityRelief(atlas,sources[0],sources[5]);
  plan.formations=relief.formations;
  scene.textures.addCanvas(TERRAIN_KEY,terrain);
  scene.textures.addCanvas('maps/m01/style01/water',water);
@@ -77,7 +79,10 @@ export function mountStyle01World(scene,map,options={}){
  for(const layer of ['terrain','path'])for(const o of base.layerGroups[layer]||[])o.setVisible(false);
  for(const o of base.propObjects||[]){o.sprite?.setVisible(false);o.shadow?.setVisible(false);}
  for(const o of base.padObjects){o.sprite.setVisible(false);o.shadow.setVisible(false);}
- const prop=(kind,x,y,w,flip=false)=>{const key='maps/m01/style01/'+kind,im=atlas[key],h=w*im.height/im.width,r={kind,x,y,w,h,flip,footY:y+h};if(x<4||x+w>1276||!supportsFoot(x+w/2,y+h)||!propClears(r,plan)){plan.rejected.push(r);return false;}
+ const prop=(kind,x,y,w,flip=false,cluster=null)=>{
+  if(kind==='oak'||kind==='youngOak'){const old=atlas['maps/m01/style01/'+kind],footY=y+w*old.height/old.width;kind='roundedOak';y=footY-w*atlas['maps/m01/style01/roundedOak'].height/atlas['maps/m01/style01/roundedOak'].width;}
+  if(kind==='wheat')kind='shrub'; // Wild foliage rather than an agricultural motif.
+  const key='maps/m01/style01/'+kind,im=atlas[key],h=w*im.height/im.width,r={kind,x,y,w,h,flip,footY:y+h,...(cluster?{cluster}: {})};if(x<4||x+w>1276||!supportsFoot(x+w/2,y+h)||!propClears(r,plan)){plan.rejected.push(r);return false;}
   const shadow=scene.add.ellipse(x+w*.5,y+h-3,w*.66,Math.max(5,w*.12),0x244c32,.23).setDepth(-300);
   const frameName=kind+'/defined/'+Math.ceil(w*2);
   const v=scene.add.image(x+w/2,y+h,'__WHITE').setOrigin(.5,1).setDisplaySize(w,h).setFlipX(flip).setDepth(y+h-8);objects.push(shadow,v);pendingProps.push({name:frameName,source:im,widthWorld:w,sprite:v,heightWorld:h});plan.props.push(r);return true;};
@@ -106,6 +111,15 @@ export function mountStyle01World(scene,map,options={}){
  ]){const im=atlas['maps/m01/style01/'+kind],h=w*im.height/im.width;
   if(plan.props.every(a=>x>=a.x+a.w+6||x+w+6<=a.x||y>=a.y+a.h+6||y+h+6<=a.y))prop(kind,x,y,w);
  }
+ // Meadow families: additional broadleaf groups and companions at their feet.
+ for(const [x,y,w,flip]of[[60,160,75,true],[340,160,70,false],[450,155,72,true],[600,80,70,false],[760,95,60,true],[975,95,65,false],[1065,160,65,true],[485,570,55,false],[925,570,55,true]])prop('roundedOak',x,y,w,flip,'grove-'+x);
+ const anchors=plan.props.filter(p=>['roundedOak','arch','shrine','gate','pillar'].includes(p.kind));
+ for(const [i,a]of anchors.entries()){
+  const group='meadow-'+i,cx=a.x+a.w/2,foot=a.footY;
+  for(const [kind,dx,dy,w]of[['shrub',-a.w*.5,-21,42],['flowers',a.w*.20,-10,38],['ivyRock',-a.w*.15,-6,32],['flowers',-a.w*.50,14,30]]){
+   const im=atlas['maps/m01/style01/'+kind],h=w*im.height/im.width;prop(kind,cx+dx-w/2,foot+dy-h,w,i%2===0,group);
+  }
+ }
  const entryObjects=[];
  for(const [layer,depth]of[['back',-4750],['front',9000]]){const key='maps/m01/style01/entry-'+layer;definedKeys.add(key);scene.textures.addCanvas(key,makeEntryTexture(atlas,layer==='front'));const v=scene.add.image(ENTRY_BOUNDS.x,ENTRY_BOUNDS.y,key).setOrigin(0).setScale(.5).setDepth(depth);objects.push(v);entryObjects.push(v);}
  plan.entryAccess={kind:'rocky-overhang',canonicalSpawn:[...map.path[0]],occlusion:ENTRY_OCCLUSION};
@@ -119,7 +133,7 @@ export function mountStyle01World(scene,map,options={}){
  const resetVisuals=()=>{const ok=base.resetVisuals();preserve();return ok;};
  let disposed=false;
  return {...base,artVersion:STYLE01_VERSION,landscapePlan:plan,objects:[...base.objects,...objects],styleObjects:objects,entryObjects,
-  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture',textureDefinition:DEFINITION_VERSION,propTexelsPerWorldUnit:2,propAtlasCount:1,roadWidth:ROAD_WIDTH,roadContinuity:'C2-cubic-B-spline',entryAccess:'rocky-overhang'},
+  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture',textureDefinition:DEFINITION_VERSION,propTexelsPerWorldUnit:2,propAtlasCount:1,roadWidth:ROAD_WIDTH,roadContinuity:'C2-cubic-B-spline',entryAccess:'rocky-overhang',alignment:ALIGNMENT_VERSION,treeFamily:'M02-rounded-oak',biome:'open-meadow'},
   paintPanoramaGutters(ctx,r){const sx=r.width/1280,sy=r.height/768;for(const [side,extent] of [['left',r.left/sx],['right',(r.canvasWidth-r.left-r.width)/sx]]){if(extent<=0)continue;ctx.save();ctx.beginPath();side==='left'?ctx.rect(0,r.top,r.left,r.height):ctx.rect(r.left+r.width,r.top,r.canvasWidth-r.left-r.width,r.height);ctx.clip();ctx.translate(r.left,r.top);ctx.scale(sx,sy);ctx.drawImage(scene.textures.get('maps/m01/style01/entry-back').getSourceImage(),ENTRY_BOUNDS.x,ENTRY_BOUNDS.y,ENTRY_BOUNDS.width,ENTRY_BOUNDS.height);paintStyle01Road(ctx,map.path);ctx.drawImage(scene.textures.get('maps/m01/style01/entry-front').getSourceImage(),ENTRY_BOUNDS.x,ENTRY_BOUNDS.y,ENTRY_BOUNDS.width,ENTRY_BOUNDS.height);ctx.restore();}},
   setSocketVisualState,applyVisualSnapshot,projectEvent,resetVisuals,
   destroy(){if(disposed)return;disposed=true;objects.forEach(o=>o.destroy());base.destroy();for(const key of [TERRAIN_KEY,SCENIC_KEY,'maps/m01/style01/route','maps/m01/style01/pad','maps/m01/style01/mesa-tops','maps/m01/style01/cliff-faces','maps/m01/style01/water',...definedKeys,...Object.keys(atlas)])if(scene.textures.exists(key))scene.textures.remove(key);},

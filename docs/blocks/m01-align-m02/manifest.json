@@ -1,0 +1,20 @@
+{
+  "base": "90dce477ddc91fde2d300c2f8dc5e2a636aa1f7b",
+  "version": "m01-align-m02-cartoon-v1",
+  "productModules": {
+    "public/official/src/maps-visual/m01/style01/cartoon-world.mjs": "89d3390e9406e97126f3c1ad10a06f8766580d6f77c0df64bbfae9778649c552",
+    "public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs": "787b123140acd6065d9119ac6535bdacbb60c8a3bb1fc7fc24cf9a4490786070",
+    "public/official/src/maps-visual/m01/style01/m02-alignment.mjs": "83c8b17eaa3606fc7849f32680d92b9aeda6c8e080ebb56e2099a1955d90161a"
+  },
+  "newOrModifiedAssets": [],
+  "readOnlySharedAssets": {
+    "public/official/art/maps/m02/cartoon03/materials-original.png": "7b45ff51b664847631ee824791545557e0bd2c8cfde3140738b2d829089bb427",
+    "public/official/art/maps/m02/cartoon03/rural-atlas-original.png": "9a2e9c26082356101c57d42990d0de36e6bd9dd283afc7e215964beaaee730db"
+  },
+  "sharedUse": "Only grass band and isolated connected-alpha oak; no M02 buildings/crops/bridge/cart registered or rendered in M01",
+  "protected": [
+    "M01 road/entry/pad/portal/relief geometry",
+    "all M02 source and assets",
+    "gameplay/core/UI/actors/towers/data"
+  ]
+}
