@@ -1,0 +1,45 @@
+name: M04 Cartoon01 — arte, camino C2 y smoke
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths:
+      - 'public/official/src/maps-visual/m04/**'
+      - 'public/official/src/c1d8-b2-playable/scene-m04.mjs'
+      - 'public/official/art/maps/m04/cartoon01/**'
+      - 'tools/qa-m04-cartoon01-*.mjs'
+      - 'docs/blocks/m04-cartoon01/**'
+      - '.github/workflows/m04-cartoon01-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  art-contract-build-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Alcance, campaña protegida y geometría C2
+        run: |
+          node tools/qa-m04-cartoon01-art.mjs
+          node tools/qa-m04-cartoon01-geometry.mjs
+          node tools/qa-m04-campaign.mjs
+      - name: Build Phaser y Chromium
+        run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - name: WebGL2, camino, nueve pads, combate y regresiones
+        run: node tools/qa-m04-cartoon01-browser.mjs
+      - name: Capturas y resultados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: M04-CARTOON01-PC-MOVIL
+          path: artifacts/m04-cartoon01/
+          retention-days: 14

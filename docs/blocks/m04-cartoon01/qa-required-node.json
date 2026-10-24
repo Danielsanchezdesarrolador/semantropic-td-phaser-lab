@@ -1,0 +1,52 @@
+[
+  {
+    "file": "tools/qa-m04-campaign.mjs",
+    "status": "PASS",
+    "detail": "havior pending\",\n    \"navNodes\": 262,\n    \"navRepaths\": 0\n  },\n  \"defeat\": {\n    \"contract\": \"m04-game01-eleven-canonical-waves-v1\",\n    \"mapId\": 4,\n    \"mode\": \"normal\",\n    \"wave\": 7,\n    \"active\": false,\n    \"ended\": true,\n    \"won\": false,\n    \"paused\": false,\n    \"lives\": 0,\n    \"gold\": 818,\n    \"kills\": 0,\n    \"escaped\": 50,\n    \"totalSpawns\": 52,\n    \"spawnsRemaining\": 0,\n    \"enemies\": 2,\n    \"bullets\": 0,\n    \"onlySniperCombat\": false,\n    \"infantryCombatImplemented\": true,\n    \"corePersistsRecords\": false,\n    \"soldiers\": 0,\n    \"soldiersRespawning\": 0,\n    \"infantryPathfinding\": \"campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending\",\n    \"navNodes\": 262,\n    \"navRepaths\": 0\n  },\n  \"heals\": 12,\n  \"crossedBridges\": [\n    0,\n    1\n  ],\n  \"perWave\": [\n    {\n      \"wave\": 1,\n      \"kills\": 6,\n      \"escaped\": 0,\n      \"gold\": 261\n    },\n    {\n      \"wave\": 2,\n      \"kills\": 11,\n      \"escaped\": 0,\n      \"gold\": 278\n    },\n    {\n      \"wave\": 3,\n      \"kills\": 18,\n      \"escaped\": 0,\n      \"gold\": 320\n    },\n    {\n      \"wave\": 4,\n      \"kills\": 23,\n      \"escaped\": 0,\n      \"gold\": 228\n    },\n    {\n      \"wave\": 5,\n      \"kills\": 33,\n      \"escaped\": 0,\n      \"gold\": 344\n    },\n    {\n      \"wave\": 6,\n      \"kills\": 43,\n      \"escaped\": 0,\n      \"gold\": 331\n    },\n    {\n      \"wave\": 7,\n      \"kills\": 52,\n      \"escaped\": 0,\n      \"gold\": 414\n    },\n    {\n      \"wave\": 8,\n      \"kills\": 58,\n      \"escaped\": 0,\n      \"gold\": 293\n    },\n    {\n      \"wave\": 9,\n      \"kills\": 66,\n      \"escaped\": 1,\n      \"gold\": 387\n    },\n    {\n      \"wave\": 10,\n      \"kills\": 73,\n      \"escaped\": 6,\n      \"gold\": 278\n    },\n    {\n      \"wave\": 11,\n      \"kills\": 80,\n      \"escaped\": 14,\n      \"gold\": 206\n    }\n  ]\n}\n"
+  },
+  {
+    "file": "docs/direccion-general/qa-r3b-m02-core.mjs",
+    "status": "PASS",
+    "detail": "{\n  \"status\": \"PASS_R3B1_M02_CORE_SEVEN_WAVES\",\n  \"mapId\": 2,\n  \"route\": 163,\n  \"pads\": 8,\n  \"waves\": 7,\n  \"spawns\": 80,\n  \"kills\": 80,\n  \"escaped\": 0,\n  \"lives\": 100,\n  \"enemyTypes\": [\n    \"archer\",\n    \"hound\",\n    \"shieldbearer\",\n    \"warrior\"\n  ],\n  \"archerRangedDamage\": 9,\n  \"shieldHpFirst\": true,\n  \"gold\": 2632,\n  \"livem01Unchanged\": true,\n  \"notYetPlayableInPhaser\": true\n}\n"
+  },
+  {
+    "file": "tools/qa-c1d2-five-waves.mjs",
+    "status": "PASS",
+    "detail": "\"label\":\"coverage_tempos\",\"status\":\"VICTORY\",\"scriptedNotHuman\":true,\"turns\":5,\"waves\":[{\"wave\":1,\"ticks\":721,\"spawns\":8,\"leaks\":0,\"kills\":8,\"lives\":100,\"gold\":183,\"outcome\":\"wave_clear\"},{\"wave\":2,\"ticks\":1189,\"spawns\":18,\"leaks\":0,\"kills\":18,\"lives\":100,\"gold\":211,\"outcome\":\"wave_clear\"},{\"wave\":3,\"ticks\":1019,\"spawns\":29,\"leaks\":0,\"kills\":29,\"lives\":100,\"gold\":311,\"outcome\":\"wave_clear\"},{\"wave\":4,\"ticks\":1303,\"spawns\":42,\"leaks\":0,\"kills\":42,\"lives\":100,\"gold\":457,\"outcome\":\"wave_clear\"},{\"wave\":5,\"ticks\":1541,\"spawns\":63,\"leaks\":0,\"kills\":63,\"lives\":100,\"gold\":23,\"outcome\":\"victory\"}],\"spawns\":63,\"kills\":63,\"escapes\":0,\"lives\":100,\"gold\":23,\"bountyTransactions\":63,\"waveBonusTransactions\":4,\"coinsFromKills\":927,\"purchased\":13,\"steps\":5773,\"events\":667}\nC1D2_FULL_SESSION_RESULT {\n  \"test\": \"C1D2_M01_FULL_SESSION_CHARACTERIZATION\",\n  \"canonicWaveSpawns\": [\n    8,\n    10,\n    11,\n    13,\n    21\n  ],\n  \"noDefense\": {\n    \"status\": \"DEFEAT\",\n    \"escapes\": 50\n  },\n  \"oneSniper\": {\n    \"status\": \"VICTORY\",\n    \"kills\": 21\n  },\n  \"strategyTrials\": [\n    {\n      \"name\": \"coverage_early_mid_late\",\n      \"outcome\": \"VICTORY\",\n      \"kills\": 63,\n      \"leaks\": 0,\n      \"lives\": 100,\n      \"waves\": 5\n    },\n    {\n      \"name\": \"coverage_mid_first\",\n      \"outcome\": \"VICTORY\",\n      \"kills\": 63,\n      \"leaks\": 0,\n      \"lives\": 100,\n      \"waves\": 5\n    },\n    {\n      \"name\": \"coverage_power\",\n      \"outcome\": \"VICTORY\",\n      \"kills\": 63,\n      \"leaks\": 0,\n      \"lives\": 100,\n      \"waves\": 5\n    },\n    {\n      \"name\": \"coverage_tempos\",\n      \"outcome\": \"VICTORY\",\n      \"kills\": 63,\n      \"leaks\": 0,\n      \"lives\": 100,\n      \"waves\": 5\n    }\n  ],\n  \"demonstratedFiveWaveWin\": true,\n  \"passesCoreIntegrity\": true,\n  \"visualMTPIntegrated\": false,\n  \"physicalMobileNotRun\": true\n}\n"
+  },
+  {
+    "file": "docs/art/towers/qa-t09.mjs",
+    "status": "PASS",
+    "detail": "{\n  \"status\": \"PASS\",\n  \"scope\": \"NODE_PURE_AND_MOCK_DOM_NOT_CHROMIUM\",\n  \"layoutCases\": 20,\n  \"icons\": 9,\n  \"repeatOpenClose\": 100,\n  \"listenerLeaks\": 0,\n  \"t04Unchanged\": 4,\n  \"costs\": \"FROM_DTO\",\n  \"coreMutations\": 0\n}\n"
+  },
+  {
+    "file": "tools/qa-m03-campaign.mjs",
+    "status": "PASS",
+    "detail": "yCombatImplemented\": true,\n    \"corePersistsRecords\": false,\n    \"soldiers\": 0,\n    \"soldiersRespawning\": 0,\n    \"infantryPathfinding\": \"campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending\",\n    \"navNodes\": 188,\n    \"navRepaths\": 0\n  },\n  \"defeat\": {\n    \"contract\": \"m03-nine-wave-canonical-v1\",\n    \"mapId\": 3,\n    \"mode\": \"normal\",\n    \"wave\": 6,\n    \"active\": false,\n    \"ended\": true,\n    \"won\": false,\n    \"paused\": false,\n    \"lives\": 0,\n    \"gold\": 842,\n    \"kills\": 0,\n    \"escaped\": 50,\n    \"totalSpawns\": 51,\n    \"spawnsRemaining\": 0,\n    \"enemies\": 1,\n    \"bullets\": 0,\n    \"onlySniperCombat\": false,\n    \"infantryCombatImplemented\": true,\n    \"corePersistsRecords\": false,\n    \"soldiers\": 0,\n    \"soldiersRespawning\": 0,\n    \"infantryPathfinding\": \"campaign Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending\",\n    \"navNodes\": 188,\n    \"navRepaths\": 0\n  },\n  \"perWave\": [\n    {\n      \"wave\": 1,\n      \"kills\": 8,\n      \"escaped\": 0,\n      \"gold\": 322\n    },\n    {\n      \"wave\": 2,\n      \"kills\": 16,\n      \"escaped\": 0,\n      \"gold\": 251\n    },\n    {\n      \"wave\": 3,\n      \"kills\": 26,\n      \"escaped\": 0,\n      \"gold\": 357\n    },\n    {\n      \"wave\": 4,\n      \"kills\": 34,\n      \"escaped\": 0,\n      \"gold\": 337\n    },\n    {\n      \"wave\": 5,\n      \"kills\": 42,\n      \"escaped\": 0,\n      \"gold\": 276\n    },\n    {\n      \"wave\": 6,\n      \"kills\": 51,\n      \"escaped\": 0,\n      \"gold\": 421\n    },\n    {\n      \"wave\": 7,\n      \"kills\": 66,\n      \"escaped\": 0,\n      \"gold\": 495\n    },\n    {\n      \"wave\": 8,\n      \"kills\": 79,\n      \"escaped\": 1,\n      \"gold\": 563\n    },\n    {\n      \"wave\": 9,\n      \"kills\": 93,\n      \"escaped\": 8,\n      \"gold\": 481\n    }\n  ]\n}\n"
+  },
+  {
+    "file": "tools/qa-c1d8-b1-rally-core.mjs",
+    "status": "PASS",
+    "detail": "{\n  \"status\": \"PASS_C1D8_B1_A3_RALLY_DOWNTIME_MOVEMENT\",\n  \"pad\": 0,\n  \"from\": [\n    [\n      96,\n      488\n    ],\n    [\n      111,\n      488\n    ]\n  ],\n  \"to\": [\n    [\n      85.04378592226084,\n      356.3621430158866\n    ],\n    [\n      68.31316640567826,\n      384.83266403112594\n    ]\n  ],\n  \"nodeId\": 7,\n  \"initialDistance\": 242.61998669315653,\n  \"finalDistance\": 33.0616718420835,\n  \"pausedNoMovement\": true,\n  \"activeWaveSpawns\": 8,\n  \"noFakeGold\": true\n}\n"
+  },
+  {
+    "file": "tools/qa-b02-map-art.mjs",
+    "status": "PASS",
+    "detail": "PASS_B02_ART_ONLY_163_NODES_8_PADS_7_WAVES_80_ENEMIES_395_GOLD_PROTECTED_RUNTIME\n"
+  },
+  {
+    "file": "tools/qa-b04-map-art.mjs",
+    "status": "PASS",
+    "detail": "PASS_B04_ART_ONLY_262_NODES_9_PAINTED_PADS_2_CANONICAL_BRIDGES_NO_GAMEPLAY\n"
+  },
+  {
+    "file": "tools/qa-m04-hf1-art.mjs",
+    "status": "PASS",
+    "detail": "PASS_M04_HF1_SINGLE_PAINTING_262_NODES_9_ANCHORED_PADS_2_BRIDGES_NO_FOLDS_NO_GAMEPLAY\n"
+  },
+  {
+    "file": "docs/direccion-general/qa-r3c-m02-scene.mjs",
+    "status": "PASS",
+    "detail": "PASS_R3C_M02_ISOLATED_MAP_SELECTION_ART_AND_RECORDS\n"
+  }
+]

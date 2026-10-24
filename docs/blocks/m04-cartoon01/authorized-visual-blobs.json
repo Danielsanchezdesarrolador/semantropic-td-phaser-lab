@@ -1,0 +1,14 @@
+{
+  "public/official/src/maps-visual/m03/forest-art.mjs": {
+    "before": "a2736c3ec3985b240a8bebd38ebcb00cd7687b61",
+    "after": "bb3ba9040bac10be87748dd408e3a67b5f6ad55d",
+    "approvedProductionBase": "ea34a3797dfceb647354d311a9f06fb82743890c",
+    "reason": "Approved map art history through PR68; runtime/core remain pinned"
+  },
+  "public/official/src/maps-visual/m02/phaser-world.mjs": {
+    "before": "e03ab5b0c4e0ec963eeca71e32d224ca4daeb16a",
+    "after": "246a1efdfe5d50421795c9019df9bc10cda9c47f",
+    "approvedProductionBase": "ea34a3797dfceb647354d311a9f06fb82743890c",
+    "reason": "Approved map art history through PR68; runtime/core remain pinned"
+  }
+}
