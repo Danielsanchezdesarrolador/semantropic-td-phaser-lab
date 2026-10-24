@@ -1,0 +1,38 @@
+{
+  "status": "PASS_BEFORE_AFTER_FROZEN_TEXTURES_AND_LAYOUT",
+  "base": "90dce477ddc91fde2d300c2f8dc5e2a636aa1f7b",
+  "results": [
+    {
+      "profile": "desktop",
+      "beforeVersion": "m01-hf-geometry01-cartoon-v1",
+      "afterVersion": "m01-align-m02-cartoon-v1",
+      "beforePropCount": 50,
+      "afterPropCount": 144,
+      "frozenTextures": {
+        "route": "6a88b74398e7fddc8c2cc138440b13c3bf9e778c427921fa5031ad0ff5fbf0fe",
+        "cliff-faces": "34c53354d6b9a86063da05dba2644628da4e088efd697af9c02baaedec03e0f8",
+        "pad": "c8e5a31a063fc86a3664ce5c58bb6a34e0468fa26c28b889201e28e5418920bf",
+        "entry-front": "137acbd07c4118512b3722d5002a2310ffe689080052f1772dbb98b901b03a50",
+        "entry-back": "56582df53455d9aa3dcb888cbfae076be0fd3e796727eba048895ea50199d07e"
+      },
+      "reliefFormationsUnchanged": true,
+      "errors": []
+    },
+    {
+      "profile": "mobile",
+      "beforeVersion": "m01-hf-geometry01-cartoon-v1",
+      "afterVersion": "m01-align-m02-cartoon-v1",
+      "beforePropCount": 50,
+      "afterPropCount": 144,
+      "frozenTextures": {
+        "route": "6a88b74398e7fddc8c2cc138440b13c3bf9e778c427921fa5031ad0ff5fbf0fe",
+        "cliff-faces": "34c53354d6b9a86063da05dba2644628da4e088efd697af9c02baaedec03e0f8",
+        "pad": "c8e5a31a063fc86a3664ce5c58bb6a34e0468fa26c28b889201e28e5418920bf",
+        "entry-front": "137acbd07c4118512b3722d5002a2310ffe689080052f1772dbb98b901b03a50",
+        "entry-back": "56582df53455d9aa3dcb888cbfae076be0fd3e796727eba048895ea50199d07e"
+      },
+      "reliefFormationsUnchanged": true,
+      "errors": []
+    }
+  ]
+}

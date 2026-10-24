@@ -14,8 +14,16 @@ export const MESAS=Object.freeze([
  {id:'front-river-bank',height:83,back:[[-100,768]],edge:SHORE,shore:true},
 ]);
 export function shoreY(x){for(let i=1;i<SHORE.length;i++){const a=SHORE[i-1],b=SHORE[i];if(x<=b[0])return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);}return SHORE.at(-1)[1];}
-function grassField(source){
+function grassField(source,referenceGrass=null){
  const v=canvas(),c=v.getContext('2d');c.scale(S,S);const band=source.height/3;
+ if(referenceGrass){
+  c.fillStyle='#a4d83d';c.fillRect(0,0,W,H);
+  const tile=Object.assign(document.createElement('canvas'),{width:2560,height:800}),t=crispContext(tile);t.scale(S,S);t.drawImage(referenceGrass,0,260,1536,480,0,0,1280,400);
+  t.globalCompositeOperation='destination-in';const fade=t.createLinearGradient(0,0,0,400);fade.addColorStop(0,'#0000');fade.addColorStop(.075,'#000');fade.addColorStop(.925,'#000');fade.addColorStop(1,'#0000');t.fillStyle=fade;t.fillRect(0,0,1280,400);
+  for(let y=-40;y<H;y+=360)c.drawImage(tile,0,y,1280,400);
+  return v;
+ }
+
  c.fillStyle='#9fc83e';c.fillRect(0,0,W,H);
  // Uniform material scale. Feather overlaps avoid a seam between material repeats.
  const tile=document.createElement('canvas');tile.width=2560;tile.height=568;
@@ -31,8 +39,8 @@ function waterField(source){
  for(let y=490;y<H;y+=120)for(let x=-70;x<W;x+=592)c.drawImage(tile,x,y,640,142);
  return v;
 }
-export function makeFidelitySubstrate(source){
- const v=grassField(source),c=v.getContext('2d');c.setTransform(S,0,0,S,0,0);const band=source.height/3;
+export function makeFidelitySubstrate(source,referenceGrass=null){
+ const v=grassField(source,referenceGrass),c=v.getContext('2d');c.setTransform(S,0,0,S,0,0);const band=source.height/3;
  c.drawImage(source,0,0,source.width,band,0,0,W,145);
  const water=canvas(),wc=water.getContext('2d');wc.scale(S,S);wc.save();polygon(wc,[...SHORE.map(([x,y])=>[x,y+16]),[1380,800],[-100,800]]);wc.clip();
  wc.drawImage(waterField(source),0,0,W,H);wc.restore();
@@ -44,9 +52,9 @@ export function supportsFoot(x,y){
  for(const m of MESAS){if(m.shore)continue;const edge=yOnEdge([...m.edge].sort((a,b)=>a[0]-b[0]),x);if(edge!==null&&y>edge-7&&y<edge+m.height+6)return false;}
  return true;
 }
-export function makeFidelityRelief(atlas,source){
+export function makeFidelityRelief(atlas,source,referenceGrass=null){
  const top=canvas(),face=canvas(),tc=top.getContext('2d'),fc=face.getContext('2d');tc.scale(S,S);fc.scale(S,S);
- const ground=grassField(source),formations=[];
+ const ground=grassField(source,referenceGrass),formations=[];
  for(const m of MESAS){
   const edge=[...m.edge].sort((a,b)=>a[0]-b[0]);
   if(!m.shore){tc.save();polygon(tc,[...m.back,...m.edge]);tc.clip();tc.beginPath();tc.rect(0,145,W,H-145);tc.clip();tc.drawImage(ground,0,0,W,H);tc.restore();}
