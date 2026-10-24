@@ -1,0 +1,53 @@
+{
+  "block": "MAP-ART-03-CARTOON-V1",
+  "base": "58b3e79e19a1d7ab16282a39bded4e8a32756568",
+  "version": "m03-cartoon01-enchanted-forest-v1",
+  "scope": "M03 art only",
+  "productFiles": [
+    "public/official/src/maps-visual/m03/forest-art.mjs",
+    "public/official/src/maps-visual/m03/phaser-world.mjs",
+    "public/official/src/maps-visual/m03/cartoon01/road-geometry.mjs",
+    "public/official/src/maps-visual/m03/cartoon01/forest-world.mjs",
+    "public/official/src/maps-visual/m03/cartoon01/surfaces.mjs",
+    "public/official/src/maps-visual/m03/cartoon01/assets.mjs",
+    "public/official/art/maps/m03/cartoon01/forest-atlas-original.png"
+  ],
+  "protectedBlobs": {
+    "public/JUEGO_V5_CANVAS.html": "9b800007bd7a6b591b01a11c5e1344cbee2a7df2",
+    "public/official/data/maps.v5.json": "1da0e20145e1312f3d75443debabea17e3db507c",
+    "public/official/data/campaign140.v5.json": "794cf43f9b172a39dd88f02e2a89ea11455064c3",
+    "public/official/src/m01-model.mjs": "0792c46bbb3d82baa4edd9aa9203b2021b3d69eb",
+    "public/official/src/c1d8-b2-playable/scene-m03.mjs": "b7278c38e9213461b1b74a3e85d12160a216aa44",
+    "public/official/src/core-c1d/m03-campaign.mjs": "5c83a7dd1862b834aecff7b6d56443ddc40617fd",
+    "public/official/art/maps/m03/forest-props-original.png": "6381edd208a53d5caeda1eed227e16ae81404790",
+    "public/official/art/maps/m03/forest-terrain-original.png": "c92f33b4d70c2c68490e938b5691bf2ab9da37d1",
+    "public/official/art/maps/m02/cartoon03/materials-original.png": "68f9de454cd2582c94b547546973ac239eb01e66",
+    "public/official/art/maps/m02/cartoon03/cliffs-original.png": "baf5bbea48ead0b3b6a579e7d7f717ea7ffd685f"
+  },
+  "source": "original image generation, six separate connected alpha components; reference image never flattened into map",
+  "readOnlySharedArt": [
+    "M02 generic grass material crop",
+    "M02 cliff motifs"
+  ],
+  "gameplay": {
+    "routePoints": 188,
+    "pads": 8,
+    "gold": 410,
+    "lives": 100,
+    "waves": 9,
+    "enemies": 101,
+    "waveCounts": [
+      8,
+      8,
+      10,
+      8,
+      8,
+      9,
+      15,
+      14,
+      21
+    ]
+  },
+  "physicalMobile": "NOT_RUN",
+  "artApproval": "PENDING_DIRECTOR"
+}
