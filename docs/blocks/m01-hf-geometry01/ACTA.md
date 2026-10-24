@@ -35,4 +35,4 @@ QA: `tools/qa-map-style01-art.mjs`, `tools/qa-map-style01-browser.mjs`, nuevo `t
 
 Rollback: revert normal del merge de esta PR en producción; misma URL oficial. No reinicios de sistemas ni sitios públicos nuevos.
 
-La QA añade ataque a un enemigo que ya superó x70 mediante compras UI durante la pausa y reanudación normal. Exige tiro, baja y desaparición de ese mismo ID: prueba focalizada de combate más allá del labio de entrada (x≤24), sin fabricar eventos ni editar reglas. Evidencia `entry-visible-combat.png` en CI.
+La QA añade ataque a un enemigo que ya superó x70 mediante reanudación normal y compras UI con la partida activa (la pausa aprobada es de solo lectura). Exige tiro, baja y desaparición de ese mismo ID: prueba focalizada de combate más allá del labio de entrada (x≤24), sin fabricar eventos ni editar reglas. Evidencia `entry-visible-combat.png` en CI.
