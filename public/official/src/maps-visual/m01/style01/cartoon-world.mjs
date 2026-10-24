@@ -1,9 +1,11 @@
+import {makeEntryTexture,ENTRY_BOUNDS,ENTRY_OCCLUSION} from './entry-access.mjs';
+import {paintGeometricRoad,ROAD_WIDTH} from './road-geometry.mjs';
 import {preparePropAtlas,DEFINITION_VERSION} from './texture-definition.mjs';
 /** MAP-STYLE-01: original component scene; no full-map raster or gameplay writes. */
 import {mountM01WorldV7} from '../m07/renderer-v7.mjs';
 import {makeFidelitySubstrate,makeFidelityRelief,supportsFoot} from './fidelity-terrain.mjs';
 import {makeR7MapPlan} from '../r7/dawn-plateau-art.mjs';
-export const STYLE01_VERSION='m01-texture-definition-cartoon-v1';
+export const STYLE01_VERSION='m01-hf-geometry01-cartoon-v1';
 export const TERRAIN_KEY='maps/m01/r7/dawn-plateau/v1';
 export const SCENIC_KEY='maps/m01/r7/dawn-plateau/scenic-gutters/hf2';
 export const ASSETS=Object.freeze({terrain:new URL('../../../../art/maps/m01/fidelity01/materials-original.png',import.meta.url).href,nature:new URL('../../../../art/maps/m01/fidelity01/nature-atlas-original.png',import.meta.url).href,details:new URL('../../../../art/maps/m01/style01/details-atlas-original.png',import.meta.url).href,cliffs:new URL('../../../../art/maps/m01/fidelity01/cliffs-atlas-original.png',import.meta.url).href,structures:new URL('../../../../art/maps/m01/fidelity01/structures-atlas-original.png',import.meta.url).href});
@@ -20,22 +22,8 @@ export function propClears(r,plan){
  return plan.pads.every(p=>Math.hypot(Math.max(r.x-p.x,0,p.x-r.x-r.w),Math.max(r.y-p.y,0,p.y-r.y-r.h))>57);
 }
 /** Same world-space brush for the WebGL texture and FIT extension. */
-export function paintStyle01Road(c,path){
- const pts=path.map(p=>[...p]);
- for(const side of [-1,1]){const a=side<0?pts[0]:pts.at(-1),b=side<0?pts[1]:pts.at(-2),len=Math.hypot(a[0]-b[0],a[1]-b[1]);const p=[a[0]+(a[0]-b[0])/len*2200,a[1]+(a[1]-b[1])/len*2200];side<0?pts.unshift(p):pts.push(p);}
- // Midpoint quadratic joins remove the scalloped offset polygon. The authoritative
- // waypoints are untouched; the visual center differs by less than a route sample.
- const stroke=(color,width)=>{c.beginPath();c.moveTo(...pts[0]);for(let i=1;i<pts.length-1;i++)c.quadraticCurveTo(...pts[i],(pts[i][0]+pts[i+1][0])/2,(pts[i][1]+pts[i+1][1])/2);c.lineTo(...pts.at(-1));c.lineJoin='round';c.lineCap='round';c.strokeStyle=color;c.lineWidth=width;c.stroke();};
- stroke('#604c34',79);stroke('#d79c54',76);stroke('#f2c57c',72);
- const r=rng(101);
- for(let i=1;i<path.length-1;i++){
-  const p=path[i],a=path[i-1],b=path[i+1],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1;
-  if(i%2===0){const d=(r()-.5)*44,x=p[0]-dy/len*d,y=p[1]+dx/len*d;poly(c,[[x-7,y-2],[x+1,y-4],[x+7,y-1],[x+9,y+2],[x+2,y+4],[x-6,y+2]],i%4?'#d89b5065':'#ffdb9355');}
-  if(i%2===0)for(const side of [-1,1]){const d=side*40,x=p[0]-dy/len*d,y=p[1]+dx/len*d;poly(c,[[x-2,y+1],[x-1,y-2-r()*2],[x+1,y],[x+3,y-2],[x+3,y+1]],'#8dad38');}
-  for(let k=0;k<2;k++){const d=(r()-.5)*56,x=p[0]-dy/len*d+(r()-.5)*7,y=p[1]+dx/len*d;ellipse(c,x,y,.5+r()*.7,.35,'#bd995d26');}
- }
+export const paintStyle01Road=paintGeometricRoad;
 
-}
 function makePad(){const v=canvas(192,192),c=v.getContext('2d');c.scale(2,2);c.translate(48,60);
  // Recessed warm masonry, contact earth and short rock base, not a cyan puck.
  ellipse(c,1,3,44,20,'#30432778');ellipse(c,0,0,43,19,'#8b7950','#586139',1.3);
@@ -110,6 +98,17 @@ export function mountStyle01World(scene,map,options={}){
   ['youngOak',845,540,72,true],['cypress',825,520,31],['flowers',895,580,46],['shrub',370,615,43],['shrub',500,390,48],
   ['shrub',15,290,48],['shrub',570,320,48],['shrub',1130,360,48],['shrub',720,375,50],
  ])prop(kind,x,y,w,flip);
+ // Extra landscape pockets: keep every previous prop and all tactical surfaces.
+ for(const [kind,x,y,w]of[
+  ['oak',570,112,48],['youngOak',710,95,65],['oak',825,90,80],['youngOak',925,95,60],['youngOak',550,580,58],
+  ['shrub',30,550,33],['shrub',290,610,35],['shrub',1110,390,31],
+  ['flowers',670,450,25],['flowers',330,470,25],['flowers',170,530,27],['flowers',1025,610,30],['rocks',430,630,30],
+ ]){const im=atlas['maps/m01/style01/'+kind],h=w*im.height/im.width;
+  if(plan.props.every(a=>x>=a.x+a.w+6||x+w+6<=a.x||y>=a.y+a.h+6||y+h+6<=a.y))prop(kind,x,y,w);
+ }
+ const entryObjects=[];
+ for(const [layer,depth]of[['back',-4750],['front',9000]]){const key='maps/m01/style01/entry-'+layer;definedKeys.add(key);scene.textures.addCanvas(key,makeEntryTexture(atlas,layer==='front'));const v=scene.add.image(ENTRY_BOUNDS.x,ENTRY_BOUNDS.y,key).setOrigin(0).setScale(.5).setDepth(depth);objects.push(v);entryObjects.push(v);}
+ plan.entryAccess={kind:'rocky-overhang',canonicalSpawn:[...map.path[0]],occlusion:ENTRY_OCCLUSION};
  const packed=preparePropAtlas(pendingProps),packedKey='maps/m01/style01/defined-atlas',packedTexture=scene.textures.addCanvas(packedKey,packed.canvas);definedKeys.add(packedKey);
  for(const f of packed.frames)packedTexture.add(f.name,0,f.x,f.y,f.width,f.height);
  for(const p of pendingProps)p.sprite.setTexture(packedKey,p.name).setDisplaySize(p.widthWorld,p.heightWorld);
@@ -119,9 +118,9 @@ export function mountStyle01World(scene,map,options={}){
  const projectEvent=e=>{const result=base.projectEvent(e);preserve();return result;};
  const resetVisuals=()=>{const ok=base.resetVisuals();preserve();return ok;};
  let disposed=false;
- return {...base,artVersion:STYLE01_VERSION,landscapePlan:plan,objects:[...base.objects,...objects],styleObjects:objects,
-  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture',textureDefinition:DEFINITION_VERSION,propTexelsPerWorldUnit:2,propAtlasCount:1},
-  paintPanoramaGutters(ctx,r){const sx=r.width/1280,sy=r.height/768;for(const [side,extent] of [['left',r.left/sx],['right',(r.canvasWidth-r.left-r.width)/sx]]){if(extent<=0)continue;ctx.save();ctx.beginPath();side==='left'?ctx.rect(0,r.top,r.left,r.height):ctx.rect(r.left+r.width,r.top,r.canvasWidth-r.left-r.width,r.height);ctx.clip();ctx.translate(r.left,r.top);ctx.scale(sx,sy);paintStyle01Road(ctx,map.path);ctx.restore();}},
+ return {...base,artVersion:STYLE01_VERSION,landscapePlan:plan,objects:[...base.objects,...objects],styleObjects:objects,entryObjects,
+  premiumArt:{version:STYLE01_VERSION,width:2560,height:1536,geometricalPads:8,pathVertices:133,composition:'separate-Phaser-components',foregroundSprites:plan.props.length,reliefFormations:relief.formations.length,relief:'separate-illustrated-cliff-faces-and-tops',waterLayer:'independent-canvas-texture',textureDefinition:DEFINITION_VERSION,propTexelsPerWorldUnit:2,propAtlasCount:1,roadWidth:ROAD_WIDTH,roadContinuity:'C2-cubic-B-spline',entryAccess:'rocky-overhang'},
+  paintPanoramaGutters(ctx,r){const sx=r.width/1280,sy=r.height/768;for(const [side,extent] of [['left',r.left/sx],['right',(r.canvasWidth-r.left-r.width)/sx]]){if(extent<=0)continue;ctx.save();ctx.beginPath();side==='left'?ctx.rect(0,r.top,r.left,r.height):ctx.rect(r.left+r.width,r.top,r.canvasWidth-r.left-r.width,r.height);ctx.clip();ctx.translate(r.left,r.top);ctx.scale(sx,sy);ctx.drawImage(scene.textures.get('maps/m01/style01/entry-back').getSourceImage(),ENTRY_BOUNDS.x,ENTRY_BOUNDS.y,ENTRY_BOUNDS.width,ENTRY_BOUNDS.height);paintStyle01Road(ctx,map.path);ctx.drawImage(scene.textures.get('maps/m01/style01/entry-front').getSourceImage(),ENTRY_BOUNDS.x,ENTRY_BOUNDS.y,ENTRY_BOUNDS.width,ENTRY_BOUNDS.height);ctx.restore();}},
   setSocketVisualState,applyVisualSnapshot,projectEvent,resetVisuals,
   destroy(){if(disposed)return;disposed=true;objects.forEach(o=>o.destroy());base.destroy();for(const key of [TERRAIN_KEY,SCENIC_KEY,'maps/m01/style01/route','maps/m01/style01/pad','maps/m01/style01/mesa-tops','maps/m01/style01/cliff-faces','maps/m01/style01/water',...definedKeys,...Object.keys(atlas)])if(scene.textures.exists(key))scene.textures.remove(key);},
   getMapPerformanceInfo:()=>({...base.getMapPerformanceInfo(),styleVersion:STYLE01_VERSION,foregroundSprites:plan.props.length,extraDisplayObjects:objects.length,physicalDeviceFPS:'NOT_MEASURED'})};

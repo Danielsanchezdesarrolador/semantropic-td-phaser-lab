@@ -1,0 +1,10 @@
+{
+  "status": "PASS_C2_WIDTH_CURVATURE_ROUTE_ALIGNMENT",
+  "segments": 132,
+  "samples": 6732,
+  "width": 64,
+  "previousWidth": 79,
+  "minRadius": 45.03940908601722,
+  "maxDeviation": 0.3281659758045489,
+  "canonicalPoints": 133
+}
