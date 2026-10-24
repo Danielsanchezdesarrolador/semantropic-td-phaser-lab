@@ -1,10 +1,12 @@
-name: B02 MAP-ART-02 — QA proporcional
+name: M02 Cartoon03 — QA proporcional
 on:
   pull_request:
     branches: [production/semantropic-td-live]
     paths:
       - 'public/official/src/maps-visual/m02/**'
-      - 'public/official/art/maps/m02/b02/**'
+      - 'public/official/art/maps/m02/**'
+      - 'tools/qa-m02-cartoon03-*.mjs'
+      - 'docs/blocks/m02-cartoon03/**'
       - 'tools/qa-b02-map-art.mjs'
       - 'tools/qa-r6-m02-premium-browser.mjs'
       - 'docs/direccion-general/qa-r6-m02-visual.mjs'
@@ -19,13 +21,18 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Contrato artístico, geometría y runtime protegido
         run: |
           node --check public/official/src/maps-visual/m02/b02/pictoric-farmland.mjs
+          node --check public/official/src/maps-visual/m02/cartoon03/farmland-world.mjs
+          node --check public/official/src/maps-visual/m02/cartoon03/atlas.mjs
           node tools/qa-b02-map-art.mjs
+          node tools/qa-m02-cartoon03-art.mjs
           node docs/direccion-general/qa-r6-m02-visual.mjs
           node docs/direccion-general/qa-r3c-m02-scene.mjs
       - name: Build Phaser y Chromium
@@ -40,6 +47,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: B02-M02-PICTORICO-PC-MOVIL
-          path: artifacts/r6-m02-premium-browser/
+          name: M02-CARTOON03-PC-MOVIL
+          path: artifacts/m02-cartoon03/
           retention-days: 14

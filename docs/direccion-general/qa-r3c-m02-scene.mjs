@@ -34,7 +34,7 @@ assert(scene.includes('presentM02Arrow(this,ev)'),'Real enemy archer VFX missing
 assert(scene.includes('s.wave+"/"+waveCount')&&scene.includes('waveCount=config.waveCount??7'),'Seven-wave default HUD missing');
 assert(scene.includes('mapId=config.mapId??2')&&scene.includes('config.World??M01CombatWithInfantry'),'M02 default source missing');
 assert(scene.includes('saveVictory=config.saveVictory??m02SaveVictory'),'M02 record adapter missing');
-assert(renderer.includes('makeM02ArtCanvas(map,{density:2})'),'M02 2x canonical terrain missing');
+assert(renderer.includes('mountCartoon02Art(scene,map)'),'M02 2x canonical terrain missing');
 assert(actor.includes('shieldbearer')&&actor.includes('archer')&&actor.includes('mountM02EnemyGear'),'Missing M02 actor accessories');
 const result=m02Result({ended:true,won:true,lives:100,escaped:0,kills:80,wave:7,gold:395,totalSpawns:80});
 assert(result&&result.map===2&&result.stars===3&&result.completedWaves===7);

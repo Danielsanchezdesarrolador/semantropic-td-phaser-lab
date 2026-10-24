@@ -1,0 +1,60 @@
+{
+  "base": "7fbec3b616ebb35a400767cb15d8c53b8f377aef",
+  "version": "m02-cartoon03-bold-rural-v1",
+  "modules": [
+    {
+      "path": "public/official/src/maps-visual/m02/phaser-world.mjs",
+      "sha256": "8b355578d489b5de8bf58234a22dc5f92b08bace56e85d2f488ddc2534d67637"
+    },
+    {
+      "path": "public/official/src/maps-visual/m02/cartoon03/atlas.mjs",
+      "sha256": "f58c760bbacb22f84752f2d5c221e643729e1f64b3b11330e42406946d4e9f5b"
+    },
+    {
+      "path": "public/official/src/maps-visual/m02/cartoon03/farmland-world.mjs",
+      "sha256": "a356ea5f9962814e221aafcdd321f14472ee3e92251b6ebebcd0cff85589a624"
+    },
+    {
+      "path": "public/official/src/maps-visual/m02/cartoon03/road-geometry.mjs",
+      "sha256": "2ed0b5a622ff77122343bba7b6df64b9e37bae600d8198f770507c8c8b0820bf"
+    },
+    {
+      "path": "public/official/src/maps-visual/m02/cartoon03/surfaces.mjs",
+      "sha256": "93cbd9393e269961ecf202192746454d102cf114b48901badeb3a555937903f5"
+    }
+  ],
+  "assets": [
+    {
+      "path": "public/official/art/maps/m02/cartoon03/cliffs-original.png",
+      "sha256": "6cfe40de082e7e96b0fc8c78f104880c15c76bc171bb9e81735216cd5cab6338",
+      "size": [
+        2172,
+        724
+      ],
+      "format": "RGBA",
+      "origin": "Original generated for this block with image_gen; not sampled from a map screenshot"
+    },
+    {
+      "path": "public/official/art/maps/m02/cartoon03/materials-original.png",
+      "sha256": "7b45ff51b664847631ee824791545557e0bd2c8cfde3140738b2d829089bb427",
+      "size": [
+        1536,
+        1024
+      ],
+      "format": "RGB",
+      "origin": "Original generated for this block with image_gen; not sampled from a map screenshot"
+    },
+    {
+      "path": "public/official/art/maps/m02/cartoon03/rural-atlas-original.png",
+      "sha256": "9a2e9c26082356101c57d42990d0de36e6bd9dd283afc7e215964beaaee730db",
+      "size": [
+        1536,
+        1024
+      ],
+      "format": "RGBA",
+      "origin": "Original generated for this block with image_gen; not sampled from a map screenshot"
+    }
+  ],
+  "unchanged": "All gameplay/core/data/UI/actors/towers/M01/M03/M04 and old M02 B02/R6 preserved",
+  "reference": "User51165.jpg style reference only, not authoritative geometry/stats or a runtime backdrop"
+}

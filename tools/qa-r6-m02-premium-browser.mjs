@@ -1,3 +1,5 @@
+import {readFileSync} from 'node:fs';
+if(readFileSync('public/official/src/maps-visual/m02/phaser-world.mjs','utf8').includes('cartoon03/farmland-world.mjs')){await import('./qa-m02-cartoon03-browser.mjs');process.exit(0);}
 /** R6 — Real Chromium/Phaser WebGL2 premium M02 visual integration.
  * The map is now PLAYABLE, old QA-only preview reports superseded.
  */
