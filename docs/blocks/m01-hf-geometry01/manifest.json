@@ -1,0 +1,17 @@
+{
+  "base": "0228fc599eda59287196e1445332f58ac6bb6e31",
+  "productModules": [
+    "public/official/src/maps-visual/m01/style01/cartoon-world.mjs",
+    "public/official/src/maps-visual/m01/style01/road-geometry.mjs",
+    "public/official/src/maps-visual/m01/style01/entry-access.mjs"
+  ],
+  "newOrModifiedAssets": [],
+  "originalAssetHashes": {
+    "public/official/art/maps/m01/fidelity01/materials-original.png": "78b426e142e73f8819fe8a6076c2a39f1135485142f663c9f5179d9949b88dcd",
+    "public/official/art/maps/m01/fidelity01/cliffs-atlas-original.png": "7862eca7d8d6fd2ef1dd9febbc01953177a381b95b104801b740db2b04655cff",
+    "public/official/art/maps/m01/fidelity01/nature-atlas-original.png": "e43108f935c9c96d5d3f87cbedbe76a1b9e43d8c957ff89bc3c99c5687d98f89",
+    "public/official/art/maps/m01/fidelity01/structures-atlas-original.png": "7da019b4063abb7a1020337d5389c371767af1bbdf41db42b630ca8bf2ebdef9",
+    "public/official/art/maps/m01/style01/details-atlas-original.png": "acd1b0c0d7652dd4c6963f10363a54c8163e23eda77a67f4935c9208d16ef846"
+  },
+  "scope": "M01 visual road, rocky entrance and13new props only; existing37props/sevenformations/pads/gameplay protected"
+}
