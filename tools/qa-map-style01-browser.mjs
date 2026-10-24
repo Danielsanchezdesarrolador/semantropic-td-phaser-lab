@@ -1,3 +1,4 @@
+import {execFileSync} from 'node:child_process';
 /** MAP-STYLE-01: actual modular Phaser M01, three viewports and brief combat.
  * No accelerated campaign; art-only smoke, real input and CORE attacks. */
 import assert from 'node:assert/strict';
@@ -5,10 +6,11 @@ import {createServer} from 'node:http';
 import {readFile,stat,mkdir,writeFile} from 'node:fs/promises';
 import {resolve,join,extname,sep} from 'node:path';
 import {chromium} from 'playwright';
+const baselineReliefSource=execFileSync('git',['show','90dce477ddc91fde2d300c2f8dc5e2a636aa1f7b:public/official/src/maps-visual/m01/style01/fidelity-terrain.mjs'],{encoding:'utf8'}).replace("from './texture-definition.mjs'","from '/official/src/maps-visual/m01/style01/texture-definition.mjs'");
 const baselineLayout=JSON.parse(await readFile('docs/blocks/m01-align-m02/visual-baseline.json','utf8')).before;
 const root=resolve('dist'),out=process.env.STYLE01_QA_OUT||'artifacts/map-style01';await mkdir(out,{recursive:true});
 const mime={'.html':'text/html','.mjs':'text/javascript','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.css':'text/css'};
-const server=createServer(async(req,res)=>{try{const p=resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(p!==root&&!p.startsWith(root+sep))throw Error('invalid path');const f=(await stat(p)).isDirectory()?join(p,'index.html'):p;res.writeHead(200,{'Content-Type':mime[extname(f)]||'application/octet-stream'});res.end(await readFile(f));}catch{res.writeHead(404);res.end();}});
+const server=createServer(async(req,res)=>{try{if(req.url==='/__qa_m01_relief_baseline.mjs'){res.writeHead(200,{'Content-Type':'text/javascript'});res.end(baselineReliefSource);return;}const p=resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(p!==root&&!p.startsWith(root+sep))throw Error('invalid path');const f=(await stat(p)).isDirectory()?join(p,'index.html'):p;res.writeHead(200,{'Content-Type':mime[extname(f)]||'application/octet-stream'});res.end(await readFile(f));}catch{res.writeHead(404);res.end();}});
 await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
 const base='http://127.0.0.1:'+server.address().port+'/official/src/live/';
 let browser,lastPage;let step="startup";const results=[];
@@ -50,8 +52,12 @@ try{
    }
    v.__roadWidthAudit={samples:widths.length,min:Math.min(...widths),max:Math.max(...widths),nominal:geometry.ROAD_WIDTH};
    const digest=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(n=>n.toString(16).padStart(2,'0')).join(''),frozenTextures={};
-   for(const key of['route','pad','entry-front','entry-back','cliff-faces']){const cv=s.textures.get('maps/m01/style01/'+key).getSourceImage(),rgba=cv.getContext('2d').getImageData(0,0,cv.width,cv.height).data;let bytes=rgba;if(key==='cliff-faces'){bytes=new Uint8Array(cv.width*cv.height);for(let k=0;k<bytes.length;k++)bytes[k]=rgba[k*4+3];}frozenTextures[key]=await digest(bytes);if(frozenTextures[key]!==baseline.frozenTextures[key])throw Error('Frozen presentation changed '+key);}
-   v.__alignmentFrozenTextures=frozenTextures;
+   // Rasterize the actual production module in this browser. Skia versions can
+   // differ in subpixel cliff alpha; exact equality remains mandatory locally.
+   const original=await import('/__qa_m01_relief_baseline.mjs'),material=new Image();material.src=mod.ASSETS.terrain;await material.decode();const originalAtlas={};for(const name of['cliffA','cliffB','cliffC'])originalAtlas['maps/m01/style01/'+name]=s.textures.get('maps/m01/style01/'+name).getSourceImage();
+   const originalFace=original.makeFidelityRelief(originalAtlas,material).face,originalRGBA=originalFace.getContext('2d').getImageData(0,0,originalFace.width,originalFace.height).data,originalAlpha=new Uint8Array(originalFace.width*originalFace.height);for(let k=0;k<originalAlpha.length;k++)originalAlpha[k]=originalRGBA[k*4+3];const baselineCliffDigest=await digest(originalAlpha);
+   for(const key of['route','pad','entry-front','entry-back','cliff-faces']){const cv=s.textures.get('maps/m01/style01/'+key).getSourceImage(),rgba=cv.getContext('2d').getImageData(0,0,cv.width,cv.height).data;let bytes=rgba;if(key==='cliff-faces'){bytes=new Uint8Array(cv.width*cv.height);for(let k=0;k<bytes.length;k++)bytes[k]=rgba[k*4+3];}frozenTextures[key]=await digest(bytes);if(frozenTextures[key]!== (key==='cliff-faces'?baselineCliffDigest:baseline.frozenTextures[key]))throw Error('Frozen presentation changed '+key);}
+   v.__alignmentFrozenTextures={...frozenTextures,cliffBaselineSameBrowser:baselineCliffDigest};
    if(JSON.stringify(v.landscapePlan.entryAccess.canonicalSpawn)!==JSON.stringify(w.map.path[0]))throw Error('Entry/spawn mismatch');
    let samples=0;for(let i=1;i<w.map.path.length;i++){const a=w.map.path[i-1],b=w.map.path[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/8);for(let k=0;k<=n;k++){const x=Math.round(a[0]+(b[0]-a[0])*k/n),y=Math.round(a[1]+(b[1]-a[1])*k/n);if(x<0||x>=1280||y<0||y>=768)continue;const p=road.getImageData(x*2,y*2,1,1).data;if(p[3]!==255||p[0]<180||p[1]<130||p[2]>200)throw Error('Route not dry/clear');samples++;}}
    return {frozenTextures:v.__alignmentFrozenTextures,roadWidthAudit:v.__roadWidthAudit,entryAccess:v.landscapePlan.entryAccess,snapshot:w.snapshot,composition:v.premiumArt,props:v.landscapePlan.props,rejected:v.landscapePlan.rejected,routeSamples:samples,clearFaceSamples:v.__fidelityFaceSamples,formations:v.landscapePlan.formations,displayObjects:v.styleObjects.length,definition:v.premiumArt.textureDefinition,canvasAudit:{backingWidth:s.game.canvas.width,backingHeight:s.game.canvas.height,cssWidth:s.game.canvas.getBoundingClientRect().width,cssHeight:s.game.canvas.getBoundingClientRect().height,dpr:devicePixelRatio},propSampling:v.landscapePlan.props.map(p=>{const o=v.styleObjects.find(o=>o.frame?.name===p.kind+'/defined/'+Math.ceil(p.w*2)&&o.x===p.x+p.w/2&&o.y===p.footY);const image=o?.frame;if(!image||image.width<Math.ceil(p.w*2)||Math.abs(o.displayWidth-p.w)>.001||Math.abs(o.displayHeight-p.h)>.001)throw Error('Undersized prop '+p.kind);return{kind:p.kind,worldWidth:p.w,textureWidth:image.width,textureHeight:image.height};})};

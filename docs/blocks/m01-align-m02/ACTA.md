@@ -37,3 +37,7 @@ Browser final: ocho build/sell, compras normales, combate/pausa, entrada y comba
 [NOT_RUN] Dispositivo físico, campaña completa, FPS/VRAM/batería. La riqueza percibida, equivalencia de acabado y aceptación estética corresponden a Dirección, no a un contador automático. Se conserva el canvas y presupuesto de resolución existentes; no se inventa rendimiento físico.
 
 Rollback: revert normal del merge del bloque sobre producción; misma URL oficial, sin sitios nuevos ni reinicios de sistemas.
+
+## Portabilidad de la comparación Canvas en CI
+
+CI40097854140 falló en el hash de alfa de acantilados contra un hash obtenido localmente; Node/build y los hashes de camino/pad/entrada pasaron. La comparación local de antes/después sí fue exacta. Se sustituye únicamente ese oráculo por el módulo original de producción90dce47, cargado en el servidor efímero de QA y rasterizado en el mismo navegador que la versión candidata. Se mantiene igualdad exacta de alfa (cero tolerancia); no se cambia arte ni geometría para pasar CI. Material original, atlas de acantilados, módulo de definición y datos de relieve están congelados por hash/arrays. Los originales se leen del commit de producción, sin añadir endpoints o módulos de QA al juego público.

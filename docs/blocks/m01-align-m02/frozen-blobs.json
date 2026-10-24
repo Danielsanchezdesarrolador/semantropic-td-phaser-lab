@@ -16,5 +16,10 @@
   "public/official/src/maps-visual/m02/map-picker.mjs": "f19f5a5ff92b319fbefb6e5a65169f3d272573db",
   "public/official/src/maps-visual/m02/phaser-world.mjs": "246a1efdfe5d50421795c9019df9bc10cda9c47f",
   "public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs": "1c05bdc2959c5b838dfe13eb75e68c94fe3261a1",
-  "public/official/src/maps-visual/m02/rework-contract.mjs": "e5b70d83065f977b1978232149c2a82c54f3db08"
+  "public/official/src/maps-visual/m02/rework-contract.mjs": "e5b70d83065f977b1978232149c2a82c54f3db08",
+  "public/official/art/maps/m01/fidelity01/cliffs-atlas-original.png": "81de1ba37256422072dd36358b69622f5cd931ab",
+  "public/official/art/maps/m01/fidelity01/materials-original.png": "ddac141076fcf646af21f600cfc96ae5a9d269e4",
+  "public/official/art/maps/m01/fidelity01/nature-atlas-original.png": "0a77f3deb88429d0246c28ed556461d2a95c905f",
+  "public/official/art/maps/m01/fidelity01/structures-atlas-original.png": "1eb60bd298a55f3eaef958bbc6ec23d0776c4650",
+  "public/official/art/maps/m01/style01/details-atlas-original.png": "e44a2fc4115a3b33d242ebcf38d7817825c4be48"
 }
