@@ -1,0 +1,490 @@
+{
+  "status": "PASS_M02_CARTOON03_FINAL_RENDER_LAYOUT_DPR2",
+  "cases": [
+    {
+      "profile": "desktop",
+      "width": 1280,
+      "height": 768,
+      "dpr": 1,
+      "initial": {
+        "version": "m02-cartoon03-bold-rural-v1",
+        "snapshot": {
+          "contract": "c1d2-m02-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 395,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M02 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 163,
+          "navRepaths": 0
+        },
+        "props": [
+          {
+            "kind": "mill",
+            "x": 435,
+            "y": 80,
+            "w": 218,
+            "h": 243.546875,
+            "flip": false,
+            "footY": 323.546875
+          },
+          {
+            "kind": "farm",
+            "x": 1110,
+            "y": 80,
+            "w": 140,
+            "h": 108.97727272727273,
+            "flip": false,
+            "footY": 188.97727272727275
+          },
+          {
+            "kind": "supplies",
+            "x": 1030,
+            "y": 540,
+            "w": 98,
+            "h": 66.5,
+            "flip": false,
+            "footY": 606.5
+          },
+          {
+            "kind": "oak",
+            "x": 8,
+            "y": 90,
+            "w": 110,
+            "h": 124.14285714285714,
+            "flip": false,
+            "footY": 214.14285714285714
+          },
+          {
+            "kind": "oak",
+            "x": 176,
+            "y": 65,
+            "w": 115,
+            "h": 129.78571428571428,
+            "flip": true,
+            "footY": 194.78571428571428
+          },
+          {
+            "kind": "oak",
+            "x": 345,
+            "y": 142,
+            "w": 85,
+            "h": 95.92857142857143,
+            "flip": false,
+            "footY": 237.92857142857144
+          },
+          {
+            "kind": "oak",
+            "x": 650,
+            "y": 45,
+            "w": 90,
+            "h": 101.57142857142857,
+            "flip": true,
+            "footY": 146.57142857142856
+          },
+          {
+            "kind": "oak",
+            "x": 775,
+            "y": 30,
+            "w": 85,
+            "h": 95.92857142857143,
+            "flip": false,
+            "footY": 125.92857142857143
+          },
+          {
+            "kind": "oak",
+            "x": 20,
+            "y": 530,
+            "w": 65,
+            "h": 73.35714285714286,
+            "flip": false,
+            "footY": 603.3571428571429
+          },
+          {
+            "kind": "oak",
+            "x": 200,
+            "y": 160,
+            "w": 80,
+            "h": 90.28571428571429,
+            "flip": false,
+            "footY": 250.28571428571428
+          },
+          {
+            "kind": "oak",
+            "x": 570,
+            "y": 365,
+            "w": 65,
+            "h": 73.35714285714286,
+            "flip": true,
+            "footY": 438.3571428571429
+          }
+        ],
+        "rejected": [
+          {
+            "kind": "oak",
+            "x": 1038,
+            "y": 174,
+            "w": 90,
+            "h": 101.57142857142857,
+            "flip": false,
+            "footY": 275.57142857142856
+          },
+          {
+            "kind": "oak",
+            "x": 1110,
+            "y": 190,
+            "w": 95,
+            "h": 107.21428571428571,
+            "flip": true,
+            "footY": 297.2142857142857
+          },
+          {
+            "kind": "oak",
+            "x": 1130,
+            "y": 530,
+            "w": 68,
+            "h": 76.74285714285715,
+            "flip": false,
+            "footY": 606.7428571428571
+          },
+          {
+            "kind": "oak",
+            "x": 400,
+            "y": 390,
+            "w": 80,
+            "h": 90.28571428571429,
+            "flip": false,
+            "footY": 480.2857142857143
+          },
+          {
+            "kind": "oak",
+            "x": 660,
+            "y": 365,
+            "w": 60,
+            "h": 67.71428571428571,
+            "flip": false,
+            "footY": 432.7142857142857
+          },
+          {
+            "kind": "oak",
+            "x": 1080,
+            "y": 480,
+            "w": 70,
+            "h": 79,
+            "flip": false,
+            "footY": 559
+          },
+          {
+            "kind": "oak",
+            "x": 1170,
+            "y": 575,
+            "w": 60,
+            "h": 67.71428571428571,
+            "flip": false,
+            "footY": 642.7142857142857
+          }
+        ],
+        "bridge": {
+          "x": 836.25,
+          "y": 527,
+          "angle": -1.0238400531086536
+        },
+        "metadata": {
+          "version": "m02-cartoon03-bold-rural-v1",
+          "composition": "separate-Phaser-components",
+          "roadWidth": 62,
+          "roadContinuity": "C2-cubic-B-spline",
+          "atlasFrames": 6,
+          "pads": 8,
+          "routeVertices": 163
+        },
+        "roadWidth": {
+          "samples": 285,
+          "min": 61.75,
+          "max": 62.75,
+          "nominal": 62
+        },
+        "canvas": {
+          "backing": [
+            1280,
+            768
+          ],
+          "css": [
+            1280,
+            768
+          ],
+          "dpr": 1
+        },
+        "seams": [
+          {
+            "wx": 0,
+            "maxRGBDelta": 0
+          },
+          {
+            "wx": 1280,
+            "maxRGBDelta": 0
+          }
+        ]
+      },
+      "combat": {
+        "status": "NOT_RUN_RENDER_OPTIMIZATION_AUDIT"
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch932",
+      "width": 932,
+      "height": 430,
+      "dpr": 2,
+      "initial": {
+        "version": "m02-cartoon03-bold-rural-v1",
+        "snapshot": {
+          "contract": "c1d2-m02-sniper-runtime-v1",
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 395,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "savesImplemented": false,
+          "starsImplemented": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M02 Canvas-V5-style waypoint graph, Dijkstra, 2-soldier lateral formation; complete all-branch V5 behavior pending",
+          "navNodes": 163,
+          "navRepaths": 0
+        },
+        "props": [
+          {
+            "kind": "mill",
+            "x": 435,
+            "y": 80,
+            "w": 218,
+            "h": 243.546875,
+            "flip": false,
+            "footY": 323.546875
+          },
+          {
+            "kind": "farm",
+            "x": 1110,
+            "y": 80,
+            "w": 140,
+            "h": 108.97727272727273,
+            "flip": false,
+            "footY": 188.97727272727275
+          },
+          {
+            "kind": "supplies",
+            "x": 1030,
+            "y": 540,
+            "w": 98,
+            "h": 66.5,
+            "flip": false,
+            "footY": 606.5
+          },
+          {
+            "kind": "oak",
+            "x": 8,
+            "y": 90,
+            "w": 110,
+            "h": 124.14285714285714,
+            "flip": false,
+            "footY": 214.14285714285714
+          },
+          {
+            "kind": "oak",
+            "x": 176,
+            "y": 65,
+            "w": 115,
+            "h": 129.78571428571428,
+            "flip": true,
+            "footY": 194.78571428571428
+          },
+          {
+            "kind": "oak",
+            "x": 345,
+            "y": 142,
+            "w": 85,
+            "h": 95.92857142857143,
+            "flip": false,
+            "footY": 237.92857142857144
+          },
+          {
+            "kind": "oak",
+            "x": 650,
+            "y": 45,
+            "w": 90,
+            "h": 101.57142857142857,
+            "flip": true,
+            "footY": 146.57142857142856
+          },
+          {
+            "kind": "oak",
+            "x": 775,
+            "y": 30,
+            "w": 85,
+            "h": 95.92857142857143,
+            "flip": false,
+            "footY": 125.92857142857143
+          },
+          {
+            "kind": "oak",
+            "x": 20,
+            "y": 530,
+            "w": 65,
+            "h": 73.35714285714286,
+            "flip": false,
+            "footY": 603.3571428571429
+          },
+          {
+            "kind": "oak",
+            "x": 200,
+            "y": 160,
+            "w": 80,
+            "h": 90.28571428571429,
+            "flip": false,
+            "footY": 250.28571428571428
+          },
+          {
+            "kind": "oak",
+            "x": 570,
+            "y": 365,
+            "w": 65,
+            "h": 73.35714285714286,
+            "flip": true,
+            "footY": 438.3571428571429
+          }
+        ],
+        "rejected": [
+          {
+            "kind": "oak",
+            "x": 1038,
+            "y": 174,
+            "w": 90,
+            "h": 101.57142857142857,
+            "flip": false,
+            "footY": 275.57142857142856
+          },
+          {
+            "kind": "oak",
+            "x": 1110,
+            "y": 190,
+            "w": 95,
+            "h": 107.21428571428571,
+            "flip": true,
+            "footY": 297.2142857142857
+          },
+          {
+            "kind": "oak",
+            "x": 1130,
+            "y": 530,
+            "w": 68,
+            "h": 76.74285714285715,
+            "flip": false,
+            "footY": 606.7428571428571
+          },
+          {
+            "kind": "oak",
+            "x": 400,
+            "y": 390,
+            "w": 80,
+            "h": 90.28571428571429,
+            "flip": false,
+            "footY": 480.2857142857143
+          },
+          {
+            "kind": "oak",
+            "x": 660,
+            "y": 365,
+            "w": 60,
+            "h": 67.71428571428571,
+            "flip": false,
+            "footY": 432.7142857142857
+          },
+          {
+            "kind": "oak",
+            "x": 1080,
+            "y": 480,
+            "w": 70,
+            "h": 79,
+            "flip": false,
+            "footY": 559
+          },
+          {
+            "kind": "oak",
+            "x": 1170,
+            "y": 575,
+            "w": 60,
+            "h": 67.71428571428571,
+            "flip": false,
+            "footY": 642.7142857142857
+          }
+        ],
+        "bridge": {
+          "x": 836.25,
+          "y": 527,
+          "angle": -1.0238400531086536
+        },
+        "metadata": {
+          "version": "m02-cartoon03-bold-rural-v1",
+          "composition": "separate-Phaser-components",
+          "roadWidth": 62,
+          "roadContinuity": "C2-cubic-B-spline",
+          "atlasFrames": 6,
+          "pads": 8,
+          "routeVertices": 163
+        },
+        "roadWidth": {
+          "samples": 285,
+          "min": 61.75,
+          "max": 62.75,
+          "nominal": 62
+        },
+        "canvas": {
+          "backing": [
+            1280,
+            768
+          ],
+          "css": [
+            716.65625,
+            430
+          ],
+          "dpr": 2
+        }
+      },
+      "combat": {
+        "status": "NOT_RUN_RENDER_OPTIMIZATION_AUDIT"
+      },
+      "errors": []
+    }
+  ],
+  "physicalMobile": "NOT_RUN",
+  "fullCampaign": "NOT_RUN_ART_ONLY",
+  "humanArtApproval": "PENDING_DIRECTOR"
+}

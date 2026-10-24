@@ -9,7 +9,8 @@ import {R6_MAP02_ART} from '../../public/official/src/maps-visual/m02/premium-go
 const fs=p=>readFileSync(p,'utf8');
 const authorized=JSON.parse(fs('docs/blocks/m04-game01/authorized-runtime-blobs.json'));
 // M04 functional approval supersedes only explicitly pinned shared runtime changes.
-const expected=(p,h)=>authorized[p]?.before===h?authorized[p].after:h;
+const visual=JSON.parse(fs('docs/blocks/m02-cartoon03/authorized-visual-blobs.json'));
+const expected=(p,h)=>visual[p]?.before===h?visual[p].after:authorized[p]?.before===h?authorized[p].after:h;
 for(const [p,sha] of Object.entries({
  'public/official/data/maps.v5.json':'1da0e20145e1312f3d75443debabea17e3db507c',
  'public/official/data/campaign140.v5.json':'794cf43f9b172a39dd88f02e2a89ea11455064c3',
@@ -32,7 +33,7 @@ assert.equal(plan.landmarks.find(l=>l.kind==='mill')?.x,505);
 assert.equal(plan.landmarks.find(l=>l.kind==='farm')?.x,1180);
 assert.equal(M02_ART_VERSION,'r6-m02-golden-valley-v1');
 assert.equal(R6_MAP02_ART,'r6-m02-golden-valley-paint-v1');
-assert(fs('public/official/src/maps-visual/m02/phaser-world.mjs').includes("from './b02/pictoric-farmland.mjs'"),'B02 approved runtime landscape adapter absent');
+assert(fs('public/official/src/maps-visual/m02/phaser-world.mjs').includes("from './cartoon03/farmland-world.mjs'"),'Cartoon03 approved runtime landscape adapter absent');
 // R6 painter is retained as archived reference; B02 replaces runtime art only.
 const premium=fs('public/official/src/maps-visual/m02/premium-golden-valley-r6.mjs');
 const art=fs('public/official/src/maps-visual/m02/farmland-art.mjs');

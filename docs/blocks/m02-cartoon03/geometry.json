@@ -1,0 +1,12 @@
+{
+  "status": "PASS_M02_C2_GEOMETRY_AND_ART_SCOPE",
+  "base": "7fbec3b616ebb35a400767cb15d8c53b8f377aef",
+  "segments": 162,
+  "samples": 8262,
+  "width": 62,
+  "previousWidth": 84,
+  "minRadius": 76.95180908255024,
+  "maxDeviation": 0.21287522674828974,
+  "routeVertices": 163,
+  "pads": 8
+}

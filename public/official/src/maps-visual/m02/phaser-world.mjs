@@ -1,16 +1,10 @@
-/** R3-B2 · Phaser M02 WorldView adapter for Campos del Molino. Source: R3-A
- * authored farmland; world source geometry is immutable 1280×768 V5.
- * No M01 visual code changes; 2x background baked only once per Phaser scene.
- */
-import {makeB02ArtCanvas as makeM02ArtCanvas,B02_ART_VERSION,paintB02Gutters} from './b02/pictoric-farmland.mjs';
+/** M02 WorldView: Cartoon03 modular surfaces and original rural sprites.
+ * Canonical sockets/state API unchanged; art is prepared once per scene. */
+import {mountCartoon02Art,CARTOON02_VERSION} from './cartoon03/farmland-world.mjs';
 export const R3_M02_SCENE_ART='r3b2-m02-farmland-gameplay-v1';
 export function mountM02World(scene,map){
- const art=makeM02ArtCanvas(map,{density:2});
- const key='maps/m02/farmland/r3-b2';
- if(!scene.textures.exists(key))scene.textures.addCanvas(key,art.canvas);
+ const art=mountCartoon02Art(scene,map);
  const objects=[];
- const background=scene.add.image(0,0,key).setOrigin(0,0).setDisplaySize(1280,768).setDepth(-5000);
- objects.push(background);
  const sockets=map.spots.map((p,index)=>Object.freeze({
   socketId:'m02-pad-'+String(index+1).padStart(2,'0'),index,
   kind:p.kind,metadata:Object.freeze({kind:p.kind,role:p.role}),
@@ -38,11 +32,11 @@ export function mountM02World(scene,map){
   }
   return true;
  }
- return Object.freeze({version:R3_M02_SCENE_ART,artVersion:B02_ART_VERSION,landscapePlan:art.plan,
-  paintPanoramaGutters:(ctx,r)=>paintB02Gutters(ctx,r,map),plan:Object.freeze({sockets,route:art.plan.path,
+ return Object.freeze({version:R3_M02_SCENE_ART,artVersion:CARTOON02_VERSION,premiumArt:art.metadata,styleObjects:art.objects,landscapePlan:art.plan,
+  paintPanoramaGutters:(ctx,r)=>art.paintGutters(ctx,r),plan:Object.freeze({sockets,route:art.plan.path,
   props:art.plan.landmarks,rejected:[],canvasSize:Object.freeze({width:2560,height:1536})}),
   setSocketVisualState,applyVisualSnapshot:()=>true,projectEvent:()=>false,
   get snapshot(){return {mapId:2,states:[...states.entries()]};},
-  destroy(){for(const object of objects)object.destroy();scene.textures.remove(key);}
+  destroy(){for(const object of objects)object.destroy();art.destroy();}
  });
 }
