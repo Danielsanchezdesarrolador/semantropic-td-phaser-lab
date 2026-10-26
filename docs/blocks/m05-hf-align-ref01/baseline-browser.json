@@ -1,0 +1,22 @@
+{
+  "baseline": "e3c58108615108f309452d3ef84e1574b729d4fd",
+  "method": "Real Phaser browser with exact baseline M05 modules intercepted from git; unchanged assets from local build.",
+  "cases": [
+    {
+      "name": "desktop",
+      "version": "m05-cartoon01-misty-marsh-art-v1",
+      "props": 63,
+      "landSamples": 47143,
+      "totalSamples": 61440,
+      "floodedFraction": 0.2326985677083333
+    },
+    {
+      "name": "mobile",
+      "version": "m05-cartoon01-misty-marsh-art-v1",
+      "props": 63,
+      "landSamples": 47143,
+      "totalSamples": 61440,
+      "floodedFraction": 0.2326985677083333
+    }
+  ]
+}
