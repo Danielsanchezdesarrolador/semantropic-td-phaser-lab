@@ -1,29 +1,29 @@
 /** M05 terrain is an extruded land mask over marsh water, not a level painting. */
 import{traceRoad,paintGeometricRoad,resampleRoad,ROAD_WIDTH,distanceToPath}from'./road-geometry.mjs';
+import{oval,poly,paintMarshWater,paintWetGround,paintBankDetails}from'./wetland-details.mjs';
 export const BRIDGE_INDICES=Object.freeze([60,124,254]);
 export function channels(map){return[[[170,320],map.path[60],[470,400],[495,470]],[[660,610],map.path[124],[700,710],[700,800]],[[940,320],map.path[254],[1210,365],[1320,360]]];}
-export const oval=(c,x,y,rx,ry,fill,edge=null,line=1)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=fill;c.fill();if(edge){c.strokeStyle=edge;c.lineWidth=line;c.stroke();}};
-export const poly=(c,p,fill,edge=null,line=1)=>{c.beginPath();p.forEach((v,i)=>i?c.lineTo(...v):c.moveTo(...v));c.closePath();c.fillStyle=fill;c.fill();if(edge){c.strokeStyle=edge;c.lineWidth=line;c.stroke();}};
-const random=seed=>()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
+export{oval,poly}from'./wetland-details.mjs';
 export function makeMarshSurfaces(plan,a){
  const canvas=(w=2560,h=1536)=>Object.assign(document.createElement('canvas'),{width:w,height:h});
  const layer=paint=>{const v=canvas(),c=v.getContext('2d');c.scale(2,2);c.imageSmoothingQuality='high';paint(c);return v;};
- const mask=layer(c=>{c.strokeStyle='#fff';c.lineWidth=182;traceRoad(c,plan.path);c.stroke();for(const[x,y,rx,ry]of[[240,-10,350,145],[530,120,190,165],[1000,35,270,170],[1210,180,140,140],[110,590,140,180],[620,460,125,90],[1000,560,120,95]])oval(c,x,y,rx,ry,'#fff');for(const p of plan.pads)oval(c,p.x,p.y,79,68,'#fff');
+ const mask=layer(c=>{c.strokeStyle='#fff';c.lineWidth=152;traceRoad(c,plan.path);c.stroke();for(const[x,y,rx,ry]of[[240,-10,300,118],[530,110,154,145],[1000,35,230,150],[1210,180,140,140],[110,590,125,170],[620,460,110,83],[1000,560,108,85]])oval(c,x,y,rx,ry,'#fff');for(const p of plan.pads)oval(c,p.x,p.y,72,62,'#fff');
   c.globalCompositeOperation='destination-out';c.lineWidth=64;for(const path of plan.channels){c.beginPath();path.forEach((p,i)=>i?c.lineTo(...p):c.moveTo(...p));c.lineCap='round';c.lineJoin='round';c.stroke();}
  });
  const maskPixels=mask.getContext('2d',{willReadFrequently:true}).getImageData(0,0,mask.width,mask.height).data;
  const support=(x,y)=>x>=0&&y>=0&&x<1280&&y<768&&maskPixels[(Math.floor(y*2)*mask.width+Math.floor(x*2))*4+3]>=240;
- const water=layer(c=>{c.fillStyle='#237f75';c.fillRect(0,0,1280,768);const rand=random(505);for(let i=0;i<80;i++)oval(c,rand()*1280,rand()*768,20+rand()*70,8+rand()*23,['#329d8066','#248e8366','#36aa9166'][i%3]);
-  for(let i=0;i<350;i++){const x=rand()*1280,y=rand()*768;oval(c,x,y,3+rand()*10,.8,i%4?'#6dc8a877':'#c3e8c477');}
-  for(let i=0;i<75;i++){const x=rand()*1280,y=rand()*768;if(support(x,y)||distanceToPath(x,y,plan.path)<82)continue;oval(c,x+2,y+3,12,4,'#175b6370');oval(c,x,y,10,4,'#6fb73d','#2a7753',1);poly(c,[[x,y],[x+9,y-3],[x+7,y+3]],'#258e7d');if(i%4===0){oval(c,x-2,y-3,4,2,'#f8e5d5');oval(c,x-2,y-4,2,1,'#f5c7d8');}}
- });
+ let lilyGroups;const water=layer(c=>{lilyGroups=paintMarshWater(c,support,a.wetland);});
  // The cliff face is the visible difference between the land top and its lower plane.
  const faceMask=canvas(),fc=faceMask.getContext('2d');fc.drawImage(mask,0,88);fc.globalCompositeOperation='destination-out';fc.drawImage(mask,0,0);
  const relief=layer(c=>{const motif=a.cliffs.width/3,scale=44/390,span=motif*.76*scale;for(let px=0;px<mask.width;px++){const x=px/2,sx=(Math.floor(x/span)%3)*motif+motif*.12+(x%span)/scale;for(let py=0;py<mask.height-1;py++)if(maskPixels[(py*mask.width+px)*4+3]>=128&&maskPixels[((py+1)*mask.width+px)*4+3]<128)c.drawImage(a.cliffs,sx,145,.5/scale,390,x,py/2,.5,44);}});
- const rc=relief.getContext('2d');rc.setTransform(1,0,0,1,0,0);rc.globalCompositeOperation='destination-in';rc.drawImage(faceMask,0,0);rc.globalCompositeOperation='source-over';
- const ground=layer(c=>{c.fillStyle='#8bb848';c.fillRect(0,0,1280,768);const tile=canvas(2560,800),t=tile.getContext('2d');t.scale(2,2);t.imageSmoothingQuality='high';t.drawImage(a.materials,0,260,1536,480,0,0,1280,400);t.globalCompositeOperation='source-atop';t.fillStyle='#196c5b35';t.fillRect(0,0,1280,400);t.globalCompositeOperation='destination-in';const g=t.createLinearGradient(0,0,0,400);for(const[p,col]of[[0,'#0000'],[.08,'#000'],[.92,'#000'],[1,'#0000']])g.addColorStop(p,col);t.fillStyle=g;t.fillRect(0,0,1280,400);for(const y of[-30,330,690])c.drawImage(tile,0,y,1280,400);});
+ const rc=relief.getContext('2d');rc.setTransform(1,0,0,1,0,0);rc.globalCompositeOperation='destination-in';rc.drawImage(faceMask,0,0);rc.globalCompositeOperation='source-atop';rc.fillStyle='#244c4890';rc.fillRect(0,0,2560,1536);rc.globalCompositeOperation='source-over';
+ const ground=layer(c=>paintWetGround(c,a.wetland));
  const gc=ground.getContext('2d');gc.setTransform(1,0,0,1,0,0);gc.globalCompositeOperation='destination-in';gc.drawImage(mask,0,0);gc.globalCompositeOperation='source-over';
- const rim=canvas(),rimc=rim.getContext('2d');rimc.drawImage(mask,0,0);rimc.globalCompositeOperation='destination-out';rimc.drawImage(mask,0,-5);rimc.globalCompositeOperation='source-in';rimc.fillStyle='#b6d264';rimc.fillRect(0,0,2560,1536);gc.drawImage(rim,0,0);
+ const rim=canvas(),rimc=rim.getContext('2d');rimc.drawImage(mask,0,0);rimc.globalCompositeOperation='destination-out';rimc.drawImage(mask,0,-9);rimc.globalCompositeOperation='source-in';rimc.fillStyle='#9b9f58';rimc.fillRect(0,0,2560,1536);gc.drawImage(rim,0,0);
+ let bankReeds;const bank=layer(c=>{bankReeds=paintBankDetails(c,support,(x,y,r)=>distanceToPath(x,y,plan.path)>51+r&&plan.pads.every(p=>Math.hypot(x-p.x,y-p.y)>58+r));});
+ // Bank flora is static and is clipped away from the protected tactical corridor.
+ const bc=water.getContext('2d');bc.drawImage(bank,0,0);
+
  const shoreShadow=canvas(),sc=shoreShadow.getContext('2d');sc.drawImage(mask,0,96);sc.globalCompositeOperation='destination-out';sc.drawImage(mask,0,86);sc.globalCompositeOperation='source-in';sc.fillStyle='#124e5966';sc.fillRect(0,0,2560,1536);
  // Falls sit on real south-facing cliff faces; source lies on land, basin below it.
  const falls=[];for(const[x,y]of[[110,540],[970,625],[1240,265]]){let edge;for(let py=y-60;py<Math.min(720,y+100);py++){if(support(x,py)&&!support(x,py+4)){edge=py;break;}}if(edge!==undefined&&distanceToPath(x,edge,plan.path)>95&&plan.pads.every(p=>Math.hypot(x-p.x,edge-p.y)>86)&&!support(x,edge+46))falls.push({x,y:edge,width:20,height:46});}
@@ -37,7 +37,8 @@ export function makeMarshSurfaces(plan,a){
   return{id,index,center:[...center],lane,rails,bounds,image,halfSpan,deckWidth:ROAD_WIDTH};
  });
  const pad=canvas(208,160),pc=pad.getContext('2d');pc.scale(2,2);const x=52,y=40;oval(pc,x+2,y+10,45,24,'#234b4266');oval(pc,x,y+5,41,24,'#7d8563','#374e40',2);oval(pc,x,y-2,41,23,'#a99c70','#687453',2);oval(pc,x,y-6,39,21,'#efdda9','#796e46',1.8);oval(pc,x,y-7,31,16,'#fff0bf','#af9765',1);for(let i=0;i<10;i++){const a=i*Math.PI/5;pc.beginPath();pc.moveTo(x+Math.cos(a)*32,y-6+Math.sin(a)*16);pc.lineTo(x+Math.cos(a)*38,y-6+Math.sin(a)*20);pc.strokeStyle='#a08e5d';pc.lineWidth=1.3;pc.stroke();}poly(pc,[[x,y-14],[x+10,y-7],[x,y],[x-10,y-7]],'#8e7444','#6d633d',1.2);poly(pc,[[x,y-11],[x+5,y-7],[x,y-3],[x-5,y-7]],'#fff6d4');
- return{layers:{water,shadow:shoreShadow,relief,ground,cascade,route},mask,pad,bridges,falls,support};
+ let land=0,total=0;for(let y=2;y<768;y+=4)for(let x=2;x<1280;x+=4){total++;if(support(x,y))land++;}
+ return{layers:{water,shadow:shoreShadow,relief,ground,cascade,route},mask,pad,bridges,falls,support,habitat:{landSamples:land,totalSamples:total,floodedFraction:1-land/total,lilyGroups:lilyGroups.length,bankReeds}};
 }
 export function propClears(r,plan,support){
  if(r.x<0||r.x+r.w>1280||r.y+r.h>768)return false;

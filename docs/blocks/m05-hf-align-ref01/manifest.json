@@ -1,0 +1,31 @@
+{
+  "block": "MAP-ART-05-HF-ALIGN-REF-01",
+  "base": "e3c58108615108f309452d3ef84e1574b729d4fd",
+  "version": "m05-hf-align-ref01-wetland-art-v1",
+  "artOnly": true,
+  "files": [
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/assets.mjs",
+      "sha256": "61c7d8eb6bf9344f5108fb591617a178b094ba7e3028af2aee4cb2cf73028d98"
+    },
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/marsh-world.mjs",
+      "sha256": "af38b838202875beeb2c4a06ae004f09b20b8f47c92561bde1f589fdc1781db3"
+    },
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/surfaces.mjs",
+      "sha256": "f713bc886a2c1dfada6a3e7e0b73e9d804d18a737287a57b423b3e7ae69ea0ec"
+    },
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/wetland-details.mjs",
+      "sha256": "44325d8df974ad852949d10fd77773366a77f53df51c4298391e57dd32471e32"
+    },
+    {
+      "path": "public/official/art/maps/m05/cartoon01/wetland-materials-original.png",
+      "sha256": "8b61b446b2ae9ac07e954465da459461ae128e430484733bded25495dc62de42"
+    }
+  ],
+  "functionalChanges": false,
+  "reference": "M05 original mockup attached in conversation; qualitative comparison only",
+  "humanArtApproval": "PENDING"
+}

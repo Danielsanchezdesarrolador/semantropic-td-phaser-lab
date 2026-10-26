@@ -1,0 +1,465 @@
+{
+  "status": "PASS_M05_ART_PREVIEW_WEBGL2_CANONICAL_GEOMETRY_DISPOSAL",
+  "cases": [
+    {
+      "profile": "desktop",
+      "width": 1280,
+      "height": 768,
+      "dpr": 1,
+      "initial": {
+        "version": "m05-hf-align-ref01-wetland-art-v1",
+        "artOnly": true,
+        "metadata": {
+          "composition": "separate-Phaser-components",
+          "artOnly": true,
+          "gameplayImplemented": false,
+          "roadWidth": 62,
+          "roadContinuity": "C2-cubic-B-spline",
+          "arcStationSpacing": 4,
+          "atlasFrames": 7,
+          "animatedObjects": 0,
+          "habitat": {
+            "landSamples": 42476,
+            "totalSamples": 61440,
+            "floodedFraction": 0.3086588541666667,
+            "lilyGroups": 34,
+            "bankReeds": 35
+          }
+        },
+        "bridges": [
+          {
+            "index": 60,
+            "center": [
+              335.888,
+              360.797
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          },
+          {
+            "index": 124,
+            "center": [
+              658.868,
+              634.947
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          },
+          {
+            "index": 254,
+            "center": [
+              1105.211,
+              335.575
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          }
+        ],
+        "falls": [
+          {
+            "x": 970,
+            "y": 638,
+            "width": 20,
+            "height": 46
+          },
+          {
+            "x": 1240,
+            "y": 313,
+            "width": 20,
+            "height": 46
+          }
+        ],
+        "maskChecks": 15360,
+        "roadWidth": {
+          "nominal": 62,
+          "samples": 551,
+          "min": 61.5,
+          "max": 62.75
+        },
+        "objectCount": 211,
+        "textureKeys": [
+          "maps/m05/cartoon01/water",
+          "maps/m05/cartoon01/shadow",
+          "maps/m05/cartoon01/relief",
+          "maps/m05/cartoon01/ground",
+          "maps/m05/cartoon01/cascade",
+          "maps/m05/cartoon01/route",
+          "maps/m05/cartoon01/bridge0",
+          "maps/m05/cartoon01/bridge1",
+          "maps/m05/cartoon01/bridge2",
+          "maps/m05/cartoon01/pad",
+          "maps/m05/cartoon01/atlas",
+          "maps/m05/cartoon01/mist"
+        ],
+        "canvas": {
+          "backing": [
+            1280,
+            768
+          ],
+          "css": [
+            1280,
+            768
+          ],
+          "dpr": 1
+        },
+        "seams": [
+          {
+            "wx": 0,
+            "maxRGBDelta": 0
+          },
+          {
+            "wx": 1280,
+            "maxRGBDelta": 0
+          }
+        ],
+        "propsByKind": {
+          "hut": 1,
+          "arch": 2,
+          "bones": 1,
+          "log": 1,
+          "tree": 17,
+          "reeds": 74
+        },
+        "rejectedCandidates": 300
+      },
+      "reloaded": {
+        "objects": 211,
+        "textures": [
+          "maps/m05/cartoon01/water",
+          "maps/m05/cartoon01/shadow",
+          "maps/m05/cartoon01/relief",
+          "maps/m05/cartoon01/ground",
+          "maps/m05/cartoon01/cascade",
+          "maps/m05/cartoon01/route",
+          "maps/m05/cartoon01/bridge0",
+          "maps/m05/cartoon01/bridge1",
+          "maps/m05/cartoon01/bridge2",
+          "maps/m05/cartoon01/pad",
+          "maps/m05/cartoon01/atlas",
+          "maps/m05/cartoon01/mist"
+        ],
+        "props": 96
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch844",
+      "width": 844,
+      "height": 390,
+      "dpr": 1,
+      "initial": {
+        "version": "m05-hf-align-ref01-wetland-art-v1",
+        "artOnly": true,
+        "metadata": {
+          "composition": "separate-Phaser-components",
+          "artOnly": true,
+          "gameplayImplemented": false,
+          "roadWidth": 62,
+          "roadContinuity": "C2-cubic-B-spline",
+          "arcStationSpacing": 4,
+          "atlasFrames": 6,
+          "animatedObjects": 0,
+          "habitat": {
+            "landSamples": 42476,
+            "totalSamples": 61440,
+            "floodedFraction": 0.3086588541666667,
+            "lilyGroups": 34,
+            "bankReeds": 35
+          }
+        },
+        "bridges": [
+          {
+            "index": 60,
+            "center": [
+              335.888,
+              360.797
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          },
+          {
+            "index": 124,
+            "center": [
+              658.868,
+              634.947
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          },
+          {
+            "index": 254,
+            "center": [
+              1105.211,
+              335.575
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          }
+        ],
+        "falls": [
+          {
+            "x": 970,
+            "y": 638,
+            "width": 20,
+            "height": 46
+          },
+          {
+            "x": 1240,
+            "y": 313,
+            "width": 20,
+            "height": 46
+          }
+        ],
+        "maskChecks": 15360,
+        "roadWidth": {
+          "nominal": 62,
+          "samples": 551,
+          "min": 61.5,
+          "max": 62.75
+        },
+        "objectCount": 211,
+        "textureKeys": [
+          "maps/m05/cartoon01/water",
+          "maps/m05/cartoon01/shadow",
+          "maps/m05/cartoon01/relief",
+          "maps/m05/cartoon01/ground",
+          "maps/m05/cartoon01/cascade",
+          "maps/m05/cartoon01/route",
+          "maps/m05/cartoon01/bridge0",
+          "maps/m05/cartoon01/bridge1",
+          "maps/m05/cartoon01/bridge2",
+          "maps/m05/cartoon01/pad",
+          "maps/m05/cartoon01/atlas",
+          "maps/m05/cartoon01/mist"
+        ],
+        "canvas": {
+          "backing": [
+            1280,
+            768
+          ],
+          "css": [
+            650,
+            390
+          ],
+          "dpr": 1
+        },
+        "propsByKind": {
+          "hut": 1,
+          "arch": 2,
+          "bones": 1,
+          "log": 1,
+          "tree": 17,
+          "reeds": 74
+        },
+        "rejectedCandidates": 300
+      },
+      "reloaded": {
+        "objects": 211,
+        "textures": [
+          "maps/m05/cartoon01/water",
+          "maps/m05/cartoon01/shadow",
+          "maps/m05/cartoon01/relief",
+          "maps/m05/cartoon01/ground",
+          "maps/m05/cartoon01/cascade",
+          "maps/m05/cartoon01/route",
+          "maps/m05/cartoon01/bridge0",
+          "maps/m05/cartoon01/bridge1",
+          "maps/m05/cartoon01/bridge2",
+          "maps/m05/cartoon01/pad",
+          "maps/m05/cartoon01/atlas",
+          "maps/m05/cartoon01/mist"
+        ],
+        "props": 96
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch932",
+      "width": 932,
+      "height": 430,
+      "dpr": 2,
+      "initial": {
+        "version": "m05-hf-align-ref01-wetland-art-v1",
+        "artOnly": true,
+        "metadata": {
+          "composition": "separate-Phaser-components",
+          "artOnly": true,
+          "gameplayImplemented": false,
+          "roadWidth": 62,
+          "roadContinuity": "C2-cubic-B-spline",
+          "arcStationSpacing": 4,
+          "atlasFrames": 6,
+          "animatedObjects": 0,
+          "habitat": {
+            "landSamples": 42476,
+            "totalSamples": 61440,
+            "floodedFraction": 0.3086588541666667,
+            "lilyGroups": 34,
+            "bankReeds": 35
+          }
+        },
+        "bridges": [
+          {
+            "index": 60,
+            "center": [
+              335.888,
+              360.797
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          },
+          {
+            "index": 124,
+            "center": [
+              658.868,
+              634.947
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          },
+          {
+            "index": 254,
+            "center": [
+              1105.211,
+              335.575
+            ],
+            "width": 62,
+            "supportedEnds": "PASS"
+          }
+        ],
+        "falls": [
+          {
+            "x": 970,
+            "y": 638,
+            "width": 20,
+            "height": 46
+          },
+          {
+            "x": 1240,
+            "y": 313,
+            "width": 20,
+            "height": 46
+          }
+        ],
+        "maskChecks": 15360,
+        "roadWidth": {
+          "nominal": 62,
+          "samples": 551,
+          "min": 61.5,
+          "max": 62.75
+        },
+        "objectCount": 211,
+        "textureKeys": [
+          "maps/m05/cartoon01/water",
+          "maps/m05/cartoon01/shadow",
+          "maps/m05/cartoon01/relief",
+          "maps/m05/cartoon01/ground",
+          "maps/m05/cartoon01/cascade",
+          "maps/m05/cartoon01/route",
+          "maps/m05/cartoon01/bridge0",
+          "maps/m05/cartoon01/bridge1",
+          "maps/m05/cartoon01/bridge2",
+          "maps/m05/cartoon01/pad",
+          "maps/m05/cartoon01/atlas",
+          "maps/m05/cartoon01/mist"
+        ],
+        "canvas": {
+          "backing": [
+            1280,
+            768
+          ],
+          "css": [
+            716.65625,
+            430
+          ],
+          "dpr": 2
+        },
+        "propsByKind": {
+          "hut": 1,
+          "arch": 2,
+          "bones": 1,
+          "log": 1,
+          "tree": 17,
+          "reeds": 74
+        },
+        "rejectedCandidates": 300
+      },
+      "reloaded": {
+        "objects": 211,
+        "textures": [
+          "maps/m05/cartoon01/water",
+          "maps/m05/cartoon01/shadow",
+          "maps/m05/cartoon01/relief",
+          "maps/m05/cartoon01/ground",
+          "maps/m05/cartoon01/cascade",
+          "maps/m05/cartoon01/route",
+          "maps/m05/cartoon01/bridge0",
+          "maps/m05/cartoon01/bridge1",
+          "maps/m05/cartoon01/bridge2",
+          "maps/m05/cartoon01/pad",
+          "maps/m05/cartoon01/atlas",
+          "maps/m05/cartoon01/mist"
+        ],
+        "props": 96
+      },
+      "errors": []
+    }
+  ],
+  "regressions": [
+    {
+      "map": 1,
+      "version": "m01-align-m02-cartoon-v1",
+      "nodes": 133,
+      "pads": 8,
+      "selector": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "previewLoaded": false
+    },
+    {
+      "map": 2,
+      "version": "m02-cartoon03-bold-rural-v1",
+      "nodes": 163,
+      "pads": 8,
+      "selector": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "previewLoaded": false
+    },
+    {
+      "map": 3,
+      "version": "m03-cartoon01-enchanted-forest-v1",
+      "nodes": 188,
+      "pads": 8,
+      "selector": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "previewLoaded": false
+    },
+    {
+      "map": 4,
+      "version": "m04-cartoon01-ancient-river-v1",
+      "nodes": 262,
+      "pads": 9,
+      "selector": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "previewLoaded": false
+    }
+  ],
+  "gameplayM05": "NOT_IMPLEMENTED_NOT_AUTHORIZED",
+  "physicalMobile": "NOT_RUN",
+  "humanArtApproval": "PENDING_DIRECTOR"
+}
