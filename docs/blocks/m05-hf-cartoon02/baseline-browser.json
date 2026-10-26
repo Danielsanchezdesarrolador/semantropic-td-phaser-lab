@@ -1,0 +1,22 @@
+{
+  "baseline": "2cbcda7badc8925a0ff7890f3ccab6e3749baa68",
+  "method": "Real Phaser browser with exact baseline M05 modules intercepted from git; unchanged assets from local build.",
+  "cases": [
+    {
+      "name": "desktop",
+      "version": "m05-hf-align-ref01-wetland-art-v1",
+      "props": 96,
+      "landSamples": 42476,
+      "totalSamples": 61440,
+      "floodedFraction": 0.3086588541666667
+    },
+    {
+      "name": "mobile",
+      "version": "m05-hf-align-ref01-wetland-art-v1",
+      "props": 96,
+      "landSamples": 42476,
+      "totalSamples": 61440,
+      "floodedFraction": 0.3086588541666667
+    }
+  ]
+}
