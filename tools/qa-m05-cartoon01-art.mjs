@@ -2,6 +2,7 @@ import assert from'node:assert/strict';
 import{readFileSync,mkdirSync,writeFileSync,existsSync}from'node:fs';
 import{execFileSync}from'node:child_process';
 import{makeM05ArtPlan}from'../public/official/src/maps-visual/m05/cartoon01/marsh-world.mjs';
+if(existsSync('public/official/src/c1d8-b2-playable/scene-m05.mjs')){await import('./qa-m05-game01-scope.mjs');}else{
 const base='2cbcda7badc8925a0ff7890f3ccab6e3749baa68';
 const changed=execFileSync('git',['diff','--name-only',base,'--','public'],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
 for(const p of changed)assert(p.startsWith('public/official/src/maps-visual/m05/')||p.startsWith('public/official/art/maps/m05/'),'Outside isolated M05 art '+p);
@@ -14,3 +15,5 @@ const surfacePath='public/official/src/maps-visual/m05/cartoon01/surfaces.mjs',m
 for(const name of['wetland-materials-cartoon02-original','marsh-atlas-cartoon02-original']){const material=readFileSync('public/official/art/maps/m05/cartoon01/'+name+'.png');assert.equal(material.readUInt32BE(16),1536);assert.equal(material.readUInt32BE(20),1024);}
 const bank=readFileSync('public/official/art/maps/m05/cartoon01/bank-cliffs-cartoon02-original.png');assert.equal(bank.readUInt32BE(16),2172);assert.equal(bank.readUInt32BE(20),724);
 mkdirSync('artifacts/m05-cartoon01',{recursive:true});writeFileSync('artifacts/m05-cartoon01/scope.json',JSON.stringify({status:'PASS_M05_ISOLATED_ART_SCOPE_NO_GAMEPLAY',base,changed,routePoints:307,padPositions:9,campaignDataOnly:{waves:13,enemies:110,bossSlot:'map05_wave13'},baseline:'PR71_WETLAND',scope:'M05_HF_CARTOON02_STYLE_ONLY'},null,2));console.log('PASS_M05_ISOLATED_PREVIEW_AND_CANONICAL_DATA');
+
+}
