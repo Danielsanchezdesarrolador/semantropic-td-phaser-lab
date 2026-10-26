@@ -8,6 +8,7 @@ on:
       - 'tools/qa-m05-cartoon01-*.mjs'
       - 'docs/blocks/m05-cartoon01/**'
       - 'docs/blocks/m05-hf-align-ref01/**'
+      - 'docs/blocks/m05-hf-cartoon02/**'
       - '.github/workflows/m05-cartoon01-qa.yml'
   workflow_dispatch:
 permissions:

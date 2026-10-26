@@ -1,0 +1,42 @@
+{
+  "block": "MAP-ART-05-HF-CARTOON-02",
+  "base": "2cbcda7badc8925a0ff7890f3ccab6e3749baa68",
+  "version": "m05-hf-cartoon02-clean-wetland-art-v1",
+  "artOnly": true,
+  "gameplayChanges": false,
+  "files": [
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/assets.mjs",
+      "sha256": "c79fba89e93c287b575b507c2004437b66b83b59d0e2df49c9e727f79c8dcbf5"
+    },
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/marsh-world.mjs",
+      "sha256": "f514b9c3d8ee51ec901b0f3ba7746f935beeda10579bc8921ea477f4043ba387"
+    },
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/surfaces.mjs",
+      "sha256": "f95e4f90fab59df66f97ef8f5984ebb89ed7864df2e1be5ef1b817eddf1db765"
+    },
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/wetland-details.mjs",
+      "sha256": "2cd342cf1bcd8fd6e95fd55d97f9b6c151d7567b90e4371c74593873ab6d51cb"
+    },
+    {
+      "path": "public/official/src/maps-visual/m05/cartoon01/composition-cartoon02.mjs",
+      "sha256": "e4fc78fcff4237c55dd48dada0a4ba6ab932ed26041644a6bfcd8e4bdd61c8b7"
+    },
+    {
+      "path": "public/official/art/maps/m05/cartoon01/marsh-atlas-cartoon02-original.png",
+      "sha256": "05d5a1cf3494cec7b29f97ca7feefc29926074c636ff2dcaf606ade8998ee883"
+    },
+    {
+      "path": "public/official/art/maps/m05/cartoon01/wetland-materials-cartoon02-original.png",
+      "sha256": "1fa270462ade21d951da2cc6574c8cdc8695e624289b2032d579a0092c3b4068"
+    },
+    {
+      "path": "public/official/art/maps/m05/cartoon01/bank-cliffs-cartoon02-original.png",
+      "sha256": "3bbbd9a7085714924e9fcaeba1d39ed738ad071c0f610b9cef6d2b1e9c92f228"
+    }
+  ],
+  "humanArtApproval": "PENDING_DIRECTOR"
+}

@@ -19,14 +19,14 @@ function material(c,image,sy,sh){
 }
 export function paintMarshWater(c,support,image){
  material(c,image,516,508);const r=wetRandom(50505);
- for(let i=0;i<180;i++){const x=r()*1280,y=r()*768;if(support(x,y))continue;oval(c,x,y,4+r()*15,.6,i%4?'#72ad8580':'#a8c8a080');}
- const groups=[];for(let i=0;i<95;i++){const x=r()*1280,y=r()*768;if(support(x,y))continue;groups.push({x,y});for(let j=0;j<3+i%3;j++){const px=x+(r()-.5)*34,py=y+(r()-.5)*18;if(!support(px,py))lily(c,px,py,4+r()*6,j===0&&i%3===0);}}
+ for(let i=0;i<70;i++){const x=r()*1280,y=r()*768;if(support(x,y))continue;oval(c,x,y,4+r()*15,.6,i%4?'#72ad8580':'#a8c8a080');}
+ const groups=[];for(let i=0;i<65;i++){const x=r()*1280,y=r()*768;if(support(x,y))continue;groups.push({x,y});for(let j=0;j<2+i%2;j++){const px=x+(r()-.5)*34,py=y+(r()-.5)*18;if(!support(px,py))lily(c,px,py,4+r()*6,j===0&&i%3===0);}}
  return groups;
 }
 export function paintWetGround(c,image){
  material(c,image,0,510);
  // Small exposed wet clay patches among the moss, no meadow grass texture.
- const r=wetRandom(51026);for(let i=0;i<35;i++){const x=r()*1280,y=r()*768;patch(c,x,y,9+r()*16,3+r()*5,'#71654655',i+9);}
+ const r=wetRandom(51026);for(let i=0;i<12;i++){const x=r()*1280,y=r()*768;patch(c,x,y,9+r()*16,3+r()*5,'#71654655',i+9);}
 }
 export function paintBankDetails(c,support,clear){
  const r=wetRandom(26105);let reeds=0;

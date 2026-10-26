@@ -1,5 +1,5 @@
-/** M05 original marsh components and wetland materials; approved M02 rocks read-only. */
-export const SOURCES=Object.freeze({marsh:new URL('../../../../art/maps/m05/cartoon01/marsh-atlas-original.png',import.meta.url).href,cliffs:new URL('../../../../art/maps/m02/cartoon03/cliffs-original.png',import.meta.url).href,wetland:new URL('../../../../art/maps/m05/cartoon01/wetland-materials-original.png',import.meta.url).href});
+/** M05 clean cartoon originals, isolated from other maps. */
+export const SOURCES=Object.freeze({marsh:new URL('../../../../art/maps/m05/cartoon01/marsh-atlas-cartoon02-original.png',import.meta.url).href,wetland:new URL('../../../../art/maps/m05/cartoon01/wetland-materials-cartoon02-original.png',import.meta.url).href,banks:new URL('../../../../art/maps/m05/cartoon01/bank-cliffs-cartoon02-original.png',import.meta.url).href});
 const active=typeof document!=='undefined'&&location.pathname.includes('/maps-visual/m05/preview/');
 const load=url=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error('M05 cartoon source missing '+url));im.src=url;});
 const loaded=active?await Promise.all(Object.values(SOURCES).map(load)):null;
@@ -20,5 +20,5 @@ function components(image){
 export function marshAssets(){
  if(cached)return cached;if(!loaded)throw Error('M05 browser asset barrier missing');const sprites=components(loaded[0]),packed=Object.assign(document.createElement('canvas'),{width:2048,height:640}),pc=packed.getContext('2d');pc.imageSmoothingQuality='high';const sizes={tree:352,hut:384,arch:280,reeds:224,log:224,bones:224},frames=[];let x=4;
  for(const[name,im]of Object.entries(sprites)){const width=Math.min(im.width,sizes[name]),height=Math.round(im.height*width/im.width);if(x+width>2048||height+8>640)throw Error('M05 atlas budget');pc.drawImage(im,x,4,width,height);frames.push({name,x,y:4,width,height});x+=width+8;}
- return cached={canvas:packed,frames,sprites,cliffs:loaded[1],wetland:loaded[2]};
+ return cached={canvas:packed,frames,sprites,cliffs:loaded[2],wetland:loaded[1]};
 }
