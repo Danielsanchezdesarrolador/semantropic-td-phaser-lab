@@ -1,0 +1,43 @@
+name: M05 Cartoon01 — preview artístico aislado
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths:
+      - 'public/official/src/maps-visual/m05/**'
+      - 'public/official/art/maps/m05/**'
+      - 'tools/qa-m05-cartoon01-*.mjs'
+      - 'docs/blocks/m05-cartoon01/**'
+      - '.github/workflows/m05-cartoon01-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-art-geometry-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Alcance aislado, datos inmutables y camino C2
+        run: |
+          node tools/qa-m05-cartoon01-art.mjs
+          node tools/qa-m05-cartoon01-geometry.mjs
+      - name: Build Phaser y Chromium
+        run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - name: Preview PC y móvil, overlay, apoyos, carga/descarga y regresión M01–M04
+        run: node tools/qa-m05-cartoon01-browser.mjs
+      - name: Capturas e informe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: M05-CARTOON01-PREVIEW-ARTE-SIN-COMBATE
+          path: artifacts/m05-cartoon01/
+          retention-days: 14
