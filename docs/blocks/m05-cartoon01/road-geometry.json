@@ -1,0 +1,16 @@
+{
+  "status": "PASS_C2_WIDTH_CURVATURE_ROUTE_ALIGNMENT",
+  "segments": 306,
+  "samples": 15606,
+  "width": 62,
+  "baseline": "NO_PREVIOUS_M05_PHASER_ART",
+  "minRadius": 78.88743858901364,
+  "maxDeviation": 0.6364482282381194,
+  "canonicalPoints": 307,
+  "offsetSelfIntersections": 0,
+  "offsetSamplesPerSide": 612,
+  "futureGameplayEnvelope": "NOT_CERTIFIED_ART_ONLY",
+  "arcStationSpacing": 4,
+  "arcStations": 593,
+  "totalVisualLength": 2364.797792245141
+}
