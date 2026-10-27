@@ -24,7 +24,7 @@ export function makeCanyonTerrain(plan,assets){
  rc.save();const face=canvas(),fc=face.getContext('2d');fc.scale(2,2);fc.drawImage(mask,0,0,2560,1536,0,0,1280,768);fc.globalCompositeOperation='destination-over';fc.drawImage(mask,0,0,2560,1536,8,DEPTH,1280,768);fc.globalCompositeOperation='destination-out';fc.drawImage(mask,0,0,2560,1536,0,0,1280,768);
  const facePaint=canvas(),pc=facePaint.getContext('2d');pc.scale(2,2);const shore=contexts.shore;
  for(let x=0;x<1280;x+=1){let last=-1;for(let y=0;y<768;y++){if(support(x,y))last=y;else if(last>=0){const top=last,sx=768+Math.floor((x%384)*2);pc.drawImage(assets.materials,sx,0,2,512,x,top,1,DEPTH+5);if(x%5===0&&top+DEPTH<760&&!support(x,top+DEPTH+3)){shore.beginPath();shore.ellipse(x+8,top+DEPTH+1,6,1.6,0,0,Math.PI*2);shore.fillStyle='#b6d3aa66';shore.fill();}last=-1;}}}
- 
+
  pc.setTransform(1,0,0,1,0,0);pc.globalCompositeOperation='destination-in';pc.drawImage(face,0,0);rc.setTransform(1,0,0,1,0,0);rc.drawImage(facePaint,0,0);rc.restore();
  const gc=contexts.ground;tile(gc,[0,0,768,512]);
  // Warm rim, drawn inside the plateau edge, never crossing the route.
