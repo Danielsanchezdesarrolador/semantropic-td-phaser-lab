@@ -1,0 +1,54 @@
+name: M06 GAME-01 — 15 oleadas y dos rutas reales
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths:
+      - 'public/official/src/core-c1d/m06-*.mjs'
+      - 'public/official/src/c1d8-b2-playable/scene-m06.mjs'
+      - 'public/official/src/c1d8-b2-playable/scene-m02.mjs'
+      - 'public/official/src/maps-visual/m06/phaser-world.mjs'
+      - 'public/official/src/actors-visual/m06/**'
+      - 'public/official/src/live/index.html'
+      - 'public/official/src/maps-visual/m02/map-picker.mjs'
+      - 'public/official/src/mobile/viewport-panorama-r5.mjs'
+      - 'tools/qa-m06-game01-*.mjs'
+      - 'tools/qa-m06-dual-routes.mjs'
+      - 'docs/blocks/m06-game01/**'
+      - '.github/workflows/m06-game01-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  canonical-dual-route-combat-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fuentes, dos rutas, combate y regresiones
+        run: |
+          node tools/qa-m06-game01-scope.mjs
+          node tools/qa-m06-dual-routes.mjs
+          node tools/qa-m06-game01-core.mjs
+          node tools/qa-m05-game01-core.mjs
+          node tools/qa-m04-campaign.mjs
+          node tools/qa-m03-campaign.mjs
+          node tools/qa-c1d2-five-waves.mjs
+      - name: Build y Chromium
+        run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - name: PC y móvil, W1/W15 reales y campaña completa por pasos
+        run: node tools/qa-m06-game01-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: M06-GAME01-DOS-RUTAS-COMBATE-PC-MOVIL
+          path: artifacts/m06-game01*/
+          retention-days: 14

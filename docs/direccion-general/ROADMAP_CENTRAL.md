@@ -153,3 +153,7 @@ Si el bloque no se publicó o no se verificó, decirlo y no presentar el enlace 
 ### Orden posterior del Director — M04-GAME-01 (23/10/2026)
 
 Excepción expresa al orden MAPA-ARTE: habilitar funcionalmente M04 con infraestructura M02/M03, sin rediseño. El arte HF1 está aprobado y congelado; cualquier cambio artístico futuro requiere otra orden. Normal es el único modo auditado por este bloque; récord M04 aislado por mapa/modo. No adelantar M05. Estado final y publicación verificable en el acta/PR de M04-GAME-01.
+
+### Orden posterior de Dirección — M06-GAME-01 (27/10/2026)
+
+Port Normal M06 con arte v3 congelado, dos rutas canónicas, nueve pads, 15 oleadas125 enemigos (69/56), sin jefe. Implementación y QA focalizado en `docs/blocks/m06-game01/ACTA.md`; CI y promoción a LIVE se acreditan en el PR del bloque. No se adelanta M07 ni otra dificultad. Actores nuevos provisionales con mecánicas canónicas; no representa aprobación definitiva de balance o sprites.

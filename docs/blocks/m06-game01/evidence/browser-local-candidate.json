@@ -1,0 +1,4351 @@
+{
+  "status": "PASS_M06_GAME01_BROWSER_REAL_W1_W15_AND_FIXED_STEP_CAMPAIGN",
+  "cases": [
+    {
+      "profile": "desktop",
+      "initial": {
+        "snapshot": {
+          "contract": "m06-game01-two-real-routes-v1",
+          "mapId": 6,
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 495,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+          "navNodes": 353,
+          "navRepaths": 0,
+          "routeSpawns": [
+            0,
+            0
+          ],
+          "routeState": [],
+          "routes": [
+            {
+              "nodes": 243,
+              "length": 1953.339146641053
+            },
+            {
+              "nodes": 243,
+              "length": 1556.6695644847232
+            }
+          ],
+          "routeEnemies": [
+            0,
+            0
+          ],
+          "enemyShots": 0,
+          "structures": [],
+          "ruins": []
+        },
+        "art": {
+          "maps": "m06-hf-eroded-banks-blue-v3",
+          "towers": "T08-HF1-T04",
+          "actors": "P08_M03_BAT_PLUS_EXPLICIT_PROVISIONAL_M06_SUPPORT_SIEGE_GUNNER",
+          "nodes": "T09_HF0",
+          "source": "C1C_APPROVED",
+          "realCombat": true,
+          "realPng": true,
+          "activeOperator": "P03_APPROVED_U04_HD2",
+          "treatment": "fiel",
+          "noVisualRework": true
+        },
+        "panorama": {
+          "mapId": 6,
+          "width": 1280,
+          "height": 768,
+          "world": {
+            "width": 1280,
+            "height": 768
+          },
+          "gutterLeft": 0,
+          "gutterRight": 0,
+          "gutterTop": 0,
+          "gutterBottom": 0,
+          "painted": true,
+          "sourceCount": 1,
+          "drawCount": 1,
+          "scenicOnlyGutters": null
+        }
+      },
+      "early": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 1,
+        "active": true,
+        "ended": false,
+        "won": false,
+        "paused": false,
+        "lives": 100,
+        "gold": 265,
+        "kills": 0,
+        "escaped": 0,
+        "totalSpawns": 5,
+        "spawnsRemaining": 2,
+        "enemies": 5,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 2,
+        "soldiersRespawning": 0,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 32,
+        "routeSpawns": [
+          4,
+          1
+        ],
+        "routeState": [
+          {
+            "id": 1,
+            "routeStart": 0,
+            "progress": 134.42000000000007,
+            "routeLength": 1953.339146641053,
+            "x": 91.2165611537025,
+            "y": 169.88445289812532,
+            "flying": false
+          },
+          {
+            "id": 2,
+            "routeStart": 0,
+            "progress": 107.72666666666666,
+            "routeLength": 1953.339146641053,
+            "x": 64.56553578859832,
+            "y": 168.46837257406045,
+            "flying": false
+          },
+          {
+            "id": 3,
+            "routeStart": 0,
+            "progress": 87.70666666666666,
+            "routeLength": 1953.339146641053,
+            "x": 44.54800897325275,
+            "y": 168.37235291668324,
+            "flying": false
+          },
+          {
+            "id": 6,
+            "routeStart": 1,
+            "progress": 79.32666666666672,
+            "routeLength": 1556.6695644847232,
+            "x": 1190.7885390287759,
+            "y": 728.28738625998,
+            "flying": false
+          },
+          {
+            "id": 4,
+            "routeStart": 0,
+            "progress": 16.206666666666667,
+            "routeLength": 1953.339146641053,
+            "x": -26.493380591547,
+            "y": 175.36590665080982,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          4,
+          1
+        ],
+        "enemyShots": 0,
+        "structures": [
+          {
+            "id": "map6-tower-1",
+            "hp": 190,
+            "max": 190
+          }
+        ],
+        "ruins": []
+      },
+      "late": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 15,
+        "active": true,
+        "ended": false,
+        "won": false,
+        "paused": false,
+        "lives": 100,
+        "gold": 260,
+        "kills": 0,
+        "escaped": 0,
+        "totalSpawns": 11,
+        "spawnsRemaining": 2,
+        "enemies": 11,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 0,
+        "soldiersRespawning": 1,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 58,
+        "routeSpawns": [
+          6,
+          5
+        ],
+        "routeState": [
+          {
+            "id": 1,
+            "routeStart": 1,
+            "progress": 140.1783333333331,
+            "routeLength": 1556.6695644847232,
+            "x": 1170.7175194409783,
+            "y": 671.4587050004421,
+            "flying": false
+          },
+          {
+            "id": 2,
+            "routeStart": 0,
+            "progress": 437.6549999999976,
+            "routeLength": 1953.339146641053,
+            "x": 262.9818511607528,
+            "y": 367.03591622037277,
+            "flying": false
+          },
+          {
+            "id": 3,
+            "routeStart": 0,
+            "progress": 384.84999999999866,
+            "routeLength": 1953.339146641053,
+            "x": 260.6919479074301,
+            "y": 314.3088593186199,
+            "flying": false
+          },
+          {
+            "id": 4,
+            "routeStart": 0,
+            "progress": 332.9399999999997,
+            "routeLength": 1953.339146641053,
+            "x": 250.76515301952682,
+            "y": 263.444862353096,
+            "flying": false
+          },
+          {
+            "id": 5,
+            "routeStart": 1,
+            "progress": 279.14166666666785,
+            "routeLength": 1556.6695644847232,
+            "x": 1038.8275601556816,
+            "y": 643.5297422698501,
+            "flying": false
+          },
+          {
+            "id": 6,
+            "routeStart": 1,
+            "progress": 356.75666666666854,
+            "routeLength": 1556.6695644847232,
+            "x": 963.9834339924978,
+            "y": 661.6191358758722,
+            "flying": false
+          },
+          {
+            "id": 7,
+            "routeStart": 1,
+            "progress": 277.78000000000117,
+            "routeLength": 1556.6695644847232,
+            "x": 1040.1849645642387,
+            "y": 643.4220882743798,
+            "flying": false
+          },
+          {
+            "id": 9,
+            "routeStart": 0,
+            "progress": 187.9349999999998,
+            "routeLength": 1953.339146641053,
+            "x": 144.05935097430637,
+            "y": 177.97318768261113,
+            "flying": false
+          },
+          {
+            "id": 8,
+            "routeStart": 1,
+            "progress": 198.80333333333382,
+            "routeLength": 1556.6695644847232,
+            "x": 1118.757857190945,
+            "y": 647.223231769612,
+            "flying": false
+          },
+          {
+            "id": 10,
+            "routeStart": 0,
+            "progress": 115.4633333333335,
+            "routeLength": 1953.339146641053,
+            "x": 72.29830499815733,
+            "y": 168.7139157735384,
+            "flying": false
+          },
+          {
+            "id": 11,
+            "routeStart": 0,
+            "progress": 44.21999999999996,
+            "routeLength": 1953.339146641053,
+            "x": 1.1569570160542728,
+            "y": 170.9693463022068,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          6,
+          5
+        ],
+        "enemyShots": 0,
+        "structures": [
+          {
+            "id": "map6-tower-1",
+            "hp": 135,
+            "max": 135
+          },
+          {
+            "id": "map6-tower-2",
+            "hp": 132,
+            "max": 170
+          }
+        ],
+        "ruins": []
+      },
+      "completion": {
+        "snapshot": {
+          "contract": "m06-game01-two-real-routes-v1",
+          "mapId": 6,
+          "mode": "normal",
+          "wave": 15,
+          "active": false,
+          "ended": true,
+          "won": true,
+          "paused": false,
+          "lives": 26,
+          "gold": 68,
+          "kills": 88,
+          "escaped": 37,
+          "totalSpawns": 125,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+          "navNodes": 353,
+          "navRepaths": 0,
+          "routeSpawns": [
+            69,
+            56
+          ],
+          "routeState": [],
+          "routes": [
+            {
+              "nodes": 243,
+              "length": 1953.339146641053
+            },
+            {
+              "nodes": 243,
+              "length": 1556.6695644847232
+            }
+          ],
+          "routeEnemies": [
+            0,
+            0
+          ],
+          "enemyShots": 0,
+          "structures": [
+            {
+              "id": "map6-tower-4",
+              "hp": 66,
+              "max": 151
+            },
+            {
+              "id": "map6-tower-11",
+              "hp": 135,
+              "max": 135
+            },
+            {
+              "id": "map6-tower-12",
+              "hp": 135,
+              "max": 135
+            }
+          ],
+          "ruins": [
+            [
+              8,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              5,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              4,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              3,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              7,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              6,
+              {
+                "former": "sniper"
+              }
+            ]
+          ]
+        },
+        "counts": [
+          7,
+          6,
+          6,
+          8,
+          5,
+          5,
+          8,
+          7,
+          7,
+          12,
+          14,
+          7,
+          10,
+          10,
+          13
+        ],
+        "types": [
+          "warrior",
+          "aliengunner",
+          "shieldbearer",
+          "brute",
+          "archer",
+          "hound",
+          "demolisher",
+          "bat",
+          "shaman"
+        ],
+        "spawns": [
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "demolisher",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 0,
+            "type": "shaman",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          }
+        ]
+      },
+      "result": {
+        "text": "Superaste las 15 oleadas · 88 bajas · 37 fugas · 26/100 vidas.",
+        "record": {
+          "schema": "semantropic-phaser-m06-normal-result-v1",
+          "map": 6,
+          "mode": "normal",
+          "outcome": "victory",
+          "stars": 1,
+          "completedWaves": 15,
+          "lives": 26,
+          "kills": 88,
+          "escapes": 37,
+          "gold": 68,
+          "totalSpawns": 125,
+          "source": "real-core-M06",
+          "starRule": "V5_E5_STARS_5_25_PROVISIONAL",
+          "updatedAt": "2026-10-27T11:58:58.637Z"
+        }
+      },
+      "defeat": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 8,
+        "active": false,
+        "ended": true,
+        "won": false,
+        "paused": false,
+        "lives": 0,
+        "gold": 842,
+        "kills": 0,
+        "escaped": 50,
+        "totalSpawns": 52,
+        "spawnsRemaining": 0,
+        "enemies": 2,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 0,
+        "soldiersRespawning": 0,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 0,
+        "routeSpawns": [
+          33,
+          19
+        ],
+        "routeState": [
+          {
+            "id": 48,
+            "routeStart": 0,
+            "progress": 1892.500000000005,
+            "routeLength": 1953.339146641053,
+            "x": 1254.3037376850136,
+            "y": 166.49475084372943,
+            "flying": false
+          },
+          {
+            "id": 49,
+            "routeStart": 0,
+            "progress": 1801.6600000000044,
+            "routeLength": 1953.339146641053,
+            "x": 1164.1976289962279,
+            "y": 156.32911820874628,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          2,
+          0
+        ],
+        "enemyShots": 0,
+        "structures": [],
+        "ruins": []
+      },
+      "regressions": [
+        {
+          "map": 5,
+          "canvas": 1
+        },
+        {
+          "map": 6,
+          "canvas": 1
+        },
+        {
+          "map": 4,
+          "canvas": 1
+        },
+        {
+          "map": 6,
+          "canvas": 1
+        },
+        {
+          "map": 1,
+          "canvas": 1
+        },
+        {
+          "map": 2,
+          "canvas": 1
+        },
+        {
+          "map": 3,
+          "canvas": 1
+        },
+        {
+          "map": 6,
+          "canvas": 1
+        }
+      ],
+      "errors": []
+    },
+    {
+      "profile": "touch844",
+      "initial": {
+        "snapshot": {
+          "contract": "m06-game01-two-real-routes-v1",
+          "mapId": 6,
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 495,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+          "navNodes": 353,
+          "navRepaths": 0,
+          "routeSpawns": [
+            0,
+            0
+          ],
+          "routeState": [],
+          "routes": [
+            {
+              "nodes": 243,
+              "length": 1953.339146641053
+            },
+            {
+              "nodes": 243,
+              "length": 1556.6695644847232
+            }
+          ],
+          "routeEnemies": [
+            0,
+            0
+          ],
+          "enemyShots": 0,
+          "structures": [],
+          "ruins": []
+        },
+        "art": {
+          "maps": "m06-hf-eroded-banks-blue-v3",
+          "towers": "T08-HF1-T04",
+          "actors": "P08_M03_BAT_PLUS_EXPLICIT_PROVISIONAL_M06_SUPPORT_SIEGE_GUNNER",
+          "nodes": "T09_HF0",
+          "source": "C1C_APPROVED",
+          "realCombat": true,
+          "realPng": true,
+          "activeOperator": "P03_APPROVED_U04_HD2",
+          "treatment": "fiel",
+          "noVisualRework": true
+        },
+        "panorama": {
+          "mapId": 6,
+          "width": 844,
+          "height": 390,
+          "world": {
+            "width": 1280,
+            "height": 768
+          },
+          "gutterLeft": 97,
+          "gutterRight": 97,
+          "gutterTop": 0,
+          "gutterBottom": 0,
+          "painted": true,
+          "sourceCount": 1,
+          "drawCount": 1,
+          "scenicOnlyGutters": null
+        }
+      },
+      "early": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 1,
+        "active": true,
+        "ended": false,
+        "won": false,
+        "paused": false,
+        "lives": 100,
+        "gold": 265,
+        "kills": 0,
+        "escaped": 0,
+        "totalSpawns": 5,
+        "spawnsRemaining": 2,
+        "enemies": 5,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 2,
+        "soldiersRespawning": 0,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 33,
+        "routeSpawns": [
+          4,
+          1
+        ],
+        "routeState": [
+          {
+            "id": 1,
+            "routeStart": 0,
+            "progress": 135.37333333333342,
+            "routeLength": 1953.339146641053,
+            "x": 92.1663591242368,
+            "y": 169.96647886726538,
+            "flying": false
+          },
+          {
+            "id": 2,
+            "routeStart": 0,
+            "progress": 108.67999999999999,
+            "routeLength": 1953.339146641053,
+            "x": 65.51838886655345,
+            "y": 168.498629082053,
+            "flying": false
+          },
+          {
+            "id": 3,
+            "routeStart": 0,
+            "progress": 83.89333333333333,
+            "routeLength": 1953.339146641053,
+            "x": 40.735250670152055,
+            "y": 168.43857401036044,
+            "flying": false
+          },
+          {
+            "id": 6,
+            "routeStart": 1,
+            "progress": 74.98000000000003,
+            "routeLength": 1556.6695644847232,
+            "x": 1191.2450677559523,
+            "y": 732.6092039841404,
+            "flying": false
+          },
+          {
+            "id": 4,
+            "routeStart": 0,
+            "progress": 12.393333333333333,
+            "routeLength": 1953.339146641053,
+            "x": -30.211114650882013,
+            "y": 176.21441391369655,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          4,
+          1
+        ],
+        "enemyShots": 0,
+        "structures": [
+          {
+            "id": "map6-tower-1",
+            "hp": 190,
+            "max": 190
+          }
+        ],
+        "ruins": []
+      },
+      "late": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 15,
+        "active": true,
+        "ended": false,
+        "won": false,
+        "paused": false,
+        "lives": 100,
+        "gold": 260,
+        "kills": 0,
+        "escaped": 0,
+        "totalSpawns": 11,
+        "spawnsRemaining": 2,
+        "enemies": 11,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 0,
+        "soldiersRespawning": 1,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 58,
+        "routeSpawns": [
+          6,
+          5
+        ],
+        "routeState": [
+          {
+            "id": 1,
+            "routeStart": 1,
+            "progress": 140.1783333333331,
+            "routeLength": 1556.6695644847232,
+            "x": 1170.7175194409783,
+            "y": 671.4587050004421,
+            "flying": false
+          },
+          {
+            "id": 2,
+            "routeStart": 0,
+            "progress": 435.8649999999976,
+            "routeLength": 1953.339146641053,
+            "x": 262.98069657058227,
+            "y": 365.24591659274114,
+            "flying": false
+          },
+          {
+            "id": 3,
+            "routeStart": 0,
+            "progress": 383.0599999999987,
+            "routeLength": 1953.339146641053,
+            "x": 260.48247684029633,
+            "y": 312.531158029867,
+            "flying": false
+          },
+          {
+            "id": 4,
+            "routeStart": 0,
+            "progress": 331.14999999999975,
+            "routeLength": 1953.339146641053,
+            "x": 250.25435711925033,
+            "y": 261.72929027700576,
+            "flying": false
+          },
+          {
+            "id": 5,
+            "routeStart": 1,
+            "progress": 276.4183333333345,
+            "routeLength": 1556.6695644847232,
+            "x": 1041.5423689727959,
+            "y": 643.3144342789094,
+            "flying": false
+          },
+          {
+            "id": 6,
+            "routeStart": 1,
+            "progress": 354.0333333333352,
+            "routeLength": 1556.6695644847232,
+            "x": 966.4848002265652,
+            "y": 660.5422368984782,
+            "flying": false
+          },
+          {
+            "id": 7,
+            "routeStart": 1,
+            "progress": 275.0566666666678,
+            "routeLength": 1556.6695644847232,
+            "x": 1042.899773381353,
+            "y": 643.2067802834391,
+            "flying": false
+          },
+          {
+            "id": 9,
+            "routeStart": 0,
+            "progress": 185.47833333333315,
+            "routeLength": 1953.339146641053,
+            "x": 141.6674445513053,
+            "y": 177.4128353160441,
+            "flying": false
+          },
+          {
+            "id": 8,
+            "routeStart": 1,
+            "progress": 196.08000000000047,
+            "routeLength": 1556.6695644847232,
+            "x": 1121.403644961515,
+            "y": 647.8672710176609,
+            "flying": false
+          },
+          {
+            "id": 10,
+            "routeStart": 0,
+            "progress": 113.00666666666682,
+            "routeLength": 1953.339146641053,
+            "x": 69.8428759126576,
+            "y": 168.6359470798653,
+            "flying": false
+          },
+          {
+            "id": 11,
+            "routeStart": 0,
+            "progress": 41.7633333333333,
+            "routeLength": 1953.339146641053,
+            "x": -1.282844286719329,
+            "y": 171.25671490538974,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          6,
+          5
+        ],
+        "enemyShots": 0,
+        "structures": [
+          {
+            "id": "map6-tower-1",
+            "hp": 135,
+            "max": 135
+          },
+          {
+            "id": "map6-tower-2",
+            "hp": 132,
+            "max": 170
+          }
+        ],
+        "ruins": []
+      },
+      "completion": {
+        "snapshot": {
+          "contract": "m06-game01-two-real-routes-v1",
+          "mapId": 6,
+          "mode": "normal",
+          "wave": 15,
+          "active": false,
+          "ended": true,
+          "won": true,
+          "paused": false,
+          "lives": 26,
+          "gold": 68,
+          "kills": 88,
+          "escaped": 37,
+          "totalSpawns": 125,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+          "navNodes": 353,
+          "navRepaths": 0,
+          "routeSpawns": [
+            69,
+            56
+          ],
+          "routeState": [],
+          "routes": [
+            {
+              "nodes": 243,
+              "length": 1953.339146641053
+            },
+            {
+              "nodes": 243,
+              "length": 1556.6695644847232
+            }
+          ],
+          "routeEnemies": [
+            0,
+            0
+          ],
+          "enemyShots": 0,
+          "structures": [
+            {
+              "id": "map6-tower-4",
+              "hp": 66,
+              "max": 151
+            },
+            {
+              "id": "map6-tower-11",
+              "hp": 135,
+              "max": 135
+            },
+            {
+              "id": "map6-tower-12",
+              "hp": 135,
+              "max": 135
+            }
+          ],
+          "ruins": [
+            [
+              8,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              5,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              4,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              3,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              7,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              6,
+              {
+                "former": "sniper"
+              }
+            ]
+          ]
+        },
+        "counts": [
+          7,
+          6,
+          6,
+          8,
+          5,
+          5,
+          8,
+          7,
+          7,
+          12,
+          14,
+          7,
+          10,
+          10,
+          13
+        ],
+        "types": [
+          "warrior",
+          "aliengunner",
+          "shieldbearer",
+          "brute",
+          "archer",
+          "hound",
+          "demolisher",
+          "bat",
+          "shaman"
+        ],
+        "spawns": [
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "demolisher",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 0,
+            "type": "shaman",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          }
+        ]
+      },
+      "result": {
+        "text": "Superaste las 15 oleadas · 88 bajas · 37 fugas · 26/100 vidas.",
+        "record": {
+          "schema": "semantropic-phaser-m06-normal-result-v1",
+          "map": 6,
+          "mode": "normal",
+          "outcome": "victory",
+          "stars": 1,
+          "completedWaves": 15,
+          "lives": 26,
+          "kills": 88,
+          "escapes": 37,
+          "gold": 68,
+          "totalSpawns": 125,
+          "source": "real-core-M06",
+          "starRule": "V5_E5_STARS_5_25_PROVISIONAL",
+          "updatedAt": "2026-10-27T12:04:31.101Z"
+        }
+      },
+      "defeat": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 8,
+        "active": false,
+        "ended": true,
+        "won": false,
+        "paused": false,
+        "lives": 0,
+        "gold": 842,
+        "kills": 0,
+        "escaped": 50,
+        "totalSpawns": 52,
+        "spawnsRemaining": 0,
+        "enemies": 2,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 0,
+        "soldiersRespawning": 0,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 0,
+        "routeSpawns": [
+          33,
+          19
+        ],
+        "routeState": [
+          {
+            "id": 48,
+            "routeStart": 0,
+            "progress": 1892.500000000005,
+            "routeLength": 1953.339146641053,
+            "x": 1254.3037376850136,
+            "y": 166.49475084372943,
+            "flying": false
+          },
+          {
+            "id": 49,
+            "routeStart": 0,
+            "progress": 1801.6600000000044,
+            "routeLength": 1953.339146641053,
+            "x": 1164.1976289962279,
+            "y": 156.32911820874628,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          2,
+          0
+        ],
+        "enemyShots": 0,
+        "structures": [],
+        "ruins": []
+      },
+      "regressions": [],
+      "errors": []
+    },
+    {
+      "profile": "touch932",
+      "initial": {
+        "snapshot": {
+          "contract": "m06-game01-two-real-routes-v1",
+          "mapId": 6,
+          "mode": "normal",
+          "wave": 0,
+          "active": false,
+          "ended": false,
+          "won": false,
+          "paused": false,
+          "lives": 100,
+          "gold": 495,
+          "kills": 0,
+          "escaped": 0,
+          "totalSpawns": 0,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+          "navNodes": 353,
+          "navRepaths": 0,
+          "routeSpawns": [
+            0,
+            0
+          ],
+          "routeState": [],
+          "routes": [
+            {
+              "nodes": 243,
+              "length": 1953.339146641053
+            },
+            {
+              "nodes": 243,
+              "length": 1556.6695644847232
+            }
+          ],
+          "routeEnemies": [
+            0,
+            0
+          ],
+          "enemyShots": 0,
+          "structures": [],
+          "ruins": []
+        },
+        "art": {
+          "maps": "m06-hf-eroded-banks-blue-v3",
+          "towers": "T08-HF1-T04",
+          "actors": "P08_M03_BAT_PLUS_EXPLICIT_PROVISIONAL_M06_SUPPORT_SIEGE_GUNNER",
+          "nodes": "T09_HF0",
+          "source": "C1C_APPROVED",
+          "realCombat": true,
+          "realPng": true,
+          "activeOperator": "P03_APPROVED_U04_HD2",
+          "treatment": "fiel",
+          "noVisualRework": true
+        },
+        "panorama": {
+          "mapId": 6,
+          "width": 1165,
+          "height": 538,
+          "world": {
+            "width": 1280,
+            "height": 768
+          },
+          "gutterLeft": 134,
+          "gutterRight": 135,
+          "gutterTop": 0,
+          "gutterBottom": 0,
+          "painted": true,
+          "sourceCount": 1,
+          "drawCount": 1,
+          "scenicOnlyGutters": null
+        }
+      },
+      "early": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 1,
+        "active": true,
+        "ended": false,
+        "won": false,
+        "paused": false,
+        "lives": 100,
+        "gold": 265,
+        "kills": 0,
+        "escaped": 0,
+        "totalSpawns": 5,
+        "spawnsRemaining": 2,
+        "enemies": 5,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 2,
+        "soldiersRespawning": 0,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 33,
+        "routeSpawns": [
+          4,
+          1
+        ],
+        "routeState": [
+          {
+            "id": 1,
+            "routeStart": 0,
+            "progress": 135.37333333333342,
+            "routeLength": 1953.339146641053,
+            "x": 92.1663591242368,
+            "y": 169.96647886726538,
+            "flying": false
+          },
+          {
+            "id": 2,
+            "routeStart": 0,
+            "progress": 109.63333333333333,
+            "routeLength": 1953.339146641053,
+            "x": 66.47124194450856,
+            "y": 168.52888559004552,
+            "flying": false
+          },
+          {
+            "id": 3,
+            "routeStart": 0,
+            "progress": 82.94,
+            "routeLength": 1953.339146641053,
+            "x": 39.78206109437688,
+            "y": 168.45512928377974,
+            "flying": false
+          },
+          {
+            "id": 6,
+            "routeStart": 1,
+            "progress": 73.89333333333336,
+            "routeLength": 1556.6695644847232,
+            "x": 1191.3436797532818,
+            "y": 733.6913870178399,
+            "flying": false
+          },
+          {
+            "id": 4,
+            "routeStart": 0,
+            "progress": 11.44,
+            "routeLength": 1953.339146641053,
+            "x": -31.136408529485145,
+            "y": 176.44260955624458,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          4,
+          1
+        ],
+        "enemyShots": 0,
+        "structures": [
+          {
+            "id": "map6-tower-1",
+            "hp": 190,
+            "max": 190
+          }
+        ],
+        "ruins": []
+      },
+      "late": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 15,
+        "active": true,
+        "ended": false,
+        "won": false,
+        "paused": false,
+        "lives": 100,
+        "gold": 260,
+        "kills": 0,
+        "escaped": 0,
+        "totalSpawns": 11,
+        "spawnsRemaining": 2,
+        "enemies": 11,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 0,
+        "soldiersRespawning": 1,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 58,
+        "routeSpawns": [
+          6,
+          5
+        ],
+        "routeState": [
+          {
+            "id": 1,
+            "routeStart": 1,
+            "progress": 140.1783333333331,
+            "routeLength": 1556.6695644847232,
+            "x": 1170.7175194409783,
+            "y": 671.4587050004421,
+            "flying": false
+          },
+          {
+            "id": 2,
+            "routeStart": 0,
+            "progress": 436.7599999999976,
+            "routeLength": 1953.339146641053,
+            "x": 262.9812738656675,
+            "y": 366.1409164065569,
+            "flying": false
+          },
+          {
+            "id": 3,
+            "routeStart": 0,
+            "progress": 383.9549999999987,
+            "routeLength": 1953.339146641053,
+            "x": 260.5872123738632,
+            "y": 313.4200086742435,
+            "flying": false
+          },
+          {
+            "id": 4,
+            "routeStart": 0,
+            "progress": 332.04499999999973,
+            "routeLength": 1953.339146641053,
+            "x": 250.50975506938858,
+            "y": 262.5870763150509,
+            "flying": false
+          },
+          {
+            "id": 5,
+            "routeStart": 1,
+            "progress": 277.78000000000117,
+            "routeLength": 1556.6695644847232,
+            "x": 1040.1849645642387,
+            "y": 643.4220882743798,
+            "flying": false
+          },
+          {
+            "id": 6,
+            "routeStart": 1,
+            "progress": 355.39500000000186,
+            "routeLength": 1556.6695644847232,
+            "x": 965.2341171095314,
+            "y": 661.0806863871752,
+            "flying": false
+          },
+          {
+            "id": 7,
+            "routeStart": 1,
+            "progress": 276.4183333333345,
+            "routeLength": 1556.6695644847232,
+            "x": 1041.5423689727959,
+            "y": 643.3144342789094,
+            "flying": false
+          },
+          {
+            "id": 9,
+            "routeStart": 0,
+            "progress": 186.70666666666648,
+            "routeLength": 1953.339146641053,
+            "x": 142.86339776280582,
+            "y": 177.6930114993276,
+            "flying": false
+          },
+          {
+            "id": 8,
+            "routeStart": 1,
+            "progress": 197.44166666666715,
+            "routeLength": 1556.6695644847232,
+            "x": 1120.082829441641,
+            "y": 647.5362385818312,
+            "flying": false
+          },
+          {
+            "id": 10,
+            "routeStart": 0,
+            "progress": 114.23500000000016,
+            "routeLength": 1953.339146641053,
+            "x": 71.07059045540747,
+            "y": 168.67493142670185,
+            "flying": false
+          },
+          {
+            "id": 11,
+            "routeStart": 0,
+            "progress": 42.99166666666663,
+            "routeLength": 1953.339146641053,
+            "x": -0.06294363533252856,
+            "y": 171.11303060379825,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          6,
+          5
+        ],
+        "enemyShots": 0,
+        "structures": [
+          {
+            "id": "map6-tower-1",
+            "hp": 135,
+            "max": 135
+          },
+          {
+            "id": "map6-tower-2",
+            "hp": 132,
+            "max": 170
+          }
+        ],
+        "ruins": []
+      },
+      "completion": {
+        "snapshot": {
+          "contract": "m06-game01-two-real-routes-v1",
+          "mapId": 6,
+          "mode": "normal",
+          "wave": 15,
+          "active": false,
+          "ended": true,
+          "won": true,
+          "paused": false,
+          "lives": 26,
+          "gold": 68,
+          "kills": 88,
+          "escaped": 37,
+          "totalSpawns": 125,
+          "spawnsRemaining": 0,
+          "enemies": 0,
+          "bullets": 0,
+          "onlySniperCombat": false,
+          "infantryCombatImplemented": true,
+          "corePersistsRecords": false,
+          "soldiers": 0,
+          "soldiersRespawning": 0,
+          "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+          "navNodes": 353,
+          "navRepaths": 0,
+          "routeSpawns": [
+            69,
+            56
+          ],
+          "routeState": [],
+          "routes": [
+            {
+              "nodes": 243,
+              "length": 1953.339146641053
+            },
+            {
+              "nodes": 243,
+              "length": 1556.6695644847232
+            }
+          ],
+          "routeEnemies": [
+            0,
+            0
+          ],
+          "enemyShots": 0,
+          "structures": [
+            {
+              "id": "map6-tower-4",
+              "hp": 66,
+              "max": 151
+            },
+            {
+              "id": "map6-tower-11",
+              "hp": 135,
+              "max": 135
+            },
+            {
+              "id": "map6-tower-12",
+              "hp": 135,
+              "max": 135
+            }
+          ],
+          "ruins": [
+            [
+              8,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              5,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              4,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              3,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              7,
+              {
+                "former": "sniper"
+              }
+            ],
+            [
+              6,
+              {
+                "former": "sniper"
+              }
+            ]
+          ]
+        },
+        "counts": [
+          7,
+          6,
+          6,
+          8,
+          5,
+          5,
+          8,
+          7,
+          7,
+          12,
+          14,
+          7,
+          10,
+          10,
+          13
+        ],
+        "types": [
+          "warrior",
+          "aliengunner",
+          "shieldbearer",
+          "brute",
+          "archer",
+          "hound",
+          "demolisher",
+          "bat",
+          "shaman"
+        ],
+        "spawns": [
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 1,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 1,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 2,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 3,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 4,
+            "routeStart": 0,
+            "type": "hound",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 5,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 6,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 7,
+            "routeStart": 0,
+            "type": "demolisher",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 8,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 8,
+            "routeStart": 1,
+            "type": "bat",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 0,
+            "type": "shaman",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 9,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 10,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 0,
+            "type": "shieldbearer",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 11,
+            "routeStart": 1,
+            "type": "hound",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 12,
+            "routeStart": 1,
+            "type": "archer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 13,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 0,
+            "type": "aliengunner",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 14,
+            "routeStart": 1,
+            "type": "shieldbearer",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "demolisher",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "brute",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 1,
+            "type": "aliengunner",
+            "x": 1185,
+            "y": 807
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          },
+          {
+            "wave": 15,
+            "routeStart": 0,
+            "type": "warrior",
+            "x": -42,
+            "y": 180
+          }
+        ]
+      },
+      "result": {
+        "text": "Superaste las 15 oleadas · 88 bajas · 37 fugas · 26/100 vidas.",
+        "record": {
+          "schema": "semantropic-phaser-m06-normal-result-v1",
+          "map": 6,
+          "mode": "normal",
+          "outcome": "victory",
+          "stars": 1,
+          "completedWaves": 15,
+          "lives": 26,
+          "kills": 88,
+          "escapes": 37,
+          "gold": 68,
+          "totalSpawns": 125,
+          "source": "real-core-M06",
+          "starRule": "V5_E5_STARS_5_25_PROVISIONAL",
+          "updatedAt": "2026-10-27T12:08:04.458Z"
+        }
+      },
+      "defeat": {
+        "contract": "m06-game01-two-real-routes-v1",
+        "mapId": 6,
+        "mode": "normal",
+        "wave": 8,
+        "active": false,
+        "ended": true,
+        "won": false,
+        "paused": false,
+        "lives": 0,
+        "gold": 842,
+        "kills": 0,
+        "escaped": 50,
+        "totalSpawns": 52,
+        "spawnsRemaining": 0,
+        "enemies": 2,
+        "bullets": 0,
+        "onlySniperCombat": false,
+        "infantryCombatImplemented": true,
+        "corePersistsRecords": false,
+        "soldiers": 0,
+        "soldiersRespawning": 0,
+        "infantryPathfinding": "M06 shared-node graph of two canonical routes; no artificial connectors",
+        "navNodes": 353,
+        "navRepaths": 0,
+        "routeSpawns": [
+          33,
+          19
+        ],
+        "routeState": [
+          {
+            "id": 48,
+            "routeStart": 0,
+            "progress": 1892.500000000005,
+            "routeLength": 1953.339146641053,
+            "x": 1254.3037376850136,
+            "y": 166.49475084372943,
+            "flying": false
+          },
+          {
+            "id": 49,
+            "routeStart": 0,
+            "progress": 1801.6600000000044,
+            "routeLength": 1953.339146641053,
+            "x": 1164.1976289962279,
+            "y": 156.32911820874628,
+            "flying": false
+          }
+        ],
+        "routes": [
+          {
+            "nodes": 243,
+            "length": 1953.339146641053
+          },
+          {
+            "nodes": 243,
+            "length": 1556.6695644847232
+          }
+        ],
+        "routeEnemies": [
+          2,
+          0
+        ],
+        "enemyShots": 0,
+        "structures": [],
+        "ruins": []
+      },
+      "regressions": [],
+      "errors": []
+    }
+  ],
+  "physicalMobile": "NOT_RUN",
+  "method": "Real RAF W1 and a disclosed W15-only fixture with UI purchases and scene drawing suppressed between checkpoints to reduce software GPU cost; no time scaling or forced damage/gold/lives; not a continuous rendering performance benchmark; full15-wave core completion by fixed steps and real budget; unarmed defeat by fixed steps"
+}

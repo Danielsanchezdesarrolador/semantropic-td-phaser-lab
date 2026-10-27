@@ -1,0 +1,115 @@
+{
+  "block": "M06-GAME-01",
+  "base": "8abaa92a640ce810b299453dcc41f92a0c76d594",
+  "artVersion": "m06-hf-eroded-banks-blue-v3",
+  "files": [
+    {
+      "path": ".github/workflows/m06-game01-qa.yml",
+      "sha256": "1ac9d226995e8b6cb250673779261e325e3a62a132774278c5d23344814d61a7"
+    },
+    {
+      "path": "docs/blocks/m04-game01/authorized-runtime-blobs.json",
+      "sha256": "28855b3b362f655b020c3e2e0713362bdab173fedc59395ac7fedd94814da3d8"
+    },
+    {
+      "path": "docs/blocks/m06-game01/ACTA.md",
+      "sha256": "8032e7f61b3a77aaf629879cedf39a7f46a26d65dfaaed488af2f3ec17419be1"
+    },
+    {
+      "path": "docs/blocks/m06-game01/evidence/browser-local-candidate.json",
+      "sha256": "ea3386a0318b7295d7bb46ee1a2a8d32ebd1f0dec5c5e398c0222e6ff0b05a7f"
+    },
+    {
+      "path": "docs/blocks/m06-game01/evidence/core-local.json",
+      "sha256": "b79d270e6a4ed5741b697d83b4c0e87d556681b17506c48a0c54d639b4ae16a3"
+    },
+    {
+      "path": "docs/blocks/m06-game01/evidence/local-victory.png",
+      "sha256": "057eafd264c4f03d0b87f406a04a9ac613e3ec3159d6e92425618f85833aa5a9"
+    },
+    {
+      "path": "docs/blocks/m06-game01/evidence/local-w15-desktop.png",
+      "sha256": "c6e2207a9ed137d5fc644a5849508e8b28d370b6bcd452cfee92c978378ad222"
+    },
+    {
+      "path": "docs/blocks/m06-game01/evidence/local-w15-mobile.png",
+      "sha256": "b60bfab1df4299d5ec3d2138790ddc35fc80df588dccbe5c4ffcac5d1812eebc"
+    },
+    {
+      "path": "docs/direccion-general/ROADMAP_CENTRAL.md",
+      "sha256": "55d890323f750ca4f23101385e4017c455a8d203836be9a41fd6ec1640834fb4"
+    },
+    {
+      "path": "public/official/src/actors-visual/m06/campaign-enemies.mjs",
+      "sha256": "1a74b69ff180626804b17ed61b1c8aece7bc2f1a001fd27306bd7f0c4d5d5ea9"
+    },
+    {
+      "path": "public/official/src/c1d8-b2-playable/scene-m02.mjs",
+      "sha256": "9b66b55f3fb07069faba1094ece6c65587757713b0ab99ebcc1b889e0552965f"
+    },
+    {
+      "path": "public/official/src/c1d8-b2-playable/scene-m06.mjs",
+      "sha256": "5ba63a7c2e436ca3d8ac1b8c63da2663cde58737a6957644d27f6039a6ba608f"
+    },
+    {
+      "path": "public/official/src/core-c1d/m06-campaign.mjs",
+      "sha256": "e336ca107a5715a6ddf33402a23b3373b14ae3848fefb646a8faed66786f280e"
+    },
+    {
+      "path": "public/official/src/core-c1d/m06-dual-route-world.mjs",
+      "sha256": "896f37902cac30c48024bdf779ea6339688bf7a16aa401c32c864d75c0bce0ea"
+    },
+    {
+      "path": "public/official/src/core-c1d/m06-results-phaser.mjs",
+      "sha256": "67730d6add5cedbc60c2883c3df5c57cb11ac0fb1a2d556bd85b06a3326fb3a2"
+    },
+    {
+      "path": "public/official/src/live/index.html",
+      "sha256": "6b8379c5ea04bbc34837e319b8f586e0085b517bc57f458c2fc8e17153c305da"
+    },
+    {
+      "path": "public/official/src/maps-visual/m02/map-picker.mjs",
+      "sha256": "b586e74ea53827d906394d347ca9c8fecad37d899758181e015dae6938ed2321"
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/phaser-world.mjs",
+      "sha256": "73dbad19d4e59f8cf2a99ad246a7dfbfc3a2789ac143b4fe9d8fcd7749e81498"
+    },
+    {
+      "path": "public/official/src/mobile/viewport-panorama-r5.mjs",
+      "sha256": "21e53caf9624dabd10ec644b3d8b8c7057c8e17b07822fff1dcd11dca34c664a"
+    },
+    {
+      "path": "tools/qa-m05-cartoon01-browser.mjs",
+      "sha256": "d64ccacf4fe7c7b900e8935f12e4323bca302fac7b860b6c964c5d3a88f5e2af"
+    },
+    {
+      "path": "tools/qa-m05-game01-scope.mjs",
+      "sha256": "099c6cb82095491673dcc878069a502f5091a6cf11b1873f5129f057f349e414"
+    },
+    {
+      "path": "tools/qa-m06-cartoon01-art.mjs",
+      "sha256": "9da665ccdea6d6e8d3ebe655a45441eacbd87d2df15188d27f9668b24144427d"
+    },
+    {
+      "path": "tools/qa-m06-cartoon01-browser.mjs",
+      "sha256": "b15fbf4b97103f022ad7fb0d8a07abc0b6cb5d2f362efc26fa8d4d6c811671c3"
+    },
+    {
+      "path": "tools/qa-m06-dual-routes.mjs",
+      "sha256": "398454d7c51a8fa6e20be733aece26dcb63c3bb8de18769ac74dc36c79b87cb9"
+    },
+    {
+      "path": "tools/qa-m06-game01-browser.mjs",
+      "sha256": "4e1b4def25bca2778f8412ac96dd626d792e831e203b7b275a14d0d5ca7a11a0"
+    },
+    {
+      "path": "tools/qa-m06-game01-core.mjs",
+      "sha256": "e97fa8e74e9e33d8b8cc86236d738a68eb8145c731c4dd97dbbfce070e8faf29"
+    },
+    {
+      "path": "tools/qa-m06-game01-scope.mjs",
+      "sha256": "f12dca8d555d424483dc4a634d3ff771e3f8f5b1d10a29107807512a4e29e532"
+    }
+  ]
+}

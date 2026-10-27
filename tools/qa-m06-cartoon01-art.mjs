@@ -1,9 +1,12 @@
 /** M06 exclusive art authorization and measured geometry. */
-import assert from'node:assert/strict';import{readFileSync,mkdirSync,writeFileSync}from'node:fs';import{execFileSync}from'node:child_process';import{canyonPlan}from'../public/official/src/maps-visual/m06/cartoon01/terrain.mjs';import{makeRoadSpline,roadPoint,distanceToPath,ROAD_WIDTH}from'../public/official/src/maps-visual/m06/cartoon01/road-geometry.mjs';
+import assert from'node:assert/strict';import{readFileSync,mkdirSync,writeFileSync,existsSync}from'node:fs';import{execFileSync}from'node:child_process';import{canyonPlan}from'../public/official/src/maps-visual/m06/cartoon01/terrain.mjs';import{makeRoadSpline,roadPoint,distanceToPath,ROAD_WIDTH}from'../public/official/src/maps-visual/m06/cartoon01/road-geometry.mjs';
+if(existsSync('public/official/src/c1d8-b2-playable/scene-m06.mjs')){await import('./qa-m06-game01-scope.mjs');}else{
 const base='088fa5a44d0842c054c8e8bd6eda073b95a8a690',allowed=['public/official/src/maps-visual/m06/','public/official/art/maps/m06/'];
 for(const p of execFileSync('git',['diff','--name-only',base,'--','public'],{encoding:'utf8'}).trim().split('\n').filter(Boolean))assert(allowed.some(a=>p.startsWith(a)),'Outside M06 art '+p);
 const mutable=new Set(['assets.mjs','terrain.mjs','canyon-world.mjs'].map(n=>'public/official/src/maps-visual/m06/cartoon01/'+n));
 for(const p of execFileSync('git',['ls-tree','-r','-z','--name-only',base,'public'],{encoding:'utf8'}).split('\0').filter(Boolean)){if(mutable.has(p))continue;assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),execFileSync('git',['rev-parse',base+':'+p],{encoding:'utf8'}).trim(),'Existing public file modified '+p);}
+}
+const base='8abaa92a640ce810b299453dcc41f92a0c76d594';
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===6),plan=canyonPlan(map);assert.equal(plan.routes.length,2);assert.equal(plan.pads.length,9);assert.deepEqual(plan.routes,[map.path,...map.branches]);
 const geometry=[];for(const path of plan.routes){const segments=makeRoadSpline(path);let minRadius=Infinity,maxDeviation=0,maxJoinError=0;
  const d=(s,t)=>{const u=1-t;return[[0,1].map(k=>3*(u*u*(s.c1[k]-s.start[k])+2*u*t*(s.c2[k]-s.c1[k])+t*t*(s.end[k]-s.c2[k]))),[0,1].map(k=>6*(u*(s.c2[k]-2*s.c1[k]+s.start[k])+t*(s.end[k]-2*s.c2[k]+s.c1[k])))];};

@@ -419,6 +419,7 @@ class CombatScene extends Phaser.Scene{
     const flash=this.add.circle(e.worldPosition.x,e.worldPosition.y,10,0xffd274,.7).setDepth(32000);
     this.tweens.add({targets:flash,alpha:0,scale:2.2,duration:160,onComplete:()=>flash.destroy()});
    }else if(e.type==="entity_die")feedback("Enemigo eliminado · recompensa única +"+e.bounty+" oro");
+   else if(e.type==="tower_destroyed"){closeMenu();this.drawTowers();feedback("Torre destruida: reconstruye desde nivel I.");}
    else if(e.type==="entity_escape")feedback("Fuga: −2 vidas.");
    else if(e.type==="wave_clear")feedback("Oleada "+e.wave+" superada. Prepara la siguiente.");
    else if(e.type==="campaign_map_win")feedback(`Victoria: las ${waveCount} oleadas terminadas.`);
@@ -647,4 +648,4 @@ async function start(){
 }
 await start();
 }
-if(!["3","4","5"].includes(new URLSearchParams(location.search).get("map")))await startCampaignScene();
+if(!["3","4","5","6"].includes(new URLSearchParams(location.search).get("map")))await startCampaignScene();
