@@ -32,5 +32,9 @@
   "protectedArt": "m07-hf-mockup-fidelity-v2; unchanged",
   "runtimeQA": "PASS_NODE_BUILD; BROWSER_PENDING",
   "publication": "NOT_PUBLISHED",
-  "physicalMobile": "NOT_RUN"
+  "physicalMobile": "NOT_RUN",
+  "browserQA": "INCOMPLETE_DESKTOP_AFTER_W17; MOBILE_NOT_RUN",
+  "desktopArtComparison": "PASS_PIXEL_IDENTICAL_PREVIEW_RUNTIME_NO_HUD",
+  "githubBlocker": "PROXY_CONNECT_403_API_GITHUB",
+  "evidence": "artifacts/m07-closure-single-page-desktop"
 }
