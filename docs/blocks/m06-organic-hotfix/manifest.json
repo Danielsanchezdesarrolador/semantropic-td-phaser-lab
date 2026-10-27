@@ -1,0 +1,22 @@
+{
+  "base": "3a827f1c21379d006a54e418c00d6717c0cf1f72",
+  "version": "m06-hf-organic-cartoon-v2",
+  "files": [
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/assets.mjs",
+      "sha256": "c5677d8771df06928d1576eff799ad1238c510fe993312be50b0db190c9fa939"
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/terrain.mjs",
+      "sha256": "e80778fa490b48cde4e5dbd508d6ac9eb399981132488511650baf053f37a940"
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/canyon-world.mjs",
+      "sha256": "30dcd576f54a06958ab0175d5301e1862149fd589427cb1b0973eaff3034afae"
+    },
+    {
+      "path": "public/official/art/maps/m06/cartoon01/canyon-materials-organic-original.png",
+      "sha256": "31389ab0865626dccfefc1c257ae76ee481361b771eea5c34baed51271d34443"
+    }
+  ]
+}
