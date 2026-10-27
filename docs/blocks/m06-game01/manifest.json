@@ -13,7 +13,7 @@
     },
     {
       "path": "docs/blocks/m06-game01/ACTA.md",
-      "sha256": "8032e7f61b3a77aaf629879cedf39a7f46a26d65dfaaed488af2f3ec17419be1"
+      "sha256": "93ee0a979251a9b68a20ac68062d5547aa5f979c08d04d38c759f1465295012d"
     },
     {
       "path": "docs/blocks/m06-game01/evidence/browser-local-candidate.json",
@@ -89,7 +89,7 @@
     },
     {
       "path": "tools/qa-m06-cartoon01-art.mjs",
-      "sha256": "9da665ccdea6d6e8d3ebe655a45441eacbd87d2df15188d27f9668b24144427d"
+      "sha256": "9cbe4ab21607804541e7d3eea946e40e2967b8819344882a2b9a18095f1b4994"
     },
     {
       "path": "tools/qa-m06-cartoon01-browser.mjs",

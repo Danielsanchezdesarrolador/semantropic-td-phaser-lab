@@ -66,3 +66,5 @@ No declarar publicado hasta CI del HEAD y verificación de bytes/navegador Rende
 Mantenimiento: los overrides locales de cola/spawn/movimiento y cierre parten del core compartido congelado de la base indicada. Un futuro arreglo global de esos algoritmos deberá contrastarse también con M06; no se duplica el motor completo ni se cambian sus consumidores anteriores.
 
 La evidencia browser-local-candidate corresponde a la ejecución candidata que pasó todos los checks funcionales; sus primeras capturas W1 se hicieron con dibujo oculto y NO se entregan como evidencia visual. El driver final restablece visibilidad y espera frames de render antes de cada captura; CI y navegador público deben validar y capturar esa versión final. Las imágenes W15 y victoria aquí incluidas sí muestran la escena renderizada.
+
+CI: el guard de arte sigue auditando todos los módulos artísticos `m06/cartoon01`; el nuevo adaptador `m06/phaser-world.mjs` importa únicamente el contrato de sockets y queda auditado por el guard estricto de GAME-01. La comprobación histórica no debe confundir esa importación con lógica de combate en el arte.
