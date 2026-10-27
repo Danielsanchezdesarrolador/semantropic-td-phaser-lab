@@ -1,0 +1,85 @@
+{
+  "routes": [
+    {
+      "count": 151,
+      "start": [
+        -36,
+        175
+      ],
+      "exit": [
+        1313,
+        384
+      ]
+    },
+    {
+      "count": 126,
+      "start": [
+        795,
+        -32
+      ],
+      "exit": [
+        1313,
+        384
+      ]
+    },
+    {
+      "count": 126,
+      "start": [
+        206,
+        800
+      ],
+      "exit": [
+        1313,
+        384
+      ]
+    }
+  ],
+  "pads": [
+    [
+      96,
+      288
+    ],
+    [
+      288,
+      288
+    ],
+    [
+      416,
+      672
+    ],
+    [
+      864,
+      96
+    ],
+    [
+      544,
+      224
+    ],
+    [
+      544,
+      608
+    ],
+    [
+      736,
+      480
+    ],
+    [
+      736,
+      288
+    ],
+    [
+      992,
+      352
+    ],
+    [
+      1120,
+      288
+    ]
+  ],
+  "roadDecorationClearance": 53,
+  "padDecorationEllipse": [
+    61,
+    45
+  ],
+  "note": "Bandas visuales de exclusi\u00f3n; no modifican hitboxes ni reglas."
+}

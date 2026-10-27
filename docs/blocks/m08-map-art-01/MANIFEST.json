@@ -1,0 +1,95 @@
+{
+  "base": "44c5de9ba05f09e1689149a543d27760eb690aaf",
+  "artVersion": "m08-observatory-candidate-v1",
+  "state": "DRAFT_CANDIDATE_NO_PUBLICATION",
+  "files": [
+    {
+      "path": ".github/workflows/m08-art-qa.yml",
+      "bytes": 1378,
+      "sha256": "789e5e8a63bdd3bb7eb6692ce90964fd06e13f208f04bc6f09ac4055823e9b47"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/ACTA.md",
+      "bytes": 4560,
+      "sha256": "67b3b4ed298858ba92d42adbadab05ba9dff008c460f06813ab0058ffdf12fdf"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/CONTRATO.json",
+      "bytes": 939,
+      "sha256": "8b8ca436618f12edd5374b74101295257af80855f71c15f531d1ea572b22e570"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/GEOMETRIA_ANTES.svg",
+      "bytes": 15262,
+      "sha256": "158c062f4dbfcabae43704a7b352d36bfbfd4bb586b19cccd320a8205fa4567c"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/desktop-overlay-after.png",
+      "bytes": 1677261,
+      "sha256": "759a50d1797ae276f4ca8bead7a176e0636b0662e0222cf47db07ea10a365eaa"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/desktop.png",
+      "bytes": 1648712,
+      "sha256": "a657bf47a5df31d29dc8dde0f926483db2a156820ed9d92af488c18c8abdc826"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/report.json",
+      "bytes": 45188,
+      "sha256": "f56e798fe23a18fc4f765ca85d37f5d2ef773421063caa3990c413d9b421f003"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/touch844.png",
+      "bytes": 480544,
+      "sha256": "7127cded9721c306cabb9dbc700c7b6829fe1b2ecacd1c19c6ea17543330bc6f"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/touch932.png",
+      "bytes": 1933204,
+      "sha256": "e820d396d982432d82967b6ca2c02702a45bd36f15df332ad7724590cc3e07f9"
+    },
+    {
+      "path": "public/official/art/maps/m08/cartoon01/grass-earth-original.png",
+      "bytes": 3289671,
+      "sha256": "b1e152f29299c4223131b940172bbe37ce60274eec44f31872ddfc4cb70a40ed"
+    },
+    {
+      "path": "public/official/art/maps/m08/cartoon01/observatory-original-props.png",
+      "bytes": 3112151,
+      "sha256": "48a52689d05451f9df63c9911a2e950aa247cd193bb757c620d97df532a695cd"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/cartoon01/plan.mjs",
+      "bytes": 847,
+      "sha256": "37c16a63529c2d3c728ffacbd61cb8d5a1120dc47d51bea4a5d31cdb5982a08c"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/cartoon01/world.mjs",
+      "bytes": 4218,
+      "sha256": "d51460168540373d3662de5e70bde9cb5464e998f9cf7e0b5cec4887734a585b"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/preview/index.html",
+      "bytes": 695,
+      "sha256": "156f0cfe7f5cb3155d9767495618e51c9fb8c399688cba93de053ec6a08c3346"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/preview/preview.mjs",
+      "bytes": 1199,
+      "sha256": "a59f86566bd4c019d3f4761c5026451fefdfce39f54231666c2aaac0bdbf48ea"
+    },
+    {
+      "path": "tools/qa-m08-art-browser.mjs",
+      "bytes": 2994,
+      "sha256": "edaae3cb0e9610ad6fb94add96323fe23a7598d5bccdd3822f54208d058ff875"
+    },
+    {
+      "path": "tools/qa-m08-art.mjs",
+      "bytes": 1391,
+      "sha256": "d040fbce654d27960a9013977afb2df6877eb7658f6b55afb29cf6b38caca9d0"
+    }
+  ],
+  "QA": "PASS_LOCAL_NODE_BUILD_CHROMIUM_3_PROFILES",
+  "physicalMobile": "NOT_RUN",
+  "humanArtApproval": "PENDING"
+}

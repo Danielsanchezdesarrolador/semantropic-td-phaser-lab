@@ -1,0 +1,4 @@
+/** Art-only layout derived directly from protected map data. */
+export function makePlan(map){if(map.id!==8)throw Error('M08 only');const routes=[map.path,...map.branches],pads=map.spots.map((p,i)=>({id:`P${String(i+1).padStart(2,'0')}`,x:p.cx*64+32,y:p.cy*64+32}));return{routes,pads,props:[],mapId:8};}
+export function distance(x,y,routes){let best=Infinity;for(const r of routes)for(let i=1;i<r.length;i++){const[a,b]=r[i-1],[c,d]=r[i],dx=c-a,dy=d-b,t=Math.max(0,Math.min(1,((x-a)*dx+(y-b)*dy)/(dx*dx+dy*dy||1)));best=Math.min(best,Math.hypot(x-a-t*dx,y-b-t*dy));}return best;}
+export function clearRect(p,plan){if(p.x<0||p.y<0||p.x+p.w>1280||p.y+p.h>768)return false;for(let y=p.y;y<=p.y+p.h;y+=7)for(let x=p.x;x<=p.x+p.w;x+=7){if(distance(x,y,plan.routes)<53||plan.pads.some(q=>((x-q.x)/61)**2+((y-q.y)/45)**2<1))return false;}return true;}
