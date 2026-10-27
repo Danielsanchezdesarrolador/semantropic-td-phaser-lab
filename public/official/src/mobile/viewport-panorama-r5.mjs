@@ -42,6 +42,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
   }
   if(mapId===3){const art=texture('maps/m03/whispering-forest/scenic/v1');return art?[art]:[];}
   if(mapId===4){const art=texture('maps/m04/ancient-river/art-v1');return art?[art]:[];}
+  if(mapId===7){const art=texture('maps/m07/cartoon01/ground');return art?[art]:[];}
   if(mapId===6){const art=texture('maps/m06/cartoon01/water');return art?[art]:[];}
   if(mapId===5){const art=texture('maps/m05/cartoon01/water');return art?[art]:[];}
   return [];
@@ -132,7 +133,7 @@ export function attachR5Panorama({stage=document.getElementById('stage')}={}){
   scheduled=requestAnimationFrame(()=>{scheduled=0;draw();});
  }
  function bind(nextScene,id){
-  if(id!==1&&id!==2&&id!==3&&id!==4&&id!==5&&id!==6)throw Error('R5 unknown map');
+  if(id!==1&&id!==2&&id!==3&&id!==4&&id!==5&&id!==6&&id!==7)throw Error('R5 unknown map');
   scene=nextScene;mapId=id;
   refresh();
   return true;

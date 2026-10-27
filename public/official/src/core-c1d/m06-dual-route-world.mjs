@@ -15,7 +15,7 @@ export function makeM06InfantryNav(paths){
  return Object.freeze({nodes,kind:'M06-two-canonical-route-shared-node-graph',originalVertices:paths.reduce((n,p)=>n+p.length,0)});
 }
 export class M06DualRouteWorld extends withCampaignInfantry(CampaignCombatWorld){
- constructor(map,campaign,options){super(map,campaign,options);ensure(map.id===6&&map.branches?.length===1,'M06 two routes required');this.routes=[map.path,map.branches[0]].map(pathSegments);this.airRoutes=[map.path,map.branches[0]].map(p=>pathSegments(this.rules.airPath(p)));this.infantryNav=makeM06InfantryNav([map.path,map.branches[0]]);this.routeSpawns=[0,0];this.routeByEntity=new Map();}
+ constructor(map,campaign,options){super(map,campaign,options);ensure([6,7].includes(map.id)&&map.id===(this.rules.mapId??6)&&map.branches?.length===1,'Canonical two-route map required');this.routes=[map.path,map.branches[0]].map(pathSegments);this.airRoutes=[map.path,map.branches[0]].map(p=>pathSegments(this.rules.airPath(p)));this.infantryNav=makeM06InfantryNav([map.path,map.branches[0]]);this.routeSpawns=[0,0];this.routeByEntity=new Map();}
  routeFor(id,flying=false){ensure(id===0||id===1,'invalid routeStart');return(flying?this.airRoutes:this.routes)[id];}
  emit(type,info={}){const e=this.enemies.get(info.entityId??info.targetId);const routeStart=e?.routeStart??this.routeByEntity?.get(info.entityId??info.targetId);if(routeStart!==undefined)info={...info,routeStart};if(type==='spawn'){this.routeSpawns[info.entity.routeStart]++;this.routeByEntity.set(info.entityId,info.entity.routeStart);}return super.emit(type,info);}
  escape(e){const result=super.escape(e);if(result){/* base may append defeat after escape; annotate the matching escape only */for(let i=this.events.length-1;i>=0;i--)if(this.events[i].type==='entity_escape'&&this.events[i].entityId===e.id){this.events[i]=Object.freeze({...this.events[i],routeStart:e.routeStart});break;}}return result;}
@@ -35,8 +35,8 @@ export class M06DualRouteWorld extends withCampaignInfantry(CampaignCombatWorld)
    const item=this.spawnQueue.shift(),data=this.rules.calculateEnemy(this.wave,item.type,this.map),route=this.routeFor(item.routeStart,Boolean(this.rules.enemySpecs[item.type].flying)),p=positionOnPath(route,0);
    const e={id:item.id,routeStart:item.routeStart,type:item.type,life:data.hp,maxLife:data.hp,hp:data.hp,maxHp:data.hp,
     speed:data.speed,r:data.r,reward:data.reward,progress:0,routeLength:route.total,
-    x:p.x,y:p.y,heading:p.heading,dead:false,escaped:false,armor:this.rules.enemySpecs[item.type].armor||0,shield:Math.max(0,Math.round(data.hp*(this.rules.enemySpecs[item.type].shieldFactor||0))),
-     shieldMax:Math.max(0,Math.round(data.hp*(this.rules.enemySpecs[item.type].shieldFactor||0))),
+    x:p.x,y:p.y,heading:p.heading,dead:false,escaped:false,armor:this.rules.enemySpecs[item.type].armor||0,shield:Math.max(0,Math.round(data.hp*(this.rules.shieldFactor?.(item.type,this.wave)??this.rules.enemySpecs[item.type].shieldFactor??0))),
+     shieldMax:Math.max(0,Math.round(data.hp*(this.rules.shieldFactor?.(item.type,this.wave)??this.rules.enemySpecs[item.type].shieldFactor??0))),
     resist:copy(this.rules.enemySpecs[item.type].resist||{}),flying:Boolean(this.rules.enemySpecs[item.type].flying),blockable:this.rules.enemySpecs[item.type].blockable!==false,rewardPaid:false,wave:this.wave};
    this.enemies.set(e.id,e);this.totalSpawns++;
    this.emit("spawn",{entityId:e.id,entity:copy(e),wave:this.wave,worldPosition:{x:e.x,y:e.y}});

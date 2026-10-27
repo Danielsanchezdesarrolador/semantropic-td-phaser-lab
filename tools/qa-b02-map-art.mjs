@@ -7,6 +7,12 @@ const authorized=JSON.parse(readFileSync('docs/blocks/m04-game01/authorized-runt
 // Explicit functional integration supersedes the old art-only runtime freeze.
 const visual=JSON.parse(readFileSync('docs/blocks/map-style01/authorized-visual-blobs.json'));
 const expected=(p,h)=>visual[p]?.before===h?visual[p].after:authorized[p]?.before===h?authorized[p].after:h;
+// Pin the explicitly authorized infantry transition; preserve the historical M04 endpoint.
+const infantryPath='public/official/src/core-c1d/campaign-infantry-combat.mjs';
+const infantryAuthorization=authorized[infantryPath];
+assert.equal(infantryAuthorization.approvedM04After,'940dccf6e5e4ee663778f9021aed90263dce8a87');
+assert.equal(infantryAuthorization.after,'3b6104fad39a118e83d4edad9c2c3998485cc28e');
+assert.equal(infantryAuthorization.baseBeforeM07,'8a8a3c44d976acc9a81ff8a74da5083da572ff1a');
 const pinned=JSON.parse(readFileSync('docs/blocks/b02/protected-blobs.json'));
 for(const [p,hash] of Object.entries(pinned.blobs))assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),expected(p,hash),'B02 changed protected source '+p);
 const map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===2),plan=makeB02ArtPlan(map);

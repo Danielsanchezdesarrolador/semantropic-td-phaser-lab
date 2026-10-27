@@ -1,7 +1,7 @@
 /** R3-C. Select M01/M02 on same official LIVE pathname, with safe full navigation. */
 export function mountR3CMapPicker(){
  const requested=Number(new URLSearchParams(location.search).get('map'));
- const selected=[2,3,4,5,6].includes(requested)?requested:1;
+ const selected=[2,3,4,5,6,7].includes(requested)?requested:1;
  const get=id=>document.getElementById(id);
  const trigger=get('mapPickerButton'),dialog=get('mapPicker'),close=get('mapPickerClose');
  if(!trigger||!dialog||!close)throw Error('Missing R3-C selector elements');
@@ -30,6 +30,12 @@ export function mountR3CMapPicker(){
    u.searchParams.delete('operator');u.searchParams.delete('t10hf2');
    location.assign(u.pathname+u.search);
   });
+ }
+ if(selected===7){
+  document.title='SEMANTROPIC TD — Mapa 07 | Paso de la Escarcha';
+  get('mapReleaseLabel').textContent='SEMANTROPIC TD · MAPA 07 PASO DE LA ESCARCHA';
+  get('coins').textContent='510';get('lives').textContent='100';get('wave').textContent='0/17';
+  get('feedback').textContent='Cargando Mapa 07 · Paso de la Escarcha…';get('resultRestart').textContent='Volver a jugar Mapa 07';
  }
  if(selected===6){
   document.title='SEMANTROPIC TD — Mapa 06 | Desfiladero de Hierro';

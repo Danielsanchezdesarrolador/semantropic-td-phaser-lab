@@ -165,3 +165,7 @@ Paso de la Escarcha: arte/preview estático exclusivamente,542puntos/9pads conge
 ### Dirección 27/10/2026 — M07 HOTFIX FIDELIDAD
 
 La primera entrega M07 fue rechazada por simplificación artística. Orden: recuperar riqueza visual del mockup, no sustituirla por criterio propio. Norma permanente de alta fidelidad en AGENTS.md y referencia cruzada en el canon. Arte M07 v2 y QA/antes-después en `docs/blocks/m07-fidelity-hotfix/ACTA.md`; gameplay M07 continúa fuera de alcance.
+
+### Dirección 27/10/2026 — M07-GAME-01 autorizado
+
+Dirección ordena preservar el arte M07 `m07-hf-mockup-fidelity-v2` (PR80/81) y habilitar Normal: 17 oleadas, 140 enemigos, rutas 61/79, 542 puntos y nueve pads. Excepción posterior expresa: daño Francotirador ×1,35 únicamente en M07 Normal. No cambia el balance de M01–M06 ni el arte aprobado. Estado, evidencia y publicación real en `docs/blocks/m07-game01/ACTA.md`; no adelantar M08.
