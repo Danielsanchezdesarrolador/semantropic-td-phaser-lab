@@ -62,3 +62,7 @@ Rollback reversible: revertir merge del bloque por PR; solamente añade archivos
 | CI del HEAD y publicación Render | PENDIENTE al redactar; registrar cierre en PR/entrega |
 | Móvil físico / aceptación estética humana | NOT_RUN / PENDIENTE |
 | Campaña jugable M06 | FUERA DE ALCANCE |
+
+## Corrección final de apoyo de la caída
+
+La revisión de la captura pública de PR74 detectó que el labio rocoso central terminaba dentro del canal y podía leerse flotante. Se amplía exclusivamente ese pequeño labio estático hasta ambas orillas, con facetas de roca, sin tocar flujo, máscara de terreno, senderos, puentes o pads. El navegador verifica ahora apoyo en tierra en x±47 respecto al centro de la caída. Corrección dentro del mismo bloque artístico, rama `art/m06-cascade-support`, base PR74 `8642ff5ab30ba3b5f9fa56cf3f790c246c497154`. Repetir CI y comprobar el archivo publicado antes de entrega final.
