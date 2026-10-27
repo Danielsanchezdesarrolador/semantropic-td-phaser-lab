@@ -1,0 +1,33 @@
+name: M07 HF — Fidelidad al mockup
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths: ['public/official/src/maps-visual/m07/**', 'public/official/art/maps/m07/**', 'AGENTS.md', 'docs/blocks/m07-fidelity-hotfix/**', 'tools/qa-m07-fidelity-scope.mjs', '.github/workflows/m07-fidelity-qa.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fidelity-scope-and-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tools/qa-m07-fidelity-scope.mjs
+      - run: node tools/qa-m07-art.mjs
+      - run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - run: M07_QA_OUT=artifacts/m07-fidelity-ci node tools/qa-m07-art-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: M07-HF-FIDELITY-PC-MOBILE-OVERLAY
+          path: artifacts/m07-*/
+          retention-days: 14

@@ -161,3 +161,7 @@ Port Normal M06 con arte v3 congelado, dos rutas canónicas, nueve pads, 15 olea
 ### Orden de Dirección — MAP-ART-07-CARTOON-V1 (27/10/2026)
 
 Paso de la Escarcha: arte/preview estático exclusivamente,542puntos/9pads congelados; sin selector ni campaña M07. Fuentes, QA y puerta de valoración humana en `docs/blocks/m07-art-cartoon-v1/ACTA.md`. No adelantar MAP-ENV-07 ni M07-GAME-01. M06-GAME-01 ya publicado mediante PR78/merge8e3f2ec, preservado en este bloque.
+
+### Dirección 27/10/2026 — M07 HOTFIX FIDELIDAD
+
+La primera entrega M07 fue rechazada por simplificación artística. Orden: recuperar riqueza visual del mockup, no sustituirla por criterio propio. Norma permanente de alta fidelidad en AGENTS.md y referencia cruzada en el canon. Arte M07 v2 y QA/antes-después en `docs/blocks/m07-fidelity-hotfix/ACTA.md`; gameplay M07 continúa fuera de alcance.

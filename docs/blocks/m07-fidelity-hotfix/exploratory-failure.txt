@@ -1,0 +1,1 @@
+FAIL exploratorio m07-hf-rich: page.waitForFunction Timeout30000ms al esperar overlay móvil932. No se contó PASS. Ejecución final m07-hf-final completa PASS. No se modificaron aserciones/timeouts; ver ACTA.

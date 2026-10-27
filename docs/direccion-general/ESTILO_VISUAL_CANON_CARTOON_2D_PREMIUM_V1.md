@@ -68,3 +68,6 @@ Esta elección **SUSTITUYE** la decisión anterior de utilizar el acabado pictó
 - [ ] Dirección General aprueba visualmente cada pack antes de extender el rework.
 
 **Regla de precedencia:** este canon aprobado el 23/10/2026 prevalece sobre todo mandato de «M03 pictórico como estándar final» previo. La continuidad funcional y demás normas de AGENTS.md siguen vigentes.
+## Fidelidad obligatoria — actualización de Dirección 27/10/2026
+
+Rige la sección «NORMA DE FIDELIDAD A MOCKUPS APROBADOS» de [AGENTS.md](../../AGENTS.md). El mockup exige alta fidelidad de riqueza, densidad, masas, relieve y acabado. La técnica cartoon por planos y la optimización modular no autorizan simplificar el diseño aprobado. La geometría funcional permanece protegida; cualquier reducción artística requiere orden expresa.

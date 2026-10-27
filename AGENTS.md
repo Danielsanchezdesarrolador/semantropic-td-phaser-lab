@@ -12,6 +12,17 @@
 
 > LEER ANTES DE CUALQUIER CAMBIO. Este archivo establece dirección y controles; su mera lectura NO autoriza modificaciones, commits, merges ni despliegues. Verificar siempre el código y el commit actual. No tratar documentos históricos como prueba de implementación.
 
+## NORMA DE FIDELIDAD A MOCKUPS APROBADOS — Dirección General, 27/10/2026
+
+- Todo mockup aprobado por Dirección General es una referencia visual obligatoria de **alta fidelidad**, no una inspiración vaga.
+- Codex no puede simplificar, reducir, reinterpretar ni empobrecer por iniciativa propia la complejidad visual, densidad ambiental, relieve, profundidad, masas forestales, props, siluetas, bioma o riqueza compositiva aprobados.
+- El nivel de acabado mostrado debe perseguirse en runtime mediante composición modular, capas, atlas, batching, caché y assets originales reutilizables. La optimización técnica **no autoriza** reducir el diseño sin aprobación explícita.
+- Ante un conflicto técnico real, informar primero y proponer alternativas concretas; no decidir unilateralmente una versión simplificada. La excepción requiere una orden expresa del Director.
+- Aplica a mapas, biomas, relieve, agua, puentes, decoración, ruinas, props, portal, vegetación, hielo, nieve, magia y profundidad visual, así como a los packs artísticos aprobados.
+- Las rutas, pads y contratos funcionales siguen protegidos: se adapta la composición modular para conservarlos, sin usar esa protección como permiso para reducir la riqueza visual. No se usa el mockup como fondo monolítico.
+- «Formas simplificadas», cel shading y detalle controlado describen la técnica cartoon, **no** permiso para empobrecer un mockup aprobado. Solo Dirección puede autorizar una abstracción deliberada.
+- Antes de entregar: comparar referencia y runtime al mismo encuadre, identificar diferencias concretas y aportar capturas reales PC/móvil. QA técnico no equivale a aceptación artística.
+
 ## 1. Identidad y misión: no negociables
 - Proyecto: **SEMANTROPIC TD**, independiente de SEMANTROPIC TRIVIA / UNITY020.
 - Meta: terminar y publicar un videojuego **Tower Defense comercial premium, original, estable y tácticamente profundo**, ambientado en la defensa de la Tierra frente a una invasión alienígena; ejército futurista estilizado, tropas, operadores, mechas, aeronaves y enemigos memorables.
@@ -146,7 +157,7 @@ Confirmar internamente:
 - **APROBADO POR DIRECCIÓN (última decisión visual del 23/10/2026): Cartoon 2D Premium V1**. Modelo artístico: último mockup M01 explícitamente aprobado como más cartoon. Fuente permanente de especificaciones: docs/direccion-general/ESTILO_VISUAL_CANON_CARTOON_2D_PREMIUM_V1.md.
 - Esta aprobación **SUSTITUYE** M03 pictórico/hiperdetallado como estilo final. El M03 conserva valor histórico y su gameplay/código, pero ya NO define el acabado gráfico. No reaplicar las instrucciones antiguas de «homogeneizar hacia M03 pictórico».
 - ADN obligatorio EN MAPAS, TORRES, SOLDADOS, ALIADOS, ENEMIGOS, JEFES, ANIMACIONES, VFX, HUD e ICONOS: siluetas 2D originales reconocibles, contorno nítido, cel shading por masas de color, perspectiva 3/4 consistente, relieves escalonados, sombra de contacto, detalles gráficos controlados y lectura táctil a escala móvil.
-- La referencia es un **mockup de estilo** y está en la conversación del Director, no publicada automáticamente como asset GitHub. Si la imagen no está accesible en el checkout, solicitar adjunto para comparación; NO inventar URL ni afirmar fidelidad medida. Prohibido insertar la captura como mapa monolítico/fondo final.
+- La referencia es un **mockup de alta fidelidad visual obligatoria** y está en la conversación del Director, no publicada automáticamente como asset GitHub. Si la imagen no está accesible en el checkout, solicitar adjunto para comparación; NO inventar URL ni afirmar fidelidad medida. Prohibido insertar la captura como mapa monolítico/fondo final.
 - Cada bioma, torre, unidad, arma, facción y VFX mantiene función e identidad propias dentro del mismo estilo. Kingdom Rush es referencia de claridad del género, NUNCA fuente para calcar su propiedad intelectual.
 - La calidad y homogeneidad futuras requieren mockups aprobados por pack, QA de imagen real y aceptación humana; esta directiva general NO habilita implementarlos todos en el bloque actual.
 
