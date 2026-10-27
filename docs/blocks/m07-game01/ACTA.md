@@ -27,3 +27,11 @@ Resultados aislados: semantropic_td_phaser_m07_normal_v1; victoria requiere17/14
 [NOT_RUN] teléfonos físicos, FPS/VRAM físicos, aprobación estética humana final. [BLOQUEANTE] API GitHub403 impide crear PR/consultar CI; no sustituir con push directo a producción. Render y versión pública nueva NO VERIFICADOS. No entregar URL antigua como versión nueva.
 
 Rollback: revertir únicamente el futuro merge M07, preservando URL oficial y guardados. No borrar ramas ni revertir la documentación separada. Cierre pendiente: completar QA navegador/comparación de arte, PR/CI, promoción autorizada y verificación pública de bytes y navegador. No se avanza otro bloque.
+
+## Reanudación de cierre — 27/10/2026
+
+Core, alcance/arte congelado y build repetidos PASS desde 68f3d27; regresiones Node M01/M03/M04/M05/M06 repetidas PASS. No se repite una certificación global. M02 continúa pendiente de smoke navegador.
+
+QA navegador ahora admite M07_GAME_PROFILE=desktop|touch844|touch932 y escribe un checkpoint por perfil completado. No atribuir PASS de un perfil a los otros. Comparación antes/después sin overlays HTML, conservando visible el stage; la primera regla de captura ocultaba el contenedor y produjo timeout, corregido en el harness. Se reutiliza una sola página para preview y partida, evitando dos mundos WebGL simultáneos. No se reducen assets ni verificaciones. Ejecución actual: M07_GAME_PROFILE=desktop M07_GAME_OUT=artifacts/m07-closure-single-page-desktop node /tmp/m07-game-browser-local.mjs (adaptación local solo del import Playwright y executablePath al Chromium instalado). Informe final pendiente; conservar fallos anteriores sin presentarlos como PASS.
+
+Bloqueo GitHub confirmado: curl -I https://api.github.com devuelve CONNECT tunnel failed, HTTP403, server envoy. El proxy rechaza el túnel antes de la respuesta HTTPS de GitHub; no hay evidencia para atribuirlo a expiración de token, permisos del repositorio o rate limit. Git HTTPS nativo sí permite verificar ramas/push. PR y CI no creados/ejecutados por este bloqueo. No se modifica producción. Creación manual del PR: https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/compare/production%2Fsemantropic-td-live...feat%2Fm07-game01?expand=1 . Mantener DRAFT hasta QA completa; no fusionar por el solo hecho de existir el enlace.
