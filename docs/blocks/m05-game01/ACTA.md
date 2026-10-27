@@ -15,7 +15,7 @@ Guardado: semantropic_td_phaser_m05_normal_v1; derrota no guarda victoria; stora
 
 ## Superficie compartida mínima
 
-scene-m02: exclusión de arranque automático M05 y etiqueta de estrellas específica. live/index y map-picker: opción M05 y carga del adaptador. viewport-panorama-r5: registro M05 y callback de márgenes ya aprobado. assets M05: exclusivamente puerta de carga en LIVE; ningún dibujo, textura o composición cambia. La guarda histórica M02 Cartoon03 compara ahora todos sus módulos/PNGs con producción 3227 durante este bloque y delega el alcance M05 a su guarda estricta; mantiene sus checks C2. El primer CI falló porque comparaba todo public contra una base anterior a M03, no por cambios en el arte M02. Los pins de blobs M04 se actualizan explícitamente para estos cambios autorizados; no se deshabilitan guardas.
+scene-m02: exclusión de arranque automático M05 y etiqueta de estrellas específica. live/index y map-picker: opción M05 y carga del adaptador. viewport-panorama-r5: registro M05 y callback de márgenes ya aprobado. assets M05: exclusivamente puerta de carga en LIVE; ningún dibujo, textura o composición cambia. La guarda histórica M02 Cartoon03 compara ahora todos sus módulos/PNGs con producción 3227 durante este bloque y delega el alcance M05 a su guarda estricta; mantiene sus checks C2. El primer CI falló porque comparaba todo public contra una base anterior a M03, no por cambios en el arte M02. El smoke M02 conservaba el identificador artístico M01 anterior a su alineación aprobada y omitía los nodos M04: se actualiza al baseline vigente (M01 align-M02, M04 262 nodos), sin cambiar producto. Los pins de blobs M04 se actualizan explícitamente para estos cambios autorizados; no se deshabilitan guardas.
 
 ## Límites
 

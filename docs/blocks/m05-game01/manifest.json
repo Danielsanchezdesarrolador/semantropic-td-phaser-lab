@@ -30,6 +30,7 @@
     "tools/qa-m05-game01-core.mjs",
     "tools/qa-m05-game01-realtime.mjs",
     "tools/qa-m05-game01-scope.mjs",
-    "tools/qa-m02-cartoon03-art.mjs"
+    "tools/qa-m02-cartoon03-art.mjs",
+    "tools/qa-m02-cartoon03-browser.mjs"
   ]
 }
