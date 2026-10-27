@@ -178,6 +178,7 @@ object-fit:contain;image-rendering:auto}
 <button type="button" data-map-target="3">03 · Bosque de los Susurros<small>9 oleadas · 101 enemigos · 410 oro</small></button>
 <button type="button" data-map-target="4">04 · Río de los Antiguos<small>11 oleadas · 94 enemigos · 395 oro</small></button>
 <button type="button" data-map-target="5">05 · Pantano de la Niebla<small>13 oleadas · 110 enemigos + jefe · 430 oro</small></button>
+<button type="button" data-map-target="6">06 · Desfiladero de Hierro<small>15 oleadas · 125 enemigos · 2 entradas · 495 oro</small></button>
 </div>
 <p>Los enemigos del M02 tienen accesorios visuales provisionales; pendiente aprobación artística final.</p>
 </article></section>
@@ -197,7 +198,9 @@ window.__SEMANTROPIC_VIEWPORT=mountR4Viewport();
 <script type="module">
 import {mountR3CMapPicker} from '../maps-visual/m02/map-picker.mjs';
 const selection=mountR3CMapPicker();
-if(selection.selectedMap===5){
+if(selection.selectedMap===6){
+ await import('../c1d8-b2-playable/scene-m06.mjs?release=m06-game01-v1');
+}else if(selection.selectedMap===5){
  await import('../c1d8-b2-playable/scene-m05.mjs?release=m05-game01-v1');
 }else if(selection.selectedMap===4){
  await import('../c1d8-b2-playable/scene-m04.mjs?release=m04-game01-v1');
