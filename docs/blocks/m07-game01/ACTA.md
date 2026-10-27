@@ -49,3 +49,11 @@ PASS repetido: rutas M06, núcleo M06/M07, B02, arte M02 Cartoon03, campaña M04
 PR82_QA.json: móviles844/932 completos tras hotfix; desktop reutiliza reporte completo previo recuperado (M07 con mapId7 explícito conserva semántica). CI ejecuta los tres perfiles sobre HEAD nuevo. Desktop y844: imágenes preview/runtime sinHUD idénticas píxel a píxel.932: capturas1434 frente1436 píxeles físicos de ancho por redondeo FIT distinto; NO se declara identidad píxel a píxel. Arte y geometría congelados por hashes. No es certificación de fidelidad contra mockup. Hardware físico/rendimiento sostenido: NOT_RUN.
 
 API GitHub volvió a responder: PR82 abierto DRAFT, base8a8a3c4. Sin nuevo PR, merge ni Render. CI del nuevo SHA pendiente; checks fallidos anteriores no son PASS. Rollback: revertir solo hotfix, sin tocar rama documental.
+
+## Cierre de evidencia CI — 27/10/2026 (sustituye pendientes históricos)
+
+CONFIRMADO: PR82 DRAFT limpio, base8a8a3c4, headcfba40245c05d8cc3febb61c4771eca99835cca6. Nueve workflows success en ese SHA. M07 GAME01: https://github.com/Danielsanchezdesarrolador/semantropic-td-phaser-lab/actions/runs/40588851972 . Paso PC/móvil success y log M07_GAME desktop / touch844 / touch932 / PASS_M07_GAME01_BROWSER. Artefacto12772124460 M07-GAME01-DOS-RUTAS-COMBATE-PC-MOVIL descargado y revisado: report.json PASS, tres perfiles, victorias17/140. Núcleo PASS. Quedan resueltas las marcas antiguas Browser/CI pendiente para cfba402; se conserva su historia.
+
+Desktop1280×768,844×390 y932×430 son Chromium/WebGL2 emulado. Arte congelado por hashes y geometría271+271/nueve pads intacta; FIT932 presenta diferencia de dos píxeles físicos entre capturas: no se afirma pixel-perfect general. Android/iPhone físicos NOT_RUN; rendimiento sostenido no certificado; aprobación estética humana pendiente.
+
+Esta actualización solo documental genera SHA nuevo: su CI debe verificarse antes de integrar, sin trasladar automáticamente el9/9 de cfba402. La orden final autoriza convertir PR82 a listo y merge normal solo con gates satisfactorios. Producción/Render aún pendientes de verificar al escribir este commit; la evidencia posterior de merge/bytes/runtime se registra en entrega y PR, sin afirmar un SHA interno de Render. Rollback: revertir merge PR82 en producción conservando URL y registros; no tocar docs/estudio-td-original-20261027. No iniciar M08.

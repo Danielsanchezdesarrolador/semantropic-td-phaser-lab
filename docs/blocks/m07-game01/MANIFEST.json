@@ -31,11 +31,20 @@
   ],
   "protectedArt": "m07-hf-mockup-fidelity-v2; unchanged",
   "runtimeQA": "PASS_NODE_BUILD; BROWSER_PENDING",
-  "publication": "NO_MERGE_NO_RENDER_BY_HOTFIX_ORDER",
-  "physicalMobile": "NOT_RUN",
-  "browserQA": "PASS_MOBILE844_MOBILE932; DESKTOP_PRIOR_FULL_PASS_REUSED; CI_PENDING",
+  "publication": "FINAL_ORDER_AUTHORIZES_GATED_MERGE; NOT_YET_VERIFIED",
+  "physicalMobile": "Android/iPhone NOT_RUN",
+  "browserQA": "PASS_CI_DESKTOP_844_932_CFBA402_17_140",
   "desktopArtComparison": "PASS_DESKTOP_844_PIXEL_IDENTICAL; 932_FIT_WIDTH_DIFF_2_DEVICE_PIXELS; ART_HASH_FROZEN",
   "githubBlocker": "RESOLVED_API_RESPONDING_PR82_DRAFT",
   "evidence": "artifacts/m07-closure-single-page-desktop",
-  "hotfixEvidence": "docs/blocks/m07-game01/PR82_QA.json"
+  "hotfixEvidence": "docs/blocks/m07-game01/PR82_QA.json",
+  "CI": {
+    "testedSHA": "cfba40245c05d8cc3febb61c4771eca99835cca6",
+    "workflows": "9/9 SUCCESS",
+    "m07Run": 40588851972,
+    "artifact": 12772124460,
+    "documentationCommit": "REQUIRES_NEW_SHA_CI_BEFORE_MERGE"
+  },
+  "artisticAcceptance": "PENDING_HUMAN",
+  "sustainedPerformance": "NOT_CERTIFIED"
 }
