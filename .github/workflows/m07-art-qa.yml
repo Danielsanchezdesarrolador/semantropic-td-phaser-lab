@@ -1,0 +1,32 @@
+name: M07 ART — Paso de la Escarcha
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths: ['public/official/src/maps-visual/m07/**', 'public/official/art/maps/m07/**', 'tools/qa-m07-art*.mjs', '.github/workflows/m07-art-qa.yml', 'docs/blocks/m07-art-cartoon-v1/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  frozen-public-geometry-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tools/qa-m07-art.mjs
+      - run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - run: node tools/qa-m07-art-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: M07-ART-PC-MOBILE-542-NODES
+          path: artifacts/m07-art*/
+          retention-days: 14

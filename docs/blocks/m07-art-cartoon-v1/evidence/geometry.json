@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "base": "8e3f2ec00432a5455021db39a45800d4decd7a67",
+  "geometry": [
+    {
+      "segments": 270,
+      "maxCanonicalDeviation": 6.8787027312298985,
+      "C2JoinError": 4.1491802200868404e-12,
+      "minRadius": 75.26657828656677,
+      "strokeWidth": 54,
+      "normalOffsetWidthMin": 54,
+      "normalOffsetWidthMax": 54
+    },
+    {
+      "segments": 270,
+      "maxCanonicalDeviation": 13.753068247948868,
+      "C2JoinError": 4.1491802200868404e-12,
+      "minRadius": 45.0657511176123,
+      "strokeWidth": 54,
+      "normalOffsetWidthMin": 54,
+      "normalOffsetWidthMax": 54
+    }
+  ],
+  "routeCounts": [
+    271,
+    271
+  ],
+  "pads": [
+    {
+      "id": "m07-pad-01",
+      "x": 160,
+      "y": 288
+    },
+    {
+      "id": "m07-pad-02",
+      "x": 224,
+      "y": 672
+    },
+    {
+      "id": "m07-pad-03",
+      "x": 416,
+      "y": 96
+    },
+    {
+      "id": "m07-pad-04",
+      "x": 416,
+      "y": 544
+    },
+    {
+      "id": "m07-pad-05",
+      "x": 608,
+      "y": 160
+    },
+    {
+      "id": "m07-pad-06",
+      "x": 608,
+      "y": 416
+    },
+    {
+      "id": "m07-pad-07",
+      "x": 864,
+      "y": 480
+    },
+    {
+      "id": "m07-pad-08",
+      "x": 992,
+      "y": 224
+    },
+    {
+      "id": "m07-pad-09",
+      "x": 1248,
+      "y": 416
+    }
+  ],
+  "widthMethod": "Analytic constant-width Canvas stroke at normal offsets ±27; measures exclude intentional confluence union and bridge railings."
+}
