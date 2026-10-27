@@ -4,7 +4,16 @@ import{execFileSync}from'node:child_process';
 import{makeRoadSpline,roadPoint,ROAD_WIDTH}from'../public/official/src/maps-visual/m02/cartoon03/road-geometry.mjs';
 import{distanceToPath}from'../public/official/src/maps-visual/m02/cartoon03/surfaces.mjs';
 const base='7fbec3b616ebb35a400767cb15d8c53b8f377aef',map=JSON.parse(readFileSync('public/official/data/maps.v5.json')).find(m=>m.id===2),path=map.path;
+if(readFileSync('public/official/src/live/index.html','utf8').includes('scene-m05.mjs')){
+ await import('./qa-m05-game01-scope.mjs');
+ const frozen='3227b720b89e34a8c6828e1bee80b644767ae101';
+ for(const p of execFileSync('git',['ls-tree','-r','--name-only',frozen,'public/official/src/maps-visual/m02','public/official/art/maps/m02'],{encoding:'utf8'}).trim().split('\n')){
+  if(p==='public/official/src/maps-visual/m02/map-picker.mjs')continue;
+  assert.equal(execFileSync('git',['hash-object',p],{encoding:'utf8'}).trim(),execFileSync('git',['rev-parse',frozen+':'+p],{encoding:'utf8'}).trim(),'M02 art frozen during M05 gameplay '+p);
+ }
+}else{
 for(const p of execFileSync('git',['diff','--name-only',base,'--','public'],{encoding:'utf8'}).trim().split('\n').filter(Boolean))assert(p==='public/official/src/maps-visual/m02/phaser-world.mjs'||p.startsWith('public/official/src/maps-visual/m02/cartoon03/')||p.startsWith('public/official/art/maps/m02/cartoon03/'),'Outside M02 art scope '+p);
+}
 const segments=makeRoadSpline(path),derive=(s,t)=>{const u=1-t;return[[0,1].map(k=>3*(u*u*(s.c1[k]-s.start[k])+2*u*t*(s.c2[k]-s.c1[k])+t*t*(s.end[k]-s.c2[k]))),[0,1].map(k=>6*(u*(s.c2[k]-2*s.c1[k]+s.start[k])+t*(s.end[k]-2*s.c2[k]+s.c1[k])))];};
 let minRadius=Infinity,maxDeviation=0,samples=0;
 for(const[i,s]of segments.entries()){
