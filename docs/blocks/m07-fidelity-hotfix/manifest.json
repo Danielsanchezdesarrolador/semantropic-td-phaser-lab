@@ -1,0 +1,115 @@
+{
+  "block": "M07-HF-FIDELITY",
+  "base": "0f2f78a4a0a432900b2dec542f9f59cf0a2c58ce",
+  "artApproval": "PENDING_DIRECTOR",
+  "files": [
+    {
+      "path": ".github/workflows/m07-fidelity-qa.yml",
+      "sha256": "908bb033d30e4ca003b69ada2fd534627ff6be2db31ac619e588d193168e8c2f"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "97b0dabf353155ea4bd1bf33f866215dc0504390e4fc2d8144cbcb79e7752dd6"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/ACTA.md",
+      "sha256": "bda3d84755d0bbcbf492b42e31e858bcbb0bdb6a331c179f69d8b33b6cdb5457"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/after/desktop-after.png",
+      "sha256": "2b93bce36d1736ab55b8fe2214d8966ea228dfba22ba34265320315e75e184f2"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/after/desktop-overlay.png",
+      "sha256": "0f2d0a642eda205bea72761aa705e50be4ae767cba679d4f4c3d736e194a29e1"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/after/report.json",
+      "sha256": "73fd74ff9d3716a164146fc74a693b0b46c6247cb41878c95a3eb4edf7fb060c"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/after/touch844-after.png",
+      "sha256": "2fbf290f0506847d81353b41471b47c88db95fd616ccc7ea669f16dd90215771"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/after/touch932-after.png",
+      "sha256": "e616bd3069dc68930356ea23a794bb51d7c82791e6728d130b3e5fc1b05cb688"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/before/desktop.png",
+      "sha256": "c74796472dddb50a51e63d6f041c2f18b5a1dbd205ae8847693c7357f724eda3"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/before/mobile844.png",
+      "sha256": "8e84c681ff7957cc4b4bb7fde9434c1b424530676f175e3273f65e3a31ca12ff"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/before/mobile932.png",
+      "sha256": "ac37bff6acca1f156a6e87503bd2bb3ba3426666e6771d03fec4286b19f3cb47"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/before/provenance.json",
+      "sha256": "94edf8eea43c08b8249d90cfe38958199c69f2986d25f312ef6783bed7a587e5"
+    },
+    {
+      "path": "docs/blocks/m07-fidelity-hotfix/exploratory-failure.txt",
+      "sha256": "ff8401c6454c09dbceb08aae00cb5fee0bc6c6a1a86609ab1b53bb04fe71a464"
+    },
+    {
+      "path": "docs/direccion-general/ESTILO_VISUAL_CANON_CARTOON_2D_PREMIUM_V1.md",
+      "sha256": "a489185c14d8585a0b2d27c6391cb0994da97676702cfd94b1f04fe69833ee9c"
+    },
+    {
+      "path": "docs/direccion-general/ROADMAP_CENTRAL.md",
+      "sha256": "4d394b55838856ef1f7ca1fc5bbe2673cf2cea175b70e4280feff7fda4d5ee27"
+    },
+    {
+      "path": "public/official/art/maps/m07/cartoon01/frost-horizon-original.png",
+      "sha256": "e5ccaf8373a0703dae85f318b745b1a4f6b76a923974382dad2afd28eda0812e"
+    },
+    {
+      "path": "public/official/art/maps/m07/cartoon01/frost-original-props.png",
+      "sha256": "6136edbc9281b16e4948e93aa7b57939f1a9ef03e338418ececbcf9bc537f973"
+    },
+    {
+      "path": "public/official/art/maps/m07/cartoon01/frost-rich-materials-original.png",
+      "sha256": "e0c38105fdc2c51fb6c6e8dd4d21101139cf40b99132496f09caabd3ea66f5fe"
+    },
+    {
+      "path": "public/official/art/maps/m07/cartoon01/frost-rich-props-original.png",
+      "sha256": "679a5c4a3296b1b5ec17cac925c62e7bbca20125a7ef4e3d99062e3b76bd8ce9"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/assets.mjs",
+      "sha256": "1f39332011b28ae7f6b5909205ec9d4ff7dcc7791273a0bb3de46e78a29e9be8"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/eroded-rim.mjs",
+      "sha256": "d0861ce1fe36c4cd74c33f59b53055c7171217321c34a5e45f7936ad50187b61"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/frost-world.mjs",
+      "sha256": "9c5f99b659d3a78d119e7ec171083c1e9efb8a6debd10bbf650021b77f8f89c0"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/road-geometry.mjs",
+      "sha256": "2dc9261414d89e9407bd6a0a3c783aa93f018ce74455c08f699db8076e1ce8b4"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/terrain.mjs",
+      "sha256": "7f0fd276be81fd5ee9a578e073e9e9269138c30534150ea37357c5013d3a9fc0"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/preview/index.html",
+      "sha256": "ddfe4dc857e1b50994b7d3b83a70f184a947092735591074025cd66cd41f9e2f"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/preview/preview.mjs",
+      "sha256": "9e47a0ad9718cf00fb1e9fa351117f554bf3e8ea4cd9a5ddda33cfc557dc1727"
+    },
+    {
+      "path": "tools/qa-m07-fidelity-scope.mjs",
+      "sha256": "4bd0158d30c739ea13f8acea0503bd73c356848217b435510c3e9783be7f931f"
+    }
+  ]
+}

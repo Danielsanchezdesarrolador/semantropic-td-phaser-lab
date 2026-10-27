@@ -1,0 +1,18 @@
+{
+  "base": "0f2f78a4a0a432900b2dec542f9f59cf0a2c58ce",
+  "source": "Reused authentic screenshots of the immediately preceding M07 release: desktop/mobile932 from verified Render, mobile844 from local WebGL2. No synthetic before.",
+  "files": [
+    {
+      "path": "mobile932.png",
+      "sha256": "ac37bff6acca1f156a6e87503bd2bb3ba3426666e6771d03fec4286b19f3cb47"
+    },
+    {
+      "path": "desktop.png",
+      "sha256": "c74796472dddb50a51e63d6f041c2f18b5a1dbd205ae8847693c7357f724eda3"
+    },
+    {
+      "path": "mobile844.png",
+      "sha256": "8e84c681ff7957cc4b4bb7fde9434c1b424530676f175e3273f65e3a31ca12ff"
+    }
+  ]
+}
