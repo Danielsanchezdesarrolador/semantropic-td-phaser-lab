@@ -10,4 +10,4 @@ class FrostReview extends Phaser.Scene{
  }
 }
 const canvas=document.createElement('canvas'),gl=canvas.getContext('webgl2',{alpha:false,antialias:true});if(!gl||!(gl instanceof WebGL2RenderingContext))throw Error('WebGL2 requerido para revisar M07');
-new Phaser.Game({type:Phaser.WEBGL,canvas,context:gl,parent:'stage',width:1280,height:768,backgroundColor:'#c8e6f5',scene:FrostReview,render:{antialias:true,pixelArt:false},scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH}});
+new Phaser.Game({type:Phaser.WEBGL,canvas,context:gl,parent:'stage',width:1280,height:768,backgroundColor:'#c8e6f5',scene:FrostReview,render:{antialias:true,pixelArt:false},scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.NO_CENTER}});
