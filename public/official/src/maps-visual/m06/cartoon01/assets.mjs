@@ -1,5 +1,5 @@
 /** Original canyon pack; browser-only loading, no gameplay imports. */
-export const SOURCES={props:new URL('../../../../art/maps/m06/cartoon01/canyon-props-original.png',import.meta.url).href,materials:new URL('../../../../art/maps/m06/cartoon01/canyon-materials-original.png',import.meta.url).href,horizon:new URL('../../../../art/maps/m06/cartoon01/canyon-horizon-original.png',import.meta.url).href};
+export const SOURCES={props:new URL('../../../../art/maps/m06/cartoon01/canyon-props-original.png',import.meta.url).href,materials:new URL('../../../../art/maps/m06/cartoon01/canyon-materials-organic-original.png',import.meta.url).href,horizon:new URL('../../../../art/maps/m06/cartoon01/canyon-horizon-original.png',import.meta.url).href};
 const load=url=>new Promise((ok,no)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=()=>no(Error('M06 source missing '+url));im.src=url;});
 const loaded=typeof document!=='undefined'?await Promise.all(Object.values(SOURCES).map(load)):null;let cache;
 export function canyonAssets(){if(cache)return cache;if(!loaded)throw Error('Browser source barrier');const sprites={},boxes={mine:[0,0,624,506],cart:[625,0,430,506],cactus:[1056,0,480,506],tree:[0,512,560,512],ore:[560,512,496,512],portal:[1056,512,480,512]};
