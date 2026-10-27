@@ -1,6 +1,6 @@
 /** M05 clean cartoon originals, isolated from other maps. */
 export const SOURCES=Object.freeze({marsh:new URL('../../../../art/maps/m05/cartoon01/marsh-atlas-cartoon02-original.png',import.meta.url).href,wetland:new URL('../../../../art/maps/m05/cartoon01/wetland-materials-cartoon02-original.png',import.meta.url).href,banks:new URL('../../../../art/maps/m05/cartoon01/bank-cliffs-cartoon02-original.png',import.meta.url).href});
-const active=typeof document!=='undefined'&&location.pathname.includes('/maps-visual/m05/preview/');
+const active=typeof document!=='undefined'&&(location.pathname.includes('/maps-visual/m05/preview/')||(location.pathname.includes('/src/live/')&&new URLSearchParams(location.search).get('map')==='5'));
 const load=url=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error('M05 cartoon source missing '+url));im.src=url;});
 const loaded=active?await Promise.all(Object.values(SOURCES).map(load)):null;
 let cached;

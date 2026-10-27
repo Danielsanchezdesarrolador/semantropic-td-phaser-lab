@@ -591,7 +591,7 @@ function showEndResult(){
   "Oleada "+result.completedWaves+"/"+waveCount+" · "+result.kills+" bajas · "+result.escapes+" fugas.";
  $("resultSaved").textContent=result.outcome==="victory"?
   (saved.written?"Récord guardado únicamente para esta versión Phaser.":"Victoria válida. Almacenamiento local no disponible.")+
-    " Regla: 3★ hasta 5 fugas; 2★ hasta 25 (provisional V5).":
+    (" "+(result.starRuleLabel??"Regla: 3★ hasta 5 fugas; 2★ hasta 25 (provisional V5).")):
     "No se registra progreso por derrota; vuelve a intentar otra estrategia.";
  stopRallySelection();closeMenu();
  $("results").hidden=false;showBestScore();
@@ -647,4 +647,4 @@ async function start(){
 }
 await start();
 }
-if(!["3","4"].includes(new URLSearchParams(location.search).get("map")))await startCampaignScene();
+if(!["3","4","5"].includes(new URLSearchParams(location.search).get("map")))await startCampaignScene();
