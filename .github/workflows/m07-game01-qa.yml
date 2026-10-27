@@ -14,6 +14,7 @@ on:
       - 'public/official/src/maps-visual/m02/map-picker.mjs'
       - 'public/official/src/mobile/viewport-panorama-r5.mjs'
       - 'tools/qa-m07-game01-*.mjs'
+      - 'tools/qa-pr82-infantry-compat.mjs'
       - 'tools/qa-m06-dual-routes.mjs'
       - 'docs/blocks/m07-game01/**'
       - '.github/workflows/m07-game01-qa.yml'
@@ -36,6 +37,7 @@ jobs:
           node tools/qa-m07-game01-scope.mjs
           node tools/qa-m07-game01-core.mjs
           node tools/qa-m06-dual-routes.mjs
+          node tools/qa-pr82-infantry-compat.mjs
           node tools/qa-m06-game01-core.mjs
           node tools/qa-m05-game01-core.mjs
           node tools/qa-m04-campaign.mjs

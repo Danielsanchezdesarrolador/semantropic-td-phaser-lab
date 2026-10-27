@@ -39,3 +39,13 @@ Bloqueo GitHub confirmado: curl -I https://api.github.com devuelve CONNECT tunne
 ### Evidencia parcial de esta ejecución
 
 Desktop: comparación sin HUD preview/escena idéntica píxel a píxel (art-comparison.json, MAE RGB0); capturas selector, W1 ambos frentes, victoria de campaña completa por pasos, W17 por pasos y fixtureW17 relojRAF disponibles en artifacts/m07-closure-single-page-desktop. La suite todavía no produjo reporte final después de W17; NO se marca PASS de Chromium completo. Móvil844/932 de este cierre: NOT_RUN. API/CI/PR/Render bloqueados como se indica arriba. No existe entrega LIVE nueva.
+
+## Hotfix PR82 — 27/10/2026
+
+Raíz1: fixture M06 histórico sin rules.mapId rechazado por constructor compartido. Se usa mapId??6; M07 exige7 explícito. Tests aceptan M06 legacy/M07 explícito y rechazan M07 sinID e IDs cruzados. Raíz2: B02 mantenía el endpoint anterior de infantería. Se conserva before/M04After y registra exactamente940dccf→3b6104f con procedencia b5c464d, base8a8a3c4 y orden expresa PR82. B02 verifica esa transición; no admite blobs arbitrarios.
+
+PASS repetido: rutas M06, núcleo M06/M07, B02, arte M02 Cartoon03, campaña M04, núcleo M05, scopes M05/M06/M07 y build. Comparación diferencial contra infantería de producción8a8a3c4: M03/M04/M05 idénticos en soldados/snapshot/eventos durante1800ticks. M06 cubierto por rutas/core completos; M01/M02 no importan el mixin. Un antiguo guard art-only M04 ejecutado adicionalmente falla por arte M05 posterior a su baseline; no se modifica ni se atribuye al hotfix. Los gates M04 GAME/B02 pasan.
+
+PR82_QA.json: móviles844/932 completos tras hotfix; desktop reutiliza reporte completo previo recuperado (M07 con mapId7 explícito conserva semántica). CI ejecuta los tres perfiles sobre HEAD nuevo. Desktop y844: imágenes preview/runtime sinHUD idénticas píxel a píxel.932: capturas1434 frente1436 píxeles físicos de ancho por redondeo FIT distinto; NO se declara identidad píxel a píxel. Arte y geometría congelados por hashes. No es certificación de fidelidad contra mockup. Hardware físico/rendimiento sostenido: NOT_RUN.
+
+API GitHub volvió a responder: PR82 abierto DRAFT, base8a8a3c4. Sin nuevo PR, merge ni Render. CI del nuevo SHA pendiente; checks fallidos anteriores no son PASS. Rollback: revertir solo hotfix, sin tocar rama documental.

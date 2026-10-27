@@ -53,7 +53,10 @@
   },
   "public/official/src/core-c1d/campaign-infantry-combat.mjs": {
     "before": "61d1b2f7a7f1e946562ea5964886a00d449b0ee9",
-    "after": "940dccf6e5e4ee663778f9021aed90263dce8a87"
+    "after": "3b6104fad39a118e83d4edad9c2c3998485cc28e",
+    "approvedM04After": "940dccf6e5e4ee663778f9021aed90263dce8a87",
+    "baseBeforeM07": "8a8a3c44d976acc9a81ff8a74da5083da572ff1a",
+    "reason": "PR82 hotfix authorized by Direction 27/10/2026: optional M07 target/cadence hooks; M01\u2013M06 defaults unchanged; source commit b5c464d"
   },
   "public/official/src/towers-visual/t09/spec.mjs": {
     "before": "2f1adaaad1329cfb7e8b7f82d77cec815f264c6e",

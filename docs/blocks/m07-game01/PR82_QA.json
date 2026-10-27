@@ -1,0 +1,61 @@
+{
+  "base": "74ab478",
+  "profiles": [
+    {
+      "profile": "desktop",
+      "status": "PASS",
+      "artPixelIdentical": true,
+      "sizes": [
+        [
+          1280,
+          768
+        ],
+        [
+          1280,
+          768
+        ]
+      ],
+      "source": "artifacts/m07-closure-single-page-desktop/report.json",
+      "reusedBeforeHotfix": true
+    },
+    {
+      "profile": "touch844",
+      "status": "PASS",
+      "artPixelIdentical": true,
+      "sizes": [
+        [
+          650,
+          390
+        ],
+        [
+          650,
+          390
+        ]
+      ],
+      "source": "artifacts/pr82-touch844/report.json",
+      "reusedBeforeHotfix": false
+    },
+    {
+      "profile": "touch932",
+      "status": "PASS",
+      "artPixelIdentical": false,
+      "sizes": [
+        [
+          1434,
+          860
+        ],
+        [
+          1436,
+          860
+        ]
+      ],
+      "source": "artifacts/pr82-touch932/report.json",
+      "reusedBeforeHotfix": false
+    }
+  ],
+  "node": "PASS_ROUTES_CORE_B02_M02_M04_M05_SCOPES_BUILD",
+  "differentialInfantry": "PASS_M03_M04_M05_1800_TICKS_VS_PRE_M07",
+  "physicalMobile": "NOT_RUN",
+  "CI": "PENDING_NEW_HEAD",
+  "publish": "NOT_AUTHORIZED_IN_HOTFIX"
+}

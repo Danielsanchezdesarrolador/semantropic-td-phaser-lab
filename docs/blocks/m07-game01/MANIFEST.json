@@ -31,10 +31,11 @@
   ],
   "protectedArt": "m07-hf-mockup-fidelity-v2; unchanged",
   "runtimeQA": "PASS_NODE_BUILD; BROWSER_PENDING",
-  "publication": "NOT_PUBLISHED",
+  "publication": "NO_MERGE_NO_RENDER_BY_HOTFIX_ORDER",
   "physicalMobile": "NOT_RUN",
-  "browserQA": "INCOMPLETE_DESKTOP_AFTER_W17; MOBILE_NOT_RUN",
-  "desktopArtComparison": "PASS_PIXEL_IDENTICAL_PREVIEW_RUNTIME_NO_HUD",
-  "githubBlocker": "PROXY_CONNECT_403_API_GITHUB",
-  "evidence": "artifacts/m07-closure-single-page-desktop"
+  "browserQA": "PASS_MOBILE844_MOBILE932; DESKTOP_PRIOR_FULL_PASS_REUSED; CI_PENDING",
+  "desktopArtComparison": "PASS_DESKTOP_844_PIXEL_IDENTICAL; 932_FIT_WIDTH_DIFF_2_DEVICE_PIXELS; ART_HASH_FROZEN",
+  "githubBlocker": "RESOLVED_API_RESPONDING_PR82_DRAFT",
+  "evidence": "artifacts/m07-closure-single-page-desktop",
+  "hotfixEvidence": "docs/blocks/m07-game01/PR82_QA.json"
 }
