@@ -1,0 +1,87 @@
+{
+  "block": "MAP-ART-07-CARTOON-V1",
+  "base": "8e3f2ec00432a5455021db39a45800d4decd7a67",
+  "artApproval": "PENDING_DIRECTOR",
+  "files": [
+    {
+      "path": ".github/workflows/m07-art-qa.yml",
+      "sha256": "21c8b36c1a9dd80d420cb9447c9d029cbfd9a37b22a8711e93f398a6be97232f"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/ACTA.md",
+      "sha256": "40d77443fef451bcbbf658b6658e96cfde748086ac8bcf7ee72bfc57ec71a64e"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/evidence/desktop-after.png",
+      "sha256": "c74796472dddb50a51e63d6f041c2f18b5a1dbd205ae8847693c7357f724eda3"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/evidence/desktop-construction-baseline.png",
+      "sha256": "2676035f1c7e4a7312270c93d3f240be0637df975851af6e81348c36cd0e1cc1"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/evidence/desktop-overlay.png",
+      "sha256": "2b399865cf7eac331917a3f4f0f3366b926dacbbd2f9e78c8570d2eb8812d149"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/evidence/geometry.json",
+      "sha256": "28de260e4c53238c58b614b0c595843624544bf776a6e5d6e99b1e181970bdd2"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/evidence/report.json",
+      "sha256": "ce5b504e9acfaaf48ad6354fbace6bd608e45acac057f22001046440d299430d"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/evidence/touch844-after.png",
+      "sha256": "8e84c681ff7957cc4b4bb7fde9434c1b424530676f175e3273f65e3a31ca12ff"
+    },
+    {
+      "path": "docs/blocks/m07-art-cartoon-v1/evidence/touch932-after.png",
+      "sha256": "ac37bff6acca1f156a6e87503bd2bb3ba3426666e6771d03fec4286b19f3cb47"
+    },
+    {
+      "path": "docs/direccion-general/ROADMAP_CENTRAL.md",
+      "sha256": "c0f8e974df1558e4aa7720957a981b16652032f8b90f16e1d8c58a29f2cd9b94"
+    },
+    {
+      "path": "public/official/art/maps/m07/cartoon01/frost-horizon-original.png",
+      "sha256": "e5ccaf8373a0703dae85f318b745b1a4f6b76a923974382dad2afd28eda0812e"
+    },
+    {
+      "path": "public/official/art/maps/m07/cartoon01/frost-original-props.png",
+      "sha256": "6136edbc9281b16e4948e93aa7b57939f1a9ef03e338418ececbcf9bc537f973"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/assets.mjs",
+      "sha256": "2413f2a484af642f23ec49336249c5086daf6c9c7634098e61a4e144f16b720b"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/frost-world.mjs",
+      "sha256": "f787a603624258194000965c8bb45666a93fbeec142c65546708d8faf7b3bd18"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/road-geometry.mjs",
+      "sha256": "2dc9261414d89e9407bd6a0a3c783aa93f018ce74455c08f699db8076e1ce8b4"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/cartoon01/terrain.mjs",
+      "sha256": "3c80568eb5c88466ddc1ae3a6ea97cf9d07540c75264a8558629ae2e7432a215"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/preview/index.html",
+      "sha256": "ddfe4dc857e1b50994b7d3b83a70f184a947092735591074025cd66cd41f9e2f"
+    },
+    {
+      "path": "public/official/src/maps-visual/m07/preview/preview.mjs",
+      "sha256": "9e47a0ad9718cf00fb1e9fa351117f554bf3e8ea4cd9a5ddda33cfc557dc1727"
+    },
+    {
+      "path": "tools/qa-m07-art-browser.mjs",
+      "sha256": "adb4eef51b16643be7ac669a4536e79289813f3b01a9836ce3b88899875786a4"
+    },
+    {
+      "path": "tools/qa-m07-art.mjs",
+      "sha256": "1fa01d9b3e13cfab374625f378a1c0adaf618c962123bfd5814f1849a627b49a"
+    }
+  ]
+}
