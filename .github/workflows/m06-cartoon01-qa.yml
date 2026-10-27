@@ -1,0 +1,40 @@
+name: M06 Cartoon01 — arte modular del desfiladero
+on:
+  pull_request:
+    branches: [production/semantropic-td-live]
+    paths:
+      - 'public/official/src/maps-visual/m06/**'
+      - 'public/official/art/maps/m06/**'
+      - 'tools/qa-m06-cartoon01-*.mjs'
+      - 'docs/blocks/m06-cartoon01/**'
+      - '.github/workflows/m06-cartoon01-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-art-canonical-geometry-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Alcance exclusivo, fuentes protegidas y dos rutas C2
+        run: node tools/qa-m06-cartoon01-art.mjs
+      - name: Build y Chromium
+        run: |
+          npm install --package-lock=false --no-audit --no-fund
+          npm run build
+          npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.57.0
+          npx playwright install --only-shell chromium
+      - name: Phaser WebGL2 PC y móvil, bancos, pads, ancho y regresión LIVE
+        run: node tools/qa-m06-cartoon01-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: M06-CARTOON01-ARTE-CANONICO-PC-MOVIL
+          path: artifacts/m06-cartoon01/
+          retention-days: 14
