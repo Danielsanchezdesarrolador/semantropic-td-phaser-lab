@@ -1,0 +1,81 @@
+{
+  "status": "PASS_M06_ART_SCOPE_FROZEN_PUBLIC_C2_GEOMETRY",
+  "base": "9696f897e4872a12d75e8bb709ff171d15090a87",
+  "routes": [
+    243,
+    243
+  ],
+  "pads": [
+    {
+      "id": "m06-pad-01",
+      "index": 0,
+      "x": 160,
+      "y": 96
+    },
+    {
+      "id": "m06-pad-02",
+      "index": 1,
+      "x": 352,
+      "y": 288
+    },
+    {
+      "id": "m06-pad-03",
+      "index": 2,
+      "x": 416,
+      "y": 544
+    },
+    {
+      "id": "m06-pad-04",
+      "index": 3,
+      "x": 608,
+      "y": 544
+    },
+    {
+      "id": "m06-pad-05",
+      "index": 4,
+      "x": 800,
+      "y": 544
+    },
+    {
+      "id": "m06-pad-06",
+      "index": 5,
+      "x": 1120,
+      "y": 544
+    },
+    {
+      "id": "m06-pad-07",
+      "index": 6,
+      "x": 992,
+      "y": 160
+    },
+    {
+      "id": "m06-pad-08",
+      "index": 7,
+      "x": 1184,
+      "y": 288
+    },
+    {
+      "id": "m06-pad-09",
+      "index": 8,
+      "x": 800,
+      "y": 288
+    }
+  ],
+  "geometry": [
+    {
+      "segments": 242,
+      "minRadius": 49.08415805830977,
+      "maxDeviation": 11.853197749637747,
+      "maxJoinError": 2.8124570410120625e-12,
+      "width": 58
+    },
+    {
+      "segments": 242,
+      "minRadius": 32.112588662415035,
+      "maxDeviation": 10.471722341246725,
+      "maxJoinError": 4.575806951265374e-12,
+      "width": 58
+    }
+  ],
+  "gameplay": "NOT_IMPLEMENTED_NOT_AUTHORIZED"
+}

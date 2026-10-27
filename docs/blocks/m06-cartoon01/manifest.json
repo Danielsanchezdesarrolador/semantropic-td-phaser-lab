@@ -1,0 +1,54 @@
+{
+  "block": "MAP-ART-06-CARTOON-V1",
+  "base": "9696f897e4872a12d75e8bb709ff171d15090a87",
+  "version": "m06-cartoon01-iron-mesa-v1",
+  "gameplay": false,
+  "sourceImages": 3,
+  "files": [
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/road-geometry.mjs",
+      "sha256": "df5565afeb94f02d9119eae758e45ab64cb5f599717a6c12347f2d9abbaf9467",
+      "bytes": 3318
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/canyon-world.mjs",
+      "sha256": "bd56edccb8a74ab6c931bd28248658d89b04677773d8eb134efdd137449426bd",
+      "bytes": 4714
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/assets.mjs",
+      "sha256": "c88d0071f905a8651a861fc49a1f43012fdb40295a2a003ed3a61bedafdc1ebe",
+      "bytes": 1626
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/terrain.mjs",
+      "sha256": "8dc88df8f20c1af7b56672659aae14b4c5f36e7d7a0384f356faa09a47237887",
+      "bytes": 8939
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/preview/index.html",
+      "sha256": "12581411ace00d1e70d3598e00e7dc728aa3165ffa7f7da838daf6be94779004",
+      "bytes": 983
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/preview/preview.mjs",
+      "sha256": "77bc7b77166c643534a3f81bae37eb253f0c4736050570d423e31941cf5b7b33",
+      "bytes": 2977
+    },
+    {
+      "path": "public/official/art/maps/m06/cartoon01/canyon-materials-original.png",
+      "sha256": "1e2a0e15993b910f9162e4d5a9f7a3ec25202238f40362ad23694c79fa504d39",
+      "bytes": 2125448
+    },
+    {
+      "path": "public/official/art/maps/m06/cartoon01/canyon-horizon-original.png",
+      "sha256": "c9bb043b695076f321a930611e4b5ea4b5f8da36ecee1fba8dcfeda4ed07f844",
+      "bytes": 1934163
+    },
+    {
+      "path": "public/official/art/maps/m06/cartoon01/canyon-props-original.png",
+      "sha256": "680acf64fab32cc5f7b74728cf294e57d9ea6b2c5790c88293e3add3496d430e",
+      "bytes": 2264100
+    }
+  ]
+}
