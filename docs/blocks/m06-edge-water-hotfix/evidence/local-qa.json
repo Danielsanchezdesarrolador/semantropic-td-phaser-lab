@@ -1,0 +1,1223 @@
+{
+  "status": "PASS_M06_MODULAR_ART_C2_ROADS_PADS_BRIDGES_WEBGL2",
+  "cases": [
+    {
+      "profile": "desktop",
+      "initial": {
+        "waterRGB": [
+          47.59552845528455,
+          113.67682926829268,
+          153.17174796747966
+        ],
+        "edgeDetails": 45,
+        "version": "m06-hf-eroded-banks-blue-v3",
+        "routes": [
+          243,
+          243
+        ],
+        "pads": [
+          {
+            "id": "m06-pad-01",
+            "index": 0,
+            "x": 160,
+            "y": 96
+          },
+          {
+            "id": "m06-pad-02",
+            "index": 1,
+            "x": 352,
+            "y": 288
+          },
+          {
+            "id": "m06-pad-03",
+            "index": 2,
+            "x": 416,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-04",
+            "index": 3,
+            "x": 608,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-05",
+            "index": 4,
+            "x": 800,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-06",
+            "index": 5,
+            "x": 1120,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-07",
+            "index": 6,
+            "x": 992,
+            "y": 160
+          },
+          {
+            "id": "m06-pad-08",
+            "index": 7,
+            "x": 1184,
+            "y": 288
+          },
+          {
+            "id": "m06-pad-09",
+            "index": 8,
+            "x": 800,
+            "y": 288
+          }
+        ],
+        "props": [
+          {
+            "kind": "mine",
+            "x": 530,
+            "y": 237.81914893617022,
+            "w": 158,
+            "h": 120.18085106382979,
+            "footY": 358
+          },
+          {
+            "kind": "cart",
+            "x": 590,
+            "y": 364.56090651558077,
+            "w": 72,
+            "h": 53.43909348441926,
+            "footY": 418
+          },
+          {
+            "kind": "portal",
+            "x": 1160,
+            "y": 8.108695652173907,
+            "w": 110,
+            "h": 106.8913043478261,
+            "footY": 115
+          },
+          {
+            "kind": "mine",
+            "x": 0,
+            "y": 39.73936170212765,
+            "w": 95,
+            "h": 72.26063829787235,
+            "footY": 112
+          },
+          {
+            "kind": "tree",
+            "x": 345,
+            "y": 349.2357723577236,
+            "w": 103,
+            "h": 88.76422764227642,
+            "footY": 438
+          },
+          {
+            "kind": "tree",
+            "x": 40,
+            "y": 294.5121951219512,
+            "w": 105,
+            "h": 90.48780487804878,
+            "footY": 385
+          },
+          {
+            "kind": "tree",
+            "x": 1065,
+            "y": 419.0243902439024,
+            "w": 87,
+            "h": 74.97560975609755,
+            "footY": 494
+          },
+          {
+            "kind": "ore",
+            "x": 375,
+            "y": 167.19836400817996,
+            "w": 65,
+            "h": 42.80163599182004,
+            "footY": 210
+          },
+          {
+            "kind": "ore",
+            "x": 575,
+            "y": 432.8568507157464,
+            "w": 64,
+            "h": 42.14314928425358,
+            "footY": 475
+          },
+          {
+            "kind": "ore",
+            "x": 76,
+            "y": 482.58895705521473,
+            "w": 72,
+            "h": 47.41104294478528,
+            "footY": 530
+          },
+          {
+            "kind": "ore",
+            "x": 1080,
+            "y": 25.61349693251534,
+            "w": 75,
+            "h": 49.38650306748466,
+            "footY": 75
+          },
+          {
+            "kind": "cactus",
+            "x": 613,
+            "y": 178.6694214876033,
+            "w": 45,
+            "h": 50.33057851239669,
+            "footY": 229
+          },
+          {
+            "kind": "cactus",
+            "x": 273,
+            "y": 32.55096418732782,
+            "w": 46,
+            "h": 51.44903581267218,
+            "footY": 84
+          },
+          {
+            "kind": "cactus",
+            "x": 100,
+            "y": 396.1955922865014,
+            "w": 49,
+            "h": 54.80440771349862,
+            "footY": 451
+          },
+          {
+            "kind": "cactus",
+            "x": 1205,
+            "y": 366.31404958677683,
+            "w": 48,
+            "h": 53.68595041322314,
+            "footY": 420
+          },
+          {
+            "kind": "cactus",
+            "x": 846,
+            "y": 556.3140495867768,
+            "w": 48,
+            "h": 53.68595041322314,
+            "footY": 610
+          },
+          {
+            "kind": "cactus",
+            "x": 533,
+            "y": 665.9063360881543,
+            "w": 43,
+            "h": 48.09366391184573,
+            "footY": 714
+          },
+          {
+            "kind": "tree",
+            "x": 710,
+            "y": 37.88617886178862,
+            "w": 86,
+            "h": 74.11382113821138,
+            "footY": 112
+          },
+          {
+            "kind": "cactus",
+            "x": 15,
+            "y": 435.26170798898073,
+            "w": 40,
+            "h": 44.73829201101928,
+            "footY": 480
+          },
+          {
+            "kind": "cactus",
+            "x": 796,
+            "y": 47.49862258953168,
+            "w": 38,
+            "h": 42.50137741046832,
+            "footY": 90
+          },
+          {
+            "kind": "ore",
+            "x": 730,
+            "y": 117.3680981595092,
+            "w": 45,
+            "h": 29.631901840490798,
+            "footY": 147
+          },
+          {
+            "kind": "ore",
+            "x": 340,
+            "y": 446.02658486707566,
+            "w": 44,
+            "h": 28.973415132924334,
+            "footY": 475
+          },
+          {
+            "kind": "cactus",
+            "x": 645,
+            "y": 424.73553719008265,
+            "w": 36,
+            "h": 40.264462809917354,
+            "footY": 465
+          },
+          {
+            "kind": "ore",
+            "x": 1230,
+            "y": 505.3680981595092,
+            "w": 45,
+            "h": 29.631901840490798,
+            "footY": 535
+          }
+        ],
+        "bridges": [
+          {
+            "id": 0,
+            "route": 0,
+            "center": [
+              469.3364719699871,
+              630.2600785405084
+            ],
+            "angle": -2.952144062495965,
+            "length": 118,
+            "width": 60,
+            "channel": 0
+          },
+          {
+            "id": 1,
+            "route": 0,
+            "center": [
+              982.8792218790392,
+              357.79235979974976
+            ],
+            "angle": 2.9870028725325692,
+            "length": 118,
+            "width": 60,
+            "channel": 1
+          },
+          {
+            "id": 2,
+            "route": 1,
+            "center": [
+              961.4729656450426,
+              663.4793789068397
+            ],
+            "angle": -0.31136854304455,
+            "length": 118,
+            "width": 60,
+            "channel": 1
+          }
+        ],
+        "metadata": {
+          "artOnly": true,
+          "gameplayImplemented": false,
+          "routePoints": [
+            243,
+            243
+          ],
+          "pads": 9,
+          "roadWidth": 58,
+          "continuity": "C2-uniform-cubic-spline",
+          "visualConditioningPasses": 32,
+          "sourceAssets": 4,
+          "edgeTreatment": {
+            "changedPixels": 124379,
+            "method": "bounded-multiscale-erosion-with-pad-and-cascade-abutment-locks",
+            "maxDisplacement": {
+              "x": 14,
+              "y": 11
+            },
+            "rimCaps": 31,
+            "talus": 14,
+            "waterFamily": "restrained-blue-green"
+          },
+          "animatedObjects": 0,
+          "tufts": 23,
+          "composition": "separate-surfaces-extruded-mesas-and-original-props"
+        },
+        "travelChecks": 455,
+        "widthChecks": 147,
+        "maxWidthError": 1.5,
+        "objects": 90,
+        "textures": [
+          "maps/m06/cartoon01/horizon",
+          "maps/m06/cartoon01/water",
+          "maps/m06/cartoon01/relief",
+          "maps/m06/cartoon01/shore",
+          "maps/m06/cartoon01/ground",
+          "maps/m06/cartoon01/falls",
+          "maps/m06/cartoon01/route",
+          "maps/m06/cartoon01/bridge-0",
+          "maps/m06/cartoon01/bridge-1",
+          "maps/m06/cartoon01/bridge-2",
+          "maps/m06/cartoon01/pad",
+          "maps/m06/cartoon01/mine",
+          "maps/m06/cartoon01/cart",
+          "maps/m06/cartoon01/cactus",
+          "maps/m06/cartoon01/tree",
+          "maps/m06/cartoon01/ore",
+          "maps/m06/cartoon01/portal",
+          "maps/m06/cartoon01/dry-grass"
+        ],
+        "backing": [
+          1280,
+          768
+        ],
+        "css": [
+          1280,
+          768
+        ],
+        "physicalMobile": "NOT_RUN",
+        "seams": [
+          {
+            "edge": 0,
+            "maxRGBDelta": 0
+          },
+          {
+            "edge": 1280,
+            "maxRGBDelta": 1
+          }
+        ]
+      },
+      "reload": {
+        "objects": 90,
+        "textures": [
+          "maps/m06/cartoon01/horizon",
+          "maps/m06/cartoon01/water",
+          "maps/m06/cartoon01/relief",
+          "maps/m06/cartoon01/shore",
+          "maps/m06/cartoon01/ground",
+          "maps/m06/cartoon01/falls",
+          "maps/m06/cartoon01/route",
+          "maps/m06/cartoon01/bridge-0",
+          "maps/m06/cartoon01/bridge-1",
+          "maps/m06/cartoon01/bridge-2",
+          "maps/m06/cartoon01/pad",
+          "maps/m06/cartoon01/mine",
+          "maps/m06/cartoon01/cart",
+          "maps/m06/cartoon01/cactus",
+          "maps/m06/cartoon01/tree",
+          "maps/m06/cartoon01/ore",
+          "maps/m06/cartoon01/portal",
+          "maps/m06/cartoon01/dry-grass"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch844",
+      "initial": {
+        "waterRGB": [
+          47.59552845528455,
+          113.67682926829268,
+          153.17174796747966
+        ],
+        "edgeDetails": 45,
+        "version": "m06-hf-eroded-banks-blue-v3",
+        "routes": [
+          243,
+          243
+        ],
+        "pads": [
+          {
+            "id": "m06-pad-01",
+            "index": 0,
+            "x": 160,
+            "y": 96
+          },
+          {
+            "id": "m06-pad-02",
+            "index": 1,
+            "x": 352,
+            "y": 288
+          },
+          {
+            "id": "m06-pad-03",
+            "index": 2,
+            "x": 416,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-04",
+            "index": 3,
+            "x": 608,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-05",
+            "index": 4,
+            "x": 800,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-06",
+            "index": 5,
+            "x": 1120,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-07",
+            "index": 6,
+            "x": 992,
+            "y": 160
+          },
+          {
+            "id": "m06-pad-08",
+            "index": 7,
+            "x": 1184,
+            "y": 288
+          },
+          {
+            "id": "m06-pad-09",
+            "index": 8,
+            "x": 800,
+            "y": 288
+          }
+        ],
+        "props": [
+          {
+            "kind": "mine",
+            "x": 530,
+            "y": 237.81914893617022,
+            "w": 158,
+            "h": 120.18085106382979,
+            "footY": 358
+          },
+          {
+            "kind": "cart",
+            "x": 590,
+            "y": 364.56090651558077,
+            "w": 72,
+            "h": 53.43909348441926,
+            "footY": 418
+          },
+          {
+            "kind": "portal",
+            "x": 1160,
+            "y": 8.108695652173907,
+            "w": 110,
+            "h": 106.8913043478261,
+            "footY": 115
+          },
+          {
+            "kind": "mine",
+            "x": 0,
+            "y": 39.73936170212765,
+            "w": 95,
+            "h": 72.26063829787235,
+            "footY": 112
+          },
+          {
+            "kind": "tree",
+            "x": 345,
+            "y": 349.2357723577236,
+            "w": 103,
+            "h": 88.76422764227642,
+            "footY": 438
+          },
+          {
+            "kind": "tree",
+            "x": 40,
+            "y": 294.5121951219512,
+            "w": 105,
+            "h": 90.48780487804878,
+            "footY": 385
+          },
+          {
+            "kind": "tree",
+            "x": 1065,
+            "y": 419.0243902439024,
+            "w": 87,
+            "h": 74.97560975609755,
+            "footY": 494
+          },
+          {
+            "kind": "ore",
+            "x": 375,
+            "y": 167.19836400817996,
+            "w": 65,
+            "h": 42.80163599182004,
+            "footY": 210
+          },
+          {
+            "kind": "ore",
+            "x": 575,
+            "y": 432.8568507157464,
+            "w": 64,
+            "h": 42.14314928425358,
+            "footY": 475
+          },
+          {
+            "kind": "ore",
+            "x": 76,
+            "y": 482.58895705521473,
+            "w": 72,
+            "h": 47.41104294478528,
+            "footY": 530
+          },
+          {
+            "kind": "ore",
+            "x": 1080,
+            "y": 25.61349693251534,
+            "w": 75,
+            "h": 49.38650306748466,
+            "footY": 75
+          },
+          {
+            "kind": "cactus",
+            "x": 613,
+            "y": 178.6694214876033,
+            "w": 45,
+            "h": 50.33057851239669,
+            "footY": 229
+          },
+          {
+            "kind": "cactus",
+            "x": 273,
+            "y": 32.55096418732782,
+            "w": 46,
+            "h": 51.44903581267218,
+            "footY": 84
+          },
+          {
+            "kind": "cactus",
+            "x": 100,
+            "y": 396.1955922865014,
+            "w": 49,
+            "h": 54.80440771349862,
+            "footY": 451
+          },
+          {
+            "kind": "cactus",
+            "x": 1205,
+            "y": 366.31404958677683,
+            "w": 48,
+            "h": 53.68595041322314,
+            "footY": 420
+          },
+          {
+            "kind": "cactus",
+            "x": 846,
+            "y": 556.3140495867768,
+            "w": 48,
+            "h": 53.68595041322314,
+            "footY": 610
+          },
+          {
+            "kind": "cactus",
+            "x": 533,
+            "y": 665.9063360881543,
+            "w": 43,
+            "h": 48.09366391184573,
+            "footY": 714
+          },
+          {
+            "kind": "tree",
+            "x": 710,
+            "y": 37.88617886178862,
+            "w": 86,
+            "h": 74.11382113821138,
+            "footY": 112
+          },
+          {
+            "kind": "cactus",
+            "x": 15,
+            "y": 435.26170798898073,
+            "w": 40,
+            "h": 44.73829201101928,
+            "footY": 480
+          },
+          {
+            "kind": "cactus",
+            "x": 796,
+            "y": 47.49862258953168,
+            "w": 38,
+            "h": 42.50137741046832,
+            "footY": 90
+          },
+          {
+            "kind": "ore",
+            "x": 730,
+            "y": 117.3680981595092,
+            "w": 45,
+            "h": 29.631901840490798,
+            "footY": 147
+          },
+          {
+            "kind": "ore",
+            "x": 340,
+            "y": 446.02658486707566,
+            "w": 44,
+            "h": 28.973415132924334,
+            "footY": 475
+          },
+          {
+            "kind": "cactus",
+            "x": 645,
+            "y": 424.73553719008265,
+            "w": 36,
+            "h": 40.264462809917354,
+            "footY": 465
+          },
+          {
+            "kind": "ore",
+            "x": 1230,
+            "y": 505.3680981595092,
+            "w": 45,
+            "h": 29.631901840490798,
+            "footY": 535
+          }
+        ],
+        "bridges": [
+          {
+            "id": 0,
+            "route": 0,
+            "center": [
+              469.3364719699871,
+              630.2600785405084
+            ],
+            "angle": -2.952144062495965,
+            "length": 118,
+            "width": 60,
+            "channel": 0
+          },
+          {
+            "id": 1,
+            "route": 0,
+            "center": [
+              982.8792218790392,
+              357.79235979974976
+            ],
+            "angle": 2.9870028725325692,
+            "length": 118,
+            "width": 60,
+            "channel": 1
+          },
+          {
+            "id": 2,
+            "route": 1,
+            "center": [
+              961.4729656450426,
+              663.4793789068397
+            ],
+            "angle": -0.31136854304455,
+            "length": 118,
+            "width": 60,
+            "channel": 1
+          }
+        ],
+        "metadata": {
+          "artOnly": true,
+          "gameplayImplemented": false,
+          "routePoints": [
+            243,
+            243
+          ],
+          "pads": 9,
+          "roadWidth": 58,
+          "continuity": "C2-uniform-cubic-spline",
+          "visualConditioningPasses": 32,
+          "sourceAssets": 4,
+          "edgeTreatment": {
+            "changedPixels": 124379,
+            "method": "bounded-multiscale-erosion-with-pad-and-cascade-abutment-locks",
+            "maxDisplacement": {
+              "x": 14,
+              "y": 11
+            },
+            "rimCaps": 31,
+            "talus": 14,
+            "waterFamily": "restrained-blue-green"
+          },
+          "animatedObjects": 0,
+          "tufts": 23,
+          "composition": "separate-surfaces-extruded-mesas-and-original-props"
+        },
+        "travelChecks": 455,
+        "widthChecks": 147,
+        "maxWidthError": 1.5,
+        "objects": 90,
+        "textures": [
+          "maps/m06/cartoon01/horizon",
+          "maps/m06/cartoon01/water",
+          "maps/m06/cartoon01/relief",
+          "maps/m06/cartoon01/shore",
+          "maps/m06/cartoon01/ground",
+          "maps/m06/cartoon01/falls",
+          "maps/m06/cartoon01/route",
+          "maps/m06/cartoon01/bridge-0",
+          "maps/m06/cartoon01/bridge-1",
+          "maps/m06/cartoon01/bridge-2",
+          "maps/m06/cartoon01/pad",
+          "maps/m06/cartoon01/mine",
+          "maps/m06/cartoon01/cart",
+          "maps/m06/cartoon01/cactus",
+          "maps/m06/cartoon01/tree",
+          "maps/m06/cartoon01/ore",
+          "maps/m06/cartoon01/portal",
+          "maps/m06/cartoon01/dry-grass"
+        ],
+        "backing": [
+          1280,
+          768
+        ],
+        "css": [
+          650,
+          390
+        ],
+        "physicalMobile": "NOT_RUN"
+      },
+      "reload": {
+        "objects": 90,
+        "textures": [
+          "maps/m06/cartoon01/horizon",
+          "maps/m06/cartoon01/water",
+          "maps/m06/cartoon01/relief",
+          "maps/m06/cartoon01/shore",
+          "maps/m06/cartoon01/ground",
+          "maps/m06/cartoon01/falls",
+          "maps/m06/cartoon01/route",
+          "maps/m06/cartoon01/bridge-0",
+          "maps/m06/cartoon01/bridge-1",
+          "maps/m06/cartoon01/bridge-2",
+          "maps/m06/cartoon01/pad",
+          "maps/m06/cartoon01/mine",
+          "maps/m06/cartoon01/cart",
+          "maps/m06/cartoon01/cactus",
+          "maps/m06/cartoon01/tree",
+          "maps/m06/cartoon01/ore",
+          "maps/m06/cartoon01/portal",
+          "maps/m06/cartoon01/dry-grass"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "profile": "touch932",
+      "initial": {
+        "waterRGB": [
+          47.59552845528455,
+          113.67682926829268,
+          153.17174796747966
+        ],
+        "edgeDetails": 45,
+        "version": "m06-hf-eroded-banks-blue-v3",
+        "routes": [
+          243,
+          243
+        ],
+        "pads": [
+          {
+            "id": "m06-pad-01",
+            "index": 0,
+            "x": 160,
+            "y": 96
+          },
+          {
+            "id": "m06-pad-02",
+            "index": 1,
+            "x": 352,
+            "y": 288
+          },
+          {
+            "id": "m06-pad-03",
+            "index": 2,
+            "x": 416,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-04",
+            "index": 3,
+            "x": 608,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-05",
+            "index": 4,
+            "x": 800,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-06",
+            "index": 5,
+            "x": 1120,
+            "y": 544
+          },
+          {
+            "id": "m06-pad-07",
+            "index": 6,
+            "x": 992,
+            "y": 160
+          },
+          {
+            "id": "m06-pad-08",
+            "index": 7,
+            "x": 1184,
+            "y": 288
+          },
+          {
+            "id": "m06-pad-09",
+            "index": 8,
+            "x": 800,
+            "y": 288
+          }
+        ],
+        "props": [
+          {
+            "kind": "mine",
+            "x": 530,
+            "y": 237.81914893617022,
+            "w": 158,
+            "h": 120.18085106382979,
+            "footY": 358
+          },
+          {
+            "kind": "cart",
+            "x": 590,
+            "y": 364.56090651558077,
+            "w": 72,
+            "h": 53.43909348441926,
+            "footY": 418
+          },
+          {
+            "kind": "portal",
+            "x": 1160,
+            "y": 8.108695652173907,
+            "w": 110,
+            "h": 106.8913043478261,
+            "footY": 115
+          },
+          {
+            "kind": "mine",
+            "x": 0,
+            "y": 39.73936170212765,
+            "w": 95,
+            "h": 72.26063829787235,
+            "footY": 112
+          },
+          {
+            "kind": "tree",
+            "x": 345,
+            "y": 349.2357723577236,
+            "w": 103,
+            "h": 88.76422764227642,
+            "footY": 438
+          },
+          {
+            "kind": "tree",
+            "x": 40,
+            "y": 294.5121951219512,
+            "w": 105,
+            "h": 90.48780487804878,
+            "footY": 385
+          },
+          {
+            "kind": "tree",
+            "x": 1065,
+            "y": 419.0243902439024,
+            "w": 87,
+            "h": 74.97560975609755,
+            "footY": 494
+          },
+          {
+            "kind": "ore",
+            "x": 375,
+            "y": 167.19836400817996,
+            "w": 65,
+            "h": 42.80163599182004,
+            "footY": 210
+          },
+          {
+            "kind": "ore",
+            "x": 575,
+            "y": 432.8568507157464,
+            "w": 64,
+            "h": 42.14314928425358,
+            "footY": 475
+          },
+          {
+            "kind": "ore",
+            "x": 76,
+            "y": 482.58895705521473,
+            "w": 72,
+            "h": 47.41104294478528,
+            "footY": 530
+          },
+          {
+            "kind": "ore",
+            "x": 1080,
+            "y": 25.61349693251534,
+            "w": 75,
+            "h": 49.38650306748466,
+            "footY": 75
+          },
+          {
+            "kind": "cactus",
+            "x": 613,
+            "y": 178.6694214876033,
+            "w": 45,
+            "h": 50.33057851239669,
+            "footY": 229
+          },
+          {
+            "kind": "cactus",
+            "x": 273,
+            "y": 32.55096418732782,
+            "w": 46,
+            "h": 51.44903581267218,
+            "footY": 84
+          },
+          {
+            "kind": "cactus",
+            "x": 100,
+            "y": 396.1955922865014,
+            "w": 49,
+            "h": 54.80440771349862,
+            "footY": 451
+          },
+          {
+            "kind": "cactus",
+            "x": 1205,
+            "y": 366.31404958677683,
+            "w": 48,
+            "h": 53.68595041322314,
+            "footY": 420
+          },
+          {
+            "kind": "cactus",
+            "x": 846,
+            "y": 556.3140495867768,
+            "w": 48,
+            "h": 53.68595041322314,
+            "footY": 610
+          },
+          {
+            "kind": "cactus",
+            "x": 533,
+            "y": 665.9063360881543,
+            "w": 43,
+            "h": 48.09366391184573,
+            "footY": 714
+          },
+          {
+            "kind": "tree",
+            "x": 710,
+            "y": 37.88617886178862,
+            "w": 86,
+            "h": 74.11382113821138,
+            "footY": 112
+          },
+          {
+            "kind": "cactus",
+            "x": 15,
+            "y": 435.26170798898073,
+            "w": 40,
+            "h": 44.73829201101928,
+            "footY": 480
+          },
+          {
+            "kind": "cactus",
+            "x": 796,
+            "y": 47.49862258953168,
+            "w": 38,
+            "h": 42.50137741046832,
+            "footY": 90
+          },
+          {
+            "kind": "ore",
+            "x": 730,
+            "y": 117.3680981595092,
+            "w": 45,
+            "h": 29.631901840490798,
+            "footY": 147
+          },
+          {
+            "kind": "ore",
+            "x": 340,
+            "y": 446.02658486707566,
+            "w": 44,
+            "h": 28.973415132924334,
+            "footY": 475
+          },
+          {
+            "kind": "cactus",
+            "x": 645,
+            "y": 424.73553719008265,
+            "w": 36,
+            "h": 40.264462809917354,
+            "footY": 465
+          },
+          {
+            "kind": "ore",
+            "x": 1230,
+            "y": 505.3680981595092,
+            "w": 45,
+            "h": 29.631901840490798,
+            "footY": 535
+          }
+        ],
+        "bridges": [
+          {
+            "id": 0,
+            "route": 0,
+            "center": [
+              469.3364719699871,
+              630.2600785405084
+            ],
+            "angle": -2.952144062495965,
+            "length": 118,
+            "width": 60,
+            "channel": 0
+          },
+          {
+            "id": 1,
+            "route": 0,
+            "center": [
+              982.8792218790392,
+              357.79235979974976
+            ],
+            "angle": 2.9870028725325692,
+            "length": 118,
+            "width": 60,
+            "channel": 1
+          },
+          {
+            "id": 2,
+            "route": 1,
+            "center": [
+              961.4729656450426,
+              663.4793789068397
+            ],
+            "angle": -0.31136854304455,
+            "length": 118,
+            "width": 60,
+            "channel": 1
+          }
+        ],
+        "metadata": {
+          "artOnly": true,
+          "gameplayImplemented": false,
+          "routePoints": [
+            243,
+            243
+          ],
+          "pads": 9,
+          "roadWidth": 58,
+          "continuity": "C2-uniform-cubic-spline",
+          "visualConditioningPasses": 32,
+          "sourceAssets": 4,
+          "edgeTreatment": {
+            "changedPixels": 124379,
+            "method": "bounded-multiscale-erosion-with-pad-and-cascade-abutment-locks",
+            "maxDisplacement": {
+              "x": 14,
+              "y": 11
+            },
+            "rimCaps": 31,
+            "talus": 14,
+            "waterFamily": "restrained-blue-green"
+          },
+          "animatedObjects": 0,
+          "tufts": 23,
+          "composition": "separate-surfaces-extruded-mesas-and-original-props"
+        },
+        "travelChecks": 455,
+        "widthChecks": 147,
+        "maxWidthError": 1.5,
+        "objects": 90,
+        "textures": [
+          "maps/m06/cartoon01/horizon",
+          "maps/m06/cartoon01/water",
+          "maps/m06/cartoon01/relief",
+          "maps/m06/cartoon01/shore",
+          "maps/m06/cartoon01/ground",
+          "maps/m06/cartoon01/falls",
+          "maps/m06/cartoon01/route",
+          "maps/m06/cartoon01/bridge-0",
+          "maps/m06/cartoon01/bridge-1",
+          "maps/m06/cartoon01/bridge-2",
+          "maps/m06/cartoon01/pad",
+          "maps/m06/cartoon01/mine",
+          "maps/m06/cartoon01/cart",
+          "maps/m06/cartoon01/cactus",
+          "maps/m06/cartoon01/tree",
+          "maps/m06/cartoon01/ore",
+          "maps/m06/cartoon01/portal",
+          "maps/m06/cartoon01/dry-grass"
+        ],
+        "backing": [
+          1280,
+          768
+        ],
+        "css": [
+          716.65625,
+          430
+        ],
+        "physicalMobile": "NOT_RUN"
+      },
+      "reload": {
+        "objects": 90,
+        "textures": [
+          "maps/m06/cartoon01/horizon",
+          "maps/m06/cartoon01/water",
+          "maps/m06/cartoon01/relief",
+          "maps/m06/cartoon01/shore",
+          "maps/m06/cartoon01/ground",
+          "maps/m06/cartoon01/falls",
+          "maps/m06/cartoon01/route",
+          "maps/m06/cartoon01/bridge-0",
+          "maps/m06/cartoon01/bridge-1",
+          "maps/m06/cartoon01/bridge-2",
+          "maps/m06/cartoon01/pad",
+          "maps/m06/cartoon01/mine",
+          "maps/m06/cartoon01/cart",
+          "maps/m06/cartoon01/cactus",
+          "maps/m06/cartoon01/tree",
+          "maps/m06/cartoon01/ore",
+          "maps/m06/cartoon01/portal",
+          "maps/m06/cartoon01/dry-grass"
+        ]
+      },
+      "errors": []
+    }
+  ],
+  "regressions": [
+    {
+      "id": 1,
+      "nodes": 133,
+      "pads": 8,
+      "selector": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "m06Assets": 0
+    },
+    {
+      "id": 2,
+      "nodes": 163,
+      "pads": 8,
+      "selector": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "m06Assets": 0
+    },
+    {
+      "id": 5,
+      "nodes": 307,
+      "pads": 9,
+      "selector": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "m06Assets": 0
+    }
+  ],
+  "m06Gameplay": "NOT_IMPLEMENTED_NOT_AUTHORIZED",
+  "physicalMobile": "NOT_RUN",
+  "humanArtApproval": "PENDING_DIRECTOR"
+}

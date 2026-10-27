@@ -1,0 +1,26 @@
+{
+  "base": "088fa5a44d0842c054c8e8bd6eda073b95a8a690",
+  "version": "m06-hf-eroded-banks-blue-v3",
+  "files": [
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/assets.mjs",
+      "sha256": "b535ea3b864b6e0a06c8660febff3546ba2ad43dab700c6e652fdff32f0f69b6"
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/terrain.mjs",
+      "sha256": "e7486d2d9b3234cbc649cd69131efbec3c7a3bac57a702e06aadaf8a0f80d2ba"
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/canyon-world.mjs",
+      "sha256": "56d884915928ed211e06819b867b8919a017041b1d1be6e19f4c654dc28d8ed0"
+    },
+    {
+      "path": "public/official/src/maps-visual/m06/cartoon01/eroded-rim.mjs",
+      "sha256": "d0861ce1fe36c4cd74c33f59b53055c7171217321c34a5e45f7936ad50187b61"
+    },
+    {
+      "path": "public/official/art/maps/m06/cartoon01/canyon-blue-water-original.png",
+      "sha256": "e536368cc041ab5e43d69cd585eb7c78e107a526303cb7822f2a61eaa31df2f3"
+    }
+  ]
+}

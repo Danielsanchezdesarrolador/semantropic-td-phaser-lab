@@ -2,7 +2,7 @@
 import{canyonAssets}from'./assets.mjs';
 import{canyonPlan,makeCanyonTerrain,bridgeCanvas,padCanvas,propClears}from'./terrain.mjs';
 import{paintGeometricRoad,ROAD_WIDTH}from'./road-geometry.mjs';
-export const M06_ART_VERSION='m06-hf-organic-cartoon-v2';
+export const M06_ART_VERSION='m06-hf-eroded-banks-blue-v3';
 export{canyonPlan as makeM06ArtPlan};
 export function mountM06Artwork(scene,map){
  const a=canyonAssets(),plan=canyonPlan(map),terrain=makeCanyonTerrain(plan,a),objects=[],keys=[],prefix='maps/m06/cartoon01/';
@@ -16,8 +16,8 @@ export function mountM06Artwork(scene,map){
  // Sparse dry-grass accents are terrain objects, anchored and culled like larger props.
  const tufts=Object.assign(document.createElement('canvas'),{width:72,height:56}),tc=tufts.getContext('2d');tc.scale(2,2);for(const[x,y]of[[3,18],[10,21],[18,22],[25,18],[32,20]]){tc.beginPath();tc.moveTo(18,26);tc.lineTo(x,y-14);tc.lineTo(x+5,y+1);tc.closePath();tc.fillStyle=x%2?'#f6d264':'#a17e32';tc.fill();tc.strokeStyle='#80622e';tc.lineWidth=.7;tc.stroke();}const tk=add('dry-grass',tufts);let tuftsCount=0;for(let y=45;y<740;y+=72)for(let x=26;x<1260;x+=83){const p={x:x+Math.sin(y+x)*11,y:y-14,w:27,h:21};if(!propClears(p,plan,terrain.support)||plan.props.some(q=>p.x>q.x-15&&p.x<q.x+q.w+15&&p.y>q.y-10&&p.y<q.footY+10))continue;objects.push(scene.add.image(p.x+p.w/2,p.y+p.h,tk).setOrigin(.5,1).setDisplaySize(p.w,p.h).setDepth(-350));tuftsCount++;}
  const scenic=Object.assign(document.createElement('canvas'),{width:1280,height:768}),sc=scenic.getContext('2d');for(const name of['horizon','water','relief','shore','ground'])sc.drawImage(terrain.layers[name],0,0,1280,768);
- plan.roadWidth=ROAD_WIDTH;plan.falls=[terrain.fall];
- return{version:M06_ART_VERSION,plan,objects,textureKeys:keys,support:terrain.support,metadata:{artOnly:true,gameplayImplemented:false,routePoints:plan.routes.map(p=>p.length),pads:9,roadWidth:ROAD_WIDTH,continuity:'C2-uniform-cubic-spline',visualConditioningPasses:32,sourceAssets:3,animatedObjects:0,tufts:tuftsCount,composition:'separate-surfaces-extruded-mesas-and-original-props'},
+ plan.edgeDetails=terrain.edgeDetails;plan.roadWidth=ROAD_WIDTH;plan.falls=[terrain.fall];
+ return{version:M06_ART_VERSION,plan,objects,textureKeys:keys,support:terrain.support,metadata:{artOnly:true,gameplayImplemented:false,routePoints:plan.routes.map(p=>p.length),pads:9,roadWidth:ROAD_WIDTH,continuity:'C2-uniform-cubic-spline',visualConditioningPasses:32,sourceAssets:4,edgeTreatment:terrain.edgeQA,animatedObjects:0,tufts:tuftsCount,composition:'separate-surfaces-extruded-mesas-and-original-props'},
  paintMargins(c,r){const sx=r.width/1280,sy=r.height/768,left=r.left/sx,right=(r.canvasWidth-r.left-r.width)/sx;c.save();c.translate(r.left,r.top);c.scale(sx,sy);c.beginPath();c.rect(-left,0,left,768);c.rect(1280,0,right,768);c.clip();if(left>0){c.save();c.scale(-1,1);c.drawImage(scenic,0,0,Math.min(left,768),768,0,0,left,768);c.restore();}if(right>0){c.save();c.translate(2560,0);c.scale(-1,1);c.drawImage(scenic,1280-Math.min(right,768),0,Math.min(right,768),768,1280-right,0,right,768);c.restore();}paintGeometricRoad(c,plan.routes);c.restore();},
  destroy(){objects.forEach(o=>o.destroy());keys.forEach(k=>{if(scene.textures.exists(k))scene.textures.remove(k);});}};
 }
