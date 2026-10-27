@@ -165,3 +165,5 @@ Paso de la Escarcha: arte/preview estático exclusivamente,542puntos/9pads conge
 ### Dirección 27/10/2026 — M07 HOTFIX FIDELIDAD
 
 La primera entrega M07 fue rechazada por simplificación artística. Orden: recuperar riqueza visual del mockup, no sustituirla por criterio propio. Norma permanente de alta fidelidad en AGENTS.md y referencia cruzada en el canon. Arte M07 v2 y QA/antes-después en `docs/blocks/m07-fidelity-hotfix/ACTA.md`; gameplay M07 continúa fuera de alcance.
+
+- [PROPUESTA / ESTUDIO DOCUMENTAL] 27/10/2026: [Estándares comparativos TD y mapas originales](ESTUDIO_REFERENCIA_TD_COMERCIAL_Y_MAPAS_ORIGINALES_2026-10-27.md); criterios documentados, auditorías futuras sujetas a autorización, sin cambios de runtime ni certificación de los diez mapas/140 oleadas.

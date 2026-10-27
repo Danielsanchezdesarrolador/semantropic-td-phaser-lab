@@ -197,3 +197,13 @@ Interpretación predeterminada de "hacer el mapa" = **MAPA-ARTE**, no construir 
 5. QA y capturas auténticas; no confundir Chromium emulado con móvil físico.
 6. CI, versión publicada y URL oficial verificadas antes de anunciar un bloque LIVE; si está DRAFT informar el estado sin inventar publicación.
 7. Nueva prioridad explícita del Director prevalece solo para cambios artísticos aquí autorizados.
+
+## Estándar de ingeniería y mapas originales inspirado en análisis comparativo TD — 27/10/2026
+
+Referencia: [Estudio comercial y mapas originales](docs/direccion-general/ESTUDIO_REFERENCIA_TD_COMERCIAL_Y_MAPAS_ORIGINALES_2026-10-27.md). Sus observaciones proceden de un informe sobre un APK modificado; sus cifras no son balance oficial ni objetivos del proyecto.
+- Geometría primero: verificar contratos de rutas, spawns, pads, hitboxes y cámaras antes del arte. Las geometrías aprobadas requieren autorización específica para cambiar.
+- Arte original modular por capas, anclajes y oclusión coherentes; relieve, agua y cascadas con continuidad topográfica. Rigen el canon Cartoon 2D Premium V1 y la alta fidelidad del mockup aprobado.
+- Ambiente dinámico y VFX sincronizados con eventos únicos del CORE, con presupuesto medido; implementarlos solo en su bloque autorizado, preservando riqueza visual y lectura táctica.
+- Datos de nivel y oleadas, CORE y presentación mantienen responsabilidades separadas. Reutilizar contratos existentes; no crear autoridades o esquemas duplicados ni adoptar números del mod.
+- QA real por bloque: comparación visual al mismo encuadre PC/móvil, métricas antes/después y aceptación humana; declarar NOT_RUN cuando falte evidencia.
+- Aprender principios de calidad sin clonar recursos, código, composiciones o diseños reconocibles ajenos. Las propuestas del estudio requieren bloques específicos; esta incorporación documental no autoriza reworks, cambios de balance ni despliegues.
