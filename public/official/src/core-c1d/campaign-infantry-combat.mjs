@@ -119,11 +119,12 @@ export function withCampaignInfantry(Base){return class CampaignCombatWithInfant
      continue;
     }
     u.attackCD=Math.max(0,u.attackCD-dt);
+    if(this.rules.infantryV5Cadence&&u.v5Recovery>0){u.v5Recovery=Math.max(0,u.v5Recovery-dt);u.state='recovery';continue;}
     const currentTarget=u.attackTargetId?this.enemies.get(u.attackTargetId):null;
     if(u.windup>0){
      u.windup-=dt;
      if(u.windup<=0){
-      u.windup=0;u.attackTargetId=null;u.attackCD=lv.interval;
+      u.windup=0;u.attackTargetId=null;if(this.rules.infantryV5Cadence)u.v5Recovery=Math.max(0,.68-(.29+u.slot*.035));else u.attackCD=lv.interval;
       if(currentTarget&&!currentTarget.dead&&!currentTarget.escaped&&dist(u,currentTarget)<=currentTarget.r+lv.reach+2){
        // CORE applies the target's melee resistance and shield before HP.
        this.hit(currentTarget,lv.damage,"melee:"+u.id+":"+this.tickNumber,t.id);
@@ -136,10 +137,10 @@ export function withCampaignInfantry(Base){return class CampaignCombatWithInfant
     }
     const enemies=[...this.enemies.values()].filter(e=>!e.dead&&!e.escaped&&!e.flying&&dist(t,e)<=lv.radius+20);
     enemies.sort((a,b)=>b.progress-a.progress||a.id-b.id);
-    const target=enemies[0]||null;
+    const target=this.rules.pickInfantryTarget?this.rules.pickInfantryTarget({tower:t,unit:u,enemies,anchor:this.rallyAt(t),level:lv}):(enemies[0]||null);
     const within=target&&dist(target,u)<=target.r+lv.reach+2;
     if(within&&u.attackCD<=0){
-     u.attackTargetId=target.id;u.windup=.29+u.slot*.035;u.state="attackWindup";
+     u.attackTargetId=target.id;u.windup=.29+u.slot*.035;if(this.rules.infantryV5Cadence)u.attackCD=lv.interval;u.state="attackWindup";
      this.emit("soldier_attack_windup",{entityId:u.id,towerId:t.id,targetId:target.id,
       windup:u.windup,worldPosition:{x:u.x,y:u.y}});
      continue;

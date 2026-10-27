@@ -1,39 +1,47 @@
 {
   "public/official/src/c1d8-b2-playable/scene-m02.mjs": {
     "before": "78a04b045563c5f8ffa70c63bc12cf2be7efbb5a",
-    "after": "4e3fb40e5becd02a1ed237fa3d3ef74ed593a0eb",
+    "after": "030c626d01dcd39b8d95ae1408aec5f4a530474a",
     "approvedM04After": "03f751527d47c0faca46dff56002fdec4a90df2a",
-    "reason": "M06-GAME-01 explicit selector 6, load guard, M06 panorama and existing tower-destroyed event redraw; M01\u2013M05 rules/art unchanged",
+    "reason": "M07-GAME-01 selector7, isolated scene import, M07-only approved FIT margins; prior map behavior retained",
     "baseBeforeM05": "3227b720b89e34a8c6828e1bee80b644767ae101",
     "approvedM05After": "3f4ef5a72a0b610cc89ec06dc0ab29f3e99837f0",
-    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594"
+    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594",
+    "approvedM06After": "4e3fb40e5becd02a1ed237fa3d3ef74ed593a0eb",
+    "baseBeforeM07": "8a8a3c44d976acc9a81ff8a74da5083da572ff1a"
   },
   "public/official/src/live/index.html": {
     "before": "125b0eaca1ec2a4f9df9c3345a7df05367fb3f17",
-    "after": "83137df03bb8b7b555c0253100b72250d9b44b8e",
+    "after": "1b601de33da2231cfe91ee2130b962a07bcc0b37",
     "approvedM04After": "8c56fa1d988f446d6e7fa8c186e619f0f2dbba8c",
-    "reason": "M06-GAME-01 explicit selector 6, load guard, M06 panorama and existing tower-destroyed event redraw; M01\u2013M05 rules/art unchanged",
+    "reason": "M07-GAME-01 selector7, isolated scene import, M07-only approved FIT margins; prior map behavior retained",
     "baseBeforeM05": "3227b720b89e34a8c6828e1bee80b644767ae101",
     "approvedM05After": "49c974b004ef88275e5cbcd866bd0ff1e60bdc68",
-    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594"
+    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594",
+    "approvedM06After": "83137df03bb8b7b555c0253100b72250d9b44b8e",
+    "baseBeforeM07": "8a8a3c44d976acc9a81ff8a74da5083da572ff1a"
   },
   "public/official/src/mobile/viewport-panorama-r5.mjs": {
     "before": "58b085269d01b65817c6c2b875b92c4740213eb6",
-    "after": "cff052a61f8c6f0288387e2bce357660cea3f93f",
+    "after": "5fc2fcafc60b335e2ddf14619076ee8a36be309d",
     "approvedM04After": "19bd775c29f3a94d570b42771a9d7e5352fa1772",
-    "reason": "M06-GAME-01 explicit selector 6, load guard, M06 panorama and existing tower-destroyed event redraw; M01\u2013M05 rules/art unchanged",
+    "reason": "M07-GAME-01 selector7, isolated scene import, M07-only approved FIT margins; prior map behavior retained",
     "baseBeforeM05": "3227b720b89e34a8c6828e1bee80b644767ae101",
     "approvedM05After": "66ae5eaba8b97d14354825d670899ce2aed747cc",
-    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594"
+    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594",
+    "approvedM06After": "cff052a61f8c6f0288387e2bce357660cea3f93f",
+    "baseBeforeM07": "8a8a3c44d976acc9a81ff8a74da5083da572ff1a"
   },
   "public/official/src/maps-visual/m02/map-picker.mjs": {
     "before": "20f0f220e8ea1c09d22b437385607847398a8097",
-    "after": "c9d7050a9b446ac527d60429ae4fa9ed80c03d27",
+    "after": "8ce50fb50e6f1d2e0c28780a93515ff6863b5352",
     "approvedM04After": "f19f5a5ff92b319fbefb6e5a65169f3d272573db",
-    "reason": "M06-GAME-01 explicit selector 6, load guard, M06 panorama and existing tower-destroyed event redraw; M01\u2013M05 rules/art unchanged",
+    "reason": "M07-GAME-01 selector7, isolated scene import, M07-only approved FIT margins; prior map behavior retained",
     "baseBeforeM05": "3227b720b89e34a8c6828e1bee80b644767ae101",
     "approvedM05After": "4527c9f5aaad674618d82c22d6ade71c6a1bfb3f",
-    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594"
+    "baseBeforeM06": "8abaa92a640ce810b299453dcc41f92a0c76d594",
+    "approvedM06After": "c9d7050a9b446ac527d60429ae4fa9ed80c03d27",
+    "baseBeforeM07": "8a8a3c44d976acc9a81ff8a74da5083da572ff1a"
   },
   "public/official/src/core-c1d/campaign-combat-world.mjs": {
     "before": "0d8c7e891769db54989b0a6316a84b1a629e776b",

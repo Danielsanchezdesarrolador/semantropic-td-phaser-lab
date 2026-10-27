@@ -648,4 +648,4 @@ async function start(){
 }
 await start();
 }
-if(!["3","4","5","6"].includes(new URLSearchParams(location.search).get("map")))await startCampaignScene();
+if(!["3","4","5","6","7"].includes(new URLSearchParams(location.search).get("map")))await startCampaignScene();
