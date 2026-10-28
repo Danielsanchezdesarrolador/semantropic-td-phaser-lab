@@ -51,3 +51,35 @@ Esta propuesta cambia la composición y el relieve, por lo que **no se ejecuta b
 [QA REUTILIZADO] Geometría, sintaxis, build y Chromium WebGL2 en los tres perfiles conservan su PASS previo, respaldado por hashes coincidentes. No se repiten estas pruebas locales ni se regeneran imágenes por una actualización documental. El CI del PR se consulta aparte; no se presupone su resultado. Regresión: archivos públicos existentes protegidos por la comprobación previa de alcance y hashes; no se afirma una nueva partida de M01–M07. Móvil físico, FPS sostenido y VRAM: NOT_RUN.
 
 [PUERTA DE DIRECCIÓN] Entregar el PR en borrador y estas capturas para valorar el estado y la propuesta. Detener el bloque; sin merge, Render, aprobación estética ni inicio de M08-GAME-01.
+
+
+## M08-ART-R2 — recomposición autorizada, 28/10/2026 UTC
+
+La orden posterior M08-ART-R2 autoriza ejecutar la propuesta compositiva, sustituyendo la pausa de la auditoría anterior. Base de esta pasada: 3150e7b00144197beb63cb11830986a993a680b9; mismo PR83 y rama feat/m08-map-art-01. El CI anterior terminó SUCCESS (run40609511706); no se atribuye ese resultado a R2.
+
+### Cambios reales
+
+- world.mjs pasa a m08-observatory-candidate-r2. La distribución automática de hasta90 props se sustituye por58 módulos colocados expresamente: grupos west, observatory, south, southwest, garden e intrusion. El número menor no representa retirar detalle por rendimiento: los módulos horizontales reúnen más arquitectura y relieve por pieza; la valoración de riqueza sigue siendo humana.
+- Oeste: puerta astronómica derruida, frente de cornisas enlazadas y muros asociados; noreste: observatorio existente sobre cornisa con contrafuertes; sur: dos bandas escalonadas de acantilados con juntas solapadas, muros y patios. Los módulos conservan anclajes/sombras y orden explícito en profundidad.
+- Los dos PNG originales permanecen byte a byte iguales. Se añade un único pack original imperial-complements-r2.png, generado para cubrir piezas ausentes: cornisa horizontal, puerta urbana, muro de contención y resto tecnológico alienígena. Fuente original preservada en /workspace/generated_images/exec-f273d993-c423-4b1c-bdb3-de5dd325174d.png (workspace, no dependencia runtime). El atlas resultante no dividió columnas por igual: se usan cuatro frames explícitos para evitar cortar las siluetas, sin reescalar el archivo fuente.
+- Carretera: conserva las anchuras92/86/79/69 y el eje original; la base de trazos recibe hombros minerales irregulares dentro de su huella, variación cromática y pequeños remates de tierra en la unión. Se excluyen los bordes minerales de zonas cercanas a otra ruta. No hay cambio de anchura táctil, puntos ni accesos.
+- Plaza: envolvente oval irregular y baldosas escalonadas con transición de opacidad al suelo. La primera iteración R2 dejaba juntas excesivas; se corrigieron antes de la evidencia final. No se mantiene el rectángulo original.
+- Intrusión: fragmento original de tecnología oscura con núcleo cian quebrado, estático, junto al conjunto meridional. No se añaden mecánicas, partículas, interfaz o enemigos.
+
+### QA final R2
+
+[PASS] node tools/qa-m08-art.mjs; node --check world.mjs y tools/qa-m08-art-browser.mjs; npm run build. La prueba de alcance conserva datos canónicos, selector y archivos públicos existentes M01–M07. No se ejecutan partidas nuevas de estos mapas al no integrarse el preview en su runtime.
+
+[PROBADO EN NAVEGADOR / PASS] Chromium /usr/bin/chromium con WebGL2 SwiftShader, Playwright, perfiles1280×768 DPR1,844×390 DPR1 y932×430 DPR2. Comando local: M08_OUT=artifacts/m08-r2-final CHROMIUM_PATH=/usr/bin/chromium node /tmp/m08-browser-r2.mjs; ese runner replica tools/qa-m08-art-browser.mjs cambiando únicamente la resolución de import de Playwright al paquete instalado en el entorno.
+
+Tres perfiles:403nodos,10pads,58módulos, cajas fuera de banda53wu/elipses61×45, sin errores JS, centrado FIT;128objetos y13texturas totales antes/después de destroy/remount; cero texturas m08/ tras destroy. QA además exige versiónR2 y presencia de grupos arquitectónicos/intrusión. report.json incorpora SHA-256 de módulos, tres PNG y datos de mapa/campaña. La primera ejecución de desarrollo detectó una pieza fuera del margen y no constituye evidencia PASS; se corrigió antes de la ejecución final completa.
+
+[REVISADO VISUALMENTE] Capturas finales PC y móvil: diez pads visibles, accesos despejados, monumento y cornisa anclados, sin cortes evidentes de frames. La comparación se conserva en COMPARATIVA_R2.md y evidence/before-r2/ a idénticos perfiles. evidence/desktop-overlay-after.png muestra tres ejes y diez sockets.
+
+[NOT_RUN] Teléfonos físicos, FPS sostenido, VRAM y memoria real. Los recuentos de objetos/texturas acreditan limpieza de una reconstrucción, no ausencia universal de fugas. CI R2 se consulta en PR83; el acta no presupone un resultado verde.
+
+### Riesgos y puerta artística
+
+R2 mejora agrupación, continuidad de las bandas rocosas y narrativa, pero no se declara cumplimiento artístico absoluto: las caras del terreno se concentran en bandas periféricas, la superficie central aún es mayormente plana, los PNG originales mantienen detalle fino y el pavimento/pads usan un lenguaje gráfico más simple. La reutilización de la cornisa puede reconocerse en el sur; Dirección debe valorar su ritmo, monumentalidad y cohesión a escala móvil. No se afirma igualdad con un mockup M08 no disponible ni aprobación premium por CI.
+
+Solo cambiaron world.mjs, un pack complementario, QA navegador y documentación/evidencias del bloque. plan.mjs, geometría, sockets, campaña, gameplay, AGENTS y roadmap se preservan. PR83 permanece DRAFT. Sin merge, Render, M08-GAME-01 ni M09. Detención para valoración artística humana con las capturas reales.
