@@ -10,8 +10,8 @@
     },
     {
       "path": "docs/blocks/m08-map-art-01/ACTA.md",
-      "bytes": 4560,
-      "sha256": "67b3b4ed298858ba92d42adbadab05ba9dff008c460f06813ab0058ffdf12fdf"
+      "bytes": 8632,
+      "sha256": "555890560618d15f0fd2c217c9ef18c3833bdaddc9adcf87ef5cc8fd22d09f2e"
     },
     {
       "path": "docs/blocks/m08-map-art-01/CONTRATO.json",
@@ -91,5 +91,14 @@
   ],
   "QA": "PASS_LOCAL_NODE_BUILD_CHROMIUM_3_PROFILES",
   "physicalMobile": "NOT_RUN",
-  "humanArtApproval": "PENDING"
+  "humanArtApproval": "PENDING",
+  "resumption": {
+    "verifiedArtCommit": "d754b00cb421c55b3273bfc13b21aa5d97346698",
+    "dateUTC": "2026-10-28",
+    "sourceAndEvidenceHashes": "MATCH_PRIOR_MANIFEST",
+    "runtimeChanged": false,
+    "localQA": "REUSED_UNCHANGED_SOURCES",
+    "visualAudit": "COMPOSITION_REVISION_PROPOSED_PENDING_DIRECTION",
+    "CI": "SEE_DRAFT_PR_CHECKS"
+  }
 }
