@@ -1,0 +1,1544 @@
+{
+  "sourceHashes": {
+    "public/official/src/maps-visual/m08/cartoon01/world.mjs": "9a34fe3c7cd086a2d617a1b62390f2d8ab07220d9b7fad3d211b097bc648b813",
+    "public/official/src/maps-visual/m08/cartoon01/plan.mjs": "37c16a63529c2d3c728ffacbd61cb8d5a1120dc47d51bea4a5d31cdb5982a08c",
+    "public/official/src/maps-visual/m08/preview/preview.mjs": "a59f86566bd4c019d3f4761c5026451fefdfce39f54231666c2aaac0bdbf48ea",
+    "public/official/art/maps/m08/cartoon01/observatory-original-props.png": "48a52689d05451f9df63c9911a2e950aa247cd193bb757c620d97df532a695cd",
+    "public/official/art/maps/m08/cartoon01/grass-earth-original.png": "b1e152f29299c4223131b940172bbe37ce60274eec44f31872ddfc4cb70a40ed",
+    "public/official/art/maps/m08/cartoon01/imperial-complements-r2.png": "4a5502008396066dcece742c35bbb8f295b68846a02bd5cc163a5080776172e7",
+    "public/official/data/maps.v5.json": "2de844b5237af670180c7a2969c6ae0d085c6ec4d26b4d0ea2ce1bb2eceb194e",
+    "public/official/data/campaign140.v5.json": "6272728b13dabac67adbaa94fa7053d41e9e598a8b9771e6c9ae8f6999a3e213"
+  },
+  "status": "PASS_M08_ART_BROWSER",
+  "reports": [
+    {
+      "name": "desktop",
+      "report": {
+        "webgl2": true,
+        "routes": [
+          151,
+          126,
+          126
+        ],
+        "pads": 10,
+        "props": 58,
+        "propRects": [
+          {
+            "kind": 6,
+            "x": 240,
+            "y": 0,
+            "w": 240,
+            "h": 135,
+            "group": "west"
+          },
+          {
+            "kind": 6,
+            "x": 430,
+            "y": 0,
+            "w": 230,
+            "h": 135,
+            "group": "west"
+          },
+          {
+            "kind": 6,
+            "x": 920,
+            "y": 120,
+            "w": 350,
+            "h": 100,
+            "group": "observatory"
+          },
+          {
+            "kind": 6,
+            "x": 630,
+            "y": 595,
+            "w": 320,
+            "h": 165,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 895,
+            "y": 595,
+            "w": 375,
+            "h": 165,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 480,
+            "y": 700,
+            "w": 200,
+            "h": 68,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 800,
+            "y": 540,
+            "w": 255,
+            "h": 120,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 1010,
+            "y": 540,
+            "w": 260,
+            "h": 120,
+            "group": "south"
+          },
+          {
+            "kind": 7,
+            "x": 30,
+            "y": 0,
+            "w": 180,
+            "h": 110,
+            "group": "west"
+          },
+          {
+            "kind": 8,
+            "x": 250,
+            "y": 10,
+            "w": 180,
+            "h": 95,
+            "group": "west"
+          },
+          {
+            "kind": 3,
+            "x": 350,
+            "y": 150,
+            "w": 120,
+            "h": 130,
+            "group": "west"
+          },
+          {
+            "kind": 1,
+            "x": 490,
+            "y": 5,
+            "w": 150,
+            "h": 140,
+            "group": "west"
+          },
+          {
+            "kind": 0,
+            "x": 960,
+            "y": 5,
+            "w": 205,
+            "h": 210,
+            "group": "observatory"
+          },
+          {
+            "kind": 8,
+            "x": 1160,
+            "y": 70,
+            "w": 115,
+            "h": 120,
+            "group": "observatory"
+          },
+          {
+            "kind": 1,
+            "x": 40,
+            "y": 465,
+            "w": 120,
+            "h": 190,
+            "group": "southwest"
+          },
+          {
+            "kind": 8,
+            "x": 640,
+            "y": 550,
+            "w": 140,
+            "h": 95,
+            "group": "south"
+          },
+          {
+            "kind": 3,
+            "x": 790,
+            "y": 555,
+            "w": 110,
+            "h": 100,
+            "group": "south"
+          },
+          {
+            "kind": 1,
+            "x": 1100,
+            "y": 515,
+            "w": 150,
+            "h": 140,
+            "group": "south"
+          },
+          {
+            "kind": 9,
+            "x": 1025,
+            "y": 505,
+            "w": 100,
+            "h": 80,
+            "group": "intrusion"
+          },
+          {
+            "kind": 2,
+            "x": 215,
+            "y": 4,
+            "w": 85,
+            "h": 85,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 600,
+            "y": 10,
+            "w": 90,
+            "h": 90,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 335,
+            "y": 15,
+            "w": 100,
+            "h": 100,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1170,
+            "y": 0,
+            "w": 100,
+            "h": 100,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 900,
+            "y": 155,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1160,
+            "y": 150,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 30,
+            "y": 355,
+            "w": 105,
+            "h": 105,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 90,
+            "y": 420,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 15,
+            "y": 640,
+            "w": 125,
+            "h": 125,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1150,
+            "y": 650,
+            "w": 105,
+            "h": 105,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 670,
+            "y": 645,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 900,
+            "y": 670,
+            "w": 90,
+            "h": 90,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 215,
+            "y": 120,
+            "w": 60,
+            "h": 60,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 285,
+            "y": 135,
+            "w": 60,
+            "h": 60,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 345,
+            "y": 110,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 465,
+            "y": 145,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 575,
+            "y": 150,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 645,
+            "y": 95,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 905,
+            "y": 15,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1200,
+            "y": 230,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 875,
+            "y": 230,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 810,
+            "y": 175,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 370,
+            "y": 290,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 340,
+            "y": 315,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 5,
+            "y": 310,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 155,
+            "y": 380,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 180,
+            "y": 450,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 210,
+            "y": 480,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 20,
+            "y": 450,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 170,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 15,
+            "y": 580,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 600,
+            "y": 655,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 705,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 750,
+            "y": 595,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 950,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1240,
+            "y": 460,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1170,
+            "y": 480,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 600,
+            "y": 720,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1050,
+            "y": 710,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          }
+        ],
+        "allClear": true,
+        "frame": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "objects": 128,
+        "textures": 13,
+        "version": "m08-observatory-candidate-r2",
+        "groups": [
+          "west",
+          "observatory",
+          "south",
+          "southwest",
+          "intrusion",
+          "garden"
+        ]
+      },
+      "lifecycle": {
+        "before": {
+          "objects": 128,
+          "textures": 13
+        },
+        "removed": 0,
+        "after": {
+          "objects": 128,
+          "textures": 13
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "touch844",
+      "report": {
+        "webgl2": true,
+        "routes": [
+          151,
+          126,
+          126
+        ],
+        "pads": 10,
+        "props": 58,
+        "propRects": [
+          {
+            "kind": 6,
+            "x": 240,
+            "y": 0,
+            "w": 240,
+            "h": 135,
+            "group": "west"
+          },
+          {
+            "kind": 6,
+            "x": 430,
+            "y": 0,
+            "w": 230,
+            "h": 135,
+            "group": "west"
+          },
+          {
+            "kind": 6,
+            "x": 920,
+            "y": 120,
+            "w": 350,
+            "h": 100,
+            "group": "observatory"
+          },
+          {
+            "kind": 6,
+            "x": 630,
+            "y": 595,
+            "w": 320,
+            "h": 165,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 895,
+            "y": 595,
+            "w": 375,
+            "h": 165,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 480,
+            "y": 700,
+            "w": 200,
+            "h": 68,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 800,
+            "y": 540,
+            "w": 255,
+            "h": 120,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 1010,
+            "y": 540,
+            "w": 260,
+            "h": 120,
+            "group": "south"
+          },
+          {
+            "kind": 7,
+            "x": 30,
+            "y": 0,
+            "w": 180,
+            "h": 110,
+            "group": "west"
+          },
+          {
+            "kind": 8,
+            "x": 250,
+            "y": 10,
+            "w": 180,
+            "h": 95,
+            "group": "west"
+          },
+          {
+            "kind": 3,
+            "x": 350,
+            "y": 150,
+            "w": 120,
+            "h": 130,
+            "group": "west"
+          },
+          {
+            "kind": 1,
+            "x": 490,
+            "y": 5,
+            "w": 150,
+            "h": 140,
+            "group": "west"
+          },
+          {
+            "kind": 0,
+            "x": 960,
+            "y": 5,
+            "w": 205,
+            "h": 210,
+            "group": "observatory"
+          },
+          {
+            "kind": 8,
+            "x": 1160,
+            "y": 70,
+            "w": 115,
+            "h": 120,
+            "group": "observatory"
+          },
+          {
+            "kind": 1,
+            "x": 40,
+            "y": 465,
+            "w": 120,
+            "h": 190,
+            "group": "southwest"
+          },
+          {
+            "kind": 8,
+            "x": 640,
+            "y": 550,
+            "w": 140,
+            "h": 95,
+            "group": "south"
+          },
+          {
+            "kind": 3,
+            "x": 790,
+            "y": 555,
+            "w": 110,
+            "h": 100,
+            "group": "south"
+          },
+          {
+            "kind": 1,
+            "x": 1100,
+            "y": 515,
+            "w": 150,
+            "h": 140,
+            "group": "south"
+          },
+          {
+            "kind": 9,
+            "x": 1025,
+            "y": 505,
+            "w": 100,
+            "h": 80,
+            "group": "intrusion"
+          },
+          {
+            "kind": 2,
+            "x": 215,
+            "y": 4,
+            "w": 85,
+            "h": 85,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 600,
+            "y": 10,
+            "w": 90,
+            "h": 90,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 335,
+            "y": 15,
+            "w": 100,
+            "h": 100,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1170,
+            "y": 0,
+            "w": 100,
+            "h": 100,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 900,
+            "y": 155,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1160,
+            "y": 150,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 30,
+            "y": 355,
+            "w": 105,
+            "h": 105,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 90,
+            "y": 420,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 15,
+            "y": 640,
+            "w": 125,
+            "h": 125,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1150,
+            "y": 650,
+            "w": 105,
+            "h": 105,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 670,
+            "y": 645,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 900,
+            "y": 670,
+            "w": 90,
+            "h": 90,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 215,
+            "y": 120,
+            "w": 60,
+            "h": 60,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 285,
+            "y": 135,
+            "w": 60,
+            "h": 60,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 345,
+            "y": 110,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 465,
+            "y": 145,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 575,
+            "y": 150,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 645,
+            "y": 95,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 905,
+            "y": 15,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1200,
+            "y": 230,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 875,
+            "y": 230,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 810,
+            "y": 175,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 370,
+            "y": 290,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 340,
+            "y": 315,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 5,
+            "y": 310,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 155,
+            "y": 380,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 180,
+            "y": 450,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 210,
+            "y": 480,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 20,
+            "y": 450,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 170,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 15,
+            "y": 580,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 600,
+            "y": 655,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 705,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 750,
+            "y": 595,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 950,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1240,
+            "y": 460,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1170,
+            "y": 480,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 600,
+            "y": 720,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1050,
+            "y": 710,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          }
+        ],
+        "allClear": true,
+        "frame": {
+          "left": 97,
+          "right": 97,
+          "top": 0,
+          "bottom": 0
+        },
+        "objects": 128,
+        "textures": 13,
+        "version": "m08-observatory-candidate-r2",
+        "groups": [
+          "west",
+          "observatory",
+          "south",
+          "southwest",
+          "intrusion",
+          "garden"
+        ]
+      },
+      "lifecycle": {
+        "before": {
+          "objects": 128,
+          "textures": 13
+        },
+        "removed": 0,
+        "after": {
+          "objects": 128,
+          "textures": 13
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "touch932",
+      "report": {
+        "webgl2": true,
+        "routes": [
+          151,
+          126,
+          126
+        ],
+        "pads": 10,
+        "props": 58,
+        "propRects": [
+          {
+            "kind": 6,
+            "x": 240,
+            "y": 0,
+            "w": 240,
+            "h": 135,
+            "group": "west"
+          },
+          {
+            "kind": 6,
+            "x": 430,
+            "y": 0,
+            "w": 230,
+            "h": 135,
+            "group": "west"
+          },
+          {
+            "kind": 6,
+            "x": 920,
+            "y": 120,
+            "w": 350,
+            "h": 100,
+            "group": "observatory"
+          },
+          {
+            "kind": 6,
+            "x": 630,
+            "y": 595,
+            "w": 320,
+            "h": 165,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 895,
+            "y": 595,
+            "w": 375,
+            "h": 165,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 480,
+            "y": 700,
+            "w": 200,
+            "h": 68,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 800,
+            "y": 540,
+            "w": 255,
+            "h": 120,
+            "group": "south"
+          },
+          {
+            "kind": 6,
+            "x": 1010,
+            "y": 540,
+            "w": 260,
+            "h": 120,
+            "group": "south"
+          },
+          {
+            "kind": 7,
+            "x": 30,
+            "y": 0,
+            "w": 180,
+            "h": 110,
+            "group": "west"
+          },
+          {
+            "kind": 8,
+            "x": 250,
+            "y": 10,
+            "w": 180,
+            "h": 95,
+            "group": "west"
+          },
+          {
+            "kind": 3,
+            "x": 350,
+            "y": 150,
+            "w": 120,
+            "h": 130,
+            "group": "west"
+          },
+          {
+            "kind": 1,
+            "x": 490,
+            "y": 5,
+            "w": 150,
+            "h": 140,
+            "group": "west"
+          },
+          {
+            "kind": 0,
+            "x": 960,
+            "y": 5,
+            "w": 205,
+            "h": 210,
+            "group": "observatory"
+          },
+          {
+            "kind": 8,
+            "x": 1160,
+            "y": 70,
+            "w": 115,
+            "h": 120,
+            "group": "observatory"
+          },
+          {
+            "kind": 1,
+            "x": 40,
+            "y": 465,
+            "w": 120,
+            "h": 190,
+            "group": "southwest"
+          },
+          {
+            "kind": 8,
+            "x": 640,
+            "y": 550,
+            "w": 140,
+            "h": 95,
+            "group": "south"
+          },
+          {
+            "kind": 3,
+            "x": 790,
+            "y": 555,
+            "w": 110,
+            "h": 100,
+            "group": "south"
+          },
+          {
+            "kind": 1,
+            "x": 1100,
+            "y": 515,
+            "w": 150,
+            "h": 140,
+            "group": "south"
+          },
+          {
+            "kind": 9,
+            "x": 1025,
+            "y": 505,
+            "w": 100,
+            "h": 80,
+            "group": "intrusion"
+          },
+          {
+            "kind": 2,
+            "x": 215,
+            "y": 4,
+            "w": 85,
+            "h": 85,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 600,
+            "y": 10,
+            "w": 90,
+            "h": 90,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 335,
+            "y": 15,
+            "w": 100,
+            "h": 100,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1170,
+            "y": 0,
+            "w": 100,
+            "h": 100,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 900,
+            "y": 155,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1160,
+            "y": 150,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 30,
+            "y": 355,
+            "w": 105,
+            "h": 105,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 90,
+            "y": 420,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 15,
+            "y": 640,
+            "w": 125,
+            "h": 125,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 1150,
+            "y": 650,
+            "w": 105,
+            "h": 105,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 670,
+            "y": 645,
+            "w": 95,
+            "h": 95,
+            "group": "garden"
+          },
+          {
+            "kind": 2,
+            "x": 900,
+            "y": 670,
+            "w": 90,
+            "h": 90,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 215,
+            "y": 120,
+            "w": 60,
+            "h": 60,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 285,
+            "y": 135,
+            "w": 60,
+            "h": 60,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 345,
+            "y": 110,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 465,
+            "y": 145,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 575,
+            "y": 150,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 645,
+            "y": 95,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 905,
+            "y": 15,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1200,
+            "y": 230,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 875,
+            "y": 230,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 810,
+            "y": 175,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 370,
+            "y": 290,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 340,
+            "y": 315,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 5,
+            "y": 310,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 155,
+            "y": 380,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 180,
+            "y": 450,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 210,
+            "y": 480,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 20,
+            "y": 450,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 170,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 15,
+            "y": 580,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 600,
+            "y": 655,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 705,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 750,
+            "y": 595,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 950,
+            "y": 550,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1240,
+            "y": 460,
+            "w": 35,
+            "h": 35,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1170,
+            "y": 480,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 600,
+            "y": 720,
+            "w": 40,
+            "h": 40,
+            "group": "garden"
+          },
+          {
+            "kind": 5,
+            "x": 1050,
+            "y": 710,
+            "w": 45,
+            "h": 45,
+            "group": "garden"
+          }
+        ],
+        "allClear": true,
+        "frame": {
+          "left": 107.671875,
+          "right": 107.671875,
+          "top": 0,
+          "bottom": 0
+        },
+        "objects": 128,
+        "textures": 13,
+        "version": "m08-observatory-candidate-r2",
+        "groups": [
+          "west",
+          "observatory",
+          "south",
+          "southwest",
+          "intrusion",
+          "garden"
+        ]
+      },
+      "lifecycle": {
+        "before": {
+          "objects": 128,
+          "textures": 13
+        },
+        "removed": 0,
+        "after": {
+          "objects": 128,
+          "textures": 13
+        }
+      },
+      "errors": []
+    }
+  ],
+  "physicalMobile": "NOT_RUN",
+  "sustainedPerformance": "NOT_MEASURED"
+}

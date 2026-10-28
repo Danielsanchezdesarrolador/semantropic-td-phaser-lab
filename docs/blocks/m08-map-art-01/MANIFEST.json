@@ -1,0 +1,139 @@
+{
+  "base": "44c5de9ba05f09e1689149a543d27760eb690aaf",
+  "artVersion": "m08-observatory-candidate-r2",
+  "state": "DRAFT_CANDIDATE_NO_PUBLICATION",
+  "files": [
+    {
+      "path": ".github/workflows/m08-art-qa.yml",
+      "bytes": 1378,
+      "sha256": "789e5e8a63bdd3bb7eb6692ce90964fd06e13f208f04bc6f09ac4055823e9b47"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/ACTA.md",
+      "bytes": 13713,
+      "sha256": "46201ff140edc485e61c657a014eb04f3b6eccd525343198133b5bbe17cc4500"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/COMPARATIVA_R2.md",
+      "bytes": 907,
+      "sha256": "4b312fc1bc3795d3ae3f3503f1c205be89aa46e8867c5f7e9b4043da43e8a0e7"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/CONTRATO.json",
+      "bytes": 939,
+      "sha256": "8b8ca436618f12edd5374b74101295257af80855f71c15f531d1ea572b22e570"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/GEOMETRIA_ANTES.svg",
+      "bytes": 15262,
+      "sha256": "158c062f4dbfcabae43704a7b352d36bfbfd4bb586b19cccd320a8205fa4567c"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/before-r2/desktop-overlay-after.png",
+      "bytes": 1677261,
+      "sha256": "759a50d1797ae276f4ca8bead7a176e0636b0662e0222cf47db07ea10a365eaa"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/before-r2/desktop.png",
+      "bytes": 1648712,
+      "sha256": "a657bf47a5df31d29dc8dde0f926483db2a156820ed9d92af488c18c8abdc826"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/before-r2/report.json",
+      "bytes": 45188,
+      "sha256": "f56e798fe23a18fc4f765ca85d37f5d2ef773421063caa3990c413d9b421f003"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/before-r2/touch844.png",
+      "bytes": 480544,
+      "sha256": "7127cded9721c306cabb9dbc700c7b6829fe1b2ecacd1c19c6ea17543330bc6f"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/before-r2/touch932.png",
+      "bytes": 1933204,
+      "sha256": "e820d396d982432d82967b6ca2c02702a45bd36f15df332ad7724590cc3e07f9"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/desktop-overlay-after.png",
+      "bytes": 1710022,
+      "sha256": "35ee6c0e92920f92e7e34af91ee05f4dbc97e3ae7ceeb6d5402e6e6ff9eb0067"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/desktop.png",
+      "bytes": 1682382,
+      "sha256": "d04d108a727cbecaed845bfc7cc260028b9747ea297b53e4688bbffccb6ccb50"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/report.json",
+      "bytes": 32440,
+      "sha256": "b096fdd4b6dd29630b0123b62236b06580935c8f669ccc01939cd7d5352eed48"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/touch844.png",
+      "bytes": 486288,
+      "sha256": "b26279f652d05a3535cc36d2b5d567fd1c463d46a68674094d98bb6db67e8608"
+    },
+    {
+      "path": "docs/blocks/m08-map-art-01/evidence/touch932.png",
+      "bytes": 1957917,
+      "sha256": "186c5493bf44bc34f845e9b01b8a308b766f948a06f63d460dd9db23dba860d3"
+    },
+    {
+      "path": "public/official/art/maps/m08/cartoon01/grass-earth-original.png",
+      "bytes": 3289671,
+      "sha256": "b1e152f29299c4223131b940172bbe37ce60274eec44f31872ddfc4cb70a40ed"
+    },
+    {
+      "path": "public/official/art/maps/m08/cartoon01/imperial-complements-r2.png",
+      "bytes": 2803896,
+      "sha256": "4a5502008396066dcece742c35bbb8f295b68846a02bd5cc163a5080776172e7"
+    },
+    {
+      "path": "public/official/art/maps/m08/cartoon01/observatory-original-props.png",
+      "bytes": 3112151,
+      "sha256": "48a52689d05451f9df63c9911a2e950aa247cd193bb757c620d97df532a695cd"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/cartoon01/plan.mjs",
+      "bytes": 847,
+      "sha256": "37c16a63529c2d3c728ffacbd61cb8d5a1120dc47d51bea4a5d31cdb5982a08c"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/cartoon01/world.mjs",
+      "bytes": 6854,
+      "sha256": "9a34fe3c7cd086a2d617a1b62390f2d8ab07220d9b7fad3d211b097bc648b813"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/preview/index.html",
+      "bytes": 695,
+      "sha256": "156f0cfe7f5cb3155d9767495618e51c9fb8c399688cba93de053ec6a08c3346"
+    },
+    {
+      "path": "public/official/src/maps-visual/m08/preview/preview.mjs",
+      "bytes": 1199,
+      "sha256": "a59f86566bd4c019d3f4761c5026451fefdfce39f54231666c2aaac0bdbf48ea"
+    },
+    {
+      "path": "tools/qa-m08-art-browser.mjs",
+      "bytes": 3839,
+      "sha256": "f4c76db88c45cc6bfe10e37a0110926b8b4e6ffc5ae08ff7daf8375c972aa5e2"
+    },
+    {
+      "path": "tools/qa-m08-art.mjs",
+      "bytes": 1391,
+      "sha256": "d040fbce654d27960a9013977afb2df6877eb7658f6b55afb29cf6b38caca9d0"
+    }
+  ],
+  "QA": "PASS_LOCAL_NODE_BUILD_CHROMIUM_3_PROFILES",
+  "physicalMobile": "NOT_RUN",
+  "humanArtApproval": "PENDING",
+  "resumption": {
+    "verifiedArtCommit": "d754b00cb421c55b3273bfc13b21aa5d97346698",
+    "dateUTC": "2026-10-28",
+    "sourceAndEvidenceHashes": "MATCH_PRIOR_MANIFEST",
+    "runtimeChanged": true,
+    "localQA": "PASS_R2_NODE_BUILD_CHROMIUM_3_PROFILES",
+    "visualAudit": "R2_IMPLEMENTED_PENDING_HUMAN_REVIEW",
+    "CI": "SEE_DRAFT_PR_CHECKS"
+  }
+}
